@@ -1,0 +1,3 @@
+INDEX VERSION 1.130
+C:\Users\Sakon_BRU\Desktop\Ask la official\Ask_la_BRU2\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\556656251.index
+\jsp-demo\src\main\java

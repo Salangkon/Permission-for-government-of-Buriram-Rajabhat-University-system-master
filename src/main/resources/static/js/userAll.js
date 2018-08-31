@@ -1,0 +1,44 @@
+$(document).ready(function() {
+	
+		var table = $('#userTable').DataTable({
+					
+					"sAjaxSource" : "/user",
+					"iDisplayLength": 50,
+					"sAjaxDataProp" : "",
+					"aoColumns" : [ {
+						"mData" : "",
+						"sWidth" : "600px" ,
+						"mRender": function (data, type, full) {// full คือ ข้อมูลของ
+								// ตาราง
+								return full.sex + full.userFname ;
+						}
+					}, {
+						"mData" : "userLname",
+						"sWidth" : "600px" 
+					}, 
+					{
+						"mData" : "",
+						"sWidth" : "80px" ,
+						"mRender" : function(data, type, row, index) {
+							if (row.role == '1') {
+								return '<div align="center"> <label style="color:green" > รับราชการ </label></div>';
+							} else if (row.role == '2') {
+								return '<div align="center"> <label style="color:green" > รับราชการ </label></div>';
+		                	}
+							else if (row.role == '3') {
+								return '<div align="center"> <label style="color:red"   >ออกราชการ</label></div>';
+		                	}
+						}
+					},
+					{
+						"mData": "",
+						"sWidth" : "80px" ,
+						"mRender": function (data, type, full) {// full คือ ข้อมูลของ
+							// ตาราง
+
+							return '<a href="/gotoUpdate/' + full.userId + '" ' + '<span class="glyphicon glyphicon-search">ตรวจสอบ</span>' + '</a>';
+
+						}
+					}]
+				});
+});

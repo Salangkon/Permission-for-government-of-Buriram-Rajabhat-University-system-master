@@ -1,0 +1,34 @@
+@charset "UTF-8";
+#customers {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: MyCustomFont, Verdana, Arial, sans-serif;
+	font-size: smaller;
+ 	color: black;
+}
+label{
+	font-family: MyCustomFont, Verdana, Arial, sans-serif;
+	font-size: smaller;
+ 	color: black  
+}
+
+#customers th {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: white;
+    color: black;
+}
+@font-face {
+ font-family: MyCustomFont;
+ src: url("/font/THSarabun.eot") EOT file for IE
+}
+@font-face {
+ font-family: MyCustomFont;
+ src: url("/font/THSarabun.ttf") TTF file for CSS3 browsers
+}

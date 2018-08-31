@@ -1,0 +1,81 @@
+
+@font-face {
+ font-family: MyCustomFont;
+ color: black ;
+ src: url("/font/THSarabun.eot") EOT file for IE
+}
+@font-face {
+ font-family: MyCustomFont;
+ color: black ;
+ src: url("/font/THSarabun.ttf") TTF file for CSS3 browsers
+}
+table{
+	font-family: MyCustomFont, Verdana, Arial, sans-serif;
+	font-size: smaller;
+ 	color: black  
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #FAFAFA;
+/*     font: 10pt "Tahoma"; */
+    font-family: MyCustomFont, Verdana, Arial, sans-serif;
+	font-size: smaller;
+ 	color: black  
+    
+}
+/* label{ */
+/* 	font-family: MyCustomFont, Verdana, Arial, sans-serif; */
+/* 	font-size: smaller; */
+/*  	color: black   */
+/* } */
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.page {
+    width: 21cm;
+    height: 29.7cm;
+/*     padding: 1cm; */
+	padding-top : 2.5cm;
+	padding-left : 3cm;
+	padding-right : 2cm;
+	padding-bottom : 2cm;
+    margin: 1cm auto;
+    border: 1px #D3D3D3 solid;
+    border-radius: 4px;
+    background: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.pagePortrait {
+    width: 29.7cm;
+    min-height: 21cm;
+    padding: 1cm;
+    margin: 1cm auto;
+    border: 1px #D3D3D3 solid;
+    border-radius: 4px;
+    background: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+@page {
+    size: A4;
+    margin: 0;
+}
+@media print {
+    .page {
+        margin: 0;
+        border: initial;
+        border-radius: initial;
+        width: initial;
+        min-height: initial;
+        box-shadow: initial;
+        background: initial;
+        page-break-after: always;
+    }
+}
+@media print {
+  body, page {
+    margin: 0;
+    box-shadow: 0;
+  }
+}
