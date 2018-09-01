@@ -5,9 +5,6 @@
 <%@ page import="java.util.List"%>
 <html xmlns:th="http://www.thymeleaf.org">
 
-
-
-
 <head>
 <title>update</title>
 	<link rel="stylesheet" href="/css/w3.css">
@@ -55,8 +52,8 @@
 		<div class="w3-container">
 		<!-- Manu -->
 		<div class="w3-bar-block" style="margin-top: 10%;margin-bottom: 10%;">
-		<a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-padding-large w3-grey" >
-		<i class="glyphicon glyphicon-user w3-margin-right w3-large" style="margin-left: 6%;margin-top: 5%;color:yellow;"></i>ข้อมูลส่วนตัว</a> 
+		<a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-padding-large w3-black" >
+		<i class="fa fa-address-card-o w3-margin-right w3-large" style="margin-left: 6%;margin-top: 5%;color:white;"></i><label style="color: white;"> ข้อมูลส่วนตัว</label></a> 
 		<a href="/gotoUserAll" onclick="w3_close()" class="w3-bar-item w3-button w3-padding-large ">
 		<i class="glyphicon glyphicon-log-out w3-margin-right w3-large w3-wlite" style="margin-left: 6%;margin-top: 5%;"></i>ถอยกลับ</a> 
 		<a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-padding-large  ">
@@ -93,22 +90,21 @@
 	<!-- Profile -->
 	<div class="w3-card w3-round w3-Turquoise">
 	<div class="w3-container" style="padding: 10mm;background-color: white;">
-	<div class="col-sm-12" >
-		<input type="hidden" name="userId" value="<%=bean.getUserId()%>">
 		<div class="col-sm-2" ><label>ชื่อ-นามสกุล : </label></div>
-		<div class="col-sm-8" ><label style="margin-left: 2mm"> <%=bean.getSex() %><%=bean.getUserFname() %></label><label style="margin-left: 2mm"> <%=bean.getUserLname() %></label></div>
-		<div class="col-sm-2" ><label style="color: green;"><%if (bean.getRole() == 1) {out.print("รับราชการ");} else if (bean.getRole() == 2) {out.print("รับราชการ");} %></label>
+		<div class="col-sm-7" ><label style="margin-left: 2mm"> <%=bean.getSex() %><%=bean.getUserFname() %></label><label style="margin-left: 2mm"> <%=bean.getUserLname() %></label></div>
+		<div class="col-sm-3" > สถานะ : <label style="color: green;"><%if (bean.getRole() == 1) {out.print("รับราชการ");} else if (bean.getRole() == 2) {out.print("รับราชการ");} %></label>
 		<label style="color: red;"><%if (bean.getRole() == 3) {out.print("ออกราชการ");} %></label>
 		</div>
-	</div>
 	<hr>
+	<div class="col-sm-2" ><label>เบอร์มือถือ :</label> </div>
+	<div class="col-sm-10" ><label style="margin-left: 2mm"><%if (bean.getNumberPhone() != null) {out.print(bean.getNumberPhone());} %></label></div>
 	<div class="col-sm-12" >
 		<table class="w3-table-all w3-hoverable">
 			<tr>
-				<th>คณะ</th>
-				<th>สาขา</th>
-				<th>ตำแหน่ง</th>
-				<th>ระดับ</th>
+				<th style="background-color: yellow; ">คณะ</th>
+				<th style="background-color: yellow; ">สาขา</th>
+				<th style="background-color: yellow; ">ตำแหน่ง</th>
+				<th style="background-color: yellow; ">ระดับ</th>
 			</tr>
 			<%for (int i = 0; i < list.size(); i++) {%>
 			<tr>
@@ -120,12 +116,20 @@
 			<%}%>
 		</table>
 	</div><!-- table -->
+	
+	<div class="col-sm-12" >
+			<input type="hidden" name="userId" value="<%=bean.getUserId()%>">
+			<input type="hidden" name="role" value="3">
+	</div>
+	
+	
 	</div>
 	</div>
 	</div>
 </div>
 <div class="col-sm-2 " ></div>
 
+	
 </div>
 
 

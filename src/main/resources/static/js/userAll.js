@@ -36,7 +36,7 @@ $(document).ready(function() {
 						"mRender": function (data, type, full) {// full คือ ข้อมูลของ
 							// ตาราง
 
-							return '<a href="/gotoUpdate/' + full.userId + '" ' + '<span class="glyphicon glyphicon-search">ตรวจสอบ</span>' + '</a>';
+							return '<div align="center"><a href="/gotoUpdate/' + full.userId + '" class="btn btn-info "><span class="glyphicon glyphicon-search"></span></a></div>';
 
 						}
 					}]

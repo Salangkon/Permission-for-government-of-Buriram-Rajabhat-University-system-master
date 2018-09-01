@@ -14,6 +14,15 @@ public class TestAjex {
 	private	int perId;
 	private	String sunBean;
 	private int userId;
+	private int updateRole;
+	
+	
+	public int getUpdateRole() {
+		return updateRole;
+	}
+	public void setUpdateRole(int updateRole) {
+		this.updateRole = updateRole;
+	}
 	private String userName;
 	
 	public String getUserName() {

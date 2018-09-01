@@ -69,13 +69,9 @@ public class UserDao {
 				bean.setUserPassword(rs.getString("user_password"));
 				bean.setUserFname(rs.getString("user_fname"));
 				bean.setUserLname(rs.getString("user_lname"));
+				bean.setNumberPhone(rs.getString("number_phone"));
 				bean.setSex(rs.getString("sex"));
 				bean.setRole(rs.getInt("role"));
-				
-				bean.setFacultyName(rs.getString("faculty_name"));
-				bean.setDepartmentName(rs.getString("department_name"));
-				bean.setPositionName(rs.getString("position_name"));
-				bean.setSubPositionName(rs.getString("sub_position_name"));
 			
 			}
 		} catch (Exception e) {
@@ -88,6 +84,7 @@ public class UserDao {
 		}
 		return bean;
 	}//end
+	
 	
 	public List<PersonAddressBean>  findByIdCard1(int userId) throws SQLException {
 		List<PersonAddressBean> list = new ArrayList<>();
@@ -105,10 +102,6 @@ public class UserDao {
 			while (rs.next()) {
 				PersonAddressBean bean = new PersonAddressBean();
 				bean.setUserId(rs.getInt("user_id"));
-				bean.setUserUsername(rs.getString("user_username"));
-				bean.setUserPassword(rs.getString("user_password"));
-				bean.setUserFname(rs.getString("user_fname"));
-				bean.setUserLname(rs.getString("user_lname"));
 				
 				bean.setFacultyName(rs.getString("faculty_name"));
 				bean.setDepartmentName(rs.getString("department_name"));
@@ -233,14 +226,10 @@ public class UserDao {
 		PreparedStatement prepared = null;
 		StringBuilder sql = new StringBuilder();
 		try {
-			sql.append(" UPDATE user SET user_username = ? , user_password = ? , user_fname = ? , user_lname = ?  WHERE user_id = ?;");
+			sql.append(" UPDATE user SET role = ? WHERE user_id = ?;");
 			prepared = conn.prepareStatement(sql.toString());
-			prepared.setString(1, bean.getUserUsername());
-			prepared.setString(2, bean.getUserPassword());
-			prepared.setString(3, bean.getUserFname());
-			prepared.setString(4, bean.getUserLname());
-
-			prepared.setInt(9, bean.getUserId());
+			prepared.setInt(1, bean.getRole());
+			prepared.setInt(2, bean.getUserId());
 			
 			prepared.executeUpdate();
 		} catch (Exception e) {

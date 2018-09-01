@@ -145,16 +145,17 @@ public class InsertRestController {
 	@ResponseBody
 	public Map<String, String> payment(Model model, @RequestBody PermissionBean pmBean, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-//		TestAjex id = new TestAjex();
-//		id = loginDao.userId();
-//		pmBean.setPersonnelId(id.getUserID());
+		
+		Map<String, String> insertPermission = new HashMap<String, String>();
 		try {
 			perDao.insertPermission(pmBean);
+			insertPermission.put("page", "insertPermissionSuccess");
 		} catch (Exception e) {
 			e.printStackTrace();
+			insertPermission.put("page", "insertPermissionFail");
 		}
-		Map<String, String> insertPermission = new HashMap<String, String>();
-		insertPermission.put("page", "welcomeUser");
+		
+		
 		return insertPermission;
 	}
 
@@ -175,21 +176,20 @@ public class InsertRestController {
 	@ResponseBody
 	public Map<String, String> payment(Model model, @RequestBody List<ExpenseEstimateBean> EEBean,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
-//		TestAjex id = new TestAjex();
-//		id = loginDao.userId();
 		TestAjex perId = new TestAjex();
 		perId = perDao.perId();
+		Map<String, String> insertExpenseEstimate = new HashMap<String, String>();
 		try {
 			for (ExpenseEstimateBean expenseEstimateBean : EEBean) {
-//				expenseEstimateBean.setPersonnelId(id.getUserID());
 				expenseEstimateBean.setPermissionId(perId.getPerId());
 				EEDao.insert(expenseEstimateBean);
+				insertExpenseEstimate.put("page", "insertPermissionSuccess");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		Map<String, String> insertExpenseEstimate = new HashMap<String, String>();
-		insertExpenseEstimate.put("page", "welcomeUser");
+		
+//		insertExpenseEstimate.put("page", "insertPermissionFail");
 		return insertExpenseEstimate;
 	}// end_ExpenseEstimate
 
@@ -214,18 +214,18 @@ public class InsertRestController {
 		id = loginDao.userId();
 		TestAjex perId = new TestAjex();
 		perId = perDao.perId();
-
+		Map<String, String> insertTravelEstimate = new HashMap<String, String>();
 		try {
 			for (TravelExpensesBean travelEstimateBean : TEBean) {
 				travelEstimateBean.setPersonnelId(id.getUserID());
 				travelEstimateBean.setPermissionId(perId.getPerId());
 				EEDao.insert(travelEstimateBean);
+				insertTravelEstimate.put("page", "insertPermissionSuccess");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		Map<String, String> insertTravelEstimate = new HashMap<String, String>();
-		insertTravelEstimate.put("page", "welcomeUser");
+//		insertTravelEstimate.put("page", "insertPermissionFail");
 		return insertTravelEstimate;
 		}//end insert_TravelEstimate
 	
@@ -249,17 +249,18 @@ public class InsertRestController {
 			// permisstionId
 			TestAjex perId = new TestAjex();
 			perId = perDao.perId();
-
+			Map<String, String> insertTravelEstimate = new HashMap<String, String>();
 			try {
 				for (TravelExpensesFuelCostBean travelExpensesFuelCostBean : TEBean) {
 					travelExpensesFuelCostBean.setPermissionId(perId.getPerId());
 					EEDao.insert1(travelExpensesFuelCostBean);
+					insertTravelEstimate.put("page", "insertPermissionSuccess");
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			Map<String, String> insertTravelEstimate = new HashMap<String, String>();
-			insertTravelEstimate.put("page", "welcomeUser");
+			
+//			insertTravelEstimate.put("page", "insertPermissionFail");
 			return insertTravelEstimate;
 		}//end insert_travelExpensesFuelCost
 		
@@ -283,14 +284,16 @@ public class InsertRestController {
 
 			TestAjex perId = new TestAjex();
 			perId = perDao.perId();
+			Map<String, String> insertExpenseEstimate = new HashMap<String, String>();
 			try {
 				EEBean.setPermissionId(perId.getPerId());
 					EEDao.insert2(EEBean);
+					insertExpenseEstimate.put("page", "insertPermissionSuccess");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			Map<String, String> insertExpenseEstimate = new HashMap<String, String>();
-			insertExpenseEstimate.put("page", "welcomeUser");
+			
+//			insertExpenseEstimate.put("page", "insertPermissionFail");
 			return insertExpenseEstimate;
 		}// end_ExpenseEstimate
 	

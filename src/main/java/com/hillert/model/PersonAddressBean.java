@@ -28,9 +28,16 @@ public class PersonAddressBean {
 	private String userFname;
 	private String userLname;
 	private String sex;
+	private String numberPhone;
 	private int role;
 	
-	
+
+	public String getNumberPhone() {
+		return numberPhone;
+	}
+	public void setNumberPhone(String numberPhone) {
+		this.numberPhone = numberPhone;
+	}
 	public String getSex() {
 		return sex;
 	}

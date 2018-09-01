@@ -2,15 +2,17 @@
 <%@page import="org.springframework.context.annotation.Bean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-
 <header class="w3-display-container w3-content" style="max-width:98%">
 	<div class="w3-container w3-red" >
 		<h2><i class="fa fa-file-o w3-margin-right"></i>แบบฟอร์มขออนุญาตไปราชการ</h2>
     </div>
+    
     <div class="w3-container w3-white w3-padding-16">
- 
+    
+
 <!-- กรอบที่ 1 -->
 <div style="margin-bottom: 18%">
+
 <div style="size: 10" class="col-sm-12" >
 	<div style="size: 10" class="col-sm-8 " >
 	

@@ -442,10 +442,10 @@ $(document).ready(function() {
 							contentType : "application/json; charset=utf-8",
 							success : function(res) {
 								// console.log(res)
-								window.location.href = res.page;
+//								window.location.href = res.page;
 							},
 							error : function() {
-								window.location.href = "Ask_la";
+								window.location.href = "insertPermissionFail";
 							}
 						});
 
@@ -573,10 +573,10 @@ $(document).ready(function() {
 							contentType : "application/json; charset=utf-8",
 							success : function(res) {
 								// console.log(res)
-								window.location.href = res.page;
+//								window.location.href = res.page;
 							},
 							error : function() {
-								window.location.href = "Ask_la";
+								window.location.href = "insertPermissionFail";
 							}
 						});
 
@@ -746,10 +746,10 @@ $(document).ready(function() {
 							contentType : "application/json; charset=utf-8",
 							success : function(res) {
 								// console.log(res)
-								window.location.href = res.page;
+//								window.location.href = res.page;
 							},
 							error : function() {
-								window.location.href = "Ask_la";
+								window.location.href = "insertPermissionFail";
 							}
 						});
 
@@ -918,10 +918,10 @@ $(document).ready(function() {
 							contentType : "application/json; charset=utf-8",
 							success : function(res) {
 								// console.log(res)
-								window.location.href = res.page;
+//								window.location.href = res.page;
 							},
 							error : function() {
-								window.location.href = "Ask_la";
+								window.location.href = "insertPermissionFail";
 							}
 						});
 

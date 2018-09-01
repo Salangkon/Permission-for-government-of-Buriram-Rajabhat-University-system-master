@@ -36,6 +36,20 @@ public class UserController {
 	public String Request() {
 		return "Request";
 	}
+	
+	// DropDown
+		@RequestMapping("/insertPermissionFail")
+		public String insertPermissionFail(Model model) {
+			model.addAttribute("messes", "F");
+			return "Ask_la";
+		}
+
+		// DropDown
+		@RequestMapping("/insertPermissionSuccess")
+		public String insertPermissionSuccess(Model model) {
+			model.addAttribute("messes", "S");
+			return "Ask_la";
+		}
 
 	// dataTable
 	@RequestMapping("/datatable")
@@ -57,9 +71,10 @@ public class UserController {
 
 	// path Ask_la
 	@RequestMapping("/gotoAsk_la")
-	public String gotoAsk_la(HttpServletRequest request) {
+	public String gotoAsk_la(HttpServletRequest request,Model model) {
 //		UserBean bean = new UserBean();
 //		request.getSession().setAttribute("userBean",bean);
+		model.addAttribute("messes", "");
 		return "Ask_la";
 	}
 
@@ -107,7 +122,7 @@ public class UserController {
 	}
 
 	// update user
-	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	@RequestMapping(value = "/update", method = RequestMethod.GET)
 	public String update(UserBean userBean, Model model) throws SQLException {
 		try {
 			userDao.update(userBean);

@@ -40,7 +40,7 @@
 
 <form class="modal-content animate" action="" style="max-width:80%;margin-top: 5%;margin-left: 10%">
 	<div class="w3-container w3-blue" align="left">
-    	<h2><i class="fa fa-address-card-o w3-margin-right"></i> เพิ่มบุคคลากร  </h2>
+    	<h2><i class="fa fa-users w3-xxlarge w3-margin-right"></i> รายชื่อบุคคลากร  </h2>
     </div>
     <div class="w3-container w3-white w3-padding-16">
 	<table id="userTable" class="table table-bordered" style="max-width:100%;margin-top: 5%;">   
@@ -48,11 +48,8 @@
     	<tr style="background: purple;color: white;">
          	<th style="text-align:center">ชื่อ</th>
         	<th style="text-align:center">นามสกุล</th>
-<!--         	<th style="text-align:center">คณะ</th> -->
-<!--         	<th style="text-align:center">ภาควิชา</th> -->
-<!--         	<th style="text-align:center">ตำแหน่ง</th> -->
         	<th style="text-align:center">สถานะ</th>
-        	<th style="text-align:center"></th>
+        	<th style="text-align:center">ตรวจสอบ<br>ข้อมูล</th>
     	</tr>
     	</thead>
     </table>
@@ -60,17 +57,8 @@
 	
 	<div class="col-sm-10"></div>
     <div align="right" style="margin-top: 1%" class="col-sm-2">
-    <a href="#" class="btn btn-info btn-lg" onclick="topFunction()" id="myBtn">
-          <span class="glyphicon glyphicon-menu-up"></span><b> ไปข้างบน </b>
-    </a>
- 	</div>
- 		
- 	<footer  class="w3-black w3-center w3-padding-24" style="margin-top: 5%"> Ask la
-		 <a href="http://reg.bru.ac.th/registrar/home.asp" 
-			title="W3.CSS" target="_blank" class="w3-hover-opacity">BRU
-		</a>
-	</footer>
-	
+    <a href="#" class="btn btn-info btn-lg" onclick="topFunction()" id="myBtn"><span class="glyphicon glyphicon-menu-up"></span><b> ไปข้างบน </b></a>
+ 	</div>	
 </form>
 
 	
