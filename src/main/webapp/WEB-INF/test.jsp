@@ -325,7 +325,7 @@
 					<td style="text-align:left;width: 25mm"><label>3.1 ค่าเบี้ยเลี้ยงเดินทาง</label> </td>
                     <td style="text-align:left;width: 3mm"><label>99 </label></td>
                     <td style="text-align:left;width: 10mm"><label>วันๆ ละ </label></td>
-                    <td style="text-align:left;width: 25mm"><label> <%=beanEs.getAllowenceDetails()%></label></td>
+                    <td style="text-align:left;width: 25mm"><label><%=beanEs.getAllowenceDetails()%></label></td>
                     <td style="text-align:left;width: 1mm"><label>บาท</label></td>
 				</tr>
                 <tr>

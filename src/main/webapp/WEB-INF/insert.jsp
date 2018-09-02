@@ -114,7 +114,14 @@
 					class="form-control" id="userLname" name="userLname" placeholder="นามสกุล" required>
 				</div>
 			</div>
+
+			<div style="size: 10" class="col-sm-6"> 
+				<div class="form-group"><label> วันเข้ารับราชการ </label>
+					<input class="form-control" type='date' id="setdate" required>
+				</div> 
+			</div>
 			
+						
 			<div style="size: 10" class="col-sm-6"> 
 				<div class="form-group">
 					<label for="exampleFormControlSelect1">หมายเลขโทรศัพท์</label>
@@ -122,12 +129,6 @@
 					
 				</div>
 			</div>
-			<div style="size: 10" class="col-sm-6"> 
-				<div class="form-group"><label> วันเข้ารับราชการ </label>
-					<input class="form-control" type='date' id="setdate" required>
-				</div> 
-			</div>
-			
 		</div>
 
 	

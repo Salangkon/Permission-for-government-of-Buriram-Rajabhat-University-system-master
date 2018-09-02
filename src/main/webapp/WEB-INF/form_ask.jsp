@@ -8,7 +8,15 @@
     </div>
     
     <div class="w3-container w3-white w3-padding-16">
-    
+        	<% if (result.equals("S")) { %>
+			<div class="alert alert-success" align="center">
+				<strong>บันทึก </strong> เรียบร้อย
+			</div>
+		<% } else if (result.equals("F")) { %>
+			<div class="alert alert-danger" align="center">
+				<strong>บันทึก ล้มเหล้ว</strong> กรุณาลองอีกครั้ง !!
+			</div>
+		<% } %>
 
 <!-- กรอบที่ 1 -->
 <div style="margin-bottom: 18%">
@@ -23,7 +31,7 @@
 	<div class="w3-container">
 
 	<div class="form-group"  style="margin-top: 3%"><label> ข้าพเจ้า  </label>
-	<input class="form-control" readonly="" type="text" name="name" id="name" value="&nbsp;&nbsp;<%=bean.getUserFname() %> &nbsp;&nbsp; <%=bean.getUserLname()%>"> 
+	<input class="form-control" readonly="" type="text" name="name" id="name" value="&nbsp;&nbsp;<%=bean.getSex() %><%=bean.getUserFname() %> &nbsp;&nbsp; <%=bean.getUserLname()%>"> 
     </div>
 
 	<div class="form-group" style="margin-top: 3%">
@@ -53,7 +61,7 @@
 	<textarea class="form-control" rows="5" cols="100" id="object" name="object"></textarea>
 	<!-- เลือกไฟล์ นำเข้า -->
 	<form name="v" enctype="multipart/form-data" style="margin-top: 3.5%">  
-       <input name="v" type="file">
+<!--        <input name="v" type="file"> -->
 	</form>
 	</div>
 	</div></div></div>

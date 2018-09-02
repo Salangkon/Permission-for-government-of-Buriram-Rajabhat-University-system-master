@@ -102,6 +102,7 @@ public class UserDao {
 			while (rs.next()) {
 				PersonAddressBean bean = new PersonAddressBean();
 				bean.setUserId(rs.getInt("user_id"));
+				bean.setSex(rs.getString("sex"));
 				
 				bean.setFacultyName(rs.getString("faculty_name"));
 				bean.setDepartmentName(rs.getString("department_name"));
@@ -229,7 +230,6 @@ public class UserDao {
 			sql.append(" UPDATE user SET role = ? WHERE user_id = ?;");
 			prepared = conn.prepareStatement(sql.toString());
 			prepared.setInt(1, bean.getRole());
-			prepared.setInt(2, bean.getUserId());
 			
 			prepared.executeUpdate();
 		} catch (Exception e) {

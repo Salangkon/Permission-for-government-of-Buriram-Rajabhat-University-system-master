@@ -55,6 +55,7 @@ public class FormController {
 					beanTr3.addAll(beanTr2);
 					break;
 				}
+				
 			 for (Iterator<TravelExpensesBean> iter = beanTr.listIterator(); iter.hasNext();) {
 
 					TravelExpensesBean travelExpensesBean = iter.next();
@@ -82,11 +83,7 @@ public class FormController {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-		request.setAttribute("perBean", bean);
-		request.setAttribute("beanEs", beanEs);
-		request.setAttribute("beanTEFC", beanTEFC);
-		request.setAttribute("beanEE", beanEE);
-		request.setAttribute("beanTr", beanTr3);
+
 		return "test";
 	}
 

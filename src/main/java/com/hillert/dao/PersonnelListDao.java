@@ -48,6 +48,7 @@ public class PersonnelListDao {
 	
 					bean.setUserFname(rs.getString("user_fname"));
 					bean.setUserLname(rs.getString("user_Lname"));
+					bean.setSex(rs.getString("sex"));
 					
 					bean.setFacultyName(rs.getString("faculty_name"));
 					bean.setDepartmentName(rs.getString("department_name"));
@@ -100,6 +101,7 @@ public class PersonnelListDao {
 	
 					bean.setUserFname(rs.getString("user_fname"));
 					bean.setUserLname(rs.getString("user_Lname"));
+					bean.setSex(rs.getString("sex"));
 					bean.setRole(rs.getInt("role"));
 					
 					bean.setFacultyName(rs.getString("faculty_name"));

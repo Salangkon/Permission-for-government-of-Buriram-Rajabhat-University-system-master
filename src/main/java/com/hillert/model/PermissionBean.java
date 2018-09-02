@@ -10,6 +10,7 @@ public class PermissionBean {
 	private int userId;
 	private String userFname;
 	private String userLname;
+	private String sex;
 	
 	private String facultyName;
 	private String departmentName;
@@ -31,6 +32,7 @@ public class PermissionBean {
 	private String province;
 	private String amphur;
 	private String district;
+	private String districtId;
 	
 	private String provinceName;
 	private String amphurName;
@@ -63,6 +65,18 @@ public class PermissionBean {
 	private Timestamp createDate;
 	
 	
+	public String getDistrictId() {
+		return districtId;
+	}
+	public void setDistrictId(String districtId) {
+		this.districtId = districtId;
+	}
+	public String getSex() {
+		return sex;
+	}
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
 	public String getProvinceName() {
 		return provinceName;
 	}

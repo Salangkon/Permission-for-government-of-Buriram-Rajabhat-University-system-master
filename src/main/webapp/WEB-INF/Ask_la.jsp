@@ -58,15 +58,7 @@
     <div class="w3-container" align="center" style="background-color:purple;">
     <h1 style="margin-top: 3%;"><b style="color: white;">ใบขออนุญาตไปราชการ</b></h1>
     <div class="w3-section w3-bottombar w3-padding-16"></div>
-    	<% if (result.equals("S")) { %>
-			<div class="alert alert-success" align="center">
-				<strong>บันทึก </strong> เรียบร้อย
-			</div>
-		<% } else if (result.equals("F")) { %>
-			<div class="alert alert-danger" align="center">
-				<strong>บันทึก ล้มเหล้ว</strong> กรุณาลองอีกครั้ง !!
-			</div>
-		<% } %>
+
     </div>
   </header>
  		

@@ -22,7 +22,7 @@
     		<table>
     			<tr>
     				<td><label style="color: red;">ชื่อ-สกลุ  </label></td>
-    				<td style="background-color: #3CFBFF;"><label> <%=bean.getUserFname() %> &nbsp;&nbsp; <%=bean.getUserLname() %></label></td>
+    				<td style="background-color: #3CFBFF;"><label><%=bean.getSex() %><%=bean.getUserFname() %> &nbsp;&nbsp; <%=bean.getUserLname() %></label></td>
     			</tr>
     			<tr>
     				<td><label style="color: red;">คณะ &nbsp;&nbsp; </label></td>

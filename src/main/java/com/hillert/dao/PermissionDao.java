@@ -83,7 +83,7 @@ public class PermissionDao {
 			StringBuilder sql = new StringBuilder();
 
 			try {
-				sql.append(" SELECT dt.DISTRICT_NAME, ap.AMPHUR_NAME, pv.PROVINCE_NAME, u.user_fname, u.user_lname, u.date, f.faculty_name, d.department_name , p.position_name,sp.sub_position_name , permission.*\r\n" + 
+				sql.append(" SELECT dt.*, ap.AMPHUR_NAME, pv.PROVINCE_NAME, u.*, f.faculty_name, d.department_name , p.position_name,sp.sub_position_name , permission.*\r\n" + 
 						"FROM Permission \r\n" + 
 						"INNER JOIN personnel_list pl ON pl.personnel_id =  permission.personnel_id  \r\n" + 
 						"INNER JOIN user u on u.user_id = pl.user_id\r\n" + 
@@ -106,6 +106,7 @@ public class PermissionDao {
 					
 					bean.setUserFname(rs.getString("user_fname"));
 					bean.setUserLname(rs.getString("user_lname"));
+					bean.setSex(rs.getString("sex"));
 
 					bean.setFacultyName(rs.getString("faculty_name"));
 					bean.setDepartmentName(rs.getString("department_name"));
@@ -123,10 +124,16 @@ public class PermissionDao {
 					bean.setProvince(rs.getString("PROVINCE_NAME"));
 					bean.setAmphur(rs.getString("AMPHUR_NAME"));
 					bean.setDistrict(rs.getString("DISTRICT_NAME"));
+					bean.setDistrictId(rs.getString("DISTRICT_id"));
 
-					bean.setGoDate(dateThai(rs.getString("go_date")));
+//					bean.setGoDate(dateThai(rs.getString("go_date")));
+//					bean.setGoTime(rs.getString("go_time"));
+//					bean.setBackDate(dateThai(rs.getString("back_date")));
+//					bean.setBackTime(rs.getString("back_time"));
+					
+					bean.setGoDate((rs.getString("go_date")));
 					bean.setGoTime(rs.getString("go_time"));
-					bean.setBackDate(dateThai(rs.getString("back_date")));
+					bean.setBackDate((rs.getString("back_date")));
 					bean.setBackTime(rs.getString("back_time"));
 
 					bean.setBudget(rs.getString("budget"));
@@ -628,7 +635,7 @@ public class PermissionDao {
 		StringBuilder sql = new StringBuilder();
 
 		try {
-			sql.append(" SELECT dt.DISTRICT_NAME, ap.AMPHUR_NAME, pv.PROVINCE_NAME, u.user_fname, u.user_lname, u.date, f.faculty_name, d.department_name , p.position_name,sp.sub_position_name , permission.*\r\n" + 
+			sql.append(" SELECT dt.DISTRICT_NAME, ap.AMPHUR_NAME, pv.PROVINCE_NAME, u.user_fname, u.user_lname, u.sex, u.date, f.faculty_name, d.department_name , p.position_name,sp.sub_position_name , permission.*\r\n" + 
 					"FROM Permission \r\n" + 
 					"INNER JOIN personnel_list pl ON pl.personnel_id =  permission.personnel_id  \r\n" + 
 					"INNER JOIN user u on u.user_id = pl.user_id\r\n" + 
@@ -650,6 +657,7 @@ public class PermissionDao {
 				
 				bean.setUserFname(rs.getString("user_fname"));
 				bean.setUserLname(rs.getString("user_lname"));
+				bean.setSex(rs.getString("sex"));
 
 				bean.setFacultyName(rs.getString("faculty_name"));
 				bean.setDepartmentName(rs.getString("department_name"));

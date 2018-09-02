@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
+	<script src="/js/updateRole.js"></script>
 	<%
 	PersonAddressBean bean = null;
 	List<PersonAddressBean> list= null;
@@ -98,7 +99,7 @@
 	<hr>
 	<div class="col-sm-2" ><label>เบอร์มือถือ :</label> </div>
 	<div class="col-sm-10" ><label style="margin-left: 2mm"><%if (bean.getNumberPhone() != null) {out.print(bean.getNumberPhone());} %></label></div>
-	<div class="col-sm-12" >
+	<div class="col-sm-12"  style="margin-top: 5%">
 		<table class="w3-table-all w3-hoverable">
 			<tr>
 				<th style="background-color: yellow; ">คณะ</th>
@@ -117,10 +118,11 @@
 		</table>
 	</div><!-- table -->
 	
-	<div class="col-sm-12" >
-			<input type="hidden" name="userId" value="<%=bean.getUserId()%>">
-			<input type="hidden" name="role" value="3">
-	</div>
+<!-- 	<div class="col-sm-12" > -->
+<!-- 			<input type="text" name="role" id="role" > -->
+<!-- 			<input type="button" id="save"> -->
+<!-- 			<button type="submit"  onclick="insertConfirm()">ออกจากราชการ</button> -->
+<!-- 	</div> -->
 	
 	
 	</div>

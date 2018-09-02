@@ -38,6 +38,7 @@ public class LoginDao {
 				bean.setUserPassword(rs.getString("user_password"));
 				bean.setUserFname(rs.getString("user_fname"));
 				bean.setUserLname(rs.getString("user_lname"));
+				bean.setSex(rs.getString("sex"));
 
 				bean.setDate(rs.getDate("date"));
 				bean.setRole(rs.getInt("role"));
