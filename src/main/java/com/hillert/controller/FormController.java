@@ -87,33 +87,23 @@ public class FormController {
 		return "test";
 	}
 
-	// update permission
-	@RequestMapping(path = "/perUpdate", method = RequestMethod.POST)
-	public String permissionUpdate(PermissionBean perBean, Model model) throws SQLException {
-		try {
-			perDao.update(perBean);
-			model.addAttribute("messesUpdate", "S");
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-			model.addAttribute("messesUpdate", "F");
-		}
-
-		return "updatePermission";
-	}
 
 	// update permission
 	@RequestMapping(path = "/gotoPerUpdate/{values}", method = RequestMethod.GET)
 	public String gotoPermissionUpdate(@PathVariable("values") String values, HttpServletRequest request, Model model)
 			throws NumberFormatException, SQLException {
 		PermissionBean bean = new PermissionBean();
-		try {
+		ExpenseSumaryBean beanEs = new ExpenseSumaryBean();
+		try {		
 			bean = perDao.findByIdPer(Integer.parseInt(values));
+			beanEs = perDao.findByEs(Integer.parseInt(values));
+			
 			permissionId = bean.getPermissionId();
-
+			
 			if (values != null) {
 				model.addAttribute("messesUpdate", "");
 				request.setAttribute("perBean", bean);
+				request.setAttribute("beanEs", beanEs);
 			}
 		} catch (Exception e) {
 			// TODO: handle exception

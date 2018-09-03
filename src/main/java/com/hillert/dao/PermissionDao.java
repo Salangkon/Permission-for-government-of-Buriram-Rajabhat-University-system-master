@@ -157,8 +157,7 @@ public class PermissionDao {
 					bean.setPersonnelId(rs.getInt("personnel_id"));
 					bean.setTopics(rs.getString("topics"));
 					bean.setOther(rs.getString("other"));
-					permissionId = bean.getPermissionId();
-					
+					permissionId = bean.getPermissionId();			
 
 				}
 			} catch (Exception e) {

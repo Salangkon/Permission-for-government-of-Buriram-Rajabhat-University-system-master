@@ -1,3 +1,4 @@
+<%@page import="com.hillert.model.ExpenseSumaryBean"%>
 <%@page import="java.util.List"%>
 <%@page import="com.hillert.model.ExpenseEstimateBean"%>
 <%@page import="com.hillert.model.UserBean"%>
@@ -33,17 +34,19 @@
 	<script src="/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>
 	<script src="/js/listFaculty.js"></script>
 	<script src="/js/listPosition.js"></script>
-	<script src="/js/insertPermission.js"></script>
+	<script src="/js/updateExpense.js"></script>
 	<script src="/js/province.js"></script>
 	<script src="/js/budget.js"></script>
-	<script src="/js/insertExpense.js"></script>
+
 
 <%
 	PermissionBean bean = null;
+	ExpenseSumaryBean beanEs = null;
 	String result = "";
 %>
 <%
 	bean = (PermissionBean) request.getAttribute("perBean");
+	beanEs = (ExpenseSumaryBean) request.getAttribute("beanEs");
 	result = (String) request.getAttribute("messesUpdate");
 %>
 
@@ -192,7 +195,7 @@
 	
 	<label  style="margin-top: 3%">สถานที่ไปราชการ </label>
     <div class="form-group">
-   		<input class="form-control" name="destinationName" id="destinationName" type="text" placeholder="สถานที่ไปราชการ" value=" <%=bean.getDestinationName() %> ">
+   		<input class="form-control" name="destinationName" id="destinationName" type="text" value=" <%=bean.getDestinationName() %> ">
     </div>
 	<!-- จังหวัด province -->
 	<div class="form-group">
@@ -241,8 +244,8 @@
 	<div class="form-group" style="margin-top: 4%">
 	<label> งบประมาณ  </label>
 		<select class="form-control" name="Budget" id="budget" onChange="Show(this.selectedIndex)">
-        	<option value="ไม่เบิกค่าใช้จ่าย" >ไม่เบิกค่าใช้จ่าย </option> 	
-        	<option value="เบิกค่ามใช้จ่าย" >เบิกค่าใช้จ่าย</option>		
+        	<option value="ไม่เบิกค่าใช้จ่าย" >ไม่เบิกค่าใช้จ่าย </option>
+        	<option value="เบิกค่ามใช้จ่าย" >เบิกค่าใช้จ่าย</option>
 		</select>
 	</div>
 	</div></div></div>
@@ -286,12 +289,12 @@
 </div>
 <div style="size: 10" class="col-sm-2 " >
 	<div class="form-group" style="margin-top: 3.5%">
-	<label> รหัส    </label><input class="form-control" name="budgetPass" id="budgetPass" type="text" onkeyup="autoTab(this)">
+	<label> รหัส    </label><input class="form-control" name="budgetPass" id="budgetPass" type="text" value="<%=bean.getBudgetPass() %>" onkeyup="autoTab(this)">
 	</div>
 </div>
 <div style="size: 10" class="col-sm-2 ">
 	<div class="input-group" style="margin-top: 15%">
-	<div class="input-group-addon">วงเงิน</div><input class="form-control" style="text-align:center" id="aaa" type="text" disabled>
+	<div class="input-group-addon">วงเงิน</div><input class="form-control" style="text-align:center" id="aaa" type="text" disabled value="<%=beanEs.getExpenseEstimateSumTotal() %>"">
 	<div class="input-group-addon">บาท</div>
     </div>
 </div>
@@ -309,13 +312,13 @@
 	<div class="col-sm-3" style="margin-bottom: 1%;margin-top: 1%;"><label>ค่าเบี้ยเลี้ยง(รายละเอียดค่าเบี้ยเลี้ยง)</label> 
 		<a class="test" href="#" data-toggle="tooltip" data-placement="top" title=" (240 x 2) + (180  x 2) ">ตัวอย่าง</a>
 	</div>
-	<div class="col-sm-3" style="margin-bottom: 1%;margin-top: 1%;"><input type="text" id="allowenceDetails" class="form-control" style="height: 7mm" value="<% %>"></div>
+	<div class="col-sm-3" style="margin-bottom: 1%;margin-top: 1%;"><input type="text" id="allowenceDetails" class="form-control" style="height: 7mm" value="<%=beanEs.getAllowenceDetails() %>"></div>
 	<div class="col-sm-3" style="margin-bottom: 1%;margin-top: 1%;"><label>ค่าเช่าที่พัก (รายละเอียดเช่าที่พัก)</label>
 		<a class="test" href="#" data-toggle="tooltip" data-placement="top" title=" (240 x 2) + (180  x 2) ">ตัวอย่าง</a>
 	</div>
-	<div class="col-sm-3" style="margin-bottom: 1%;margin-top: 1%;"><input type="text" id="rentDateDetails" class="form-control" style="height: 7mm"></div>
+	<div class="col-sm-3" style="margin-bottom: 1%;margin-top: 1%;"><input type="text" id="rentDateDetails" class="form-control" style="height: 7mm" value="<%=beanEs.getRentDateDetails() %>"></div>
 	</div></div></div><br>
-	<table id="addUser" class="table table-bordered" style="font-family: sans-serif;font-size:small;width:  100%">   
+	<table id="addUser" class="table table-bordered" style="font-family: sans-serif;font-size:small;width: 100%" >   
 		<thead>
     	<tr style="background: purple;color: white;">
     		<th style="text-align:center">รหัส</th>
