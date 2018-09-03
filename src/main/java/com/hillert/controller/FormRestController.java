@@ -31,7 +31,7 @@ public class FormRestController {
 	public List<ExpenseEstimateBean> expenseEstimateBean(String permissionId) throws SQLException{
 		TestAjex perId = new TestAjex();
 		perId = perDao.perId();
-		System.out.println(perId);
+//		System.out.println(perId);
 		 List<ExpenseEstimateBean> listPer = new ArrayList<>();
 		 listPer = perDao.findByIdExpenseEstimate(perId.getPerId());
 		

@@ -264,7 +264,7 @@ public class PermissionDao {
 		StringBuilder sql = new StringBuilder();
 
 		try {
-			sql.append(" SELECT u.user_fname, u.user_lname , f.faculty_name, d.department_name , p.position_name, sp.sub_position_name, ee.*\r\n" + 
+			sql.append(" SELECT u.user_fname, u.user_lname , sp.sub_position_name, ee.*\r\n" + 
 					"FROM expense_estimate ee\r\n" + 
 					"INNER JOIN personnel_list pl  on pl.personnel_id = ee.personnel_id\r\n" + 
 					"INNER JOIN user u on u.user_id = pl.user_id\r\n" + 
@@ -279,13 +279,22 @@ public class PermissionDao {
 			while (rs.next()) {
 				ExpenseEstimateBean bean = new ExpenseEstimateBean();
 				// ExpenseEstimate
+				bean.setPermissionId(rs.getInt("permission_id"));
+				bean.setPersonnelId(rs.getInt("personnel_id"));
 				bean.setUserFname(rs.getString("user_fname"));
 				bean.setUserLname(rs.getString("user_lname"));
 				bean.setSubPosition(rs.getString("sub_position_name"));
-
+				
+				bean.setAllowence(rs.getInt("allowence"));
+				bean.setAllowencePerday(rs.getInt("allowence_perday"));
 				bean.setAllowenceSum(rs.getInt("allowence_sum"));
+				
+				bean.setRentDate(rs.getInt("rent_date"));
+				bean.setRentDatePerday(rs.getInt("rent_date_perday"));
 				bean.setRentDateSum(rs.getInt("rent_date_sum"));
+				
 				bean.setTravelSum(rs.getInt("travel_sum"));
+				
 				bean.setOtherSum(rs.getInt("other_sum"));
 
 				bean.setExpenseEstimateSum(rs.getInt("expense_estimate_sum"));

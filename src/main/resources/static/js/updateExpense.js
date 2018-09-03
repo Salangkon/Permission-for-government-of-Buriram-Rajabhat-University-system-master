@@ -273,9 +273,10 @@ $(document).ready(function() {
 					]
 				});
 		var tableSelect = $('#addUser').DataTable({
+				"sAjaxSource"	: "/ExpenseByPermission",
 				"sAjaxDataProp" : "",
 				"aoColumns" : [{
-						"mData" : "userId",
+						"mData" : "personnelId",
 						"sWidth" : "20px" ,
 						"sClass": "center",
 				},
@@ -288,7 +289,7 @@ $(document).ready(function() {
 						"sWidth" : "180px" 
 				},
 				{
-						"mData" : "subPositionName",
+						"mData" : "subPosition",
 						"sWidth" : "100px" 
 				},
 				{
@@ -309,7 +310,7 @@ $(document).ready(function() {
 						type, row, index) {
 					return '<input class="form-control number2" style="width: 16mm;height: 7mm" type="number" name="allowencePerday" id="allowencePerday'
 							+ index.row
-							+ '" />';
+							+ '" value="'+row.allowencePerday+'"/>';
 
 					}
 				},
@@ -320,7 +321,7 @@ $(document).ready(function() {
 						type, row, index) {
 					return '<input class="form-control sum6" disabled readonly="true"  type="text"  style="width: 23mm;height: 7mm" name="allowenceSum" id="allowenceSum'
 							+ index.row
-							+ '" value="0" />';
+							+ '" value="'+row.allowenceSum+'"/>';
 
 					}
 				},
@@ -342,7 +343,7 @@ $(document).ready(function() {
 						type, row, index) {
 					return '<input class="form-control number4" type="number" style="width: 16mm;height: 7mm" name="rentDatePerday" id="rentDatePerday'
 							+ index.row
-							+ '" />';
+							+ '"  value="'+row.rentDatePerday+'"/>';
 
 					}
 				},	
@@ -353,7 +354,7 @@ $(document).ready(function() {
 						type, row, index) {
 					return '<input class="form-control sum9" disabled readonly="true"  type="text" style="width: 22mm;height: 7mm" name="rentDateSum" id="rentDateSum'
 							+ index.row
-							+ '" value="0"/>';
+							+ '"  value="'+row.rentDateSum+'"/>';
 					}										
 				},
 				{
@@ -363,7 +364,7 @@ $(document).ready(function() {
 						type, row, index) {
 					return '<input class="form-control sum10"  type="number" style="width: 22mm;height: 7mm" name="travelSum" id="travelSum'
 							+ index.row 
-							+ '" value="0" />';
+							+ '"  value="'+row.travelSum+'"/>';
 					}										
 				},
 				{
@@ -373,7 +374,7 @@ $(document).ready(function() {
 						type, row, index) {
 					return '<input class="form-control sum11"  type="number" style="width: 22mm;height: 7mm" name="otherSum" id="otherSum'
 							+ index.row 
-							+ '" value="0" />';
+							+ '"  value="'+row.otherSum+'"/>';
 					}										
 				},
 				{
@@ -383,7 +384,7 @@ $(document).ready(function() {
 					type, row, index) {
 				return '<input class="form-control sum12" disabled readonly="true" type="number" style="width: 22mm;height: 7mm" name="expenseEstimateSum" id="expenseEstimateSum'
 						+ index.row 
-						+ '" />';
+						+ '"  value="'+row.expenseEstimateSum+'"/>';
 				}										
 				},
 				{
@@ -466,6 +467,7 @@ $(document).ready(function() {
 						} ]
 					});
 					var tableSelectTravel = $('#addTravel').DataTable({
+										"sAjaxSource"	: "/TravelByPermission",
 										"sAjaxDataProp" : "",
 										"aoColumns" : [
 												{
@@ -483,7 +485,7 @@ $(document).ready(function() {
 															type, row, index) {
 														return '<input class="form-control number1" style="width: 30mm;height: 7mm" type="number" id="numberPer'
 																+ index.row
-																+ '" />';
+																+ '"  value="'+row.numberPer+'"/>';
 													}
 												},
 												{
@@ -493,7 +495,7 @@ $(document).ready(function() {
 															type, row, index) {
 														return '<input class="form-control number2" style="width: 30mm;height: 7mm" type="number" id="travelExpenses'
 																+ index.row
-																+ '"   />';
+																+ '"  value="'+row.travelExpenses+'"/>';
 													}
 												},
 												{
@@ -503,7 +505,7 @@ $(document).ready(function() {
 															type, row, index, num) {
 														return '<input class="form-control number3" style="width: 30mm;height: 7mm" type="number" name="" id="userSum'
 																+ index.row
-																+ '"   />';
+																+ '"  value="'+row.userSum+'"/>';
 													}
 												},
 												{
@@ -513,7 +515,7 @@ $(document).ready(function() {
 															type, row, index) {
 														return '<input class="form-control sum" style="width: 40mm;height: 7mm" readonly="true" type="text" placeholder="รวม" name="sum" id="sum'
 																+ index.row
-																+ '" />';
+																+ '"  value="'+row.sum+'"/>';
 													}
 												},
 												{
@@ -523,7 +525,7 @@ $(document).ready(function() {
 															type, row, index) {
 														return '<input class="form-control" style="width: 150mm;height: 7mm" type="text" id="vehicleC'
 																+ index.row
-																+ '" />';
+																+ '"  value="'+row.vehicleC+'"/>';
 													}
 												},
 												{
@@ -598,7 +600,7 @@ $(document).ready(function() {
 					});
 					//รถส่วนตัว
 					var tableSelectTravel1 = $('#addTravel1').DataTable({
-						
+						"sAjaxSource" : "",
 						"sAjaxDataProp" : "",
 						"aoColumns" : [
 							{
