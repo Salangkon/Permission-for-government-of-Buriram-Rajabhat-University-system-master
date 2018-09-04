@@ -2,19 +2,12 @@ package com.hillert.controller;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hillert.dao.DataUserDao;
@@ -47,21 +40,22 @@ public class UserRestController {
 	@Autowired
 	PersonnelListDao perDao;
 	
-	@RequestMapping(value = "/updateRole", method = RequestMethod.POST)
-	@ResponseBody
-	public Map<String, String> payment(Model model, @RequestBody UserBean userBean, HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-
-		try {
-			userDao.update(userBean);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		Map<String, String> insertUser = new HashMap<String, String>();
-		insertUser.put("page", "update");// insert Fill!! nser
-		return insertUser;
-	}// end insert user
+//	@RequestMapping(value = "/updateRole", method = RequestMethod.POST)
+//	@ResponseBody
+//	public Map<String, String> payment(Model model, @RequestBody UserBean userBean, HttpServletRequest request,
+//			HttpServletResponse response) throws Exception {
+//			TestAjex updateRole = new TestAjex();
+//			updateRole = userDao.updateRole();
+//		try {
+//			userDao.update(updateRole.getUpdateRole());
+//
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		Map<String, String> insertUser = new HashMap<String, String>();
+//		insertUser.put("page", "gotoUpdate/{values}");// insert Fill!! nser
+//		return insertUser;
+//	}// end insert user
 
 	//List user dataTable แสดง บุคคลากร ในตาราง
 	@RequestMapping(value="/user")

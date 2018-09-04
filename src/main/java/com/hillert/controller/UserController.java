@@ -4,14 +4,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import javax.servlet.http.HttpServletRequest;
-
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -122,41 +121,65 @@ public class UserController {
 		model.addAttribute("messes", "S");
 		return "insert";
 	}
-
+	
 	// update user
-	@RequestMapping(value = "/update", method = RequestMethod.GET)
-	public String update(UserBean userBean, Model model) throws SQLException {
-		try {
-			userDao.update(userBean);
-			model.addAttribute("messesUpdate", "S");
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-			model.addAttribute("messesUpdate", "F");
-		}
-		return "update";
-	}
-
-	// update user
-	@RequestMapping(value = "/gotoUpdate/{values}", method = RequestMethod.GET)
-	public String gotoUpdate(@PathVariable("values") String values, HttpServletRequest request, Model model)throws NumberFormatException, SQLException {
+	@RequestMapping(value = "/gotoUpdate", method = RequestMethod.POST)
+	public String gotoUpdate(int userId, HttpServletRequest request, Model model)throws NumberFormatException, SQLException {
 		PersonAddressBean bean = new PersonAddressBean();
 		List<PersonAddressBean> list = new ArrayList<>();
 		try {
-			bean = userDao.findByIdCard(Integer.parseInt(values));
-			list = userDao.findByIdCard1(Integer.parseInt(values));
-			if (values != null) {
+			bean = userDao.findByIdCard(userId);
+			list = userDao.findByIdCard1(userId);
+			if (bean.getUserId() != 0) {
 				model.addAttribute("messesUpdate", "");
-				request.setAttribute("userBean", bean);
-				request.setAttribute("listUserBean", list);
+				model.addAttribute("beanPerson", bean);
+				model.addAttribute("listUserBean", list);
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-
 		return "update";
-	}
+	}//end update user
+
+	// update user
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String update(@Valid UserBean userBean, BindingResult result, Model model) throws SQLException {
+		UserBean bean = new UserBean();
+		try {
+			userDao.update(userBean);
+			bean = userDao.userIdUpdateRole(userBean.getUserId()); 
+			model.addAttribute("resultBean", bean);
+			model.addAttribute("messesUpdate", "S");
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			model.addAttribute("resultBean", bean);
+			model.addAttribute("messesUpdate", "F");
+		}
+		return "update";
+	}//end update user
+
+//	// update user
+//	@RequestMapping(value = "/gotoUpdate/{values}", method = RequestMethod.GET)
+//	public String gotoUpdate(@PathVariable("values") String values, HttpServletRequest request, Model model)throws NumberFormatException, SQLException {
+//		PersonAddressBean bean = new PersonAddressBean();
+//		List<PersonAddressBean> list = new ArrayList<>();
+//		try {
+//			bean = userDao.findByIdCard(Integer.parseInt(values));
+//			list = userDao.findByIdCard1(Integer.parseInt(values));
+//			if (values != null) {
+//				model.addAttribute("messesUpdate", "");
+//				request.setAttribute("userBean", bean);
+//				request.setAttribute("listUserBean", list);
+//			}
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//			e.printStackTrace();
+//		}
+//
+//		return "update";
+//	}
 
 	//delete
 //	@RequestMapping("/delete")

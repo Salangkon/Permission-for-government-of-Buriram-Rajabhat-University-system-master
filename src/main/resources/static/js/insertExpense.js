@@ -728,10 +728,12 @@ $(document).ready(function() {
 							d = tableSelectTravel1.data()[i];
 							console.log(d);
 							d.distance = $("#distance"+i).val();
+							d.numberPer = $("#numberPer"+i).val()
 							d.fuelCost = $("#fuelCost"+i).val();
 							d.divide = $("#divide"+i).val();
 							d.fuelCostSum = $("#fuelCostSum"+i).val();
 							d.expresswayExpenses = $("#expresswayExpenses"+i).val();
+							d.expresswayNumberPer = $("#expresswayNumberPer"+i).val();
 							d.expresswayExpensesSum = $("#expresswayExpensesSum"+i).val();
 							d.sum = $("#sum"+i).val();
 							d.vehicleC = $("#vehicleC"+i).val();
@@ -900,10 +902,12 @@ $(document).ready(function() {
 							d = tableSelectTravel2.data()[i];
 							console.log(d);
 							d.distance = $("#distance"+i).val();
+							d.numberPer = $("#numberPer"+i).val()
 							d.fuelCost = $("#fuelCost"+i).val();
 							d.divide = $("#divide"+i).val();
 							d.fuelCostSum = $("#fuelCostSum"+i).val();
 							d.expresswayExpenses = $("#expresswayExpenses"+i).val();
+							d.expresswayNumberPer = $("#expresswayNumberPer"+i).val();
 							d.expresswayExpensesSum = $("#expresswayExpensesSum"+i).val();
 							d.sum = $("#sum"+i).val();
 							d.vehicleC = $("#vehicleC"+i).val();

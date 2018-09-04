@@ -11,15 +11,23 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
-	<script src="/js/updateRole.js"></script>
+<!-- 	<script src="/js/updateRole.js"></script> -->
+	<script src="/js/jQuery v3.3.1.js"></script>
+	<script src="/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</body>
 	<%
+	UserBean beanUser = null;
+	UserBean beanUpdateRole = null;
 	PersonAddressBean bean = null;
 	List<PersonAddressBean> list= null;
 	String result = "";
 	%>
 	<%	
+	beanUser = (UserBean) request.getSession().getAttribute("userBean");
+	beanUpdateRole = (UserBean) request.getSession().getAttribute("resultBean");
+	bean = (PersonAddressBean) request.getAttribute("beanPerson");
 	list = (List<PersonAddressBean>) request.getAttribute("listUserBean");
-	bean = (PersonAddressBean) request.getAttribute("userBean");
 	result = (String) request.getAttribute("messesUpdate");
 	%>
 
@@ -116,14 +124,14 @@
 			</tr>
 			<%}%>
 		</table>
-	</div><!-- table -->
+	</div>
 	
-<!-- 	<div class="col-sm-12" > -->
-<!-- 			<input type="text" name="role" id="role" > -->
-<!-- 			<input type="button" id="save"> -->
-<!-- 			<button type="submit"  onclick="insertConfirm()">ออกจากราชการ</button> -->
+<!-- 	<form name="updateForm" action="update" method="post"> -->
+<!-- 	<div class="col-sm-12" >	 -->
+<!-- 		<input type="hidden" name="role"  value="3"> -->
+<!-- 		<button type="submit" class="btn btn-success">ออกจากราชการ</button> -->
 <!-- 	</div> -->
-	
+<!-- 	</form> -->
 	
 	</div>
 	</div>

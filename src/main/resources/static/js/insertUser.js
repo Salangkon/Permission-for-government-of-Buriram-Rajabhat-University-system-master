@@ -1,7 +1,7 @@
 
 var sex = "";
 
-$(document).ready(function() {
+$(document).ready(function() {	
 	
 	$("#sex1").change(function(){
 		sex = "นาย";
@@ -398,35 +398,5 @@ function check() {
 
 
 
-////insert
-//function insertConfirm() {
-////	console.log(warranty)
-//var userBean = {
-//		userUsername : $('#userUsername').val(),
-//		userPassword : $('#userPassword').val(),
-//		sex  		 : sex,
-////		sex    		 : $('#sex').val(),
-//		userFname    : $('#userFname').val(),
-//		userLname    : $('#userLname').val(),	
-//		numberPhone  : $('#numberPhone').val(),
-//		dateStr		 : $('#setdate').val(),
-//		role         : $('#role').val()
-//}
-//$.ajax({
-//    type: "POST",
-//    url: "/insertUser",
-//    data: JSON.stringify(userBean),
-//    dataType: "json",
-//    async: false,
-//    contentType: "application/json; charset=utf-8",
-//    success: function (res) {
-//    	console.log(res)
-//    	window.location.href = res.page;
-//    },
-// 	error: function () {
-// 		window.location.href = "nser";
-//    }
-//});
-//
-//};
+
 

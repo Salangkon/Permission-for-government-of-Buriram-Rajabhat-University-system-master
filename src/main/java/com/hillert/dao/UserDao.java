@@ -30,6 +30,7 @@ public class UserDao {
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 	int userId;
+	int userIdUpdateRole;
 	
 	static Locale localeTH = new Locale("th", "TH");
 	static Locale localeEN = new Locale("en", "EN");
@@ -58,7 +59,7 @@ public class UserDao {
 		StringBuilder sql = new StringBuilder();
 
 		try {
-			sql.append(" SELECT pl.personnel_id, u.* , f.faculty_name, d.department_name , p.position_name,sp.sub_position_name ,sp.allowence ,sp.rent_date FROM personnel_list pl INNER JOIN user u on u.user_id = pl.user_id INNER JOIN department d on d.department_code = pl.department_code INNER JOIN faculty f on f.faculty_code = d.faculty_code INNER JOIN sub_position sp on sp.sub_position_code = pl.sub_position_code INNER JOIN position p on p.position_code = sp.position_code WHERE  pl.user_id = ? ");
+			sql.append(" SELECT * FROM user WHERE user_id = ? ");
 			preperd = conn.prepareStatement(sql.toString());
 			preperd.setInt(1, userId);
 			ResultSet rs = preperd.executeQuery();
@@ -72,7 +73,9 @@ public class UserDao {
 				bean.setNumberPhone(rs.getString("number_phone"));
 				bean.setSex(rs.getString("sex"));
 				bean.setRole(rs.getInt("role"));
-			
+			    
+				userIdUpdateRole = bean.getUserId();
+//				System.out.println(userIdUpdateRole);
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -84,6 +87,13 @@ public class UserDao {
 		}
 		return bean;
 	}//end
+	
+	// เก็บ ID USER เข้า table Personel_list
+	public TestAjex updateRole() {
+		TestAjex bean = new TestAjex();
+		bean.setUpdateRole(userIdUpdateRole);
+		return bean;
+	}
 	
 	
 	public List<PersonAddressBean>  findByIdCard1(int userId) throws SQLException {
@@ -221,27 +231,63 @@ public class UserDao {
 		}//end PersonnelListBean
 		
 	// update
-	public void update(UserBean bean) throws SQLException {
+	public UserBean update(UserBean bean) throws SQLException {
 		ConnectDB con = new ConnectDB();
-		Connection conn = con.openConnect();
-		PreparedStatement prepared = null;
+		PreparedStatement preperd = null;
 		StringBuilder sql = new StringBuilder();
+
 		try {
-			sql.append(" UPDATE user SET role = ? WHERE user_id = ?;");
-			prepared = conn.prepareStatement(sql.toString());
-			prepared.setInt(1, bean.getRole());
+			sql.append(" UPDATE user SET role = ? WHERE user_id = ?");
+			preperd = con.openConnect().prepareStatement(sql.toString());
+			preperd.setInt(1, bean.getRole());
+			preperd.setInt(2, bean.getUserId());
 			
-			prepared.executeUpdate();
+			preperd.executeUpdate();
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			if (con != null) {
+				con.openConnect().close();
+			}
 		}
-		finally {
-		if (con != null) {
-			conn.close();
+
+		return bean;
+	}// end method update
+	
+	//check permission
+	public UserBean userIdUpdateRole(int userId) throws SQLException {
+		UserBean bean = new UserBean();
+		ConnectDB con = new ConnectDB();
+		Connection conn = con.openConnect();
+		PreparedStatement preperd = null;
+		StringBuilder sql = new StringBuilder();
+
+		try {
+			sql.append(" SELECT * FROM user WHERE user_id = ? ");
+			preperd = conn.prepareStatement(sql.toString());
+			preperd.setInt(1, userId);
+			ResultSet rs = preperd.executeQuery();
+
+			while (rs.next()) {
+				bean.setUserId(rs.getInt("user_id"));
+				bean.setUserUsername(rs.getString("user_username"));
+				bean.setUserPassword(rs.getString("user_password"));
+				bean.setUserFname(rs.getString("user_fname"));
+				bean.setUserLname(rs.getString("user_lname"));
+				bean.setRole(rs.getInt("role"));
+				bean.setSex(rs.getString("sex"));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			if (con != null) {
+				conn.close();
+			}
 		}
+		return bean;
 	}
-	}
-	// end method update
 
 	// delete
 //	public void delete(String id) throws SQLException {
