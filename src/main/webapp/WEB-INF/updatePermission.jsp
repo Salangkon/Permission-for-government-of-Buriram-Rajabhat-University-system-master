@@ -11,6 +11,30 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>update</title>
 
+
+	<script>
+		function w3_open() {
+			document.getElementById("main").style.marginLeft = "180px";
+			document.getElementById("mySidebar").style.width = "180px";
+			document.getElementById("mySidebar").style.display = "block";
+			document.getElementById("openNav").style.display = 'none';
+		}
+		function w3_close() {
+			document.getElementById("main").style.marginLeft = "0";
+			document.getElementById("mySidebar").style.display = "none";
+			document.getElementById("openNav").style.display = "inline-block";
+		}
+	</script>
+	<style>
+	@media screen and (max-width: 500px) {
+		.h3 {
+			font-size: 16px;
+		}
+	}
+	</style>
+
+
+
 	<style type="text/css">
 	#grad1 {
     background: red; /* For browsers that do not support gradients */
@@ -35,8 +59,7 @@
 	<script src="/js/listPosition.js"></script>
 	<script src="/js/updateExpense.js"></script>
 	<script src="/js/province.js"></script>
-	<script src="/js/budget.js"></script>
-
+<!-- 	<script src="/js/budget.js"></script> -->
 
 <%
 	PermissionBean bean = null;
@@ -51,10 +74,39 @@
 
 </head>
 
-<body style="margin-top: 5%;background-color: gray;" id="grad1">
+<body>
 
-<header class="w3-display-container w3-content" style="max-width:98%">
-	<div class="w3-container w3-red" >
+<div class="w3-sidebar w3-light-grey w3-card-4 w3-animate-left" style="width:200px" id="mySidebar">
+  <div class="w3-bar w3-dark-grey">
+  <span class="w3-bar-item w3-padding-16">Manu</span>
+  <button onclick="w3_close()"
+  class="w3-bar-item w3-button w3-right w3-padding-16" title="close Sidebar">&times;</button>
+  </div>
+  <div class="w3-bar-block">
+  <div class="w3-dropdown-hover">
+    <a class="w3-button" href="#">เลือก<i class="fa fa-caret-down"></i></a>
+    <div class="w3-dropdown-content w3-bar-block w3-card-4">
+      <a class="w3-bar-item w3-button" href="#1"> แบบฟอร์มขออนุญาตไปราชการ</a>
+      <a class="w3-bar-item w3-button" href="#2"> แบบฟอร์มประมาณการรายจ่าย</a>
+    </div>
+  </div>
+  <a class="w3-bar-item w3-button" href="javascript:void(0)">Support</a>
+  <a class="w3-bar-item w3-button w3-green" href="/welcomeUser">ย้อนกลับ</a>
+  </div>
+</div>
+
+
+
+<div id="main" style="margin-left:200px">
+
+<div class="w3-container w3-display-container" style="background-color: gray;" id="grad1">
+  <span title="open Sidebar" style="display:none" id="openNav" class="w3-button w3-transparent w3-display-topleft w3-xlarge" onclick="w3_open()">&#9776;</span>
+
+
+
+
+<header class="w3-display-container w3-content" style="max-width:90%;margin-top: 2%" >
+	<div class="w3-container w3-red" id="1">
 		<h2><i class="fa fa-file-o w3-margin-right"></i>แบบฟอร์มขออนุญาตไปราชการ</h2>
     </div>
     
@@ -226,8 +278,8 @@
 </header>
 
 <!-- สรุป แบบฟอร์มประมาณการรายจ่าย -->
-<header class="w3-display-container w3-content" style="max-width:98%;margin-top: 2%">
-	<div class="w3-container w3-blue">
+<header class="w3-display-container w3-content" style="max-width:90%;margin-top: 2%">
+	<div class="w3-container w3-blue" id="2">
     	<h2><i class="fa fa-file-o w3-margin-right"></i>แบบฟอร์มประมาณการรายจ่าย</h2>
     </div>
     <div class="w3-container w3-white w3-padding-16">
@@ -242,7 +294,7 @@
 	<div class="w3-container">
 	<div class="form-group" style="margin-top: 4%">
 	<label> งบประมาณ  </label>
-		<select class="form-control" name="Budget" id="budget" onChange="Show(this.selectedIndex)">
+		<select class="form-control" name="Budget" id="budget" ><!-- onChange="Show(this.selectedIndex)" -->
         	<option value="ไม่เบิกค่าใช้จ่าย" >ไม่เบิกค่าใช้จ่าย </option>
         	<option value="เบิกค่ามใช้จ่าย" >เบิกค่าใช้จ่าย</option>
 		</select>
@@ -253,7 +305,7 @@
 	<!-- <div id="No Budget" style="display:none"></div>  -->
     
 	<!-- เบิกค่าใช้จ่าย -->
-	<div id="Manual Budget" style="display:none">
+	<div ><!--id="Manual Budget" style="display:none"  -->
 <div class="col-sm-12" >
  	<!-- Page Container -->
 	<div class="w3-container w3-content" style="max-width:100%;margin-top:20px">    
@@ -364,7 +416,7 @@
 	<div class="w3-container">
 	<div class="form-group">
 	<label> การเดินทาง  </label>   
-    <select class="form-control" name="travel" id="travel" onChange="ShowReg(this.selectedIndex)">
+    <select class="form-control" name="travel" id="travel" ><!-- onChange="ShowReg(this.selectedIndex)" -->
    		<option value="">== เลือกภาหนะ ==</option>
       	<option value="พาหนะประจำทาง">พาหนะประจำทาง</option>
   		<option value="ขอใช้รถส่วนตัว">ขอใช้รถส่วนตัว</option>
@@ -376,9 +428,9 @@
 <div style="size: 10" class="col-sm-10" ></div>
    
     <!-- ไม่ได้เลือก -->
-	<div id="No Promotion" style="display:none"></div> 
+<!-- 	<div id="No Promotion" style="display:none"></div>  -->
 
-<div id="Manual Promotion1" style="display:none">
+<div><!-- id="Manual Promotion1" style="display:none" -->
 <div style="margin-bottom: 3%;" class="col-sm-12" >
 	<h3 style="color: white;"align="center"  class="w3-container w3-blue"><i class="fa fa-car w3-margin-right" style="font-size:30px;"></i>เลือกค่า พาหนะในการเดินทาง และกำหนดค่า  (หมายเหตุ ถ้ามี)</h3><br>
 	<table id="addTravel" class="table table-bordered" style="font-family: sans-serif;font-size:small;width: 100%">   
@@ -411,7 +463,7 @@
 
 <!-- ขอใช้รถส่วนตัว -->
 
-<div id="Manual Promotion2" style="display:none">
+<div><!-- id="Manual Promotion2" style="display:none"  -->
 <div class="col-sm-5">
 	<!-- Page Container -->
 	<div class="w3-container w3-content" style="max-width:100%;margin-top:20px;">    
@@ -504,10 +556,12 @@
 		<button type="reset" class="btn btn-danger">รีเซต</button>
 	</div>
 	</div>
-	
-	
-	
+		
 </header>
+
+	</div><!-- end  --> 
+</div><!-- end  --> 
+
 
 	<!-- เพิ่มบุคคลากร -->
 	<header class="w3-display-container w3-content">

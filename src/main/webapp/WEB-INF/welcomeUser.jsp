@@ -26,6 +26,9 @@
 	<link rel="stylesheet" href="/css/table.css">
 	<link rel="stylesheet" href="/css/NewFile.css">
 	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
 	<script src="/js/jQuery v3.3.1.js"></script>
 	<script src="/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>
 	<script src="/js/fromUser.js"></script>
@@ -55,8 +58,9 @@
     	</div>
     	</div>
   </header>
-
+<form name="welcome" action="#" method="post">
  <div style="margin-top: 4%;max-width: 90%;margin-left: 5%;" >
+ <input type="hidden" name="permissionId" id="permissionId">
 	<table id="userTable" class="table-bordered" style="width: 100%;">   
 		<thead>
     	<tr style="background: purple;color: white;">
@@ -66,12 +70,19 @@
         	<th style="text-align: center;">เรื่องที่ไปราชการ</th>
         	<th style="text-align: center;">สถานที่ไปราชการ</th>
         	<th style="text-align: center;">อนุมัติ</th>
-        	<th style="text-align: center;">อัพเดm</th>
+        	<th style="text-align: center;">อัพเดท</th>
     	</tr>
     	</thead>
 	</table>
 </div>
-
+		<script type="text/javascript">
+			function gotoPerUpdate(filter) {
+				document.getElementById('permissionId').value = filter;
+				document.welcome.action = "gotoPerUpdate";
+				document.welcome.submit();
+			}
+		</script>
+</form>
 
 </div>
 

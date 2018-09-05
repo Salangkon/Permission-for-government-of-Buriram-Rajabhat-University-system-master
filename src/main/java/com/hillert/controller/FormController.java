@@ -87,20 +87,19 @@ public class FormController {
 		return "test";
 	}
 
-
 	// update permission
-	@RequestMapping(path = "/gotoPerUpdate/{values}", method = RequestMethod.GET)
-	public String gotoPermissionUpdate(@PathVariable("values") String values, HttpServletRequest request, Model model)
+	@RequestMapping(path = "/gotoPerUpdate", method = RequestMethod.POST)
+	public String gotoPermissionUpdate(int permissionId, HttpServletRequest request, Model model)
 			throws NumberFormatException, SQLException {
 		PermissionBean bean = new PermissionBean();
 		ExpenseSumaryBean beanEs = new ExpenseSumaryBean();
 		try {		
-			bean = perDao.findByIdPer(Integer.parseInt(values));
-			beanEs = perDao.findByEs(Integer.parseInt(values));
+			bean = perDao.findByIdPer(permissionId);
+			beanEs = perDao.findByEs(permissionId);
 			
 			permissionId = bean.getPermissionId();
 			
-			if (values != null) {
+			if (permissionId != 0) {
 				model.addAttribute("messesUpdate", "");
 				request.setAttribute("perBean", bean);
 				request.setAttribute("beanEs", beanEs);
@@ -112,5 +111,32 @@ public class FormController {
 		request.setAttribute("perBean", bean);
 		return "updatePermission";
 	}
+
+//	// update permission
+//	@RequestMapping(path = "/gotoPerUpdate/{values}", method = RequestMethod.GET)
+//	public String gotoPermissionUpdate(@PathVariable("values") String values, HttpServletRequest request, Model model)
+//			throws NumberFormatException, SQLException {
+//		PermissionBean bean = new PermissionBean();
+//		ExpenseSumaryBean beanEs = new ExpenseSumaryBean();
+//		try {		
+//			bean = perDao.findByIdPer(Integer.parseInt(values));
+//			beanEs = perDao.findByEs(Integer.parseInt(values));
+//			
+//			permissionId = bean.getPermissionId();
+//			
+//			if (values != null) {
+//				model.addAttribute("messesUpdate", "");
+//				request.setAttribute("perBean", bean);
+//				request.setAttribute("beanEs", beanEs);
+//			}
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//			e.printStackTrace();
+//		}
+//		request.setAttribute("perBean", bean);
+//		return "updatePermission";
+//	}
+	
+	
 
 }
