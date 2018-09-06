@@ -1,5 +1,7 @@
 $(document).ready(function() {
 	
+	
+	
 	//คำนวณ ค่าพาหนะ ประจำทาง
 	$('#addTravel').on('change','input', function() { 	
 		var sum = $(this).parent().parent().find('td')[5];
@@ -127,9 +129,9 @@ $(document).ready(function() {
 
 	//คำนวณ ค่าเบี้ยเลี้ยง
 	$('#addUser').on('change','input', function() { 
-		var sum6 = $(this).parent().parent().find('td')[6];
-		var number1 = $(this).parent().parent().find('td')[4];
-		var number2= $(this).parent().parent().find('td')[5];
+		var sum6 = $(this).parent().parent().find('td')[7];
+		var number1 = $(this).parent().parent().find('td')[5];
+		var number2= $(this).parent().parent().find('td')[6];
 		var num1 = $(number1).find('input.number1').val();
 		var num2 = $(number2).find('input.number2').val();
 		if(''!=num1 && ''!=num2) {
@@ -142,9 +144,9 @@ $(document).ready(function() {
 	
 	//คำนวณ ค่าที่พัก
 	$('#addUser').on('change','input', function() { 
-		var sum9 = $(this).parent().parent().find('td')[9];
-		var number3 = $(this).parent().parent().find('td')[7];
-		var number4= $(this).parent().parent().find('td')[8];
+		var sum9 = $(this).parent().parent().find('td')[10];
+		var number3 = $(this).parent().parent().find('td')[8];
+		var number4= $(this).parent().parent().find('td')[9];
 		var num3 = $(number3).find('input.number3').val();
 		var num4 = $(number4).find('input.number4').val();
 		if(''!=num3 && ''!=num4) {
@@ -156,11 +158,11 @@ $(document).ready(function() {
 	});
 	//คำนวณ ค่าที่พัก ค่าเบี้ยเลี้ยง
 	$('#addUser').on('change','input', function() { 
-		var sum12 = $(this).parent().parent().find('td')[12];
-		var sum6 = $(this).parent().parent().find('td')[6];
-		var sum9 = $(this).parent().parent().find('td')[9];
-		var sum10 = $(this).parent().parent().find('td')[10];
-		var sum11 = $(this).parent().parent().find('td')[11];
+		var sum12 = $(this).parent().parent().find('td')[13];
+		var sum6 = $(this).parent().parent().find('td')[7];
+		var sum9 = $(this).parent().parent().find('td')[10];
+		var sum10 = $(this).parent().parent().find('td')[11];
+		var sum11 = $(this).parent().parent().find('td')[12];
 		var sum6 = $(sum6).find('input.sum6').val();
 		var sum9 = $(sum9).find('input.sum9').val();
 		var sum10 = $(sum10).find('input.sum10').val();
@@ -245,6 +247,7 @@ $(document).ready(function() {
 	});
 	
 		var table = $('#userTable').DataTable({
+					"iDisplayLength": 7,
 					"sAjaxSource" : "/personnel",
 					"sAjaxDataProp" : "",
 					"aoColumns" : [ {
@@ -290,27 +293,35 @@ $(document).ready(function() {
 				{
 						"mData" : "subPositionName",
 						"sWidth" : "100px" 
+				},{
+					"mData" : "",
+					"sWidth" : "30px",
+					"mRender" : function(data,
+							type, row, index) {
+						return '<select  class="form-control "  style="width: 15mm;" name="type" id="type'+index.row+'" onchange="setAllowEnce('+index.row+','+row.allowenceType+')" >'
+								+'<option  value="1">ก</option>'
+								+'<option  value="2">ข</option>'
+								+'</select>';
+						}
 				},
 				{
 					"mData" : "allowence",
 					"sWidth" : "60px" ,
 					"mRender" : function(data,
 						type, row, index) {
-					return '<input class="form-control number1" style="width: 20mm;height: 7mm" type="number" id="allowence' 
+					return '<input class="form-control number1" disabled style="width: 15mm;height: 7mm" type="text" name="allowence" id="allowence' 
 							+ index.row
 							+ '" value="'+row.allowence+'"/>';
-
 					}
 				},
-				{
+				{    
 					"mData" : "allowencePerday",
 					"sWidth" : "50px" ,
 					"mRender" : function(data,
-						type, row, index) {
+						type, row, index) {						
 					return '<input class="form-control number2" style="width: 16mm;height: 7mm" type="number" name="allowencePerday" id="allowencePerday'
 							+ index.row
 							+ '" />';
-
 					}
 				},
 				{
@@ -318,10 +329,9 @@ $(document).ready(function() {
 					"sWidth" : "60px" ,
 					"mRender" : function(data,
 						type, row, index) {
-					return '<input class="form-control sum6" disabled readonly="true"  type="text"  style="width: 23mm;height: 7mm" name="allowenceSum" id="allowenceSum'
+					return '<input class="form-control sum6" disabled readonly="true"  type="text"  style="width: 20mm;height: 7mm" name="allowenceSum" id="allowenceSum'
 							+ index.row
 							+ '" value="0" />';
-
 					}
 				},
 				{
@@ -332,7 +342,6 @@ $(document).ready(function() {
 					return '<input class="form-control number3" type="number" style="width: 20mm;height: 7mm" id="rentDate'
 							+ index.row
 							+ '"  value="'+row.rentDate+'"/>';
-
 					}
 				},
 				{
@@ -343,7 +352,6 @@ $(document).ready(function() {
 					return '<input class="form-control number4" type="number" style="width: 16mm;height: 7mm" name="rentDatePerday" id="rentDatePerday'
 							+ index.row
 							+ '" />';
-
 					}
 				},	
 				{
@@ -388,7 +396,7 @@ $(document).ready(function() {
 				},
 				{
 						"mData" : "",
-						"sWidth" : "10px" ,
+						"sWidth" : "5px" ,
 						"mRender" : function(data,
 							type, row, index) {
 						return '<a class="btn btn-danger" ><span class="glyphicon glyphicon-trash"> </span></a>';
@@ -933,3 +941,5 @@ $(document).ready(function() {
 								
 					
 });//end
+
+

@@ -21,6 +21,7 @@ public class PersonAddressBean {
 	private String subPositionName;
 	private String supPositionCode;
 	private int allowence;
+	private int allowenceType;
 	private int rentDate;
 	//ตาราง  User
 	private String userUsername;
@@ -32,6 +33,12 @@ public class PersonAddressBean {
 	private int role;
 	
 
+	public int getAllowenceType() {
+		return allowenceType;
+	}
+	public void setAllowenceType(int allowenceType) {
+		this.allowenceType = allowenceType;
+	}
 	public String getNumberPhone() {
 		return numberPhone;
 	}

@@ -81,7 +81,7 @@ public class PersonnelListDao {
 			StringBuilder sql = new StringBuilder();
 
 			try {
-				sql.append("SELECT pl.*, u.* , f.faculty_name, d.department_name , p.position_name,sp.sub_position_name ,sp.allowence ,sp.rent_date "
+				sql.append("SELECT pl.*, u.* , f.faculty_name, d.department_name , p.position_name,sp.sub_position_name ,sp.allowence ,sp.allowence_type ,sp.rent_date "
 						+ " FROM personnel_list pl"
 						+ " INNER JOIN user u on u.user_id = pl.user_id"
 						+ " INNER JOIN department d on d.department_code = pl.department_code"
@@ -109,6 +109,7 @@ public class PersonnelListDao {
 					bean.setPositionName(rs.getString("position_name"));
 					bean.setSubPositionName(rs.getString("sub_position_name"));
 					bean.setAllowence(rs.getInt("allowence"));
+					bean.setAllowenceType(rs.getInt("allowence_type"));
 					bean.setRentDate(rs.getInt("rent_date"));
 
 					list.add(bean);

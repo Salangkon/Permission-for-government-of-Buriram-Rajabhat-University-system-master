@@ -60,7 +60,7 @@ public class InsertRestController {
 	// insert_user
 	@RequestMapping(value = "/insertUser", method = RequestMethod.POST)
 	@ResponseBody
-	public Map<String, String> payment(Model model, @RequestBody UserBean userBean, HttpServletRequest request,
+	public Map<String, String> insertUser(Model model, @RequestBody UserBean userBean, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		TestAjex rr = new TestAjex();
 		Map<String, String> insertUser = new HashMap<String, String>();
