@@ -107,7 +107,7 @@
 
 <header class="w3-display-container w3-content" style="max-width:90%;margin-top: 2%" >
 	<div class="w3-container w3-red" id="1">
-		<h2><i class="fa fa-file-o w3-margin-right"></i>แบบฟอร์มขออนุญาตไปราชการ</h2>
+		<h2><i class="fa fa-file-o w3-margin-right"></i>แบบฟอร์มเบิกค่าใช้จ่ายในการเดินทางไปราชการ</h2>
     </div>
     
     <div class="w3-container w3-white w3-padding-16">
@@ -117,27 +117,7 @@
 <div style="margin-bottom: 18%">
 
 <div style="size: 10" class="col-sm-12" >
-	<div style="size: 10" class="col-sm-8 " >
-	
-	<!-- Page Container -->
-	<div class="w3-container w3-content" style="max-width:1400px;margin-top:20px">    
-	<!-- Profile -->
-	<div class="w3-card w3-round w3-Turquoise">
-	<div class="w3-container">
 
-	<div class="form-group"  style="margin-top: 3%"><label> ข้าพเจ้า  </label>
-	<input class="form-control" readonly="" type="text" name="name" id="name" value="&nbsp;&nbsp;<%=bean.getSex() %><%=bean.getUserFname() %> &nbsp;&nbsp; <%=bean.getUserLname()%>"> 
-    </div>
-
-	<div class="form-group" style="margin-top: 3%">
-	<label> เลือกตำแหน่ง  </label>
-		<select class="form-control" name="personnelId" id="personnelId">
-			<option><%=bean.getFacultyName() %> / <%=bean.getDepartmentName() %> / <%=bean.getPositionName() %> / <%=bean.getSubPositionName() %></option>
-		</select>
-	</div>
-    </div></div></div>
- 	</div>
-	
 	<div style="size: 10" class="col-sm-4 " >
 	<!-- Page Container -->
 	<div class="w3-container w3-content" style="max-width:1400px;margin-top:20px">    
@@ -146,108 +126,31 @@
 	<div class="w3-container" >
 	<div  style="margin-top: 3%">
 	<div></div>
-    <div>
-	<label>ไปในฐานะ  </label>
-		<input name="status" id="status1" type="radio" value="ผู้บริหาร" 		 style="margin-left: 4.25%" 
-			<%if (bean.getStatus().equals("ผู้บริหาร")) 		{ out.print("checked ='checked' "); }%>>  ผู้บริหาร    
-        <input name="status" id="status2" type="radio" value="ผู้สอน" 		 style="margin-left: 5.7%" 	
-        	<%if (bean.getStatus().equals("ผู้สอน"))	 	{ out.print("checked ='checked' ");	}%>>  ผู้สอน		
-        <input name="status" id="status3" type="radio" value="ผู้สนับสนุนการสอน" style="margin-left: 2%"	
-        	<%if (bean.getStatus().equals("ผู้สนับสนุนการสอน")) { out.print("checked ='checked' "); }%>> ผู้สนับสนุนการสอน
-    </div>
-	<label> เพื่อ (ระบุวัตถุประสงค์/ลักษณะงาน) </label>
-	<textarea class="form-control" rows="5" cols="100" id="object" name="object" > <%=bean.getObject() %> </textarea>
-	<!-- เลือกไฟล์ นำเข้า -->
+
+	<label>เรียน อธิการบดีมหาวิทยาลัยราชภัฏบุรีรัมย์</label><br>
+	<label>ตามคำสั่ง/บันทึกที่ </label><input class="form-control" type="text">
+	<label>ลงวันที่ </label><input class="form-control" type="date">
 	<form name="v" enctype="multipart/form-data" style="margin-top: 3.5%">  
 <!--        <input name="v" type="file"> -->
 	</form>
 	</div>
 	</div></div></div>
-</div>
-
-</div>
-
-<!-- กรอบที่ 2 เลือกสถานที่ จังหวัด อำเภอ ตำบล-->
-<div style="size: 10;margin-top: 2%;margin-bottom: 3%;" class="col-sm-12" >
-
-<!--ตาราง การมอบหมายงานระหว่างไปราชการ  -->
-<div style="size: 10" class="col-sm-5 " >
-	<!-- Page Container -->
-	<div class="w3-container w3-content" style="max-width:1400px;margin-top:20px">    
-	<!-- Profile -->
-	<div class="w3-card w3-round w3-Turquoise">
-	<div class="w3-container" >
-	<div style="margin-top: 2%">
-	<label>ความประสงค์ </label>
-		<input name="purpose"  	id="purpose"  type="checkbox" value="ขออนุญาต" 	style="margin-left: 8%" <%if (bean.getPurpose().equals("ขออนุญาต")) { out.print("checked ='checked'"); }%> > ขออนุญาต
-        <input name="purpose1"	id="purpose1" type="checkbox" value="ได้รับคำสั่ง" 	style="margin-left: 2%" <%if (bean.getPurpose1().equals("ได้รับคำสั่ง")) { out.print("checked ='checked'"); }%>> ได้รับคำสั่ง
-        <input name="purpose2" 	id="purpose2" type="checkbox" value="ไปราชการ" 	style="margin-left: 2%"	<%if (bean.getPurpose2().equals("ไปราชการ")) { out.print("checked ='checked'"); }%>> ไปราชการ
-    </div>
-    <div>
-    <label>เรื่องที่ไปราชการ </label>
-    	<input type="text" class="form-control" name="topics" id="topics" value="<%=bean.getTopics()%>">
-    </div><hr>
-	 <table id="" class="table-responsive" style="margin-bottom: 3.3%;font-size: small;">
-     <tr  align="center">
-     	<th colspan="3"> การมอบหมายงานระหว่างไปราชการ </th>
-     </tr>
-     <tr  align="center">
-     	<th colspan="3"> <hr></th>
-     </tr>
-     <tr>
-      <td>งานสอนภาคปกติ</td>
-      <td align="center" style="width: 20mm"><input type="radio" name="commitA" id="commitA2" value="ไม่มี" <%if (bean.getCommitA().equals("ไม่มี")) {out.print("checked ='checked' ");}%> 	> &nbsp;&nbsp;ไม่มี</td>
-      <td align="center"><input type="radio" name="commitA" id="commitA1" value="มี" 	<%if (bean.getCommitA().equals("มี"))  { out.print("checked ='checked' ");}%> 	>&nbsp;มี&nbsp;&nbsp;
-      <input name="commitADt" id="commitADt" type="text" placeholder="&nbsp;&nbsp;มอบหมายให้..." value="<%=bean.getCommitADt()%>"></td>
-    </tr>
-    <tr>
-    <td style="width: 6cm">งานสอนภาค กศ.บป./บัณฑิตศึกษา</td>
-      <td align="center" style="width: 20mm"><input type="radio" name="commitB" id="commitB2" value="ไม่มี" <%if (bean.getCommitB().equals("ไม่มี")) {out.print("checked ='checked' ");}%>	>&nbsp;&nbsp;ไม่มี</td>
-      <td align="center"><input type="radio" name="commitB" id="commitB1" value="มี" <%if (bean.getCommitB().equals("มี"))  { out.print("checked ='checked' ");}%>		>&nbsp;มี&nbsp;&nbsp;
-   	  <input name="commitBDt" id="commitBDt" type="text" placeholder="&nbsp;&nbsp;มอบหมายให้..." value="<%=bean.getCommitBDt()%>"></td>
-    </tr>
-    <tr>
-      <td>งานประจำเวร/ประจำวัน</td>
-      <td align="center" style="width: 20mm"><input type="radio" name="commitC" id="commitC2" value="ไม่มี" <%if (bean.getCommitC().equals("ไม่มี")) {out.print("checked ='checked' ");}%> >&nbsp;&nbsp;ไม่มี</td>
-       <td align="center"><input type="radio" name="commitC" id="commitC1" value="มี" <%if (bean.getCommitC().equals("มี"))  { out.print("checked ='checked' ");}%>>&nbsp;มี&nbsp;&nbsp;
-      <input name="commitCDt" id="commitCDt" type="text" placeholder="&nbsp;&nbsp;มอบหมายให้..." value="<%=bean.getCommitCDt()%>"></td>
-    </tr>
-    <tr>
-      <td>งานอื่นๆ &nbsp; <input  name="other" id="other" type="text" placeholder="&nbsp;&nbsp;ถ้ามีให้กรอก..." value="<%=bean.getOther() %>"></td>
-      <td align="center" style="width: 20mm"><input type="radio" name="commitD" id="commitD2" value="ไม่มี" <%if (bean.getCommitD().equals("ไม่มี")) {out.print("checked ='checked' ");}%> >&nbsp;&nbsp;ไม่มี</td>
-      <td align="center"><input type="radio" name="commitD" id="commitD1" value="มี" <%if (bean.getCommitD().equals("มี"))  { out.print("checked ='checked' ");}%>>&nbsp;มี&nbsp;&nbsp;
-      <input name="commitDDt" id="commitDDt" type="text" placeholder="&nbsp;&nbsp;มอบหมายให้..." value="<%=bean.getCommitDDt()%>"></td>
-    </tr>
-	</table>
-	</div></div></div>
-</div><!--end  -->
-
-<div style="size: 10" class="col-sm-3 " >	
-
-<!-- Page Container -->
-	<div class="w3-container w3-content" style="max-width:1400px;margin-top:20px">    
-	<!-- Profile -->
-	<div class="w3-card w3-round w3-Turquoise">
-	<div class="w3-container">
-
-	 <div class="form-group"><label  style="margin-top: 3%">วันที่ไป  </label><input class="form-control" type="date" id='goDate' name="goDate" value="<%=bean.getGoDate() %>"> </div>
-	 <div class="form-group"><label>เวลาออก : </label><input class="form-control" type='time' id='goTime' name="goTime" 	value="<%=bean.getGoTime() %>"> </div>
-	 <div class="form-group"><label>วันที่กลับ : </label><input class="form-control" type='date' id='backDate' name="backDate" value="<%=bean.getBackDate() %>"> </div>
-     <div class="form-group"><label>เวลากลับ : </label><input class="form-control" type='time' id='backTime' name="backTime" value="<%=bean.getBackTime() %>"> </div>
-     </div></div></div>
-</div><!--end  -->
-
-<div style="size: 10" class="col-sm-4" >
+ 	</div><!--end -->
+	
+	<div style="size: 10" class="col-sm-4 " >
 <!-- Page Container -->
 	<div class="w3-container w3-content" style="max-width:1400px;margin-top:20px;">    
 	<!-- Profile -->
 	<div class="w3-card w3-round w3-Turquoise">
 	<div class="w3-container" style="background-color:rgba(255, 99, 71, 0.4);">
-	
-	<label  style="margin-top: 3%">สถานที่ไปราชการ </label>
-    <div class="form-group">
-   		<input class="form-control" name="destinationName" id="destinationName" type="text" value=" <%=bean.getDestinationName() %> ">
+
+    <div class="form-group" style="margin-top:20px">
+    	<label>ออกเเดินทางจาก :</label> 
+   		<input name="a" id="" type="radio" value="" style="margin-left: 4%" > <label> บ้านพัก</label>
+        <input name="a"	id="" type="radio" value="" style="margin-left: 4%" > <label> สำนักงาน</label> 
     </div>
+    <label>เลขที่</label><input class="form-control" type="text">
+    <label>ถนน </label><input class="form-control" type="text">
 	<!-- จังหวัด province -->
 	<div class="form-group">
 	<label for="exampleFormControlSelect1">จังหวัด</label> 
@@ -270,8 +173,42 @@
 		</select>
 	</div>
 	</div></div></div>
-</div><!--end  -->
+ 	</div><!--end -->
 
+	<div style="size: 10" class="col-sm-4 " >
+	<!-- Page Container -->
+	<div class="w3-container w3-content" style="max-width:1400px;margin-top:20px;">    
+	<!-- Profile -->
+	<div class="w3-card w3-round w3-Turquoise">
+	<div class="w3-container" style="background-color:rgba(255, 99, 71, 0.4);">
+
+    <div class="form-group" style="margin-top:20px">
+    	<label>ตั้งแต่วันที่</label> 
+   		<input class="form-control" name="" id="" type="date" value=""  > 
+   		<label>เวลา</label> 
+   		<input class="form-control" name="" id="" type="time" value=""  > 
+   	</div>
+   	<div class="form-group" style="margin-top:20px">
+    	<label>กลับถึง :</label> 
+   		<input name="a" id="" type="radio" value="" style="margin-left: 4%" > <label> บ้านพัก</label>
+        <input name="a"	id="" type="radio" value="" style="margin-left: 4%" > <label> สำนักงาน</label> 
+    </div>
+   		<label>ตั้งแต่วันที่</label> 
+   		<input class="form-control" name="" id="" type="date" value=""  > 
+   		<label>เวลา</label> 
+   		<input class="form-control" name="" id="" type="time" value=""  > 
+   	<div style="size: 10;margin-bottom: 6.5mm"  >
+   		<label>รวมเวลาไปราชการ</label> 
+   			<div class="input-group">
+			<input class="form-control" style="text-align:center id="" type="number" >
+			<div class="input-group-addon">วัน</div>
+			<div class="input-group">
+			<input class="form-control" style="text-align:center id="" type="number" >
+			<div class="input-group-addon">ชั่วโมง</div>
+   	</div>
+	</div></div></div>
+ 	</div><!--end -->
+	</div>
 </div>
 
 </div>
@@ -505,7 +442,7 @@
 </div>
 
 <!-- ขอใช้รถไปราชการ-->
-<div id="Manual Promotion3" style="display:none">
+<div><!--   id="Manual Promotion3" style="display:none"-->
 	
 	<div class="col-sm-5">
 	<!-- Page Container -->

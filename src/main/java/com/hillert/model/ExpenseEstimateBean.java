@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 
 public class ExpenseEstimateBean {
 
+	private String sex;
 	private String userFname;
 	private String userLname;
 	private String subPosition;
@@ -24,6 +25,13 @@ public class ExpenseEstimateBean {
 	// FK permission
 	private int permissionId;
 	
+	
+	public String getSex() {
+		return sex;
+	}
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
 	public String getUserFname() {
 		return userFname;
 	}

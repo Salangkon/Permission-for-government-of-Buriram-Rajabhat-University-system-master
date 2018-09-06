@@ -16,6 +16,7 @@ import com.hillert.model.PermissionBean;
 import com.hillert.model.TestAjex;
 import com.hillert.model.TravelBean;
 import com.hillert.model.TravelExpensesBean;
+import com.hillert.model.TravelExpensesFuelCostBean;
 
 @RestController
 public class FormRestController {
@@ -48,6 +49,18 @@ public class FormRestController {
 		 listTravel = perDao.findByIdTravel(perId.getPerId());
 		
 		return listTravel;
+	}
+	
+	// Show dataTable TravelExpensesBean By Permission
+	@RequestMapping(path = "/TravelExpensesFuelCostByPermission")
+	public TravelExpensesFuelCostBean travelExpensesFuelCostBean(String permissionId) throws SQLException{
+		TestAjex perId = new TestAjex();
+		perId = perDao.perId();
+		
+		 TravelExpensesFuelCostBean travelFuelCost = new TravelExpensesFuelCostBean();
+		 travelFuelCost = perDao.findByIdTEFC(perId.getPerId());
+		
+		return travelFuelCost;
 	}
 	
 	//List PermissionBean

@@ -37,7 +37,8 @@
 
 <%@include file="NavAdmin.jsp" %>
 
-<form class="modal-content animate" action="" style="max-width:95%;margin-top: 5%;margin-left: 3%">
+<form class="modal-content animate" action="" style="max-width:95%;margin-top: 5%;margin-left: 3%" name="welcome" action="#" method="post">
+ <input type="hidden" name="permissionId" id="permissionId">
 	<div class="w3-container w3-blue" align="center">
     	<h2><i class="fa fa-address-card-o w3-margin-right"></i> เพิ่มบุคคลากร  </h2>
     </div>
@@ -56,6 +57,13 @@
 	</table>
 
 	</div>
+		<script type="text/javascript">
+			function gotoPerUpdate(filter) {
+				document.getElementById('permissionId').value = filter;
+				document.welcome.action = "gotoPerUpdate";
+				document.welcome.submit();
+			}
+		</script>
 	</form>
 
 	<footer  class="w3-black w3-center w3-padding-24" style="margin-top: 5%"> Ask la

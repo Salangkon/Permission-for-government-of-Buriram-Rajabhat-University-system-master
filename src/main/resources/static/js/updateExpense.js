@@ -436,7 +436,7 @@ $(document).ready(function() {
 
 						$.ajax({
 							type : "POST",
-							url : "/insertExpenseEstimate",
+							url : "",
 							data : JSON.stringify(inputdata),
 							dataType : "json",
 							async : false,
@@ -600,7 +600,7 @@ $(document).ready(function() {
 					});
 					//รถส่วนตัว
 					var tableSelectTravel1 = $('#addTravel1').DataTable({
-						"sAjaxSource" : "",
+						"sAjaxSource" : "/TravelExpensesFuelCostByPermission",
 						"sAjaxDataProp" : "",
 						"aoColumns" : [
 							{
@@ -741,7 +741,7 @@ $(document).ready(function() {
 						}				
 						$.ajax({
 							type : "POST",
-							url : "/insertTravelExpensesFuelCost",
+							url : "",
 							data : JSON.stringify(inputdata),
 							dataType : "json",
 							async : false,
@@ -773,6 +773,7 @@ $(document).ready(function() {
 					});
 					//รถรถขอไปราชการ
 					var tableSelectTravel2 = $('#addTravel2').DataTable({
+						"sAjaxSource" : "/TravelExpensesFuelCostByPermission",
 						"sAjaxDataProp" : "",
 						"aoColumns" : [
 								{
@@ -913,7 +914,7 @@ $(document).ready(function() {
 						}				
 						$.ajax({
 							type : "POST",
-							url : "/insertTravelExpensesFuelCost",
+							url : "",
 							data : JSON.stringify(inputdata),
 							dataType : "json",
 							async : false,

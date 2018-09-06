@@ -16,6 +16,7 @@
 	<%
 		result = (String) request.getAttribute("messessError");
 	%>
+	
 </head>
 
 
@@ -112,6 +113,9 @@
    			</div>
 		</form>
 	</div>
+	
+	
+	
 	
 	<script>
 	// Script to open and close sidebar
