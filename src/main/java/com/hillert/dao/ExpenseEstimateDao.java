@@ -29,12 +29,12 @@ public class ExpenseEstimateDao {
 
 		try {
 			sql.append("INSERT INTO expense_estimate (personnel_id, permission_id,"
-					+ "allowence, allowence_perday, allowence_sum, "
+					+ "allowence_type, allowence, allowence_perday, allowence_sum, "
 					+ "rent_date, rent_date_perday, rent_date_sum , "
 					+ "travel_sum ,other_sum ,expense_estimate_sum, "
 					+ "create_date)"
 					+ "VALUES (?,?,"
-					+ "?,?,?,"
+					+ "?,?,?,?,"
 					+ "?,?,?,"
 					+ "?,?,?,"
 					+ "SYSDATE());");
@@ -43,16 +43,16 @@ public class ExpenseEstimateDao {
 			
 			prepared.setInt(1, bean.getPersonnelId());
 			prepared.setInt(2, bean.getPermissionId());
-
-			prepared.setInt(3, bean.getAllowence());
-			prepared.setInt(4, bean.getAllowencePerday());
-			prepared.setInt(5, bean.getAllowenceSum());
-			prepared.setInt(6, bean.getRentDate());
-			prepared.setInt(7, bean.getRentDatePerday());
-			prepared.setInt(8, bean.getRentDateSum());
-			prepared.setInt(9, bean.getTravelSum());
-			prepared.setInt(10, bean.getOtherSum());
-			prepared.setInt(11, bean.getExpenseEstimateSum());		
+			prepared.setInt(3, bean.getAllowenceType());
+			prepared.setInt(4, bean.getAllowence());
+			prepared.setInt(5, bean.getAllowencePerday());
+			prepared.setInt(6, bean.getAllowenceSum());
+			prepared.setInt(7, bean.getRentDate());
+			prepared.setInt(8, bean.getRentDatePerday());
+			prepared.setInt(9, bean.getRentDateSum());
+			prepared.setInt(10, bean.getTravelSum());
+			prepared.setInt(11, bean.getOtherSum());
+			prepared.setInt(12, bean.getExpenseEstimateSum());		
 
 			prepared.executeUpdate();
 			

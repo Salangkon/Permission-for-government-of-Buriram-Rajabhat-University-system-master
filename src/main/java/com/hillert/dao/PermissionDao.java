@@ -322,13 +322,16 @@ public class PermissionDao {
 			StringBuilder sql = new StringBuilder();
 
 			try {
-				sql.append(" SELECT * FROM travel_expenses_fuel_cost WHERE Permission_id = ? ");
+				sql.append(" SELECT tefc.travel_id ,t.vehicle_name ,tefc.distance ,tefc.number_per ,tefc.fuel_cost ,tefc.divide "
+						+ ",tefc.fuel_cost_sum ,tefc.expressway_expenses ,tefc.expressway_number_per ,tefc.expressway_expenses_sum"
+						+ ",tefc.sum  ,tefc.vehicle_c "
+						+ "FROM travel_expenses_fuel_cost tefc  INNER JOIN travel t on t.travel_id = tefc.travel_id WHERE Permission_id = ? ");
 				preperd = conn.prepareStatement(sql.toString());
 				preperd.setInt(1, userId);
 				ResultSet rs = preperd.executeQuery();
 
 				while (rs.next()) {
-					bean.setPermissionId(rs.getInt("permission_id"));
+//					bean.setPermissionId(rs.getInt("permission_id"));
 					bean.setTravelId(rs.getInt("travel_id"));		
 					bean.setDistance(rs.getInt("distance"));	//ระยะทาง
 					bean.setNumberPer(rs.getInt("number_per"));	//จำนวน/ต่อ
@@ -341,7 +344,8 @@ public class PermissionDao {
 					
 					bean.setSum(rs.getString("sum")); //รวม
 					bean.setVehicleC(rs.getString("vehicle_c")); //หมายเหตุ
-					permissionId = bean.getPermissionId();
+					bean.setVehicleName(rs.getString("vehicle_name")); //หมายเหตุ
+//					permissionId = bean.getPermissionId();
 					
 
 				}

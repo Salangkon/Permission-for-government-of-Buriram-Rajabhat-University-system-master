@@ -313,6 +313,7 @@
          	<th style="text-align:center">ชื่อ</th>
         	<th style="text-align:center">นามสกุล</th>
         	<th style="text-align:center">ตำแหน่ง</th>
+        	<th style="text-align:center">ประเภท</th>
         	<th style="text-align:center">ค่าเบี้ยง<br>เลี้ยง</th>
 			<th style="text-align:center">จำนวน<br>วัน</th>
 			<th style="text-align:center">รวม<br>ค่าเบี้ยเลี้ยง</th>
@@ -630,6 +631,27 @@
 			</form>
 		</div>
 	</header>
+	
+	<script type="text/javascript">
+	function setAllowEnce(allowence,type) {
+		var x = $('#allowenceType'+allowence).val();
+		let nameA = 'allowence'+allowence;
+		if(type==1){
+			if(x == '1'){
+				$('#'+nameA).val(270);
+			}else{
+				$('#'+nameA).val(162);
+			}
+		}else{
+			if(x == '1'){
+				$('#'+nameA).val(240);
+			}else{
+				$('#'+nameA).val(144);
+			}
+		}
+
+	}
+</script>
 	
 	<!-- เพิ่มบุคคลากร -->
 	<script>

@@ -41,21 +41,21 @@ public class InsertRestController {
 	@Autowired
 	UserDao userDao;	
 	
-	// insert_user
-	@RequestMapping(value = { "/insert" }, method = RequestMethod.POST, produces = "application/json")
-	@ResponseBody
-	public String insert(Model model, @RequestBody UserBean userBean) throws SQLException {
-		TestAjex rr = new TestAjex();
-		rr = userDao.CheckUserName(userBean.getUserUsername());
-		try {
-			if (rr.getAmphur() == null) {
-				userDao.insertNewUser(userBean);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return "test";
-	}
+//	// insert_user
+//	@RequestMapping(value = { "/insert" }, method = RequestMethod.POST, produces = "application/json")
+//	@ResponseBody
+//	public String insert(Model model, @RequestBody UserBean userBean) throws SQLException {
+//		TestAjex rr = new TestAjex();
+//		rr = userDao.CheckUserName(userBean.getUserUsername());
+//		try {
+//			if (rr.getAmphur() == null) {
+//				userDao.insertNewUser(userBean);
+//			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		return "test";
+//	}
 
 	// insert_user
 	@RequestMapping(value = "/insertUser", method = RequestMethod.POST)
@@ -80,17 +80,17 @@ public class InsertRestController {
 		return insertUser;
 	}// end insert user
 
-	// insert_personel
-	@RequestMapping(value = { "/personel" }, method = RequestMethod.POST, produces = "application/json")
-	@ResponseBody
-	public String insert(Model model, @RequestBody PersonnelListBean plBean) {
-		try {
-			userDao.insert(plBean);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return "test";
-	}// end_personel
+//	// insert_personel
+//	@RequestMapping(value = { "/personel" }, method = RequestMethod.POST, produces = "application/json")
+//	@ResponseBody
+//	public String insert(Model model, @RequestBody PersonnelListBean plBean) {
+//		try {
+//			userDao.insert(plBean);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		return "test";
+//	}// end_personel
 
 	// insert_personel
 	@RequestMapping(value = "/insertPersonnel", method = RequestMethod.POST)
@@ -128,17 +128,17 @@ public class InsertRestController {
 		return bean;
 	}
 
-	// insert_permisstion
-	@RequestMapping(value = { "/permission" }, method = RequestMethod.POST, produces = "application/json")
-	@ResponseBody
-	public String insert(Model model, @RequestBody PermissionBean pmBean) {
-		try {
-			perDao.insertPermission(pmBean);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return "test";
-	}
+//	// insert_permisstion
+//	@RequestMapping(value = { "/permission" }, method = RequestMethod.POST, produces = "application/json")
+//	@ResponseBody
+//	public String insert(Model model, @RequestBody PermissionBean pmBean) {
+//		try {
+//			perDao.insertPermission(pmBean);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		return "test";
+//	}
 
 	// insert_permisstion
 	@RequestMapping(value = "/insertPermission", method = RequestMethod.POST)
@@ -159,22 +159,22 @@ public class InsertRestController {
 		return insertPermission;
 	}
 
-	// insert_ExpenseEstimate
-	@RequestMapping(value = { "/expenseEstimate" }, method = RequestMethod.POST, produces = "application/json")
-	@ResponseBody
-	public String insert(Model model, @RequestBody ExpenseEstimateBean EEBean) {
-		try {
-			EEDao.insert(EEBean);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return "test";
-	}// end_ExpenseEstimate
+//	// insert_ExpenseEstimate
+//	@RequestMapping(value = { "/expenseEstimate" }, method = RequestMethod.POST, produces = "application/json")
+//	@ResponseBody
+//	public String insert(Model model, @RequestBody ExpenseEstimateBean EEBean) {
+//		try {
+//			EEDao.insert(EEBean);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		return "test";
+//	}// end_ExpenseEstimate
 
 	// insert_ExpenseEstimate
 	@RequestMapping(value = "/insertExpenseEstimate", method = RequestMethod.POST)
 	@ResponseBody
-	public Map<String, String> payment(Model model, @RequestBody List<ExpenseEstimateBean> EEBean,
+	public Map<String, String> insertExpenseEstimate(Model model, @RequestBody List<ExpenseEstimateBean> EEBean,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
 		TestAjex perId = new TestAjex();
 		perId = perDao.perId();
@@ -193,17 +193,17 @@ public class InsertRestController {
 		return insertExpenseEstimate;
 	}// end_ExpenseEstimate
 
-	// insert_TravelEstimate
-	@RequestMapping(value = { "/travelEstimate" }, method = RequestMethod.POST, produces = "application/json")
-	@ResponseBody
-	public String insert(Model model, @RequestBody TravelExpensesBean TEBean) {
-		try {
-			EEDao.insert(TEBean);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return "test";
-	}////end insert_TravelEstimate
+//	// insert_TravelEstimate
+//	@RequestMapping(value = { "/travelEstimate" }, method = RequestMethod.POST, produces = "application/json")
+//	@ResponseBody
+//	public String insert(Model model, @RequestBody TravelExpensesBean TEBean) {
+//		try {
+//			EEDao.insert(TEBean);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		return "test";
+//	}////end insert_TravelEstimate
 
 	// insert_TravelEstimate
 	@RequestMapping(value = "/insertTravelEstimate", method = RequestMethod.POST)
@@ -229,17 +229,17 @@ public class InsertRestController {
 		return insertTravelEstimate;
 		}//end insert_TravelEstimate
 	
-		// insert_travelExpensesFuelCost
-		@RequestMapping(value = { "/travelExpensesFuelCost" }, method = RequestMethod.POST, produces = "application/json")
-		@ResponseBody
-		public String insert(Model model, @RequestBody TravelExpensesFuelCostBean TEBean) {
-			try {
-				EEDao.insert1(TEBean);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			return "test";
-		}////end insert_travelExpensesFuelCost
+//		// insert_travelExpensesFuelCost
+//		@RequestMapping(value = { "/travelExpensesFuelCost" }, method = RequestMethod.POST, produces = "application/json")
+//		@ResponseBody
+//		public String insert(Model model, @RequestBody TravelExpensesFuelCostBean TEBean) {
+//			try {
+//				EEDao.insert1(TEBean);
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//			return "test";
+//		}////end insert_travelExpensesFuelCost
 
 		// insert_travelExpensesFuelCost
 		@RequestMapping(value = "/insertTravelExpensesFuelCost", method = RequestMethod.POST)
@@ -264,17 +264,17 @@ public class InsertRestController {
 			return insertTravelEstimate;
 		}//end insert_travelExpensesFuelCost
 		
-		// insert_ExpenseEstimate
-		@RequestMapping(value = { "/expenseSumary" }, method = RequestMethod.POST, produces = "application/json")
-		@ResponseBody
-		public String insert(Model model, @RequestBody ExpenseSumaryBean esBean) {
-			try {
-				EEDao.insert2(esBean);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			return "test";
-		}// end_ExpenseEstimate
+//		// insert_ExpenseEstimate
+//		@RequestMapping(value = { "/expenseSumary" }, method = RequestMethod.POST, produces = "application/json")
+//		@ResponseBody
+//		public String insert(Model model, @RequestBody ExpenseSumaryBean esBean) {
+//			try {
+//				EEDao.insert2(esBean);
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//			return "test";
+//		}// end_ExpenseEstimate
 
 		// insert_ExpenseEstimate
 		@RequestMapping(value = "/insertExpenseSumary", method = RequestMethod.POST)

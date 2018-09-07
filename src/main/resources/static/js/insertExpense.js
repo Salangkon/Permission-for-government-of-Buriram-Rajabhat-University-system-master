@@ -298,7 +298,7 @@ $(document).ready(function() {
 					"sWidth" : "30px",
 					"mRender" : function(data,
 							type, row, index) {
-						return '<select  class="form-control "  style="width: 15mm;" name="type" id="type'+index.row+'" onchange="setAllowEnce('+index.row+','+row.allowenceType+')" >'
+						return '<select  class="form-control "  style="width: 15mm;" name="allowenceType" id="allowenceType'+index.row+'" onchange="setAllowEnce('+index.row+','+row.allowenceType+')" >'
 								+'<option  value="1">ก</option>'
 								+'<option  value="2">ข</option>'
 								+'</select>';
@@ -429,14 +429,15 @@ $(document).ready(function() {
 						for (var i = 0; i < tableSelect.data().length; i++) {
 							d = tableSelect.data()[i];
 							console.log(d);
-							d.allowence = $("#allowence"+i).val(); //ค่าเบี้ยงเลี้ยง
-							d.allowencePerday = $("#allowencePerday"+i).val();//จำนวนวันเบี๋ยเลี้ยง/วัน
-							d.allowenceSum = $("#allowenceSum"+i).val(); //รวมเงินทั้งหมดเเต่ละ บุคคลากร
-							d.rentDate = $("#rentDate"+i).val(); //ค่าที่พัก
-							d.rentDatePerday = $("#rentDatePerday"+i).val(); //จำนวนวันที่พัก/คืน
-							d.rentDateSum = $("#rentDateSum"+i).val(); //รวมค่าที่พัก
-							d.travelSum = $("#travelSum"+i).val(); //ค่าที่พัก
-							d.otherSum = $("#otherSum"+i).val(); //จำนวนที่พัก/วัน
+							d.allowenceType		= $("#allowenceType"+i).val(); //ค่าเบี้ยงเลี้ยง ประเภท
+							d.allowence			= $("#allowence"+i).val(); //ค่าเบี้ยงเลี้ยง
+							d.allowencePerday 	= $("#allowencePerday"+i).val();//จำนวนวันเบี๋ยเลี้ยง/วัน
+							d.allowenceSum 		= $("#allowenceSum"+i).val(); //รวมเงินทั้งหมดเเต่ละ บุคคลากร
+							d.rentDate 			= $("#rentDate"+i).val(); //ค่าที่พัก
+							d.rentDatePerday	= $("#rentDatePerday"+i).val(); //จำนวนวันที่พัก/คืน
+							d.rentDateSum 		= $("#rentDateSum"+i).val(); //รวมค่าที่พัก
+							d.travelSum 		= $("#travelSum"+i).val(); //ค่าที่พัก
+							d.otherSum 			= $("#otherSum"+i).val(); //จำนวนที่พัก/วัน
 							d.expenseEstimateSum = $("#expenseEstimateSum"+i).val(); //ค่าที่พัก
 							inputdata.push(d);
 						}

@@ -8,7 +8,7 @@ public class ExpenseEstimateBean {
 	private String userFname;
 	private String userLname;
 	private String subPosition;
-	
+	private int allowenceType;
 	private int allowence;
 	private int allowencePerday;
 	private int allowenceSum;
@@ -26,6 +26,12 @@ public class ExpenseEstimateBean {
 	private int permissionId;
 	
 	
+	public int getAllowenceType() {
+		return allowenceType;
+	}
+	public void setAllowenceType(int allowenceType) {
+		this.allowenceType = allowenceType;
+	}
 	public String getSex() {
 		return sex;
 	}

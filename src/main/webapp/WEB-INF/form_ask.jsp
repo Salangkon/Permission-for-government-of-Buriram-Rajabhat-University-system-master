@@ -465,7 +465,7 @@
 </header>
 <script type="text/javascript">
 	function setAllowEnce(allowence,type) {
-		var x = $('#type'+allowence).val();
+		var x = $('#allowenceType'+allowence).val();
 		let nameA = 'allowence'+allowence;
 		if(type==1){
 			if(x == '1'){
