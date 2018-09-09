@@ -47,8 +47,26 @@ public class PermissionDao {
 		return response;
 	}
 	
+	// Java Date Thai Format
+	public static String dateThaiDay(String strDate) {
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+
+		int day = 0;
+		try {
+			java.util.Date date = df.parse(strDate);
+			Calendar c = Calendar.getInstance();
+			c.setTime(date);
+			day = c.get(Calendar.DATE);
+
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return String.format("%s", day);
+	}
+		
 	//Java Date Thai Format
-	public static String dateThai(String strDate)
+	public static String dateThaiMonths(String strDate)
 	{
 		String Months[] = {
 				" มกราคม"," กุมภาพันธ์"," มีนาคม",
@@ -57,21 +75,60 @@ public class PermissionDao {
 				" ธันวาคม"};
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd"); 
 		
-		int year=0,month=0,day=0;
+		int month=0;
 		try {
 			java.util.Date date = df.parse(strDate);
 			Calendar c = Calendar.getInstance();
 			c.setTime(date);  
-			
-			year = c.get(Calendar.YEAR);
 			month = c.get(Calendar.MONTH);
-			day = c.get(Calendar.DATE);
 			
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return String.format("%s %s %s", day  , " เดือน  " + Months[month] + " พ.ศ. ", year+543);
+		return String.format("%s",  Months[month] );
+	}
+	
+	//Java Date Thai Format
+	public static String dateThaiYear(String strDate)
+	{
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd"); 
+		
+		int year=0;
+		try {
+			java.util.Date date = df.parse(strDate);
+			Calendar c = Calendar.getInstance();
+			c.setTime(date);  
+			year = c.get(Calendar.YEAR);
+			
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return String.format("%s", year+543);
+	}
+	
+	// Java Date Thai Format
+	public static String dateThai(String strDate) {
+		String Months[] = { " มกราคม", " กุมภาพันธ์", " มีนาคม", " เมษายน", " พฤษภาคม", " มิถุนายน", " กรกฎาคม",
+				" สิงหาคม", " กันยายน", " ตุลาคม", " พฤศจิกายน", " ธันวาคม" };
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+
+		int year = 0, month = 0, day = 0;
+		try {
+			java.util.Date date = df.parse(strDate);
+			Calendar c = Calendar.getInstance();
+			c.setTime(date);
+
+			year = c.get(Calendar.YEAR);
+			month = c.get(Calendar.MONTH);
+			day = c.get(Calendar.DATE);
+
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return String.format("%s %s %s", day, " เดือน  " + Months[month] + " พ.ศ. ", year + 543);
 	}
 	
 	// update checkID permission
@@ -112,7 +169,9 @@ public class PermissionDao {
 					bean.setDepartmentName(rs.getString("department_name"));
 					bean.setPositionName(rs.getString("position_name"));
 					bean.setSubPositionName(rs.getString("sub_position_name"));
-					bean.setDate(dateThai(rs.getString("date")));
+					bean.setDateDay(dateThaiDay(rs.getString("date")));
+					bean.setDateMonth(dateThaiMonths(rs.getString("date")));
+					bean.setDateYear(dateThaiYear(rs.getString("date")));
 					
 					bean.setPurpose(rs.getString("purpose"));
 					bean.setPurpose1(rs.getString("purpose1"));
@@ -284,7 +343,7 @@ public class PermissionDao {
 				bean.setSex(rs.getString("sex"));
 				bean.setUserFname(rs.getString("user_fname"));
 				bean.setUserLname(rs.getString("user_lname"));
-				bean.setSubPosition(rs.getString("sub_position_name"));
+				bean.setSubPositionName(rs.getString("sub_position_name"));
 				
 				bean.setAllowence(rs.getInt("allowence"));
 				bean.setAllowencePerday(rs.getInt("allowence_perday"));

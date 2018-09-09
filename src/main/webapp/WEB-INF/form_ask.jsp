@@ -187,7 +187,6 @@
     <div class="w3-container w3-white w3-padding-16">
 
 <!-- กรอบที่ 3 -->
-
 <div style="size: 10;margin-bottom: 1%;margin-top: 2%;" class="col-sm-2 " >
 	<!-- Page Container -->
 	<div class="w3-container w3-content" style="max-width:100%;margin-top:20px">    
@@ -408,48 +407,45 @@
 </div>
 
 <!-- ขอใช้รถไปราชการ-->
-<div id="Manual Promotion3" style="display:none">
-	
-	<div class="col-sm-5">
-	<!-- Page Container -->
-	<div class="w3-container w3-content" style="max-width:100%;margin-top:20px;">    
+<!-- <div id="Manual Promotion3" style="display:none"> -->
+<!-- 	<div class="col-sm-5"> -->
+	<!-- Page Container --> 
+<!-- 	<div class="w3-container w3-content" style="max-width:100%;margin-top:20px;">     -->
 	<!-- Profile -->
-	<div class="w3-card w3-round w3-Turquoise" style="height: 19mm;background-color:rgba(255, 255, 0, 0.6);">
-	<div class="w3-container">
-	<div class="input-group" style="margin-top: 5mm">
-		<div class="input-group-addon">หมายเลขทะเบียน </div>
-		<input class="form-control" name="travelIdcard" id="travelIdcard" type="text" value="" maxlength="6"> 
-	</div>
-	</div></div></div>
-	</div> 
-	<div class="col-sm-7"></div>
-	
-	
-<div style="margin-bottom: 3%;" class="col-sm-12" >
-	<h3 style="color: white;"align="center"  class="w3-container w3-blue"><i class="fa fa-car w3-margin-right" style="font-size:30px;"></i>เลือกค่า พาหนะในการเดินทาง และกำหนดค่า  (หมายเหตุ ถ้ามี)</h3><br>
-	<table id="addTravel2" class="table table-bordered" style="font-family: sans-serif;font-size:small;width: 100%">   
-		<thead>
-    	<tr style="background: purple;color: white;">
-    		<th style="text-align:center">รหัส</th>
-         	<th style="text-align:center">รายการ</th>
-        	<th style="text-align:center">ระยะทาง<br>กม.</th>
-        	<th style="text-align:center">เที่ยว</th>
-        	<th style="text-align:center">ค่าน้ำมัน<br>ลิตรละ/บาท</th>
-        	<th style="text-align:center">หาร</th>
-        	<th style="text-align:center">รวม <br> ค่าเชื้อเพลิง</th>
-        	<th style="text-align:center">ค่าทางด่วน<br>ครัังละ/บาท</th>
-        	<th style="text-align:center">ค่าทางด่วน<br>ครััง</th>
-        	<th style="text-align:center">รวม <br> ค่าทางด่วน</th>
-			<th style="text-align:center">รวม</th>
-			<th style="text-align:center">หมายเหตุ</th>
-    	</tr>
-    	</thead>
-    </table>
-    <div align="right">
-   		<input class=" btn btn-primary" type="button" value="เลือกพาหนะ" onclick="document.getElementById('id04').style.display='block'">
-    </div>
-</div>	
-</div>
+<!-- 	<div class="w3-card w3-round w3-Turquoise" style="height: 19mm;background-color:rgba(255, 255, 0, 0.6);"> -->
+<!-- 	<div class="w3-container"> -->
+<!-- 	<div class="input-group" style="margin-top: 5mm"> -->
+<!-- 		<div class="input-group-addon">หมายเลขทะเบียน </div> -->
+<!-- 		<input class="form-control" name="travelIdcard" id="travelIdcard" type="text" value="" maxlength="6">  -->
+<!-- 	</div> -->
+<!-- 	</div></div></div> -->
+<!-- 	</div>  -->
+<!-- 	<div class="col-sm-7"></div> -->
+<!-- <div style="margin-bottom: 3%;" class="col-sm-12" > -->
+<!-- 	<h3 style="color: white;"align="center"  class="w3-container w3-blue"><i class="fa fa-car w3-margin-right" style="font-size:30px;"></i>เลือกค่า พาหนะในการเดินทาง และกำหนดค่า  (หมายเหตุ ถ้ามี)</h3><br> -->
+<!-- 	<table id="addTravel2" class="table table-bordered" style="font-family: sans-serif;font-size:small;width: 100%">    -->
+<!-- 		<thead> -->
+<!--     	<tr style="background: purple;color: white;"> -->
+<!--     		<th style="text-align:center">รหัส</th> -->
+<!--          	<th style="text-align:center">รายการ</th> -->
+<!--         	<th style="text-align:center">ระยะทาง<br>กม.</th> -->
+<!--         	<th style="text-align:center">เที่ยว</th> -->
+<!--         	<th style="text-align:center">ค่าน้ำมัน<br>ลิตรละ/บาท</th> -->
+<!--         	<th style="text-align:center">หาร</th> -->
+<!--         	<th style="text-align:center">รวม <br> ค่าเชื้อเพลิง</th> -->
+<!--         	<th style="text-align:center">ค่าทางด่วน<br>ครัังละ/บาท</th> -->
+<!--         	<th style="text-align:center">ค่าทางด่วน<br>ครััง</th> -->
+<!--         	<th style="text-align:center">รวม <br> ค่าทางด่วน</th> -->
+<!-- 			<th style="text-align:center">รวม</th> -->
+<!-- 			<th style="text-align:center">หมายเหตุ</th> -->
+<!--     	</tr> -->
+<!--     	</thead> -->
+<!--     </table> -->
+<!--     <div align="right"> -->
+<!--    		<input class=" btn btn-primary" type="button" value="เลือกพาหนะ" onclick="document.getElementById('id04').style.display='block'"> -->
+<!--     </div> -->
+<!-- </div>	 -->
+<!-- </div> -->
 
 </div><!-- end กรอบที่ 3-->
 	
@@ -481,6 +477,16 @@
 			}
 		}
 
+	}
+</script>
+
+<script type="text/javascript">
+	//กรอกได้เฉพราะ ตัวเลข
+	function chkNumber(ele)
+	{
+	var vchar = String.fromCharCode(event.keyCode);
+	if ((vchar<'0' || vchar>'9') && (vchar != '.')) return false;
+	ele.onKeyPress=vchar;
 	}
 </script>
 	

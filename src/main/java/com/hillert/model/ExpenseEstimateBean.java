@@ -7,7 +7,7 @@ public class ExpenseEstimateBean {
 	private String sex;
 	private String userFname;
 	private String userLname;
-	private String subPosition;
+	private String subPositionName;
 	private int allowenceType;
 	private int allowence;
 	private int allowencePerday;
@@ -50,11 +50,11 @@ public class ExpenseEstimateBean {
 	public void setUserLname(String userLname) {
 		this.userLname = userLname;
 	}
-	public String getSubPosition() {
-		return subPosition;
+	public String getSubPositionName() {
+		return subPositionName;
 	}
-	public void setSubPosition(String subPosition) {
-		this.subPosition = subPosition;
+	public void setSubPositionName(String subPositionName) {
+		this.subPositionName = subPositionName;
 	}
 	public int getAllowence() {
 		return allowence;

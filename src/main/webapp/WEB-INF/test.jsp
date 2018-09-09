@@ -60,9 +60,15 @@
 						<th style="max-width: 10mm; text-align: left;"><label><%=bean.getFacultyName()%></label></th>
 					</tr>
 					<tr>
-						<th colspan="4"
-							style="max-width: 4mm; right: 1em; text-align: left">
-							&nbsp;&nbsp; วันที่ <%=bean.getDate()%></th>
+						<th style="max-width: 4mm; right: 1em; text-align: left">
+							&nbsp;&nbsp; วันที่ <%=bean.getDateDay()%>
+                        </th>
+                        <th style="max-width: 4mm; right: 1em; text-align: left">
+							เดือน <%=bean.getDateMonth()%> 
+                        </th>
+                        <th colspan="2"style="max-width: 4mm; right: 1em; text-align: left">
+							พ.ศ. <%=bean.getDateYear()%>
+                        </th>
 					</tr>
 				</table>
 				<br>
@@ -970,9 +976,9 @@
 							for (int i = 0; i < beanEE.size(); i++) {
 						%>
 						<tr>
-							<th><%=i + 1%></th>
-							<th><%=beanEE.get(i).getUserFname()%>&nbsp;&nbsp; <%=beanEE.get(i).getUserLname()%></th>
-							<th><%=beanEE.get(i).getSubPosition()%></th>
+							<th style="text-align: left;margin-left: 2mm"><%=i + 1%></th>
+							<th style="text-align: left;"><%=beanEE.get(i).getUserFname()%>&nbsp;&nbsp; <%=beanEE.get(i).getUserLname()%></th>
+							<th style="text-align: left;"><%=beanEE.get(i).getSubPositionName()%></th>
 							<th>
 								<%
 									if (beanEE.get(i).getAllowenceSum() == 0) {

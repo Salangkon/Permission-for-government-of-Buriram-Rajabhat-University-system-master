@@ -1,7 +1,5 @@
 $(document).ready(function() {
 	
-	
-	
 	//คำนวณ ค่าพาหนะ ประจำทาง
 	$('#addTravel').on('change','input', function() { 	
 		var sum = $(this).parent().parent().find('td')[5];
@@ -319,9 +317,9 @@ $(document).ready(function() {
 					"sWidth" : "50px" ,
 					"mRender" : function(data,
 						type, row, index) {						
-					return '<input class="form-control number2" style="width: 16mm;height: 7mm" type="number" name="allowencePerday" id="allowencePerday'
+					return '<input class="form-control number2" style="width: 16mm;height: 7mm" type="text" OnKeyPress="return chkNumber(this)" name="allowencePerday" id="allowencePerday'
 							+ index.row
-							+ '" />';
+							+ '" value="" />';
 					}
 				},
 				{
@@ -339,7 +337,7 @@ $(document).ready(function() {
 					"sWidth" : "60px" ,
 					"mRender" : function(data,
 						type, row, index) {
-					return '<input class="form-control number3" type="number" style="width: 20mm;height: 7mm" id="rentDate'
+					return '<input class="form-control number3" type="text" OnKeyPress="return chkNumber(this)" style="width: 20mm;height: 7mm" id="rentDate'
 							+ index.row
 							+ '"  value="'+row.rentDate+'"/>';
 					}
@@ -349,7 +347,7 @@ $(document).ready(function() {
 					"sWidth" : "50px" ,
 					"mRender" : function(data,
 						type, row, index) {
-					return '<input class="form-control number4" type="number" style="width: 16mm;height: 7mm" name="rentDatePerday" id="rentDatePerday'
+					return '<input class="form-control number4" type="text" OnKeyPress="return chkNumber(this)" style="width: 16mm;height: 7mm" name="rentDatePerday" id="rentDatePerday'
 							+ index.row
 							+ '" />';
 					}
@@ -359,7 +357,7 @@ $(document).ready(function() {
 					"sWidth" : "60px" ,
 					"mRender" : function(data,
 						type, row, index) {
-					return '<input class="form-control sum9" disabled readonly="true"  type="text" style="width: 22mm;height: 7mm" name="rentDateSum" id="rentDateSum'
+					return '<input class="form-control sum9" disabled readonly="true" type="text" OnKeyPress="return chkNumber(this)" style="width: 22mm;height: 7mm" name="rentDateSum" id="rentDateSum'
 							+ index.row
 							+ '" value="0"/>';
 					}										
@@ -369,7 +367,7 @@ $(document).ready(function() {
 					"sWidth" : "60px" ,
 					"mRender" : function(data,
 						type, row, index) {
-					return '<input class="form-control sum10"  type="number" style="width: 22mm;height: 7mm" name="travelSum" id="travelSum'
+					return '<input class="form-control sum10"  type="text" OnKeyPress="return chkNumber(this)" style="width: 22mm;height: 7mm" name="travelSum" id="travelSum'
 							+ index.row 
 							+ '" value="0" />';
 					}										
@@ -490,7 +488,7 @@ $(document).ready(function() {
 													"sWidth" : "20px",
 													"mRender" : function(data,
 															type, row, index) {
-														return '<input class="form-control number1" style="width: 30mm;height: 7mm" type="number" id="numberPer'
+														return '<input class="form-control number1" style="width: 30mm;height: 7mm" type="text" OnKeyPress="return chkNumber(this)" id="numberPer'
 																+ index.row
 																+ '" />';
 													}
@@ -500,7 +498,7 @@ $(document).ready(function() {
 													"sWidth" : "20px",
 													"mRender" : function(data,
 															type, row, index) {
-														return '<input class="form-control number2" style="width: 30mm;height: 7mm" type="number" id="travelExpenses'
+														return '<input class="form-control number2" style="width: 30mm;height: 7mm" type="text" OnKeyPress="return chkNumber(this)" id="travelExpenses'
 																+ index.row
 																+ '"   />';
 													}
@@ -510,7 +508,7 @@ $(document).ready(function() {
 													"sWidth" : "20px",
 													"mRender" : function(data,
 															type, row, index, num) {
-														return '<input class="form-control number3" style="width: 30mm;height: 7mm" type="number" name="" id="userSum'
+														return '<input class="form-control number3" style="width: 30mm;height: 7mm" type="text" OnKeyPress="return chkNumber(this)" name="" id="userSum'
 																+ index.row
 																+ '"   />';
 													}
@@ -623,7 +621,7 @@ $(document).ready(function() {
 								"sWidth" : "20px",
 								"mRender" : function(data,
 										type, row, index) {
-									return '<input class="form-control number1" style="width: 20mm;height: 7mm" type="number" id="distance'
+									return '<input class="form-control number1" style="width: 20mm;height: 7mm" type="text" OnKeyPress="return chkNumber(this)" id="distance'
 											+ index.row
 											+ '" />';
 								}
@@ -633,7 +631,7 @@ $(document).ready(function() {
 								"sWidth" : "20px",
 								"mRender" : function(data,
 										type, row, index) {
-									return '<input class="form-control number2" style="width: 20mm;height: 7mm" type="number" id="numberPer'
+									return '<input class="form-control number2" style="width: 20mm;height: 7mm" type="text" OnKeyPress="return chkNumber(this)" id="numberPer'
 											+ index.row
 											+ '"   />';
 								}
@@ -643,7 +641,7 @@ $(document).ready(function() {
 								"sWidth" : "20px",
 								"mRender" : function(data,
 										type, row, index, num) {
-									return '<input class="form-control number3" style="width: 20mm;height: 7mm" type="number" name="" id="fuelCost'
+									return '<input class="form-control number3" style="width: 20mm;height: 7mm" type="text" OnKeyPress="return chkNumber(this)" name="" id="fuelCost'
 											+ index.row
 											+ '"   />';
 								}
@@ -653,7 +651,7 @@ $(document).ready(function() {
 								"sWidth" : "10px",
 								"mRender" : function(data,
 										type, row, index, num) {
-									return '<input class="form-control number4" style="width: 15mm;height: 7mm" type="number" name="" id="divide'
+									return '<input class="form-control number4" style="width: 15mm;height: 7mm" type="text" OnKeyPress="return chkNumber(this)" name="" id="divide'
 											+ index.row
 											+ '" value="7"  />';
 								}
@@ -673,7 +671,7 @@ $(document).ready(function() {
 								"sWidth" : "20px",
 								"mRender" : function(data,
 										type, row, index, num) {
-									return '<input class="form-control number7" style="width: 20mm;height: 7mm" type="number" name="" id="expresswayExpenses'
+									return '<input class="form-control number7" style="width: 20mm;height: 7mm" type="text" OnKeyPress="return chkNumber(this)" name="" id="expresswayExpenses'
 											+ index.row
 											+ '"   />';
 								}
@@ -683,7 +681,7 @@ $(document).ready(function() {
 								"sWidth" : "20px",
 								"mRender" : function(data,
 										type, row, index, num) {
-									return '<input class="form-control number8" style="width: 20mm;height: 7mm" type="number" name="" id="expresswayNumberPer'
+									return '<input class="form-control number8" style="width: 20mm;height: 7mm"type="text" OnKeyPress="return chkNumber(this)" name="" id="expresswayNumberPer'
 											+ index.row
 											+ '" value=""  />';
 								}
@@ -780,165 +778,165 @@ $(document).ready(function() {
 							"mData" : "vehicleName"
 						} ]
 					});
-					//รถรถขอไปราชการ
-					var tableSelectTravel2 = $('#addTravel2').DataTable({
-						"sAjaxDataProp" : "",
-						"aoColumns" : [
-								{
-									"mData" : "travelId",
-									"sWidth" : "20px",
-								},
-								{
-									"mData" : "vehicleName",
-									"sWidth" : "100px",
-								},
-								{	//ระยะทาง
-									"mData" : "distance",
-									"sWidth" : "20px",
-									"mRender" : function(data,
-											type, row, index) {
-										return '<input class="form-control number1" style="width: 20mm;height: 7mm" type="number" id="distance'
-												+ index.row
-												+ '" />';
-									}
-								},
-								{	//เที่ยว
-									"mData" : "numberPer",
-									"sWidth" : "20px",
-									"mRender" : function(data,
-											type, row, index) {
-										return '<input class="form-control number2" style="width: 20mm;height: 7mm" type="number" id="numberPer'
-												+ index.row
-												+ '"   />';
-									}
-								},
-								{	//ค่าน้ำมัน
-									"mData" : "fuelCost",
-									"sWidth" : "20px",
-									"mRender" : function(data,
-											type, row, index, num) {
-										return '<input class="form-control number3" style="width: 20mm;height: 7mm" type="number" name="" id="fuelCost'
-												+ index.row
-												+ '"   />';
-									}
-								},
-								{	//หารด้วย
-									"mData" : "divide",
-									"sWidth" : "10px",
-									"mRender" : function(data,
-											type, row, index, num) {
-										return '<input class="form-control number4" style="width: 15mm;height: 7mm" type="number" name="" id="divide'
-												+ index.row
-												+ '" value="7"  />';
-									}
-								},
-								{	//รวมค่าเชื้อเพลิง
-									"mData" : "fuelCostSum",
-									"sWidth" : "20px",
-									"mRender" : function(data,
-											type, row, index) {
-										return '<input class="form-control sum6" style="width: 30mm;height: 7mm" readonly="true" type="text" placeholder="รวม" name="" id="fuelCostSum'
-												+ index.row
-												+ '" />';
-									}
-								},
-								{	//ค่าทางด่วน/ครั้งละ/บาท
-									"mData" : "expresswayExpenses",
-									"sWidth" : "20px",
-									"mRender" : function(data,
-											type, row, index, num) {
-										return '<input class="form-control number7" style="width: 20mm;height: 7mm" type="number" name="" id="expresswayExpenses'
-												+ index.row
-												+ '"   />';
-									}
-								},
-								{   //ค่าทางด่วน/ครั้ง
-									"mData" : "expresswayNumberPer",
-									"sWidth" : "20px",
-									"mRender" : function(data,
-											type, row, index, num) {
-										return '<input class="form-control number8" style="width: 20mm;height: 7mm" type="number" name="" id="expresswayNumberPer'
-												+ index.row
-												+ '" value=""  />';
-									}
-								},
-								{	//รวม ค่าทางด่วน
-									"mData" : "expresswayExpensesSum",
-									"sWidth" : "20px",
-									"mRender" : function(data,
-											type, row, index) {
-										return '<input class="form-control sum9" style="width: 30mm;height: 7mm" readonly="true" type="text" placeholder="รวม" name="" id="expresswayExpensesSum'
-												+ index.row
-												+ '" />';
-									}
-								},
-								{	//รวมทั้งหมด
-									"mData" : "sum",
-									"sWidth" : "20px",
-									"mRender" : function(data,
-											type, row, index) {
-										return '<input class="form-control sum10" style="width: 30mm;height: 7mm" readonly="true" type="text" placeholder="รวม" name="" id="sum'
-												+ index.row
-												+ '" />';
-									}
-								},
-								{
-									"mData" : "vehicleC",
-									"sWidth" : "500px",
-									"mRender" : function(data,
-											type, row, index) {
-										return '<input class="form-control" style="width: 100mm;height: 7mm" type="text" id="vehicleC'
-												+ index.row
-												+ '" />';
-									}
-								}]
-					});
-					$('#travelTable2').on('click', 'tr', function() {
-						$(this).toggleClass('selected');	
-					});		
-					$('#buttonAdd4').click(function() {
-						var datas = tableTravel2.rows('.selected').data();
-						tableSelectTravel2.rows.add(datas).draw(false);
-						tableTravel2.rows('.selected').remove().draw();
-						console.log(datas);		
-
-					});
-					$('#saveExpenseEstimate').click(function() {
-						console.log("");
-						var d ;
-						var inputdata = [];
-						for (var i = 0; i < tableSelectTravel2.data().length; i++) {
-							d = tableSelectTravel2.data()[i];
-							console.log(d);
-							d.distance = $("#distance"+i).val();
-							d.numberPer = $("#numberPer"+i).val()
-							d.fuelCost = $("#fuelCost"+i).val();
-							d.divide = $("#divide"+i).val();
-							d.fuelCostSum = $("#fuelCostSum"+i).val();
-							d.expresswayExpenses = $("#expresswayExpenses"+i).val();
-							d.expresswayNumberPer = $("#expresswayNumberPer"+i).val();
-							d.expresswayExpensesSum = $("#expresswayExpensesSum"+i).val();
-							d.sum = $("#sum"+i).val();
-							d.vehicleC = $("#vehicleC"+i).val();
-							inputdata.push(d);
-						}				
-						$.ajax({
-							type : "POST",
-							url : "/insertTravelExpensesFuelCost",
-							data : JSON.stringify(inputdata),
-							dataType : "json",
-							async : false,
-							contentType : "application/json; charset=utf-8",
-							success : function(res) {
-								// console.log(res)
-//								window.location.href = res.page;
-							},
-							error : function() {
-								window.location.href = "insertPermissionFail";
-							}
-						});
-
-					});
+//					//รถรถขอไปราชการ
+//					var tableSelectTravel2 = $('#addTravel2').DataTable({
+//						"sAjaxDataProp" : "",
+//						"aoColumns" : [
+//								{
+//									"mData" : "travelId",
+//									"sWidth" : "20px",
+//								},
+//								{
+//									"mData" : "vehicleName",
+//									"sWidth" : "100px",
+//								},
+//								{	//ระยะทาง
+//									"mData" : "distance",
+//									"sWidth" : "20px",
+//									"mRender" : function(data,
+//											type, row, index) {
+//										return '<input class="form-control number1" style="width: 20mm;height: 7mm" type="number" id="distance'
+//												+ index.row
+//												+ '" />';
+//									}
+//								},
+//								{	//เที่ยว
+//									"mData" : "numberPer",
+//									"sWidth" : "20px",
+//									"mRender" : function(data,
+//											type, row, index) {
+//										return '<input class="form-control number2" style="width: 20mm;height: 7mm" type="number" id="numberPer'
+//												+ index.row
+//												+ '"   />';
+//									}
+//								},
+//								{	//ค่าน้ำมัน
+//									"mData" : "fuelCost",
+//									"sWidth" : "20px",
+//									"mRender" : function(data,
+//											type, row, index, num) {
+//										return '<input class="form-control number3" style="width: 20mm;height: 7mm" type="number" name="" id="fuelCost'
+//												+ index.row
+//												+ '"   />';
+//									}
+//								},
+//								{	//หารด้วย
+//									"mData" : "divide",
+//									"sWidth" : "10px",
+//									"mRender" : function(data,
+//											type, row, index, num) {
+//										return '<input class="form-control number4" style="width: 15mm;height: 7mm" type="number" name="" id="divide'
+//												+ index.row
+//												+ '" value="7"  />';
+//									}
+//								},
+//								{	//รวมค่าเชื้อเพลิง
+//									"mData" : "fuelCostSum",
+//									"sWidth" : "20px",
+//									"mRender" : function(data,
+//											type, row, index) {
+//										return '<input class="form-control sum6" style="width: 30mm;height: 7mm" readonly="true" type="text" placeholder="รวม" name="" id="fuelCostSum'
+//												+ index.row
+//												+ '" />';
+//									}
+//								},
+//								{	//ค่าทางด่วน/ครั้งละ/บาท
+//									"mData" : "expresswayExpenses",
+//									"sWidth" : "20px",
+//									"mRender" : function(data,
+//											type, row, index, num) {
+//										return '<input class="form-control number7" style="width: 20mm;height: 7mm" type="number" name="" id="expresswayExpenses'
+//												+ index.row
+//												+ '"   />';
+//									}
+//								},
+//								{   //ค่าทางด่วน/ครั้ง
+//									"mData" : "expresswayNumberPer",
+//									"sWidth" : "20px",
+//									"mRender" : function(data,
+//											type, row, index, num) {
+//										return '<input class="form-control number8" style="width: 20mm;height: 7mm" type="number" name="" id="expresswayNumberPer'
+//												+ index.row
+//												+ '" value=""  />';
+//									}
+//								},
+//								{	//รวม ค่าทางด่วน
+//									"mData" : "expresswayExpensesSum",
+//									"sWidth" : "20px",
+//									"mRender" : function(data,
+//											type, row, index) {
+//										return '<input class="form-control sum9" style="width: 30mm;height: 7mm" readonly="true" type="text" placeholder="รวม" name="" id="expresswayExpensesSum'
+//												+ index.row
+//												+ '" />';
+//									}
+//								},
+//								{	//รวมทั้งหมด
+//									"mData" : "sum",
+//									"sWidth" : "20px",
+//									"mRender" : function(data,
+//											type, row, index) {
+//										return '<input class="form-control sum10" style="width: 30mm;height: 7mm" readonly="true" type="text" placeholder="รวม" name="" id="sum'
+//												+ index.row
+//												+ '" />';
+//									}
+//								},
+//								{
+//									"mData" : "vehicleC",
+//									"sWidth" : "500px",
+//									"mRender" : function(data,
+//											type, row, index) {
+//										return '<input class="form-control" style="width: 100mm;height: 7mm" type="text" id="vehicleC'
+//												+ index.row
+//												+ '" />';
+//									}
+//								}]
+//					});
+//					$('#travelTable2').on('click', 'tr', function() {
+//						$(this).toggleClass('selected');	
+//					});		
+//					$('#buttonAdd4').click(function() {
+//						var datas = tableTravel2.rows('.selected').data();
+//						tableSelectTravel2.rows.add(datas).draw(false);
+//						tableTravel2.rows('.selected').remove().draw();
+//						console.log(datas);		
+//
+//					});
+//					$('#saveExpenseEstimate').click(function() {
+//						console.log("");
+//						var d ;
+//						var inputdata = [];
+//						for (var i = 0; i < tableSelectTravel2.data().length; i++) {
+//							d = tableSelectTravel2.data()[i];
+//							console.log(d);
+//							d.distance = $("#distance"+i).val();
+//							d.numberPer = $("#numberPer"+i).val()
+//							d.fuelCost = $("#fuelCost"+i).val();
+//							d.divide = $("#divide"+i).val();
+//							d.fuelCostSum = $("#fuelCostSum"+i).val();
+//							d.expresswayExpenses = $("#expresswayExpenses"+i).val();
+//							d.expresswayNumberPer = $("#expresswayNumberPer"+i).val();
+//							d.expresswayExpensesSum = $("#expresswayExpensesSum"+i).val();
+//							d.sum = $("#sum"+i).val();
+//							d.vehicleC = $("#vehicleC"+i).val();
+//							inputdata.push(d);
+//						}				
+//						$.ajax({
+//							type : "POST",
+//							url : "/insertTravelExpensesFuelCost",
+//							data : JSON.stringify(inputdata),
+//							dataType : "json",
+//							async : false,
+//							contentType : "application/json; charset=utf-8",
+//							success : function(res) {
+//								// console.log(res)
+////								window.location.href = res.page;
+//							},
+//							error : function() {
+//								window.location.href = "insertPermissionFail";
+//							}
+//						});
+//
+//					});
 								
 					
 });//end

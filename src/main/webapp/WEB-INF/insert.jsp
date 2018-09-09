@@ -19,7 +19,17 @@
 <!-- 	<script src="/js/alertInsert.js"></script> -->
 	<script src="/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript">var dataSet = []</script>
-	<%
+
+	<script type="text/javascript">
+		//กรอกได้เฉพราะ ตัวเลข
+		function chkNumber(ele)
+		{
+		var vchar = String.fromCharCode(event.keyCode);
+		if ((vchar<'0' || vchar>'9') && (vchar != '.')) return false;
+		ele.onKeyPress=vchar;
+		}
+	</script>
+<%
 	UserBean bean = null;
 	String result = "";
 	%>
@@ -125,7 +135,7 @@
 			<div style="size: 10" class="col-sm-6"> 
 				<div class="form-group">
 					<label for="exampleFormControlSelect1">หมายเลขโทรศัพท์</label>
-					<input class="form-control" type="text" id="numberPhone" maxlength="10" max="10" onKeyUp="if(isNaN(this.value)){ alert('กรุณากรอกตัวเลข'); this.value='';}"/>
+					<input class="form-control" type="text" id="numberPhone" maxlength="10" max="10" OnKeyPress="return chkNumber(this)">
 					
 				</div>
 			</div>

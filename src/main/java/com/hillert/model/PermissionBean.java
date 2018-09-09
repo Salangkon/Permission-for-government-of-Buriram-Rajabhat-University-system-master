@@ -10,13 +10,17 @@ public class PermissionBean {
 	private int userId;
 	private String userFname;
 	private String userLname;
+	private String date;
+	private String dateDay;
+	private String dateMonth;
+	private String dateYear;
 	private String sex;
 	
 	private String facultyName;
 	private String departmentName;
 	private String positionName;
 	private String subPositionName;
-	private String date;
+	
 	
 	private String status;
 	private String object;
@@ -65,6 +69,24 @@ public class PermissionBean {
 	private Timestamp createDate;
 	
 	
+	public String getDateDay() {
+		return dateDay;
+	}
+	public void setDateDay(String dateDay) {
+		this.dateDay = dateDay;
+	}
+	public String getDateMonth() {
+		return dateMonth;
+	}
+	public void setDateMonth(String dateMonth) {
+		this.dateMonth = dateMonth;
+	}
+	public String getDateYear() {
+		return dateYear;
+	}
+	public void setDateYear(String dateYear) {
+		this.dateYear = dateYear;
+	}
 	public String getDistrictId() {
 		return districtId;
 	}

@@ -1,3 +1,4 @@
+
 <%@page import="com.hillert.model.ExpenseSumaryBean"%>
 <%@page import="java.util.List"%>
 <%@page import="com.hillert.model.ExpenseEstimateBean"%>
@@ -11,7 +12,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>update</title>
 
-
+	<script type="text/javascript">
+		//กรอกได้เฉพราะ ตัวเลข
+		function chkNumber(ele)
+		{
+		var vchar = String.fromCharCode(event.keyCode);
+		if ((vchar<'0' || vchar>'9') && (vchar != '.')) return false;
+		ele.onKeyPress=vchar;
+		}
+	</script>
 	<script>
 		function w3_open() {
 			document.getElementById("main").style.marginLeft = "180px";
@@ -32,8 +41,6 @@
 		}
 	}
 	</style>
-
-
 
 	<style type="text/css">
 	#grad1 {
@@ -126,11 +133,36 @@
 	<div class="w3-container" >
 	<div  style="margin-top: 3%">
 	<div></div>
-
+	<br>
 	<label>เรียน อธิการบดีมหาวิทยาลัยราชภัฏบุรีรัมย์</label><br>
 	<label>ตามคำสั่ง/บันทึกที่ </label><input class="form-control" type="text">
-	<label>ลงวันที่ </label><input class="form-control" type="date">
-	<form name="v" enctype="multipart/form-data" style="margin-top: 3.5%">  
+	<label>ลงวันที่ </label><input class="form-control" type="date"><hr>
+	<label>ขอเบิกค่าใช้จ่ายในการเดินทางไปราชการสำหรับ </label><br>
+		<input name="a" id="" type="radio" value="" style="margin-left: 4%" > <label> ข้าพเจ้า</label>
+        <input name="a"	id="" type="radio" value="" style="margin-left: 4%" > <label> คณะเดินทาง</label><br><br>
+	<table>
+		<tr>
+			<td style="width: 40mm"><label>ค่าเบี๋ยเลี้ยงการเดินทาง </label></td>
+			<td style="width: 18mm"><label><u>ประเภท</u></label></td>
+			<td>
+				<select class="form-control" name="" id="" style="width: 15mm">
+					<option value="1">ก</option>
+					<option value="2">ข</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td><label>ค่าที่พัก</label></td>
+			<td><label><u>ประเภท</u></label></td>
+			<td>
+				<select class="form-control" name="" id="" style="width: 15mm">
+					<option value="1">ก</option>
+					<option value="2">ข</option>
+				</select>
+			</td>
+		</tr>
+	</table>
+	<form name="v" enctype="multipart/form-data" style="margin-top: 3.5%" >  
 <!--        <input name="v" type="file"> -->
 	</form>
 	</div>
@@ -155,49 +187,58 @@
 	<div class="form-group">
 	<label for="exampleFormControlSelect1">จังหวัด</label> 
 		<select class="form-control" name="province" id="province">
-			<option value=""><%=bean.getProvince() %></option>
+			<option value="">== กรุณาเลือก ==</option>
 		</select>
 	</div>
 	<!-- อำเภอ Amphur -->
 	<div class="form-group">
 	<label for="exampleFormControlSelect1">อำเภอ</label>
 			<select class="form-control" name="amphur" id="amphur">
-				<option value=""><%=bean.getAmphur() %></option>
+				<option value="">== กรุณาเลือก ==</option>
 			</select>
 	</div>
 	<!-- ตำบล  District -->
 	<div class="form-group">
 	<label for="exampleFormControlSelect1">ตำบล</label>
 		<select class="form-control" name="district" id="district">
-			<option value="<%=bean.getDistrictId() %>"><%=bean.getDistrict() %></option>
+			<option value="">== กรุณาเลือก ==</option>
 		</select>
 	</div>
 	</div></div></div>
  	</div><!--end -->
 
-	<div style="size: 10" class="col-sm-4 " >
+	<div class="col-sm-4 " >
 	<!-- Page Container -->
 	<div class="w3-container w3-content" style="max-width:1400px;margin-top:20px;">    
 	<!-- Profile -->
 	<div class="w3-card w3-round w3-Turquoise">
 	<div class="w3-container" style="background-color:rgba(255, 99, 71, 0.4);">
+<form action="">
 
-    <div class="form-group" style="margin-top:20px">
+    <div class="col-sm-6" style="margin-top:20px">
     	<label>ตั้งแต่วันที่</label> 
-   		<input class="form-control" name="" id="" type="date" value=""  > 
+   		<input class="form-control" name="" id="b_go_date" type="date" value=""  > 
+   	</div>
+	<div class="col-sm-6" style="margin-top:20px">
    		<label>เวลา</label> 
    		<input class="form-control" name="" id="" type="time" value=""  > 
    	</div>
-   	<div class="form-group" style="margin-top:20px">
+
+   	<div class="form-group col-sm-12" style="margin-top:20px">
     	<label>กลับถึง :</label> 
    		<input name="a" id="" type="radio" value="" style="margin-left: 4%" > <label> บ้านพัก</label>
         <input name="a"	id="" type="radio" value="" style="margin-left: 4%" > <label> สำนักงาน</label> 
     </div>
-   		<label>ตั้งแต่วันที่</label> 
-   		<input class="form-control" name="" id="" type="date" value=""  > 
+    <div class="col-sm-6">
+    	<label>ตั้งแต่วันที่</label> 
+   		<input class="form-control" name="" id="b_go_date" type="date" value=""  > 
+   	</div>
+	<div class="col-sm-6" >
    		<label>เวลา</label> 
    		<input class="form-control" name="" id="" type="time" value=""  > 
-   	<div style="size: 10;margin-bottom: 6.5mm"  >
+   		<input type="button" id="submit" onclick="dateDiff()" value="calculate" />
+   	</div> 
+   	<div style="size: 10;margin-bottom: 6.5mm" class="col-sm-12" >
    		<label>รวมเวลาไปราชการ</label> 
    			<div class="input-group">
 			<input class="form-control" style="text-align:center id="" type="number" >
@@ -205,7 +246,10 @@
 			<div class="input-group">
 			<input class="form-control" style="text-align:center id="" type="number" >
 			<div class="input-group-addon">ชั่วโมง</div>
+   			</div>
    	</div>
+   	</div>
+   	</form>
 	</div></div></div>
  	</div><!--end -->
 	</div>
@@ -224,19 +268,7 @@
 <!-- กรอบที่ 3 -->
 
 <div style="size: 10;margin-bottom: 1%;margin-top: 2%;" class="col-sm-2 " >
-	<!-- Page Container -->
-	<div class="w3-container w3-content" style="max-width:100%;margin-top:20px">    
-	<!-- Profile -->
-	<div class="w3-card w3-round w3-Turquoise" >
-	<div class="w3-container">
-	<div class="form-group" style="margin-top: 4%">
-	<label> งบประมาณ  </label>
-		<select class="form-control" name="Budget" id="budget" ><!-- onChange="Show(this.selectedIndex)" -->
-        	<option value="ไม่เบิกค่าใช้จ่าย" >ไม่เบิกค่าใช้จ่าย </option>
-        	<option value="เบิกค่ามใช้จ่าย" >เบิกค่าใช้จ่าย</option>
-		</select>
-	</div>
-	</div></div></div>
+
 	<div style="size: 10" class="col-sm-10 " ></div>
 </div>
 	<!-- <div id="No Budget" style="display:none"></div>  -->
@@ -244,68 +276,12 @@
 	<!-- เบิกค่าใช้จ่าย -->
 	<div ><!--id="Manual Budget" style="display:none"  -->
 <div class="col-sm-12" >
- 	<!-- Page Container -->
-	<div class="w3-container w3-content" style="max-width:100%;margin-top:20px">    
-	<!-- Profile -->
-	<div class="w3-card w3-round w3-Turquoise">
-	<div class="w3-container">
- <div style="size: 10" class="col-sm-2 ">
-	<div class="form-group" style="margin-top: 4%">
-	<label>เบิกค่าใช้จ่าย  </label>		
-		<select class="form-control" name="budgetExpenses" id="budgetExpenses">
-			<option value="<%=bean.getBudgetExpenses() %>"><%=bean.getBudgetExpenses() %></option>
-        	<option value="ตามสิทธิ์">ตามสิทธิ์</option>
-  			<option value="เหมาจ่าย">เหมาจ่าย</option>
-		</select>
-	</div>
-</div>
-<div style="size: 10" class="col-sm-2 " >
-	<div class="form-group" style="margin-top: 4%">
-	<label>ใช้งบประมาณ  </label>
-		<select class="form-control" name="budgetBy" id="budgetBy">
-			<option value="<%=bean.getBudgetBy() %>"><%=bean.getBudgetBy() %></option>
-        	<option value="งบประมาณแผ่นดิน">งบประมาณแผ่นดิน</option>
-  			<option value="งบรายได้">งบรายได้</option>
-  			<option value="อื่นๆ">อื่นๆ</option>
-		</select>
-	</div>
-</div>
-<div style="size: 10" class="col-sm-4 " >
-	<div class="form-group" style="margin-top: 1.7%">
-	<label> โครงการ  </label><input class="form-control" name="budgetProject" id="budgetProject" type="text" value="<%=bean.getBudgetProject() %>">
-	</div>
-</div>
-<div style="size: 10" class="col-sm-2 " >
-	<div class="form-group" style="margin-top: 3.5%">
-	<label> รหัส    </label><input class="form-control" name="budgetPass" id="budgetPass" type="text" value="<%=bean.getBudgetPass() %>" onkeyup="autoTab(this)">
-	</div>
-</div>
-<div style="size: 10" class="col-sm-2 ">
-	<div class="input-group" style="margin-top: 15%">
-	<div class="input-group-addon">วงเงิน</div><input class="form-control" style="text-align:center" id="aaa" type="text" disabled value="<%=beanEs.getExpenseEstimateSumTotal() %>"">
-	<div class="input-group-addon">บาท</div>
-    </div>
-</div>
-	</div></div></div>
+ 	
 </div>
 
 	<div style="size: 10;margin-bottom: 3%;" class="col-sm-12"  id="Manual Budget" style="display:none">
 	<h3 style="color: white;margin-bottom: 2%"align="center"  class="w3-container w3-blue"><i class="fa fa-user w3-margin-right" style="font-size:30px;"></i>เลือกบุคคลกรร่วมไปราชการ พร้อมกำหนดค่าใช้จ่าย  (กรุณาใส่ 0 ในช่องว่าง)</h3>
 	
-	<!-- Page Container -->
-	<div class="w3-container w3-content" style="max-width:100%;">    
-	<!-- Profile -->
-	<div class="w3-card w3-round w3-Turquoise">
-	<div class="w3-container">
-	<div class="col-sm-3" style="margin-bottom: 1%;margin-top: 1%;"><label>ค่าเบี้ยเลี้ยง(รายละเอียดค่าเบี้ยเลี้ยง)</label> 
-		<a class="test" href="#" data-toggle="tooltip" data-placement="top" title=" (240 x 2) + (180  x 2) ">ตัวอย่าง</a>
-	</div>
-	<div class="col-sm-3" style="margin-bottom: 1%;margin-top: 1%;"><input type="text" id="allowenceDetails" class="form-control" style="height: 7mm" value="<%=beanEs.getAllowenceDetails() %>"></div>
-	<div class="col-sm-3" style="margin-bottom: 1%;margin-top: 1%;"><label>ค่าเช่าที่พัก (รายละเอียดเช่าที่พัก)</label>
-		<a class="test" href="#" data-toggle="tooltip" data-placement="top" title=" (240 x 2) + (180  x 2) ">ตัวอย่าง</a>
-	</div>
-	<div class="col-sm-3" style="margin-bottom: 1%;margin-top: 1%;"><input type="text" id="rentDateDetails" class="form-control" style="height: 7mm" value="<%=beanEs.getRentDateDetails() %>"></div>
-	</div></div></div><br>
 	<table id="addUser" class="table table-bordered" style="font-family: sans-serif;font-size:small;width: 100%" >   
 		<thead>
     	<tr style="background: purple;color: white;">
@@ -328,7 +304,7 @@
     	</thead>
     	<tfoot>
     	<tr>
-    		<th colspan="5"><label style="margin-left: 10%">รวม</label><label style="margin-left: 30mm" id="userSumTotal"></label><label style="margin-left: 30mm">คน</label>  </th>
+    		<th colspan="6"><label style="margin-left: 10%">รวม</label><label style="margin-left: 30mm" id="userSumTotal"></label><label style="margin-left: 30mm">คน</label>  </th>
     		<th id="allowencePerdayTotal"></th>
 			<th style="text-align:center" id="allowenceSumTotal"></th>
 			<th ></th>
@@ -344,147 +320,6 @@
     	<input class=" btn btn-primary" type="button" value="เพิ่มบุลคลากร" onclick="document.getElementById('id01').style.display='block'">
     </div>
  	</div><!-- end dataTable Expense -->
-
- 
-<div style="size: 10" class="col-sm-2" >
- 	<!-- Page Container -->
-	<div class="w3-container w3-content" style="max-width:100%;margin-top:20px">    
-	<!-- Profile -->
-	<div class="w3-card w3-round w3-Turquoise">
-	<div class="w3-container">
-	<div class="form-group">
-	<label> การเดินทาง  </label>   
-    <select class="form-control" name="travel" id="travel" ><!-- onChange="ShowReg(this.selectedIndex)" -->
-   		<option value="">== เลือกภาหนะ ==</option>
-      	<option value="พาหนะประจำทาง">พาหนะประจำทาง</option>
-  		<option value="ขอใช้รถส่วนตัว">ขอใช้รถส่วนตัว</option>
-  		<option value="ขอใช้รถไปราชการ">ขอใช้รถไปราชการ </option>
-	</select>
-    </div>
-    </div></div></div>
-</div>
-<div style="size: 10" class="col-sm-10" ></div>
-   
-    <!-- ไม่ได้เลือก -->
-<!-- 	<div id="No Promotion" style="display:none"></div>  -->
-
-<div><!-- id="Manual Promotion1" style="display:none" -->
-<div style="margin-bottom: 3%;" class="col-sm-12" >
-	<h3 style="color: white;"align="center"  class="w3-container w3-blue"><i class="fa fa-car w3-margin-right" style="font-size:30px;"></i>เลือกค่า พาหนะในการเดินทาง และกำหนดค่า  (หมายเหตุ ถ้ามี)</h3><br>
-	<table id="addTravel" class="table table-bordered" style="font-family: sans-serif;font-size:small;width: 100%">   
-		<thead>
-    	<tr style="background: purple;color: white;">
-    		<th style="text-align:center">รหัส</th>
-         	<th style="text-align:center">รายการ</th>
-        	<th style="text-align:center">จำนวน/เที่ยว</th>
-        	<th style="text-align:center">เที่ยวละ/บาท</th>
-        	<th style="text-align:center">จำนวน/คน</th>
-			<th style="text-align:center">รวม</th>
-			<th style="text-align:center">หมายเหตุ</th>
-			<th></th>
-    	</tr>
-    	</thead>
-    	<tfoot>
-    	<tr>
-    		<th style="text-align:right;" colspan="4"></th>
-			<th style="text-align:center" ></th>
-			<th style="text-align:center" ><label id="summary1"></label></th>
-			<th colspan="2"></th>
-    	</tr>
-    	</tfoot>
-    </table>
-    <div align="right">
-   		<input class=" btn btn-primary" type="button" value="เลือกพาหนะ" onclick="document.getElementById('id02').style.display='block'">
-    </div>
-</div>
-</div>
-
-<!-- ขอใช้รถส่วนตัว -->
-
-<div><!-- id="Manual Promotion2" style="display:none"  -->
-<div class="col-sm-5">
-	<!-- Page Container -->
-	<div class="w3-container w3-content" style="max-width:100%;margin-top:20px;">    
-	<!-- Profile -->
-	<div class="w3-card w3-round w3-Turquoise" style="height: 19mm;background-color:rgba(255, 255, 0, 0.6);">
-	<div class="w3-container">
-	<div class="input-group" style="margin-top: 5mm">
-		<div class="input-group-addon">หมายเลขทะเบียน </div>
-		<input class="form-control" name="travelIdcard" id="travelIdcard" type="text" value="" maxlength="6"> 
-	</div>
-	</div></div></div>
-	</div> 
-	<div class="col-sm-7"></div>
-	
-	<div style="margin-bottom: 3%;" class="col-sm-12" >
-	<h3 style="color: white;"align="center"  class="w3-container w3-blue"><i class="fa fa-car w3-margin-right" style="font-size:30px;"></i>เลือกค่า พาหนะในการเดินทาง และกำหนดค่า  (หมายเหตุ ถ้ามี)</h3><br>
-	<table id="addTravel1" class="table table-bordered" style="font-family: sans-serif;font-size:small;width: 100%">   
-		<thead>
-    	<tr style="background: purple;color: white;">
-    		<th style="text-align:center">รหัส</th>
-         	<th style="text-align:center">รายการ</th>
-        	<th style="text-align:center">ระยะทาง<br>กม.</th>
-        	<th style="text-align:center">เที่ยว</th>
-        	<th style="text-align:center">ค่าน้ำมัน<br>ลิตรละ/บาท</th>
-        	<th style="text-align:center">หาร</th>
-        	<th style="text-align:center">รวม <br> ค่าเชื้อเพลิง</th>
-        	<th style="text-align:center">ค่าทางด่วน<br>ครัังละ/บาท</th>
-        	<th style="text-align:center">ค่าทางด่วน<br>ครััง</th>
-        	<th style="text-align:center">รวม <br> ค่าทางด่วน</th>
-			<th style="text-align:center">รวม</th>
-			<th style="text-align:center">หมายเหตุ</th>
-    	</tr>
-    	</thead>
-    </table>
-    <div align="right">
-   		<input class=" btn btn-primary" type="button" value="เลือกพาหนะ" onclick="document.getElementById('id03').style.display='block'">
-    </div>
-</div>
-</div>
-
-<!-- ขอใช้รถไปราชการ-->
-<div><!--   id="Manual Promotion3" style="display:none"-->
-	
-	<div class="col-sm-5">
-	<!-- Page Container -->
-	<div class="w3-container w3-content" style="max-width:100%;margin-top:20px;">    
-	<!-- Profile -->
-	<div class="w3-card w3-round w3-Turquoise" style="height: 19mm;background-color:rgba(255, 255, 0, 0.6);">
-	<div class="w3-container">
-	<div class="input-group" style="margin-top: 5mm">
-		<div class="input-group-addon">หมายเลขทะเบียน </div>
-		<input class="form-control" name="travelIdcard" id="travelIdcard" type="text" value="" maxlength="6"> 
-	</div>
-	</div></div></div>
-	</div> 
-	<div class="col-sm-7"></div>
-	
-	
-<div style="margin-bottom: 3%;" class="col-sm-12" >
-	<h3 style="color: white;"align="center"  class="w3-container w3-blue"><i class="fa fa-car w3-margin-right" style="font-size:30px;"></i>เลือกค่า พาหนะในการเดินทาง และกำหนดค่า  (หมายเหตุ ถ้ามี)</h3><br>
-	<table id="addTravel2" class="table table-bordered" style="font-family: sans-serif;font-size:small;width: 100%">   
-		<thead>
-    	<tr style="background: purple;color: white;">
-    		<th style="text-align:center">รหัส</th>
-         	<th style="text-align:center">รายการ</th>
-        	<th style="text-align:center">ระยะทาง<br>กม.</th>
-        	<th style="text-align:center">เที่ยว</th>
-        	<th style="text-align:center">ค่าน้ำมัน<br>ลิตรละ/บาท</th>
-        	<th style="text-align:center">หาร</th>
-        	<th style="text-align:center">รวม <br> ค่าเชื้อเพลิง</th>
-        	<th style="text-align:center">ค่าทางด่วน<br>ครัังละ/บาท</th>
-        	<th style="text-align:center">ค่าทางด่วน<br>ครััง</th>
-        	<th style="text-align:center">รวม <br> ค่าทางด่วน</th>
-			<th style="text-align:center">รวม</th>
-			<th style="text-align:center">หมายเหตุ</th>
-    	</tr>
-    	</thead>
-    </table>
-    <div align="right">
-   		<input class=" btn btn-primary" type="button" value="เลือกพาหนะ" onclick="document.getElementById('id04').style.display='block'">
-    </div>
-</div>	
-</div>
 
 </div><!-- end กรอบที่ 3-->
 	
@@ -538,99 +373,6 @@
 			</form>
 		</div>
 	</header>
-
-	<!-- เพิ่มพาหนะ-->
-	<header class="w3-display-container w3-content">
-		<div id="id02" class="modal">
-			<form class="modal-content animate" action=""
-				style="max-width: 95%; margin-top: 5%; margin-left: 25%; margin-right: 10%">
-				<div class="w3-container w3-blue">
-					<h2>
-						<i class="fa fa-address-card-o w3-margin-right"></i> เพิ่มพาหนะ
-					</h2>
-				</div>
-				<div class="w3-container w3-white w3-padding-16">
-					<table id="travelTable" class="table table-bordered">
-						<thead>
-							<tr style="background: purple; color: white;">
-								<th>ลำดับ</th>
-								<th>พาหนะ</th>
-							</tr>
-						</thead>
-					</table>
-
-					<div style="size: 10" class="col-sm-12 " align="center">
-						<button type="button" class="btn btn-success" id="buttonAdd2">ยืนยัน</button>
-						<button type="button"
-							onclick="document.getElementById('id02').style.display='none'"
-							class="btn btn-danger">ปิด</button>
-					</div>
-				</div>
-			</form>
-		</div>
-	</header>
-	
-		<!-- เพิ่มพาหนะ รถส่วนตัว-->
-	<header class="w3-display-container w3-content">
-		<div id="id03" class="modal">
-			<form class="modal-content animate" action=""
-				style="max-width: 95%; margin-top: 5%; margin-left: 25%; margin-right: 10%">
-				<div class="w3-container w3-blue">
-					<h2>
-						<i class="fa fa-address-card-o w3-margin-right"></i> เพิ่มพาหนะ
-					</h2>
-				</div>
-				<div class="w3-container w3-white w3-padding-16">
-					<table id="travelTable1" class="table table-bordered">
-						<thead>
-							<tr style="background: purple; color: white;">
-								<th>ลำดับ</th>
-								<th>พาหนะ</th>
-							</tr>
-						</thead>
-					</table>
-
-					<div style="size: 10" class="col-sm-12 " align="center">
-						<button type="button" class="btn btn-success" id="buttonAdd3">ยืนยัน</button>
-						<button type="button"
-							onclick="document.getElementById('id03').style.display='none'"
-							class="btn btn-danger">ปิด</button>
-					</div>
-				</div>
-			</form>
-		</div>
-	</header>
-	
-			<!-- เพิ่มพาหนะ รถไปราชการ-->
-	<header class="w3-display-container w3-content">
-		<div id="id04" class="modal">
-			<form class="modal-content animate" action=""
-				style="max-width: 95%; margin-top: 5%; margin-left: 25%; margin-right: 10%">
-				<div class="w3-container w3-blue">
-					<h2>
-						<i class="fa fa-address-card-o w3-margin-right"></i> เพิ่มพาหนะ
-					</h2>
-				</div>
-				<div class="w3-container w3-white w3-padding-16">
-					<table id="travelTable2" class="table table-bordered">
-						<thead>
-							<tr style="background: purple; color: white;">
-								<th>ลำดับ</th>
-								<th>พาหนะ</th>
-							</tr>
-						</thead>
-					</table>
-
-					<div style="size: 10" class="col-sm-12 " align="center">
-						<button type="button" class="btn btn-success" id="buttonAdd4">ยืนยัน</button>
-						<button type="button"
-							onclick="document.getElementById('id04').style.display='none'"
-							class="btn btn-danger">ปิด</button>
-					</div>
-				</div>
-			</form>
-		</div>
-	</header>
 	
 	<script type="text/javascript">
 	function setAllowEnce(allowence,type) {
@@ -649,8 +391,30 @@
 				$('#'+nameA).val(144);
 			}
 		}
-
 	}
+</script>
+<script language="javascript">
+function dateDiff(){
+
+var myVar1 = document.getElementById('b_back_date').value;//prompt("Enter a start date: ")
+var myVar2 = document.getElementById('b_go_date').value;//prompt("Enter a end date: ")
+
+var first_date = Date.parse(myVar1)
+var last_date = Date.parse(myVar2)
+var diff_date =  first_date - last_date;
+
+var num_years = diff_date/31536000000;
+var num_months = (diff_date % 31536000000)/2628000000;
+var num_days = ((diff_date % 31536000000) % 2628000000)/86400000;
+
+var result ="";
+
+result +=(" " + Math.floor(num_years) + " ปี\n");
+result +=(" " + Math.floor(num_months) + " ดือน\n");
+result +=(" " + Math.floor(num_days) + " วัน");
+alert(result);
+
+}
 </script>
 	
 	<!-- เพิ่มบุคคลากร -->
@@ -665,41 +429,6 @@
 		}
 	</script>
 
-	<!-- เพิ่มพาหนะ-->
-	<script>
-		// Get the modal
-		var modal = document.getElementById('id02');
-		// When the user clicks anywhere outside of the modal, close it
-		window.onclick = function(event) {
-			if (event.target == modal) {
-				modal.style.display = "none";
-			}
-		}
-	</script>
-	
-	<!-- เพิ่มพาหนะ รถส่วนตัว-->
-	<script>
-		// Get the modal
-		var modal = document.getElementById('id03');
-		// When the user clicks anywhere outside of the modal, close it
-		window.onclick = function(event) {
-			if (event.target == modal) {
-				modal.style.display = "none";
-			}
-		}
-	</script>
-	
-	<!-- เพิ่มพาหนะ รถไปราชการ-->
-	<script>
-		// Get the modal
-		var modal = document.getElementById('id04');
-		// When the user clicks anywhere outside of the modal, close it
-		window.onclick = function(event) {
-			if (event.target == modal) {
-				modal.style.display = "none";
-			}
-		}
-	</script>
 
 </body>
 </html>

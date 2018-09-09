@@ -1,135 +1,25 @@
 $(document).ready(function() {
 	
-	//คำนวณ ค่าพาหนะ ประจำทาง
-	$('#addTravel').on('change','input', function() { 	
-		var sum = $(this).parent().parent().find('td')[5];
-		var number1 = $(this).parent().parent().find('td')[2];
-		var number2= $(this).parent().parent().find('td')[3];
-		var number3 = $(this).parent().parent().find('td')[4];
-		var num1 = $(number1).find('input.number1').val();
-		var num2 = $(number2).find('input.number2').val();
-		var num3 = $(number3).find('input.number3').val();
-		if(''!=num1 && ''!=num2 && ''!=num3) {
-			var total = (num1)*(num2)*(num3);
-			$(sum).find('input').val(total);
-		}else{
-			$(sum).find('input').val(0);
-		}
-		var sumvalues = $("[name='sum']");
-		var sum = 0;
-		for(var i = 0; i < sumvalues.length;i++){
-			if($(sumvalues[i]).val() != ""){
-				sum = sum + parseFloat($(sumvalues[i]).val());
-			}			
-		}
-		 $('#summary1').text(parseFloat(sum).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-	});
-
-	//คำนวณ รถส่วนตัว 
-	$('#addTravel1').on('change','input', function() { 
-		var sum6 = $(this).parent().parent().find('td')[6];
-		var number1 = $(this).parent().parent().find('td')[2];
-		var number2= $(this).parent().parent().find('td')[3];
-		var number3 = $(this).parent().parent().find('td')[4];
-		var number4 = $(this).parent().parent().find('td')[5];
-		var num1 = $(number1).find('input.number1').val();
-		var num2 = $(number2).find('input.number2').val();
-		var num3 = $(number3).find('input.number3').val();
-		var num4 = $(number4).find('input.number4').val();
-		if(''!=num1 && ''!=num2 && ''!=num3 && ''!=num4) {
-
-			var total = (num1)*(num2)*(num3)/(num4);
-			$(sum6).find('input').val((total).toFixed(0));
-		}else{
-			$(sum6).find('input').val(0);
-		}
- 
-	});
-	//คำนวณ ค่าทางด่วน  รถส่วนตัว 
-	$('#addTravel1').on('change','input', function() { 
-		var sum9 = $(this).parent().parent().find('td')[9];
-		var number7 = $(this).parent().parent().find('td')[7];
-		var number8= $(this).parent().parent().find('td')[8];
-		var num7 = $(number7).find('input.number7').val();
-		var num8 = $(number8).find('input.number8').val();
-		if(''!=num7 && ''!=num8 ){
-			var total = (num7)*(num8);
-			$(sum9).find('input').val(total);
-		}else{
-			$(sum9).find('input').val(0);
-		}
- 
-	});
-	//คำนวณ ค่าทางด่วน รถส่วนตัว สรูป
-	$('#addTravel1').on('change','input', function() { 
-		var sum10 = $(this).parent().parent().find('td')[10];
-		var sum6 = $(this).parent().parent().find('td')[6];
-		var sum9= $(this).parent().parent().find('td')[9];
-		var sum6 = $(sum6).find('input.sum6').val();
-		var sum9 = $(sum9).find('input.sum9').val();
-		if(''!=sum6 && ''!=sum9 ){
-			var total = parseFloat(sum6)+parseFloat(sum9);
-			$(sum10).find('input').val(total.toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-		}else{
-			$(sum10).find('input').val(0);
-		}
-	});
-
-	//คำนวณ รถขอไปราชการ
-	$('#addTravel2').on('change','input', function() { 
-		var sum6 = $(this).parent().parent().find('td')[6];
-		var number1 = $(this).parent().parent().find('td')[2];
-		var number2= $(this).parent().parent().find('td')[3];
-		var number3 = $(this).parent().parent().find('td')[4];
-		var number4 = $(this).parent().parent().find('td')[5];
-		var num1 = $(number1).find('input.number1').val();
-		var num2 = $(number2).find('input.number2').val();
-		var num3 = $(number3).find('input.number3').val();
-		var num4 = $(number4).find('input.number4').val();
-		if(''!=num1 && ''!=num2 && ''!=num3 && ''!=num4) {
-
-			var total = (num1)*(num2)*(num3)/(num4);
-			$(sum6).find('input').val((total).toFixed(0));
-		}else{
-			$(sum6).find('input').val(0);
-		}
- 
-	});
-	//คำนวณ ค่าทางด่วน รถขอไปราชการ
-	$('#addTravel2').on('change','input', function() { 
-		var sum9 = $(this).parent().parent().find('td')[9];
-		var number7 = $(this).parent().parent().find('td')[7];
-		var number8= $(this).parent().parent().find('td')[8];
-		var num7 = $(number7).find('input.number7').val();
-		var num8 = $(number8).find('input.number8').val();
-		if(''!=num7 && ''!=num8 ){
-			var total = (num7)*(num8);
-			$(sum9).find('input').val(total);
-		}else{
-			$(sum9).find('input').val(0);
-		}
- 
-	});
-	//คำนวณ ค่าทางด่วน รถขอไปราชการ สรูป
-	$('#addTravel2').on('change','input', function() { 
-		var sum10 = $(this).parent().parent().find('td')[10];
-		var sum6 = $(this).parent().parent().find('td')[6];
-		var sum9= $(this).parent().parent().find('td')[9];
-		var sum6 = $(sum6).find('input.sum6').val();
-		var sum9 = $(sum9).find('input.sum9').val();
-		if(''!=sum6 && ''!=sum9 ){
-			var total = parseFloat(sum6)+parseFloat(sum9);
-			$(sum10).find('input').val(total.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-		}else{
-			$(sum10).find('input').val(0);
-		}
-	});
-
 	//คำนวณ ค่าเบี้ยเลี้ยง
 	$('#addUser').on('change','input', function() { 
-		var sum6 = $(this).parent().parent().find('td')[6];
-		var number1 = $(this).parent().parent().find('td')[4];
-		var number2= $(this).parent().parent().find('td')[5];
+		var sum6 = $(this).parent().parent().find('td')[7];
+		var number1 = $(this).parent().parent().find('td')[5];
+		var number2= $(this).parent().parent().find('td')[6];
+		var num1 = $(number1).find('input.number1').val();
+		var num2 = $(number2).find('input.number2').val();
+		if(''!=num1 && ''!=num2) {
+			var total = (num1)*(num2);
+			$(sum6).find('input').val(total);
+		}else{
+			$(sum6).find('input').val(0);
+		}
+	});
+	
+	//คำนวณ ค่าเบี้ยเลี้ยง
+	$('#addUser').on('change','input', function() { 
+		var sum6 = $(this).parent().parent().find('td')[7];
+		var number1 = $(this).parent().parent().find('td')[5];
+		var number2= $(this).parent().parent().find('td')[6];
 		var num1 = $(number1).find('input.number1').val();
 		var num2 = $(number2).find('input.number2').val();
 		if(''!=num1 && ''!=num2) {
@@ -142,9 +32,9 @@ $(document).ready(function() {
 	
 	//คำนวณ ค่าที่พัก
 	$('#addUser').on('change','input', function() { 
-		var sum9 = $(this).parent().parent().find('td')[9];
-		var number3 = $(this).parent().parent().find('td')[7];
-		var number4= $(this).parent().parent().find('td')[8];
+		var sum9 = $(this).parent().parent().find('td')[10];
+		var number3 = $(this).parent().parent().find('td')[8];
+		var number4= $(this).parent().parent().find('td')[9];
 		var num3 = $(number3).find('input.number3').val();
 		var num4 = $(number4).find('input.number4').val();
 		if(''!=num3 && ''!=num4) {
@@ -156,11 +46,11 @@ $(document).ready(function() {
 	});
 	//คำนวณ ค่าที่พัก ค่าเบี้ยเลี้ยง
 	$('#addUser').on('change','input', function() { 
-		var sum12 = $(this).parent().parent().find('td')[12];
-		var sum6 = $(this).parent().parent().find('td')[6];
-		var sum9 = $(this).parent().parent().find('td')[9];
-		var sum10 = $(this).parent().parent().find('td')[10];
-		var sum11 = $(this).parent().parent().find('td')[11];
+		var sum12 = $(this).parent().parent().find('td')[13];
+		var sum6 = $(this).parent().parent().find('td')[7];
+		var sum9 = $(this).parent().parent().find('td')[10];
+		var sum10 = $(this).parent().parent().find('td')[11];
+		var sum11 = $(this).parent().parent().find('td')[12];
 		var sum6 = $(sum6).find('input.sum6').val();
 		var sum9 = $(sum9).find('input.sum9').val();
 		var sum10 = $(sum10).find('input.sum10').val();
@@ -273,6 +163,7 @@ $(document).ready(function() {
 					]
 				});
 		var tableSelect = $('#addUser').DataTable({
+				"bInfo" : false,//Showing 0 to 0 of 0 entries
 				"sAjaxSource"	: "/ExpenseByPermission",
 				"sAjaxDataProp" : "",
 				"aoColumns" : [{
@@ -289,7 +180,7 @@ $(document).ready(function() {
 						"sWidth" : "180px" 
 				},
 				{
-						"mData" : "subPosition",
+						"mData" : "subPositionName",
 						"sWidth" : "100px" 
 				},{
 					"mData" : "",
@@ -307,21 +198,19 @@ $(document).ready(function() {
 					"sWidth" : "60px" ,
 					"mRender" : function(data,
 						type, row, index) {
-					return '<input class="form-control number1" style="width: 20mm;height: 7mm" type="number" id="allowence' 
+					return '<input class="form-control number1" disabled style="width: 15mm;height: 7mm" type="text" name="allowence" id="allowence' 
 							+ index.row
 							+ '" value="'+row.allowence+'"/>';
-
 					}
 				},
-				{
+				{    
 					"mData" : "allowencePerday",
 					"sWidth" : "50px" ,
 					"mRender" : function(data,
-						type, row, index) {
-					return '<input class="form-control number2" style="width: 16mm;height: 7mm" type="number" name="allowencePerday" id="allowencePerday'
+						type, row, index) {						
+					return '<input class="form-control number2" style="width: 16mm;height: 7mm" type="text" OnKeyPress="return chkNumber(this)" name="allowencePerday" id="allowencePerday'
 							+ index.row
-							+ '" value="'+row.allowencePerday+'"/>';
-
+							+ '" value="'+row.allowencePerday+'" />';
 					}
 				},
 				{
@@ -329,10 +218,9 @@ $(document).ready(function() {
 					"sWidth" : "60px" ,
 					"mRender" : function(data,
 						type, row, index) {
-					return '<input class="form-control sum6" disabled readonly="true"  type="text"  style="width: 23mm;height: 7mm" name="allowenceSum" id="allowenceSum'
+					return '<input class="form-control sum6" disabled readonly="true"  type="text"  style="width: 20mm;height: 7mm" name="allowenceSum" id="allowenceSum'
 							+ index.row
-							+ '" value="'+row.allowenceSum+'"/>';
-
+							+ '" value="'+row.allowenceSum+'" />';
 					}
 				},
 				{
@@ -340,10 +228,9 @@ $(document).ready(function() {
 					"sWidth" : "60px" ,
 					"mRender" : function(data,
 						type, row, index) {
-					return '<input class="form-control number3" type="number" style="width: 20mm;height: 7mm" id="rentDate'
+					return '<input class="form-control number3" type="text" OnKeyPress="return chkNumber(this)" style="width: 20mm;height: 7mm" id="rentDate'
 							+ index.row
-							+ '"  value="'+row.rentDate+'"/>';
-
+							+ '" value="'+row.rentDate+'"/>';
 					}
 				},
 				{
@@ -351,10 +238,9 @@ $(document).ready(function() {
 					"sWidth" : "50px" ,
 					"mRender" : function(data,
 						type, row, index) {
-					return '<input class="form-control number4" type="number" style="width: 16mm;height: 7mm" name="rentDatePerday" id="rentDatePerday'
+					return '<input class="form-control number4" type="text" OnKeyPress="return chkNumber(this)" style="width: 16mm;height: 7mm" name="rentDatePerday" id="rentDatePerday'
 							+ index.row
-							+ '"  value="'+row.rentDatePerday+'"/>';
-
+							+ '" value="'+row.rentDatePerday+'"/>';
 					}
 				},	
 				{
@@ -362,9 +248,9 @@ $(document).ready(function() {
 					"sWidth" : "60px" ,
 					"mRender" : function(data,
 						type, row, index) {
-					return '<input class="form-control sum9" disabled readonly="true"  type="text" style="width: 22mm;height: 7mm" name="rentDateSum" id="rentDateSum'
+					return '<input class="form-control sum9" disabled readonly="true" type="text" OnKeyPress="return chkNumber(this)" style="width: 22mm;height: 7mm" name="rentDateSum" id="rentDateSum'
 							+ index.row
-							+ '"  value="'+row.rentDateSum+'"/>';
+							+ '" value="'+row.rentDateSum+'"/>';
 					}										
 				},
 				{
@@ -372,9 +258,9 @@ $(document).ready(function() {
 					"sWidth" : "60px" ,
 					"mRender" : function(data,
 						type, row, index) {
-					return '<input class="form-control sum10"  type="number" style="width: 22mm;height: 7mm" name="travelSum" id="travelSum'
+					return '<input class="form-control sum10"  type="text" OnKeyPress="return chkNumber(this)" style="width: 22mm;height: 7mm" name="travelSum" id="travelSum'
 							+ index.row 
-							+ '"  value="'+row.travelSum+'"/>';
+							+ '" value="'+row.travelSum+'" />';
 					}										
 				},
 				{
@@ -384,7 +270,7 @@ $(document).ready(function() {
 						type, row, index) {
 					return '<input class="form-control sum11"  type="number" style="width: 22mm;height: 7mm" name="otherSum" id="otherSum'
 							+ index.row 
-							+ '"  value="'+row.otherSum+'"/>';
+							+ '" value="'+row.otherSum+'" />';
 					}										
 				},
 				{
@@ -394,12 +280,12 @@ $(document).ready(function() {
 					type, row, index) {
 				return '<input class="form-control sum12" disabled readonly="true" type="number" style="width: 22mm;height: 7mm" name="expenseEstimateSum" id="expenseEstimateSum'
 						+ index.row 
-						+ '"  value="'+row.expenseEstimateSum+'"/>';
+						+ '" value="'+row.expenseEstimateSum+'"/>';
 				}										
 				},
 				{
 						"mData" : "",
-						"sWidth" : "10px" ,
+						"sWidth" : "5px" ,
 						"mRender" : function(data,
 							type, row, index) {
 						return '<a class="btn btn-danger" ><span class="glyphicon glyphicon-trash"> </span></a>';
@@ -444,484 +330,6 @@ $(document).ready(function() {
 							inputdata.push(d);
 						}
 
-						$.ajax({
-							type : "POST",
-							url : "",
-							data : JSON.stringify(inputdata),
-							dataType : "json",
-							async : false,
-							contentType : "application/json; charset=utf-8",
-							success : function(res) {
-								// console.log(res)
-//								window.location.href = res.page;
-							},
-							error : function() {
-								window.location.href = "insertPermissionFail";
-							}
-						});
-
-					});
-				
-					//พาหนะ
-					var tableTravel = $('#travelTable').DataTable({
-						"sAjaxSource" : "/travel",
-						"sAjaxDataProp" : "",
-						"aoColumns" : [ {
-							"mData" : "travelId" ,
-							"mRender" : function(data,
-									type, row, index) {
-							return '<input class="form-control"  type="checkbox" />';
-							}
-						}, {
-							"mData" : "vehicleName"
-						} ]
-					});
-					var tableSelectTravel = $('#addTravel').DataTable({
-										"sAjaxSource"	: "/TravelByPermission",
-										"sAjaxDataProp" : "",
-										"aoColumns" : [
-												{
-													"mData" : "travelId",
-													"sWidth" : "20px",
-												},
-												{
-													"mData" : "vehicleName",
-													"sWidth" : "100px",
-												},
-												{
-													"mData" : "numberPer", //จำนวนเที่ยว
-													"sWidth" : "20px",
-													"mRender" : function(data,
-															type, row, index) {
-														return '<input class="form-control number1" style="width: 30mm;height: 7mm" type="number" id="numberPer'
-																+ index.row
-																+ '"  value="'+row.numberPer+'"/>';
-													}
-												},
-												{
-													"mData" : "travelExpenses", //ค่าใช้จ่ายในการเดินทาง
-													"sWidth" : "20px",
-													"mRender" : function(data,
-															type, row, index) {
-														return '<input class="form-control number2" style="width: 30mm;height: 7mm" type="number" id="travelExpenses'
-																+ index.row
-																+ '"  value="'+row.travelExpenses+'"/>';
-													}
-												},
-												{
-													"mData" : "userSum",// จำนวนบุคคลากรร่วม
-													"sWidth" : "20px",
-													"mRender" : function(data,
-															type, row, index, num) {
-														return '<input class="form-control number3" style="width: 30mm;height: 7mm" type="number" name="" id="userSum'
-																+ index.row
-																+ '"  value="'+row.userSum+'"/>';
-													}
-												},
-												{
-													"mData" : "sum", //รวมเงิน
-													"sWidth" : "20px",
-													"mRender" : function(data,
-															type, row, index) {
-														return '<input class="form-control sum" style="width: 40mm;height: 7mm" readonly="true" type="text" placeholder="รวม" name="sum" id="sum'
-																+ index.row
-																+ '"  value="'+row.sum+'"/>';
-													}
-												},
-												{
-													"mData" : "vehicleC", //หมายเหตุ
-													"sWidth" : "340px",
-													"mRender" : function(data,
-															type, row, index) {
-														return '<input class="form-control" style="width: 150mm;height: 7mm" type="text" id="vehicleC'
-																+ index.row
-																+ '"  value="'+row.vehicleC+'"/>';
-													}
-												},
-												{
-													"mData" : "",
-													"sWidth" : "10px",
-													"mRender" : function(data,
-															type, row, index) {
-														return '<a class="btn btn-danger" ><span class="glyphicon glyphicon-trash"> </span></a>';
-													}
-												}]
-									});
-					$('#travelTable').on('click', 'tr', function() {
-						$(this).toggleClass('selected');	
-					});		
-					$('#buttonAdd2').click(function() {
-						var datas = tableTravel.rows('.selected').data();
-						tableSelectTravel.rows.add(datas).draw(false);
-						tableTravel.rows('.selected').remove().draw();
-						console.log(datas);		
-						var num = $('#addUser').DataTable().rows().data().length;
-						$('#userSum').text(num + ' คน');
-
-					});
-					$('#addTravel').on('click', 'a', function() {
-						tableSelectTravel.row( $(this).parents('tr') ).remove().draw();
-					});
-					$('#saveExpenseEstimate').click(function() {
-						console.log("");
-						var d ;
-						var inputdata = [];
-						for (var i = 0; i < tableSelectTravel.data().length; i++) {
-							 d = tableSelectTravel.data()[i];
-							console.log(d);
-							d.numberPer = $("#numberPer"+i).val();
-							d.travelExpenses = $("#travelExpenses"+i).val();
-							d.userSum = $("#userSum"+i).val();
-							d.sum = $("#sum"+i).val();
-							d.vehicleC = $("#vehicleC"+i).val();
-							inputdata.push(d);
-						}				
-						$.ajax({
-							type : "POST",
-							url : "/insertTravelEstimate",
-							data : JSON.stringify(inputdata),
-							dataType : "json",
-							async : false,
-							contentType : "application/json; charset=utf-8",
-							success : function(res) {
-								// console.log(res)
-//								window.location.href = res.page;
-							},
-							error : function() {
-								window.location.href = "insertPermissionFail";
-							}
-						});
-
-					});
-
-					//พาหนะ รถส่วนตัว
-					var tableTravel1 = $('#travelTable1').DataTable({
-						"sAjaxSource" : "/travel1",
-						"sAjaxDataProp" : "",
-						"aoColumns" : [ {
-							"mData" : "travelId" ,
-							"mRender" : function(data,
-									type, row, index) {
-							return '<input class="form-control"  type="checkbox" />';
-							}
-						}, {
-							"mData" : "vehicleName"
-						} ]
-					});
-					//รถส่วนตัว
-					var tableSelectTravel1 = $('#addTravel1').DataTable({
-						"sAjaxSource"	: "/TravelExpensesFuelCostByPermission",
-						"sAjaxDataProp" : "",
-						"aoColumns" : [
-							{
-								"mData" : "travelId",
-								"sWidth" : "20px",
-							},
-							{
-								"mData" : "vehicleName",
-								"sWidth" : "100px",
-							},
-							{	//ระยะทาง
-								"mData" : "distance",
-								"sWidth" : "20px",
-								"mRender" : function(data,
-										type, row, index) {
-									return '<input class="form-control number1" style="width: 20mm;height: 7mm" type="number" id="distance'
-											+ index.row
-											+ '"  value="'+row.distance+'"/>';
-								}
-							},
-							{	//เที่ยว
-								"mData" : "numberPer",
-								"sWidth" : "20px",
-								"mRender" : function(data,
-										type, row, index) {
-									return '<input class="form-control number2" style="width: 20mm;height: 7mm" type="number" id="numberPer'
-											+ index.row
-											+ '"  value="'+row.numberPer+'"/>';
-								}
-							},
-							{	//ค่าน้ำมัน
-								"mData" : "fuelCost",
-								"sWidth" : "20px",
-								"mRender" : function(data,
-										type, row, index, num) {
-									return '<input class="form-control number3" style="width: 20mm;height: 7mm" type="number" name="fuelCost" id="fuelCost'
-											+ index.row
-											+ '"  value="'+row.fuelCost+'"/>';
-								}
-							},
-							{	//หารด้วย
-								"mData" : "divide",
-								"sWidth" : "10px",
-								"mRender" : function(data,
-										type, row, index, num) {
-									return '<input class="form-control number4" style="width: 15mm;height: 7mm" type="number" name="divide" id="divide'
-											+ index.row
-											+ '"  value="'+row.divide+'"/>';
-								}
-							},
-							{	//รวมค่าเชื้อเพลิง
-								"mData" : "fuelCostSum",
-								"sWidth" : "20px",
-								"mRender" : function(data,
-										type, row, index) {
-									return '<input class="form-control sum6" style="width: 30mm;height: 7mm" readonly="true" type="text" placeholder="รวม" name="fuelCostSum" id="fuelCostSum'
-											+ index.row
-											+ '"  value="'+row.fuelCostSum+'"/>';
-								}
-							},
-							{	//ค่าทางด่วน/ครั้งละ/บาท
-								"mData" : "expresswayExpenses",
-								"sWidth" : "20px",
-								"mRender" : function(data,
-										type, row, index, num) {
-									return '<input class="form-control number7" style="width: 20mm;height: 7mm" type="number" name="expresswayExpenses" id="expresswayExpenses'
-											+ index.row
-											+ '"  value="'+row.expresswayExpenses+'"/>';
-								}
-							},
-							{   //ค่าทางด่วน/ครั้ง
-								"mData" : "expresswayNumberPer",
-								"sWidth" : "20px",
-								"mRender" : function(data,
-										type, row, index, num) {
-									return '<input class="form-control number8" style="width: 20mm;height: 7mm" type="number" name="expresswayNumberPer" id="expresswayNumberPer'
-											+ index.row
-											+ '"  value="'+row.expresswayNumberPer+'"/>';
-								}
-							},
-							{	//รวม ค่าทางด่วน
-								"mData" : "expresswayExpensesSum",
-								"sWidth" : "20px",
-								"mRender" : function(data,
-										type, row, index) {
-									return '<input class="form-control sum9" style="width: 30mm;height: 7mm" readonly="true" type="text" placeholder="รวม" name="expresswayExpensesSum" id="expresswayExpensesSum'
-											+ index.row
-											+ '"  value="'+row.expresswayExpensesSum+'"/>';
-								}
-							},
-							{	//รวมทั้งหมด
-								"mData" : "sum",
-								"sWidth" : "20px",
-								"mRender" : function(data,
-										type, row, index) {
-									return '<input class="form-control sum10" style="width: 30mm;height: 7mm" readonly="true" type="text" placeholder="รวม" name="sum" id="sum'
-											+ index.row
-											+ '"  value="'+row.sum+'"/>';
-								}
-							},
-							{
-								"mData" : "vehicleC",
-								"sWidth" : "500px",
-								"mRender" : function(data,
-										type, row, index) {
-									return '<input class="form-control" style="width: 100mm;height: 7mm" type="text" id="vehicleC'
-											+ index.row
-											+ '"  value="'+row.vehicleC+'"/>';
-								}
-							}]
-				});
-					$('#travelTable1').on('click', 'tr', function() {
-						$(this).toggleClass('selected');	
-					});		
-					$('#buttonAdd3').click(function() {
-						var datas = tableTravel1.rows('.selected').data();
-						tableSelectTravel1.rows.add(datas).draw(false);
-						tableTravel1.rows('.selected').remove().draw();
-						console.log(datas);						
-
-					});
-					$('#saveExpenseEstimate').click(function() {
-						console.log("");
-						var d ;
-						var inputdata = [];
-						for (var i = 0; i < tableSelectTravel1.data().length; i++) {
-							d = tableSelectTravel1.data()[i];
-							console.log(d);
-							d.distance = $("#distance"+i).val();
-							d.fuelCost = $("#fuelCost"+i).val();
-							d.divide = $("#divide"+i).val();
-							d.fuelCostSum = $("#fuelCostSum"+i).val();
-							d.expresswayExpenses = $("#expresswayExpenses"+i).val();
-							d.expresswayExpensesSum = $("#expresswayExpensesSum"+i).val();
-							d.sum = $("#sum"+i).val();
-							d.vehicleC = $("#vehicleC"+i).val();
-							inputdata.push(d);
-						}				
-						$.ajax({
-							type : "POST",
-							url : "",
-							data : JSON.stringify(inputdata),
-							dataType : "json",
-							async : false,
-							contentType : "application/json; charset=utf-8",
-							success : function(res) {
-								// console.log(res)
-//								window.location.href = res.page;
-							},
-							error : function() {
-								window.location.href = "insertPermissionFail";
-							}
-						});
-
-					});
-					
-					//รถรถขอไปราชการ
-					var tableTravel2 = $('#travelTable2').DataTable({
-						"sAjaxSource" : "/travel1",
-						"sAjaxDataProp" : "",
-						"aoColumns" : [ {
-							"mData" : "travelId" ,
-							"mRender" : function(data,
-									type, row, index) {
-							return '<input class="form-control"  type="checkbox" />';
-							}
-						}, {
-							"mData" : "vehicleName"
-						} ]
-					});
-//					//รถรถขอไปราชการ
-//					var tableSelectTravel2 = $('#addTravel2').DataTable({
-//						"sAjaxSource" : "",
-//						"sAjaxDataProp" : "",
-//						"aoColumns" : [
-//								{
-//									"mData" : "travelId",
-//									"sWidth" : "20px",
-//								},
-//								{
-//									"mData" : "vehicleName",
-//									"sWidth" : "100px",
-//								},
-//								{	//ระยะทาง
-//									"mData" : "distance",
-//									"sWidth" : "20px",
-//									"mRender" : function(data,
-//											type, row, index) {
-//										return '<input class="form-control number1" style="width: 20mm;height: 7mm" type="number" id="distance'
-//												+ index.row
-//												+ '" />';
-//									}
-//								},
-//								{	//เที่ยว
-//									"mData" : "numberPer",
-//									"sWidth" : "20px",
-//									"mRender" : function(data,
-//											type, row, index) {
-//										return '<input class="form-control number2" style="width: 20mm;height: 7mm" type="number" id="numberPer'
-//												+ index.row
-//												+ '"   />';
-//									}
-//								},
-//								{	//ค่าน้ำมัน
-//									"mData" : "fuelCost",
-//									"sWidth" : "20px",
-//									"mRender" : function(data,
-//											type, row, index, num) {
-//										return '<input class="form-control number3" style="width: 20mm;height: 7mm" type="number" name="" id="fuelCost'
-//												+ index.row
-//												+ '"   />';
-//									}
-//								},
-//								{	//หารด้วย
-//									"mData" : "divide",
-//									"sWidth" : "10px",
-//									"mRender" : function(data,
-//											type, row, index, num) {
-//										return '<input class="form-control number4" style="width: 15mm;height: 7mm" type="number" name="" id="divide'
-//												+ index.row
-//												+ '" value="7"  />';
-//									}
-//								},
-//								{	//รวมค่าเชื้อเพลิง
-//									"mData" : "fuelCostSum",
-//									"sWidth" : "20px",
-//									"mRender" : function(data,
-//											type, row, index) {
-//										return '<input class="form-control sum6" style="width: 30mm;height: 7mm" readonly="true" type="text" placeholder="รวม" name="" id="fuelCostSum'
-//												+ index.row
-//												+ '" />';
-//									}
-//								},
-//								{	//ค่าทางด่วน/ครั้งละ/บาท
-//									"mData" : "expresswayExpenses",
-//									"sWidth" : "20px",
-//									"mRender" : function(data,
-//											type, row, index, num) {
-//										return '<input class="form-control number7" style="width: 20mm;height: 7mm" type="number" name="" id="expresswayExpenses'
-//												+ index.row
-//												+ '"   />';
-//									}
-//								},
-//								{   //ค่าทางด่วน/ครั้ง
-//									"mData" : "expresswayNumberPer",
-//									"sWidth" : "20px",
-//									"mRender" : function(data,
-//											type, row, index, num) {
-//										return '<input class="form-control number8" style="width: 20mm;height: 7mm" type="number" name="" id="expresswayNumberPer'
-//												+ index.row
-//												+ '" value=""  />';
-//									}
-//								},
-//								{	//รวม ค่าทางด่วน
-//									"mData" : "expresswayExpensesSum",
-//									"sWidth" : "20px",
-//									"mRender" : function(data,
-//											type, row, index) {
-//										return '<input class="form-control sum9" style="width: 30mm;height: 7mm" readonly="true" type="text" placeholder="รวม" name="" id="expresswayExpensesSum'
-//												+ index.row
-//												+ '" />';
-//									}
-//								},
-//								{	//รวมทั้งหมด
-//									"mData" : "sum",
-//									"sWidth" : "20px",
-//									"mRender" : function(data,
-//											type, row, index) {
-//										return '<input class="form-control sum10" style="width: 30mm;height: 7mm" readonly="true" type="text" placeholder="รวม" name="" id="sum'
-//												+ index.row
-//												+ '" />';
-//									}
-//								},
-//								{
-//									"mData" : "vehicleC",
-//									"sWidth" : "500px",
-//									"mRender" : function(data,
-//											type, row, index) {
-//										return '<input class="form-control" style="width: 100mm;height: 7mm" type="text" id="vehicleC'
-//												+ index.row
-//												+ '" />';
-//									}
-//								}]
-//					});
-					$('#travelTable2').on('click', 'tr', function() {
-						$(this).toggleClass('selected');	
-					});		
-					$('#buttonAdd4').click(function() {
-						var datas = tableTravel2.rows('.selected').data();
-						tableSelectTravel2.rows.add(datas).draw(false);
-						tableTravel2.rows('.selected').remove().draw();
-						console.log(datas);		
-
-					});
-					$('#saveExpenseEstimate').click(function() {
-						console.log("");
-						var d ;
-						var inputdata = [];
-						for (var i = 0; i < tableSelectTravel2.data().length; i++) {
-							d = tableSelectTravel2.data()[i];
-							console.log(d);
-							d.distance = $("#distance"+i).val();
-							d.fuelCost = $("#fuelCost"+i).val();
-							d.divide = $("#divide"+i).val();
-							d.fuelCostSum = $("#fuelCostSum"+i).val();
-							d.expresswayExpenses = $("#expresswayExpenses"+i).val();
-							d.expresswayExpensesSum = $("#expresswayExpensesSum"+i).val();
-							d.sum = $("#sum"+i).val();
-							d.vehicleC = $("#vehicleC"+i).val();
-							inputdata.push(d);
-						}				
 						$.ajax({
 							type : "POST",
 							url : "",
