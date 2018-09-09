@@ -12,11 +12,17 @@ public class TestAjex {
 	private int pay;
 	private	int userID;
 	private	int perId;
+	private	int perIdBack;
 	private	String sunBean;
 	private int userId;
 	private int updateRole;
 	
-	
+	public int getPerIdBack() {
+		return perIdBack;
+	}
+	public void setPerIdBack(int perIdBack) {
+		this.perIdBack = perIdBack;
+	}
 	public int getUpdateRole() {
 		return updateRole;
 	}

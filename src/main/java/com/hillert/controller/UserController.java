@@ -39,18 +39,18 @@ public class UserController {
 	}
 	
 	// DropDown
-		@RequestMapping("/insertPermissionFail")
-		public String insertPermissionFail(Model model) {
-			model.addAttribute("messes", "F");
-			return "Ask_la";
-		}
+	@RequestMapping("/insertPermissionFail")
+	public String insertPermissionFail(Model model) {
+	model.addAttribute("messes", "F");
+		return "Ask_la";
+	}
 
-		// DropDown
-		@RequestMapping("/insertPermissionSuccess")
-		public String insertPermissionSuccess(Model model) {
-			model.addAttribute("messes", "S");
-			return "Ask_la";
-		}
+	// DropDown
+	@RequestMapping("/insertPermissionSuccess")
+	public String insertPermissionSuccess(Model model) {
+		model.addAttribute("messes", "S");
+		return "Ask_la";
+	}
 
 	// dataTable
 	@RequestMapping("/datatable")

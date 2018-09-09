@@ -64,7 +64,8 @@
 	<script src="/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>
 	<script src="/js/listFaculty.js"></script>
 	<script src="/js/listPosition.js"></script>
-	<script src="/js/updateExpense.js"></script>
+	<script src="/js/insertExpenseBack.js"></script>
+	<script src="/js/insertPermissionBack.js"></script>
 	<script src="/js/province.js"></script>
 <!-- 	<script src="/js/budget.js"></script> -->
 
@@ -110,15 +111,13 @@
   <span title="open Sidebar" style="display:none" id="openNav" class="w3-button w3-transparent w3-display-topleft w3-xlarge" onclick="w3_open()">&#9776;</span>
 
 
-
-
 <header class="w3-display-container w3-content" style="max-width:90%;margin-top: 2%" >
 	<div class="w3-container w3-red" id="1">
 		<h2><i class="fa fa-file-o w3-margin-right"></i>แบบฟอร์มเบิกค่าใช้จ่ายในการเดินทางไปราชการ</h2>
     </div>
     
     <div class="w3-container w3-white w3-padding-16">
-    
+	<input type="hidden" id="permissionId" value="<%=bean.getPermissionId()%>">    
 
 <!-- กรอบที่ 1 -->
 <div style="margin-bottom: 18%">
@@ -135,17 +134,17 @@
 	<div></div>
 	<br>
 	<label>เรียน อธิการบดีมหาวิทยาลัยราชภัฏบุรีรัมย์</label><br>
-	<label>ตามคำสั่ง/บันทึกที่ </label><input class="form-control" type="text">
-	<label>ลงวันที่ </label><input class="form-control" type="date"><hr>
+	<label>ตามคำสั่ง/บันทึกที่ </label><input class="form-control" type="text" id="bByOrderSave">
+	<label>ลงวันที่ </label><input class="form-control" type="date" id="bDateAuthorized"><hr>
 	<label>ขอเบิกค่าใช้จ่ายในการเดินทางไปราชการสำหรับ </label><br>
-		<input name="a" id="" type="radio" value="" style="margin-left: 4%" > <label> ข้าพเจ้า</label>
-        <input name="a"	id="" type="radio" value="" style="margin-left: 4%" > <label> คณะเดินทาง</label><br><br>
+		<input name="bDisbursedBy" id="bDisbursedBy1" type="radio" value="" style="margin-left: 4%" > <label> ข้าพเจ้า</label>
+        <input name="bDisbursedBy" id="bDisbursedBy2" type="radio" value="" style="margin-left: 4%" > <label> คณะเดินทาง</label><br><br>
 	<table>
 		<tr>
 			<td style="width: 40mm"><label>ค่าเบี๋ยเลี้ยงการเดินทาง </label></td>
 			<td style="width: 18mm"><label><u>ประเภท</u></label></td>
 			<td>
-				<select class="form-control" name="" id="" style="width: 15mm">
+				<select class="form-control" name="bAllowenceType" id="bAllowenceType" style="width: 15mm">
 					<option value="1">ก</option>
 					<option value="2">ข</option>
 				</select>
@@ -155,7 +154,7 @@
 			<td><label>ค่าที่พัก</label></td>
 			<td><label><u>ประเภท</u></label></td>
 			<td>
-				<select class="form-control" name="" id="" style="width: 15mm">
+				<select class="form-control" name="bRentDateType" id="bRentDateType" style="width: 15mm">
 					<option value="1">ก</option>
 					<option value="2">ข</option>
 				</select>
@@ -178,11 +177,11 @@
 
     <div class="form-group" style="margin-top:20px">
     	<label>ออกเเดินทางจาก :</label> 
-   		<input name="a" id="" type="radio" value="" style="margin-left: 4%" > <label> บ้านพัก</label>
-        <input name="a"	id="" type="radio" value="" style="margin-left: 4%" > <label> สำนักงาน</label> 
+   		<input name="bStartTravel" id="bStartTravel1"  type="radio" value="" style="margin-left: 4%" > <label> บ้านพัก</label>
+        <input name="bStartTravel" id="bStartTravel2"  type="radio" value="" style="margin-left: 4%" > <label> สำนักงาน</label> 
     </div>
-    <label>เลขที่</label><input class="form-control" type="text">
-    <label>ถนน </label><input class="form-control" type="text">
+    <label>เลขที่</label><input class="form-control" type="text" id="bStartTravel">
+    <label>ถนน </label><input class="form-control" type="text" id="bRoad">
 	<!-- จังหวัด province -->
 	<div class="form-group">
 	<label for="exampleFormControlSelect1">จังหวัด</label> 
@@ -217,34 +216,34 @@
 
     <div class="col-sm-6" style="margin-top:20px">
     	<label>ตั้งแต่วันที่</label> 
-   		<input class="form-control" name="" id="b_go_date" type="date" value=""  > 
+   		<input class="form-control" name="bGoDate" id="bGoDate" type="date" value=""  > 
    	</div>
 	<div class="col-sm-6" style="margin-top:20px">
    		<label>เวลา</label> 
-   		<input class="form-control" name="" id="" type="time" value=""  > 
+   		<input class="form-control" name="bGoTime" id="bGoTime" type="time" value=""  > 
    	</div>
 
    	<div class="form-group col-sm-12" style="margin-top:20px">
     	<label>กลับถึง :</label> 
-   		<input name="a" id="" type="radio" value="" style="margin-left: 4%" > <label> บ้านพัก</label>
-        <input name="a"	id="" type="radio" value="" style="margin-left: 4%" > <label> สำนักงาน</label> 
+   		<input name="bBackTravel" id="bBackTravel1" type="radio" value="" style="margin-left: 4%" > <label> บ้านพัก</label>
+        <input name="bBackTravel" id="bBackTravel2" type="radio" value="" style="margin-left: 4%" > <label> สำนักงาน</label> 
     </div>
     <div class="col-sm-6">
     	<label>ตั้งแต่วันที่</label> 
-   		<input class="form-control" name="" id="b_go_date" type="date" value=""  > 
+   		<input class="form-control" name="bBackDate" id="bBackDate" type="date" value=""  > 
    	</div>
 	<div class="col-sm-6" >
    		<label>เวลา</label> 
-   		<input class="form-control" name="" id="" type="time" value=""  > 
+   		<input class="form-control" name="bBackTime" id="bBackTime" type="time" value=""  > 
    		<input type="button" id="submit" onclick="dateDiff()" value="calculate" />
    	</div> 
    	<div style="size: 10;margin-bottom: 6.5mm" class="col-sm-12" >
    		<label>รวมเวลาไปราชการ</label> 
    			<div class="input-group">
-			<input class="form-control" style="text-align:center id="" type="number" >
+			<input class="form-control" style="text-align:center id="bDayTotal" OnKeyPress="return chkNumber(this)" type="text" >
 			<div class="input-group-addon">วัน</div>
 			<div class="input-group">
-			<input class="form-control" style="text-align:center id="" type="number" >
+			<input class="form-control" style="text-align:center id="bTimeTotal" OnKeyPress="return chkNumber(this)" type="text" >
 			<div class="input-group-addon">ชั่วโมง</div>
    			</div>
    	</div>
@@ -325,7 +324,7 @@
 	
 
 	<div style="margin-top: 4%" class="col-sm-12 " align="center" >
-		<button class="btn btn-success" id="saveExpenseEstimate">ยืนยัน</button>
+		<button class="btn btn-success" id="saveBack">ยืนยัน</button>
 		<button type="reset" class="btn btn-danger">รีเซต</button>
 	</div>
 	</div>
@@ -374,7 +373,7 @@
 		</div>
 	</header>
 	
-	<script type="text/javascript">
+<script type="text/javascript">
 	function setAllowEnce(allowence,type) {
 		var x = $('#allowenceType'+allowence).val();
 		let nameA = 'allowence'+allowence;
@@ -395,9 +394,9 @@
 </script>
 <script language="javascript">
 function dateDiff(){
-
-var myVar1 = document.getElementById('b_back_date').value;//prompt("Enter a start date: ")
-var myVar2 = document.getElementById('b_go_date').value;//prompt("Enter a end date: ")
+//คำนวน ว/ด/ป
+var myVar1 = document.getElementById('bBackDate').value;//prompt("Enter a start date: ")
+var myVar2 = document.getElementById('bGoDate').value;//prompt("Enter a end date: ")
 
 var first_date = Date.parse(myVar1)
 var last_date = Date.parse(myVar2)
@@ -416,18 +415,18 @@ alert(result);
 
 }
 </script>
-	
+
 	<!-- เพิ่มบุคคลากร -->
-	<script>
-		// Get the modal
-		var modal = document.getElementById('id01');
-		// When the user clicks anywhere outside of the modal, close it
-		window.onclick = function(event) {
-			if (event.target == modal) {
-				modal.style.display = "none";
-			}
+<script>
+	// Get the modal
+	var modal = document.getElementById('id01');
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
 		}
-	</script>
+	}
+</script>
 
 
 </body>

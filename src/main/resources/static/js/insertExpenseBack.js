@@ -311,7 +311,7 @@ $(document).ready(function() {
 					});
 					
 
-					$('#saveExpenseEstimate').click(function() {
+					$('#saveBack').click(function() {
 						console.log("");
 						var d ;
 						var inputdata = [];
@@ -332,7 +332,7 @@ $(document).ready(function() {
 
 						$.ajax({
 							type : "POST",
-							url : "",
+							url : "/insertExpenseEstimateBack",
 							data : JSON.stringify(inputdata),
 							dataType : "json",
 							async : false,

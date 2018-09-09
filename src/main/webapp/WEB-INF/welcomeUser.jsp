@@ -7,10 +7,8 @@
 <%
 	String result = "";
 	UserBean bean = null;
-
 %>
 <%
-
 	bean = (UserBean) request.getSession().getAttribute("userBean");
 	result = (String) request.getAttribute("messessError");
 %>
@@ -85,29 +83,12 @@
 
 </div>
 
-	</footer>
 	<form name="welcameUserForm" action="welconeUser"     method="post" th:hidden="true"></form>
 	<form name="Ask_storyForm"   action="gotoAsk_story"   method="post" th:hidden="true"></form>
 	<form name="Ask_laForm"      action="gotoAsk_la"      method="post" th:hidden="true"></form>
 	<form name="Ask_helpForm"    action="gotoAsk_Help"    method="post" th:hidden="true"></form>
 	<form name="insertForm"      action="gotoInsert"      method="post" th:hidden="true"></form>
 	<form name="logoutForm"      action="logout"          method="post" th:hidden="true"></form>
-
-	
-	
-
-<script type="text/javascript">
-	function gotoUpdate(filter) {
-		document.getElementById("userIdcard").value = filter;
-		document.welcome.action="gotoUpdate";
-		document.welcome.submit();
-	}
-	function gotoDetele(filter) {
-		document.getElementById("userIdcard").value = filter;
-		document.welcome.action="delete";
-		document.welcome.submit();
-		}
-</script>
 	
 </body>
 </html>

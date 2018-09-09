@@ -66,39 +66,84 @@ public class ExpenseEstimateDao {
 	}//end
 	
 	//insert ExpenseSumaryBean
-	public ExpenseSumaryBean insert2(ExpenseSumaryBean bean) throws Exception{
+		public ExpenseSumaryBean insert2(ExpenseSumaryBean bean) throws Exception{
+			ConnectDB con = new ConnectDB();
+			Connection conn = con.openConnect();
+			PreparedStatement prepared = null;
+			StringBuilder sql = new StringBuilder();
+
+			try {
+				sql.append("INSERT INTO expense_sumary (user_sum_total, allowence_sum_total, rent_date_sum_total,travel_sum_total, other_sum_total, expense_estimate_sum_total,"
+						+ "allowence_perday_total,  rent_date_perday_total, "
+						+ "allowence_details, rent_date_details, "
+						+ "permission_id , create_date)"
+						+ "VALUES (?,?,?,?,?,?, "
+						+ "?,?, "
+						+ "?,?, "
+						+ "?,SYSDATE());");
+				
+				prepared = conn.prepareStatement(sql.toString());
+				
+				prepared.setString(1, bean.getUserSumTotal());
+				prepared.setString(2, bean.getAllowenceSumTotal());
+				prepared.setString(3, bean.getRentDateSumTotal());
+				prepared.setString(4, bean.getTravelSumTotal());
+				prepared.setString(5, bean.getOtherSumTotal());
+				prepared.setString(6, bean.getExpenseEstimateSumTotal());
+				
+				prepared.setString(7, bean.getAllowencePerdayTotal());
+				prepared.setString(8, bean.getRentDatePerdayTotal());
+				
+				prepared.setString(9, bean.getAllowenceDetails());
+				prepared.setString(10, bean.getRentDateDetails());
+
+				prepared.setInt(11, bean.getPermissionId());
+				
+				prepared.executeUpdate();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			finally {
+				conn.close();
+			}
+			return bean;
+		}//end
+	
+	//insert ExpenseEstimate Back บันทึกหลังเดินทางกลับราชการ
+	public ExpenseEstimateBean insertEEB(ExpenseEstimateBean bean) throws Exception{
 		ConnectDB con = new ConnectDB();
 		Connection conn = con.openConnect();
 		PreparedStatement prepared = null;
 		StringBuilder sql = new StringBuilder();
 
 		try {
-			sql.append("INSERT INTO expense_sumary (user_sum_total, allowence_sum_total, rent_date_sum_total,travel_sum_total, other_sum_total, expense_estimate_sum_total,"
-					+ "allowence_perday_total,  rent_date_perday_total, "
-					+ "allowence_details, rent_date_details, "
-					+ "permission_id , create_date)"
-					+ "VALUES (?,?,?,?,?,?, "
-					+ "?,?, "
-					+ "?,?, "
-					+ "?,SYSDATE());");
+			sql.append("INSERT INTO expense_estimate_back (personnel_id, permission_id,"
+					+ "b_allowence_type, b_allowence, b_allowence_perday, b_allowence_sum, "
+					+ "b_rent_date, b_rent_date_perday, b_rent_date_sum , "
+					+ "b_travel_sum ,b_other_sum ,b_expense_estimate_sum, "
+					+ "b_create_date)"
+					+ "VALUES (?,?,"
+					+ "?,?,?,?,"
+					+ "?,?,?,"
+					+ "?,?,?,"
+					+ "SYSDATE());");
 			
 			prepared = conn.prepareStatement(sql.toString());
 			
-			prepared.setString(1, bean.getUserSumTotal());
-			prepared.setString(2, bean.getAllowenceSumTotal());
-			prepared.setString(3, bean.getRentDateSumTotal());
-			prepared.setString(4, bean.getTravelSumTotal());
-			prepared.setString(5, bean.getOtherSumTotal());
-			prepared.setString(6, bean.getExpenseEstimateSumTotal());
-			
-			prepared.setString(7, bean.getAllowencePerdayTotal());
-			prepared.setString(8, bean.getRentDatePerdayTotal());
-			
-			prepared.setString(9, bean.getAllowenceDetails());
-			prepared.setString(10, bean.getRentDateDetails());
+			prepared.setInt(1, bean.getPersonnelId());
+			prepared.setInt(2, bean.getPermissionId());
+			prepared.setInt(3, bean.getAllowenceType());
+			prepared.setInt(4, bean.getAllowence());
+			prepared.setInt(5, bean.getAllowencePerday());
+			prepared.setInt(6, bean.getAllowenceSum());
+			prepared.setInt(7, bean.getRentDate());
+			prepared.setInt(8, bean.getRentDatePerday());
+			prepared.setInt(9, bean.getRentDateSum());
+			prepared.setInt(10, bean.getTravelSum());
+			prepared.setInt(11, bean.getOtherSum());
+			prepared.setInt(12, bean.getExpenseEstimateSum());		
 
-			prepared.setInt(11, bean.getPermissionId());
-			
 			prepared.executeUpdate();
 			
 		} catch (Exception e) {
@@ -109,6 +154,48 @@ public class ExpenseEstimateDao {
 		}
 		return bean;
 	}//end
+	
+	//insert ExpenseSumaryBean บันทึกผลรวมหลังเดินทางกลับจารราชการ
+		public ExpenseSumaryBean insertESB(ExpenseSumaryBean bean) throws Exception{
+			ConnectDB con = new ConnectDB();
+			Connection conn = con.openConnect();
+			PreparedStatement prepared = null;
+			StringBuilder sql = new StringBuilder();
+
+			try {
+				sql.append("INSERT INTO expense_sumary_back (b_user_sum_total, b_allowence_perday_total, b_rent_date_perday_total, b_travel_sum_total, b_other_sum_total, b_expense_estimate_sum_total, "
+						+ "b_allowence_sum_total, b_rent_date_sum_total,"
+						+ "permission_id , b_create_date)"
+						+ "VALUES (?,?,?,?,?,?,"
+						+ "?,?,"
+						+ "?,SYSDATE());");
+				
+				prepared = conn.prepareStatement(sql.toString());
+				
+				prepared.setString(1, bean.getUserSumTotal());
+				prepared.setString(2, bean.getAllowenceSumTotal());
+				prepared.setString(3, bean.getRentDateSumTotal());
+				prepared.setString(4, bean.getTravelSumTotal());
+				prepared.setString(5, bean.getOtherSumTotal());
+				prepared.setString(6, bean.getExpenseEstimateSumTotal());
+				
+				prepared.setString(7, bean.getAllowencePerdayTotal());
+				prepared.setString(8, bean.getRentDatePerdayTotal());
+
+				prepared.setInt(9, bean.getPermissionId());
+				
+				prepared.executeUpdate();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			finally {
+				conn.close();
+			}
+			return bean;
+		}//end
+	
+	
 	
 	//insert TravelExpense รถประจำทาง
 	public TravelExpensesBean insert(TravelExpensesBean bean) throws Exception{

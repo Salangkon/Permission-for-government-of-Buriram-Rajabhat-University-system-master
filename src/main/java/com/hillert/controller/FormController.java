@@ -109,7 +109,7 @@ public class FormController {
 			e.printStackTrace();
 		}
 		request.setAttribute("perBean", bean);
-		return "updatePermission";
+		return "PermissionBack";
 	}
 
 //	// update permission

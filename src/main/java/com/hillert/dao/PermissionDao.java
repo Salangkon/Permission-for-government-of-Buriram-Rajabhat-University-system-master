@@ -23,6 +23,7 @@ import org.springframework.stereotype.Service;
 
 import com.hillert.model.ExpenseEstimateBean;
 import com.hillert.model.ExpenseSumaryBean;
+import com.hillert.model.PermissionBackBean;
 import com.hillert.model.PermissionBean;
 import com.hillert.model.TestAjex;
 import com.hillert.model.TravelExpensesBean;
@@ -216,8 +217,9 @@ public class PermissionDao {
 					bean.setPersonnelId(rs.getInt("personnel_id"));
 					bean.setTopics(rs.getString("topics"));
 					bean.setOther(rs.getString("other"));
-					permissionId = bean.getPermissionId();			
-
+					permissionId = bean.getPermissionId();	
+					perIdBack = bean.getPermissionId();	
+//					System.out.println(permissionId);
 				}
 			} catch (Exception e) {
 				// TODO: handle exception
@@ -229,6 +231,14 @@ public class PermissionDao {
 			}
 			return bean;
 		}
+		int perIdBack;
+		// permissionId
+		public TestAjex perIdBack() {
+			TestAjex bean = new TestAjex();
+			bean.setPerIdBack(permissionId);
+			return bean;
+		}
+		
 
 	// insert Permission and getPermission_id
 	public int insertPermission(PermissionBean bean) {
@@ -306,12 +316,56 @@ public class PermissionDao {
 		return keyHolder.getKey().intValue();
 	}
 
-	// เก็บ ID USER และแปลงเพื่อใช้งาน เป็น String
+	// permissionId
 	public TestAjex perId() {
 		TestAjex bean = new TestAjex();
 		bean.setPerId(permissionId);
 		return bean;
 	}
+	
+	//insert PermissionBean Back บันทึกหลังเดินทางกลับราชการ
+		public PermissionBackBean insertPB(PermissionBackBean bean) throws Exception{
+			ConnectDB con = new ConnectDB();
+			Connection conn = con.openConnect();
+			PreparedStatement prepared = null;
+			StringBuilder sql = new StringBuilder();
+
+			try {
+				sql.append("INSERT INTO permission_back (permission_id, b_by_order_save, b_date_authorized, b_disbursed_by, b_allowence_type, "
+						+ "b_rent_date_type, b_start_travel, b_back_travel, b_house_number ,b_road ,"
+						+ "district, b_go_date ,b_go_time, b_back_date, b_back_time, "
+						+ "b_day_total ,b_time_total )VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+				
+				prepared = conn.prepareStatement(sql.toString());
+				
+				prepared.setInt(1, bean.getPermissionId());
+				prepared.setString(2, bean.getbByOrderSave());
+				prepared.setString(3, bean.getbDateAuthorized());
+				prepared.setInt(4, bean.getbDisbursedBy());
+				prepared.setInt(5, bean.getbAllowenceType());
+				prepared.setInt(6, bean.getbRentDateType());
+				prepared.setInt(7, bean.getbStartTravel());
+				prepared.setInt(8, bean.getbBackTravel());
+				prepared.setInt(9, bean.getbHouseNumber());
+				prepared.setString(10, bean.getbRoad());
+				prepared.setString(11, bean.getDistrict());
+				prepared.setString(12, bean.getbGoDate());
+				prepared.setString(13, bean.getbGoTime());
+				prepared.setString(14, bean.getbBackDate());
+				prepared.setString(15, bean.getbBackTime());
+				prepared.setInt(16, bean.getbDayTotal());
+				prepared.setInt(17, bean.getbTimeTotal());
+				
+				prepared.executeUpdate();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			finally {
+				conn.close();
+			}
+			return bean;
+		}//end
 
 
 	// update checkID permission By ExpenseEstimateBean
@@ -774,7 +828,7 @@ public class PermissionDao {
 				bean.setPersonnelId(rs.getInt("personnel_id"));
 				bean.setTopics(rs.getString("topics"));
 				bean.setOther(rs.getString("other"));
-
+				
 				list.add(bean);
 			}
 
@@ -785,6 +839,7 @@ public class PermissionDao {
 		}
 		return list;
 	}
+	
 	
 	// นับจำนวนใบฟอร์ม ที่ขออนุญาตไปราชการทั้งหมด
 	public PermissionBean count() throws SQLException {

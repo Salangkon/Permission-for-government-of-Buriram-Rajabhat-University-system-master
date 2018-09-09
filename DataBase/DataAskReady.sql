@@ -54,6 +54,7 @@ CREATE TABLE IF NOT EXISTS `district` (
 CREATE TABLE IF NOT EXISTS `expense_estimate` (
   `personnel_id` int(11) DEFAULT NULL,
   `permission_id` int(10) DEFAULT NULL COMMENT 'รหัส ใบขออนุญาต',
+  `allowence_type` int(11) DEFAULT NULL,
   `allowence` int(11) DEFAULT NULL COMMENT 'ค่าเบี้ยเลี้ยง',
   `allowence_perday` int(11) DEFAULT NULL COMMENT 'ค่าเบี้ยเลี้ยง/วัน',
   `allowence_sum` int(11) DEFAULT NULL COMMENT 'รวมค่าเบี้ยเลี้ยง',
@@ -67,6 +68,26 @@ CREATE TABLE IF NOT EXISTS `expense_estimate` (
   KEY `permission_id` (`permission_id`),
   KEY `create_by` (`personnel_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ตาราง ประมาณการรายจ่าย';
+
+-- Data exporting was unselected.
+-- Dumping structure for table ask.expense_estimate_back
+CREATE TABLE IF NOT EXISTS `expense_estimate_back` (
+  `personnel_id` int(11) DEFAULT NULL,
+  `permission_id` int(11) DEFAULT NULL,
+  `b_allowence_type` int(11) DEFAULT NULL,
+  `b_allowence` int(11) DEFAULT NULL,
+  `b_allowence_perday` int(11) DEFAULT NULL,
+  `b_allowence_sum` int(11) DEFAULT NULL,
+  `b_rent_date` int(11) DEFAULT NULL,
+  `b_rent_date_perday` int(11) DEFAULT NULL,
+  `b_rent_date_sum` int(11) DEFAULT NULL,
+  `b_travel_sum` int(11) DEFAULT NULL,
+  `b_other_sum` int(11) DEFAULT NULL,
+  `b_expense_estimate_sum` int(11) DEFAULT NULL,
+  `b_create_date` timestamp NULL DEFAULT NULL,
+  KEY `personnel_id` (`personnel_id`),
+  KEY `permission_id` (`permission_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ตาราง ประมาณการรายจ่ายไปราชการ หลังกลับจากราชการ';
 
 -- Data exporting was unselected.
 -- Dumping structure for table ask.expense_sumary
@@ -85,6 +106,22 @@ CREATE TABLE IF NOT EXISTS `expense_sumary` (
   `create_date` timestamp NULL DEFAULT NULL,
   KEY `permission_id` (`permission_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='สรูปค่าใช้จ่าย';
+
+-- Data exporting was unselected.
+-- Dumping structure for table ask.expense_sumary_back
+CREATE TABLE IF NOT EXISTS `expense_sumary_back` (
+  `permission_id` int(11) DEFAULT NULL,
+  `b_user_sum_total` varchar(50) DEFAULT NULL,
+  `b_allowence_perday_total` varchar(50) DEFAULT NULL,
+  `b_allowence_sum_total` varchar(50) DEFAULT NULL,
+  `b_rent_date_perday_total` varchar(50) DEFAULT NULL,
+  `b_rent_date_sum_total` varchar(50) DEFAULT NULL,
+  `b_travel_sum_total` varchar(50) DEFAULT NULL,
+  `b_other_sum_total` varchar(50) DEFAULT NULL,
+  `b_expense_estimate_sum_total` varchar(50) DEFAULT NULL,
+  `b_create_date` timestamp NULL DEFAULT NULL,
+  KEY `permission_id` (`permission_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ตารางรายงาน สรูปค่าใช้จ่าย หลังกลับจารราชการ';
 
 -- Data exporting was unselected.
 -- Dumping structure for table ask.faculty
@@ -132,7 +169,31 @@ CREATE TABLE IF NOT EXISTS `permission` (
   PRIMARY KEY (`permission_id`),
   KEY `personnel_id` (`personnel_id`),
   KEY `district` (`district`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='ตารางแบบฟอร์ม การขออนุญาตไปราชการ';
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='ตารางแบบฟอร์ม การขออนุญาตไปราชการ';
+
+-- Data exporting was unselected.
+-- Dumping structure for table ask.permission_back
+CREATE TABLE IF NOT EXISTS `permission_back` (
+  `permission_id` int(11) DEFAULT NULL,
+  `district` varchar(50) DEFAULT NULL COMMENT 'ตำบล/อำเภอ/จังหวัด',
+  `b_by_order_save` varchar(50) DEFAULT NULL,
+  `b_date_authorized` date DEFAULT NULL COMMENT 'ลงวันที่/วันที่อนุมัติ',
+  `b_disbursed_by` int(11) DEFAULT NULL COMMENT 'เบิกจ่ายโดย/ขอเบิกค่าใช้จ่ายในการเดินทางไปราชการสำหรับ ',
+  `b_allowence_type` int(11) DEFAULT NULL COMMENT 'ประเภท ค่าเบี๋ยเลี้ยงการเดินทาง ',
+  `b_rent_date_type` int(11) DEFAULT NULL COMMENT 'ประเภท ค่าเข่าที่พัก',
+  `b_start_travel` int(11) DEFAULT NULL COMMENT 'ออกเเดินทางจาก ',
+  `b_back_travel` int(11) DEFAULT NULL COMMENT 'กลับจากการเดินทาง',
+  `b_house_number` int(11) DEFAULT NULL COMMENT 'บ้านเลขที่',
+  `b_road` varchar(50) DEFAULT NULL COMMENT 'ถนน',
+  `b_go_date` date DEFAULT NULL COMMENT 'วันที่ไปราชการ',
+  `b_go_time` varchar(50) DEFAULT NULL COMMENT 'เวลาที่ไปราชการ',
+  `b_back_date` date DEFAULT NULL COMMENT 'วันที่กลับไปราชการ',
+  `b_back_time` varchar(50) DEFAULT NULL COMMENT 'เวลาที่กลับไปราชการ',
+  `b_day_total` int(11) DEFAULT NULL COMMENT 'รวมวันไปราชการ',
+  `b_time_total` int(11) DEFAULT NULL COMMENT 'รวมเวลาไปราชการ',
+  KEY `permission_id` (`permission_id`),
+  KEY `district` (`district`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ตาราง รายงานหลังจากกลับการไปราชการ';
 
 -- Data exporting was unselected.
 -- Dumping structure for table ask.personnel_list
@@ -143,7 +204,7 @@ CREATE TABLE IF NOT EXISTS `personnel_list` (
   `sub_position_code` varchar(10) DEFAULT NULL COMMENT 'รหัส ระดับ',
   `create_date` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`personnel_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
 -- Dumping structure for table ask.position
@@ -172,6 +233,7 @@ CREATE TABLE IF NOT EXISTS `sub_position` (
   `sub_position_code` varchar(50) DEFAULT NULL,
   `position_code` varchar(10) DEFAULT NULL,
   `allowence` int(11) DEFAULT NULL COMMENT 'ค่าเบี้ยเลี้ยง',
+  `allowence_type` int(11) DEFAULT NULL,
   `rent_date` int(11) DEFAULT NULL COMMENT 'ค่าที่พัก',
   PRIMARY KEY (`sub_position_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COMMENT='ตารางตำแหน่งย่อย';
@@ -231,7 +293,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `date` date DEFAULT NULL COMMENT 'วันเข้ารับราชการ',
   `role` int(1) DEFAULT NULL COMMENT 'สิทธิ',
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=161 DEFAULT CHARSET=utf8 COMMENT='ตารางผู้ใช้ระบบ';
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COMMENT='ตารางผู้ใช้ระบบ';
 
 -- Data exporting was unselected.
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
