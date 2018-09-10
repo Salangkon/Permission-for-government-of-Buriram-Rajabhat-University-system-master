@@ -15,11 +15,33 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>ขออนุยาตไปราชการ</title>
 
-<link rel="stylesheet" href="/css/A4.css">
-<link rel="stylesheet" href="/css/table.css">
-
-<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+	<link rel="stylesheet" href="/css/A4.css">
+	<link rel="stylesheet" href="/css/table.css">
+	<link rel="stylesheet" href="/css/w3.css">
+	
+	<script>
+		function w3_open() {
+			document.getElementById("main").style.marginLeft = "180px";
+			document.getElementById("mySidebar").style.width = "180px";
+			document.getElementById("mySidebar").style.display = "block";
+			document.getElementById("openNav").style.display = 'none';
+		}
+		function w3_close() {
+			document.getElementById("main").style.marginLeft = "0";
+			document.getElementById("mySidebar").style.display = "none";
+			document.getElementById("openNav").style.display = "inline-block";
+		}
+	</script>
+	<script>
+	//Print PDF
+	function printDiv(divName) {
+	     var printContents = document.getElementById(divName).innerHTML;
+	     var originalContents = document.body.innerHTML;
+	     document.body.innerHTML = printContents;
+	     window.print();
+	     document.body.innerHTML = originalContents;
+	}
+	</script>
 
 <%
 	List<ExpenseEstimateBean> beanEE = null;
@@ -43,12 +65,42 @@
 <body >
 	<!-- 	 onload="window.print();"  -->
 
-			<div class="page">
+<div class="w3-sidebar w3-light-grey w3-card-4 w3-animate-left" style="width:200px" id="mySidebar">
+  <div class="w3-bar w3-dark-grey">
+  <span class="w3-bar-item w3-padding-16">Manu</span>
+  <button onclick="w3_close()"
+  class="w3-bar-item w3-button w3-right w3-padding-16" title="close Sidebar">&times;</button>
+  </div>
+  <div class="w3-bar-block">
+  <div class="w3-dropdown-hover">
+    <a class="w3-button" href="#">เลือกหน้า<i class="fa fa-caret-down"></i></a>
+    <div class="w3-dropdown-content w3-bar-block w3-card-4">
+      <a class="w3-bar-item w3-button" href="#1"> บันทึกขออนุญาตไปราชการ	</a>
+      <a class="w3-bar-item w3-button" href="#2"> ประมาณการรายจ่าย		</a>
+      <a class="w3-bar-item w3-button" href="#3"> การพิจารณา		</a>
+      <a class="w3-bar-item w3-button" href="#4"> ตาราง ประมาณการรายจ่าย	</a>
+      <a class="w3-bar-item w3-button" href="#5"> ใบเบิกค่าใช้จ่ายไปราชการ	</a>
+      <a class="w3-bar-item w3-button" href="#6"> 	</a>
+    </div>
+  </div>
+  <a class="w3-bar-item w3-button" href="javascript:void(0)" onclick="printDiv('printableArea')">พิมพ์</a>
+  <a class="w3-bar-item w3-button w3-green" href="/welcomeUser">ย้อนกลับ</a>
+  </div>
+</div>
 
-				<h4 align="center">
-					<b>มหาวิทยาลัยราชภัฏบุรีรัมย์ <br>บันทึกขออนุญาตไปราชการ
-					</b>
-				</h4>
+<div id="main" style="margin-left:200px">
+
+<div class="w3-container w3-display-container" style="background-color: gray;" id="grad1">
+  <span title="open Sidebar" style="display:none" id="openNav" class="w3-button w3-transparent w3-display-topleft w3-xlarge" onclick="w3_open()">&#9776;</span>
+
+
+<div id="printableArea" >
+	<div class="page" id="1">
+		<table style="width: 100%; border-collapse: collapse;">
+			<tr>
+				<td style="text-align: center;"><b>มหาวิทยาลัยราชภัฏบุรีรัมย์ <br>บันทึกขออนุญาตไปราชการ</b></td>
+			</tr>
+		</table>
 				<hr>
 				<br>
 
@@ -391,7 +443,7 @@
 
 
 			<!--ประมาณการรายจ่ายไปราชการ -->
-			<div class="page">
+			<div class="page" id="2">
 
 				<label>&nbsp;&nbsp; ประมาณการรายจ่ายไปราชการ
 					(ให้แนบพร้อมกับใบขออนุญาตกรณีขอเบิกค่าใช้จ่าย)</label>
@@ -572,13 +624,7 @@
 										style="margin-left: 5%;"> <%=3%>.<%=3%>.<%=i + 1%> <%=beanTr.get(i).getVehicleName()%></label>
 									</td>
 									<td style="text-align: left; width: 5mm"><label> <%
- 	if (beanTr.get(i).getTravelExpenses() == 0) {
- 			out.print("");
- 		} else {
- 			out.print(beanTr.get(i).getNumberPer());
- 		}
- %></label>
-									</td>
+ 									if (beanTr.get(i).getTravelExpenses() == 0) {out.print("");} else {out.print(beanTr.get(i).getNumberPer());}%></label></td>
 									<td style="text-align: left; width: 10mm"><label>เที่ยวๆ
 											ละ</label></td>
 									<td style="text-align: left; width: 12mm"><label>
@@ -851,7 +897,7 @@
 
 
 			<!-- การพิจารณา -->
-			<div class="page">
+			<div class="page" id="3">
 
 				<label><u>การพิจารณา</u>
 					ผ่านผู้บังคับบัญชาในสายงานที่ขอไปราชการตามลำดับ</label> <br>
@@ -949,7 +995,7 @@
 
 
 			<!-- 	สรูป ใบสุดท้าย -->
-			<div class="page">
+			<div class="page" id="4">
 				<!-- สรุป -->
 				<div style="size: 10; margin-bottom: 5%" class="col-sm-12">
 
@@ -1140,7 +1186,7 @@
 			</div>
 
 <!-- ใบเบิกค่าใช้จ่ายในการเดินทางไปราชการ -->
-			<div class="page">
+			<div class="page" id="5">
 
 				<table style="width: 100%; border-collapse: collapse;">
 					<tr>
@@ -1157,12 +1203,12 @@
 						<th style="text-align: center; width: 35mm;"></th>
 						<th style="text-align: right; width: 30mm;">บาท แบบ 8708</th>
 					</tr>
-				</table>
-
-				<h4 align="center">
-					<b>ใบเบิกค่าใช้จ่ายในการเดินทางไปราชการ</b>
-				</h4>
-
+				</table><br>
+				<table style="width: 100%; border-collapse: collapse;">
+					<tr>
+						<th style="text-align: center;"><b>ใบเบิกค่าใช้จ่ายในการเดินทางไปราชการ</b></th>
+					</tr>
+				</table><br>
 				<table>
 					<tr>
 						<th style="width: 60mm"></th>
@@ -1360,5 +1406,8 @@
 				</table>
 			</div>
 
+		</div>
+	</div>
+</div>
 </body>
 </html>

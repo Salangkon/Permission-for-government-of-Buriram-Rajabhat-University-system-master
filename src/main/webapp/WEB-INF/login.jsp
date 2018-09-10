@@ -5,10 +5,10 @@
 	<title>ระบบขออนุญาตไปราชการ</title>
 	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!-- 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
 	<link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/css/w3.css">
-	<link rel="stylesheet" href="css/login.css">
+	<link rel="stylesheet" href="/css/login.css">
+	<link rel="stylesheet" href="/css/modal.css">
 	
 	<%	
 		String result = "";
@@ -86,7 +86,7 @@
 </div>
   <div class="col-sm-6"></div>
 	<div class="col-sm-6">
-		<form name="login" action="login" method="post" >
+		<form name="login" action="login" method="post" class="modal-content animate">
 			<div id="container">
   			<h1>เข้าระบบ PFG</h1>
 			<%if (result.equals("F")) { %>
@@ -113,9 +113,7 @@
    			</div>
 		</form>
 	</div>
-	
-	
-	
+
 	
 	<script>
 	// Script to open and close sidebar

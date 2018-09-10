@@ -19,7 +19,7 @@
 		<% } %>
 
 <!-- กรอบที่ 1 -->
-<div style="margin-bottom: 18%">
+<div style="margin-bottom: 18%" class="animate">
 
 <div style="size: 10" class="col-sm-12" >
 	<div style="size: 10" class="col-sm-8 " >

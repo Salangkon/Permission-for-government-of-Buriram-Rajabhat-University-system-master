@@ -361,12 +361,72 @@ public class UserDao {
 		}
 		return bean;
 	}
+
 	// เก็บ ID USER เข้า table Personel_list
 	public TestAjex userId() {
 		TestAjex bean = new TestAjex();
 		bean.setUserId(userId);
 		return bean;
 	}
+	
+	//check insert PermissionBack ห้ามซ้ำ
+	public TestAjex CheckPerBack(String CheckUserId) throws SQLException {
+		TestAjex bean = new TestAjex();
+		ConnectDB con = new ConnectDB();
+		Connection conn = con.openConnect();
+		PreparedStatement preperd = null;
+		StringBuilder sql = new StringBuilder();
+
+		try {
+			sql.append(" SELECT permission_id FROM permission_back WHERE permission_id = ? ");
+			preperd = conn.prepareStatement(sql.toString());
+			preperd.setString(1, CheckUserId);
+			ResultSet rs = preperd.executeQuery();
+
+			while (rs.next()) {
+				
+				bean.setPerIdBack(rs.getString("permission_id"));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			if (con != null) {
+				conn.close();
+			}
+		}
+		return bean;
+	}
+	
+	//check insert PermissionBack ห้ามซ้ำ
+		public TestAjex CheckExpenseSumaryBack(String CheckES) throws SQLException {
+			TestAjex bean = new TestAjex();
+			ConnectDB con = new ConnectDB();
+			Connection conn = con.openConnect();
+			PreparedStatement preperd = null;
+			StringBuilder sql = new StringBuilder();
+
+			try {
+				sql.append(" SELECT permission_id FROM expense_sumary_back WHERE permission_id = ? ");
+				preperd = conn.prepareStatement(sql.toString());
+				preperd.setString(1, CheckES);
+				ResultSet rs = preperd.executeQuery();
+
+				while (rs.next()) {
+					
+					bean.setPerIdBack(rs.getString("permission_id"));
+				}
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			} finally {
+				if (con != null) {
+					conn.close();
+				}
+			}
+			return bean;
+		}
+	
 	//check permission
 	public TestAjex userId(int userId) throws SQLException {
 		TestAjex bean = new TestAjex();

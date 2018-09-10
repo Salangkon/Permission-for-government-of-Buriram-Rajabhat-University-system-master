@@ -327,6 +327,7 @@ $(document).ready(function() {
 							d.travelSum = $("#travelSum"+i).val(); //ค่าที่พัก
 							d.otherSum = $("#otherSum"+i).val(); //จำนวนที่พัก/วัน
 							d.expenseEstimateSum = $("#expenseEstimateSum"+i).val(); //ค่าที่พัก
+							d.allowenceType = $("#allowenceType"+i).val();
 							inputdata.push(d);
 						}
 

@@ -11,13 +11,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>แบบฟอร์มการขออนุยาตไปราชการ</title>
-	
 	<link rel="stylesheet" href="/css/w3.css">
 	<link rel="stylesheet" href="/css/tableUpdatePermission.css">
 	<link rel="stylesheet" href="/DataTables-1.10.18/css/jquery.dataTables.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+	<link rel="stylesheet" href="/css/modal.css">
+	
 	<script src="/js/useCar.js"></script>
 	<script src="/js/jQuery v3.3.1.js"></script>
 	<script src="/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>
@@ -27,6 +27,8 @@
 	<script src="/js/province.js"></script>
 	<script src="/js/budget.js"></script>
 	<script src="/js/insertExpense.js"></script>
+	
+	
 	
 <%
 	UserBean bean = null;
@@ -83,8 +85,7 @@
 	<!-- เพิ่มบุคคลากร -->
 	<header class="w3-display-container w3-content">
 		<div id="id01" class="modal">
-			<form class="modal-content animate" action=""
-				style="max-width: 100%; margin-top: 3%; margin-left: 25%; margin-right: 10%">
+			<form class="modal-content animate" action="" style="max-width: 100%; margin-top: 3%; margin-left: 25%; margin-right: 10%">
 				<div class="w3-container w3-blue">
 					<h2>
 						<i class="fa fa-address-card-o w3-margin-right"></i> เพิ่มบุคคลากร

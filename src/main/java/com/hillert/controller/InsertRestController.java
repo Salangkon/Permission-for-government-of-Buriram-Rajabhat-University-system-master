@@ -146,7 +146,7 @@ public class InsertRestController {
 	@ResponseBody
 	public Map<String, String> payment(Model model, @RequestBody PermissionBean pmBean, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		
+
 		Map<String, String> insertPermission = new HashMap<String, String>();
 		try {
 			perDao.insertPermission(pmBean);
@@ -155,42 +155,8 @@ public class InsertRestController {
 			e.printStackTrace();
 			insertPermission.put("page", "insertPermissionFail");
 		}
-		
-		
 		return insertPermission;
 	}
-	
-	// insert_insertPermissionBack
-	@RequestMapping(value = "/insertPermissionBack", method = RequestMethod.POST)
-	@ResponseBody
-	public Map<String, String> insertPermissionBack(Model model, @RequestBody PermissionBackBean pbBean, HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-//		TestAjex perIdBack = new TestAjex();
-//		perIdBack = perDao.perId();
-		Map<String, String> insertPermission = new HashMap<String, String>();
-		try {
-			perDao.insertPB(pbBean);
-			insertPermission.put("page", "welcomeUser");
-		} catch (Exception e) {
-			e.printStackTrace();
-			insertPermission.put("page", "welcomeUser");
-		}
-		
-		
-		return insertPermission;
-	}
-
-//	// insert_ExpenseEstimate
-//	@RequestMapping(value = { "/expenseEstimate" }, method = RequestMethod.POST, produces = "application/json")
-//	@ResponseBody
-//	public String insert(Model model, @RequestBody ExpenseEstimateBean EEBean) {
-//		try {
-//			EEDao.insert(EEBean);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		return "test";
-//	}// end_ExpenseEstimate
 
 	// insert_ExpenseEstimate
 	@RequestMapping(value = "/insertExpenseEstimate", method = RequestMethod.POST)
@@ -209,43 +175,9 @@ public class InsertRestController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-//		insertExpenseEstimate.put("page", "insertPermissionFail");
+		// insertExpenseEstimate.put("page", "insertPermissionFail");
 		return insertExpenseEstimate;
 	}// end_ExpenseEstimate
-	
-	// insert_ExpenseEstimateBack
-	@RequestMapping(value = "/insertExpenseEstimateBack", method = RequestMethod.POST)
-	@ResponseBody
-	public Map<String, String> insertExpenseEstimateBack(Model model, @RequestBody List<ExpenseEstimateBean> EEBean,
-			HttpServletRequest request, HttpServletResponse response) throws Exception {
-		TestAjex perIdBack = new TestAjex();
-		perIdBack = perDao.perId();
-		Map<String, String> insertExpenseEstimate = new HashMap<String, String>();
-		try {
-			for (ExpenseEstimateBean expenseEstimateBean : EEBean) {
-				expenseEstimateBean.setPermissionId(perIdBack.getPerId());
-				EEDao.insertEEB(expenseEstimateBean);
-				insertExpenseEstimate.put("page", "welcomeUser");
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-//		insertExpenseEstimate.put("page", "insertPermissionFail");
-		return insertExpenseEstimate;
-	}// end_ExpenseEstimate
-	
-
-//	// insert_TravelEstimate
-//	@RequestMapping(value = { "/travelEstimate" }, method = RequestMethod.POST, produces = "application/json")
-//	@ResponseBody
-//	public String insert(Model model, @RequestBody TravelExpensesBean TEBean) {
-//		try {
-//			EEDao.insert(TEBean);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		return "test";
-//	}////end insert_TravelEstimate
 
 	// insert_TravelEstimate
 	@RequestMapping(value = "/insertTravelEstimate", method = RequestMethod.POST)
@@ -267,98 +199,130 @@ public class InsertRestController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-//		insertTravelEstimate.put("page", "insertPermissionFail");
+		// insertTravelEstimate.put("page", "insertPermissionFail");
 		return insertTravelEstimate;
-		}//end insert_TravelEstimate
+	}// end insert_TravelEstimate
+
+	// insert_travelExpensesFuelCost
+	@RequestMapping(value = "/insertTravelExpensesFuelCost", method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String, String> insertTravelExpensesFuelCost(Model model,
+			@RequestBody List<TravelExpensesFuelCostBean> TEBean, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		// permisstionId
+		TestAjex perId = new TestAjex();
+		perId = perDao.perId();
+		Map<String, String> insertTravelEstimate = new HashMap<String, String>();
+		try {
+			for (TravelExpensesFuelCostBean travelExpensesFuelCostBean : TEBean) {
+				travelExpensesFuelCostBean.setPermissionId(perId.getPerId());
+				EEDao.insert1(travelExpensesFuelCostBean);
+				insertTravelEstimate.put("page", "insertPermissionSuccess");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		// insertTravelEstimate.put("page", "insertPermissionFail");
+		return insertTravelEstimate;
+	}// end insert_travelExpensesFuelCost
+
+	// insert_ExpenseEstimate
+	@RequestMapping(value = "/insertExpenseSumary", method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String, String> payment1(Model model, @RequestBody ExpenseSumaryBean EEBean, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+
+		TestAjex perId = new TestAjex();
+		perId = perDao.perId();
+		Map<String, String> insertExpenseEstimate = new HashMap<String, String>();
+		try {
+			EEBean.setPermissionId(perId.getPerId());
+			EEDao.insert2(EEBean);
+			insertExpenseEstimate.put("page", "insertPermissionSuccess");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		// insertExpenseEstimate.put("page", "insertPermissionFail");
+		return insertExpenseEstimate;
+	}// end_ExpenseEstimate
+
 	
-//		// insert_travelExpensesFuelCost
-//		@RequestMapping(value = { "/travelExpensesFuelCost" }, method = RequestMethod.POST, produces = "application/json")
-//		@ResponseBody
-//		public String insert(Model model, @RequestBody TravelExpensesFuelCostBean TEBean) {
-//			try {
-//				EEDao.insert1(TEBean);
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//			return "test";
-//		}////end insert_travelExpensesFuelCost
+	
+	
+	
+	// insert_insertPermissionBack
+	@RequestMapping(value = "/insertPermissionBack", method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String, String> insertPermissionBack(Model model, @RequestBody PermissionBackBean pbBean,
+			HttpServletRequest request, HttpServletResponse response) throws Exception {
+		Map<String, String> insertPermission = new HashMap<String, String>();
+		
+		TestAjex perId = new TestAjex();
+		perId = userDao.CheckPerBack(Integer.toString(pbBean.getPermissionId()));
 
-		// insert_travelExpensesFuelCost
-		@RequestMapping(value = "/insertTravelExpensesFuelCost", method = RequestMethod.POST)
-		@ResponseBody
-		public Map<String, String> insertTravelExpensesFuelCost(Model model, @RequestBody List<TravelExpensesFuelCostBean> TEBean,
-				HttpServletRequest request, HttpServletResponse response) throws Exception {
-			// permisstionId
-			TestAjex perId = new TestAjex();
-			perId = perDao.perId();
-			Map<String, String> insertTravelEstimate = new HashMap<String, String>();
-			try {
-				for (TravelExpensesFuelCostBean travelExpensesFuelCostBean : TEBean) {
-					travelExpensesFuelCostBean.setPermissionId(perId.getPerId());
-					EEDao.insert1(travelExpensesFuelCostBean);
-					insertTravelEstimate.put("page", "insertPermissionSuccess");
+		try {
+			if (perId.getPerIdBack() ==  null) {
+			perDao.insertPB(pbBean);
+			insertPermission.put("page", "welcomeUser");
+			}else {
+			insertPermission.put("page", "welcomeUser");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			insertPermission.put("page", "welcomeUser");
+		}
+		return insertPermission;
+	}
+	
+	// insert_ExpenseEstimateBack
+	@RequestMapping(value = "/insertExpenseEstimateBack", method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String, String> insertExpenseEstimateBack(Model model, @RequestBody List<ExpenseEstimateBean> EEBean,
+			HttpServletRequest request, HttpServletResponse response) throws Exception {
+		TestAjex perIdBack = new TestAjex();
+		perIdBack = perDao.perId();
+		Map<String, String> insertExpenseEstimate = new HashMap<String, String>();
+		try {
+			for (ExpenseEstimateBean expenseEstimateBean : EEBean) {
+				expenseEstimateBean.setPermissionId(perIdBack.getPerId());
+				EEDao.insertEEB(expenseEstimateBean);
+				insertExpenseEstimate.put("page", "welcomeUser");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		// insertExpenseEstimate.put("page", "insertPermissionFail");
+		return insertExpenseEstimate;
+	}// end_ExpenseEstimate
+	
+		
+	// insert_ExpenseEstimateBack
+	@RequestMapping(value = "/insertExpenseSumaryBack", method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String, String> insertExpenseSumaryBack(Model model, @RequestBody ExpenseSumaryBean EEBean,
+			HttpServletRequest request, HttpServletResponse response) throws Exception {
+		Map<String, String> insertExpenseEstimate = new HashMap<String, String>();
+		
+		TestAjex perId = new TestAjex();
+		perId = userDao.CheckExpenseSumaryBack(Integer.toString(EEBean.getPermissionId()));
+		try {
+			if (perId.getPerIdBack() ==  null) {
+//				TestAjex perIdBack = new TestAjex();
+//				perIdBack = perDao.perId();
+//				EEBean.setPermissionId(perIdBack.getPerId());
+				EEDao.insertESB(EEBean);
+				insertExpenseEstimate.put("page", "welcomeUser");
+			}else {
+				insertExpenseEstimate.put("page", "welcomeUser");
 				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			
-//			insertTravelEstimate.put("page", "insertPermissionFail");
-			return insertTravelEstimate;
-		}//end insert_travelExpensesFuelCost
-		
-//		// insert_ExpenseEstimate
-//		@RequestMapping(value = { "/expenseSumary" }, method = RequestMethod.POST, produces = "application/json")
-//		@ResponseBody
-//		public String insert(Model model, @RequestBody ExpenseSumaryBean esBean) {
-//			try {
-//				EEDao.insert2(esBean);
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//			return "test";
-//		}// end_ExpenseEstimate
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
-		
-		// insert_ExpenseEstimate
-		@RequestMapping(value = "/insertExpenseSumary", method = RequestMethod.POST)
-		@ResponseBody
-		public Map<String, String> payment1(Model model, @RequestBody ExpenseSumaryBean EEBean,
-				HttpServletRequest request, HttpServletResponse response) throws Exception {
-
-			TestAjex perId = new TestAjex();
-			perId = perDao.perId();
-			Map<String, String> insertExpenseEstimate = new HashMap<String, String>();
-			try {
-				EEBean.setPermissionId(perId.getPerId());
-					EEDao.insert2(EEBean);
-					insertExpenseEstimate.put("page", "insertPermissionSuccess");
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			
-//			insertExpenseEstimate.put("page", "insertPermissionFail");
-			return insertExpenseEstimate;
-		}// end_ExpenseEstimate
-		
-		
-		// insert_ExpenseEstimateBack
-		@RequestMapping(value = "/insertExpenseSumaryBack", method = RequestMethod.POST)
-		@ResponseBody
-		public Map<String, String> insertExpenseSumaryBack(Model model, @RequestBody ExpenseSumaryBean EEBean,
-				HttpServletRequest request, HttpServletResponse response) throws Exception {
-			TestAjex perIdBack = new TestAjex();
-			perIdBack = perDao.perId();
-			Map<String, String> insertExpenseEstimate = new HashMap<String, String>();
-			try {
-					EEBean.setPermissionId(perIdBack.getPerId());
-					EEDao.insertESB(EEBean);
-					insertExpenseEstimate.put("page", "welcomeUser");
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			
-//			insertExpenseEstimate.put("page", "insertPermissionFail");
-			return insertExpenseEstimate;
-		}// end_ExpenseEstimate
+		// insertExpenseEstimate.put("page", "insertPermissionFail");
+		return insertExpenseEstimate;
+	}// end_ExpenseEstimate
 	
 }//end class

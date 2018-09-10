@@ -14,46 +14,44 @@ $(document).ready(function() {
 	
 	//bStartTravel
 	$("#bStartTravel1").change(function(){
-		bStartTravel = "1";
+		bStartTravel = 1;
 	});
 	$("#bStartTravel2").change(function(){
-		bStartTravel = "2";
+		bStartTravel = 2;
 	});
 	
 	//bBackTravel
 	$("#bBackTravel1").change(function(){
-		bBackTravel = "1";
+		bBackTravel = 1;
 	});
 	$("#bBackTravel2").change(function(){
-		bBackTravel = "2";
+		bBackTravel = 2;
 	});
 
 	
 	//insertPermission
 	$('#saveBack').click(function(){
-	
 		var pmBean = {
-				permissionId	: $('#permissionId').val(),
-				bByOrderSave	: $('#bByOrderSave').val(),
-				personnelId		: $('#bDateAuthorized').val(),
-				
-				bDisbursedBy	: bDisbursedBy,
-				bAllowenceType	: $('#bAllowenceType').val(),
-				bRentDateType	: $('#bRentDateType').val(),
-				bStartTravel	: bStartTravel,
-				bBackTravel		: bBackTravel,
-				bStartTravel	: $('#bHouseNumber').val(),
-				
-				bRoad			: $('#bRoad').val(),
-				district		: $('#district').val(),
-				bGoDate			: $('#bGoDate').val(),
-				bGoTime			: $('#bGoTime').val(),
-				bBackDate		: $('#bBackDate').val(),
-				bBackTime		: $('#bBackTime').val(),
+			permissionId : $('#permissionId').val(),
+			bByOrderSave : $('#bByOrderSave').val(),
+			bDateAuthorized : $('#bDateAuthorized').val(),
 
-				bDayTotal		: $('#bDayTotal').val(),
-				bTimeTotal		: $('#bTimeTotal').val(),
+			bDisbursedBy : bDisbursedBy,
+			bAllowenceType : $('#bAllowenceType').val(),
+			bRentDateType : $('#bRentDateType').val(),
+			bStartTravel : bStartTravel,
+			bBackTravel : bBackTravel,
+			bHouseNumber : $('#bHouseNumber').val(),
 
+			bRoad : $('#bRoad').val(),
+			district : $('#district').val(),
+			bGoDate : $('#bGoDate').val(),
+			bGoTime : $('#bGoTime').val(),
+			bBackDate : $('#bBackDate').val(),
+			bBackTime : $('#bBackTime').val(),
+
+			bDayTotal : $('#bDayTotal').val(),
+			bTimeTotal : $('#bTimeTotal').val(),
 		}
 
 		$.ajax({
@@ -80,18 +78,17 @@ $(document).ready(function() {
 	$('#saveBack').click(function() {
 
 		var esBean = {
-				userSumTotal			: $('#userSumTotal').text(),	
-				allowenceSumTotal		: $('#allowenceSumTotal').text(),	
-				rentDateSumTotal		: $('#rentDateSumTotal').text(),	
-				travelSumTotal			: $('#travelSumTotal').text(),	
-				otherSumTotal			: $('#otherSumTotal').text(),	
-				expenseEstimateSumTotal	: $('#expenseEstimateSumTotal').text(),
+			permissionId : $('#permissionId').val(),
+			userSumTotal : $('#userSumTotal').text(),
+			allowenceSumTotal : $('#allowenceSumTotal').text(),
+			rentDateSumTotal : $('#rentDateSumTotal').text(),
+			travelSumTotal : $('#travelSumTotal').text(),
+			otherSumTotal : $('#otherSumTotal').text(),
+			expenseEstimateSumTotal : $('#expenseEstimateSumTotal').text(),
 
-				allowencePerdayTotal	: $('#allowencePerdayTotal').text(),	
-				rentDatePerdayTotal		: $('#rentDatePerdayTotal').text(),	
-				
-				allowenceDetails		: $('#allowenceDetails').val(),
-				rentDateDetails			: $('#rentDateDetails').val(),
+			allowencePerdayTotal : $('#allowencePerdayTotal').text(),
+			rentDatePerdayTotal : $('#rentDatePerdayTotal').text(),
+
 		}
 
 		$.ajax({
@@ -111,8 +108,7 @@ $(document).ready(function() {
 		});
 
 	});
-	
-	
+
 });//end
 
 ////insert

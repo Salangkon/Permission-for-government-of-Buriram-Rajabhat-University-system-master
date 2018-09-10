@@ -58,6 +58,7 @@
 	<link rel="stylesheet" href="/DataTables-1.10.18/css/jquery.dataTables.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/css/modal.css">
 	
 	<script src="/js/useCar.js"></script>
 	<script src="/js/jQuery v3.3.1.js"></script>
@@ -67,7 +68,6 @@
 	<script src="/js/insertExpenseBack.js"></script>
 	<script src="/js/insertPermissionBack.js"></script>
 	<script src="/js/province.js"></script>
-<!-- 	<script src="/js/budget.js"></script> -->
 
 <%
 	PermissionBean bean = null;
@@ -137,8 +137,8 @@
 	<label>ตามคำสั่ง/บันทึกที่ </label><input class="form-control" type="text" id="bByOrderSave">
 	<label>ลงวันที่ </label><input class="form-control" type="date" id="bDateAuthorized"><hr>
 	<label>ขอเบิกค่าใช้จ่ายในการเดินทางไปราชการสำหรับ </label><br>
-		<input name="bDisbursedBy" id="bDisbursedBy1" type="radio" value="" style="margin-left: 4%" > <label> ข้าพเจ้า</label>
-        <input name="bDisbursedBy" id="bDisbursedBy2" type="radio" value="" style="margin-left: 4%" > <label> คณะเดินทาง</label><br><br>
+		<input name="bDisbursedBy" id="bDisbursedBy1" type="radio" value="1" style="margin-left: 4%" > <label> ข้าพเจ้า</label>
+        <input name="bDisbursedBy" id="bDisbursedBy2" type="radio" value="2" style="margin-left: 4%" > <label> คณะเดินทาง</label><br><br>
 	<table>
 		<tr>
 			<td style="width: 40mm"><label>ค่าเบี๋ยเลี้ยงการเดินทาง </label></td>
@@ -177,10 +177,10 @@
 
     <div class="form-group" style="margin-top:20px">
     	<label>ออกเเดินทางจาก :</label> 
-   		<input name="bStartTravel" id="bStartTravel1"  type="radio" value="" style="margin-left: 4%" > <label> บ้านพัก</label>
-        <input name="bStartTravel" id="bStartTravel2"  type="radio" value="" style="margin-left: 4%" > <label> สำนักงาน</label> 
+   		<input name="bStartTravel" id="bStartTravel1"  type="radio" value="1" style="margin-left: 4%" > <label> บ้านพัก</label>
+        <input name="bStartTravel" id="bStartTravel2"  type="radio" value="2" style="margin-left: 4%" > <label> สำนักงาน</label> 
     </div>
-    <label>เลขที่</label><input class="form-control" type="text" id="bStartTravel">
+    <label>เลขที่</label><input class="form-control" type="text" id="bHouseNumber">
     <label>ถนน </label><input class="form-control" type="text" id="bRoad">
 	<!-- จังหวัด province -->
 	<div class="form-group">
@@ -240,10 +240,10 @@
    	<div style="size: 10;margin-bottom: 6.5mm" class="col-sm-12" >
    		<label>รวมเวลาไปราชการ</label> 
    			<div class="input-group">
-			<input class="form-control" style="text-align:center id="bDayTotal" OnKeyPress="return chkNumber(this)" type="text" >
+			<input class="form-control" style="text-align:center OnKeyPress="return chkNumber(this)" type="text" id="bDayTotal" >
 			<div class="input-group-addon">วัน</div>
 			<div class="input-group">
-			<input class="form-control" style="text-align:center id="bTimeTotal" OnKeyPress="return chkNumber(this)" type="text" >
+			<input class="form-control" style="text-align:center OnKeyPress="return chkNumber(this)" type="text" id="bTimeTotal">
 			<div class="input-group-addon">ชั่วโมง</div>
    			</div>
    	</div>
