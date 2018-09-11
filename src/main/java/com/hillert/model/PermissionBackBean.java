@@ -21,6 +21,29 @@ public class PermissionBackBean {
 	private int bDayTotal;
 	private int bTimeTotal;
 	
+	private String districtName;
+	private String amphurName;	
+	private String provinceName;	
+	
+	
+	public String getDistrictName() {
+		return districtName;
+	}
+	public void setDistrictName(String districtName) {
+		this.districtName = districtName;
+	}
+	public String getAmphurName() {
+		return amphurName;
+	}
+	public void setAmphurName(String amphurName) {
+		this.amphurName = amphurName;
+	}
+	public String getProvinceName() {
+		return provinceName;
+	}
+	public void setProvinceName(String provinceName) {
+		this.provinceName = provinceName;
+	}
 	public int getPermissionId() {
 		return permissionId;
 	}

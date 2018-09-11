@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.hillert.dao.PermissionDao;
 import com.hillert.model.ExpenseEstimateBean;
 import com.hillert.model.ExpenseSumaryBean;
+import com.hillert.model.PermissionBackBean;
 import com.hillert.model.PermissionBean;
 import com.hillert.model.TravelExpensesBean;
 import com.hillert.model.TravelExpensesFuelCostBean;
@@ -33,6 +34,7 @@ public class FormController {
 	public String gotoPermission(@PathVariable("values") String values, HttpServletRequest request, Model model)
 			throws NumberFormatException, SQLException {
 		PermissionBean bean = new PermissionBean();
+		PermissionBackBean beanBack = new PermissionBackBean();
 		ExpenseSumaryBean beanEs = new ExpenseSumaryBean();
 		TravelExpensesFuelCostBean beanTEFC = new TravelExpensesFuelCostBean();
 		List<ExpenseEstimateBean> beanEE = new ArrayList<>();
@@ -40,7 +42,8 @@ public class FormController {
 		List<TravelExpensesBean> beanTr2 = new ArrayList<>();
 		List<TravelExpensesBean> beanTr3 = new ArrayList<>();
 		try {
-			bean = perDao.findByIdPer(Integer.parseInt(values));
+			bean = perDao.fromPermission(Integer.parseInt(values));
+			beanBack = perDao.fromPermissionBack(Integer.parseInt(values));
 			beanEs = perDao.findByEs(Integer.parseInt(values));
 			beanTEFC = perDao.findByIdTEFC(Integer.parseInt(values));
 			beanEE = perDao.findByIdExpenseEstimate(Integer.parseInt(values));
@@ -74,6 +77,7 @@ public class FormController {
 			if (values != null) {
 				model.addAttribute("messesUpdate", "");
 				request.setAttribute("perBean", bean);
+				request.setAttribute("perBackBean", beanBack);
 				request.setAttribute("beanEs", beanEs);
 				request.setAttribute("beanTEFC", beanTEFC);
 				request.setAttribute("beanEE", beanEE);
@@ -94,7 +98,7 @@ public class FormController {
 		PermissionBean bean = new PermissionBean();
 		ExpenseSumaryBean beanEs = new ExpenseSumaryBean();
 		try {		
-			bean = perDao.findByIdPer(permissionId);
+			bean = perDao.fromPermission(permissionId);
 			beanEs = perDao.findByEs(permissionId);
 			
 			permissionId = bean.getPermissionId();

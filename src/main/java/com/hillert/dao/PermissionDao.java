@@ -132,8 +132,8 @@ public class PermissionDao {
 		return String.format("%s %s %s", day, " เดือน  " + Months[month] + " พ.ศ. ", year + 543);
 	}
 	
-	// update checkID permission
-		public PermissionBean findByIdPer(int userId) throws SQLException {
+	// fromPermission
+		public PermissionBean fromPermission(int userId) throws SQLException {
 			PermissionBean bean = new PermissionBean();
 			ConnectDB con = new ConnectDB();
 			Connection conn = con.openConnect();
@@ -230,6 +230,62 @@ public class PermissionDao {
 			}
 			return bean;
 		}
+		
+		// fromPermission
+		public PermissionBackBean fromPermissionBack(int userId) throws SQLException {
+			PermissionBackBean bean = new PermissionBackBean();
+			ConnectDB con = new ConnectDB();
+			Connection conn = con.openConnect();
+			PreparedStatement preperd = null;
+			StringBuilder sql = new StringBuilder();
+
+			try {
+				sql.append(" SELECT dt.DISTRICT_NAME,ap.AMPHUR_NAME,pv.PROVINCE_NAME,pb.*\r\n" + 
+						"FROM permission_back pb\r\n" + 
+						"INNER JOIN district dt on dt.DISTRICT_ID = pb.district\r\n" + 
+						"INNER JOIN amphur ap on ap.AMPHUR_ID = dt.AMPHUR_ID\r\n" + 
+						"INNER JOIN province pv on pv.PROVINCE_ID = ap.PROVINCE_ID"
+						+ " WHERE Permission_id = ? ");
+				preperd = conn.prepareStatement(sql.toString());
+				preperd.setInt(1, userId);
+				ResultSet rs = preperd.executeQuery();
+
+				while (rs.next()) {
+					bean.setPermissionId(rs.getInt("permission_id"));
+					
+					bean.setDistrictName(rs.getString("DISTRICT_NAME"));
+					bean.setAmphurName(rs.getString("AMPHUR_NAME"));
+					bean.setProvinceName(rs.getString("PROVINCE_NAME"));
+					bean.setbByOrderSave(rs.getString("b_by_order_save"));
+					bean.setbDateAuthorized(rs.getString("b_date_authorized"));
+					
+					bean.setbDisbursedBy(rs.getInt("b_disbursed_by"));
+					bean.setbAllowenceType(rs.getInt("b_allowence_type"));
+					bean.setbRentDateType(rs.getInt("b_rent_date_type"));
+					bean.setbStartTravel(rs.getInt("b_start_travel"));
+					bean.setbBackTravel(rs.getInt("b_back_travel"));
+					
+					bean.setbHouseNumber(rs.getInt("b_house_number"));
+					bean.setbRoad(rs.getString("b_road"));
+					bean.setbGoDate(rs.getString("b_go_date"));
+					bean.setbGoTime(rs.getString("b_go_time"));
+					bean.setbBackDate(rs.getString("b_back_date"));
+					bean.setbBackTime(rs.getString("b_back_time"));
+					
+					bean.setbDayTotal(rs.getInt("b_day_total"));
+					bean.setbTimeTotal(rs.getInt("b_time_total"));
+				}
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			} finally {
+				if (con != null) {
+					conn.close();
+				}
+			}
+			return bean;
+		}
+
 
 		
 

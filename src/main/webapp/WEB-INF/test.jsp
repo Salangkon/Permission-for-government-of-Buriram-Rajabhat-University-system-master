@@ -1,4 +1,5 @@
 
+<%@page import="com.hillert.model.PermissionBackBean"%>
 <%@page import="com.hillert.model.TravelExpensesFuelCostBean"%>
 <%@page import="com.hillert.model.TravelBean"%>
 <%@page import="com.hillert.model.ExpenseSumaryBean"%>
@@ -47,6 +48,7 @@
 	List<ExpenseEstimateBean> beanEE = null;
 	List<TravelExpensesBean> beanTr = null;
 	PermissionBean bean = null;
+	PermissionBackBean beanBack = null;
 	ExpenseSumaryBean beanEs = null;
 	TravelExpensesFuelCostBean beanTEFC = null;
 	String result = "";
@@ -57,6 +59,7 @@
 	beanTEFC = (TravelExpensesFuelCostBean) request.getAttribute("beanTEFC");
 	beanEs = (ExpenseSumaryBean) request.getAttribute("beanEs");
 	bean = (PermissionBean) request.getAttribute("perBean");
+	beanBack = (PermissionBackBean) request.getAttribute("perBackBean");
 	result = (String) request.getAttribute("messesUpdate");
 %>
 
@@ -1227,16 +1230,16 @@
 				<table>
 					<tr>
 						<th style="width: 30mm; text-align: right;">ตามคำสั่ง/บันทึกที่</th>
-						<th style="width: 20mm; text-align: center;">4654/63</th>
+						<th style="width: 20mm; text-align: center;"><%=beanBack.getbByOrderSave() %></th>
 						<th style="width: 10mm; text-align: left;">ลงวันที่</th>
-						<th style="width: 50mm; text-align: center;"></th>
+						<th style="width: 50mm; text-align: center;"><%=beanBack.getbDateAuthorized()%></th>
 						<th style="width: 15mm; text-align: left;">ได้อนุมัติ</th>
 					</tr>
 				</table>
 				<table>
 					<tr>
 						<th style="width: 5mm; text-align: left;">ข้าพเจ้า</th>
-						<th style="width: 35mm; text-align: center;"><label><%=bean.getSex() %><%=bean.getUserFname()%>&nbsp;&nbsp; <%=bean.getUserLname()%></label></th>
+						<th style="width: 50mm; text-align: center;"><%=bean.getSex() %><%=bean.getUserFname()%>&nbsp;&nbsp; <%=bean.getUserLname()%></th>
 						<th style="width: 10mm; text-align: left;">ตำแหน่ง</th>
 						<th style="width: 60mm; text-align: center;"><%=bean.getSubPositionName() %></th>
 					</tr>
@@ -1250,9 +1253,7 @@
 					</tr>
 					<tr>
 						<th colspan="5" style="height: 15mm; text-align: left;"valign="top">
-							<%for (int i = 0; i < beanEE.size(); i++) {%>
-							, <%=beanEE.get(i).getSex()%><%=beanEE.get(i).getUserFname()%>&nbsp;&nbsp; <%=beanEE.get(i).getUserLname()%> 
-							<%}%>
+
 						</th>
 					</tr>
 					<tr>
@@ -1264,45 +1265,47 @@
 				</table>
 				<table>
 					<tr>
-						<th style="width: 30mm; text-align: left;"><input name="v"
-							type="checkbox" value="" disabled> บ้านพัก <input
-							name="v" type="checkbox" value="" disabled> สำนักงาน</th>
-						<th style="width: 7mm; text-align: left;">เลขที่</th>
-						<th style="width: 12mm; text-align: left;"></th>
+						<th style="width: 40mm; text-align: left;">
+							<input name="v" type="checkbox" <%if (beanBack.getbStartTravel() == 1) {out.print("checked ='checked' disabled");}%> disabled> บ้านพัก 
+							<input name="v" type="checkbox" <%if (beanBack.getbStartTravel() == 2) {out.print("checked ='checked' disabled");}%> disabled> สำนักงาน</th>
+						<th style="width: 12mm; text-align: left;">เลขที่</th>
+						<th style="width: 12mm; text-align: left;"><%=beanBack.getbHouseNumber() %></th>
 						<th style="width: 5mm; text-align: left;">ถนน</th>
-						<th style="width: 20mm; text-align: left;"></th>
+						<th style="width: 20mm; text-align: left;"><%=beanBack.getbRoad() %></th>
+						<th style="width: 5mm; text-align: left;">ตำบล</th>
+						<th style="width: 30mm; text-align: left;"><%=beanBack.getDistrictName() %></th>
 						<th style="width: 5mm; text-align: left;">อำเภอ</th>
-						<th style="width: 30mm; text-align: left;"></th>
+						<th style="width: 30mm; text-align: left;"><%=beanBack.getAmphurName() %></th>
 					</tr>
 				</table>
 				<table>
 					<tr>
 						<th style="width: 10mm; text-align: left;">จังหัด</th>
-						<th style="width: 35mm; text-align: center;"></th>
+						<th style="width: 35mm; text-align: center;"><%=beanBack.getProvinceName() %></th>
 						<th style="width: 12mm; text-align: left;">ตั้งแต่วันที่</th>
 						<th style="width: 30mm; text-align: center;"></th>
 						<th style="width: 5mm; text-align: left;">เวลา</th>
-						<th style="width: 20mm; text-align: center;"></th>
+						<th style="width: 20mm; text-align: center;"><%=beanBack.getbBackTime() %></th>
 					</tr>
 				</table>
 				<table>
 					<tr>
-						<th style="width: 40mm; text-align: left;">และกลับถึง <input
-							name="v" type="checkbox" value="" disabled> บ้านพัก <input
-							name="v" type="checkbox" value="" disabled> สำนักงาน
+						<th style="width: 40mm; text-align: left;">และกลับถึง 
+							<input name="v" type="checkbox" <%if (beanBack.getbBackTravel()  == 1) {out.print("checked ='checked' disabled");}%> disabled> บ้านพัก 
+							<input name="v" type="checkbox" <%if (beanBack.getbBackTravel()  == 2) {out.print("checked ='checked' disabled");}%> disabled> สำนักงาน
 						</th>
 						<th style="width: 7mm; text-align: left;">วันที่</th>
 						<th style="width: 40mm; text-align: center;"></th>
 						<th style="width: 5mm; text-align: left;">เวลา</th>
-						<th style="width: 20mm; text-align: center;"></th>
+						<th style="width: 20mm; text-align: center;"><%=beanBack.getbBackTime() %></th>
 					</tr>
 				</table>
 				<table>
 					<tr>
 						<th style="width: 15mm; text-align: left;">รวมเวลาไปราชการครั้งนี้</th>
-						<th style="width: 5mm; text-align: center;">99</th>
+						<th style="width: 5mm; text-align: center;"><%=beanBack.getbDayTotal() %></th>
 						<th style="width: 2mm; text-align: left;">วัน</th>
-						<th style="width: 5mm; text-align: center;">999</th>
+						<th style="width: 5mm; text-align: center;"><%=beanBack.getbTimeTotal() %></th>
 						<th style="width: 5mm; text-align: left;">ชั่วโมง</th>
 						<th style="width: 20mm"></th>
 					</tr>
@@ -1312,19 +1315,19 @@
 					<tr>
 						<th style="width: 15mm"></th>
 						<th style="text-align: left;">ข้าพเจ้าขอเบิกค่าใช้จ่ายในการเดินทางไปราชการสำหรับ
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input name="v"
-							type="checkbox" value="" disabled> ข้าพเจ้า <input
-							name="v" type="checkbox" value="" disabled> คณะเดินทาง
-							&nbsp;&nbsp;&nbsp;&nbsp; ดังนี้
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+							<input name="v" type="checkbox" <%if (beanBack.getbDisbursedBy() == 1) {out.print("checked ='checked' disabled");}%> disabled> ข้าพเจ้า
+							<input name="v" type="checkbox" <%if (beanBack.getbDisbursedBy() == 2) {out.print("checked ='checked' disabled");}%> disabled> คณะเดินทาง &nbsp;&nbsp;&nbsp;&nbsp; ดังนี้
 						</th>
 					</tr>
 				</table>
 				<table>
 					<tr>
 						<th style="width: 25mm; text-align: left;">ค่าเบี๋ยเลี้ยงเดินทางประเภท</th>
-						<th style="width: 5mm; text-align: center;"><input name="v"
-							type="checkbox" value="" disabled> ก <input name="v"
-							type="checkbox" value="" disabled> ข</th>
+						<th style="width: 5mm; text-align: center;">
+							<input type="checkbox" <%if (beanBack.getbAllowenceType()  == 1) {out.print("checked ='checked' disabled");}%> disabled> ก 
+							<input type="checkbox" <%if (beanBack.getbAllowenceType()  == 2) {out.print("checked ='checked' disabled");}%> disabled> ข
+						</th>
 						<th style="width: 1mm; text-align: left;">จำนวน</th>
 						<th style="width: 7mm; text-align: left;"></th>
 						<th style="width: 2mm; text-align: left;">วัน รวม</th>
@@ -1333,9 +1336,10 @@
 					</tr>
 					<tr>
 						<th style="width: 15mm; text-align: left;">ค่าเช่าที่พักประเภท</th>
-						<th style="width: 20mm; text-align: center;"><input name="v"
-							type="checkbox" value="" disabled> ก <input name="v"
-							type="checkbox" value="" disabled> ข</th>
+						<th style="width: 20mm; text-align: center;">
+							<input type="checkbox" <%if (beanBack.getbRentDateType() == 1) {out.print("checked ='checked' disabled");}%> disabled> ก 
+							<input type="checkbox" <%if (beanBack.getbRentDateType() == 2) {out.print("checked ='checked' disabled");}%> disabled> ข
+						</th>
 						<th style="width: 1mm; text-align: left;">จำนวน</th>
 						<th style="width: 7mm; text-align: center;"></th>
 						<th style="width: 2mm; text-align: left;">วัน รวม</th>
