@@ -7,10 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.taglibs.standard.tag.common.xml.SetTag;
 import org.springframework.stereotype.Repository;
 
-import com.hillert.model.LoginBean;
 import com.hillert.model.TestAjex;
 import com.hillert.model.UserBean;
 import com.hillert.util.ConnectDB;

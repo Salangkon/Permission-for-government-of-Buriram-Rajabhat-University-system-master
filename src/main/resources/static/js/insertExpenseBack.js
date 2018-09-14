@@ -187,11 +187,18 @@ $(document).ready(function() {
 					"sWidth" : "30px",
 					"mRender" : function(data,
 							type, row, index) {
-						return '<select  class="form-control "  style="width: 15mm;" name="allowenceType" id="allowenceType'+index.row+'" onchange="setAllowEnce('+index.row+','+row.allowenceType+')" >'
-								+'<option  value="1">ก</option>'
-								+'<option  value="2">ข</option>'
-								+'</select>';
-						}
+						if (row.allowenceType == '1') {
+							return '<select  class="form-control "  style="width: 15mm;" name="allowenceType" id="allowenceType'+index.row+'" onchange="setAllowEnce('+index.row+','+row.allowenceType+')" >'
+							+'<option  value="1">ก</option>'
+							+'<option  value="2">ข</option>'
+							+'</select>';
+			            } else if (row.allowenceType == '2') {
+			            	return '<select  class="form-control "  style="width: 15mm;" name="allowenceType" id="allowenceType'+index.row+'" onchange="setAllowEnce('+index.row+','+row.allowenceType+')" >'
+							+'<option  value="2">ข</option>'
+							+'<option  value="1">ก</option>'
+							+'</select>';
+			            } 
+					}
 				},
 				{
 					"mData" : "allowence",
@@ -207,10 +214,16 @@ $(document).ready(function() {
 					"mData" : "allowencePerday",
 					"sWidth" : "50px" ,
 					"mRender" : function(data,
-						type, row, index) {						
-					return '<input class="form-control number2" style="width: 16mm;height: 7mm" type="text" OnKeyPress="return chkNumber(this)" name="allowencePerday" id="allowencePerday'
+						type, row, index) {	
+						if (row.allowencePerday != null) {
+							return '<input class="form-control number2" style="width: 16mm;height: 7mm" type="text" OnKeyPress="return chkNumber(this)" name="allowencePerday" id="allowencePerday'
 							+ index.row
 							+ '" value="'+row.allowencePerday+'" />';
+			            } else {
+			            	return '<input class="form-control number2" style="width: 16mm;height: 7mm" type="text" OnKeyPress="return chkNumber(this)" name="allowencePerday" id="allowencePerday'
+							+ index.row
+							+ '" value="0" />';
+			            }
 					}
 				},
 				{
@@ -218,7 +231,7 @@ $(document).ready(function() {
 					"sWidth" : "60px" ,
 					"mRender" : function(data,
 						type, row, index) {
-					return '<input class="form-control sum6" disabled readonly="true"  type="text"  style="width: 20mm;height: 7mm" name="allowenceSum" id="allowenceSum'
+					return '<input class="form-control sum6" disabled readonly="true"  type="number"  style="width: 20mm;height: 7mm" name="allowenceSum" id="allowenceSum'
 							+ index.row
 							+ '" value="'+row.allowenceSum+'" />';
 					}
@@ -238,9 +251,16 @@ $(document).ready(function() {
 					"sWidth" : "50px" ,
 					"mRender" : function(data,
 						type, row, index) {
-					return '<input class="form-control number4" type="text" OnKeyPress="return chkNumber(this)" style="width: 16mm;height: 7mm" name="rentDatePerday" id="rentDatePerday'
+						if (row.rentDatePerday != null) {
+							return '<input class="form-control number4" type="text" OnKeyPress="return chkNumber(this)" style="width: 16mm;height: 7mm" name="rentDatePerday" id="rentDatePerday'
 							+ index.row
 							+ '" value="'+row.rentDatePerday+'"/>';
+			            } else {
+			            	return '<input class="form-control number4" type="text" OnKeyPress="return chkNumber(this)" style="width: 16mm;height: 7mm" name="rentDatePerday" id="rentDatePerday'
+							+ index.row
+							+ '" value="0"/>';
+			            }
+					
 					}
 				},	
 				{
@@ -248,9 +268,16 @@ $(document).ready(function() {
 					"sWidth" : "60px" ,
 					"mRender" : function(data,
 						type, row, index) {
-					return '<input class="form-control sum9" disabled readonly="true" type="text" OnKeyPress="return chkNumber(this)" style="width: 22mm;height: 7mm" name="rentDateSum" id="rentDateSum'
+						if (row.rentDateSum != null) {
+							return '<input class="form-control sum9" disabled readonly="true" type="text" OnKeyPress="return chkNumber(this)" style="width: 22mm;height: 7mm" name="rentDateSum" id="rentDateSum'
 							+ index.row
 							+ '" value="'+row.rentDateSum+'"/>';
+			            } else {
+			            	return '<input class="form-control sum9" disabled readonly="true" type="text" OnKeyPress="return chkNumber(this)" style="width: 22mm;height: 7mm" name="rentDateSum" id="rentDateSum'
+							+ index.row
+							+ '" value=""/>';
+			            }
+					
 					}										
 				},
 				{
@@ -258,9 +285,16 @@ $(document).ready(function() {
 					"sWidth" : "60px" ,
 					"mRender" : function(data,
 						type, row, index) {
-					return '<input class="form-control sum10"  type="text" OnKeyPress="return chkNumber(this)" style="width: 22mm;height: 7mm" name="travelSum" id="travelSum'
+						if (row.travelSum != null) {
+							return '<input class="form-control sum10"  type="text" OnKeyPress="return chkNumber(this)" style="width: 22mm;height: 7mm" name="travelSum" id="travelSum'
 							+ index.row 
 							+ '" value="'+row.travelSum+'" />';
+			            } else {
+			            	return '<input class="form-control sum10"  type="text" OnKeyPress="return chkNumber(this)" style="width: 22mm;height: 7mm" name="travelSum" id="travelSum'
+							+ index.row 
+							+ '" value="0" />';
+			            }
+					
 					}										
 				},
 				{
@@ -268,9 +302,15 @@ $(document).ready(function() {
 					"sWidth" : "60px" ,
 					"mRender" : function(data,
 						type, row, index) {
-					return '<input class="form-control sum11"  type="number" style="width: 22mm;height: 7mm" name="otherSum" id="otherSum'
+						if (row.otherSum != null) {
+							return '<input class="form-control sum11"  type="text" style="width: 22mm;height: 7mm" name="otherSum" id="otherSum'
 							+ index.row 
 							+ '" value="'+row.otherSum+'" />';
+			            } else {
+			            	return '<input class="form-control sum11"  type="text" style="width: 22mm;height: 7mm" name="otherSum" id="otherSum'
+							+ index.row 
+							+ '" value="0" />';
+			            }
 					}										
 				},
 				{
@@ -278,10 +318,10 @@ $(document).ready(function() {
 				"sWidth" : "60px" ,
 				"mRender" : function(data,
 					type, row, index) {
-				return '<input class="form-control sum12" disabled readonly="true" type="number" style="width: 22mm;height: 7mm" name="expenseEstimateSum" id="expenseEstimateSum'
+		            	return '<input class="form-control sum12" disabled readonly="true" type="number" style="width: 22mm;height: 7mm" name="expenseEstimateSum" id="expenseEstimateSum'
 						+ index.row 
 						+ '" value="'+row.expenseEstimateSum+'"/>';
-				}										
+					}										
 				},
 				{
 						"mData" : "",

@@ -264,6 +264,9 @@ public class InsertRestController {
 
 		try {
 			if (perId.getPerIdBack() ==  null) {
+//			TestAjex perIdBack = new TestAjex();
+//			perIdBack = perDao.perId();
+//			pbBean.setPermissionId(perIdBack.getPerId());
 			perDao.insertPB(pbBean);
 			insertPermission.put("page", "welcomeUser");
 			}else {
@@ -284,11 +287,15 @@ public class InsertRestController {
 		TestAjex perIdBack = new TestAjex();
 		perIdBack = perDao.perId();
 		Map<String, String> insertExpenseEstimate = new HashMap<String, String>();
+		TestAjex perId = new TestAjex();
+		perId = userDao.CheckExpenseSumaryBack(Integer.toString(((ExpenseEstimateBean) EEBean).getPermissionId()));
 		try {
+			if (perId.getPerIdBack() ==  null) {
 			for (ExpenseEstimateBean expenseEstimateBean : EEBean) {
 				expenseEstimateBean.setPermissionId(perIdBack.getPerId());
 				EEDao.insertEEB(expenseEstimateBean);
 				insertExpenseEstimate.put("page", "welcomeUser");
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -307,6 +314,7 @@ public class InsertRestController {
 		
 		TestAjex perId = new TestAjex();
 		perId = userDao.CheckExpenseSumaryBack(Integer.toString(EEBean.getPermissionId()));
+
 		try {
 			if (perId.getPerIdBack() ==  null) {
 //				TestAjex perIdBack = new TestAjex();

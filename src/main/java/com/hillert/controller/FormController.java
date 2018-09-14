@@ -36,6 +36,7 @@ public class FormController {
 		PermissionBean bean = new PermissionBean();
 		PermissionBackBean beanBack = new PermissionBackBean();
 		ExpenseSumaryBean beanEs = new ExpenseSumaryBean();
+		ExpenseSumaryBean beanEsBack = new ExpenseSumaryBean();
 		TravelExpensesFuelCostBean beanTEFC = new TravelExpensesFuelCostBean();
 		List<ExpenseEstimateBean> beanEE = new ArrayList<>();
 		List<TravelExpensesBean> beanTr = new ArrayList<>();
@@ -45,6 +46,7 @@ public class FormController {
 			bean = perDao.fromPermission(Integer.parseInt(values));
 			beanBack = perDao.fromPermissionBack(Integer.parseInt(values));
 			beanEs = perDao.findByEs(Integer.parseInt(values));
+			beanEsBack = perDao.findByEsBack(Integer.parseInt(values));
 			beanTEFC = perDao.findByIdTEFC(Integer.parseInt(values));
 			beanEE = perDao.findByIdExpenseEstimate(Integer.parseInt(values));
 			beanTr = perDao.findByIdTravel(Integer.parseInt(values));
@@ -79,6 +81,7 @@ public class FormController {
 				request.setAttribute("perBean", bean);
 				request.setAttribute("perBackBean", beanBack);
 				request.setAttribute("beanEs", beanEs);
+				request.setAttribute("beanEsBack", beanEsBack);
 				request.setAttribute("beanTEFC", beanTEFC);
 				request.setAttribute("beanEE", beanEE);
 				request.setAttribute("beanTr", beanTr3);

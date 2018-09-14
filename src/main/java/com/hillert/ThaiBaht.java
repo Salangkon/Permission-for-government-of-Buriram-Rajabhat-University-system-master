@@ -8,7 +8,7 @@ import java.math.RoundingMode;
  * @author nopphanan7
  * 
  */
-public final class ThaiBaht {
+public final class ThaiBaht extends ThaiBath2 {
 	
     private static final String[] SCALE_TH = { "ล้าน", "สิบ", "ร้อย", "พัน", "หมื่น", "แสน", "" };
     private static final String[] DIGIT_TH = { "ศูนย์", "หนึ่ง", "สอง", "สาม", "สี่", "ห้า", "หก", "เจ็ด", "แปด", "เก้า" };
@@ -128,11 +128,5 @@ public final class ThaiBaht {
     }
 
 		
-    public static void main(String[] args) {
-        // จุดทศนิยมปัดเป็นสองตำแหน่ง
-        System.out.println("Negative value of -1257.5463 : " + new ThaiBaht().getText(100000.20));
-        System.out.println("Positive value of 1234.5463 : " + new ThaiBaht().getText(1234.5463));
-        System.out.println("Negative string value of -1,234.5463 : " + new ThaiBaht().getText("18080"));
-        System.out.println("Positive string value of 132113 : " + new ThaiBaht().getText("20"));
-    }
+  
 }

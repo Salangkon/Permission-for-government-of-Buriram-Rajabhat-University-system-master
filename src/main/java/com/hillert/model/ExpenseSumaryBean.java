@@ -13,7 +13,8 @@ public class ExpenseSumaryBean {
 	private String travelSumTotal;
 	private String otherSumTotal;
 	private String expenseEstimateSumTotal;
-	
+	private String expenseEstimateSumTotalThaiBaht;
+
 	private String allowencePerdayTotal;
 	private String rentDatePerdayTotal;
 	
@@ -22,7 +23,13 @@ public class ExpenseSumaryBean {
 	
 	private Timestamp createDate;
 
-	
+	public String getExpenseEstimateSumTotalThaiBaht() {
+		return expenseEstimateSumTotalThaiBaht;
+	}
+
+	public void setExpenseEstimateSumTotalThaiBaht(String expenseEstimateSumTotalThaiBaht) {
+		this.expenseEstimateSumTotalThaiBaht = expenseEstimateSumTotalThaiBaht;
+	}
 	public String getAllowencePerdayTotal() {
 		return allowencePerdayTotal;
 	}

@@ -248,6 +248,9 @@ $(document).ready(function() {
 					"iDisplayLength": 7,
 					"sAjaxSource" : "/personnel",
 					"sAjaxDataProp" : "",
+					"order": [
+                        [0, "DESC"]
+                    ],
 					"aoColumns" : [ {
 						"mData" : "personnelId" ,
 						"mRender" : function(data,
@@ -407,7 +410,7 @@ $(document).ready(function() {
 					$('#buttonAdd1').click(function() {
 						var datas = table.rows('.selected').data();
 						tableSelect.rows.add(datas).draw(false);
-						table.rows('.selected').remove().draw();
+//						table.rows('.selected').remove().draw();
 						console.log(datas);
 						var num = $('#addUser').DataTable().rows().data().length;
 						$('#userSumTotal').text(num);

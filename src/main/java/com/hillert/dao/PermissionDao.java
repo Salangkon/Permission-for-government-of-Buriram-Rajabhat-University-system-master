@@ -1,5 +1,9 @@
 package com.hillert.dao;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.math.MathContext;
+import java.math.RoundingMode;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -19,7 +23,6 @@ import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Service;
-
 
 import com.hillert.model.ExpenseEstimateBean;
 import com.hillert.model.ExpenseSumaryBean;
@@ -49,6 +52,29 @@ public class PermissionDao {
 	}
 	
 	// Java Date Thai Format
+	public static String dateThai(String strDate) {
+		String Months[] = { " มกราคม", " กุมภาพันธ์", " มีนาคม", " เมษายน", " พฤษภาคม", " มิถุนายน", " กรกฎาคม",
+				" สิงหาคม", " กันยายน", " ตุลาคม", " พฤศจิกายน", " ธันวาคม" };
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+
+		int year = 0, month = 0, day = 0;
+		try {
+			java.util.Date date = df.parse(strDate);
+			Calendar c = Calendar.getInstance();
+			c.setTime(date);
+
+			year = c.get(Calendar.YEAR);
+			month = c.get(Calendar.MONTH);
+			day = c.get(Calendar.DATE);
+
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return String.format("%s %s %s", day, " เดือน  " + Months[month] + " พ.ศ. ", year + 543);
+	}
+	
+	// Java Date Thai Format Day/วัน
 	public static String dateThaiDay(String strDate) {
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -66,7 +92,7 @@ public class PermissionDao {
 		return String.format("%s", day);
 	}
 		
-	//Java Date Thai Format
+	//Java Date Thai Format Month/เดือน
 	public static String dateThaiMonths(String strDate)
 	{
 		String Months[] = {
@@ -90,7 +116,7 @@ public class PermissionDao {
 		return String.format("%s",  Months[month] );
 	}
 	
-	//Java Date Thai Format
+	//Java Date Thai Format Year/ปี
 	public static String dateThaiYear(String strDate)
 	{
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd"); 
@@ -107,29 +133,6 @@ public class PermissionDao {
 			e.printStackTrace();
 		}
 		return String.format("%s", year+543);
-	}
-	
-	// Java Date Thai Format
-	public static String dateThai(String strDate) {
-		String Months[] = { " มกราคม", " กุมภาพันธ์", " มีนาคม", " เมษายน", " พฤษภาคม", " มิถุนายน", " กรกฎาคม",
-				" สิงหาคม", " กันยายน", " ตุลาคม", " พฤศจิกายน", " ธันวาคม" };
-		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-
-		int year = 0, month = 0, day = 0;
-		try {
-			java.util.Date date = df.parse(strDate);
-			Calendar c = Calendar.getInstance();
-			c.setTime(date);
-
-			year = c.get(Calendar.YEAR);
-			month = c.get(Calendar.MONTH);
-			day = c.get(Calendar.DATE);
-
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return String.format("%s %s %s", day, " เดือน  " + Months[month] + " พ.ศ. ", year + 543);
 	}
 	
 	// fromPermission
@@ -257,7 +260,11 @@ public class PermissionDao {
 					bean.setAmphurName(rs.getString("AMPHUR_NAME"));
 					bean.setProvinceName(rs.getString("PROVINCE_NAME"));
 					bean.setbByOrderSave(rs.getString("b_by_order_save"));
+					
 					bean.setbDateAuthorized(rs.getString("b_date_authorized"));
+					bean.setbDateAuthorizedDay(dateThaiDay(rs.getString("b_date_authorized")));
+					bean.setbDateAuthorizedMonth(dateThaiMonths(rs.getString("b_date_authorized")));
+					bean.setbDateAuthorizedYear(dateThaiYear(rs.getString("b_date_authorized")));
 					
 					bean.setbDisbursedBy(rs.getInt("b_disbursed_by"));
 					bean.setbAllowenceType(rs.getInt("b_allowence_type"));
@@ -267,9 +274,17 @@ public class PermissionDao {
 					
 					bean.setbHouseNumber(rs.getInt("b_house_number"));
 					bean.setbRoad(rs.getString("b_road"));
+					
 					bean.setbGoDate(rs.getString("b_go_date"));
+					bean.setbGoDateDay(dateThaiDay(rs.getString("b_go_date")));
+					bean.setbGoDateMonth(dateThaiMonths(rs.getString("b_go_date")));
+					bean.setbGoDateYear(dateThaiYear(rs.getString("b_go_date")));
 					bean.setbGoTime(rs.getString("b_go_time"));
+					
 					bean.setbBackDate(rs.getString("b_back_date"));
+					bean.setbBackDateDay(dateThaiDay(rs.getString("b_back_date")));
+					bean.setbBackDateMonth(dateThaiMonths(rs.getString("b_back_date")));
+					bean.setbBackDateYear(dateThaiYear(rs.getString("b_back_date")));
 					bean.setbBackTime(rs.getString("b_back_time"));
 					
 					bean.setbDayTotal(rs.getInt("b_day_total"));
@@ -285,9 +300,6 @@ public class PermissionDao {
 			}
 			return bean;
 		}
-
-
-		
 
 	// insert Permission and getPermission_id
 	public int insertPermission(PermissionBean bean) {
@@ -476,6 +488,7 @@ public class PermissionDao {
 				bean.setUserFname(rs.getString("user_fname"));
 				bean.setUserLname(rs.getString("user_lname"));
 				bean.setSubPositionName(rs.getString("sub_position_name"));
+				bean.setAllowenceType(rs.getInt("allowence_type"));
 				
 				bean.setAllowence(rs.getInt("allowence"));
 				bean.setAllowencePerday(rs.getInt("allowence_perday"));
@@ -591,6 +604,166 @@ public class PermissionDao {
 		}
 		return bean;
 	}// end ES
+	
+	
+    private static final String[] SCALE_TH = { "ล้าน", "สิบ", "ร้อย", "พัน", "หมื่น", "แสน", "" };
+    private static final String[] DIGIT_TH = { "ศูนย์", "หนึ่ง", "สอง", "สาม", "สี่", "ห้า", "หก", "เจ็ด", "แปด", "เก้า" };
+    private static final String[] SYMBOLS_TH = { "ลบ", "บาท", "ถ้วน", "สตางค์" ,"ยี่", "เอ็ด", ",", " ", "฿"};
+ 
+    private String valueText;
+ 
+    // ···········Methods··············//
+    public String getText(double amount) {
+        BigDecimal value = new BigDecimal(amount);
+        this.valueText = getThaiBaht(value);
+        return this.valueText;
+    }
+ 
+    public String getText(float amount) {
+        BigDecimal value = new BigDecimal(amount);
+        this.valueText = getThaiBaht(value);
+        return this.valueText;
+    }
+ 
+    public String getText(int amount) {
+        BigDecimal value = new BigDecimal(amount);
+        this.valueText = getThaiBaht(value);
+        return this.valueText;
+    }
+ 
+    public String getText(long amount) {
+        BigDecimal value = new BigDecimal(amount);
+        this.valueText = getThaiBaht(value);
+        return this.valueText;
+    }
+ 
+    public String getText(String amount) {
+        //ไม่ต้องการเครื่องหมายคอมมาร์, ไม่ต้องการช่องว่าง, ไม่ต้องการตัวหนังสือ บาท, ไม่ต้องการสัญลักษณ์สกุลเงินบาท
+        for (String element : SYMBOLS_TH) {
+            amount = amount.replace (element, "");
+        }
+ 
+        BigDecimal value = new BigDecimal(amount.trim());
+        this.valueText = getThaiBaht(value);
+        return this.valueText;
+    }
+ 
+    public String getText(Number amount) {
+        BigDecimal value = new BigDecimal(String.valueOf(amount));
+        this.valueText = getThaiBaht(value);
+        return this.valueText;
+    }
+ 
+    private static String getThaiBaht(BigDecimal amount) {
+        StringBuilder builder = new StringBuilder();
+        BigDecimal absolute = amount.abs();
+        int precision = absolute.precision();
+        int scale = absolute.scale();
+        int rounded_precision = ((precision - scale) + 2);
+        MathContext mc = new MathContext(rounded_precision,RoundingMode.HALF_UP);
+        BigDecimal rounded = absolute.round(mc);
+        BigDecimal[] compound = rounded.divideAndRemainder(BigDecimal.ONE);
+        boolean negative_amount = (-1 == amount.compareTo(BigDecimal.ZERO));
+ 
+        compound[0] = compound[0].setScale(0);
+        compound[1] = compound[1].movePointRight(2);
+ 
+        if (negative_amount) {
+            builder.append(SYMBOLS_TH[0].toString());
+        }
+ 
+        builder.append(getNumberText(compound[0].toBigIntegerExact()));
+        builder.append(SYMBOLS_TH[1].toString());
+ 
+        if (0 == compound[1].compareTo(BigDecimal.ZERO)) {
+            builder.append(SYMBOLS_TH[2].toString());
+        } else {
+            builder.append(getNumberText(compound[1].toBigIntegerExact()));
+            builder.append(SYMBOLS_TH[3].toString());
+        }
+        return builder.toString();
+    }
+    
+    private static String getNumberText(BigInteger number) {
+        StringBuffer buffer = new StringBuffer();
+        char[] digits = number.toString().toCharArray();
+ 
+        for (int index = digits.length; index > 0; --index) {
+            int digit = Integer.parseInt(String.valueOf(digits[digits.length
+                    - index]));
+            String digit_text = DIGIT_TH[digit];
+            int scale_idx = ((1 < index) ? ((index - 1) % 6) : 6);
+ 
+            if ((1 == scale_idx) && (2 == digit)) {
+                digit_text = SYMBOLS_TH[4].toString();
+            }
+ 
+            if (1 == digit) {
+                switch (scale_idx) {
+                case 0:
+                case 6:
+                    buffer.append((index < digits.length) ? SYMBOLS_TH[5].toString() : digit_text);
+                    break;
+                case 1:
+                    break;
+                default:
+                    buffer.append(digit_text);
+                    break;
+                }
+            } else if (0 == digit) {
+                if (0 == scale_idx) {
+                    buffer.append(SCALE_TH[scale_idx]);
+                }
+                continue;
+            } else {
+                buffer.append(digit_text);
+            }
+            buffer.append(SCALE_TH[scale_idx]);
+        }
+        return buffer.toString();
+    }
+	
+	
+	
+	// ExpenseSumaryBack
+	public ExpenseSumaryBean findByEsBack(int userId) throws SQLException {
+		ExpenseSumaryBean bean = new ExpenseSumaryBean();
+		ConnectDB con = new ConnectDB();
+		Connection conn = con.openConnect();
+		PreparedStatement preperd = null;
+		StringBuilder sql = new StringBuilder();
+
+		try {
+			sql.append(" SELECT * FROM expense_sumary_back WHERE Permission_id = ? ");
+			preperd = conn.prepareStatement(sql.toString());
+			preperd.setInt(1, userId);
+			ResultSet rs = preperd.executeQuery();
+
+			while (rs.next()) {
+				bean.setPermissionId((rs.getInt("permission_id")));
+
+				bean.setUserSumTotal(rs.getString("b_user_sum_total"));
+				bean.setAllowenceSumTotal(rs.getString("b_allowence_sum_total"));
+				bean.setAllowencePerdayTotal(rs.getString("b_allowence_perday_total"));
+				bean.setRentDateSumTotal(rs.getString("b_rent_date_sum_total"));
+				bean.setRentDatePerdayTotal(rs.getString("b_rent_date_perday_total"));
+				bean.setTravelSumTotal(rs.getString("b_travel_sum_total"));
+				bean.setOtherSumTotal(rs.getString("b_other_sum_total"));
+				bean.setExpenseEstimateSumTotal(rs.getString("b_expense_estimate_sum_total"));
+				bean.setExpenseEstimateSumTotalThaiBaht(getText(rs.getString("b_expense_estimate_sum_total")));
+				permissionId = bean.getPermissionId();
+
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			if (con != null) {
+				conn.close();
+			}
+		}
+		return bean;
+	}// end ExpenseSumaryBack
 	
 	// update Permission
 	public void update(PermissionBean bean) throws Exception {

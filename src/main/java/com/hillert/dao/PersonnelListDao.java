@@ -88,7 +88,7 @@ public class PersonnelListDao {
 						+ " INNER JOIN faculty f on f.faculty_code = d.faculty_code"
 						+ " INNER JOIN sub_position sp on sp.sub_position_code = pl.sub_position_code"
 						+ " INNER JOIN position p on p.position_code = sp.position_code"
-						+ " ORDER BY u.user_id ");
+						+ " ORDER BY u.user_id DESC ");
 				preperd = conn.prepareStatement(sql.toString());
 				ResultSet rs = preperd.executeQuery();
 

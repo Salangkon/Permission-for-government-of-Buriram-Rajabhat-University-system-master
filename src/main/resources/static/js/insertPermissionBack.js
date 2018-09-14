@@ -88,7 +88,6 @@ $(document).ready(function() {
 
 			allowencePerdayTotal : $('#allowencePerdayTotal').text(),
 			rentDatePerdayTotal : $('#rentDatePerdayTotal').text(),
-
 		}
 
 		$.ajax({

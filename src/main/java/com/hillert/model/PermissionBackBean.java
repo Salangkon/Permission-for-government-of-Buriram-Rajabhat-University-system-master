@@ -5,7 +5,12 @@ public class PermissionBackBean {
 	private int permissionId;
 	
 	private String bByOrderSave;
-	private String bDateAuthorized;
+	
+	private String bDateAuthorized; //วันที่อนุมัติ
+	private String bDateAuthorizedDay;
+	private String bDateAuthorizedMonth;
+	private String bDateAuthorizedYear;
+	
 	private int bDisbursedBy;
 	private int bAllowenceType;
 	private int bRentDateType;
@@ -14,10 +19,19 @@ public class PermissionBackBean {
 	private int bHouseNumber;
 	private String bRoad;
 	private String district;
+	
 	private String bGoDate;	
+	private String bGoDateDay;	
+	private String bGoDateMonth;	
+	private String bGoDateYear;	
 	private String bGoTime;	
+	
 	private String bBackDate;
+	private String bBackDateDay;
+	private String bBackDateMonth;
+	private String bBackDateYear;
 	private String bBackTime;
+	
 	private int bDayTotal;
 	private int bTimeTotal;
 	
@@ -26,6 +40,60 @@ public class PermissionBackBean {
 	private String provinceName;	
 	
 	
+	public String getbGoDateDay() {
+		return bGoDateDay;
+	}
+	public void setbGoDateDay(String bGoDateDay) {
+		this.bGoDateDay = bGoDateDay;
+	}
+	public String getbGoDateMonth() {
+		return bGoDateMonth;
+	}
+	public void setbGoDateMonth(String bGoDateMonth) {
+		this.bGoDateMonth = bGoDateMonth;
+	}
+	public String getbGoDateYear() {
+		return bGoDateYear;
+	}
+	public void setbGoDateYear(String bGoDateYear) {
+		this.bGoDateYear = bGoDateYear;
+	}
+	public String getbBackDateDay() {
+		return bBackDateDay;
+	}
+	public void setbBackDateDay(String bBackDateDay) {
+		this.bBackDateDay = bBackDateDay;
+	}
+	public String getbBackDateMonth() {
+		return bBackDateMonth;
+	}
+	public void setbBackDateMonth(String bBackDateMonth) {
+		this.bBackDateMonth = bBackDateMonth;
+	}
+	public String getbBackDateYear() {
+		return bBackDateYear;
+	}
+	public void setbBackDateYear(String bBackDateYear) {
+		this.bBackDateYear = bBackDateYear;
+	}
+	public String getbDateAuthorizedDay() {
+		return bDateAuthorizedDay;
+	}
+	public void setbDateAuthorizedDay(String bDateAuthorizedDay) {
+		this.bDateAuthorizedDay = bDateAuthorizedDay;
+	}
+	public String getbDateAuthorizedMonth() {
+		return bDateAuthorizedMonth;
+	}
+	public void setbDateAuthorizedMonth(String bDateAuthorizedMonth) {
+		this.bDateAuthorizedMonth = bDateAuthorizedMonth;
+	}
+	public String getbDateAuthorizedYear() {
+		return bDateAuthorizedYear;
+	}
+	public void setbDateAuthorizedYear(String bDateAuthorizedYear) {
+		this.bDateAuthorizedYear = bDateAuthorizedYear;
+	}
 	public String getDistrictName() {
 		return districtName;
 	}

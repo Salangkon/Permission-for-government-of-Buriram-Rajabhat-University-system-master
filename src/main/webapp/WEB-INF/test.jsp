@@ -50,6 +50,7 @@
 	PermissionBean bean = null;
 	PermissionBackBean beanBack = null;
 	ExpenseSumaryBean beanEs = null;
+	ExpenseSumaryBean beanEsBack = null;
 	TravelExpensesFuelCostBean beanTEFC = null;
 	String result = "";
 %>
@@ -58,6 +59,7 @@
 	beanTr = (List<TravelExpensesBean>) request.getAttribute("beanTr");
 	beanTEFC = (TravelExpensesFuelCostBean) request.getAttribute("beanTEFC");
 	beanEs = (ExpenseSumaryBean) request.getAttribute("beanEs");
+	beanEsBack = (ExpenseSumaryBean) request.getAttribute("beanEsBack");
 	bean = (PermissionBean) request.getAttribute("perBean");
 	beanBack = (PermissionBackBean) request.getAttribute("perBackBean");
 	result = (String) request.getAttribute("messesUpdate");
@@ -78,12 +80,12 @@
   <div class="w3-dropdown-hover">
     <a class="w3-button" href="#">เลือกหน้า<i class="fa fa-caret-down"></i></a>
     <div class="w3-dropdown-content w3-bar-block w3-card-4">
-      <a class="w3-bar-item w3-button" href="#1"> บันทึกขออนุญาตไปราชการ	</a>
+      <a class="w3-bar-item w3-button" href="#1"> บันทึกขออนุญาต	</a>
       <a class="w3-bar-item w3-button" href="#2"> ประมาณการรายจ่าย		</a>
-      <a class="w3-bar-item w3-button" href="#3"> การพิจารณา		</a>
-      <a class="w3-bar-item w3-button" href="#4"> ตาราง ประมาณการรายจ่าย	</a>
-      <a class="w3-bar-item w3-button" href="#5"> ใบเบิกค่าใช้จ่ายไปราชการ	</a>
-      <a class="w3-bar-item w3-button" href="#6"> 	</a>
+      <a class="w3-bar-item w3-button" href="#3"> การพิจารณาไปราชการ		</a>
+      <a class="w3-bar-item w3-button" href="#4"> ประมาณการรายจ่าย	</a>
+      <a class="w3-bar-item w3-button" href="#5"> เบิกค่าใช้จ่าย	</a>
+      <a class="w3-bar-item w3-button" href="#6"> เบิกค่าใช้จ่าย 2</a>
     </div>
   </div>
   <a class="w3-bar-item w3-button" href="javascript:void(0)" onclick="printDiv('printableArea')">พิมพ์</a>
@@ -1242,6 +1244,7 @@
 						<th style="width: 50mm; text-align: center;"><%=bean.getSex() %><%=bean.getUserFname()%>&nbsp;&nbsp; <%=bean.getUserLname()%></th>
 						<th style="width: 10mm; text-align: left;">ตำแหน่ง</th>
 						<th style="width: 60mm; text-align: center;"><%=bean.getSubPositionName() %></th>
+						<th style="width: 20mm; text-align: center;"></th>
 					</tr>
 				</table>
 				<table>
@@ -1281,11 +1284,15 @@
 				<table>
 					<tr>
 						<th style="width: 10mm; text-align: left;">จังหัด</th>
-						<th style="width: 35mm; text-align: center;"><%=beanBack.getProvinceName() %></th>
+						<th style="width: 30mm; text-align: center;"><%=beanBack.getProvinceName() %></th>
 						<th style="width: 12mm; text-align: left;">ตั้งแต่วันที่</th>
-						<th style="width: 30mm; text-align: center;"></th>
+						<th style="width: 10mm; text-align: center;"><%=beanBack.getbGoDateDay() %></th>
+						<th style="width: 7mm; text-align: center;">เดือน</th>
+						<th style="width: 20mm; text-align: center;"><%=beanBack.getbGoDateMonth() %></th>
+						<th style="width: 7mm; text-align: center;">พ.ศ.</th>
+						<th style="width: 10mm; text-align: center;"><%=beanBack.getbGoDateYear() %></th>
 						<th style="width: 5mm; text-align: left;">เวลา</th>
-						<th style="width: 20mm; text-align: center;"><%=beanBack.getbBackTime() %></th>
+						<th style="width: 10mm; text-align: center;"><%=beanBack.getbBackTime() %></th>
 					</tr>
 				</table>
 				<table>
@@ -1294,10 +1301,14 @@
 							<input name="v" type="checkbox" <%if (beanBack.getbBackTravel()  == 1) {out.print("checked ='checked' disabled");}%> disabled> บ้านพัก 
 							<input name="v" type="checkbox" <%if (beanBack.getbBackTravel()  == 2) {out.print("checked ='checked' disabled");}%> disabled> สำนักงาน
 						</th>
-						<th style="width: 7mm; text-align: left;">วันที่</th>
-						<th style="width: 40mm; text-align: center;"></th>
+						<th style="width: 12mm; text-align: right;">วันที่</th>
+						<th style="width: 10mm; text-align: center;"><%=beanBack.getbBackDateDay() %></th>
+						<th style="width: 7mm; text-align: center;">เดือน</th>
+						<th style="width: 20mm; text-align: center;"><%=beanBack.getbBackDateMonth() %></th>
+						<th style="width: 7mm; text-align: center;">พ.ศ.</th>
+						<th style="width: 10mm; text-align: center;"><%=beanBack.getbBackDateYear() %></th>
 						<th style="width: 5mm; text-align: left;">เวลา</th>
-						<th style="width: 20mm; text-align: center;"><%=beanBack.getbBackTime() %></th>
+						<th style="width: 10mm; text-align: center;"><%=beanBack.getbBackTime() %></th>
 					</tr>
 				</table>
 				<table>
@@ -1324,26 +1335,26 @@
 				<table>
 					<tr>
 						<th style="width: 25mm; text-align: left;">ค่าเบี๋ยเลี้ยงเดินทางประเภท</th>
-						<th style="width: 5mm; text-align: center;">
+						<th style="width: 20mm; text-align: center;">
 							<input type="checkbox" <%if (beanBack.getbAllowenceType()  == 1) {out.print("checked ='checked' disabled");}%> disabled> ก 
 							<input type="checkbox" <%if (beanBack.getbAllowenceType()  == 2) {out.print("checked ='checked' disabled");}%> disabled> ข
 						</th>
 						<th style="width: 1mm; text-align: left;">จำนวน</th>
-						<th style="width: 7mm; text-align: left;"></th>
+						<th style="width: 7mm; text-align: left;"><%=beanEsBack.getAllowenceSumTotal() %></th>
 						<th style="width: 2mm; text-align: left;">วัน รวม</th>
-						<th style="width: 10mm; text-align: center;"><%=beanEs.getAllowenceSumTotal() %></th>
+						<th style="width: 10mm; text-align: center;"><%=beanEsBack.getAllowencePerdayTotal()%></th>
 						<th style="width: 2mm">บาท</th>
 					</tr>
 					<tr>
-						<th style="width: 15mm; text-align: left;">ค่าเช่าที่พักประเภท</th>
+						<th style="width: 25mm; text-align: left;">ค่าเช่าที่พักประเภท</th>
 						<th style="width: 20mm; text-align: center;">
 							<input type="checkbox" <%if (beanBack.getbRentDateType() == 1) {out.print("checked ='checked' disabled");}%> disabled> ก 
 							<input type="checkbox" <%if (beanBack.getbRentDateType() == 2) {out.print("checked ='checked' disabled");}%> disabled> ข
 						</th>
 						<th style="width: 1mm; text-align: left;">จำนวน</th>
-						<th style="width: 7mm; text-align: center;"></th>
+						<th style="width: 7mm; text-align: left;"><%=beanEsBack.getRentDateSumTotal() %></th>
 						<th style="width: 2mm; text-align: left;">วัน รวม</th>
-						<th style="width: 10mm; text-align: center;"><%=beanEs.getRentDateSumTotal()%></th>
+						<th style="width: 10mm; text-align: center;"><%=beanEsBack.getRentDatePerdayTotal()%></th>
 						<th style="width: 2mm">บาท</th>
 					</tr>
 				</table>
@@ -1352,36 +1363,41 @@
 						<th style="width: 40mm; text-align: left;">ค่าพาหนะ</th>
 						<th style="width: 17mm; text-align: left;"></th>
 						<th style="width: 8mm; text-align: left;">รวม</th>
-						<th style="width: 12mm; text-align: center;"><%=beanEs.getTravelSumTotal() %></th>
+						<th style="width: 12mm; text-align: center;">
+							<%if (beanEsBack.getTravelSumTotal().equals("0")) {
+										out.print("");
+									} else {
+										out.print(beanEsBack.getTravelSumTotal());
+									}%>
+						</th>
 						<th style="width: 2mm">บาท</th>
 					</tr>
 					<tr>
 						<th style="width: 40mm; text-align: left;">ค่าใช่จ่ายอื่นๆ</th>
 						<th style="width: 17mm; text-align: left;"></th>
 						<th style="width: 8mm; text-align: left;">รวม</th>
-						<th style="width: 12mm; text-align: center;"></th>
+						<th style="width: 12mm; text-align: center;"><%=beanEsBack.getOtherSumTotal() %></th>
 						<th style="width: 2mm">บาท</th>
 					</tr>
 					<tr>
 						<th style="width: 40mm; text-align: left;"></th>
 						<th style="width: 17mm; text-align: left;"></th>
 						<th style="width: 8mm; text-align: left;">รวมทั้งสิ้น</th>
-						<th style="width: 12mm; text-align: center;"><%=beanEs.getExpenseEstimateSumTotal() %></th>
+						<th style="width: 12mm; text-align: center;"><%=beanEsBack.getExpenseEstimateSumTotal() %></th>
 						<th style="width: 2mm">บาท</th>
 					</tr>
 				</table>
 				<br> <br>
 				<table>
 					<tr>
-						<th style="text-align: left;">จำนวนเงิน/ตัวอักษร
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+						<th style="text-align: left;width: 5mm">จำนวนเงิน/ตัวอักษร&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+						<th style="text-align: left;width: 60mm"><%=beanEsBack.getExpenseEstimateSumTotalThaiBaht() %></th>
 					</tr>
 				</table>
 				<table>
 					<tr>
 						<th style="width: 15mm"></th>
-						<th style="text-align: left;"><label>ข้าพเจ้าขอรับรองว่ารายการที่กล่าวข้างต้นเป็นความจริง
-								และหลักฐานการจ่ายที่ส่งมาด้วยจำนวน </label></th>
+						<th style="text-align: left;">ข้าพเจ้าขอรับรองว่ารายการที่กล่าวข้างต้นเป็นความจริง และหลักฐานการจ่ายที่ส่งมาด้วยจำนวน </th>
 						<th style="width: 10mm; text-align: center;"></th>
 						<th style="width: 5mm">ฉบับ</th>
 					</tr>
@@ -1410,7 +1426,101 @@
 				</table>
 			</div>
 
-		</div>
+
+<!-- ใบเบิกค่าใช้จ่ายในการเดินทางไปราชการ 2 -->
+				<div class="page" id="6">
+					<p style="text-align: center;">2</p>
+
+					<table>
+						<tr>
+							<td style="max-width: 50%;" valign="top">&nbsp;&nbsp;
+								ได้ตรวจสอบหลักฐานการเบิกจ่ายเงินที่แนบถูกต้องแล้ว<br>
+								&nbsp;&nbsp; เห็นควรอนุมัติให้เบิกจ่าย<br>
+							<br>
+							<br> &nbsp;&nbsp;
+								ลงชื่อ....................................................ผู้ตรวจ<br>
+								&nbsp;&nbsp;
+								(....................................................)<br>
+								&nbsp;&nbsp;
+								ตำแหน่ง....................................................<br>
+								&nbsp;&nbsp;
+								วันที่....................................................<br>
+							<br>
+							<br>
+							</td>
+							<td style="width: 50%;" valign="top">&nbsp;&nbsp;
+								อนุมัติให้จ่ายได้<br> <br>
+							<br>
+							<br> &nbsp;&nbsp;
+								ลงชื่อ................................หัวหน้าส่วนราชการ<br>
+								&nbsp;&nbsp;
+								(....................................................)<br>
+								&nbsp;&nbsp;
+								ตำแหน่ง....................................................<br>
+								&nbsp;&nbsp;
+								วันที่....................................................<br>
+							<br>
+							<br>
+							</td>
+						</tr>
+					</table>
+					<br>
+					<table>
+						<tr>
+							<td style="width: 40mm; text-align: right;">ได้รับค่าใช้จ่ายในการเดินทางไปราชการ จำนวน</td>
+							<td style="width: 20mm; text-align: center;"></td>
+							<td style="width: 10mm; text-align: center;">บาท</td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td style="max-width: 30mm; text-align: left;">(...................................................................)</td>
+							<td style="max-width: 60mm; text-align: left;">ไว้เป็นการถูกต้องแล้ว</td>
+						</tr>
+					</table>
+					<br>
+					<table>
+						<tr>
+							<td style="width: 50%;" valign="top">&nbsp;&nbsp;
+								ลงชื่อ.....................................................ผู้รับเงิน<br>
+								&nbsp;&nbsp;
+								(.....................................................)<br>
+								&nbsp;&nbsp;
+								ตำแหน่ง..............................................<br>
+								&nbsp;&nbsp;
+								วันที่...................................................<br>
+								&nbsp;&nbsp; จากเงินยืมตามสัญญาเลขที่..........................<br>
+							<br>
+							<br>
+							</td>
+							<td style="width: 50%;" valign="top">&nbsp;&nbsp;
+								ลงชื่อ................................ผู้จ่ายเงิน<br>
+								&nbsp;&nbsp;
+								(.........................................................)<br>
+								&nbsp;&nbsp;
+								ตำแหน่ง..................................................<br>
+								&nbsp;&nbsp;
+								วันที่......................................................<br>
+								&nbsp;&nbsp;
+								วันที่......................................................<br>
+							<br>
+							<br>
+							</td>
+						</tr>
+					</table>
+					<br>
+					<hr>
+					<br>
+					<table>
+						<tr>
+							<td style="height: 50mm; max-width: 50%;" valign="top">
+								&nbsp;&nbsp;&nbsp;หมายเหตุ</td>
+						</tr>
+					</table>
+
+				</div>
+
+			</div>
 	</div>
 </div>
 </body>
