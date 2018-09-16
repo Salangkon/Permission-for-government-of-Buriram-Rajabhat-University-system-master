@@ -24,29 +24,21 @@ $(document).ready(function() {
 						"mData" : "destinationName",
 						   "sWidth" : "200px" 
 					},
-//					{
-//						"mData" : "",
-//						"sWidth" : "20px" ,
-//						"mRender": function (data, type, full) {// full คือ ข้อมูลของ
-//							// ตาราง
-//							return '<a href="/gotoPerUpdate/'  + full.permissionId +'" ' + '<span class="glyphicon glyphicon-edit">Update</span>' + '</a>';
-//						}
-//					},  
+					{
+						"mData": "",
+						"sWidth" : "20px" ,
+						"mRender": function (data, type, full) {// full คือ ข้อมูลของ
+							// ตาราง
+							return '<div align="center"><a href="/PerUpdateBy/'+ full.permissionId  + '"> <span class="glyphicon glyphicon-print"></span>' + '</a></div>';
+
+						}
+					},  
 					{
 						"mData": "",
 						"sWidth" : "20px" ,
 						"mRender": function (data, type, full) {// full คือ ข้อมูลของ
 							// ตาราง
 							return '<div align="center"><a href="javascript: document.gotoPerUpdate.submit()" onclick="gotoPerUpdate('+ full.permissionId  + ')" ><span class="glyphicon glyphicon-send" ></span>' + '</a></div>';
-
-						}
-					},
-					{
-						"mData": "",
-						"sWidth" : "20px" ,
-						"mRender": function (data, type, full) {// full คือ ข้อมูลของ
-							// ตาราง
-							return '<div align="center"><a href="/PerUpdateBy/'+ full.permissionId  + '"> <span class="glyphicon glyphicon-print">Print</span>' + '</a></div>';
 
 						}
 					}]

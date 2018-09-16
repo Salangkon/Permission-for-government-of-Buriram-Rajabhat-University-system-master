@@ -150,7 +150,7 @@
 		</div>
 	</header>
 	
-		<!-- เพิ่มพาหนะ รถส่วนตัว-->
+		<!-- เพิ่มพาหนะ   รถไปราชการ -->
 	<header class="w3-display-container w3-content">
 		<div id="id03" class="modal">
 			<form class="modal-content animate" action=""
@@ -181,7 +181,7 @@
 		</div>
 	</header>
 	
-			<!-- เพิ่มพาหนะ รถไปราชการ-->
+			<!-- เพิ่มพาหนะ รถส่วนตัว-->
 	<header class="w3-display-container w3-content">
 		<div id="id04" class="modal">
 			<form class="modal-content animate" action=""
@@ -202,7 +202,7 @@
 					</table>
 
 					<div style="size: 10" class="col-sm-12 " align="center">
-						<button type="button" class="btn btn-success" id="buttonAdd4">ยืนยัน</button>
+						<button type="button" class="btn btn-success" id="buttonPrivateCar">ยืนยัน</button>
 						<button type="button"
 							onclick="document.getElementById('id04').style.display='none'"
 							class="btn btn-danger">ปิด</button>
