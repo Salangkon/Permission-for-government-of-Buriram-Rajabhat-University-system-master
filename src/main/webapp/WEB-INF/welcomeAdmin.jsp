@@ -42,7 +42,7 @@
 
 
 <!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-top:10px;">
+<div class="w3-main  w3-animate-opacity"" style="margin-top:10px;">
 
 <marquee direction="alternate" scrollamount="4" height="100cm" width="40%">
 	<header class="w3-container" style="padding-top:22px">

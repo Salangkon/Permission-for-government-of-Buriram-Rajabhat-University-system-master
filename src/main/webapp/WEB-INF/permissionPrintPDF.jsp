@@ -522,59 +522,28 @@
 						<th style="text-align: left; max-width: 15mm;">
 							&nbsp;&nbsp;&nbsp; <input name="v" type="checkbox"
 							value="งบประมาณแผ่นดิน"
-							<%if (bean.getBudgetBy().equals("งบประมาณแผ่นดิน")) {
-				out.print("checked ='checked' disabled");
-			}%>
+							<%if (bean.getBudgetBy().equals("งบประมาณแผ่นดิน")) {out.print("checked ='checked' disabled");}%>
 							disabled> งบแผ่นดิน โครงการ <%=bean.getBudgetProject()%></th>
 						<th style="text-align: left; max-width: 15mm;">รหัสโครงการ
-							&nbsp;&nbsp; <%
- 	if (bean.getBudgetBy().equals("งบประมาณแผ่นดิน")) {
- 		out.print(bean.getBudgetPass());
- 	}
- %>
+							&nbsp;&nbsp; <%if (bean.getBudgetBy().equals("งบประมาณแผ่นดิน")) {out.print(bean.getBudgetPass());}%>
 						</th>
 					</tr>
 					<tr>
-						<th style="text-align: left; max-width: 15mm;">
-							&nbsp;&nbsp;&nbsp; <input name="v" type="checkbox"
-							value="งบรายได้"
-							<%if (bean.getBudgetBy().equals("งบรายได้")) {
-				out.print("checked ='checked' disabled");
-			}%>
-							disabled> งบเงินรายได้ โครงการ <%=bean.getBudgetProject()%></th>
-						<th style="text-align: left; max-width: 15mm;">รหัสโครงการ
-							&nbsp;&nbsp;<%
-							if (bean.getBudgetBy().equals("งบรายได้")) {
-								out.print(bean.getBudgetPass());
-							}
-						%>
+						<th style="text-align: left; max-width: 15mm;"> &nbsp;&nbsp;&nbsp; 
+						<input name="v" type="checkbox"value="งบรายได้"<%if (bean.getBudgetBy().equals("งบรายได้")) {out.print("checked ='checked' disabled");}%>disabled> งบเงินรายได้ โครงการ <%=bean.getBudgetProject()%></th>
+						<th style="text-align: left; max-width: 15mm;">รหัสโครงการ &nbsp;&nbsp;<%if (bean.getBudgetBy().equals("งบรายได้")) {out.print(bean.getBudgetPass());}%>
 						</th>
 					</tr>
 					<tr>
-						<th colspan="2" style="max-width: 100%; text-align: left">
-							&nbsp;&nbsp;&nbsp; <input name="v" type="checkbox"
-							value="งบอื่นๆ"
-							<%if (bean.getBudgetBy().equals("งบอื่นๆ")) {
-				out.print("checked ='checked' disabled");
-			}%>
-							disabled> งบอื่นๆ &nbsp;&nbsp;
+						<th colspan="2" style="max-width: 100%; text-align: left"> &nbsp;&nbsp;&nbsp; 
+						<input name="v" type="checkbox"value="งบอื่นๆ"<%if (bean.getBudgetBy().equals("งบอื่นๆ")) {out.print("checked ='checked' disabled");}%>disabled> งบอื่นๆ &nbsp;&nbsp;
 						</th>
 					</tr>
 					<tr>
 						<th colspan="2" style="max-width: 100%; text-align: left">&nbsp;&nbsp;
-							โดยขอเบิกค่าใช้จาย <input name="v" type="checkbox"
-							value="ตามสิทธิ์"
-							<%if (bean.getBudgetExpenses().equals("ตามสิทธิ์")) {
-				out.print("checked ='checked' disabled");
-			}%>
-							disabled> ตามสิทธื์ &nbsp;&nbsp; <input name="v"
-							type="checkbox" value="เหมาจ่าย"
-							<%if (bean.getBudgetExpenses().equals("เหมาจ่าย")) {
-				out.print("checked ='checked' disabled");
-			}%>
-							disabled> เหมาจ่าย &nbsp;&nbsp; <label
-							style="margin-right: 5%"> เป็นจำนวนเงิน </label><%=beanEs.getExpenseEstimateSumTotal()%><label
-							style="margin-left: 5%">บาท </label>
+							โดยขอเบิกค่าใช้จาย <input name="v" type="checkbox"value="ตามสิทธิ์"<%if (bean.getBudgetExpenses().equals("ตามสิทธิ์")) {out.print("checked ='checked' disabled");}%>disabled> ตามสิทธื์ &nbsp;&nbsp; 
+							<input name="v" type="checkbox" value="เหมาจ่าย" <%if (bean.getBudgetExpenses().equals("เหมาจ่าย")) {out.print("checked ='checked' disabled");}%>disabled> เหมาจ่าย &nbsp;&nbsp; 
+							<label style="margin-right: 5%"> เป็นจำนวนเงิน </label><%=beanEs.getExpenseEstimateSumTotal()%><label>style="margin-left: 5%">บาท </label>
 						</th>
 					</tr>
 				</table>
@@ -596,22 +565,16 @@
 						<th>
 							<table style="width: 100%;">
 								<tr>
-									<td style="text-align: left; width: 25mm"><label>3.1
-											ค่าเบี้ยเลี้ยงเดินทาง</label></td>
-									<td style="text-align: left; width: 3mm"><label>99
-									</label></td>
-									<td style="text-align: left; width: 10mm"><label>วันๆ
-											ละ </label></td>
+									<td style="text-align: left; width: 25mm"><label>3.1 ค่าเบี้ยเลี้ยงเดินทาง</label></td>
+									<td style="text-align: left; width: 3mm"><label><%=beanEs.getAllowencePerdayTotal() %></label></td>
+									<td style="text-align: left; width: 10mm"><label>วันๆ ละ </label></td>
 									<td style="text-align: left; width: 25mm"><label><%=beanEs.getAllowenceDetails()%></label></td>
 									<td style="text-align: left; width: 1mm"><label>บาท</label></td>
 								</tr>
 								<tr>
-									<td style="text-align: left; width: 25mm"><label>3.2
-											ค่าเช่าที่พัก</label></td>
-									<td style="text-align: left; width: 3mm"><label>99
-									</label></td>
-									<td style="text-align: left; width: 10mm"><label>คืนๆ
-											ละ</label></td>
+									<td style="text-align: left; width: 25mm"><label>3.2 ค่าเช่าที่พัก</label></td>
+									<td style="text-align: left; width: 3mm"><label><%=beanEs.getRentDatePerdayTotal() %></label></td>
+									<td style="text-align: left; width: 10mm"><label>คืนๆ ละ</label></td>
 									<td style="text-align: left; width: 25mm"><label><%=beanEs.getRentDateDetails()%></label></td>
 									<td style="text-align: left; width: 1mm"><label>บาท</label></td>
 								</tr>
@@ -674,10 +637,10 @@
 												}
 											%>
 											<%
-												if (beanTEFC.getDivide() == 0) {
+												if (beanTEFC.getRateFuelCost()== 0) {
 													out.print("");
 												} else {
-													out.print(" / " + beanTEFC.getDivide());
+													out.print(" / " + beanTEFC.getRateFuelCost());
 												}
 											%>
 									</label></td>
@@ -686,22 +649,8 @@
 								<tr>
 									<td style="text-align: left; width: 40mm"><label
 										style="margin-left: 5%;">3.6.7 ค่าทางด่วน</label></td>
-									<td style="text-align: left; width: 60mm"><label>
-											<%
-												if (beanTEFC.getExpresswayExpenses() == 0) {
-													out.print("");
-												} else {
-													out.print("(" + beanTEFC.getExpresswayExpenses());
-												}
-											%>
-											<%
-												if (beanTEFC.getExpresswayNumberPer() == 0) {
-													out.print("");
-												} else {
-													out.print("x" + beanTEFC.getExpresswayNumberPer() + ")");
-												}
-											%>
-									</label></td>
+									<td style="text-align: left; width: 60mm">
+										<label><%if (beanTEFC.getExpresswayExpensesSum() == 0) {out.print("");} else {out.print(beanTEFC.getExpresswayExpensesSum());}%></label></td>
 									<td style="text-align: left; width: 6mm"><label>บาท</label></td>
 								</tr>
 								<tr>
@@ -1363,13 +1312,7 @@
 						<th style="width: 40mm; text-align: left;">ค่าพาหนะ</th>
 						<th style="width: 17mm; text-align: left;"></th>
 						<th style="width: 8mm; text-align: left;">รวม</th>
-						<th style="width: 12mm; text-align: center;">
-							<%if (beanEsBack.getTravelSumTotal().equals("0")) {
-										out.print("");
-									} else {
-										out.print(beanEsBack.getTravelSumTotal());
-									}%>
-						</th>
+						<th style="width: 12mm; text-align: center;"><%if (beanEs.getTravelSumTotal().equals("0")) {out.print("");} else {out.print(beanEs.getTravelSumTotal());}%></th>
 						<th style="width: 2mm">บาท</th>
 					</tr>
 					<tr>

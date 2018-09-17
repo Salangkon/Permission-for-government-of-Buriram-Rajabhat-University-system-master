@@ -526,10 +526,9 @@ public class PermissionDao {
 			StringBuilder sql = new StringBuilder();
 
 			try {
-				sql.append(" SELECT tefc.travel_id ,t.vehicle_name ,tefc.distance ,tefc.number_per ,tefc.fuel_cost ,tefc.divide "
-						+ ",tefc.fuel_cost_sum ,tefc.expressway_expenses ,tefc.expressway_number_per ,tefc.expressway_expenses_sum"
-						+ ",tefc.sum  ,tefc.vehicle_c "
-						+ "FROM travel_expenses_fuel_cost tefc  INNER JOIN travel t on t.travel_id = tefc.travel_id WHERE Permission_id = ? ");
+				sql.append(" SELECT tefc.travel_id ,t.vehicle_name ,tefc.teoc_distance ,tefc.teoc_number_per ,tefc.teoc_fuel_cost ,tefc.teoc_rate_fuel_cost "
+						+ ",tefc.teoc_fuel_cost_sum ,tefc.teoc_expressway_expenses_sum ,tefc.teoc_sum ,tefc.teoc_vehicle_c "
+						+ "FROM travel_expenses_official_car tefc  INNER JOIN travel t on t.travel_id = tefc.travel_id WHERE Permission_id = ? ");
 				preperd = conn.prepareStatement(sql.toString());
 				preperd.setInt(1, userId);
 				ResultSet rs = preperd.executeQuery();
@@ -537,17 +536,15 @@ public class PermissionDao {
 				while (rs.next()) {
 //					bean.setPermissionId(rs.getInt("permission_id"));
 					bean.setTravelId(rs.getInt("travel_id"));		
-					bean.setDistance(rs.getInt("distance"));	//ระยะทาง
-					bean.setNumberPer(rs.getInt("number_per"));	//จำนวน/ต่อ
-					bean.setFuelCost(rs.getInt("fuel_cost"));	//ค่าเชื้อเพลิง
-					bean.setDivide(rs.getInt("divide"));		//หาร
-					bean.setFuelCostSum(rs.getInt("fuel_cost_sum")); //รวมค่าเชื้อเพลิง
-					bean.setExpresswayExpenses(rs.getInt("expressway_expenses")); //ค่าทางด่วน
-					bean.setExpresswayNumberPer(rs.getInt("expressway_number_per")); //ค่าทางด่วน จำนวน/ต่อ
-					bean.setExpresswayExpensesSum(rs.getInt("expressway_expenses_sum"));  //รวมค่าทางด่วน
+					bean.setDistance(rs.getInt("teoc_distance"));	//ระยะทาง
+					bean.setNumberPer(rs.getInt("teoc_number_per"));	//จำนวน/ต่อ
+					bean.setFuelCost(rs.getInt("teoc_fuel_cost"));	//ค่าเชื้อเพลิง
+					bean.setRateFuelCost(rs.getInt("teoc_rate_fuel_cost"));		//หาร
+					bean.setFuelCostSum(rs.getInt("teoc_fuel_cost_sum")); //รวมค่าเชื้อเพลิง
+					bean.setExpresswayExpensesSum(rs.getInt("teoc_expressway_expenses_sum"));  //รวมค่าทางด่วน
 					
-					bean.setSum(rs.getString("sum")); //รวม
-					bean.setVehicleC(rs.getString("vehicle_c")); //หมายเหตุ
+					bean.setSum(rs.getString("teoc_sum")); //รวม
+					bean.setVehicleC(rs.getString("teoc_vehicle_c")); //หมายเหตุ
 					bean.setVehicleName(rs.getString("vehicle_name")); //หมายเหตุ
 //					permissionId = bean.getPermissionId();
 					
@@ -583,7 +580,9 @@ public class PermissionDao {
 
 				bean.setUserSumTotal(rs.getString("user_sum_total"));
 				bean.setAllowenceSumTotal(rs.getString("allowence_sum_total"));
+				bean.setAllowencePerdayTotal(rs.getString("allowence_perday_total"));
 				bean.setRentDateSumTotal(rs.getString("rent_date_sum_total"));
+				bean.setRentDatePerdayTotal(rs.getString("rent_date_perday_total"));
 				bean.setTravelSumTotal(rs.getString("travel_sum_total"));
 				bean.setOtherSumTotal(rs.getString("other_sum_total"));
 				bean.setExpenseEstimateSumTotal(rs.getString("expense_estimate_sum_total"));

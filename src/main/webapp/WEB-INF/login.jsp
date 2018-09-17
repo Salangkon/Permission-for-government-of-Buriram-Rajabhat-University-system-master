@@ -86,7 +86,7 @@
 </div>
   <div class="col-sm-6"></div>
 	<div class="col-sm-6">
-		<form name="login" action="login" method="post" class="modal-content animate">
+		<form name="login" action="login" method="post" class="modal-content w3-animate-right">
 			<div id="container">
   			<h1>เข้าระบบ PFG</h1>
 			<%if (result.equals("F")) { %>

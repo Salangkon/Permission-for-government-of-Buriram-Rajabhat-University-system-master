@@ -10,11 +10,9 @@ public class TravelExpensesFuelCostBean {
 	private int distance; //ระยะทาง
 	private int numberPer; // จำนวน/เที่ยว
 	private int fuelCost; // ค่าน้ำมันเชื้อเพลิง
-	private int divide; // หาร
+	private int rateFuelCost; // หาร
 	private int fuelCostSum; // รวมค่าน้ำมันเชื้อเพลิง
-	
-	private int expresswayExpenses; // ค่าทางด่วย
-	private int expresswayNumberPer; // จำนวน/ขึ้นทางด่วน
+
 	private int expresswayExpensesSum; // รวมค่าใช้จ่ายทางด่วน
 	
 	private String sum; //รวม
@@ -63,12 +61,12 @@ public class TravelExpensesFuelCostBean {
 		this.fuelCost = fuelCost;
 	}
 
-	public int getDivide() {
-		return divide;
+	public int getRateFuelCost() {
+		return rateFuelCost;
 	}
 
-	public void setDivide(int divide) {
-		this.divide = divide;
+	public void setRateFuelCost(int rateFuelCost) {
+		this.rateFuelCost = rateFuelCost;
 	}
 
 	public int getFuelCostSum() {
@@ -77,22 +75,6 @@ public class TravelExpensesFuelCostBean {
 
 	public void setFuelCostSum(int fuelCostSum) {
 		this.fuelCostSum = fuelCostSum;
-	}
-
-	public int getExpresswayExpenses() {
-		return expresswayExpenses;
-	}
-
-	public void setExpresswayExpenses(int expresswayExpenses) {
-		this.expresswayExpenses = expresswayExpenses;
-	}
-
-	public int getExpresswayNumberPer() {
-		return expresswayNumberPer;
-	}
-
-	public void setExpresswayNumberPer(int expresswayNumberPer) {
-		this.expresswayNumberPer = expresswayNumberPer;
 	}
 
 	public int getExpresswayExpensesSum() {

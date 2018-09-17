@@ -46,7 +46,7 @@
 
 <!-- <form action="nserOK" onsubmit="return insertConfirm()" name=""  method="post"> -->
 
-	<div class="container" >
+	<div class="container w3-animate-opacity" >
 		<div class="panel panel-primary" style="margin-top: 5%;" >
 			<div class="panel-heading" >Welcome to register.</div>
 			<% if (result.equals("S")) { %>

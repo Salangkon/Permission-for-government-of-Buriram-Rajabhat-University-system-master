@@ -634,12 +634,12 @@ $(document).ready(function() {
 											+ '"   />';
 								}
 							},
-							{	//หารด้วย
-								"mData" : "divide",
+							{	//อัตราการกินค่าเชื้อเพลิง
+								"mData" : "rateFuelCost",
 								"sWidth" : "10px",
 								"mRender" : function(data,
 										type, row, index, num) {
-									return '<input class="form-control number4" style="width: 15mm;height: 7mm" type="text" OnKeyPress="return chkNumber(this)" name="" id="divide'
+									return '<input class="form-control number4" style="width: 15mm;height: 7mm" type="text" OnKeyPress="return chkNumber(this)" name="" id="rateFuelCost'
 											+ index.row
 											+ '" value="7"  />';
 								}
@@ -655,11 +655,11 @@ $(document).ready(function() {
 								}
 							},
 							{	//ค่าทางด่วน
-								"mData" : "expresswayExpenses",
+								"mData" : "expresswayExpensesSum",
 								"sWidth" : "20px",
 								"mRender" : function(data,
 										type, row, index, num) {
-									return '<input class="form-control number5" style="width: 20mm;height: 7mm" type="text" OnKeyPress="return chkNumber(this)" name="" id="expresswayExpenses'
+									return '<input class="form-control number5" style="width: 20mm;height: 7mm" type="text" OnKeyPress="return chkNumber(this)" name="" id="expresswayExpensesSum'
 											+ index.row
 											+ '"   />';
 								}
@@ -715,10 +715,8 @@ $(document).ready(function() {
 							d.distance = $("#distance"+i).val();
 							d.numberPer = $("#numberPer"+i).val()
 							d.fuelCost = $("#fuelCost"+i).val();
-							d.divide = $("#divide"+i).val();
+							d.rateFuelCost = $("#rateFuelCost"+i).val();
 							d.fuelCostSum = $("#fuelCostSum"+i).val();
-							d.expresswayExpenses = $("#expresswayExpenses"+i).val();
-							d.expresswayNumberPer = $("#expresswayNumberPer"+i).val();
 							d.expresswayExpensesSum = $("#expresswayExpensesSum"+i).val();
 							d.sum = $("#sum"+i).val();
 							d.vehicleC = $("#vehicleC"+i).val();
@@ -726,7 +724,7 @@ $(document).ready(function() {
 						}				
 						$.ajax({
 							type : "POST",
-							url : "/insertTravelExpensesFuelCost",
+							url : "/insertTravelExpensesOfficialCar",
 							data : JSON.stringify(inputdata),
 							dataType : "json",
 							async : false,
@@ -789,7 +787,7 @@ $(document).ready(function() {
 									}
 								},
 								{	//เที่ยว
-									"mData" : "numberAround",
+									"mData" : "numberPer",
 									"sWidth" : "20px",
 									"mRender" : function(data,
 											type, row, index) {
@@ -798,12 +796,12 @@ $(document).ready(function() {
 												+ '"  value="2" />';
 									}
 								},
-								{	//ค่าน้ำมัน
-									"mData" : "fuelCost",
+								{	//อัตราการกินค่าเชื้อเพลิง
+									"mData" : "rateFuelCost",
 									"sWidth" : "20px",
 									"mRender" : function(data,
 											type, row, index, num) {
-										return '<input class="form-control number3" style="width: 20mm;height: 7mm" type="number" name="" id="fuelCost'
+										return '<input class="form-control number3" style="width: 20mm;height: 7mm" type="number" name="" id="rateFuelCost'
 												+ index.row
 												+ '"  value="4" />';
 									}
@@ -819,11 +817,11 @@ $(document).ready(function() {
 									}
 								},
 								{	//ค่าทางด่วน
-									"mData" : "expresswayExpenses",
+									"mData" : "expresswayExpensesSum",
 									"sWidth" : "20px",
 									"mRender" : function(data,
 											type, row, index, num) {
-										return '<input class="form-control number4" style="width: 20mm;height: 7mm" type="number" name="" id="expresswayExpenses'
+										return '<input class="form-control number4" style="width: 20mm;height: 7mm" type="number" name="" id="expresswayExpensesSum'
 												+ index.row
 												+ '"   />';
 									}
@@ -873,24 +871,21 @@ $(document).ready(function() {
 						console.log("");
 						var d ;
 						var inputdata = [];
-						for (var i = 0; i < tableSelectTravel2.data().length; i++) {
-							d = tableSelectTravel2.data()[i];
+						for (var i = 0; i < tableSelectPrivateCar.data().length; i++) {
+							d = tableSelectPrivateCar.data()[i];
 							console.log(d);
-//							d.distance = $("#distance"+i).val();
-//							d.numberPer = $("#numberPer"+i).val()
-//							d.fuelCost = $("#fuelCost"+i).val();
-//							d.divide = $("#divide"+i).val();
-//							d.fuelCostSum = $("#fuelCostSum"+i).val();
-//							d.expresswayExpenses = $("#expresswayExpenses"+i).val();
-//							d.expresswayNumberPer = $("#expresswayNumberPer"+i).val();
-//							d.expresswayExpensesSum = $("#expresswayExpensesSum"+i).val();
-//							d.sum = $("#sum"+i).val();
-//							d.vehicleC = $("#vehicleC"+i).val();
+							d.distance 		= $("#distance"+i).val();
+							d.numberPer 	= $("#numberPer"+i).val()
+							d.rateFuelCost	= $("#rateFuelCost"+i).val();
+							d.fuelCostSum 	= $("#fuelCostSum"+i).val();
+							d.expresswayExpensesSum = $("#expresswayExpensesSum"+i).val();
+							d.sum = $("#sum"+i).val();
+							d.vehicleC = $("#vehicleC"+i).val();
 							inputdata.push(d);
 						}				
 						$.ajax({
 							type : "POST",
-							url : "/insertTravelExpensesFuelCost",
+							url : "/insertTravelExpensesPrivateCar",
 							data : JSON.stringify(inputdata),
 							dataType : "json",
 							async : false,

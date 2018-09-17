@@ -30,8 +30,8 @@ public class FormController {
 	PermissionDao perDao;
 
 	// IDpermission
-	@RequestMapping(path = "/PerUpdateBy/{values}", method = RequestMethod.GET)
-	public String gotoPermission(@PathVariable("values") String values, HttpServletRequest request, Model model)
+	@RequestMapping(path = "/permissionPDF/{values}", method = RequestMethod.GET)
+	public String permissionPrintPDF(@PathVariable("values") String values, HttpServletRequest request, Model model)
 			throws NumberFormatException, SQLException {
 		PermissionBean bean = new PermissionBean();
 		PermissionBackBean beanBack = new PermissionBackBean();
@@ -91,11 +91,76 @@ public class FormController {
 			e.printStackTrace();
 		}
 
-		return "test";
+		return "permissionPrintPDF";
+	}
+	
+	// IDpermission
+	@RequestMapping(path = "/PerUpdateBy/{values}", method = RequestMethod.GET)
+	public String permissionPrintPDFBack(@PathVariable("values") String values, HttpServletRequest request, Model model)
+			throws NumberFormatException, SQLException {
+		PermissionBean bean = new PermissionBean();
+		PermissionBackBean beanBack = new PermissionBackBean();
+		ExpenseSumaryBean beanEs = new ExpenseSumaryBean();
+		ExpenseSumaryBean beanEsBack = new ExpenseSumaryBean();
+		TravelExpensesFuelCostBean beanTEFC = new TravelExpensesFuelCostBean();
+		List<ExpenseEstimateBean> beanEE = new ArrayList<>();
+		List<TravelExpensesBean> beanTr = new ArrayList<>();
+		List<TravelExpensesBean> beanTr2 = new ArrayList<>();
+		List<TravelExpensesBean> beanTr3 = new ArrayList<>();
+		try {
+			bean = perDao.fromPermission(Integer.parseInt(values));
+			beanBack = perDao.fromPermissionBack(Integer.parseInt(values));
+			beanEs = perDao.findByEs(Integer.parseInt(values));
+			beanEsBack = perDao.findByEsBack(Integer.parseInt(values));
+			beanTEFC = perDao.findByIdTEFC(Integer.parseInt(values));
+			beanEE = perDao.findByIdExpenseEstimate(Integer.parseInt(values));
+			beanTr = perDao.findByIdTravel(Integer.parseInt(values));
+			beanTr2 = perDao.findByIdTravel2();
+
+			a : for (Iterator<TravelExpensesBean> iter2 = beanTr2.listIterator(); iter2.hasNext();) {
+
+				TravelExpensesBean travelExpensesBean2 = iter2.next();
+
+				if (beanTr.isEmpty()) {
+					beanTr3.addAll(beanTr2);
+					break;
+				}
+				
+			 for (Iterator<TravelExpensesBean> iter = beanTr.listIterator(); iter.hasNext();) {
+
+					TravelExpensesBean travelExpensesBean = iter.next();
+					if (travelExpensesBean.getTravelId() == travelExpensesBean2.getTravelId()) {
+						beanTr3.add(travelExpensesBean);
+						iter.remove();
+						iter2.remove();
+						continue a;
+					}
+				}
+				beanTr3.add(travelExpensesBean2);
+				iter2.remove();
+
+			}
+
+			if (values != null) {
+				model.addAttribute("messesUpdate", "");
+				request.setAttribute("perBean", bean);
+				request.setAttribute("perBackBean", beanBack);
+				request.setAttribute("beanEs", beanEs);
+				request.setAttribute("beanEsBack", beanEsBack);
+				request.setAttribute("beanTEFC", beanTEFC);
+				request.setAttribute("beanEE", beanEE);
+				request.setAttribute("beanTr", beanTr3);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+
+		return "permissionPrintPDF";
 	}
 
 	// update permission
-	@RequestMapping(path = "/gotoPerUpdate", method = RequestMethod.POST)
+	@RequestMapping(path = "/permissionBack", method = RequestMethod.POST)
 	public String gotoPermissionUpdate(int permissionId, HttpServletRequest request, Model model)
 			throws NumberFormatException, SQLException {
 		PermissionBean bean = new PermissionBean();

@@ -45,7 +45,7 @@
 
 	<%@include file="NavAdmin.jsp"%>
 
-	<form name="welcome" action="#" method="post"class="modal-content animate" style="max-width: 80%; margin-top: 5%; margin-left: 10%">
+	<form name="welcome" action="#" method="post" class="modal-content w3-animate-bottom" style="max-width: 80%; margin-top: 3%; margin-left: 10%">
 		<input type="hidden" name="userId" id="userId">
 		<div class="w3-container w3-blue" align="left">
 			<h2>

@@ -29,7 +29,7 @@ $(document).ready(function() {
 						"sWidth" : "20px" ,
 						"mRender": function (data, type, full) {// full คือ ข้อมูลของ
 							// ตาราง
-							return '<div align="center"><a href="/PerUpdateBy/'+ full.permissionId  + '"> <span class="glyphicon glyphicon-print"></span>' + '</a></div>';
+							return '<div align="center"><a href="/permissionPDF/'+ full.permissionId  + '"> <span class="glyphicon glyphicon-print"></span>' + '</a></div>';
 
 						}
 					},  
@@ -38,7 +38,7 @@ $(document).ready(function() {
 						"sWidth" : "20px" ,
 						"mRender": function (data, type, full) {// full คือ ข้อมูลของ
 							// ตาราง
-							return '<div align="center"><a href="javascript: document.gotoPerUpdate.submit()" onclick="gotoPerUpdate('+ full.permissionId  + ')" ><span class="glyphicon glyphicon-send" ></span>' + '</a></div>';
+							return '<div align="center"><a href="javascript: document.permissionBack.submit()" onclick="permissionBack('+ full.permissionId  + ')" ><span class="glyphicon glyphicon-send" ></span>' + '</a></div>';
 
 						}
 					}]

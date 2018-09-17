@@ -56,7 +56,7 @@
     	</div>
     	</div>
   </header>
-<form name="welcome" action="#" method="post">
+<form name="welcome" action="#" method="post" class="w3-animate-top">
  <div style="margin-top: 4%;max-width: 90%;margin-left: 5%;" >
  <input type="hidden" name="permissionId" id="permissionId">
 	<table id="userTable" class="table-bordered" style="width: 100%;">   
@@ -74,9 +74,9 @@
 	</table>
 </div>
 		<script type="text/javascript">
-			function gotoPerUpdate(filter) {
+			function permissionBack(filter) {
 				document.getElementById('permissionId').value = filter;
-				document.welcome.action = "gotoPerUpdate";
+				document.welcome.action = "permissionBack";
 				document.welcome.submit();
 			}
 		</script>

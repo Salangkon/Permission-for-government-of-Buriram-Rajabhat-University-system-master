@@ -231,22 +231,22 @@ public class ExpenseEstimateDao {
 		return bean;
 	}//end
 	
-	//insert TravelExpense รถส่วนตัว/รถประจำทาง
-	public TravelExpensesFuelCostBean insert1(TravelExpensesFuelCostBean bean) throws Exception{
+	//insert TravelExpense รถประจำทาง
+	public TravelExpensesFuelCostBean OfficialCar(TravelExpensesFuelCostBean bean) throws Exception{
 		ConnectDB con = new ConnectDB();
 		Connection conn = con.openConnect();
 		PreparedStatement prepared = null;
 		StringBuilder sql = new StringBuilder();
 
 		try {
-			sql.append("INSERT INTO travel_expenses_fuel_cost (travel_id, permission_id, "
-					+ "distance, number_per, fuel_cost, divide, fuel_cost_sum, "
-					+ "expressway_expenses, expressway_number_per, expressway_expenses_sum, "
-					+ "sum, vehicle_c, create_date) "
+			sql.append("INSERT INTO travel_expenses_official_car (travel_id, permission_id, "
+					+ "teoc_distance, teoc_number_per, teoc_fuel_cost, teoc_rate_fuel_cost, teoc_fuel_cost_sum, "
+					+ "teoc_expressway_expenses_sum, teoc_sum, "
+					+ "teoc_vehicle_c, teoc_create_date) "
 					+ "VALUES(?,?,"
 					+ "?,?,?,?,?,"
-					+ "?,?,?,"
-					+ "?,?,SYSDATE())");
+					+ "?,?,"
+					+ "?,SYSDATE())");
 			
 			prepared = conn.prepareStatement(sql.toString());
 			prepared.setInt(1, bean.getTravelId());
@@ -255,15 +255,13 @@ public class ExpenseEstimateDao {
 			prepared.setInt(3, bean.getDistance());
 			prepared.setInt(4, bean.getNumberPer());
 			prepared.setInt(5, bean.getFuelCost());
-			prepared.setInt(6, bean.getDivide());
+			prepared.setInt(6, bean.getRateFuelCost());
 			prepared.setInt(7, bean.getFuelCostSum());
 			
-			prepared.setInt(8, bean.getExpresswayExpenses());
-			prepared.setInt(9, bean.getExpresswayNumberPer());
-			prepared.setInt(10, bean.getExpresswayExpensesSum());
-			prepared.setString(11, bean.getSum());
+			prepared.setInt(8, bean.getExpresswayExpensesSum());
+			prepared.setString(9, bean.getSum());
 			
-			prepared.setString(12, bean.getVehicleC());
+			prepared.setString(10, bean.getVehicleC());
 
 			prepared.executeUpdate();
 			
@@ -275,6 +273,48 @@ public class ExpenseEstimateDao {
 		}
 		return bean;
 	}//end
+	
+	//insert TravelExpense รถส่วนตัว
+		public TravelExpensesFuelCostBean privateCar(TravelExpensesFuelCostBean bean) throws Exception{
+			ConnectDB con = new ConnectDB();
+			Connection conn = con.openConnect();
+			PreparedStatement prepared = null;
+			StringBuilder sql = new StringBuilder();
+
+			try {
+				sql.append("INSERT INTO travel_expenses_private_car (travel_id, permission_id, "
+						+ "tepc_distance, tepc_number_per, tepc_rate_fuel_cost, tepc_fuel_cost_sum, "
+						+ "tepc_expressway_expenses_sum, tepc_sum, "
+						+ "tepc_vehicle_c, tepc_create_date) "
+						+ "VALUES(?,?,"
+						+ "?,?,?,?,"
+						+ "?,?,"
+						+ "?,SYSDATE())");
+				
+				prepared = conn.prepareStatement(sql.toString());
+				prepared.setInt(1, bean.getTravelId());
+				prepared.setInt(2, bean.getPermissionId());
+				
+				prepared.setInt(3, bean.getDistance());
+				prepared.setInt(4, bean.getNumberPer());
+				prepared.setInt(5, bean.getRateFuelCost());
+				prepared.setInt(6, bean.getFuelCostSum());
+	
+				prepared.setInt(7, bean.getExpresswayExpensesSum());
+				prepared.setString(8, bean.getSum());
+				
+				prepared.setString(9, bean.getVehicleC());
+
+				prepared.executeUpdate();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			finally {
+				conn.close();
+			}
+			return bean;
+		}//end
 	
 	//Travel พาหนะรถประจำทาง
 	public List<TravelBean> travel() throws SQLException {
