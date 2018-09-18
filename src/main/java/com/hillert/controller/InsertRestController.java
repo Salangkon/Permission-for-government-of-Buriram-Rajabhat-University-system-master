@@ -265,15 +265,10 @@ public class InsertRestController {
 	public Map<String, String> insertPermissionBack(Model model, @RequestBody PermissionBackBean pbBean,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
 		Map<String, String> insertPermission = new HashMap<String, String>();
-		
 		TestAjex perId = new TestAjex();
 		perId = userDao.CheckPerBack(Integer.toString(pbBean.getPermissionId()));
-
 		try {
 			if (perId.getPerIdBack() ==  null) {
-//			TestAjex perIdBack = new TestAjex();
-//			perIdBack = perDao.perId();
-//			pbBean.setPermissionId(perIdBack.getPerId());
 			perDao.insertPB(pbBean);
 			insertPermission.put("page", "welcomeUser");
 			}else {

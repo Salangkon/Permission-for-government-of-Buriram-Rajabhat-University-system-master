@@ -73,7 +73,7 @@ public class FormRestController {
 	}
 	
 	//List PermissionBean
-	@RequestMapping(value="/permissionCreareBy")
+	@RequestMapping(value="/tablePermissionUser")
 	public List<PermissionBean> perCreate(String createBy) throws SQLException{
 		TestAjex id = new TestAjex();
 		id=loginDao.userId();

@@ -65,7 +65,7 @@
   </header>
  		
 	<div style="margin-top: 3%;">
-		<%@include file="form_ask.jsp" %>
+		<%@include file="permission.jsp" %>
 	</div>
 
 	<footer  class="w3-black w3-center w3-padding-24" style="margin-top: 5%"> Ask la

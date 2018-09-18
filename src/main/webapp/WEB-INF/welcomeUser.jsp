@@ -69,6 +69,7 @@
         	<th style="text-align: center;">สถานที่ไปราชการ</th>
         	<th style="text-align: center;">พิมพ์</th>
         	<th style="text-align: center;">เดินทางกลับ</th>
+        	<th style="text-align: center;">พิมพ์</th>
     	</tr>
     	</thead>
 	</table>

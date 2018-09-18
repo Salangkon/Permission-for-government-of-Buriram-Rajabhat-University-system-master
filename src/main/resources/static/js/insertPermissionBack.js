@@ -27,31 +27,47 @@ $(document).ready(function() {
 	$("#bBackTravel2").change(function(){
 		bBackTravel = 2;
 	});
+	
+	//bAllowenceType ประเภทค่าเบี๋ยเลี้ยง
+	$("#bAllowenceType1").change(function(){
+		bAllowenceType = 1;
+	});
+	$("#bAllowenceType2").change(function(){
+		bAllowenceType = 2;
+	});
+	
+	//bRentDateType ประเภทค่าที่พัก
+	$("#bRentDateType1").change(function(){
+		bRentDateType = 1;
+	});
+	$("#bRentDateType2").change(function(){
+		bRentDateType = 2;
+	});
 
 	
 	//insertPermission
 	$('#saveBack').click(function(){
 		var pmBean = {
-			permissionId : $('#permissionId').val(),
-			bByOrderSave : $('#bByOrderSave').val(),
+			permissionId 	: $('#permissionId').val(),
+			bByOrderSave 	: $('#bByOrderSave').val(),
 			bDateAuthorized : $('#bDateAuthorized').val(),
 
-			bDisbursedBy : bDisbursedBy,
-			bAllowenceType : $('#bAllowenceType').val(),
-			bRentDateType : $('#bRentDateType').val(),
-			bStartTravel : bStartTravel,
-			bBackTravel : bBackTravel,
-			bHouseNumber : $('#bHouseNumber').val(),
+			bDisbursedBy 	: bDisbursedBy,
+			bAllowenceType 	: bAllowenceType,
+			bRentDateType 	: bRentDateType,
+			bStartTravel 	: bStartTravel,
+			bBackTravel 	: bBackTravel,
+			bHouseNumber 	: $('#bHouseNumber').val(),
 
-			bRoad : $('#bRoad').val(),
-			district : $('#district').val(),
-			bGoDate : $('#bGoDate').val(),
-			bGoTime : $('#bGoTime').val(),
-			bBackDate : $('#bBackDate').val(),
-			bBackTime : $('#bBackTime').val(),
+			bRoad 		: $('#bRoad').val(),
+			district 	: $('#district').val(),
+			bGoDate 	: $('#bGoDate').val(),
+			bGoTime 	: $('#bGoTime').val(),
+			bBackDate 	: $('#bBackDate').val(),
+			bBackTime 	: $('#bBackTime').val(),
 
-			bDayTotal : $('#bDayTotal').val(),
-			bTimeTotal : $('#bTimeTotal').val(),
+			bDayTotal 	: $('#bDayTotal').val(),
+			bTimeTotal 	: $('#bTimeTotal').val(),
 		}
 
 		$.ajax({

@@ -95,7 +95,7 @@ public class FormController {
 	}
 	
 	// IDpermission
-	@RequestMapping(path = "/PerUpdateBy/{values}", method = RequestMethod.GET)
+	@RequestMapping(path = "/permissionPDFBack/{values}", method = RequestMethod.GET)
 	public String permissionPrintPDFBack(@PathVariable("values") String values, HttpServletRequest request, Model model)
 			throws NumberFormatException, SQLException {
 		PermissionBean bean = new PermissionBean();
@@ -156,7 +156,7 @@ public class FormController {
 			e.printStackTrace();
 		}
 
-		return "permissionPrintPDF";
+		return "permissionPrintPDFBack";
 	}
 
 	// update permission

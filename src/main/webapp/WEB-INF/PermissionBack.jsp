@@ -1,4 +1,5 @@
 
+<%@page import="com.hillert.model.TestAjex"%>
 <%@page import="com.hillert.model.ExpenseSumaryBean"%>
 <%@page import="java.util.List"%>
 <%@page import="com.hillert.model.ExpenseEstimateBean"%>
@@ -72,11 +73,13 @@
 <%
 	PermissionBean bean = null;
 	ExpenseSumaryBean beanEs = null;
+	TestAjex perBackDisabled = null;
 	String result = "";
 %>
 <%
 	bean = (PermissionBean) request.getAttribute("perBean");
 	beanEs = (ExpenseSumaryBean) request.getAttribute("beanEs");
+	perBackDisabled = (TestAjex) request.getAttribute("perBackDisabled");
 	result = (String) request.getAttribute("messesUpdate");
 %>
 
@@ -132,33 +135,29 @@
 	<div class="w3-container" >
 	<div  style="margin-top: 3%">
 	<div></div>
-	<br>
-	<label>เรียน อธิการบดีมหาวิทยาลัยราชภัฏบุรีรัมย์</label><br>
+	<label>วันที่ขออนุญาต </label><input class="form-control" type="date" id="bDateAuthorized">
+	<hr>
 	<label>ตามคำสั่ง/บันทึกที่ </label><input class="form-control" type="text" id="bByOrderSave">
 	<label>ลงวันที่ </label><input class="form-control" type="date" id="bDateAuthorized"><hr>
-	<label>ขอเบิกค่าใช้จ่ายในการเดินทางไปราชการสำหรับ </label><br>
-		<input name="bDisbursedBy" id="bDisbursedBy1" type="radio" value="1" style="margin-left: 4%" > <label> ข้าพเจ้า</label>
-        <input name="bDisbursedBy" id="bDisbursedBy2" type="radio" value="2" style="margin-left: 4%" > <label> คณะเดินทาง</label><br><br>
+	<table>
+		<tr>
+			<td><label>ขอเบิกค่าใช้จ่ายสำหรับ </label></td>
+			<td style="width: 30mm" align="center"><input name="bDisbursedBy" id="bDisbursedBy1" type="radio" value="1" style="margin-left: 4%" > <label> ข้าพเจ้า</label></td>
+			<td style="width: 30mm" align="center"><input name="bDisbursedBy" id="bDisbursedBy2" type="radio" value="2" style="margin-left: 4%" > <label> คณะเดินทาง</label></td>
+		</tr>
+    </table><hr>
 	<table>
 		<tr>
 			<td style="width: 40mm"><label>ค่าเบี๋ยเลี้ยงการเดินทาง </label></td>
 			<td style="width: 18mm"><label><u>ประเภท</u></label></td>
-			<td>
-				<select class="form-control" name="bAllowenceType" id="bAllowenceType" style="width: 15mm">
-					<option value="1">ก</option>
-					<option value="2">ข</option>
-				</select>
-			</td>
+			<td style="width: 18mm" align="center"><input name="bAllowenceType" id="bAllowenceType1" type="radio" > ก</td> 
+			<td style="width: 18mm" align="center"><input name="bAllowenceType" id="bAllowenceType2" type="radio" > ข</td>
 		</tr>
 		<tr>
 			<td><label>ค่าที่พัก</label></td>
 			<td><label><u>ประเภท</u></label></td>
-			<td>
-				<select class="form-control" name="bRentDateType" id="bRentDateType" style="width: 15mm">
-					<option value="1">ก</option>
-					<option value="2">ข</option>
-				</select>
-			</td>
+			<td align="center"><input name="bRentDateType" id="bRentDateType1" type="radio" > ก</td> 
+			<td align="center"><input name="bRentDateType" id="bRentDateType2" type="radio" > ข</td>
 		</tr>
 	</table>
 	<form name="v" enctype="multipart/form-data" style="margin-top: 3.5%" >  
@@ -364,15 +363,13 @@
 
 					<div style="size: 10" class="col-sm-12 " align="center">
 						<button type="button" class="btn btn-success" id="buttonAdd1">ยืนยัน</button>
-						<button type="button"
-							onclick="document.getElementById('id01').style.display='none'"
+						<button type="button" onclick="document.getElementById('id01').style.display='none'"
 							class="btn btn-danger">ปิด</button>
 					</div>
 				</div>
 			</form>
 		</div>
 	</header>
-	
 <script type="text/javascript">
 	function setAllowEnce(allowence,type) {
 		var x = $('#allowenceType'+allowence).val();
@@ -416,7 +413,7 @@ alert(result);
 }
 </script>
 
-	<!-- เพิ่มบุคคลากร -->
+<!-- เพิ่มบุคคลากร -->
 <script>
 	// Get the modal
 	var modal = document.getElementById('id01');

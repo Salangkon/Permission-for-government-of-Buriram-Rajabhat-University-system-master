@@ -17,7 +17,14 @@ public class TestAjex {
 	private int updateRole;
 	private	String perIdBack;
 	
-
+	private int perBackDisabled;
+	
+	public int getPerBackDisabled() {
+		return perBackDisabled;
+	}
+	public void setPerBackDisabled(int perBackDisabled) {
+		this.perBackDisabled = perBackDisabled;
+	}
 	public String getPerIdBack() {
 		return perIdBack;
 	}

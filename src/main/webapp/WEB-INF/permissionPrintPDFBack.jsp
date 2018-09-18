@@ -80,10 +80,6 @@
   <div class="w3-dropdown-hover">
     <a class="w3-button" href="#">เลือกหน้า<i class="fa fa-caret-down"></i></a>
     <div class="w3-dropdown-content w3-bar-block w3-card-4">
-      <a class="w3-bar-item w3-button" href="#1"> บันทึกขออนุญาต	</a>
-      <a class="w3-bar-item w3-button" href="#2"> ประมาณการรายจ่าย		</a>
-      <a class="w3-bar-item w3-button" href="#3"> การพิจารณาไปราชการ		</a>
-      <a class="w3-bar-item w3-button" href="#4"> ประมาณการรายจ่าย	</a>
       <a class="w3-bar-item w3-button" href="#5"> เบิกค่าใช้จ่าย	</a>
       <a class="w3-bar-item w3-button" href="#6"> เบิกค่าใช้จ่าย 2</a>
     </div>
