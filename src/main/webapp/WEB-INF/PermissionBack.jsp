@@ -135,7 +135,7 @@
 	<div class="w3-container" >
 	<div  style="margin-top: 3%">
 	<div></div>
-	<label>วันที่ขออนุญาต </label><input class="form-control" type="date" id="bDateAuthorized">
+	<label>วันที่/บันทึก </label><input class="form-control" type="date" id="bSaveDate">
 	<hr>
 	<label>ตามคำสั่ง/บันทึกที่ </label><input class="form-control" type="text" id="bByOrderSave">
 	<label>ลงวันที่ </label><input class="form-control" type="date" id="bDateAuthorized"><hr>

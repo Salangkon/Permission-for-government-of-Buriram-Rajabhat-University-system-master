@@ -4,6 +4,8 @@ public class PermissionBackBean {
 	
 	private int permissionId;
 	
+	private String bSaveDate;
+	
 	private String bByOrderSave;
 	
 	private String bDateAuthorized; //วันที่อนุมัติ
@@ -40,6 +42,12 @@ public class PermissionBackBean {
 	private String provinceName;	
 	
 	
+	public String getbSaveDate() {
+		return bSaveDate;
+	}
+	public void setbSaveDate(String bSaveDate) {
+		this.bSaveDate = bSaveDate;
+	}
 	public String getbGoDateDay() {
 		return bGoDateDay;
 	}

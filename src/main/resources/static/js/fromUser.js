@@ -38,7 +38,12 @@ $(document).ready(function() {
 						"sWidth" : "5px" ,
 						"mRender": function (data, type, full) {// full คือ ข้อมูลของ
 							// ตาราง
-							return '<div align="center"><a href="javascript: document.permissionBack.submit()" onclick="permissionBack('+ full.permissionId  + ')" ><span class="glyphicon glyphicon-send" ></span>' + '</a></div>';
+							if (full.permissionId != full.permissionId) {
+				                return 'คณะครุศาสตร์';
+				            } else {
+				            	return '<div align="center"><a href="javascript: document.permissionBack.submit()" onclick="permissionBack('+ full.permissionId  + ')" ><span class="glyphicon glyphicon-send" ></span>' + '</a></div>';
+				            }
+							
 
 						}
 					},

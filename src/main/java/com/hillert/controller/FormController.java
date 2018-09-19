@@ -14,11 +14,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.hillert.dao.LoginDao;
 import com.hillert.dao.PermissionDao;
 import com.hillert.model.ExpenseEstimateBean;
 import com.hillert.model.ExpenseSumaryBean;
 import com.hillert.model.PermissionBackBean;
 import com.hillert.model.PermissionBean;
+import com.hillert.model.TestAjex;
 import com.hillert.model.TravelExpensesBean;
 import com.hillert.model.TravelExpensesFuelCostBean;
 
@@ -28,6 +30,8 @@ public class FormController {
 
 	@Autowired
 	PermissionDao perDao;
+	@Autowired 
+	LoginDao loginDao;
 
 	// IDpermission
 	@RequestMapping(path = "/permissionPDF/{values}", method = RequestMethod.GET)
@@ -163,25 +167,33 @@ public class FormController {
 	@RequestMapping(path = "/permissionBack", method = RequestMethod.POST)
 	public String gotoPermissionUpdate(int permissionId, HttpServletRequest request, Model model)
 			throws NumberFormatException, SQLException {
+		String authen = "";
+		
 		PermissionBean bean = new PermissionBean();
 		ExpenseSumaryBean beanEs = new ExpenseSumaryBean();
-		try {		
+		TestAjex id = new TestAjex();
+		
+		try {
 			bean = perDao.fromPermission(permissionId);
 			beanEs = perDao.findByEs(permissionId);
+			id=loginDao.PerBackDisabled(Integer.toString(permissionId));
 			
 			permissionId = bean.getPermissionId();
-			
-			if (permissionId != 0) {
+			if (id.getPerIdBack() == null) {
 				model.addAttribute("messesUpdate", "");
 				request.setAttribute("perBean", bean);
 				request.setAttribute("beanEs", beanEs);
+				authen = "PermissionBack";
+			}else {
+				authen = "welcomeUser";
 			}
+					
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 		request.setAttribute("perBean", bean);
-		return "PermissionBack";
+		return authen;
 	}
 
 //	// update permission

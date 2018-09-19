@@ -92,5 +92,34 @@ public class LoginDao {
 		return bean;
 	}
 	
+	//check PerBackDisabled ห้ามซ้ำ
+	public TestAjex PerBackDisabled(String CheckPerId) throws SQLException {
+		TestAjex bean = new TestAjex();
+		ConnectDB con = new ConnectDB();
+		Connection conn = con.openConnect();
+		PreparedStatement preperd = null;
+		StringBuilder sql = new StringBuilder();
+
+		try {
+			sql.append(" SELECT * FROM permission_back WHERE permission_id = ? ");
+			preperd = conn.prepareStatement(sql.toString());
+			preperd.setString(1, CheckPerId);
+			ResultSet rs = preperd.executeQuery();
+
+			while (rs.next()) {
+				
+				bean.setPerIdBack(rs.getString("permission_id"));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			if (con != null) {
+				conn.close();
+			}
+		}
+		return bean;
+	}
+	
 				
 }

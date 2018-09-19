@@ -49,6 +49,7 @@ $(document).ready(function() {
 	$('#saveBack').click(function(){
 		var pmBean = {
 			permissionId 	: $('#permissionId').val(),
+			bSaveDate		: $('#bSaveDate').val(),
 			bByOrderSave 	: $('#bByOrderSave').val(),
 			bDateAuthorized : $('#bDateAuthorized').val(),
 

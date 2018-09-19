@@ -77,6 +77,7 @@ public class FormRestController {
 	public List<PermissionBean> perCreate(String createBy) throws SQLException{
 		TestAjex id = new TestAjex();
 		id=loginDao.userId();
+//		id=loginDao.PerBackDisabled(id.getPerIdBack());
 		
 		List<PermissionBean> list = new ArrayList<>();
 		list = perDao.findByPerId(id.getUserID());

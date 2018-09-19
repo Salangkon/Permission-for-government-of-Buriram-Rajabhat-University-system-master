@@ -396,7 +396,7 @@ public class PermissionDao {
 					"INSERT INTO permission_back (permission_id, b_by_order_save, b_date_authorized, b_disbursed_by, b_allowence_type, "
 							+ "b_rent_date_type, b_start_travel, b_back_travel, b_house_number ,b_road ,"
 							+ "district, b_go_date ,b_go_time, b_back_date, b_back_time, "
-							+ "b_day_total ,b_time_total )VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+							+ "b_day_total ,b_time_total, b_save_date )VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
 			prepared = conn.prepareStatement(sql.toString());
 
@@ -417,6 +417,7 @@ public class PermissionDao {
 			prepared.setString(15, bean.getbBackTime());
 			prepared.setInt(16, bean.getbDayTotal());
 			prepared.setInt(17, bean.getbTimeTotal());
+			prepared.setString(18, bean.getbSaveDate());
 
 			prepared.executeUpdate();
 
