@@ -14,7 +14,7 @@
 	<link rel="stylesheet" href="/css/w3.css">
 	<link rel="stylesheet" href="/css/tableUpdatePermission.css">
 	<link rel="stylesheet" href="/DataTables-1.10.18/css/jquery.dataTables.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/css/modal.css">
 	
@@ -122,8 +122,7 @@
 	<!-- เพิ่มพาหนะ-->
 	<header class="w3-display-container w3-content">
 		<div id="id02" class="modal">
-			<form class="modal-content animate" action=""
-				style="max-width: 95%; margin-top: 5%; margin-left: 25%; margin-right: 10%">
+			<form class="modal-content animate" action="" style="max-width: 95%; margin-top: 5%; margin-left: 25%; margin-right: 10%">
 				<div class="w3-container w3-blue">
 					<h2>
 						<i class="fa fa-address-card-o w3-margin-right"></i> เพิ่มพาหนะ
@@ -141,9 +140,7 @@
 
 					<div style="size: 10" class="col-sm-12 " align="center">
 						<button type="button" class="btn btn-success" id="buttonAdd2">ยืนยัน</button>
-						<button type="button"
-							onclick="document.getElementById('id02').style.display='none'"
-							class="btn btn-danger">ปิด</button>
+						<button type="button" onclick="document.getElementById('id02').style.display='none'" class="btn btn-danger">ปิด</button>
 					</div>
 				</div>
 			</form>
@@ -212,47 +209,22 @@
 		</div>
 	</header>
 	
-	<!-- เพิ่มบุคคลากร -->
+	
 	<script>
-		// Get the modal
+		<!-- เพิ่มบุคคลากร -->
 		var modal = document.getElementById('id01');
-		// When the user clicks anywhere outside of the modal, close it
-		window.onclick = function(event) {
-			if (event.target == modal) {
-				modal.style.display = "none";
-			}
-		}
-	</script>
 
-	<!-- เพิ่มพาหนะ-->
-	<script>
-		// Get the modal
+		<!-- เพิ่มพาหนะ-->
 		var modal = document.getElementById('id02');
-		// When the user clicks anywhere outside of the modal, close it
-		window.onclick = function(event) {
-			if (event.target == modal) {
-				modal.style.display = "none";
-			}
-		}
-	</script>
+		
 	
-	<!-- เพิ่มพาหนะ รถส่วนตัว-->
-	<script>
-		// Get the modal
+		<!-- เพิ่มพาหนะ รถส่วนตัว-->
 		var modal = document.getElementById('id03');
-		// When the user clicks anywhere outside of the modal, close it
-		window.onclick = function(event) {
-			if (event.target == modal) {
-				modal.style.display = "none";
-			}
-		}
-	</script>
+
 	
-	<!-- เพิ่มพาหนะ รถไปราชการ-->
-	<script>
-		// Get the modal
+		<!-- เพิ่มพาหนะ รถไปราชการ-->
 		var modal = document.getElementById('id04');
-		// When the user clicks anywhere outside of the modal, close it
+		
 		window.onclick = function(event) {
 			if (event.target == modal) {
 				modal.style.display = "none";

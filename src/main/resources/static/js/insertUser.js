@@ -17,7 +17,15 @@ $(document).ready(function() {
 	});
 	
 	$('#save').click(function(){
-		
+		console.log("");
+		var d ;
+		var inputdata = [];
+		for (var i = 0; i < tableSelect.data().length; i++) {
+			d = tableSelect.data()[i];
+			console.log(d);
+			inputdata.push(d);
+		}
+
 		var userBean = {
 				userUsername : $('#userUsername').val(),
 				userPassword : $('#userPassword').val(),
@@ -26,7 +34,8 @@ $(document).ready(function() {
 				userLname    : $('#userLname').val(),	
 				numberPhone  : $('#numberPhone').val(),
 				dateStr		 : $('#setdate').val(),
-				role         : $('#role').val()
+				role         : $('#role').val(),
+				plBean       : inputdata
 		}
 		$.ajax({
 	        type: "POST",
@@ -37,6 +46,7 @@ $(document).ready(function() {
 	        contentType: "application/json; charset=utf-8",
 	        success: function (res) {
 	        	console.log(res)
+	        
 	        	window.location.href = res.page;
 	        },
 		 	error: function () {
@@ -64,33 +74,7 @@ $(document).ready(function() {
 		
 	});
 	
-	// insertPersonele
-	$('#save').click(function() {
-		console.log("");
-		var d ;
-		var inputdata = [];
-		for (var i = 0; i < tableSelect.data().length; i++) {
-			d = tableSelect.data()[i];
-			console.log(d);
-			inputdata.push(d);
-		}
 
-		$.ajax({
-			type : "POST",
-			url : "/insertPersonnel",
-			data : JSON.stringify(inputdata),
-			dataType : "json",
-			async : false,
-			contentType : "application/json; charset=utf-8",
-			success : function(res) {
-//				 console.log(res)
-//				window.location.href = res.page;
-			},
-			error : function() {
-				window.location.href = "nser";
-			}
-		});
-	});//end insertPersonele
 	
 
 //Drop Dawn คณะ และ สังกีด 
@@ -398,5 +382,22 @@ function check() {
 
 
 
-
+//function save1() {																	
+//	
+//	$.ajax({
+//		type : "POST",
+//		url : "/insertPersonnel",
+//		data : JSON.stringify(inputdata),
+//		dataType : "json",
+//		async : false,
+//		contentType : "application/json; charset=utf-8",
+//		success : function(res) {
+////			 console.log(res)
+////			window.location.href = res.page;
+//		},
+//		error : function() {
+//			window.location.href = "nser";
+//		}
+//	});
+//}
 

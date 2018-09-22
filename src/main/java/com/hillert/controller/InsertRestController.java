@@ -27,8 +27,8 @@ import com.hillert.model.PermissionBean;
 import com.hillert.model.PersonnelListBean;
 import com.hillert.model.TestAjex;
 import com.hillert.model.TravelExpensesBean;
-import com.hillert.model.UserBean;
 import com.hillert.model.TravelExpensesFuelCostBean;
+import com.hillert.model.UserBean;
 
 @RestController
 public class InsertRestController {
@@ -63,16 +63,28 @@ public class InsertRestController {
 	@ResponseBody
 	public Map<String, String> insertUser(Model model, @RequestBody UserBean userBean, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		TestAjex rr = new TestAjex();
+		TestAjex id = new TestAjex();
+		int idu = 0;
 		Map<String, String> insertUser = new HashMap<String, String>();
-		rr = userDao.CheckUserName(userBean.getUserUsername());
+		id = userDao.CheckUserName(userBean.getUserUsername());
 
 		try {
-			if (rr.getAmphur() == null) {
-				userDao.insertNewUser(userBean);
+			if (id.getAmphur() == null) {
+				idu = userDao.insertNewUser(userBean);
+				
 				insertUser.put("page", "nserOK");// insert OK gotoUserAll
 			} else {
 				insertUser.put("page", "nser");// insert Fill!! nser
+			}
+		
+			for (PersonnelListBean personnelListBean : userBean.getPlBean()) {
+				personnelListBean.setUserId(idu);
+//				if (idsave.getUserId() != 0) {
+					userDao.insert(personnelListBean);
+					insertUser.put("page", "nserOK");
+//				}else {
+//					insertUser.put("page", "nser");// insert Fill!! nser
+//				}	
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -81,32 +93,7 @@ public class InsertRestController {
 		return insertUser;
 	}// end insert user
 
-	// insert_personel
-	@RequestMapping(value = "/insertPersonnel", method = RequestMethod.POST)
-	@ResponseBody
-	public Map<String, String> personel(Model model, @RequestBody List<PersonnelListBean> plBean,
-			HttpServletRequest request, HttpServletResponse response) throws Exception {
-		//UserId
-		TestAjex id = new TestAjex();
-		id = userDao.userId();
-		Map<String, String> insertPersonnel = new HashMap<String, String>();
-		try {
-			for (PersonnelListBean personnelListBean : plBean) {
-				personnelListBean.setUserId(id.getUserId());
-				if (id.getUserId() != 0) {
-					userDao.insert(personnelListBean);
-					insertPersonnel.put("page", "nserOK");
-				}else {
-					insertPersonnel.put("page", "nser");// insert Fill!! nser
-				}	
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			insertPersonnel.put("page", "nser");// insert Fill!! nser
-		}
-		return insertPersonnel;
-	}// end_personel
-
+	
 
 	// ตรวจสอบ username in SQL
 	@RequestMapping(value = "/checkId", method = RequestMethod.POST)

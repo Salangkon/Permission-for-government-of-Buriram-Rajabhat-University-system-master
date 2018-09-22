@@ -22,10 +22,10 @@
 %>
 
 	<link rel="stylesheet" href="/css/w3.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/css/NewFile.css">
 	<link rel="stylesheet" href="/DataTables-1.10.18/css/jquery.dataTables.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<script src="/js/jQuery v3.3.1.js"></script>
 	<script src="/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>

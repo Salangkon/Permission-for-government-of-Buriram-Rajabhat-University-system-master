@@ -18,18 +18,24 @@
 <title>ระบบขออนุญาตไปราชการ</title>
 
 	<link rel="stylesheet" href="/css/w3.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/css/table.css">
 	<link rel="stylesheet" href="/css/NewFile.css">
-	<link rel="stylesheet" href="/DataTables-1.10.18/css/jquery.dataTables.css">
-	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+						
 	<script src="/js/jQuery v3.3.1.js"></script>
-	<script src="/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>
+	<script src="/js/jquery.dataTables.min.js"></script>
+<!-- 	<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script> -->
+<!-- 	<script src="https://cdn.datatables.net/fixedheader/3.1.5/js/dataTables.fixedHeader.min.js"></script> -->
+	<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+<!-- 	<script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script> -->
+	
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
+<!-- 	<link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.1.5/css/fixedHeader.bootstrap.min.css"> -->
+	<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css">
+	
 	<script src="/js/fromUser.js"></script>
+
 	
 </head>
 
@@ -57,9 +63,9 @@
     	</div>
   </header>
 <form name="welcome" action="#" method="post" class="w3-animate-top">
- <div style="margin-top: 4%;max-width: 90%;margin-left: 5%;" >
+ <div style="margin-top: 4%;max-width: 90%;margin-left: 5%;">
  <input type="hidden" name="permissionId" id="permissionId">
-	<table id="userTable" class="table-bordered" style="width: 100%;">   
+	<table id="userTable" class="table table-striped table-bordered nowrap" style="width: 100%;">   
 		<thead>
     	<tr style="background: purple;color: white;">
         	<th style="text-align: center;">รหัสอ้างอิง</th>
@@ -74,6 +80,7 @@
     	</thead>
 	</table>
 </div>
+</form>
 		<script type="text/javascript">
 			function permissionBack(filter) {
 				document.getElementById('permissionId').value = filter;
@@ -81,7 +88,7 @@
 				document.welcome.submit();
 			}
 		</script>
-</form>
+
 
 </div>
 

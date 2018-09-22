@@ -1,6 +1,7 @@
 package com.hillert.model;
 
 import java.sql.Date;
+import java.util.List;
 
 
 public class UserBean {
@@ -17,7 +18,15 @@ public class UserBean {
 	private Date date;
 	private String dateStr;
 	private int role;
+	private List<PersonnelListBean> plBean;
 	
+	
+	public List<PersonnelListBean> getPlBean() {
+		return plBean;
+	}
+	public void setPlBean(List<PersonnelListBean> plBean) {
+		this.plBean = plBean;
+	}
 	public Date getDate() {
 		return date;
 	}

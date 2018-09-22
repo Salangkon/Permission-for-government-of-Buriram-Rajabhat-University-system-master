@@ -27,10 +27,9 @@
 	perBean = (PermissionBean) request.getSession().getAttribute("perBean");
 	
 %>
-
-	<link rel="stylesheet" href="/css/w3.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/css/w3.css">
+	<link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/css/table.css">
 	<link rel="stylesheet" href="/css/NewFile.css">
 </head>
@@ -73,7 +72,7 @@
     </div>
     <div class="w3-quarter">
       <div class="w3-container w3-teal w3-padding-16 w3-ul w3-card-4 w3-card w3-round w3-Turquoise">
-        <div class="w3-left"><i class="fa fa-file w3-xxxlarge"></i></div>
+        <div class="w3-left"><i class="w3-xxxlarge glyphicon glyphicon-file"></i></div>
         <div class="w3-right">
           <h3><%=perBean.getPermissionId() %></h3>
         </div>
@@ -83,7 +82,7 @@
     </div>
     <div class="w3-quarter">
       <div class="w3-container w3-orange w3-text-white w3-padding-16 w3-ul w3-card-4 w3-card w3-round w3-Turquoise">
-        <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
+        <div class="w3-left"><i class="w3-xxxlarge glyphicon glyphicon-user"></i></div>
         <div class="w3-right">
           <h3><%=bean1.getUserId() %></h3>
         </div>

@@ -78,7 +78,7 @@
   </div>
   <div class="w3-bar-block">
   <div class="w3-dropdown-hover">
-    <a class="w3-button" href="#">เลือกหน้า<i class="fa fa-caret-down"></i></a>
+    <a class="w3-button" href="#">เลือกหน้า<i class="fa fa fa-caret-down"></i></a>
     <div class="w3-dropdown-content w3-bar-block w3-card-4">
       <a class="w3-bar-item w3-button" href="#5"> เบิกค่าใช้จ่าย	</a>
       <a class="w3-bar-item w3-button" href="#6"> เบิกค่าใช้จ่าย 2</a>

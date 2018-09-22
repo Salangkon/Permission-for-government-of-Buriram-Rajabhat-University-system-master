@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	
 		var table = $('#userTable').DataTable({
+					responsive: true,
 					"lengthChange": false,
 					"sAjaxSource" : "/tablePermissionUser",
 					"sAjaxDataProp" : "",
@@ -57,5 +58,5 @@ $(document).ready(function() {
 						}
 					}]
 				});
-		
+		 new $.fn.dataTable.FixedHeader( table );
 });

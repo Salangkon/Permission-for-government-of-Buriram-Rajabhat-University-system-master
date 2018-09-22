@@ -53,12 +53,10 @@
 	}
 	</style>
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/css/w3.css">
 	<link rel="stylesheet" href="/css/tableUpdatePermission.css">
 	<link rel="stylesheet" href="/DataTables-1.10.18/css/jquery.dataTables.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/css/modal.css">
 	
 	<script src="/js/useCar.js"></script>
@@ -213,11 +211,11 @@
 	<div class="w3-container" style="background-color:rgba(255, 99, 71, 0.4);">
 <form action="">
 
-    <div class="col-sm-6" style="margin-top:20px">
+    <div class="col-sm-7" style="margin-top:20px">
     	<label>ตั้งแต่วันที่</label> 
-   		<input class="form-control" name="bGoDate" id="bGoDate" type="date" value=""  > 
+   		<input class="form-control" name="bGoDate" id="bGoDate" type="datetime-local" value=""  > 
    	</div>
-	<div class="col-sm-6" style="margin-top:20px">
+	<div class="col-sm-5" style="margin-top:20px">
    		<label>เวลา</label> 
    		<input class="form-control" name="bGoTime" id="bGoTime" type="time" value=""  > 
    	</div>
@@ -227,11 +225,11 @@
    		<input name="bBackTravel" id="bBackTravel1" type="radio" value="" style="margin-left: 4%" > <label> บ้านพัก</label>
         <input name="bBackTravel" id="bBackTravel2" type="radio" value="" style="margin-left: 4%" > <label> สำนักงาน</label> 
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-7">
     	<label>ตั้งแต่วันที่</label> 
-   		<input class="form-control" name="bBackDate" id="bBackDate" type="date" value=""  > 
+   		<input class="form-control" name="bBackDate" id="bBackDate" type="datetime-local" value=""  > 
    	</div>
-	<div class="col-sm-6" >
+	<div class="col-sm-5" >
    		<label>เวลา</label> 
    		<input class="form-control" name="bBackTime" id="bBackTime" type="time" value=""  > 
    		<input type="button" id="submit" onclick="dateDiff()" value="calculate" />
@@ -239,10 +237,10 @@
    	<div style="size: 10;margin-bottom: 6.5mm" class="col-sm-12" >
    		<label>รวมเวลาไปราชการ</label> 
    			<div class="input-group">
-			<input class="form-control" style="text-align:center OnKeyPress="return chkNumber(this)" type="text" id="bDayTotal" >
+			<input class="form-control" style="text-align:center" OnKeyPress="return chkNumber(this)" type="text" id="bDayTotal" >
 			<div class="input-group-addon">วัน</div>
 			<div class="input-group">
-			<input class="form-control" style="text-align:center OnKeyPress="return chkNumber(this)" type="text" id="bTimeTotal">
+			<input class="form-control" style="text-align:center" OnKeyPress="return chkNumber(this)" type="text" id="bTimeTotal">
 			<div class="input-group-addon">ชั่วโมง</div>
    			</div>
    	</div>
@@ -279,7 +277,7 @@
 
 	<div style="size: 10;margin-bottom: 3%;" class="col-sm-12"  id="Manual Budget" style="display:none">
 	<h3 style="color: white;margin-bottom: 2%"align="center"  class="w3-container w3-blue"><i class="fa fa-user w3-margin-right" style="font-size:30px;"></i>เลือกบุคคลกรร่วมไปราชการ พร้อมกำหนดค่าใช้จ่าย  (กรุณาใส่ 0 ในช่องว่าง)</h3>
-	
+	<div style="overflow-x:auto;">
 	<table id="addUser" class="table table-bordered" style="font-family: sans-serif;font-size:small;width: 100%" >   
 		<thead>
     	<tr style="background: purple;color: white;">
@@ -314,6 +312,7 @@
     	</tr>
     	</tfoot>
     </table>
+    </div>
     <div align="right">
     	<input class=" btn btn-primary" type="button" value="เพิ่มบุลคลากร" onclick="document.getElementById('id01').style.display='block'">
     </div>
@@ -337,14 +336,13 @@
 	<!-- เพิ่มบุคคลากร -->
 	<header class="w3-display-container w3-content">
 		<div id="id01" class="modal">
-			<form class="modal-content animate" action=""
-				style="max-width: 100%; margin-top: 3%; margin-left: 25%; margin-right: 10%">
+			<form class="modal-content animate" action="" style="max-width: 100%; margin-top: 3%; margin-left: 25%; margin-right: 10%">
 				<div class="w3-container w3-blue">
 					<h2>
 						<i class="fa fa-address-card-o w3-margin-right"></i> เพิ่มบุคคลากร
 					</h2>
 				</div>
-				<div class="w3-container w3-white w3-padding-16">
+				<div style="overflow-x:auto;"> 
 					<table id="userTable" class="table table-bordered">
 						<thead>
 							<tr style="background: purple; color: white;">
@@ -395,21 +393,28 @@ function dateDiff(){
 var myVar1 = document.getElementById('bBackDate').value;//prompt("Enter a start date: ")
 var myVar2 = document.getElementById('bGoDate').value;//prompt("Enter a end date: ")
 
-var first_date = Date.parse(myVar1)
-var last_date = Date.parse(myVar2)
-var diff_date =  first_date - last_date;
-
-var num_years = diff_date/31536000000;
-var num_months = (diff_date % 31536000000)/2628000000;
-var num_days = ((diff_date % 31536000000) % 2628000000)/86400000;
-
-var result ="";
-
-result +=(" " + Math.floor(num_years) + " ปี\n");
-result +=(" " + Math.floor(num_months) + " ดือน\n");
-result +=(" " + Math.floor(num_days) + " วัน");
-alert(result);
-
+var date1 = new Date(myVar1);
+var date2 = new Date(myVar2);
+var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24))+1; 
+var diffTimes = Math.ceil(timeDiff / (1000 * 3600 )); 
+var days = 0;
+for(var i= 0 ; i  <=  diffDays ; i++ ){
+	var a = diffTimes - 6;
+	if(a > 12){
+		days = days + 1;
+		diffTimes = diffTimes - 24;
+	}else if(a > 0 ){
+		days = days + 0.5;
+		diffTimes = diffTimes - 6;
+	}else{
+		 break;
+	}
+}
+console.log(days);
+// alert(diffDays);
+$('#bDayTotal').val(parseFloat(days).toFixed(1));
+//$('#bTimeTotal').val(parseFloat(diffTimes).toFixed(0));
 }
 </script>
 

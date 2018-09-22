@@ -2,7 +2,7 @@
 <%@page import="org.springframework.context.annotation.Bean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<header class="w3-display-container w3-content" style="max-width:98%">
+<header class="w3-display-container w3-content w3-animate-opacity" style="max-width:98%">
 	<div class="w3-container w3-red" >
 		<h2><i class="fa fa-file-o w3-margin-right"></i>แบบฟอร์มขออนุญาตไปราชการ</h2>
     </div>
@@ -19,7 +19,7 @@
 		<% } %>
 
 <!-- กรอบที่ 1 -->
-<div style="margin-bottom: 18%" class="animate">
+<div style="margin-bottom: 18%" class="w3-animate-opacity">
 
 <div style="size: 10" class="col-sm-12" >
 	<div style="size: 10" class="col-sm-8 " >
@@ -180,7 +180,7 @@
 </header>
 
 <!-- สรุป แบบฟอร์มประมาณการรายจ่าย -->
-<header class="w3-display-container w3-content" style="max-width:98%;margin-top: 2%">
+<header class="w3-display-container w3-content w3-animate-opacity" style="max-width:98%;margin-top: 2%">
 	<div class="w3-container w3-blue">
     	<h2><i class="fa fa-file-o w3-margin-right"></i>แบบฟอร์มประมาณการรายจ่าย</h2>
     </div>
@@ -206,7 +206,7 @@
 	<!-- <div id="No Budget" style="display:none"></div>  -->
     
 	<!-- เบิกค่าใช้จ่าย -->
-	<div id="Manual Budget" style="display:none" class="animate">
+	<div id="Manual Budget" style="display:none" class="w3-animate-opacity">
 <div class="col-sm-12" >
  	<!-- Page Container -->
 	<div class="w3-container w3-content" style="max-width:100%;margin-top:20px">    
@@ -241,7 +241,7 @@
 </div>
 <div style="size: 10" class="col-sm-2 " >
 	<div class="form-group" style="margin-top: 3.5%">
-	<label> รหัส    </label><input class="form-control" name="budgetPass" id="budgetPass" type="text" onkeyup="autoTab(this)">
+	<label> รหัส    </label><input class="form-control" name="budgetPass" id="budgetPass" type="text">
 	</div>
 </div>
 <div style="size: 10;" class="col-sm-2 ">
@@ -310,7 +310,7 @@
  	</div><!-- end dataTable Expense -->
 
  
-<div style="size: 10" class="col-sm-2" >
+<div style="size: 10" class="col-sm-2 w3-animate-opacity" >
  	<!-- Page Container -->
 	<div class="w3-container w3-content" style="max-width:100%;margin-top:20px">    
 	<!-- Profile -->
@@ -332,7 +332,7 @@
     <!-- ไม่ได้เลือก -->
 	<div id="No Promotion" style="display:none"></div> 
 
-<div id="Manual Promotion1" style="display:none" class="animate">
+<div id="Manual Promotion1" style="display:none" class="w3-animate-opacity">
 <div style="margin-bottom: 3%;" class="col-sm-12" >
 	<h3 style="color: white;"align="center"  class="w3-container w3-blue"><i class="fa fa-car w3-margin-right" style="font-size:30px;"></i>เลือกค่า พาหนะในการเดินทาง และกำหนดค่า  (หมายเหตุ ถ้ามี)</h3><br>
 	<table id="addTravel" class="table table-bordered" style="font-family: sans-serif;font-size:small;width: 100%">   
@@ -364,7 +364,7 @@
 </div>
 
 <!-- ขอใช้รถไปราชการ -->
-<div id="Manual Promotion2" style="display:none" class="animate">
+<div id="Manual Promotion2" style="display:none" class="w3-animate-opacity">
 <div class="col-sm-5">
 	<!-- Page Container -->
 	<div class="w3-container w3-content" style="max-width:100%;margin-top:20px;">    
@@ -405,12 +405,12 @@
 </div>
 
 <!-- ขอใช้รถส่วนตัว -->
-<div id="Manual Promotion3" style="display:none" class="animate">
+<div id="Manual Promotion3" style="display:none" class="w3-animate-opacity">
 	<div class="col-sm-5">
 <!-- 	Page Container  -->
 	<div class="w3-container w3-content" style="max-width:100%;margin-top:20px;">    
 <!-- 	Profile -->
-	<div class="w3-card w3-round w3-Turquoise" style="height: 19mm;background-color:rgba(255, 255, 0, 0.6);">
+	<div class="w3-card w3-round w3-Turquoise" style="height: 19mm;background-color:rgba(255, 255, 0, 0);">
 	<div class="w3-container">
 	<div class="input-group" style="margin-top: 5mm">
 		<div class="input-group-addon">หมายเลขทะเบียน </div>
