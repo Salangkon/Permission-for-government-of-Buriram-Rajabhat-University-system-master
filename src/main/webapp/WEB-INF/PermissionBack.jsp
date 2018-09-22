@@ -11,47 +11,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>update</title>
-
-	<script type="text/javascript">
-		//กรอกได้เฉพราะ ตัวเลข
-		function chkNumber(ele)
-		{
-		var vchar = String.fromCharCode(event.keyCode);
-		if ((vchar<'0' || vchar>'9') && (vchar != '.')) return false;
-		ele.onKeyPress=vchar;
-		}
-	</script>
-	<script>
-		function w3_open() {
-			document.getElementById("main").style.marginLeft = "180px";
-			document.getElementById("mySidebar").style.width = "180px";
-			document.getElementById("mySidebar").style.display = "block";
-			document.getElementById("openNav").style.display = 'none';
-		}
-		function w3_close() {
-			document.getElementById("main").style.marginLeft = "0";
-			document.getElementById("mySidebar").style.display = "none";
-			document.getElementById("openNav").style.display = "inline-block";
-		}
-	</script>
-	<style>
-	@media screen and (max-width: 500px) {
-		.h3 {
-			font-size: 16px;
-		}
-	}
-	</style>
-
-	<style type="text/css">
-	#grad1 {
-    background: red; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(yellow, purple); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(yellow, purple); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(yellow, purple); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(yellow, purple); /* Standard syntax */
-	}
-	</style>
+<title>permission-back</title>
 
 	<link rel="stylesheet" href="/css/w3.css">
 	<link rel="stylesheet" href="/css/tableUpdatePermission.css">
@@ -122,7 +82,6 @@
 
 <!-- กรอบที่ 1 -->
 <div style="margin-bottom: 18%">
-
 <div style="size: 10" class="col-sm-12" >
 
 	<div style="size: 10" class="col-sm-4 " >
@@ -154,8 +113,8 @@
 		<tr>
 			<td><label>ค่าที่พัก</label></td>
 			<td><label><u>ประเภท</u></label></td>
-			<td align="center"><input name="bRentDateType" id="bRentDateType1" type="radio" > ก</td> 
-			<td align="center"><input name="bRentDateType" id="bRentDateType2" type="radio" > ข</td>
+			<td align="center"><input id="bRentDateType1" type="radio" name="bRentDateType1"> ก</td> 
+			<td align="center"><input id="bRentDateType2" type="radio" name="bRentDateType2"> ข</td>
 		</tr>
 	</table>
 	<form name="v" enctype="multipart/form-data" style="margin-top: 3.5%" >  
@@ -174,7 +133,7 @@
 
     <div class="form-group" style="margin-top:20px">
     	<label>ออกเเดินทางจาก :</label> 
-   		<input name="bStartTravel" id="bStartTravel1"  type="radio" value="1" style="margin-left: 4%" > <label> บ้านพัก</label>
+   		<input name="bStartTravel" id="bStartTravel1"  type="radio" value="1" style="margin-left: 4%;" > <label> บ้านพัก</label>
         <input name="bStartTravel" id="bStartTravel2"  type="radio" value="2" style="margin-left: 4%" > <label> สำนักงาน</label> 
     </div>
     <label>เลขที่</label><input class="form-control" type="text" id="bHouseNumber">
@@ -211,29 +170,30 @@
 	<div class="w3-container" style="background-color:rgba(255, 99, 71, 0.4);">
 <form action="">
 
-    <div class="col-sm-7" style="margin-top:20px">
+    <div class="col-sm-12" style="margin-top:20px">
     	<label>ตั้งแต่วันที่</label> 
    		<input class="form-control" name="bGoDate" id="bGoDate" type="datetime-local" value=""  > 
    	</div>
-	<div class="col-sm-5" style="margin-top:20px">
-   		<label>เวลา</label> 
-   		<input class="form-control" name="bGoTime" id="bGoTime" type="time" value=""  > 
-   	</div>
+<!-- 	<div class="col-sm-5" style="margin-top:20px"> -->
+<!--    		<label>เวลา</label>  -->
+<!--    		<input class="form-control" name="bGoTime" id="bGoTime" type="time" value=""  >  -->
+<!--    	</div> -->
 
    	<div class="form-group col-sm-12" style="margin-top:20px">
     	<label>กลับถึง :</label> 
    		<input name="bBackTravel" id="bBackTravel1" type="radio" value="" style="margin-left: 4%" > <label> บ้านพัก</label>
         <input name="bBackTravel" id="bBackTravel2" type="radio" value="" style="margin-left: 4%" > <label> สำนักงาน</label> 
     </div>
-    <div class="col-sm-7">
+    <div class="col-sm-12">
     	<label>ตั้งแต่วันที่</label> 
    		<input class="form-control" name="bBackDate" id="bBackDate" type="datetime-local" value=""  > 
    	</div>
-	<div class="col-sm-5" >
-   		<label>เวลา</label> 
-   		<input class="form-control" name="bBackTime" id="bBackTime" type="time" value=""  > 
-   		<input type="button" id="submit" onclick="dateDiff()" value="calculate" />
-   	</div> 
+   	<input type="button" id="submit" onclick="dateDiff()" value="calculate" />
+<!-- 	<div class="col-sm-5" > -->
+<!--    		<label>เวลา</label>  -->
+<!--    		<input class="form-control" name="bBackTime" id="bBackTime" type="time" value=""  >  -->
+<!--    		<input type="button" id="submit" onclick="dateDiff()" value="calculate" /> -->
+<!--    	</div>  -->
    	<div style="size: 10;margin-bottom: 6.5mm" class="col-sm-12" >
    		<label>รวมเวลาไปราชการ</label> 
    			<div class="input-group">
@@ -401,7 +361,7 @@ var diffTimes = Math.ceil(timeDiff / (1000 * 3600 ));
 var days = 0;
 for(var i= 0 ; i  <=  diffDays ; i++ ){
 	var a = diffTimes - 6;
-	if(a > 12){
+	if(a >= 12){
 		days = days + 1;
 		diffTimes = diffTimes - 24;
 	}else if(a > 0 ){
@@ -410,11 +370,30 @@ for(var i= 0 ; i  <=  diffDays ; i++ ){
 	}else{
 		 break;
 	}
+	
+	
 }
 console.log(days);
 // alert(diffDays);
 $('#bDayTotal').val(parseFloat(days).toFixed(1));
-//$('#bTimeTotal').val(parseFloat(diffTimes).toFixed(0));
+
+var strTime2=new Date(myVar1);
+var strTime1=new Date(myVar2);
+
+var myDate2=new Date(strTime2);
+var timeStamp2=myDate2.getTime();
+
+var myDate1=new Date(strTime1);
+var timeStamp1=myDate1.getTime();
+
+var timeDiff=(timeStamp2-timeStamp1)/1000;
+
+var minutesDiff=timeDiff/60;
+var minutesRemain=minutesDiff%60;
+
+var hoursDiff=(minutesDiff-minutesRemain)/60;   
+$("#bTimeTotal").val(hoursDiff+"."+minutesRemain);
+
 }
 </script>
 
