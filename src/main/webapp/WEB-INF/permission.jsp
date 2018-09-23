@@ -1,8 +1,72 @@
-<%@page import="com.hillert.model.UserBean"%>
 <%@page import="org.springframework.context.annotation.Bean"%>
+<%@page import="com.hillert.model.PositionBean"%>
+<%@page import="com.hillert.model.SubPositionBean"%>
+<%@page import="com.hillert.model.FacultyBean"%>
+<%@page import="com.hillert.model.DepartmentBean"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.hillert.model.UserBean"%>
+<%@ page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<html xmlns:th="http://www.thymeleaf.org">
 
-<header class="w3-display-container w3-content w3-animate-opacity" style="max-width:98%">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>แบบฟอร์มการขออนุยาตไปราชการ</title>
+	<link rel="stylesheet" href="/css/w3.css">
+	<link rel="stylesheet" href="/css/tableUpdatePermission.css">
+	<link rel="stylesheet" href="/DataTables-1.10.18/css/jquery.dataTables.css">
+	<link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/css/modal.css">
+	
+	<script src="/js/useCar.js"></script>
+	<script src="/js/jQuery v3.3.1.js"></script>
+	<script src="/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>
+	<script src="/js/listFaculty.js"></script>
+	<script src="/js/listPosition.js"></script>
+	<script src="/js/insertPermission.js"></script>
+	<script src="/js/province.js"></script>
+	<script src="/js/budget.js"></script>
+	<script src="/js/insertExpense.js"></script>
+	
+	
+	
+<%
+	UserBean bean = null;
+	String result = "";
+%>
+<%
+	bean = (UserBean) request.getSession().getAttribute("userBean");	
+	result = (String) request.getAttribute("messes");
+%>
+
+</head>
+
+
+
+<body class="w3-light-grey w3-content" style="max-width:100%">
+
+<%@include file="Nav.jsp"%>   
+
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px;margin-bottom: 5%;">
+  <!-- Header -->
+  <header id="portfolio">
+    <a href="#"><img src="/images/bru.png" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    <div class="w3-container" align="center" style="background-color:purple;">
+    <h1 style="margin-top: 3%;"><b style="color: white;">ใบขออนุญาตไปราชการ</b></h1>
+    <div class="w3-section w3-bottombar w3-padding-16"></div>
+
+    </div>
+  </header>
+ 		
+	<div style="margin-top: 3%;">
+		<header class="w3-display-container w3-content w3-animate-opacity" style="max-width:98%">
 	<div class="w3-container w3-red" >
 		<h2><i class="fa fa-file-o w3-margin-right"></i>แบบฟอร์มขออนุญาตไปราชการ</h2>
     </div>
@@ -89,6 +153,7 @@
     <label>เรื่องที่ไปราชการ </label>
     	<input type="text" class="form-control" name="topics" id="topics">
     </div><hr>
+    <div style="overflow-x:auto;">
 	 <table id="" class="table-responsive" style="margin-bottom: 3.3%;font-size: small;">
      <tr  align="center">
      	<th colspan="3"> การมอบหมายงานระหว่างไปราชการ </th>
@@ -121,6 +186,7 @@
       <input name="commitDDt" id="commitDDt" type="text" placeholder="&nbsp;&nbsp;มอบหมายให้..."></td>
     </tr>
 	</table>
+	</div>
 	</div></div></div>
 </div><!--end  -->
 
@@ -176,6 +242,34 @@
 
 </div>
 
+<script src="/js/calculator-datetime.js"></script>
+<form action="">
+    <div class="col-sm-3">
+    	<label>ตั้งแต่วัน/เวลา</label> 
+   		<input class="form-control" name="bGoDate" id="bGoDate" type="datetime-local" value=""  > 
+   	</div>
+
+    <div class="col-sm-3">
+    	<label>ตั้งแต่วัน/เวลา</label> 
+   		<input class="form-control" name="bBackDate" id="bBackDate" type="datetime-local" value=""  > 
+   	</div>
+   	<div class="col-sm-3">
+   		<input type="button" id="submit" onclick="dateDiff()" value="คำนวน" class="w3-btn w3-white w3-border w3-border-green w3-round-large">
+   	</div>
+   	
+   	<div class="col-sm-3" >
+   		<label>รวมเวลาไปราชการ</label> 
+   			<div class="input-group">
+			<input class="form-control" style="text-align:center" OnKeyPress="return chkNumber(this)" type="text" id="bDayTotal" >
+			<div class="input-group-addon">วัน</div>
+			<div class="input-group">
+			<input class="form-control" style="text-align:center" OnKeyPress="return chkNumber(this)" type="text" id="bTimeTotal">
+			<div class="input-group-addon">ชั่วโมง</div>
+   			</div>
+   	</div>
+   	</div>
+   	</form>
+
 </div>
 </header>
 
@@ -206,8 +300,8 @@
 	<!-- <div id="No Budget" style="display:none"></div>  -->
     
 	<!-- เบิกค่าใช้จ่าย -->
-	<div id="Manual Budget" style="display:none" class="w3-animate-opacity">
-<div class="col-sm-12" >
+	<div id="Manual Budget" style="display:none" class="w3-animate-opacity" >
+<div class="col-sm-12 w3-container w3-card-4 w3-light-red w3-text-blue w3-margin" >
  	<!-- Page Container -->
 	<div class="w3-container w3-content" style="max-width:100%;margin-top:20px">    
 	<!-- Profile -->
@@ -251,25 +345,8 @@
     </div>
 </div>
 	</div></div></div>
-</div>
-
-	<div style="size: 10;margin-bottom: 3%;" class="col-sm-12"  id="Manual Budget" style="display:none">
-	<h3 style="color: white;margin-bottom: 2%"align="center"  class="w3-container w3-blue"><i class="fa fa-user w3-margin-right" style="font-size:30px;"></i>เลือกบุคคลกรร่วมไปราชการ พร้อมกำหนดค่าใช้จ่าย  (กรุณาใส่ 0 ในช่องว่าง)</h3>
-	
-	<!-- Page Container -->
-	<div class="w3-container w3-content" style="max-width:100%;">    
-	<!-- Profile -->
-	<div class="w3-card w3-round w3-Turquoise">
-	<div class="w3-container">
-	<div class="col-sm-3" style="margin-bottom: 1%;margin-top: 1%;"><label>ค่าเบี้ยเลี้ยง(รายละเอียดค่าเบี้ยเลี้ยง)</label> 
-		<a class="test" href="#" data-toggle="tooltip" data-placement="top" title=" (240 x 2) + (180  x 2) ">ตัวอย่าง</a>
-	</div>
-	<div class="col-sm-3" style="margin-bottom: 1%;margin-top: 1%;"><input type="text" id="allowenceDetails" class="form-control" style="height: 7mm"></div>
-	<div class="col-sm-3" style="margin-bottom: 1%;margin-top: 1%;"><label>ค่าเช่าที่พัก (รายละเอียดเช่าที่พัก)</label>
-		<a class="test" href="#" data-toggle="tooltip" data-placement="top" title=" (240 x 2) + (180  x 2) ">ตัวอย่าง</a>
-	</div>
-	<div class="col-sm-3" style="margin-bottom: 1%;margin-top: 1%;"><input type="text" id="rentDateDetails" class="form-control" style="height: 7mm"></div>
-	</div></div></div><br>
+	<br>
+	<div style="overflow-x:auto;">
 	<table id="addUser" class="table table-bordered" style="font-family: sans-serif;font-size:small;width:  100%">   
 		<thead>
     	<tr style="background: purple;color: white;">
@@ -304,10 +381,25 @@
     	</tr>
     	</tfoot>
     </table>
+   </div> <!-- end table -->
     <div align="right">
     	<input class=" btn btn-primary" type="button" value="เพิ่มบุลคลากร" onclick="document.getElementById('id01').style.display='block'">
-    </div>
- 	</div><!-- end dataTable Expense -->
+    </div><br>
+    <!-- Page Container -->
+	<div class="w3-container w3-content" style="max-width:100%;">    
+	<!-- Profile -->
+	<div class="w3-card w3-round w3-Turquoise">
+	<div class="w3-container">
+	<div class="col-sm-3" style="margin-bottom: 1%;margin-top: 1%;"><label>ค่าเบี้ยเลี้ยง(รายละเอียดค่าเบี้ยเลี้ยง)</label> 
+		<a class="test" href="#" data-toggle="tooltip" data-placement="top" title=" (240 x 2) + (180  x 2) ">ตัวอย่าง</a>
+	</div>
+	<div class="col-sm-3" style="margin-bottom: 1%;margin-top: 1%;"><input type="text" id="allowenceDetails" class="form-control" style="height: 7mm"></div>
+	<div class="col-sm-3" style="margin-bottom: 1%;margin-top: 1%;"><label>ค่าเช่าที่พัก (รายละเอียดเช่าที่พัก)</label>
+		<a class="test" href="#" data-toggle="tooltip" data-placement="top" title=" (240 x 2) + (180  x 2) ">ตัวอย่าง</a>
+	</div>
+	<div class="col-sm-3" style="margin-bottom: 1%;margin-top: 1%;"><input type="text" id="rentDateDetails" class="form-control" style="height: 7mm"></div>
+	</div></div></div><br>
+ </div><!-- end dataTable Expense -->
 
  
 <div style="size: 10" class="col-sm-2 w3-animate-opacity" >
@@ -335,6 +427,7 @@
 <div id="Manual Promotion1" style="display:none" class="w3-animate-opacity">
 <div style="margin-bottom: 3%;" class="col-sm-12" >
 	<h3 style="color: white;"align="center"  class="w3-container w3-blue"><i class="fa fa-car w3-margin-right" style="font-size:30px;"></i>เลือกค่า พาหนะในการเดินทาง และกำหนดค่า  (หมายเหตุ ถ้ามี)</h3><br>
+	<div style="overflow-x:auto;">
 	<table id="addTravel" class="table table-bordered" style="font-family: sans-serif;font-size:small;width: 100%">   
 		<thead>
     	<tr style="background: purple;color: white;">
@@ -357,6 +450,7 @@
     	</tr>
     	</tfoot>
     </table>
+    </div>
     <div align="right">
    		<input class=" btn btn-primary" type="button" value="เลือกพาหนะ" onclick="document.getElementById('id02').style.display='block'">
     </div>
@@ -381,6 +475,7 @@
 	
 	<div style="margin-bottom: 3%;" class="col-sm-12" >
 	<h3 style="color: white;"align="center"  class="w3-container w3-blue"><i class="fa fa-car w3-margin-right" style="font-size:30px;"></i>เลือกค่า พาหนะในการเดินทาง และกำหนดค่า  (หมายเหตุ ถ้ามี)</h3><br>
+	<div style="overflow-x:auto;">
 	<table id="addTravel1" class="table table-bordered" style="font-family: sans-serif;font-size:small;width: 100%">   
 		<thead>
     	<tr style="background: purple;color: white;">	
@@ -398,6 +493,7 @@
     	</tr>
     	</thead>
     </table>
+    </div>
     <div align="right">
    		<input class=" btn btn-primary" type="button" value="เลือกพาหนะ" onclick="document.getElementById('id03').style.display='block'">
     </div>
@@ -421,6 +517,7 @@
 	<div class="col-sm-7"></div>
 <div style="margin-bottom: 3%;" class="col-sm-12" >
 	<h3 style="color: white;"align="center"  class="w3-container w3-blue"><i class="fa fa-car w3-margin-right" style="font-size:30px;"></i>เลือกค่า พาหนะในการเดินทาง และกำหนดค่า  (หมายเหตุ ถ้ามี)</h3><br>
+	<div style="overflow-x:auto;">
 	<table id="addPrivateCar" class="table table-bordered" style="font-family: sans-serif;font-size:small;width: 100%">   
 		<thead>
     	<tr style="background: purple;color: white;"> 	
@@ -437,6 +534,7 @@
     	</tr>
     	</thead>
     </table>
+    </div>
     <div align="right">
    		<input class=" btn btn-primary" type="button" value="เลือกพาหนะ" onclick="document.getElementById('id04').style.display='block'">
     </div>
@@ -487,3 +585,173 @@
 </script>
 	
 
+	</div>
+
+	<footer  class="w3-black w3-center w3-padding-24" style="margin-top: 5%"> Ask la
+		<a href="http://reg.bru.ac.th/registrar/home.asp" 
+			title="W3.CSS" target="_blank" class="w3-hover-opacity">BRU
+		</a>
+	</footer>
+</div>
+
+	<form name="welcameUserForm" action="welconeUser"     method="post" th:hidden="true"></form>
+	<form name="Ask_storyForm"   action="gotoAsk_story"   method="post" th:hidden="true"></form>
+	<form name="Ask_laForm"      action="gotoAsk_la"      method="post" th:hidden="true"></form>
+	<form name="Ask_helpForm"    action="gotoAsk_Help"    method="post" th:hidden="true"></form>
+	<form name="insertForm"      action="gotoInsert"      method="post" th:hidden="true"></form>
+	<form name="logoutForm"      action="logout"          method="post" th:hidden="true"></form>
+
+	<!-- เพิ่มบุคคลากร -->
+	<header class="w3-display-container w3-content">
+		<div id="id01" class="modal">
+			<form class="modal-content animate" action="" style="max-width: 100%; margin-top: 3%; margin-left: 25%; margin-right: 10%">
+				<div class="w3-container w3-blue">
+					<h2>
+						<i class="fa fa-address-card-o w3-margin-right"></i> เพิ่มบุคคลากร
+					</h2>
+				</div>
+				<div class="w3-container w3-white w3-padding-16">
+				<div style="overflow-x:auto;">
+					<table id="userTable" class="table table-bordered" style="overflow: auto;">
+						<thead>
+							<tr style="background: purple; color: white;">
+								<th>เลือก</th>
+								<th>ชื่อ</th>
+								<th>นามสกุล</th>
+								<th>คณะ</th>
+								<th>ภาควิชา</th>
+								<th>ตำแหน่ง</th>
+								<th>ระดับ</th>
+								<th>ค่าเบี้ยเลี้ยง</th>
+								<th>ค่าเช่าที่พัก</th>
+							</tr>
+						</thead>
+					</table>
+
+					<div style="size: 10" class="col-sm-12 " align="center">
+						<button type="button" class="btn btn-success" id="buttonAdd1">ยืนยัน</button>
+						<button type="button"
+							onclick="document.getElementById('id01').style.display='none'"
+							class="btn btn-danger">ปิด</button>
+					</div>
+				</div>
+				</div>
+			</form>
+		</div>
+	</header>
+
+	<!-- เพิ่มพาหนะ-->
+	<header class="w3-display-container w3-content">
+		<div id="id02" class="modal">
+			<form class="modal-content animate" action="" style="max-width: 95%; margin-top: 5%; margin-left: 25%; margin-right: 10%">
+				<div class="w3-container w3-blue">
+					<h2>
+						<i class="fa fa-address-card-o w3-margin-right"></i> เพิ่มพาหนะ
+					</h2>
+				</div>
+				<div class="w3-container w3-white w3-padding-16">
+					<table id="travelTable" class="table table-bordered">
+						<thead>
+							<tr style="background: purple; color: white;">
+								<th>ลำดับ</th>
+								<th>พาหนะ</th>
+							</tr>
+						</thead>
+					</table>
+
+					<div style="size: 10" class="col-sm-12 " align="center">
+						<button type="button" class="btn btn-success" id="buttonAdd2">ยืนยัน</button>
+						<button type="button" onclick="document.getElementById('id02').style.display='none'" class="btn btn-danger">ปิด</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</header>
+	
+		<!-- เพิ่มพาหนะ   รถไปราชการ -->
+	<header class="w3-display-container w3-content">
+		<div id="id03" class="modal">
+			<form class="modal-content animate" action=""
+				style="max-width: 95%; margin-top: 5%; margin-left: 25%; margin-right: 10%">
+				<div class="w3-container w3-blue">
+					<h2>
+						<i class="fa fa-address-card-o w3-margin-right"></i> เพิ่มพาหนะ
+					</h2>
+				</div>
+				<div class="w3-container w3-white w3-padding-16">
+					<table id="travelTable1" class="table table-bordered">
+						<thead>
+							<tr style="background: purple; color: white;">
+								<th>ลำดับ</th>
+								<th>พาหนะ</th>
+							</tr>
+						</thead>
+					</table>
+
+					<div style="size: 10" class="col-sm-12 " align="center">
+						<button type="button" class="btn btn-success" id="buttonAdd3">ยืนยัน</button>
+						<button type="button"
+							onclick="document.getElementById('id03').style.display='none'"
+							class="btn btn-danger">ปิด</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</header>
+	
+			<!-- เพิ่มพาหนะ รถส่วนตัว-->
+	<header class="w3-display-container w3-content">
+		<div id="id04" class="modal">
+			<form class="modal-content animate" action=""
+				style="max-width: 95%; margin-top: 5%; margin-left: 25%; margin-right: 10%">
+				<div class="w3-container w3-blue">
+					<h2>
+						<i class="fa fa-address-card-o w3-margin-right"></i> เพิ่มพาหนะ
+					</h2>
+				</div>
+				<div class="w3-container w3-white w3-padding-16">
+					<table id="travelTable2" class="table table-bordered">
+						<thead>
+							<tr style="background: purple; color: white;">
+								<th>ลำดับ</th>
+								<th>พาหนะ</th>
+							</tr>
+						</thead>
+					</table>
+
+					<div style="size: 10" class="col-sm-12 " align="center">
+						<button type="button" class="btn btn-success" id="buttonPrivateCar">ยืนยัน</button>
+						<button type="button"
+							onclick="document.getElementById('id04').style.display='none'"
+							class="btn btn-danger">ปิด</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</header>
+	
+	
+	<script>
+		<!-- เพิ่มบุคคลากร -->
+		var modal = document.getElementById('id01');
+
+		<!-- เพิ่มพาหนะ-->
+		var modal = document.getElementById('id02');
+		
+	
+		<!-- เพิ่มพาหนะ รถส่วนตัว-->
+		var modal = document.getElementById('id03');
+
+	
+		<!-- เพิ่มพาหนะ รถไปราชการ-->
+		var modal = document.getElementById('id04');
+		
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+	</script>
+
+</body>
+</html>

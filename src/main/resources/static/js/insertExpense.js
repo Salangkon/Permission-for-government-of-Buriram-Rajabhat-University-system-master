@@ -285,10 +285,11 @@ $(document).ready(function() {
 					"mData" : "allowencePerday",
 					"sWidth" : "50px" ,
 					"mRender" : function(data,
-						type, row, index) {						
+						type, row, index) {	
+						var data1 = $('#bDayTotal').val();
 					return '<input class="form-control number2" style="width: 16mm;height: 7mm" type="text" OnKeyPress="return chkNumber(this)" name="allowencePerday" id="allowencePerday'
 							+ index.row
-							+ '" value="" />';
+							+ '" value="'+data1+'" />';
 					}
 				},
 				{

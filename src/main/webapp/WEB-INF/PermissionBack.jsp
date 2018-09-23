@@ -27,6 +27,21 @@
 	<script src="/js/insertExpenseBack.js"></script>
 	<script src="/js/insertPermissionBack.js"></script>
 	<script src="/js/province.js"></script>
+	
+	
+	<script>
+		function w3_open() {
+			document.getElementById("main").style.marginLeft = "180px";
+			document.getElementById("mySidebar").style.width = "180px";
+			document.getElementById("mySidebar").style.display = "block";
+			document.getElementById("openNav").style.display = 'none';
+		}
+		function w3_close() {
+			document.getElementById("main").style.marginLeft = "0";
+			document.getElementById("mySidebar").style.display = "none";
+			document.getElementById("openNav").style.display = "inline-block";
+		}
+	</script>
 
 <%
 	PermissionBean bean = null;
@@ -168,32 +183,24 @@
 	<!-- Profile -->
 	<div class="w3-card w3-round w3-Turquoise">
 	<div class="w3-container" style="background-color:rgba(255, 99, 71, 0.4);">
+	
 <form action="">
-
     <div class="col-sm-12" style="margin-top:20px">
-    	<label>ตั้งแต่วันที่</label> 
+    	<label>ตั้งแต่วัน/เวลา</label> 
    		<input class="form-control" name="bGoDate" id="bGoDate" type="datetime-local" value=""  > 
    	</div>
-<!-- 	<div class="col-sm-5" style="margin-top:20px"> -->
-<!--    		<label>เวลา</label>  -->
-<!--    		<input class="form-control" name="bGoTime" id="bGoTime" type="time" value=""  >  -->
-<!--    	</div> -->
 
-   	<div class="form-group col-sm-12" style="margin-top:20px">
+   	<div class="form-group col-sm-12" style="margin-top:20px;background-color:white ;">
     	<label>กลับถึง :</label> 
-   		<input name="bBackTravel" id="bBackTravel1" type="radio" value="" style="margin-left: 4%" > <label> บ้านพัก</label>
-        <input name="bBackTravel" id="bBackTravel2" type="radio" value="" style="margin-left: 4%" > <label> สำนักงาน</label> 
+   		<input name="bBackTravel" id="bBackTravel1" type="radio" value="" style="margin-left: 4%" class="w3-radio"> <label> บ้านพัก</label>
+        <input name="bBackTravel" id="bBackTravel2" type="radio" value="" style="margin-left: 4%" class="w3-radio"> <label> สำนักงาน</label> 
     </div>
     <div class="col-sm-12">
-    	<label>ตั้งแต่วันที่</label> 
+    	<label>ตั้งแต่วัน/เวลา</label> 
    		<input class="form-control" name="bBackDate" id="bBackDate" type="datetime-local" value=""  > 
+   		<input type="button" id="submit" onclick="dateDiff()" value="คำนวน" class="w3-btn w3-white w3-border w3-border-green w3-round-xlarge">
    	</div>
-   	<input type="button" id="submit" onclick="dateDiff()" value="calculate" />
-<!-- 	<div class="col-sm-5" > -->
-<!--    		<label>เวลา</label>  -->
-<!--    		<input class="form-control" name="bBackTime" id="bBackTime" type="time" value=""  >  -->
-<!--    		<input type="button" id="submit" onclick="dateDiff()" value="calculate" /> -->
-<!--    	</div>  -->
+   	
    	<div style="size: 10;margin-bottom: 6.5mm" class="col-sm-12" >
    		<label>รวมเวลาไปราชการ</label> 
    			<div class="input-group">
@@ -213,6 +220,7 @@
 
 </div>
 </header>
+
 
 <!-- สรุป แบบฟอร์มประมาณการรายจ่าย -->
 <header class="w3-display-container w3-content" style="max-width:90%;margin-top: 2%">
@@ -234,7 +242,6 @@
 <div class="col-sm-12" >
  	
 </div>
-
 	<div style="size: 10;margin-bottom: 3%;" class="col-sm-12"  id="Manual Budget" style="display:none">
 	<h3 style="color: white;margin-bottom: 2%"align="center"  class="w3-container w3-blue"><i class="fa fa-user w3-margin-right" style="font-size:30px;"></i>เลือกบุคคลกรร่วมไปราชการ พร้อมกำหนดค่าใช้จ่าย  (กรุณาใส่ 0 ในช่องว่าง)</h3>
 	<div style="overflow-x:auto;">
@@ -277,7 +284,6 @@
     	<input class=" btn btn-primary" type="button" value="เพิ่มบุลคลากร" onclick="document.getElementById('id01').style.display='block'">
     </div>
  	</div><!-- end dataTable Expense -->
-
 </div><!-- end กรอบที่ 3-->
 	
 
@@ -370,12 +376,12 @@ for(var i= 0 ; i  <=  diffDays ; i++ ){
 	}else{
 		 break;
 	}
-	
-	
 }
 console.log(days);
 // alert(diffDays);
+
 $('#bDayTotal').val(parseFloat(days).toFixed(1));
+
 
 var strTime2=new Date(myVar1);
 var strTime1=new Date(myVar2);
@@ -394,7 +400,7 @@ var minutesRemain=minutesDiff%60;
 var hoursDiff=(minutesDiff-minutesRemain)/60;   
 $("#bTimeTotal").val(hoursDiff+"."+minutesRemain);
 
-}
+}//end
 </script>
 
 <!-- เพิ่มบุคคลากร -->

@@ -76,7 +76,7 @@ public class UserController {
 //		UserBean bean = new UserBean();
 //		request.getSession().setAttribute("userBean",bean);
 		model.addAttribute("messes", "");
-		return "Ask_la";
+		return "permission";
 	}
 
 	// path story
