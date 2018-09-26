@@ -503,8 +503,7 @@
 						</tr>
 						<tr>
 							<th colspan="2" style="max-width: 100%; text-align: left"> &nbsp;&nbsp;&nbsp;
-								<input name="v" type="checkbox" value="งบอื่นๆ" <%if (bean.getBudgetBy().equals("งบอื่นๆ")) {out.print("checked='checked'
-								 disabled");}%>disabled> งบอื่นๆ &nbsp;&nbsp;
+								<input name="v" type="checkbox" value="งบอื่นๆ" <%if (bean.getBudgetBy().equals("งบอื่นๆ")) {out.print("checked='checked' disabled");}%>disabled> งบอื่นๆ &nbsp;&nbsp;
 							</th>
 						</tr>
 						<tr>
@@ -538,20 +537,17 @@
 								<table style="width: 100%;">
 									<tr>
 										<td style="text-align: left; width: 25mm"><label>3.1 ค่าเบี้ยเลี้ยงเดินทาง</label></td>
-										<td style="text-align: left; width: 3mm"><label>
-												<%=beanEs.getAllowencePerdayTotal() %></label></td>
+										<td style="text-align: left; width: 3mm"></td>
 										<td style="text-align: left; width: 10mm"><label>วันๆ ละ </label></td>
 										<td style="text-align: left; width: 25mm"><label>
-												<%=beanEs.getAllowenceDetails()%></label></td>
+												</label></td>
 										<td style="text-align: left; width: 1mm"><label>บาท</label></td>
 									</tr>
 									<tr>
 										<td style="text-align: left; width: 25mm"><label>3.2 ค่าเช่าที่พัก</label></td>
-										<td style="text-align: left; width: 3mm"><label>
-												<%=beanEs.getRentDatePerdayTotal() %></label></td>
+										<td style="text-align: left; width: 3mm"></td>
 										<td style="text-align: left; width: 10mm"><label>คืนๆ ละ</label></td>
-										<td style="text-align: left; width: 25mm"><label>
-												<%=beanEs.getRentDateDetails()%></label></td>
+										<td style="text-align: left; width: 25mm"></td>
 										<td style="text-align: left; width: 1mm"><label>บาท</label></td>
 									</tr>
 									<tr>
@@ -1043,7 +1039,7 @@
 								%>
 								</th>
 								<th>
-									<%
+								<%
 									if (beanEs.getExpenseEstimateSumTotal().equals("0")) {
 										out.print("");
 									} else {

@@ -588,9 +588,6 @@ public class PermissionDao {
 				bean.setOtherSumTotal(rs.getString("other_sum_total"));
 				bean.setExpenseEstimateSumTotal(rs.getString("expense_estimate_sum_total"));
 				
-				bean.setAllowenceDetails(rs.getString("allowence_details"));
-				bean.setRentDateDetails(rs.getString("rent_date_details"));
-				
 				permissionId = bean.getPermissionId();
 
 			}
@@ -604,9 +601,8 @@ public class PermissionDao {
 		}
 		return bean;
 	}// end ES
-	
-	
-    private static final String[] SCALE_TH = { "ล้าน", "สิบ", "ร้อย", "พัน", "หมื่น", "แสน", "" };
+
+	private static final String[] SCALE_TH = { "ล้าน", "สิบ", "ร้อย", "พัน", "หมื่น", "แสน", "" };
     private static final String[] DIGIT_TH = { "ศูนย์", "หนึ่ง", "สอง", "สาม", "สี่", "ห้า", "หก", "เจ็ด", "แปด", "เก้า" };
     private static final String[] SYMBOLS_TH = { "ลบ", "บาท", "ถ้วน", "สตางค์" ,"ยี่", "เอ็ด", ",", " ", "฿"};
  

@@ -379,25 +379,3 @@ function check() {
 		});
 	});
 }//end function check
-
-
-
-//function save1() {																	
-//	
-//	$.ajax({
-//		type : "POST",
-//		url : "/insertPersonnel",
-//		data : JSON.stringify(inputdata),
-//		dataType : "json",
-//		async : false,
-//		contentType : "application/json; charset=utf-8",
-//		success : function(res) {
-////			 console.log(res)
-////			window.location.href = res.page;
-//		},
-//		error : function() {
-//			window.location.href = "nser";
-//		}
-//	});
-//}
-

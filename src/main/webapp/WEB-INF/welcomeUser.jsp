@@ -1,16 +1,17 @@
 <!DOCTYPE HTML>
+<%@page import="com.hillert.model.PersonAddressBean"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@page import="com.hillert.model.UserBean"%>
 <%@ page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <html xmlns:th="http://www.thymeleaf.org">
 <%
-	String result = "";
 	UserBean bean = null;
+	String result = "";
 %>
 <%
 	bean = (UserBean) request.getSession().getAttribute("userBean");
-	result = (String) request.getAttribute("messessError");
+	result = (String) request.getAttribute("messes");
 %>
 
 <head>
@@ -19,22 +20,15 @@
 
 	<link rel="stylesheet" href="/css/w3.css">
 	<link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/css/table.css">
-	<link rel="stylesheet" href="/css/NewFile.css">
+	<link rel="stylesheet" href="/DataTables-1.10.18/css/jquery.dataTables.css">
+	<link rel="stylesheet" href="/css/modal.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-						
+											
 	<script src="/js/jQuery v3.3.1.js"></script>
-	<script src="/js/jquery.dataTables.min.js"></script>
-<!-- 	<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script> -->
-<!-- 	<script src="https://cdn.datatables.net/fixedheader/3.1.5/js/dataTables.fixedHeader.min.js"></script> -->
-	<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-<!-- 	<script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script> -->
-	
-	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
-<!-- 	<link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.1.5/css/fixedHeader.bootstrap.min.css"> -->
-	<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css">
-	
+	<script src="/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>	
 	<script src="/js/fromUser.js"></script>
+	<script src="/js/insertPermission.js"></script>
+	<script src="/js/user-data-personnel.js"></script>
 
 	
 </head>
@@ -42,6 +36,7 @@
 <body class="w3-light-grey w3-content" style="max-width:100%;">
 
 <%@include file="Nav.jsp"%>  
+<%@include file="data_personnel.jsp" %>
 
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" 
@@ -63,8 +58,9 @@
     	</div>
   </header>
 <form name="welcome" action="#" method="post" class="w3-animate-top">
- <div style="margin-top: 4%;max-width: 90%;margin-left: 5%;">
- <input type="hidden" name="permissionId" id="permissionId">
+	<div style="margin-top: 4%;max-width: 90%;margin-left: 5%;overflow-x:auto;">
+	<input type="hidden" name="permissionId" id="permissionId">
+	
 	<table id="userTable" class="table table-striped table-bordered nowrap" style="width: 100%;">   
 		<thead>
     	<tr style="background: purple;color: white;">

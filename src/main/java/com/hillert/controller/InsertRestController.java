@@ -41,22 +41,7 @@ public class InsertRestController {
 	ExpenseEstimateDao EEDao;
 	@Autowired
 	UserDao userDao;	
-	
-//	// insert_user
-//	@RequestMapping(value = { "/insert" }, method = RequestMethod.POST, produces = "application/json")
-//	@ResponseBody
-//	public String insert(Model model, @RequestBody UserBean userBean) throws SQLException {
-//		TestAjex rr = new TestAjex();
-//		rr = userDao.CheckUserName(userBean.getUserUsername());
-//		try {
-//			if (rr.getAmphur() == null) {
-//				userDao.insertNewUser(userBean);
-//			}
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		return "test";
-//	}
+
 
 	// insert_user
 	@RequestMapping(value = "/insertUser", method = RequestMethod.POST)
@@ -71,29 +56,22 @@ public class InsertRestController {
 		try {
 			if (id.getAmphur() == null) {
 				idu = userDao.insertNewUser(userBean);
-				
+				for (PersonnelListBean personnelListBean : userBean.getPlBean()) {
+					personnelListBean.setUserId(idu);
+					userDao.insert(personnelListBean);
+					insertUser.put("page", "nserOK");	
+				}
 				insertUser.put("page", "nserOK");// insert OK gotoUserAll
 			} else {
 				insertUser.put("page", "nser");// insert Fill!! nser
 			}
-		
-			for (PersonnelListBean personnelListBean : userBean.getPlBean()) {
-				personnelListBean.setUserId(idu);
-//				if (idsave.getUserId() != 0) {
-					userDao.insert(personnelListBean);
-					insertUser.put("page", "nserOK");
-//				}else {
-//					insertUser.put("page", "nser");// insert Fill!! nser
-//				}	
-			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			insertUser.put("page", "nser");// insert Fill!! nser
 		}
 		return insertUser;
 	}// end insert user
-
-	
 
 	// ตรวจสอบ username in SQL
 	@RequestMapping(value = "/checkId", method = RequestMethod.POST)
@@ -103,6 +81,7 @@ public class InsertRestController {
 		// System.out.println(testAjex.getUserUsername());
 		return bean;
 	}
+	
 
 	// insert_permisstion
 	@RequestMapping(value = "/insertPermission", method = RequestMethod.POST)

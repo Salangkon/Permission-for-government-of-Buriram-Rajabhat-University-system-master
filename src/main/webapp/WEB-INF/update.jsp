@@ -42,7 +42,9 @@
 	<div class="w3-container w3-content" style="max-width:1400px;margin-top20px" >    
 	<!-- Profile -->
 	<div class="w3-card w3-round w3-Turquoise">
-	<!-- close menu -->
+	<header class="w3-container w3-light-grey">
+      <h3 align="center">ยินดีต้อนรับ ผู้ดูแลระบบ</h3>
+    </header>
 	<div align="right">
 		<a href="#" onclick="w3_close()"  class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" title="close menu"><i class="fa fa-bars"></i></a><br>
     </div>

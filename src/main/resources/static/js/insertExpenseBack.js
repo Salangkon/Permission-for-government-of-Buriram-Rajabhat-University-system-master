@@ -1,5 +1,20 @@
 $(document).ready(function() {
 
+	//คำนวณ ค่าเบี้ยเลี้ยง
+	$('#addUser').on('change','input', function() { 
+		var sum6 = $(this).parent().parent().find('td')[7];
+		var number1 = $(this).parent().parent().find('td')[5];
+		var number2= $(this).parent().parent().find('td')[6];
+		var num1 = $(number1).find('input.number1').val();
+		var num2 = $(number2).find('input.number2').val();
+		if(''!=num1 && ''!=num2) {
+			var total = (num1)*(num2);
+			$(sum6).find('input').val(total);
+		}else{
+			$(sum6).find('input').val(0);
+		}
+	});
+	
 	//คำนวณ ค่าที่พัก
 	$('#addUser').on('change','input', function() { 
 		var sum9 = $(this).parent().parent().find('td')[10];
@@ -14,6 +29,7 @@ $(document).ready(function() {
 			$(sum9).find('input').val(0);
 		}
 	});
+	
 	//คำนวณ ค่าที่พัก ค่าเบี้ยเลี้ยง
 	$('#addUser').on('change','input', function() { 
 		var sum12 = $(this).parent().parent().find('td')[13];
@@ -175,7 +191,7 @@ $(document).ready(function() {
 					"sWidth" : "60px" ,
 					"mRender" : function(data,
 						type, row, index) {
-					return '<input class="form-control number1" disabled style="width: 15mm;height: 7mm" type="text" name="allowence" id="allowence' 
+					return '<input class="form-control number1" style="width: 15mm;height: 7mm" type="text" name="allowence" id="allowence' 
 							+ index.row
 							+ '" value="'+row.allowence+'"/>';
 					}
@@ -222,6 +238,7 @@ $(document).ready(function() {
 					"sWidth" : "50px" ,
 					"mRender" : function(data,
 						type, row, index) {
+						var data2 = $('#d').val();
 						if (row.rentDatePerday != null) {
 							return '<input class="form-control number4" type="text" OnKeyPress="return chkNumber(this)" style="width: 16mm;height: 7mm" name="rentDatePerday" id="rentDatePerday'
 							+ index.row
@@ -229,7 +246,7 @@ $(document).ready(function() {
 			            } else {
 			            	return '<input class="form-control number4" type="text" OnKeyPress="return chkNumber(this)" style="width: 16mm;height: 7mm" name="rentDatePerday" id="rentDatePerday'
 							+ index.row
-							+ '" value="0"/>';
+							+ '" value="'+data2+'"/>';
 			            }
 					
 					}

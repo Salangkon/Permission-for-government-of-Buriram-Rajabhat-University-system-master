@@ -286,7 +286,7 @@ $(document).ready(function() {
 					"sWidth" : "50px" ,
 					"mRender" : function(data,
 						type, row, index) {	
-						var data1 = $('#bDayTotal').val();
+						var data1 = $('#DayTotal').val();
 					return '<input class="form-control number2" style="width: 16mm;height: 7mm" type="text" OnKeyPress="return chkNumber(this)" name="allowencePerday" id="allowencePerday'
 							+ index.row
 							+ '" value="'+data1+'" />';
@@ -317,9 +317,10 @@ $(document).ready(function() {
 					"sWidth" : "50px" ,
 					"mRender" : function(data,
 						type, row, index) {
+						var data2 = $('#d').val();
 					return '<input class="form-control number4" type="text" OnKeyPress="return chkNumber(this)" style="width: 16mm;height: 7mm" name="rentDatePerday" id="rentDatePerday'
 							+ index.row
-							+ '" />';
+							+ '" value="'+data2+'"/>';
 					}
 				},	
 				{

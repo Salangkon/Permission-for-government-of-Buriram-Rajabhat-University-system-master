@@ -75,10 +75,8 @@ public class ExpenseEstimateDao {
 			try {
 				sql.append("INSERT INTO expense_sumary (user_sum_total, allowence_sum_total, rent_date_sum_total,travel_sum_total, other_sum_total, expense_estimate_sum_total,"
 						+ "allowence_perday_total,  rent_date_perday_total, "
-						+ "allowence_details, rent_date_details, "
 						+ "permission_id , create_date)"
 						+ "VALUES (?,?,?,?,?,?, "
-						+ "?,?, "
 						+ "?,?, "
 						+ "?,SYSDATE());");
 				
@@ -93,11 +91,8 @@ public class ExpenseEstimateDao {
 				
 				prepared.setString(7, bean.getAllowencePerdayTotal());
 				prepared.setString(8, bean.getRentDatePerdayTotal());
-				
-				prepared.setString(9, bean.getAllowenceDetails());
-				prepared.setString(10, bean.getRentDateDetails());
 
-				prepared.setInt(11, bean.getPermissionId());
+				prepared.setInt(9, bean.getPermissionId());
 				
 				prepared.executeUpdate();
 				

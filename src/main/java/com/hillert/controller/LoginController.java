@@ -1,8 +1,7 @@
 package com.hillert.controller;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -43,19 +42,16 @@ public class LoginController {
 	@RequestMapping("/login")
 	public String authenLogin(String username, String password,String date , Model model, HttpServletRequest request) {
 		String authen = "";
-		List<UserBean> list = new ArrayList<>();
 		UserBean bean = new UserBean();	
 		UserBean bean1 = new UserBean();	
 		PermissionBean perBean = new PermissionBean();
 		try {
 			bean = logindao.login(username, password);
-			list = logindao.findAll();
 //			String userId = String.valueOf(bean.getUserId());		
 			
 			if (bean.getUserUsername() != null) {	
 				request.getSession().setAttribute("userBean",bean);
 				model.addAttribute("messessError", "F");
-				request.getSession().setAttribute("listUser", list);
 				if(bean.getRole()  == 1) {
 					bean1 = userDao.count();
 					perBean = perDao.count();

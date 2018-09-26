@@ -18,9 +18,6 @@ public class ExpenseSumaryBean {
 	private String allowencePerdayTotal;
 	private String rentDatePerdayTotal;
 	
-	private String allowenceDetails;
-	private String rentDateDetails;
-	
 	private Timestamp createDate;
 
 	public String getExpenseEstimateSumTotalThaiBaht() {
@@ -100,22 +97,6 @@ public class ExpenseSumaryBean {
 
 	public void setExpenseEstimateSumTotal(String expenseEstimateSumTotal) {
 		this.expenseEstimateSumTotal = expenseEstimateSumTotal;
-	}
-
-	public String getAllowenceDetails() {
-		return allowenceDetails;
-	}
-
-	public void setAllowenceDetails(String allowenceDetails) {
-		this.allowenceDetails = allowenceDetails;
-	}
-
-	public String getRentDateDetails() {
-		return rentDateDetails;
-	}
-
-	public void setRentDateDetails(String rentDateDetails) {
-		this.rentDateDetails = rentDateDetails;
 	}
 
 	public Timestamp getCreateDate() {

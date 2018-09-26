@@ -1,3 +1,4 @@
+<%@page import="com.hillert.model.PersonAddressBean"%>
 <%@page import="org.springframework.context.annotation.Bean"%>
 <%@page import="com.hillert.model.PositionBean"%>
 <%@page import="com.hillert.model.SubPositionBean"%>
@@ -13,7 +14,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>แบบฟอร์มการขออนุยาตไปราชการ</title>
 	<link rel="stylesheet" href="/css/w3.css">
-	<link rel="stylesheet" href="/css/tableUpdatePermission.css">
+<!-- 	<link rel="stylesheet" href="/css/tableUpdatePermission.css"> -->
 	<link rel="stylesheet" href="/DataTables-1.10.18/css/jquery.dataTables.css">
 	<link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -22,14 +23,16 @@
 	<script src="/js/useCar.js"></script>
 	<script src="/js/jQuery v3.3.1.js"></script>
 	<script src="/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>
-	<script src="/js/listFaculty.js"></script>
-	<script src="/js/listPosition.js"></script>
 	<script src="/js/insertPermission.js"></script>
 	<script src="/js/province.js"></script>
 	<script src="/js/budget.js"></script>
 	<script src="/js/insertExpense.js"></script>
+	<script src="/js/user-data-personnel.js"></script>
+	<script src="/js/calculator-datetime.js"></script>
 	
-	
+	<!-- Digital -->
+	<script src="/js/Digital.js"></script>
+	<link rel="stylesheet" href="/css/Digital.css">
 	
 <%
 	UserBean bean = null;
@@ -42,12 +45,10 @@
 
 </head>
 
-
-
 <body class="w3-light-grey w3-content" style="max-width:100%">
 
 <%@include file="Nav.jsp"%>   
-
+<%@include file="data_personnel.jsp" %>
 
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
@@ -65,13 +66,13 @@
     </div>
   </header>
  		
-	<div style="margin-top: 3%;">
+	<div style="margin-top: 3%;" >
 		<header class="w3-display-container w3-content w3-animate-opacity" style="max-width:98%">
 	<div class="w3-container w3-red" >
 		<h2><i class="fa fa-file-o w3-margin-right"></i>แบบฟอร์มขออนุญาตไปราชการ</h2>
     </div>
     
-    <div class="w3-container w3-white w3-padding-16">
+    <div class="w3-container w3-white w3-padding-16 ">
         	<% if (result.equals("S")) { %>
 			<div class="alert alert-success" align="center">
 				<strong>บันทึก </strong> เรียบร้อย
@@ -89,31 +90,30 @@
 	<div style="size: 10" class="col-sm-8 " >
 	
 	<!-- Page Container -->
-	<div class="w3-container w3-content" style="max-width:1400px;margin-top:20px">    
+	<div class="w3-container" style="max-width:1400px;margin-top:20px">    
 	<!-- Profile -->
 	<div class="w3-card w3-round w3-Turquoise">
 	<div class="w3-container">
 
 	<div class="form-group"  style="margin-top: 3%"><label> ข้าพเจ้า  </label>
-	<input class="form-control" readonly="" type="text" name="name" id="name" value="&nbsp;&nbsp;<%=bean.getSex() %><%=bean.getUserFname() %> &nbsp;&nbsp; <%=bean.getUserLname()%>"> 
+	<input class="form-control" type="text" name="name" id="name" value="&nbsp;&nbsp;<%=bean.getSex() %><%=bean.getUserFname() %> &nbsp;&nbsp; <%=bean.getUserLname()%>"> 
     </div>
 
 	<div class="form-group" style="margin-top: 3%">
 	<label> เลือกตำแหน่ง  </label>
 		<select class="form-control" name="personnelId" id="personnelId">
-		
 		</select>
 	</div>
     </div></div></div>
  	</div>
 	
-	<div style="size: 10" class="col-sm-4 " >
+	<div class="col-sm-4 " >
 	<!-- Page Container -->
 	<div class="w3-container w3-content" style="max-width:1400px;margin-top:20px">    
 	<!-- Profile -->
 	<div class="w3-card w3-round w3-Turquoise">
 	<div class="w3-container" >
-	<div  style="margin-top: 3%">
+	<div  style="margin-top: 3%;margin-bottom: 2.5%">
 	<div></div>
     <div>
 	<label>ไปในฐานะ  </label>
@@ -125,24 +125,24 @@
 	<textarea class="form-control" rows="5" cols="100" id="object" name="object"></textarea>
 	<!-- เลือกไฟล์ นำเข้า -->
 	<form name="v" enctype="multipart/form-data" style="margin-top: 3.5%">  
-<!--        <input name="v" type="file"> -->
+	<!--  <input name="v" type="file"> -->
 	</form>
 	</div>
 	</div></div></div>
-</div>
+	</div>
 
 </div>
 
 <!-- กรอบที่ 2 เลือกสถานที่ จังหวัด อำเภอ ตำบล-->
-<div style="size: 10;margin-top: 2%;margin-bottom: 3%;" class="col-sm-12" >
+<div style="margin-top: 2%;margin-bottom: 3%;" class="col-sm-12" >
 
 <!--ตาราง การมอบหมายงานระหว่างไปราชการ  -->
-<div style="size: 10" class="col-sm-5 " >
+<div class="col-sm-5 " >
 	<!-- Page Container -->
 	<div class="w3-container w3-content" style="max-width:1400px;margin-top:20px">    
 	<!-- Profile -->
-	<div class="w3-card w3-round w3-Turquoise">
-	<div class="w3-container" >
+	<div class="w3-card w3-round w3-Turquoise w3-topbar w3-border-green">
+	<div class="w3-container w3-topbar w3-border-green" >
 	<div style="margin-top: 2%">
 	<label>ความประสงค์ </label>
 		<input name="purpose"  	id="purpose"  type="checkbox" value="ขออนุญาต" 	style="margin-left: 8%"><label style="margin-left: 2%">ขออนุญาต  </label>
@@ -190,22 +190,55 @@
 	</div></div></div>
 </div><!--end  -->
 
-<div style="size: 10" class="col-sm-3 " >	
+<div class="col-sm-4 " >	
 
 <!-- Page Container -->
 	<div class="w3-container w3-content" style="max-width:1400px;margin-top:20px">    
 	<!-- Profile -->
-	<div class="w3-card w3-round w3-Turquoise">
-	<div class="w3-container">
-
-	 <div class="form-group"><label  style="margin-top: 3%">วันที่ไป  </label><input class="form-control" type="date" id='goDate' name="goDate"> </div>
-	 <div class="form-group"><label>เวลาออก : </label><input class="form-control" type='time' id='goTime' name="goTime"> </div>
-	 <div class="form-group"><label>วันที่กลับ : </label><input class="form-control" type='date' id='backDate' name="backDate"> </div>
-     <div class="form-group"><label>เวลากลับ : </label><input class="form-control" type='time' id='backTime' name="backTime"> </div>
+	<div class="w3-card w3-round w3-Turquoise w3-topbar w3-border-red">
+	<div class="w3-container w3-topbar w3-border-red">
+<form action="">
+	 <div class="form-group col-sm-7 "><label style="margin-top: 3%">วันที่ไป  </label><input class="form-control" type="date" id='goDate' name="goDate"></div>
+	 <div class="form-group col-sm-5 "><label style="margin-top: 3%">เวลาออก : </label><input class="form-control" type='time' id='goTime' name="goTime"></div>
+	 <div class="form-group col-sm-7 "><label>วันที่กลับ : </label><input class="form-control" type='date' id='backDate' name="backDate"></div>
+	 <div class="form-group col-sm-5 "><label>เวลากลับ : </label><input class="form-control" type='time' id='backTime' name="backTime"></div>
+   	<div class="input-group col-sm-12">
+		<input class="form-control" style="text-align:center;width: 20mm" OnKeyPress="return chkNumber(this)" type="text" id="DayTotal" >
+		<div class="input-group-addon">วัน</div>
+		<div class="input-group">
+		<input class="form-control" style="text-align:center;width: 20mm " OnKeyPress="return chkNumber(this)" type="text" id="d">
+		<div class="input-group-addon">คืน</div>
+		<div class="input-group">
+		<input class="form-control" style="text-align:center" OnKeyPress="return chkNumber(this)" type="text" id="TimeTotal" >
+		<div class="input-group-addon">ชั่วโมง</div>
+   		</div>
+ 		</div>
+   	</div><br>
+	<div class="col-sm-2" style="text-align: right;"><input type="button" id="submit" onclick="dateDiff()" value="คำนวน" class="btn btn-info"></div>
+	<div  class="ho oh col-sm-10">
+	<div id="main" >
+	  <div id="time" >
+	    <span id="hours"></span><span id="min"></span><span id="sec"></span>
+	  </div>
+	  <div id='days' class="ho oh">
+	    <div class="days"> sun_ </div>
+	    <div class="days"> mon_ </div>
+	    <div class="days"> tue_ </div>
+	    <div class="days"> wed_ </div>
+	    <div class="days"> thu_ </div>
+	    <div class="days"> fri_ </div>
+	    <div class="days"> sat_ </div>
+	  </div>
+	  <div id="fullDate" >
+	    <span id="month"></span>&nbsp;<span id="date"></span>&nbsp;<span id="year"></span>
+	  </div>
+	</div>
+	</div>
+</form>    
      </div></div></div>
 </div><!--end  -->
 
-<div style="size: 10" class="col-sm-4" >
+<div class="col-sm-3" >
 <!-- Page Container -->
 	<div class="w3-container w3-content" style="max-width:1400px;margin-top:20px;">    
 	<!-- Profile -->
@@ -242,34 +275,7 @@
 
 </div>
 
-<script src="/js/calculator-datetime.js"></script>
-<form action="">
-    <div class="col-sm-3">
-    	<label>ตั้งแต่วัน/เวลา</label> 
-   		<input class="form-control" name="bGoDate" id="bGoDate" type="datetime-local" value=""  > 
-   	</div>
-
-    <div class="col-sm-3">
-    	<label>ตั้งแต่วัน/เวลา</label> 
-   		<input class="form-control" name="bBackDate" id="bBackDate" type="datetime-local" value=""  > 
-   	</div>
-   	<div class="col-sm-3">
-   		<input type="button" id="submit" onclick="dateDiff()" value="คำนวน" class="w3-btn w3-white w3-border w3-border-green w3-round-large">
-   	</div>
-   	
-   	<div class="col-sm-3" >
-   		<label>รวมเวลาไปราชการ</label> 
-   			<div class="input-group">
-			<input class="form-control" style="text-align:center" OnKeyPress="return chkNumber(this)" type="text" id="bDayTotal" >
-			<div class="input-group-addon">วัน</div>
-			<div class="input-group">
-			<input class="form-control" style="text-align:center" OnKeyPress="return chkNumber(this)" type="text" id="bTimeTotal">
-			<div class="input-group-addon">ชั่วโมง</div>
-   			</div>
-   	</div>
-   	</div>
-   	</form>
-
+	</div>
 </div>
 </header>
 
@@ -281,12 +287,7 @@
     <div class="w3-container w3-white w3-padding-16">
 
 <!-- กรอบที่ 3 -->
-<div style="size: 10;margin-bottom: 1%;margin-top: 2%;" class="col-sm-2 " >
-	<!-- Page Container -->
-	<div class="w3-container w3-content" style="max-width:100%;margin-top:20px">    
-	<!-- Profile -->
-	<div class="w3-card w3-round w3-Turquoise" >
-	<div class="w3-container">
+<div style="margin-bottom: 1%;margin-top: 2%;" class="col-sm-2 w3-container w3-card-4 w3-topbar w3-border-red" >
 	<div class="form-group" style="margin-top: 4%">
 	<label> งบประมาณ  </label>
 		<select class="form-control" name="Budget" id="budget" onChange="Show(this.selectedIndex)">
@@ -294,20 +295,15 @@
         	<option value="เบิกค่ามใช้จ่าย">เบิกค่าใช้จ่าย</option>	
 		</select>
 	</div>
-	</div></div></div>
-	<div style="size: 10" class="col-sm-10 " ></div>
+	<div class="col-sm-10 " ></div>
 </div>
 	<!-- <div id="No Budget" style="display:none"></div>  -->
     
 	<!-- เบิกค่าใช้จ่าย -->
 	<div id="Manual Budget" style="display:none" class="w3-animate-opacity" >
-<div class="col-sm-12 w3-container w3-card-4 w3-light-red w3-text-blue w3-margin" >
- 	<!-- Page Container -->
-	<div class="w3-container w3-content" style="max-width:100%;margin-top:20px">    
-	<!-- Profile -->
-	<div class="w3-card w3-round w3-Turquoise">
-	<div class="w3-container">
- <div style="size: 10" class="col-sm-2 ">
+<div class="col-sm-12 w3-container w3-card-4 w3-light-red w3-text-blue w3-topbar w3-border-blue" >
+	<div class="w3-container w3-bottombar w3-border-yellow" >
+ <div class="col-sm-2 ">
 	<div class="form-group" style="margin-top: 4%">
 	<label>เบิกค่าใช้จ่าย  </label>		
 		<select class="form-control" name="budgetExpenses" id="budgetExpenses">
@@ -317,7 +313,7 @@
 		</select>
 	</div>
 </div>
-<div style="size: 10" class="col-sm-2 " >
+<div class="col-sm-2 " >
 	<div class="form-group" style="margin-top: 4%">
 	<label>ใช้งบประมาณ  </label>
 		<select class="form-control" name="budgetBy" id="budgetBy">
@@ -338,13 +334,13 @@
 	<label> รหัส    </label><input class="form-control" name="budgetPass" id="budgetPass" type="text">
 	</div>
 </div>
-<div style="size: 10;" class="col-sm-2 ">
+<div class="col-sm-2 ">
 	<div class="input-group" style="margin-top: 15%">
 	<div class="input-group-addon">วงเงิน</div><input class="form-control" style="text-align:center" id="aaa" type="text" disabled>
 	<div class="input-group-addon">บาท</div>
     </div>
 </div>
-	</div></div></div>
+	</div>
 	<br>
 	<div style="overflow-x:auto;">
 	<table id="addUser" class="table table-bordered" style="font-family: sans-serif;font-size:small;width:  100%">   
@@ -385,30 +381,12 @@
     <div align="right">
     	<input class=" btn btn-primary" type="button" value="เพิ่มบุลคลากร" onclick="document.getElementById('id01').style.display='block'">
     </div><br>
-    <!-- Page Container -->
-	<div class="w3-container w3-content" style="max-width:100%;">    
-	<!-- Profile -->
-	<div class="w3-card w3-round w3-Turquoise">
-	<div class="w3-container">
-	<div class="col-sm-3" style="margin-bottom: 1%;margin-top: 1%;"><label>ค่าเบี้ยเลี้ยง(รายละเอียดค่าเบี้ยเลี้ยง)</label> 
-		<a class="test" href="#" data-toggle="tooltip" data-placement="top" title=" (240 x 2) + (180  x 2) ">ตัวอย่าง</a>
-	</div>
-	<div class="col-sm-3" style="margin-bottom: 1%;margin-top: 1%;"><input type="text" id="allowenceDetails" class="form-control" style="height: 7mm"></div>
-	<div class="col-sm-3" style="margin-bottom: 1%;margin-top: 1%;"><label>ค่าเช่าที่พัก (รายละเอียดเช่าที่พัก)</label>
-		<a class="test" href="#" data-toggle="tooltip" data-placement="top" title=" (240 x 2) + (180  x 2) ">ตัวอย่าง</a>
-	</div>
-	<div class="col-sm-3" style="margin-bottom: 1%;margin-top: 1%;"><input type="text" id="rentDateDetails" class="form-control" style="height: 7mm"></div>
-	</div></div></div><br>
+    <br>
  </div><!-- end dataTable Expense -->
 
  
-<div style="size: 10" class="col-sm-2 w3-animate-opacity" >
- 	<!-- Page Container -->
-	<div class="w3-container w3-content" style="max-width:100%;margin-top:20px">    
-	<!-- Profile -->
-	<div class="w3-card w3-round w3-Turquoise">
-	<div class="w3-container">
-	<div class="form-group">
+<div class="col-sm-2 w3-animate-opacity w3-container w3-card-4 w3-topbar w3-border-red" style="margin-top: 2%">
+	<div class="form-group" style="margin-top: 4%">
 	<label> การเดินทาง  </label>   
     <select class="form-control" name="travel" id="travel" onChange="ShowReg(this.selectedIndex)">
    		<option value="">== เลือกภาหนะ ==</option>
@@ -417,16 +395,15 @@
   		<option value="ขอใช้รถส่วนตัว">ขอใช้รถส่วนตัว </option>
 	</select>
     </div>
-    </div></div></div>
 </div>
-<div style="size: 10" class="col-sm-10" ></div>
+<div class="col-sm-10" ></div>
    
     <!-- ไม่ได้เลือก -->
 	<div id="No Promotion" style="display:none"></div> 
 
-<div id="Manual Promotion1" style="display:none" class="w3-animate-opacity">
-<div style="margin-bottom: 3%;" class="col-sm-12" >
-	<h3 style="color: white;"align="center"  class="w3-container w3-blue"><i class="fa fa-car w3-margin-right" style="font-size:30px;"></i>เลือกค่า พาหนะในการเดินทาง และกำหนดค่า  (หมายเหตุ ถ้ามี)</h3><br>
+<div id="Manual Promotion1" style="display:none" class="w3-animate-opacity ">
+<div style="margin-bottom: 3%;margin-top: 2%" class="col-sm-12 w3-container w3-card-4 w3-topbar w3-border-blue" >
+	<br>
 	<div style="overflow-x:auto;">
 	<table id="addTravel" class="table table-bordered" style="font-family: sans-serif;font-size:small;width: 100%">   
 		<thead>
@@ -453,28 +430,20 @@
     </div>
     <div align="right">
    		<input class=" btn btn-primary" type="button" value="เลือกพาหนะ" onclick="document.getElementById('id02').style.display='block'">
-    </div>
+    </div><br>
 </div>
 </div>
 
 <!-- ขอใช้รถไปราชการ -->
 <div id="Manual Promotion2" style="display:none" class="w3-animate-opacity">
-<div class="col-sm-5">
-	<!-- Page Container -->
-	<div class="w3-container w3-content" style="max-width:100%;margin-top:20px;">    
-	<!-- Profile -->
-	<div class="w3-card w3-round w3-Turquoise" style="height: 19mm;background-color:rgba(255, 255, 0, 0.6);">
-	<div class="w3-container">
-	<div class="input-group" style="margin-top: 5mm">
+<div class="col-sm-5 w3-animate-opacity w3-container w3-card-4 w3-topbar w3-border-red" style="margin-top: 2%;margin-left: 2%">
+	<div class="input-group" style="margin-top: 8mm;margin-bottom: 4mm">
 		<div class="input-group-addon">หมายเลขทะเบียน </div>
 		<input class="form-control" name="travelIdcard" id="travelIdcard" type="text" value="" maxlength="6"> 
 	</div>
-	</div></div></div>
 	</div> 
-	<div class="col-sm-7"></div>
-	
-	<div style="margin-bottom: 3%;" class="col-sm-12" >
-	<h3 style="color: white;"align="center"  class="w3-container w3-blue"><i class="fa fa-car w3-margin-right" style="font-size:30px;"></i>เลือกค่า พาหนะในการเดินทาง และกำหนดค่า  (หมายเหตุ ถ้ามี)</h3><br>
+	<div class="col-sm-7 "></div>
+	<div style="margin-bottom: 3%;margin-top: 2%" class="col-sm-12 w3-container w3-card-4 w3-topbar w3-border-blue" ><br>
 	<div style="overflow-x:auto;">
 	<table id="addTravel1" class="table table-bordered" style="font-family: sans-serif;font-size:small;width: 100%">   
 		<thead>
@@ -496,27 +465,21 @@
     </div>
     <div align="right">
    		<input class=" btn btn-primary" type="button" value="เลือกพาหนะ" onclick="document.getElementById('id03').style.display='block'">
-    </div>
+    </div><br>
 </div>
 </div>
 
 <!-- ขอใช้รถส่วนตัว -->
 <div id="Manual Promotion3" style="display:none" class="w3-animate-opacity">
-	<div class="col-sm-5">
-<!-- 	Page Container  -->
-	<div class="w3-container w3-content" style="max-width:100%;margin-top:20px;">    
-<!-- 	Profile -->
-	<div class="w3-card w3-round w3-Turquoise" style="height: 19mm;background-color:rgba(255, 255, 0, 0);">
-	<div class="w3-container">
-	<div class="input-group" style="margin-top: 5mm">
+	<div class="col-sm-5 w3-animate-opacity w3-container w3-card-4 w3-topbar w3-border-red" style="margin-top: 2%;margin-left: 2%">
+	<div class="input-group" style="margin-top: 8mm;margin-bottom: 4mm">
 		<div class="input-group-addon">หมายเลขทะเบียน </div>
 		<input class="form-control" name="travelIdcard" id="travelIdcard" type="text" value="" maxlength="6"> 
 	</div>
-	</div></div></div>
 	</div> 
 	<div class="col-sm-7"></div>
-<div style="margin-bottom: 3%;" class="col-sm-12" >
-	<h3 style="color: white;"align="center"  class="w3-container w3-blue"><i class="fa fa-car w3-margin-right" style="font-size:30px;"></i>เลือกค่า พาหนะในการเดินทาง และกำหนดค่า  (หมายเหตุ ถ้ามี)</h3><br>
+	<div style="margin-bottom: 3%;margin-top: 2%" class="col-sm-12 w3-container w3-card-4 w3-topbar w3-border-blue" >
+	<br>
 	<div style="overflow-x:auto;">
 	<table id="addPrivateCar" class="table table-bordered" style="font-family: sans-serif;font-size:small;width: 100%">   
 		<thead>
@@ -537,17 +500,17 @@
     </div>
     <div align="right">
    		<input class=" btn btn-primary" type="button" value="เลือกพาหนะ" onclick="document.getElementById('id04').style.display='block'">
-    </div>
+    </div><br>
 </div>	
 </div>
 
 </div><!-- end กรอบที่ 3-->
 	
 
-	<div style="margin-top: 4%" class="col-sm-12 " align="center" >
+	<div style="margin-top: 4% " class="col-sm-12 " align="center" >
 		<button class="btn btn-success" id="saveExpenseEstimate">ยืนยัน</button>
 		<button type="reset" class="btn btn-danger">รีเซต</button>
-	</div>
+	</div><br>
 	</div>
 	
 	
@@ -592,6 +555,7 @@
 			title="W3.CSS" target="_blank" class="w3-hover-opacity">BRU
 		</a>
 	</footer>
+	
 </div>
 
 	<form name="welcameUserForm" action="welconeUser"     method="post" th:hidden="true"></form>
@@ -745,6 +709,9 @@
 	
 		<!-- เพิ่มพาหนะ รถไปราชการ-->
 		var modal = document.getElementById('id04');
+		
+		<!-- ดูข้อมูลส่วนตัว-->
+		var modal = document.getElementById('id05');
 		
 		window.onclick = function(event) {
 			if (event.target == modal) {

@@ -9,35 +9,20 @@
 	<div class="w3-container w3-content" style="max-width:1400px;margin-top20px"> 
 	<!-- Profile -->
 	<div class="w3-card w3-round w3-Turquoise">
-	<!-- close menu -->
+	<header class="w3-container w3-light-grey">
+      <h3 align="center">ยินดีต้อนรับ ผู้ดูแลระบบ</h3>
+    </header>
 	<div class="w3-container" align="center">
 	<div align="right">
 		<a href="#" onclick="w3_close()"  class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" title="close menu"><i class="fa fa-bars"></i></a><br>
     </div>
     	<img src="/images/bru.png"style="width:45%;" class="w3-round"><br><br>
-    	<h4><b>ยินดีต้อนรับ</b></h4><hr>
-    	<div align="left" class="form-group">
+    	<hr>
+    	<div align="center" class="form-group">
     		<table>
     			<tr>
-    				<td><label style="color: red;">ชื่อ-สกลุ  </label></td>
-    				<td style="background-color: #3CFBFF;"><label> <%=bean.getUserFname() %> &nbsp;&nbsp; <%=bean.getUserLname() %></label></td>
-    			</tr>
-    			<tr>
-    				<td><label style="color: red;">คณะ &nbsp;&nbsp; </label></td>
-    				<td style="background-color: #96FFFF;"><label> <%%></label></td>
-    			</tr>
-    			<tr>
-    				<td><label style="color: red;">สาขา&nbsp;&nbsp;  </label></td>
-    				<td style="background-color: #3CFBFF;"><label> <%%></label></td>
-    			</tr>
-    			<tr>
-    				<td><label style="color: red;">ประจำ&nbsp;&nbsp; </label></td>
-    				<td style="background-color: #96FFFF;"><label> <%%></label></td>
-    			</tr>   
-    			<tr>
-    				<td><label style="color: red;">ตำแหน่ง&nbsp;&nbsp;  </label></td>
-    				<td style="background-color: #3CFBFF;"><label> <%%></label></td>
-    			</tr> 			
+    				<td><%=bean.getUserFname() %> &nbsp;&nbsp; <%=bean.getUserLname() %></td>
+    			</tr>			
     		</table>
     	</div>
 	</div>
@@ -48,7 +33,10 @@
 	<div class="w3-container w3-content" style="max-width:1400px;margin-top:20px">    
 	<!-- Profile -->
 	<div class="w3-card w3-round w3-Turquoise">
-		<div class="w3-container">
+	<header class="w3-container w3-light-grey">
+      <h3 align="center">เมนู</h3>
+    </header>
+	<div class="w3-container">
 	<!-- Manu -->
 	<div class="w3-bar-block" style="margin-left: 5%;margin-bottom: 10%;margin-top: 10%;">
 	<a href="welcomeAdmin" onclick="w3_close()" class="w3-bar-item w3-button w3-padding ">

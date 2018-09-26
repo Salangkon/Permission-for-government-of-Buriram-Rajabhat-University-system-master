@@ -42,14 +42,14 @@ public class UserController {
 	@RequestMapping("/insertPermissionFail")
 	public String insertPermissionFail(Model model) {
 	model.addAttribute("messes", "F");
-		return "Ask_la";
+		return "permission";
 	}
 
 	// DropDown
 	@RequestMapping("/insertPermissionSuccess")
 	public String insertPermissionSuccess(Model model) {
 		model.addAttribute("messes", "S");
-		return "Ask_la";
+		return "permission";
 	}
 
 	// dataTable

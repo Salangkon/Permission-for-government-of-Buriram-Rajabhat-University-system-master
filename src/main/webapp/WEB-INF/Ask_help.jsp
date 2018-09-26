@@ -11,10 +11,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>ระบบลาไปราชการ</title>
-	
+	<link rel="stylesheet" href="/DataTables-1.10.18/css/jquery.dataTables.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/css/w3.css">	
+	<link rel="stylesheet" href="/css/modal.css">
+	
+	
+	<script src="/js/jQuery v3.3.1.js"></script>
+	<script src="/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>	
+	
+	<script src="/js/user-data-personnel.js"></script>
 	
 <%
 	UserBean bean = null;
@@ -30,6 +37,7 @@
 <body class="w3-light-grey w3-content" style="max-width:100%">
 
 <%@include file="Nav.jsp"%>
+<%@include file="data_personnel.jsp" %>
 
 
 
