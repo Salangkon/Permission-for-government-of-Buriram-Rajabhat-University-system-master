@@ -11,6 +11,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>permission-back</title>
 
 	<link rel="stylesheet" href="/css/w3.css">
@@ -18,15 +19,19 @@
 	<link rel="stylesheet" href="/DataTables-1.10.18/css/jquery.dataTables.css">
 	<link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/css/modal.css">
+	<link rel="stylesheet" href="/css/select.dataTables.min.css">
 	
 	<script src="/js/useCar.js"></script>
 	<script src="/js/jQuery v3.3.1.js"></script>
 	<script src="/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>
+	<script src="/js/view-source_https___cdn.datatables.net_select_1.2.7_js_dataTables.select.min.js"></script>
 	<script src="/js/listFaculty.js"></script>
 	<script src="/js/listPosition.js"></script>
 	<script src="/js/insertExpenseBack.js"></script>
 	<script src="/js/insertPermissionBack.js"></script>
 	<script src="/js/province.js"></script>
+	
+	<script src="/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 	
 	<!-- Digital -->
 	<script src="/js/Digital.js"></script>
@@ -101,7 +106,7 @@
 
 <!-- กรอบที่ 1 -->
 <div style="margin-bottom: 18%">
-<div style="size: 10" class="col-sm-12" >
+<div class="col-sm-12" >
 
 	<div style="size: 10" class="col-sm-4 " >
 	<!-- Page Container -->
@@ -205,12 +210,12 @@
    	<div style="margin-bottom: 6.5mm;overflow: auto;" class="col-sm-12" >
    		<label>รวมเวลาไปราชการ</label> 
    			<div class="input-group" style="width: 80%">
-			<input class="form-control" style="text-align:center" OnKeyPress="return chkNumber(this)" type="text" id="bDayTotal" >
+			<input class="form-control" style="text-align:center" OnKeyPress="return chkNumber(this)" type="text" id="bDaySum" >
 			<div class="input-group-addon">วัน</div>
 			<input class="form-control" style="text-align:center" OnKeyPress="return chkNumber(this)" type="text" id="d" >
 			<div class="input-group-addon">คืน</div>
 			<div class="input-group" style="width: 160%">
-			<input class="form-control" style="text-align:center" OnKeyPress="return chkNumber(this)" type="text" id="bTimeTotal">
+			<input class="form-control" style="text-align:center" OnKeyPress="return chkNumber(this)" type="text" id="bTimeSum">
 			<div class="input-group-addon">ชั่วโมง</div>
    			</div>
    	</div>
@@ -305,7 +310,7 @@
     </table>
     </div>
     <div align="right">
-    	<input class=" btn btn-primary" type="button" value="เพิ่มบุลคลากร" onclick="document.getElementById('id01').style.display='block'">
+    	<input class=" btn btn-primary" type="button" value="เพิ่มบุลคลากร"  data-toggle="modal" data-target="#myModal">
     </div>
  	</div><!-- end dataTable Expense -->
 </div><!-- end กรอบที่ 3-->
@@ -323,41 +328,45 @@
 </div><!-- end  --> 
 
 
-	<!-- เพิ่มบุคคลากร -->
-	<header class="w3-display-container w3-content">
-		<div id="id01" class="modal">
-			<form class="modal-content animate" action="" style="max-width: 100%; margin-top: 3%; margin-left: 25%; margin-right: 10%">
-				<div class="w3-container w3-blue">
-					<h2>
-						<i class="fa fa-address-card-o w3-margin-right"></i> เพิ่มบุคคลากร
-					</h2>
-				</div>
-				<div style="overflow-x:auto;"> 
-					<table id="userTable" class="table table-bordered">
-						<thead>
-							<tr style="background: purple; color: white;">
-								<th>เลือก</th>
-								<th>ชื่อ</th>
-								<th>นามสกุล</th>
-								<th>คณะ</th>
-								<th>ภาควิชา</th>
-								<th>ตำแหน่ง</th>
-								<th>ระดับ</th>
-								<th>ค่าเบี้ยเลี้ยง</th>
-								<th>ค่าเช่าที่พัก</th>
-							</tr>
-						</thead>
-					</table>
 
-					<div style="size: 10" class="col-sm-12 " align="center">
-						<button type="button" class="btn btn-success" id="buttonAdd1">ยืนยัน</button>
-						<button type="button" onclick="document.getElementById('id01').style.display='none'"
-							class="btn btn-danger">ปิด</button>
-					</div>
-				</div>
-			</form>
-		</div>
-	</header>
+
+<!-- เพิ่มบุคคลากร -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog" style="width: 70%">
+     
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 class="modal-title" style="text-align: center;"><i class="fa fa-address-card-o w3-margin-right"></i> เพิ่มบุคคลากร</h2>
+        </div>
+        <div class="modal-body" style="overflow: auto;width: 100%" >
+          <table id="userTable" class="table table-bordered">
+			<thead>
+				<tr style="background: purple; color: white;">
+						<th>เลือก</th>
+						<th>ชื่อ</th>
+						<th>นามสกุล</th>
+						<th>คณะ</th>
+						<th>ภาควิชา</th>
+						<th>ตำแหน่ง</th>
+						<th>ระดับ</th>
+						<th>ค่าเบี้ยเลี้ยง</th>
+						<th>ค่าเช่าที่พัก</th>
+				</tr>
+			</thead>
+		</table>
+        </div>
+        <div class="modal-footer">
+      	  <button type="button" class="btn btn-success" id="buttonAdd1">ยืนยัน</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- end เพิ่มบุคคลากร  --> 
+
+
 <script type="text/javascript">
 	function setAllowEnce(allowence,type) {
 		var x = $('#allowenceType'+allowence).val();
@@ -433,24 +442,13 @@ function dateDiff(){
 	}
 	$('#d').val(parseFloat(d));
 
-	$('#bDayTotal').val(parseFloat(days).toFixed(1));
+	$('#bDaySum').val(parseFloat(days).toFixed(1));
 
-	$("#bTimeTotal").val(hoursDiff + '.' + minutesRemain);
+	$("#bTimeSum").val(hoursDiff + '.' + minutesRemain);
 
 }//end
 </script>
 
-<!-- เพิ่มบุคคลากร -->
-<script>
-	// Get the modal
-	var modal = document.getElementById('id01');
-	// When the user clicks anywhere outside of the modal, close it
-	window.onclick = function(event) {
-		if (event.target == modal) {
-			modal.style.display = "none";
-		}
-	}
-</script>
 
 
 </body>

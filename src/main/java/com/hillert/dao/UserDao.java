@@ -51,8 +51,8 @@ public class UserDao {
 	}// end insert user New
 	
 	//show users
-	public PersonAddressBean findByIdCard(int userId) throws SQLException {
-		PersonAddressBean bean = new PersonAddressBean();
+	public UserBean findByIdCard(int userId) throws SQLException {
+		UserBean bean = new UserBean();
 		ConnectDB con = new ConnectDB();
 		Connection conn = con.openConnect();
 		PreparedStatement preperd = null;
@@ -74,7 +74,7 @@ public class UserDao {
 				bean.setSex(rs.getString("sex"));
 				bean.setRole(rs.getInt("role"));
 			    
-				userIdUpdateRole = bean.getUserId();
+//				userIdUpdateRole = bean.getUserId();
 //				System.out.println(userIdUpdateRole);
 			}
 		} catch (Exception e) {
@@ -141,7 +141,7 @@ public class UserDao {
 		StringBuilder sql = new StringBuilder();
 
 		try {
-			sql.append("  SELECT * FROM user");
+			sql.append("  SELECT * FROM user ");
 			prepared = conn.prepareStatement(sql.toString());
 			ResultSet rs = prepared.executeQuery();
 			
@@ -168,40 +168,39 @@ public class UserDao {
 		return list;
 	}
 
-	//insert user New
-		public int insertNewUser(UserBean bean) throws Exception{
-			String sql = " INSERT INTO user(user_username, user_password, user_fname, user_lname, date, role, sex, number_phone)"
-					+ " VALUES(?,?,?,?,?,?,?,?) ";	
+	//insert user
+	public int insertNewUser(UserBean bean) throws Exception{
+		String sql = " INSERT INTO user(user_username, user_password, user_fname, user_lname, date, role, sex, number_phone)"
+				+ " VALUES(?,?,?,?,?,?,?,?) ";	
 			
-			KeyHolder keyHolder = new GeneratedKeyHolder();
-			// JdbcTemplate jdbcTemplate = new JdbcTemplate(new
-			// SingleConnectionDataSource(con.openConnect(), false));
-			jdbcTemplate.update(new PreparedStatementCreator() {
-				@Override
-				public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-					PreparedStatement prepared = con.prepareStatement(sql, new String[] { "user_id" });
-		
-					try {
-						prepared.setString(1, bean.getUserUsername());
-						prepared.setString(2, bean.getUserPassword());
-						prepared.setString(3, bean.getUserFname());
-						prepared.setString(4, bean.getUserLname());
-						prepared.setDate(5,  new Date(DateTHToEN(bean.getDateStr()).getTime()));
-						prepared.setInt(6, bean.getRole());
-						prepared.setString(7, bean.getSex());
-						prepared.setString(8, bean.getNumberPhone());
+		KeyHolder keyHolder = new GeneratedKeyHolder();
+		// JdbcTemplate jdbcTemplate = new JdbcTemplate(new
+		// SingleConnectionDataSource(con.openConnect(), false));
+		jdbcTemplate.update(new PreparedStatementCreator() {
+			@Override
+			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+				PreparedStatement prepared = con.prepareStatement(sql, new String[] { "user_id" });
+	
+				try {
+					prepared.setString(1, bean.getUserUsername());
+					prepared.setString(2, bean.getUserPassword());
+					prepared.setString(3, bean.getUserFname());
+					prepared.setString(4, bean.getUserLname());
+					prepared.setDate(5,  new Date(DateTHToEN(bean.getDateStr()).getTime()));
+					prepared.setInt(6, bean.getRole());
+					prepared.setString(7, bean.getSex());
+					prepared.setString(8, bean.getNumberPhone());
 						
-					} catch (ParseException e) {
-						e.printStackTrace();
-					}
-
-					return prepared;
+				} catch (ParseException e) {
+					e.printStackTrace();
 				}
-			}, keyHolder);
-			userId= keyHolder.getKey().intValue();
-			 //System.out.println(userId);
-			return keyHolder.getKey().intValue();
-		}
+				return prepared;
+			}
+		}, keyHolder);
+		userId= keyHolder.getKey().intValue();
+		//System.out.println(userId);
+		return keyHolder.getKey().intValue();
+	}
 
 		//insert PersonnelListBean
 		public PersonnelListBean insert(PersonnelListBean bean) throws Exception{
@@ -230,17 +229,21 @@ public class UserDao {
 			return bean;
 		}//end PersonnelListBean
 		
-	// update
+	// update user
 	public UserBean update(UserBean bean) throws SQLException {
 		ConnectDB con = new ConnectDB();
 		PreparedStatement preperd = null;
 		StringBuilder sql = new StringBuilder();
 
 		try {
-			sql.append(" UPDATE user SET role = ? WHERE user_id = ?");
+			sql.append(" UPDATE user SET role = ? , user_fname = ? , user_lname = ? , number_phone = ? , sex = ? WHERE user_id = ?");
 			preperd = con.openConnect().prepareStatement(sql.toString());
 			preperd.setInt(1, bean.getRole());
-			preperd.setInt(2, bean.getUserId());
+			preperd.setString(2, bean.getUserFname());
+			preperd.setString(3, bean.getUserLname());
+			preperd.setString(4, bean.getNumberPhone());
+			preperd.setString(5, bean.getSex());
+			preperd.setInt(6, bean.getUserId());
 			
 			preperd.executeUpdate();
 		} catch (Exception e) {
@@ -254,40 +257,6 @@ public class UserDao {
 
 		return bean;
 	}// end method update
-	
-	//check permission
-	public UserBean userIdUpdateRole(int userId) throws SQLException {
-		UserBean bean = new UserBean();
-		ConnectDB con = new ConnectDB();
-		Connection conn = con.openConnect();
-		PreparedStatement preperd = null;
-		StringBuilder sql = new StringBuilder();
-
-		try {
-			sql.append(" SELECT * FROM user WHERE user_id = ? ");
-			preperd = conn.prepareStatement(sql.toString());
-			preperd.setInt(1, userId);
-			ResultSet rs = preperd.executeQuery();
-
-			while (rs.next()) {
-				bean.setUserId(rs.getInt("user_id"));
-				bean.setUserUsername(rs.getString("user_username"));
-				bean.setUserPassword(rs.getString("user_password"));
-				bean.setUserFname(rs.getString("user_fname"));
-				bean.setUserLname(rs.getString("user_lname"));
-				bean.setRole(rs.getInt("role"));
-				bean.setSex(rs.getString("sex"));
-			}
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		} finally {
-			if (con != null) {
-				conn.close();
-			}
-		}
-		return bean;
-	}
 
 	// delete
 //	public void delete(String id) throws SQLException {
@@ -397,6 +366,7 @@ public class UserDao {
 		}
 		return bean;
 	}
+	
 	
 	//check insert PermissionBack ห้ามซ้ำ
 		public TestAjex CheckExpenseSumaryBack(String CheckES) throws SQLException {

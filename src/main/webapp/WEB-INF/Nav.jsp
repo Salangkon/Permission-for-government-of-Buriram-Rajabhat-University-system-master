@@ -52,7 +52,7 @@
 	    <a href="javascript: document.Ask_helpForm.submit()" onclick="w3_close()" class="w3-bar-item w3-button w3-padding" >
     		<i class="glyphicon glyphicon-envelope w3-margin-right" style="margin-top: 5%;"></i>สอบถาม</a>
   	    <a href="javascript: document.logoutForm.submit()" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
-    		<i class="glyphicon glyphicon-log-in w3-margin-right" style="margin-top: 5%;"></i> Logout</a>
+    		<i class="glyphicon glyphicon-log-in w3-margin-right" style="margin-top: 5%;"></i>ออกจากระบบ</a>
  	 </div>
  	 </div>
  	 </div>

@@ -67,8 +67,8 @@ $(document).ready(function() {
 			bBackDate 	: $('#bBackDate').val(),
 			bBackTime 	: $('#bBackTime').val(),
 
-			bDayTotal 	: $('#bDayTotal').val(),
-			bTimeTotal 	: $('#bTimeTotal').val(),
+			bDaySum 	: $('#bDaySum ').val(),
+			bTimeSum : $('#bTimeSum ').val(),
 		}
 
 		$.ajax({

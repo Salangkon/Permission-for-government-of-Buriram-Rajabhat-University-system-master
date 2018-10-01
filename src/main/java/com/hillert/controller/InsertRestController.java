@@ -54,7 +54,7 @@ public class InsertRestController {
 		id = userDao.CheckUserName(userBean.getUserUsername());
 
 		try {
-			if (id.getAmphur() == null) {
+			if (id.getUserName() == null) {
 				idu = userDao.insertNewUser(userBean);
 				for (PersonnelListBean personnelListBean : userBean.getPlBean()) {
 					personnelListBean.setUserId(idu);
@@ -215,16 +215,6 @@ public class InsertRestController {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	// insert_insertPermissionBack
 	@RequestMapping(value = "/insertPermissionBack", method = RequestMethod.POST)
 	@ResponseBody
@@ -236,6 +226,7 @@ public class InsertRestController {
 		try {
 			if (perId.getPerIdBack() ==  null) {
 			perDao.insertPB(pbBean);
+			perDao.updateStatusPermission(pbBean);
 			insertPermission.put("page", "welcomeUser");
 			}else {
 			insertPermission.put("page", "welcomeUser");

@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>ระบบขออนุญาตไปราชการ</title>
 	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -20,7 +21,7 @@
 </head>
 
 
-<body class="w3-light-wlite w3-content" style="max-width:100%">
+<body class="w3-light-wlite w3-content" style="max-width:100%;background-color: red;" >
 
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar" ><br>
@@ -67,8 +68,6 @@
 	style="cursor:pointer" title="close side menu" id="myOverlay">
 </div>
 
-<!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:300px;" >
   <!-- Header -->
   <header id="portfolio">
     <a href="#"><img src="/images/bru.png" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
@@ -83,8 +82,8 @@
 		<h1 style="font-size: x-large;color: red;"><strong> Welcome to Permission for government of Buriram Rajabhat University system </strong></h1>
 	</marquee>	
   </header>
-</div>
-  <div class="col-sm-6"></div>
+
+<div class="col-sm-6"></div>
 	<div class="col-sm-6">
 		<form name="login" action="login" method="post" class="modal-content w3-animate-right">
 			<div id="container">
@@ -114,7 +113,6 @@
 		</form>
 	</div>
 
-	
 	<script>
 	// Script to open and close sidebar
 	function w3_open() {

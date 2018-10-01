@@ -6,6 +6,7 @@ public class PermissionBean {
 	
 	private int permissionId;
 	private int personnelId;
+	private String permissionStatus;
 	
 	private int userId;
 	private String userFname;
@@ -20,7 +21,6 @@ public class PermissionBean {
 	private String departmentName;
 	private String positionName;
 	private String subPositionName;
-	
 	
 	private String status;
 	private String object;
@@ -68,7 +68,12 @@ public class PermissionBean {
 
 	private Timestamp createDate;
 	
-	
+	public String getPermissionStatus() {
+		return permissionStatus;
+	}
+	public void setPermissionStatus(String permissionStatus) {
+		this.permissionStatus = permissionStatus;
+	}
 	public String getDateDay() {
 		return dateDay;
 	}

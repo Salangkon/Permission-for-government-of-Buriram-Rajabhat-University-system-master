@@ -14,6 +14,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ขออนุยาตไปราชการ</title>
 
 	<link rel="stylesheet" href="/css/A4.css">
@@ -220,9 +221,9 @@
 				<table>
 					<tr>
 						<th style="width: 15mm; text-align: left;">รวมเวลาไปราชการครั้งนี้</th>
-						<th style="width: 5mm; text-align: center;"><%=beanBack.getbDayTotal() %></th>
+						<th style="width: 5mm; text-align: center;"><%=beanBack.getbDaySum() %></th>
 						<th style="width: 2mm; text-align: left;">วัน</th>
-						<th style="width: 5mm; text-align: center;"><%=beanBack.getbTimeTotal() %></th>
+						<th style="width: 5mm; text-align: center;"><%=beanBack.getbTimeSum() %></th>
 						<th style="width: 5mm; text-align: left;">ชั่วโมง</th>
 						<th style="width: 20mm"></th>
 					</tr>
@@ -270,11 +271,7 @@
 						<th style="width: 17mm; text-align: left;"></th>
 						<th style="width: 8mm; text-align: left;">รวม</th>
 						<th style="width: 12mm; text-align: center;">
-							<%if (beanEsBack.getTravelSumTotal().equals("0")) {
-										out.print("");
-									} else {
-										out.print(beanEsBack.getTravelSumTotal());
-									}%>
+							<%if (beanEsBack.getTravelSumTotal().equals("0")) {out.print("");} else {out.print(beanEsBack.getTravelSumTotal());}%>
 						</th>
 						<th style="width: 2mm">บาท</th>
 					</tr>

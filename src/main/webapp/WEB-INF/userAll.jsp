@@ -13,6 +13,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>รายชื่อบุคคลากร มรภ.บร</title>
 
 <%
@@ -28,23 +29,17 @@
 	<link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/css/table.css">
 	<link rel="stylesheet" href="/css/NewFile.css">
-	<link rel="stylesheet" href="/DataTables-1.10.18/css/jquery.dataTables.css">
+	<!-- 	<link rel="stylesheet" href="/DataTables-1.10.18/css/jquery.dataTables.css"> -->
+	<link rel="stylesheet" href="/css/dataTables.bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <!-- 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 <!-- 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 
-	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-	<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
-	<script src="https://cdn.datatables.net/fixedheader/3.1.5/js/dataTables.fixedHeader.min.js"></script>
-	<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-	<script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
-	
-	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.1.5/css/fixedHeader.bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css">
-
+	<script src="/js/jQuery v3.3.1.js"></script>
+<!-- 	<script src="/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>	 -->
+	<script src="/js/1-10-19jquery.dataTables.min.js"></script>
+	<script src="/js/1-10-19dataTables.bootstrap.min.js"></script>
 	<script src="/js/userAll.js"></script>
 
 </head>
@@ -62,10 +57,13 @@
 				รายชื่อบุคคลากร
 			</h2>
 		</div>
+		
+		<div style="overflow: auto;" >
 		<div class="w3-container w3-white w3-padding-16">
 			<table id="userTable" class="table table-striped table-bordered nowrap" style="width: 100%; margin-top: 5%;">
 				<thead>
 					<tr style="background: purple; color: white;">
+						<th style="text-align: center">รหัส</th>
 						<th style="text-align: center">ชื่อ</th>
 						<th style="text-align: center">นามสกุล</th>
 						<th style="text-align: center">สถานะ</th>
@@ -74,6 +72,7 @@
 					</tr>
 				</thead>
 			</table>
+		</div>
 		</div>
 
 		<script type="text/javascript">

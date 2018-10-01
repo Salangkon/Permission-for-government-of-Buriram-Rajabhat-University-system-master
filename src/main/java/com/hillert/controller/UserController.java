@@ -5,12 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -124,15 +123,15 @@ public class UserController {
 	
 	// update user
 	@RequestMapping(value = "/gotoUpdate", method = RequestMethod.POST)
-	public String gotoUpdate(int userId, HttpServletRequest request, Model model)throws NumberFormatException, SQLException {
-		PersonAddressBean bean = new PersonAddressBean();
+	public String gotoUpdate(Model model,int userId)throws NumberFormatException, SQLException {
+		UserBean bean = new UserBean();
 		List<PersonAddressBean> list = new ArrayList<>();
 		try {
 			bean = userDao.findByIdCard(userId);
 			list = userDao.findByIdCard1(userId);
 			if (bean.getUserId() != 0) {
 				model.addAttribute("messesUpdate", "");
-				model.addAttribute("beanPerson", bean);
+				model.addAttribute("resultBean", bean);
 				model.addAttribute("listUserBean", list);
 			}
 		} catch (Exception e) {
@@ -143,18 +142,22 @@ public class UserController {
 	}//end update user
 
 	// update user
-	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String update(@Valid UserBean userBean, BindingResult result, Model model) throws SQLException {
+	@RequestMapping(value = "/update")
+	public String update(Model model,@ModelAttribute("SpringWeb")UserBean userBean) throws SQLException {
 		UserBean bean = new UserBean();
+		List<PersonAddressBean> list = new ArrayList<>();
 		try {
 			userDao.update(userBean);
-			bean = userDao.userIdUpdateRole(userBean.getUserId()); 
+			bean = userDao.findByIdCard(userBean.getUserId()); 
+			list = userDao.findByIdCard1(userBean.getUserId());
 			model.addAttribute("resultBean", bean);
+			model.addAttribute("listUserBean", list);
 			model.addAttribute("messesUpdate", "S");
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 			model.addAttribute("resultBean", bean);
+			model.addAttribute("listUserBean", list);
 			model.addAttribute("messesUpdate", "F");
 		}
 		return "update";

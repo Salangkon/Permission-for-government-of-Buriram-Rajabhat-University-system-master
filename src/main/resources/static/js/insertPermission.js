@@ -131,7 +131,7 @@ $(document).ready(function() {
 	        	window.location.href = res.page;
 	        },
 		 	error: function () {
-		 		console.log('[ae] xx ')
+//		 		console.log('[ae] xx ')
 		 		window.location.href = "insertPermissionFail";
 		    }
 		});

@@ -5,8 +5,10 @@
 <%@page import="com.hillert.model.UserBean"%>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Insert to users.</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link rel="stylesheet" href="/css/w3.css">
 	<link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
@@ -172,7 +174,7 @@
 				</select>
 			</div>
 			<div align="right">
-				เพิ่มเข้าตาราง (เพื่อยืนยัน) <button type="button" class="btn btn-info" id="123">เพิ่ม</button>
+				เพิ่มเข้าตาราง (เพื่อยืนยัน) <button type="button" class="btn btn-info" id="addPosition">เพิ่ม</button>
 			</div>
 			<br>
 

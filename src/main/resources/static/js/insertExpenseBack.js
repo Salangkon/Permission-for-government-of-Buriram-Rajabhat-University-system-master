@@ -125,9 +125,10 @@ $(document).ready(function() {
 					"sAjaxDataProp" : "",
 					"aoColumns" : [ {
 						"mData" : "personnelId" ,
+						className: 'select-checkbox',
 						"mRender" : function(data,
 								type, row, index) {
-						return '<input class="form-control"  type="checkbox" />';
+						return '';
 						}
 					}, {
 						"mData" : "userFname"
@@ -191,10 +192,16 @@ $(document).ready(function() {
 					"sWidth" : "60px" ,
 					"mRender" : function(data,
 						type, row, index) {
-					return '<input class="form-control number1" style="width: 15mm;height: 7mm" type="text" name="allowence" id="allowence' 
+						if (row.allowence != null) {
+							return '<input class="form-control number1" style="width: 15mm;height: 7mm" type="text" name="allowence" id="allowence' 
 							+ index.row
 							+ '" value="'+row.allowence+'"/>';
-					}
+						}else {
+							return '<input class="form-control number1" style="width: 15mm;height: 7mm" type="text" name="allowence" id="allowence' 
+							+ index.row
+							+ '" value="'+row.allowence+'"/>';
+						}
+					}	
 				},
 				{    
 					"mData" : "allowencePerday",

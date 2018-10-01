@@ -12,6 +12,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>รายชื่อบุคคลากร มรภ.บร</title>
 
 <%
@@ -42,8 +43,9 @@
 	<div class="w3-container w3-blue" align="center">
     	<h2><i class="fa fa-address-card-o w3-margin-right"></i> เพิ่มบุคคลากร  </h2>
     </div>
+    <div style="overflow: auto;">
     <div class="w3-container w3-white w3-padding-16">
-<table id="userTable" class="table table-bordered" >   
+	<table id="userTable" class="table table-bordered" >   
 		<thead>
     	<tr style="background: purple;color: white;">
         	<th>รหัสอ้างอิง</th>
@@ -55,7 +57,7 @@
     	</tr>
     	</thead>
 	</table>
-
+	</div>
 	</div>
 		<script type="text/javascript">
 			function gotoPerUpdate(filter) {

@@ -1,11 +1,14 @@
 $(document).ready(function() {
 	
 		var table = $('#userTable').DataTable({
-						responsive: true,
+					"order": [[ 0, 'asc' ]],
 					"sAjaxSource" : "/user",
 					"iDisplayLength": 50,
 					"sAjaxDataProp" : "",
-					"aoColumns" : [ {
+					"aoColumns" : [{
+						"mData" : "userId",
+						"sWidth" : "60px" 
+					}, {
 						"mData" : "",
 						"sWidth" : "600px" ,
 						"mRender": function (data, type, full) {// full คือ ข้อมูลของ
@@ -21,7 +24,7 @@ $(document).ready(function() {
 						"sWidth" : "80px" ,
 						"mRender" : function(data, type, row, index) {
 							if (row.role == '1') {
-								return '<div align="center"> <label style="color:green" > รับราชการ </label></div>';
+								return '<div align="center"> <label style="color:blue" > ผู้ดูแลระบบ</label></div>';
 							} else if (row.role == '2') {
 								return '<div align="center"> <label style="color:green" > รับราชการ </label></div>';
 		                	}
@@ -51,7 +54,6 @@ $(document).ready(function() {
 						}
 					}]
 				});
-		new $.fn.dataTable.FixedHeader( table );
 });//end fn ready
 
 

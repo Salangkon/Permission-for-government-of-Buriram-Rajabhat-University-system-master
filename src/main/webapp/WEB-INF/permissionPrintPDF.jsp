@@ -14,6 +14,7 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>ขออนุยาตไปราชการ</title>
 
 	<link rel="stylesheet" href="/css/A4.css">
@@ -85,7 +86,7 @@
 					<a class="w3-bar-item w3-button" href="#4"> ประมาณการรายจ่าย </a>
 				</div>
 			</div>
-			<a class="w3-bar-item w3-button" href="javascript:void(0)" onclick="printDiv('printableArea')">พิมพ์</a>
+			<a class="w3-bar-item w3-button" href="javascript:void(0)" onclick="printDiv('printableArea')">พิมพ์ บันทึกขออนุญาต</a>
 			<a class="w3-bar-item w3-button w3-green" href="/welcomeUser">ย้อนกลับ</a>
 		</div>
 	</div>
@@ -901,212 +902,106 @@
 					</div>
 				</div>
 
-
-
-
-
-
-
 				<!-- 	สรูป ใบสุดท้าย -->
 				<div class="page" id="4">
 					<!-- สรุป -->
 					<div style="size: 10; margin-bottom: 5%" class="col-sm-12">
-
 						<table id="customers" style="margin-bottom: 10mm; margin-top: 10mm">
 							<tr>
 								<th rowspan="2">ที่</th>
 								<th rowspan="2">ชื่อ</th>
 								<th rowspan="2">ตำแหน่ง</th>
-								<th rowspan="2">ค่าเบี้ย<br>เลี้ยง
-								</th>
-								<th rowspan="2">ค่าเช่า<br>ที่พัก
-								</th>
-								<th rowspan="2">ค่ายาน<br>พาหนะ
-								</th>
-								<th rowspan="2">ค่าใช้จ่าย<br>อื่นๆ
-								</th>
+								<th rowspan="2">ค่าเบี้ย<br>เลี้ยง</th>
+								<th rowspan="2">ค่าเช่า<br>ที่พัก</th>
+								<th rowspan="2">ค่ายาน<br>พาหนะ</th>
+								<th rowspan="2">ค่าใช้จ่าย<br>อื่นๆ</th>
 								<th colspan="2">รวมเงิน</th>
 							</tr>
 							<tr>
 								<th class="text-center">บาท</th>
 								<th class="text-center">สตางค์</th>
 							</tr>
-							<%
-							for (int i = 0; i < beanEE.size(); i++) {
-						%>
+							<%for (int i = 0; i < beanEE.size(); i++) {%>
 							<tr>
-								<th style="text-align: left;margin-left: 2mm">
-									<%=i + 1%>
-								</th>
-								<th style="text-align: left;">
-									<%=beanEE.get(i).getUserFname()%>&nbsp;&nbsp;
-									<%=beanEE.get(i).getUserLname()%>
-								</th>
-								<th style="text-align: left;">
-									<%=beanEE.get(i).getSubPositionName()%>
-								</th>
-								<th>
-									<%
-									if (beanEE.get(i).getAllowenceSum() == 0) {
-											out.print("");
-										} else {
-											out.print(beanEE.get(i).getAllowenceSum());
-										}
-								%>
-								</th>
-								<th>
-									<%
-									if (beanEE.get(i).getRentDateSum() == 0) {
-											out.print("");
-										} else {
-											out.print(beanEE.get(i).getRentDateSum());
-										}
-								%>
-								</th>
-								<th>
-									<%
-									if (beanEE.get(i).getTravelSum() == 0) {
-											out.print("");
-										} else {
-											out.print(beanEE.get(i).getTravelSum());
-										}
-								%>
-								</th>
-								<th>
-									<%
-									if (beanEE.get(i).getOtherSum() == 0) {
-											out.print("");
-										} else {
-											out.print(beanEE.get(i).getOtherSum());
-										}
-								%>
-								</th>
-								<th>
-									<%
-									if (beanEE.get(i).getExpenseEstimateSum() == 0) {
-											out.print("");
-										} else {
-											out.print(beanEE.get(i).getExpenseEstimateSum());
-										}
-								%>
-								</th>
-								<th>
-									<%%>
-								</th>
-							</tr>
-							<%
-							}
-						%>
+								<th style="text-align: left;margin-left: 2mm"><%=i + 1%></th>
+								<th style="text-align: left;"><%=beanEE.get(i).getUserFname()%>&nbsp;&nbsp;<%=beanEE.get(i).getUserLname()%></th>
+								<th style="text-align: left;"><%=beanEE.get(i).getSubPositionName()%></th>
+								<th><%if (beanEE.get(i).getAllowenceSum() 	== 0) {out.print("");} else {out.print(beanEE.get(i).getAllowenceSum());}%>	</th>
+								<th><%if (beanEE.get(i).getRentDateSum() 	== 0) {out.print("");} else {out.print(beanEE.get(i).getRentDateSum());}%>	</th>
+								<th><%if (beanEE.get(i).getTravelSum() 		== 0) {out.print("");} else {out.print(beanEE.get(i).getTravelSum());}%>	</th>
+								<th><%if (beanEE.get(i).getOtherSum()	 	== 0) {out.print("");} else {out.print(beanEE.get(i).getOtherSum());}%>		</th>
+								<th><%if (beanEE.get(i).getExpenseEstimateSum() == 0) {out.print("");} else {out.print(beanEE.get(i).getExpenseEstimateSum());}%></th>
+								<th><%%></th>
+							</tr><%}%>
 							<tr>
 								<th colspan="3"><label style="margin-left: 10%">รวม</label>
-									<label style="margin-left: 10%">
-										<%=beanEs.getUserSumTotal()%></label>
+									<label style="margin-left: 10%"><%=beanEs.getUserSumTotal()%></label>
 									<label style="margin-left: 25%">คน</label><label style="margin-left: 23%">รวมเงิน</label></th>
-								<th>
-									<%
-									if (beanEs.getAllowenceSumTotal().equals("0")) {
-										out.print("");
-									} else {
-										out.print(beanEs.getAllowenceSumTotal());
-									}
-								%>
-								</th>
-								<th>
-									<%
-									if (beanEs.getRentDateSumTotal().equals("0")) {
-										out.print("");
-									} else {
-										out.print(beanEs.getRentDateSumTotal());
-									}
-								%>
-								</th>
-								<th>
-									<%
-									if (beanEs.getTravelSumTotal().equals("0")) {
-										out.print("");
-									} else {
-										out.print(beanEs.getTravelSumTotal());
-									}
-								%>
-								</th>
-								<th>
-									<%
-									if (beanEs.getOtherSumTotal().equals("0")) {
-										out.print("");
-									} else {
-										out.print(beanEs.getOtherSumTotal());
-									}
-								%>
-								</th>
-								<th>
-								<%
-									if (beanEs.getExpenseEstimateSumTotal().equals("0")) {
-										out.print("");
-									} else {
-										out.print(beanEs.getExpenseEstimateSumTotal());
-									}
-								%>
-								</th>
+								<th><%if (beanEs.getAllowenceSumTotal().equals("0")) {out.print("");} else {out.print(beanEs.getAllowenceSumTotal());}%></th>
+								<th><%if (beanEs.getRentDateSumTotal().equals("0")) {out.print("");} else {out.print(beanEs.getRentDateSumTotal());}%></th>
+								<th><%if (beanEs.getTravelSumTotal().equals("0")) {out.print("");} else {out.print(beanEs.getTravelSumTotal());}%></th>
+								<th><%if (beanEs.getOtherSumTotal().equals("0")) {out.print("");} else {out.print(beanEs.getOtherSumTotal());}%></th>
+								<th><%if (beanEs.getExpenseEstimateSumTotal().equals("0")) {out.print("");} else {out.print(beanEs.getExpenseEstimateSumTotal());}%></th>
 								<th></th>
 							</tr>
 						</table>
 
-						<!-- 			<div class="col-sm-5"> -->
-						<!-- 			</div> -->
-						<!-- 			<div class="col-sm-7"> -->
-						<!-- 			<table id="customers"> -->
-						<!-- 				<tr> -->
-						<!-- 					<th colspan="4" style="background-color: buttonhighlight;"><lable>คำชี้แจง</lable><br> -->
-						<!-- 						<lable>1. กำหนดอัตราค่าเบี๋ยเลี้ยง -->
-						<!-- 						ค่าที่พักให้มีสิทธ์เบิกได้ดังนี้</lable></th> -->
-						<!-- 				</tr> -->
-						<!-- 				<tr> -->
-						<!-- 					<td rowspan="2">ตำแหน่ง</th> -->
-						<!-- 					<td colspan="2">ค่าเบี๋ยเลี้ยง</th> -->
-						<!-- 					<td rowspan="2">ค่าที่พัก<br>กรณีใช้ใบเสร็จ</th> -->
-						<!-- 				<tr> -->
-						<!-- 					<td>ก</th> -->
-						<!-- 					<td>ข</th> -->
-						<!-- 				</tr> -->
-						<!-- 				<tr> -->
-						<!-- 					<td>เที่ยบเท่าระดับ 1-8</td> -->
-						<!-- 					<td>240</td> -->
-						<!-- 					<td>144</td> -->
-						<!-- 					<td>ห้องพักเดี่ยว 1,500 -->
-						<!-- 						<hr>ห้องพักคู่ 850 -->
-						<!-- 					</td> -->
-						<!-- 				</tr> -->
-						<!-- 				<tr> -->
-						<!-- 					<td>เที่ยบเท่าระดับ 9 ขึ้นไป</td> -->
-						<!-- 					<td>270</td> -->
-						<!-- 					<td>162</td> -->
-						<!-- 					<td>ห้องพักเดี่ยว 2,200 -->
-						<!-- 						<hr>ห้องพักคู่ 1,200 -->
-						<!-- 					</td> -->
-						<!-- 				</tr> -->
-						<!-- 				<tr> -->
-						<!-- 					<td colspan="4" style="background-color: buttonhighlight;"><lable>ค่าที่พักกรณีเบิกค่าใช้จ่าย</lable></td> -->
-						<!-- 				</tr> -->
-						<!-- 				<tr> -->
-						<!-- 					<td colspan="2">ตำแหน่ง</td> -->
-						<!-- 					<td colspan="2">อัตรา/คืน/คน</td> -->
-						<!-- 				<tr> -->
-						<!-- 				<tr> -->
-						<!-- 					<td colspan="2">เที่ยบเท่าระดับ 1-8</td> -->
-						<!-- 					<td colspan="2">800</td> -->
-						<!-- 				<tr> -->
-						<!-- 				<tr> -->
-						<!-- 					<td colspan="2">เที่ยบเท่าระดับ 9 ขึ้นไป</td> -->
-						<!-- 					<td colspan="2">1,200</td> -->
-						<!-- 				<tr> -->
-						<!-- 			</table> -->
-						<!-- 			</div> -->
+<!-- 									<div class="col-sm-5"> -->
+<!-- 									</div> -->
+<!-- 									<div class="col-sm-7"> -->
+<!-- 									<table id="customers"> -->
+<!-- 										<tr> -->
+<!-- 											<th colspan="4" style="background-color: buttonhighlight;"><lable>คำชี้แจง</lable><br> -->
+<!-- 												<lable>1. กำหนดอัตราค่าเบี๋ยเลี้ยง -->
+<!-- 												ค่าที่พักให้มีสิทธ์เบิกได้ดังนี้</lable></th> -->
+<!-- 										</tr> -->
+<!-- 										<tr> -->
+<!-- 											<td rowspan="2">ตำแหน่ง</th> -->
+<!-- 											<td colspan="2">ค่าเบี๋ยเลี้ยง</th> -->
+<!-- 											<td rowspan="2">ค่าที่พัก<br>กรณีใช้ใบเสร็จ</th> -->
+<!-- 										<tr> -->
+<!-- 											<td>ก</th> -->
+<!-- 											<td>ข</th> -->
+<!-- 										</tr> -->
+<!-- 										<tr> -->
+<!-- 											<td>เที่ยบเท่าระดับ 1-8</td> -->
+<!-- 											<td>240</td> -->
+<!-- 											<td>144</td> -->
+<!-- 											<td>ห้องพักเดี่ยว 1,500 -->
+<!-- 												<hr>ห้องพักคู่ 850 -->
+<!-- 											</td> -->
+<!-- 										</tr> -->
+<!-- 										<tr> -->
+<!-- 											<td>เที่ยบเท่าระดับ 9 ขึ้นไป</td> -->
+<!-- 											<td>270</td> -->
+<!-- 											<td>162</td> -->
+<!-- 											<td>ห้องพักเดี่ยว 2,200 -->
+<!-- 												<hr>ห้องพักคู่ 1,200 -->
+<!-- 											</td> -->
+<!-- 										</tr> -->
+<!-- 										<tr> -->
+<!-- 											<td colspan="4" style="background-color: buttonhighlight;"><lable>ค่าที่พักกรณีเบิกค่าใช้จ่าย</lable></td> -->
+<!-- 										</tr> -->
+<!-- 										<tr> -->
+<!-- 											<td colspan="2">ตำแหน่ง</td> -->
+<!-- 											<td colspan="2">อัตรา/คืน/คน</td> -->
+<!-- 										<tr> -->
+<!-- 										<tr> -->
+<!-- 											<td colspan="2">เที่ยบเท่าระดับ 1-8</td> -->
+<!-- 											<td colspan="2">800</td> -->
+<!-- 										<tr> -->
+<!-- 										<tr> -->
+<!-- 											<td colspan="2">เที่ยบเท่าระดับ 9 ขึ้นไป</td> -->
+<!-- 											<td colspan="2">1,200</td> -->
+<!-- 										<tr> -->
+<!-- 									</table> -->
+<!-- 									</div> -->
 
 					</div>
 				</div>
-
-
-			</div>
+			</div><!-- 	printableArea1	 -->
+			
+			
 		</div>
 	</div>
 </body>

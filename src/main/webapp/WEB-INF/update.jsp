@@ -6,6 +6,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>update</title>
 	<link rel="stylesheet" href="/css/w3.css">
 	<link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
@@ -17,16 +18,14 @@
 	
 </body>
 	<%
-	UserBean beanUser = null;
-	UserBean beanUpdateRole = null;
-	PersonAddressBean bean = null;
+	UserBean bean= null;
+	UserBean beanUpdate = null;
 	List<PersonAddressBean> list= null;
 	String result = "";
 	%>
 	<%	
-	beanUser = (UserBean) request.getSession().getAttribute("userBean");
-	beanUpdateRole = (UserBean) request.getSession().getAttribute("resultBean");
-	bean = (PersonAddressBean) request.getAttribute("beanPerson");
+	bean = (UserBean) request.getSession().getAttribute("userBean");
+	beanUpdate = (UserBean) request.getAttribute("resultBean");
 	list = (List<PersonAddressBean>) request.getAttribute("listUserBean");
 	result = (String) request.getAttribute("messesUpdate");
 	%>
@@ -80,6 +79,8 @@
 	style="cursor:pointer" title="close side menu" id="myOverlay">
 </div>
 
+<form name="update" action="update" method="post">
+
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:300px;" >
   <!-- Header -->
@@ -102,13 +103,14 @@
 	<div class="w3-card w3-round w3-Turquoise">
 	<div class="w3-container" style="padding: 10mm;background-color: white;">
 		<div class="col-sm-2" ><label>ชื่อ-นามสกุล : </label></div>
-		<div class="col-sm-7" ><label style="margin-left: 2mm"> <%=bean.getSex() %><%=bean.getUserFname() %></label><label style="margin-left: 2mm"> <%=bean.getUserLname() %></label></div>
-		<div class="col-sm-3" > สถานะ : <label style="color: green;"><%if (bean.getRole() == 1) {out.print("รับราชการ");} else if (bean.getRole() == 2) {out.print("รับราชการ");} %></label>
-		<label style="color: red;"><%if (bean.getRole() == 3) {out.print("ออกราชการ");} %></label>
+		<div class="col-sm-7" ><label style="margin-left: 2mm"> <%=beanUpdate.getSex() %><%=beanUpdate.getUserFname() %></label><label style="margin-left: 2mm"> <%=beanUpdate.getUserLname() %></label></div>
+		<div class="col-sm-3" > สถานะ : <label style="color: blue;"><%if (beanUpdate.getRole() == 1) {out.print("ผู้ดูแลระบบ");}%></label>
+		<label style="color: green;"><%if (beanUpdate.getRole() == 2) {out.print("รับราชการ");} %></label>
+		<label style="color: red;"><%if (beanUpdate.getRole() == 3) {out.print("ออกราชการ");} %></label>
 		</div>
 	<hr>
 	<div class="col-sm-2" ><label>เบอร์มือถือ :</label> </div>
-	<div class="col-sm-10" ><label style="margin-left: 2mm"><%if (bean.getNumberPhone() != null) {out.print(bean.getNumberPhone());} %></label></div>
+	<div class="col-sm-10" ><label style="margin-left: 2mm"><%if (beanUpdate.getNumberPhone() != null) {out.print(beanUpdate.getNumberPhone());} %></label></div>
 	<div class="col-sm-12"  style="margin-top: 5%">
 		<table class="w3-table-all w3-hoverable">
 			<tr>
@@ -127,23 +129,54 @@
 			<%}%>
 		</table>
 	</div>
+	<div class="col-sm-12" >	
+	<div class="w3-card-4" style="margin-top: 2%;">
+  	<div class="w3-container w3-green">
+  		<h2 class="w3-center">เปลี่ยนแปลง ข้อมูลบุคคลากร</h2>
+  	</div>
+	<div style="margin-top: 2%;padding-left : 5%;padding-right: 5%">
+
+	<input type="hidden" name="userId" id="userId" value="<%=beanUpdate.getUserId() %>">
 	
-<!-- 	<form name="updateForm" action="update" method="post"> -->
-<!-- 	<div class="col-sm-12" >	 -->
-<!-- 		<input type="hidden" name="role"  value="3"> -->
-<!-- 		<button type="submit" class="btn btn-success">ออกจากราชการ</button> -->
-<!-- 	</div> -->
-<!-- 	</form> -->
+	<div class="form-group">
+		<label for="exampleInputEmail1">คำนำหน้า</label> 
+		<input type="text" class="form-control" name="sex" value="<%=beanUpdate.getSex() %>">
+	</div>
+	
+	<div class="form-group">
+		<label for="exampleInputEmail1">ชื่อ</label> 
+		<input type="text" class="form-control" name="userFname" value="<%=beanUpdate.getUserFname() %>">
+	</div>
+	
+	<div class="form-group">
+		<label for="exampleInputEmail1">นามสกุล</label> 
+		<input type="text" class="form-control" name="userLname" value="<%=beanUpdate.getUserFname() %>">
+	</div>
+	
+	<div class="form-group">
+		<label for="exampleInputEmail1">เบอร์ มือถือ</label> 
+		<input type="text" class="form-control" name="numberPhone" value="<%=beanUpdate.getNumberPhone() %>" maxlength="10">
+	</div>
+	<div class="form-group">
+		<select name="role" class="form-control">
+			<option value="2">USER</option>
+			<option value="1">ADMIN</option>
+			<option value="3">ออกจากราชการ</option>
+		</select>
+	</div>
+		<button type="submit" class="btn btn-success" >ยืนยัน</button>
+	</div><br>
+	</div>
+	</div>
 	
 	</div>
 	</div>
 	</div>
 </div>
-<div class="col-sm-2 " ></div>
 
 	
 </div>
-
+</form>
 
 	<script>
 	// Script to open and close sidebar

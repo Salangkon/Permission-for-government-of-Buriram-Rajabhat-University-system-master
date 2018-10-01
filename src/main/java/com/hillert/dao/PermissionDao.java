@@ -287,8 +287,8 @@ public class PermissionDao {
 					bean.setbBackDateYear(dateThaiYear(rs.getString("b_back_date")));
 					bean.setbBackTime(rs.getString("b_back_time"));
 					
-					bean.setbDayTotal(rs.getInt("b_day_total"));
-					bean.setbTimeTotal(rs.getInt("b_time_total"));
+					bean.setbDaySum(rs.getString("b_date_sum"));
+					bean.setbTimeSum(rs.getString("b_time_sum"));
 				}
 			} catch (Exception e) {
 				// TODO: handle exception
@@ -309,14 +309,14 @@ public class PermissionDao {
 				+ "budget, budget_expenses, budget_by, budget_project, budget_pass,"
 				+ "travel, travel_idcard, commit_a, commit_a_dt,"
 				+ "commit_b, commit_b_dt, commit_c, commit_c_dt, commit_d, commit_d_dt," 
-				+ "other, create_date)"
+				+ "other, permission_status, create_date)"
 				+ " VALUES (?,?,?,?,?" 
 				+ ",?,?,?,?" 
 				+ ",?,?,?,?" 
 				+ ",?,?,?,?,?" 
 				+ ",?,?,?,?" 
 				+ ",?,?,?,?,?,?"
-				+ ",?,SYSDATE())";
+				+ ",?,'0',SYSDATE())";
 				
 		KeyHolder keyHolder = new GeneratedKeyHolder();
 		// JdbcTemplate jdbcTemplate = new JdbcTemplate(new
@@ -364,11 +364,9 @@ public class PermissionDao {
 
 					prepared.setString(29, bean.getOther());
 					
-					
 				} catch (ParseException e) {
 					e.printStackTrace();
 				}
-
 				return prepared;
 			}
 		}, keyHolder);
@@ -383,7 +381,7 @@ public class PermissionDao {
 		bean.setPerId(permissionId);
 		return bean;
 	}
-	
+
 	// insert PermissionBean Back บันทึกหลังเดินทางกลับราชการ
 	public PermissionBackBean insertPB(PermissionBackBean bean) throws Exception {
 		ConnectDB con = new ConnectDB();
@@ -392,11 +390,10 @@ public class PermissionDao {
 		StringBuilder sql = new StringBuilder();
 
 		try {
-			sql.append(
-					"INSERT INTO permission_back (permission_id, b_by_order_save, b_date_authorized, b_disbursed_by, b_allowence_type, "
-							+ "b_rent_date_type, b_start_travel, b_back_travel, b_house_number ,b_road ,"
-							+ "district, b_go_date ,b_go_time, b_back_date, b_back_time, "
-							+ "b_day_total ,b_time_total, b_save_date )VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+			sql.append("INSERT INTO permission_back (permission_id, b_by_order_save, b_date_authorized, b_disbursed_by, b_allowence_type, "
+						+ "b_rent_date_type, b_start_travel, b_back_travel, b_house_number ,b_road ,"
+						+ "district, b_go_date ,b_go_time, b_back_date, b_back_time, "
+						+ " b_save_date , b_date_sum, b_time_sum)VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
 			prepared = conn.prepareStatement(sql.toString());
 
@@ -415,9 +412,9 @@ public class PermissionDao {
 			prepared.setString(13, bean.getbGoTime());
 			prepared.setString(14, bean.getbBackDate());
 			prepared.setString(15, bean.getbBackTime());
-			prepared.setInt(16, bean.getbDayTotal());
-			prepared.setInt(17, bean.getbTimeTotal());
-			prepared.setString(18, bean.getbSaveDate());
+			prepared.setString(16, bean.getbSaveDate());
+			prepared.setString(17, bean.getbDaySum());
+			prepared.setString(18, bean.getbTimeSum());
 
 			prepared.executeUpdate();
 
@@ -428,6 +425,30 @@ public class PermissionDao {
 		}
 		return bean;
 	}// end
+	
+	// update permissiom_status
+	public PermissionBackBean updateStatusPermission(PermissionBackBean bean) throws SQLException {
+		ConnectDB con = new ConnectDB();
+		PreparedStatement preperd = null;
+		StringBuilder sql = new StringBuilder();
+
+		try {
+			sql.append("UPDATE permission p SET p.permission_status = '1' WHERE p.permission_id = ?");
+			preperd = con.openConnect().prepareStatement(sql.toString());
+			preperd.setInt(1, bean.getPermissionId());
+
+			preperd.executeUpdate();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			if (con != null) {
+				con.openConnect().close();
+			}
+		}
+
+		return bean;
+	}// end method update
 		
 		
 	// check insert username ห้ามซ้ำ
@@ -940,6 +961,7 @@ public class PermissionDao {
 			while (rs.next()) {
 				PermissionBean bean = new PermissionBean();
 				bean.setPermissionId(rs.getInt("permission_id"));
+				bean.setPermissionStatus(rs.getString("permission_status"));
 				
 				bean.setUserFname(rs.getString("user_fname"));
 				bean.setUserLname(rs.getString("user_lname"));

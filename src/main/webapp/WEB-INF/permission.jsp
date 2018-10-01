@@ -12,13 +12,15 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>แบบฟอร์มการขออนุยาตไปราชการ</title>
+
 	<link rel="stylesheet" href="/css/w3.css">
-<!-- 	<link rel="stylesheet" href="/css/tableUpdatePermission.css"> -->
 	<link rel="stylesheet" href="/DataTables-1.10.18/css/jquery.dataTables.css">
 	<link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/css/modal.css">
+	<link rel="stylesheet" href="/css/select.dataTables.min.css">
 	
 	<script src="/js/useCar.js"></script>
 	<script src="/js/jQuery v3.3.1.js"></script>
@@ -29,6 +31,9 @@
 	<script src="/js/insertExpense.js"></script>
 	<script src="/js/user-data-personnel.js"></script>
 	<script src="/js/calculator-datetime.js"></script>
+	<script src="/js/view-source_https___cdn.datatables.net_select_1.2.7_js_dataTables.select.min.js"></script>
+	
+	<script src="/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 	
 	<!-- Digital -->
 	<script src="/js/Digital.js"></script>
@@ -202,17 +207,19 @@
 	 <div class="form-group col-sm-5 "><label style="margin-top: 3%">เวลาออก : </label><input class="form-control" type='time' id='goTime' name="goTime"></div>
 	 <div class="form-group col-sm-7 "><label>วันที่กลับ : </label><input class="form-control" type='date' id='backDate' name="backDate"></div>
 	 <div class="form-group col-sm-5 "><label>เวลากลับ : </label><input class="form-control" type='time' id='backTime' name="backTime"></div>
+
    	<div class="input-group col-sm-12">
 		<input class="form-control" style="text-align:center;width: 20mm" OnKeyPress="return chkNumber(this)" type="text" id="DayTotal" >
 		<div class="input-group-addon">วัน</div>
 		<div class="input-group">
-		<input class="form-control" style="text-align:center;width: 20mm " OnKeyPress="return chkNumber(this)" type="text" id="d">
+		<input class="form-control" style="text-align:center;width: 20mm" OnKeyPress="return chkNumber(this)" type="text" id="d">
 		<div class="input-group-addon">คืน</div>
 		<div class="input-group">
-		<input class="form-control" style="text-align:center" OnKeyPress="return chkNumber(this)" type="text" id="TimeTotal" >
+		<input class="form-control" style="text-align:center;width: 30mm" OnKeyPress="return chkNumber(this)" type="text" id="TimeTotal" >
 		<div class="input-group-addon">ชั่วโมง</div>
    		</div>
- 		</div>
+
+   	</div>
    	</div><br>
 	<div class="col-sm-2" style="text-align: right;"><input type="button" id="submit" onclick="dateDiff()" value="คำนวน" class="btn btn-info"></div>
 	<div  class="ho oh col-sm-10">
@@ -379,7 +386,7 @@
     </table>
    </div> <!-- end table -->
     <div align="right">
-    	<input class=" btn btn-primary" type="button" value="เพิ่มบุลคลากร" onclick="document.getElementById('id01').style.display='block'">
+    	<input class=" btn btn-primary" type="button" value="เพิ่มบุลคลากร"  data-toggle="modal" data-target="#myModal">
     </div><br>
     <br>
  </div><!-- end dataTable Expense -->
@@ -564,45 +571,81 @@
 	<form name="Ask_helpForm"    action="gotoAsk_Help"    method="post" th:hidden="true"></form>
 	<form name="insertForm"      action="gotoInsert"      method="post" th:hidden="true"></form>
 	<form name="logoutForm"      action="logout"          method="post" th:hidden="true"></form>
+	
+	<!-- เพิ่มบุคคลากร -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog" style="width: 70%">
+     
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 class="modal-title" style="text-align: center;"><i class="fa fa-address-card-o w3-margin-right"></i> เพิ่มบุคคลากร</h2>
+        </div>
+        <div class="modal-body" style="overflow: auto;width: 100%" >
+       		<table id="userTable" class="table table-bordered" style="overflow: auto;">
+				<thead>
+					<tr style="background: purple; color: white;">
+						<th>เลือก</th>
+						<th>ชื่อ</th>
+						<th>นามสกุล</th>
+						<th>คณะ</th>
+						<th>ภาควิชา</th>
+						<th>ตำแหน่ง</th>
+						<th>ระดับ</th>
+						<th>ค่าเบี้ยเลี้ยง</th>
+						<th>ค่าเช่าที่พัก</th>
+					</tr>
+				</thead>
+			</table>
+        </div>
+        <div class="modal-footer">
+      	  <button type="button" class="btn btn-success" id="buttonAdd1">ยืนยัน</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- end เพิ่มบุคคลากร  --> 
 
 	<!-- เพิ่มบุคคลากร -->
-	<header class="w3-display-container w3-content">
-		<div id="id01" class="modal">
-			<form class="modal-content animate" action="" style="max-width: 100%; margin-top: 3%; margin-left: 25%; margin-right: 10%">
-				<div class="w3-container w3-blue">
-					<h2>
-						<i class="fa fa-address-card-o w3-margin-right"></i> เพิ่มบุคคลากร
-					</h2>
-				</div>
-				<div class="w3-container w3-white w3-padding-16">
-				<div style="overflow-x:auto;">
-					<table id="userTable" class="table table-bordered" style="overflow: auto;">
-						<thead>
-							<tr style="background: purple; color: white;">
-								<th>เลือก</th>
-								<th>ชื่อ</th>
-								<th>นามสกุล</th>
-								<th>คณะ</th>
-								<th>ภาควิชา</th>
-								<th>ตำแหน่ง</th>
-								<th>ระดับ</th>
-								<th>ค่าเบี้ยเลี้ยง</th>
-								<th>ค่าเช่าที่พัก</th>
-							</tr>
-						</thead>
-					</table>
+<!-- 	<header class="w3-display-container w3-content"> -->
+<!-- 		<div id="id01" class="modal"> -->
+<!-- 			<form class="modal-content animate" action="" style="max-width: 100%; margin-top: 3%; margin-left: 25%; margin-right: 10%"> -->
+<!-- 				<div class="w3-container w3-blue"> -->
+<!-- 					<h2> -->
+<!-- 						<i class="fa fa-address-card-o w3-margin-right"></i> เพิ่มบุคคลากร -->
+<!-- 					</h2> -->
+<!-- 				</div> -->
+<!-- 				<div class="w3-container w3-white w3-padding-16"> -->
+<!-- 				<div style="overflow-x:auto;"> -->
+<!-- 					<table id="userTable" class="table table-bordered" style="overflow: auto;"> -->
+<!-- 						<thead> -->
+<!-- 							<tr style="background: purple; color: white;"> -->
+<!-- 								<th>เลือก</th> -->
+<!-- 								<th>ชื่อ</th> -->
+<!-- 								<th>นามสกุล</th> -->
+<!-- 								<th>คณะ</th> -->
+<!-- 								<th>ภาควิชา</th> -->
+<!-- 								<th>ตำแหน่ง</th> -->
+<!-- 								<th>ระดับ</th> -->
+<!-- 								<th>ค่าเบี้ยเลี้ยง</th> -->
+<!-- 								<th>ค่าเช่าที่พัก</th> -->
+<!-- 							</tr> -->
+<!-- 						</thead> -->
+<!-- 					</table> -->
 
-					<div style="size: 10" class="col-sm-12 " align="center">
-						<button type="button" class="btn btn-success" id="buttonAdd1">ยืนยัน</button>
-						<button type="button"
-							onclick="document.getElementById('id01').style.display='none'"
-							class="btn btn-danger">ปิด</button>
-					</div>
-				</div>
-				</div>
-			</form>
-		</div>
-	</header>
+<!-- 					<div style="size: 10" class="col-sm-12 " align="center"> -->
+<!-- 						<button type="button" class="btn btn-success" id="buttonAdd1">ยืนยัน</button> -->
+<!-- 						<button type="button" -->
+<!-- 							onclick="document.getElementById('id01').style.display='none'" -->
+<!-- 							class="btn btn-danger">ปิด</button> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 				</div> -->
+<!-- 			</form> -->
+<!-- 		</div> -->
+<!-- 	</header> -->
 
 	<!-- เพิ่มพาหนะ-->
 	<header class="w3-display-container w3-content">

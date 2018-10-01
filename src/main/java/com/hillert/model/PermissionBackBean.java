@@ -34,12 +34,21 @@ public class PermissionBackBean {
 	private String bBackDateYear;
 	private String bBackTime;
 	
-	private int bDayTotal;
-	private int bTimeTotal;
+	private String bDaySum;
+	private String bTimeSum;
 	
 	private String districtName;
 	private String amphurName;	
 	private String provinceName;	
+	
+	private PermissionBean permission;	
+	
+	public PermissionBean getPermission() {
+		return permission;
+	}
+	public void setPermission(PermissionBean permission) {
+		this.permission = permission;
+	}
 	
 	
 	public String getbSaveDate() {
@@ -210,17 +219,17 @@ public class PermissionBackBean {
 	public void setbBackTime(String bBackTime) {
 		this.bBackTime = bBackTime;
 	}
-	public int getbDayTotal() {
-		return bDayTotal;
+	public String getbDaySum() {
+		return bDaySum;
 	}
-	public void setbDayTotal(int bDayTotal) {
-		this.bDayTotal = bDayTotal;
+	public void setbDaySum(String bDaySum) {
+		this.bDaySum = bDaySum;
 	}
-	public int getbTimeTotal() {
-		return bTimeTotal;
+	public String getbTimeSum() {
+		return bTimeSum;
 	}
-	public void setbTimeTotal(int bTimeTotal) {
-		this.bTimeTotal = bTimeTotal;
+	public void setbTimeSum(String bTimeSum) {
+		this.bTimeSum = bTimeSum;
 	}
 	
 }

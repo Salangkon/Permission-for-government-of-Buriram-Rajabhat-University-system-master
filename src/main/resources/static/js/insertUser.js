@@ -46,7 +46,6 @@ $(document).ready(function() {
 	        contentType: "application/json; charset=utf-8",
 	        success: function (res) {
 	        	console.log(res)
-	        
 	        	window.location.href = res.page;
 	        },
 		 	error: function () {
@@ -56,7 +55,7 @@ $(document).ready(function() {
 		
 	});//and userBaan
 	
-	$('#123').click(function() {	
+	$('#addPosition').click(function() {	
 		 var newRegister = {
 		 	faculty 		: $('#faculty').val(),
 		 	departmentCode 	: $('#departmentCode').val(),

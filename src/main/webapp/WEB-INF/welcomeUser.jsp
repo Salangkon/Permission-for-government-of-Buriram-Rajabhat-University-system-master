@@ -16,16 +16,20 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ระบบขออนุญาตไปราชการ</title>
 
 	<link rel="stylesheet" href="/css/w3.css">
 	<link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/DataTables-1.10.18/css/jquery.dataTables.css">
+<!-- 	<link rel="stylesheet" href="/DataTables-1.10.18/css/jquery.dataTables.css"> -->
+	<link rel="stylesheet" href="/css/dataTables.bootstrap.min.css">
 	<link rel="stylesheet" href="/css/modal.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 											
 	<script src="/js/jQuery v3.3.1.js"></script>
-	<script src="/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>	
+<!-- 	<script src="/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>	 -->
+	<script src="/js/1-10-19jquery.dataTables.min.js"></script>
+	<script src="/js/1-10-19dataTables.bootstrap.min.js"></script>
 	<script src="/js/fromUser.js"></script>
 	<script src="/js/insertPermission.js"></script>
 	<script src="/js/user-data-personnel.js"></script>
@@ -58,10 +62,11 @@
     	</div>
   </header>
 <form name="welcome" action="#" method="post" class="w3-animate-top">
-	<div style="margin-top: 4%;max-width: 90%;margin-left: 5%;overflow-x:auto;">
+	<div style="overflow: auto;">
+	<div style="margin-top: 4%;max-width: 90%;margin-left: 5%;">
 	<input type="hidden" name="permissionId" id="permissionId">
 	
-	<table id="userTable" class="table table-striped table-bordered nowrap" style="width: 100%;">   
+	<table id="userTable" class="table table-striped table-bordered nowrap" style="max-width: 100%;">   
 		<thead>
     	<tr style="background: purple;color: white;">
         	<th style="text-align: center;">รหัสอ้างอิง</th>
@@ -75,7 +80,8 @@
     	</tr>
     	</thead>
 	</table>
-</div>
+	</div>
+	</div>
 </form>
 		<script type="text/javascript">
 			function permissionBack(filter) {
