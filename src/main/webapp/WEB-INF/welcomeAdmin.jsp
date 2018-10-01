@@ -19,13 +19,20 @@
 <%
 
 	UserBean bean = null;
-	UserBean bean1 = null;
-	PermissionBean perBean = null;
+	UserBean countUser = null;
+	PermissionBean countPer = null;
+	FacultyBean countFac1,countFac2,countFac3,countFac4,countFac5,countFac6 = null;
 %>
 <%
 	bean = (UserBean) request.getSession().getAttribute("userBean");
-	bean1 = (UserBean) request.getSession().getAttribute("userCount");
-	perBean = (PermissionBean) request.getSession().getAttribute("perBean");
+	countUser = (UserBean) request.getSession().getAttribute("countUser");
+	countPer = (PermissionBean) request.getSession().getAttribute("countPer");
+	countFac1 = (FacultyBean) request.getSession().getAttribute("countFac1");
+	countFac2 = (FacultyBean) request.getSession().getAttribute("countFac2");
+	countFac3 = (FacultyBean) request.getSession().getAttribute("countFac3");
+	countFac4 = (FacultyBean) request.getSession().getAttribute("countFac4");
+	countFac5 = (FacultyBean) request.getSession().getAttribute("countFac5");
+	countFac6 = (FacultyBean) request.getSession().getAttribute("countFac6");
 	
 %>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,6 +40,9 @@
 	<link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/css/table.css">
 	<link rel="stylesheet" href="/css/NewFile.css">
+	
+	<!-- กราฟ -->
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 
 
@@ -75,7 +85,7 @@
       <div class="w3-container w3-teal w3-padding-16 w3-ul w3-card-4 w3-card w3-round w3-Turquoise">
         <div class="w3-left"><i class="w3-xxxlarge glyphicon glyphicon-file"></i></div>
         <div class="w3-right">
-          <h3><%=perBean.getPermissionId() %></h3>
+          <h3><%=countPer.getPermissionId() %></h3>
         </div>
         <div class="w3-clear"></div>
         <h4>Permission Form</h4>
@@ -85,7 +95,7 @@
       <div class="w3-container w3-orange w3-text-white w3-padding-16 w3-ul w3-card-4 w3-card w3-round w3-Turquoise">
         <div class="w3-left"><i class="w3-xxxlarge glyphicon glyphicon-user"></i></div>
         <div class="w3-right">
-          <h3><%=bean1.getUserId() %></h3>
+          <h3><%=countUser.getUserId() %></h3>
         </div>
         <div class="w3-clear"></div>
         <h4>Users</h4>
@@ -93,41 +103,45 @@
     </div>
   </div>
 
- <div class="w3-panel">
-    <div class="w3-row-padding" style="margin:0 -16px">
 
-     <div class="w3-container">
-        <h5>การขออนุญาตไปราชการ ของคณะในมหาวิทยาลัยราชภัฏบุรีรัมย์</h5>
+  <div class="w3-panel">
+    <div class="w3-row-padding" style="margin:0 -16px">
+      <div class="w3-third">
+        <h5>เปอร์เซ็น ในการขอไปราชการของแต่ละคณะ</h5>
+         <div class="w3-white w3-ul w3-card-4" id="piechart"></div>
+        </div>
+      <div class="w3-twothird">
+       <h5>การขออนุญาตไปราชการ ของคณะในมหาวิทยาลัยราชภัฏบุรีรัมย์</h5>
         <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white w3-ul w3-card-4">
           <tr>
-            <td><i class="fa fa-user w3-text-blue w3-large"></i></td>
+            <td><i class="fa fa-mortar-board w3-text-blue w3-large"></i></td>
             <td>คณะครุศาสตร์.</td>
-            <td><i>xx ครั้ง</i></td>
+            <td><i><%=countFac1.getFacultyId() %> ครั้ง</i></td>
           </tr>
           <tr>
-            <td><i class="fa fa-bell w3-text-red w3-large"></i></td>
+            <td><i class="fa fa-thermometer-3 w3-text-red w3-large"></i></td>
             <td>คณะวิทยาศาสตร์.</td>
-            <td><i>xx ครั้ง</i></td>
+            <td><i><%=countFac2.getFacultyId() %> ครั้ง</i></td>
           </tr>
           <tr>
             <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
             <td>คณะมนุษยศาสตร์และสังคมศาสตร์.</td>
-            <td><i>xx ครั้ง</i></td>
+            <td><i><%=countFac3.getFacultyId() %> ครั้ง</i></td>
           </tr>
           <tr>
-            <td><i class="fa fa-comment w3-text-red w3-large"></i></td>
+            <td><i class="fa fa-laptop w3-text-red w3-large"></i></td>
             <td>คณะวิทยาการจัดการ.</td>
-            <td><i>xx ครั้ง</i></td>
+            <td><i><%=countFac4.getFacultyId() %> ครั้ง</i></td>
           </tr>
           <tr>
-            <td><i class="fa fa-bookmark w3-text-blue w3-large"></i></td>
+            <td><i class="fa fa-wrench w3-text-blue w3-large"></i></td>
             <td>คณะเทคโนโลยีอุตสาหกรรม.</td>
-            <td><i>xx ครั้ง</i></td>
+            <td><i><%=countFac5.getFacultyId() %> ครั้ง</i></td>
           </tr>
           <tr>
-            <td><i class="fa fa-laptop w3-text-red w3-large" ></i></td>
+            <td><i class="fa fa-tree w3-text-red w3-large" ></i></td>
             <td>คณะเทคโนโลยีการเกษตร.</td>
-            <td><i>xx ครั้ง</i></td>
+            <td><i><%=countFac6.getFacultyId() %> ครั้ง</i></td>
           </tr>
         </table>
       </div>
@@ -190,6 +204,33 @@
 	<form name="insertForm"   action="gotoInsert"   method="post" th:hidden= "true"></form>
 	<form name="userAllForm"  action="gotoUserAll"  method="post" th:hidden= "true"></form>
 	<form name="RequestForm"  action="gotoRequest"  	method="post" th:hidden= "true"></form>
+
+
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Task', 'Hours per Day'],
+  ['ครุศาสตร์.', <%=countFac1.getFacultyId() %>],
+  ['วิทยาศาสตร์.', <%=countFac2.getFacultyId() %>],
+  ['มนุษยศาสตร์และสังคมศาสตร์.', <%=countFac3.getFacultyId() %>],
+  ['วิทยาการจัดการ.', <%=countFac4.getFacultyId() %>],
+  ['เทคโนโลยีอุตสาหกรรม.', <%=countFac6.getFacultyId() %>]
+  //['คณะเทคโนโลยีการเกษตร.', 80]
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'width':500, 'height':225};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
+</script>
 	
 </body>
 </html>

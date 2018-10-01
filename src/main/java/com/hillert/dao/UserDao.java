@@ -277,30 +277,7 @@ public class UserDao {
 //		}
 //	} 
 	// end method delete
-	
-	
-	//นับจำนวน user ทั้งหมด ที่อยู่ใน SQL
-	public UserBean count() throws SQLException {
-		UserBean bean = new UserBean();
-		ConnectDB con = new ConnectDB();
-		Connection conn = con.openConnect();
-		PreparedStatement prepared = null;
-		StringBuilder sql = new StringBuilder();
 
-		try {
-			sql.append(" SELECT COUNT(user_id) AS user FROM user ");
-			prepared = conn.prepareStatement(sql.toString());
-			ResultSet rs = prepared.executeQuery();
-			while (rs.next()) {
-				bean.setUserId(rs.getInt("user"));
-			}			
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			conn.close();
-		}
-		return bean;
-	}
 	
 	//check insert username ห้ามซ้ำ
 	public TestAjex CheckUserName(String CheckUserId) throws SQLException {

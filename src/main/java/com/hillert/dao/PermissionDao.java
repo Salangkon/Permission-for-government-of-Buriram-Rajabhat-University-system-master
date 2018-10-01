@@ -1109,29 +1109,6 @@ public class PermissionDao {
 		return list;
 	}
 	
-	
-	// นับจำนวนใบฟอร์ม ที่ขออนุญาตไปราชการทั้งหมด
-	public PermissionBean count() throws SQLException {
-		PermissionBean bean = new PermissionBean();
-		ConnectDB con = new ConnectDB();
-		Connection conn = con.openConnect();
-		PreparedStatement prepared = null;
-		StringBuilder sql = new StringBuilder();
-
-		try {
-			sql.append("SELECT COUNT(permission_id) AS permission FROM permission");
-			prepared = conn.prepareStatement(sql.toString());
-			ResultSet rs = prepared.executeQuery();
-			while (rs.next()) {
-				bean.setPermissionId(rs.getInt("permission"));
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			conn.close();
-		}
-		return bean;
-	}
 
 	// provineName
 //	String provineName(String id) throws SQLException {
