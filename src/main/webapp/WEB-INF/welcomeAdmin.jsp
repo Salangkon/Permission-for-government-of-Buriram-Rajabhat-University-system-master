@@ -148,54 +148,6 @@
     </div>
   </div>
   <hr>
-  <div class="w3-container">
-    <h5>General Stats</h5>
-    <p>New Visitors</p>
-    <div class="w3-grey">
-      <div class="w3-container w3-center w3-padding w3-green" style="width:100%">100%</div>
-    </div>
-
-    <p>New Users</p>
-    <div class="w3-grey">
-      <div class="w3-container w3-center w3-padding w3-orange" style="width:50%">50%</div>
-    </div>
-
-    <p>Bounce Rate</p>
-    <div class="w3-grey">
-      <div class="w3-container w3-center w3-padding w3-red" style="width:75%">75%</div>
-    </div>
-  </div>
-  <hr>
-
-  <div class="w3-container">
-    <h5>Countries</h5>
-    <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
-      <tr>
-        <td>United States</td>
-        <td>65%</td>
-      </tr>
-      <tr>
-        <td>UK</td>
-        <td>15.7%</td>
-      </tr>
-      <tr>
-        <td>Russia</td>
-        <td>5.6%</td>
-      </tr>
-      <tr>
-        <td>Spain</td>
-        <td>2.1%</td>
-      </tr>
-      <tr>
-        <td>India</td>
-        <td>1.9%</td>
-      </tr>
-      <tr>
-        <td>France</td>
-        <td>1.5%</td>
-      </tr>
-    </table><br>
-</div>
 
   </div>
 
@@ -203,7 +155,7 @@
 	<form name="logoutForm"   action="logout" 	    method="post" th:hidden= "true"></form>
 	<form name="insertForm"   action="gotoInsert"   method="post" th:hidden= "true"></form>
 	<form name="userAllForm"  action="gotoUserAll"  method="post" th:hidden= "true"></form>
-	<form name="RequestForm"  action="gotoRequest"  	method="post" th:hidden= "true"></form>
+	<form name="RequestForm"  action="gotoRequest"  method="post" th:hidden= "true"></form>
 
 
 <script type="text/javascript">
@@ -219,8 +171,8 @@ function drawChart() {
   ['วิทยาศาสตร์.', <%=countFac2.getFacultyId() %>],
   ['มนุษยศาสตร์และสังคมศาสตร์.', <%=countFac3.getFacultyId() %>],
   ['วิทยาการจัดการ.', <%=countFac4.getFacultyId() %>],
+  ['เทคโนโลยีการเกษตร.', <%=countFac5.getFacultyId() %>],
   ['เทคโนโลยีอุตสาหกรรม.', <%=countFac6.getFacultyId() %>]
-  //['คณะเทคโนโลยีการเกษตร.', 80]
 ]);
 
   // Optional; add a title and set the width and height of the chart

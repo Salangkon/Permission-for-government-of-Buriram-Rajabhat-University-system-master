@@ -27,13 +27,13 @@ $(document).ready(function() {
 	
 	//status
 	$("#status1").change(function(){
-		status = "ผู้บริหาร";
+		status = "1";
 	});
 	$("#status2").change(function(){
-		status = "ผู้สอน";
+		status = "2";
 	});
 	$("#status3").change(function(){
-		status = "ผู้สนับสนุนการสอน";
+		status = "3";
 	});
 	//purpose
 	$("#purpose").change(function(){

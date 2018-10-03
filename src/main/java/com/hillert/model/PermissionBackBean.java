@@ -5,6 +5,9 @@ public class PermissionBackBean {
 	private int permissionId;
 	
 	private String bSaveDate;
+	private String bSaveDateDay;
+	private String bSaveDateMonth;
+	private String bSaveDateYear;
 	
 	private String bByOrderSave;
 	
@@ -18,7 +21,7 @@ public class PermissionBackBean {
 	private int bRentDateType;
 	private int bStartTravel;
 	private int bBackTravel;
-	private int bHouseNumber;
+	private String bHouseNumber;
 	private String bRoad;
 	private String district;
 	
@@ -43,6 +46,24 @@ public class PermissionBackBean {
 	
 	private PermissionBean permission;	
 	
+	public String getbSaveDateDay() {
+		return bSaveDateDay;
+	}
+	public void setbSaveDateDay(String bSaveDateDay) {
+		this.bSaveDateDay = bSaveDateDay;
+	}
+	public String getbSaveDateMonth() {
+		return bSaveDateMonth;
+	}
+	public void setbSaveDateMonth(String bSaveDateMonth) {
+		this.bSaveDateMonth = bSaveDateMonth;
+	}
+	public String getbSaveDateYear() {
+		return bSaveDateYear;
+	}
+	public void setbSaveDateYear(String bSaveDateYear) {
+		this.bSaveDateYear = bSaveDateYear;
+	}
 	public PermissionBean getPermission() {
 		return permission;
 	}
@@ -177,10 +198,10 @@ public class PermissionBackBean {
 	public void setbBackTravel(int bBackTravel) {
 		this.bBackTravel = bBackTravel;
 	}
-	public int getbHouseNumber() {
+	public String getbHouseNumber() {
 		return bHouseNumber;
 	}
-	public void setbHouseNumber(int bHouseNumber) {
+	public void setbHouseNumber(String bHouseNumber) {
 		this.bHouseNumber = bHouseNumber;
 	}
 	public String getbRoad() {

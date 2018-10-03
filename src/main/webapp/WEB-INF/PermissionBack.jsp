@@ -195,18 +195,18 @@
 	
 <form action="">
     <div class="col-sm-12" style="margin-top:20px"><label>ตั้งแต่วัน/เวลา</label></div> 
-   		<div class="col-sm-7"><input class="form-control" name="bGoDate" id="bGoDate" type="date" value="" ></div>
-   		<div class="col-sm-5"><input class="form-control" name="bGoTime" id="bGoTime" type="time" value="" ></div> 
+   		<div class="col-sm-7"><input class="form-control" name="bGoDate" id="bGoDate" type="date" value="<%=bean.getGoDate() %>" ></div>
+   		<div class="col-sm-5"><input class="form-control" name="bGoTime" id="bGoTime" type="time" value="<%=bean.getGoTime() %>" ></div> 
    	
 
    	<div class="form-group col-sm-12" style="margin-top:20px;background-color:white ;">
     	<label>กลับถึง :</label> 
-   		<input name="bBackTravel" id="bBackTravel1" type="radio" value="" style="margin-left: 4%" class="w3-radio"> <label> บ้านพัก</label>
-       	<input name="bBackTravel" id="bBackTravel2" type="radio" value="" style="margin-left: 4%" class="w3-radio"> <label> สำนักงาน</label> 
+   		<input name="bBackTravel" id="bBackTravel1" type="radio" value="" style="margin-left: 4%" > <label> บ้านพัก</label>
+       	<input name="bBackTravel" id="bBackTravel2" type="radio" value="" style="margin-left: 4%" > <label> สำนักงาน</label> 
     </div>
     <div class="col-sm-12"><label>ตั้งแต่วัน/เวลา</label></div>
-    <div class="col-sm-7"><input class="form-control" name="bBackDate" id="bBackDate" type="date" value="" ></div> 
-   	<div class="col-sm-5"><input class="form-control" name="bBackDate" id="bBackTime" type="time" value="" ></div> 
+    <div class="col-sm-7"><input class="form-control" name="bBackDate" id="bBackDate" type="date" value="<%=bean.getBackDate() %>" ></div> 
+   	<div class="col-sm-5"><input class="form-control" name="bBackDate" id="bBackTime" type="time" value="<%=bean.getBackTime() %>" ></div> 
    	<div style="margin-bottom: 6.5mm;overflow: auto;" class="col-sm-12" >
    		<label>รวมเวลาไปราชการ</label> 
    			<div class="input-group" style="width: 80%">
@@ -270,7 +270,6 @@
 <div class="col-sm-12" >
  	
 </div>
-
 	<div style="size: 10;margin-bottom: 3%;" class="col-sm-12"  id="Manual Budget" style="display:none">
 	<h3 style="color: white;margin-bottom: 2%"align="center"  class="w3-container w3-blue"><i class="fa fa-user w3-margin-right" style="font-size:30px;"></i>เลือกบุคคลกรร่วมไปราชการ พร้อมกำหนดค่าใช้จ่าย  (กรุณาใส่ 0 ในช่องว่าง)</h3>
 	<div style="overflow-x:auto;">
@@ -296,15 +295,15 @@
     	</thead>
     	<tfoot>
     	<tr>
-    		<th colspan="6"><label style="margin-left: 10%">รวม</label><label style="margin-left: 30mm" id="userSumTotal"></label><label style="margin-left: 30mm">คน</label>  </th>
-    		<th id="allowencePerdayTotal"></th>
-			<th style="text-align:center" id="allowenceSumTotal"></th>
+    		<th colspan="6"><label style="margin-left: 10%">รวม</label><label style="margin-left: 30mm" id="userSumTotal"><%=beanEs.getUserSumTotal()%></label><label style="margin-left: 30mm">คน</label>  </th>
+    		<th id="allowencePerdayTotal"><%=beanEs.getAllowencePerdayTotal()%></th>
+			<th style="text-align:center" id="allowenceSumTotal"><%=beanEs.getAllowenceSumTotal()%></th>
 			<th ></th>
-			<th id="rentDatePerdayTotal"></th>
-			<th style="text-align:center" id="rentDateSumTotal"></th>
-			<th style="text-align:center" id="travelSumTotal"></th>
-			<th style="text-align:center" id="otherSumTotal"></th>
-			<th colspan="2"> รวม <label style="margin-left: 3%" id="expenseEstimateSumTotal"> บาท</label></th>
+			<th id="rentDatePerdayTotal"><%=beanEs.getRentDatePerdayTotal()%></th>
+			<th style="text-align:center" id="rentDateSumTotal"><%=beanEs.getRentDateSumTotal()%></th>
+			<th style="text-align:center" id="travelSumTotal"><%=beanEs.getTravelSumTotal()%></th>
+			<th style="text-align:center" id="otherSumTotal"><%=beanEs.getOtherSumTotal()%></th>
+			<th colspan="2"> รวม <label style="margin-left: 3%" id="expenseEstimateSumTotal"><%=beanEs.getExpenseEstimateSumTotal()%></label></th>
     	</tr>
     	</tfoot>
     </table>

@@ -67,7 +67,7 @@
 					<div class="col-sm-9">
 						<div class="form-group">
 							<label for="exampleInputEmail1">UserName</label> 
-							<input type="text" min="10" maxlength="10" class="form-control" name="userUsername" id="userUsername" required> 
+							<input type="text" min="10" maxlength="12" class="form-control" name="userUsername" id="userUsername" required> 
 							<label for="exampleInputEmail1" id="check"> </label>
 							
 						</div>

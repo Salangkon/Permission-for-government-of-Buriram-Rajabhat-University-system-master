@@ -16,7 +16,7 @@ $(document).ready(function() {
 				        "sWidth" : "300px",
 				        "mRender": function (data, type, full) {// full คือ ข้อมูลของ
 							// ตาราง
-							return '<label>'+ full.userFname + '</label>' + '<label style="margin-left: 2mm">' + full.userLname + '</label>';
+							return '<label>'+ full.sex + '</label>'+'<label>'+ full.userFname + '</label>' + '<label style="margin-left: 2mm">' + full.userLname + '</label>';
 						}
 					},  {
 						"mData" : "topics",

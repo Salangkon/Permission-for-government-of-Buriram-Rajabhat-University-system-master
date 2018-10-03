@@ -218,9 +218,10 @@ $(document).ready(function() {
                     ],
 					"aoColumns" : [ {
 						"mData" : "personnelId" ,
+						className: 'select-checkbox',
 						"mRender" : function(data,
 								type, row, index) {
-						return '<input class="form-control"  type="checkbox" />';
+						return '';
 						}
 					}, {
 						"mData" : "userFname"
@@ -440,9 +441,10 @@ $(document).ready(function() {
 						"sAjaxDataProp" : "",
 						"aoColumns" : [ {
 							"mData" : "travelId" ,
+							className: 'select-checkbox',
 							"mRender" : function(data,
 									type, row, index) {
-							return '<input class="form-control"  type="checkbox" />';
+							return '';
 							}
 						}, {
 							"mData" : "vehicleName"
@@ -581,9 +583,10 @@ $(document).ready(function() {
 						"sAjaxDataProp" : "",
 						"aoColumns" : [ {
 							"mData" : "travelId" ,
+							className: 'select-checkbox',
 							"mRender" : function(data,
 									type, row, index) {
-							return '<input class="form-control"  type="checkbox" />';
+							return '';
 							}
 						}, {
 							"mData" : "vehicleName"
@@ -753,9 +756,10 @@ $(document).ready(function() {
 						"sAjaxDataProp" : "",
 						"aoColumns" : [ {
 							"mData" : "travelId" ,
+							className: 'select-checkbox',
 							"mRender" : function(data,
 									type, row, index) {
-							return '<input class="form-control"  type="checkbox" />';
+							return '';
 							}
 						}, {
 							"mData" : "vehicleName"

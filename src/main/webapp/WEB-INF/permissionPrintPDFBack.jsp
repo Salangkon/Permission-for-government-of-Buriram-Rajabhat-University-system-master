@@ -15,12 +15,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ขออนุยาตไปราชการ</title>
-
-	<link rel="stylesheet" href="/css/A4.css">
-	<link rel="stylesheet" href="/css/table.css">
-	<link rel="stylesheet" href="/css/w3.css">
-	
+<title>ขออนุยาตไปราชการ</title>	
 	<script>
 		function w3_open() {
 			document.getElementById("main").style.marginLeft = "180px";
@@ -50,8 +45,7 @@
 	List<TravelExpensesBean> beanTr = null;
 	PermissionBean bean = null;
 	PermissionBackBean beanBack = null;
-	ExpenseSumaryBean beanEs = null;
-	ExpenseSumaryBean beanEsBack = null;
+	ExpenseSumaryBean beanEs, beanEsBack = null;
 	TravelExpensesFuelCostBean beanTEFC = null;
 	String result = "";
 %>
@@ -65,7 +59,9 @@
 	beanBack = (PermissionBackBean) request.getAttribute("perBackBean");
 	result = (String) request.getAttribute("messesUpdate");
 %>
-
+	<link rel="stylesheet" href="/css/A4.css">
+	<link rel="stylesheet" href="/css/table.css">
+	<link rel="stylesheet" href="/css/w3.css">
 </head>
 
 <body >
@@ -81,11 +77,14 @@
   <div class="w3-dropdown-hover">
     <a class="w3-button" href="#">เลือกหน้า<i class="fa fa fa-caret-down"></i></a>
     <div class="w3-dropdown-content w3-bar-block w3-card-4">
-      <a class="w3-bar-item w3-button" href="#5"> เบิกค่าใช้จ่าย	</a>
-      <a class="w3-bar-item w3-button" href="#6"> เบิกค่าใช้จ่าย 2</a>
+      <a class="w3-bar-item w3-button" href="#1"> เบิกค่าใช้จ่าย		</a>
+      <a class="w3-bar-item w3-button" href="#2"> เบิกค่าใช้จ่าย 2 		</a>
+      <a class="w3-bar-item w3-button" href="#3"> หลักฐานการจ่ายเงิน	</a>
+      <a class="w3-bar-item w3-button" href="#4"> ใบแนบขอเบิกค่าใช้จ่าย	</a>
     </div>
   </div>
   <a class="w3-bar-item w3-button" href="javascript:void(0)" onclick="printDiv('printableArea')">พิมพ์</a>
+  <a class="w3-bar-item w3-button" href="javascript:void(0)" onclick="printDiv('printableArea2')">พิมพ์</a>
   <a class="w3-bar-item w3-button w3-green" href="/welcomeUser">ย้อนกลับ</a>
   </div>
 </div>
@@ -98,7 +97,7 @@
 
 <div id="printableArea" >
 <!-- ใบเบิกค่าใช้จ่ายในการเดินทางไปราชการ -->
-			<div class="page" id="5">
+			<div class="page" id="1">
 
 				<table style="width: 100%; border-collapse: collapse;">
 					<tr>
@@ -124,12 +123,16 @@
 				<table>
 					<tr>
 						<th style="width: 60mm"></th>
-						<th style="width: 10mm">ที่ทำการ</th>
-						<th style="width: 40mm"></th>
+						<th style="width: 10mm">ที่ทำการ </th>
+						<th style="width: 40mm"><%=bean.getDepartmentName()%></th>
 					</tr>
 					<tr>
 						<th></th>
-						<th colspan="2">วัน........เดือน...............พ.ศ................</th>
+						<th colspan="2">
+							วัน &nbsp; <%=beanBack.getbSaveDateDay()%>&nbsp;
+							เดือน &nbsp;&nbsp; <%=beanBack.getbSaveDateMonth()%> &nbsp;
+							พ.ศ  &nbsp; <%=beanBack.getbSaveDateYear() %>
+						</th>
 					</tr>
 				</table>
 
@@ -141,7 +144,7 @@
 						<th style="width: 30mm; text-align: right;">ตามคำสั่ง/บันทึกที่</th>
 						<th style="width: 20mm; text-align: center;"><%=beanBack.getbByOrderSave() %></th>
 						<th style="width: 10mm; text-align: left;">ลงวันที่</th>
-						<th style="width: 50mm; text-align: center;"><%=beanBack.getbDateAuthorized()%></th>
+						<th style="width: 30mm; text-align: center;"><%=beanBack.getbDateAuthorized()%></th>
 						<th style="width: 15mm; text-align: left;">ได้อนุมัติ</th>
 					</tr>
 				</table>
@@ -150,7 +153,7 @@
 						<th style="width: 5mm; text-align: left;">ข้าพเจ้า</th>
 						<th style="width: 50mm; text-align: center;"><%=bean.getSex() %><%=bean.getUserFname()%>&nbsp;&nbsp; <%=bean.getUserLname()%></th>
 						<th style="width: 10mm; text-align: left;">ตำแหน่ง</th>
-						<th style="width: 60mm; text-align: center;"><%=bean.getSubPositionName() %></th>
+						<th style="width: 30mm; text-align: center;"><%=bean.getSubPositionName() %></th>
 						<th style="width: 20mm; text-align: center;"></th>
 					</tr>
 				</table>
@@ -328,15 +331,15 @@
 					</tr>
 				</table>
 			</div>
-
+ 
 
 <!-- ใบเบิกค่าใช้จ่ายในการเดินทางไปราชการ 2 -->
-				<div class="page" id="6">
+				<div class="page" id="2">
 					<p style="text-align: center;">2</p>
 
-					<table>
+					<table id="customers">
 						<tr>
-							<td style="max-width: 50%;" valign="top">&nbsp;&nbsp;
+							<th style="max-width: 50%;" valign="top">&nbsp;&nbsp;
 								ได้ตรวจสอบหลักฐานการเบิกจ่ายเงินที่แนบถูกต้องแล้ว<br>
 								&nbsp;&nbsp; เห็นควรอนุมัติให้เบิกจ่าย<br>
 							<br>
@@ -350,8 +353,8 @@
 								วันที่....................................................<br>
 							<br>
 							<br>
-							</td>
-							<td style="width: 50%;" valign="top">&nbsp;&nbsp;
+							</th>
+							<th style="width: 50%;" valign="top">&nbsp;&nbsp;
 								อนุมัติให้จ่ายได้<br> <br>
 							<br>
 							<br> &nbsp;&nbsp;
@@ -364,27 +367,31 @@
 								วันที่....................................................<br>
 							<br>
 							<br>
-							</td>
+							</th>
 						</tr>
 					</table>
 					<br>
 					<table>
 						<tr>
 							<td style="width: 40mm; text-align: right;">ได้รับค่าใช้จ่ายในการเดินทางไปราชการ จำนวน</td>
-							<td style="width: 20mm; text-align: center;"></td>
-							<td style="width: 10mm; text-align: center;">บาท</td>
+							<td style="width: 20mm; text-align: center;"><%if (beanEsBack.getExpenseEstimateSumTotal().equals("0")) {out.print("");} 
+								else {out.print(beanEsBack.getExpenseEstimateSumTotal());}%>
+							<td style="width: 10mm; text-align: left: ;"> บาท</td>
 						</tr>
 					</table>
 					<table>
 						<tr>
-							<td style="max-width: 30mm; text-align: left;">(...................................................................)</td>
+							<td style="max-width: 30mm; text-align: center;">
+								<%if (beanEsBack.getExpenseEstimateSumTotal().equals("0")) {out.print("(...................................................................)");} 
+								else {out.print("( "+beanEsBack.getExpenseEstimateSumTotalThaiBaht()+" ) ");}%>
+							</td>
 							<td style="max-width: 60mm; text-align: left;">ไว้เป็นการถูกต้องแล้ว</td>
 						</tr>
 					</table>
 					<br>
 					<table>
 						<tr>
-							<td style="width: 50%;" valign="top">&nbsp;&nbsp;
+							<td style="width: 50%;text-align: center;" valign="top">&nbsp;&nbsp;
 								ลงชื่อ.....................................................ผู้รับเงิน<br>
 								&nbsp;&nbsp;
 								(.....................................................)<br>
@@ -396,7 +403,7 @@
 							<br>
 							<br>
 							</td>
-							<td style="width: 50%;" valign="top">&nbsp;&nbsp;
+							<td style="width: 50%;text-align: center;" valign="top">&nbsp;&nbsp;
 								ลงชื่อ................................ผู้จ่ายเงิน<br>
 								&nbsp;&nbsp;
 								(.........................................................)<br>
@@ -421,9 +428,262 @@
 						</tr>
 					</table>
 
-				</div>
+				</div> <!-- end2 -->
+</div> <!-- end printableArea -->
 
-			</div>
+
+<div id="printableArea2">
+<!-- หลักฐานการจ่ายเงินไปราชการ 3 -->
+				<div class="pagePortrait" id="3">
+				<table>
+						<tr>
+							<td style="width: 50%;text-align: center;" valign="top">&nbsp;&nbsp;
+							<strong>
+								หลักฐานการจ่ายเงินค่าใช้จ่ายในกรเดินทางไปราชการ<br>
+								&nbsp;&nbsp;
+								ส่วนราชการ....มหาวิทยาลัยราชภัฏบุรีรัมย์....จังหวัด....บุรีรัมย์....<br>
+								&nbsp;&nbsp;
+								ประกอบใบเบิกค่าใช้จ่ายในการเดินทางของ &nbsp; 
+								<%=bean.getSex() %><%=bean.getUserFname()%> &nbsp;&nbsp;&nbsp;<%=bean.getUserLname() %>
+								&nbsp; ลงวันที่  <%=beanBack.getbSaveDateDay() %> &nbsp;
+								เดือน &nbsp; <%=beanBack.getbSaveDateMonth() %> &nbsp;&nbsp;
+								พ.ศ. <%=beanBack.getbSaveDateYear() %>
+								<br>
+								&nbsp;&nbsp;
+							</strong>
+							</td>
+						</tr>
+					</table>
+
+					<table id="customers">
+						<thead>
+							<tr>
+								<th rowspan="2">ที่</th>
+								<th rowspan="2">ชื่อ</th>
+								<th rowspan="2">ตำแหน่ง</th>
+								<th colspan="4">ค่าใช้จ่าย</th>
+								<th rowspan="2">รวมเงิน</th>
+								<th rowspan="2">ลายมือชื่อ<br>ผู้รับ</th>
+								<th rowspan="2">วัน เดือน ปี<br>ที่รับเงิน</th>
+								<th rowspan="2">หมาบเหตุ</th>
+							</tr>
+							<tr>
+								<th class="text-center">ค่าเบี้ยเลี้ยง</th>
+								<th class="text-center">ค่าเช่าที่พัก</th>
+								<th class="text-center">ค่าพาหนะ</th>
+								<th class="text-center">ค่าใช้จ่ายอื่น</th>
+							</tr>
+							<%
+								for (int i = 0; i < beanEE.size(); i++) {
+							%>
+							<tr>
+								<th style="text-align: left; margin-left: 2mm"><%=i + 1%></th>
+								<th style="text-align: left;"><%=beanEE.get(i).getSex()%><%=beanEE.get(i).getUserFname()%>&nbsp;&nbsp;<%=beanEE.get(i).getUserLname()%></th>
+								<th style="text-align: left;"><%=beanEE.get(i).getSubPositionName()%></th>
+								<th>
+									<%
+										if (beanEE.get(i).getAllowenceSum() == 0) {
+												out.print("");
+										} else {
+												out.print(beanEE.get(i).getAllowenceSum());
+											}
+									%>
+								</th>
+								<th>
+									<%
+										if (beanEE.get(i).getRentDateSum() == 0) {
+												out.print("");
+										} else {
+												out.print(beanEE.get(i).getRentDateSum());
+											}
+									%>
+								</th>
+								<th>
+									<%
+										if (beanEE.get(i).getTravelSum() == 0) {
+												out.print("");
+										} else {
+												out.print(beanEE.get(i).getTravelSum());
+											}
+									%>
+								</th>
+								<th>
+									<%
+										if (beanEE.get(i).getOtherSum() == 0) {
+												out.print("");
+										} else {
+												out.print(beanEE.get(i).getOtherSum());
+											}
+									%>
+								</th>
+								<th>
+									<%
+										if (beanEE.get(i).getExpenseEstimateSum() == 0) {
+												out.print("");
+										} else {
+												out.print(beanEE.get(i).getExpenseEstimateSum());
+											}
+									%>
+								</th>
+								<th></th>
+								<th></th>
+								<th></th>
+							</tr>
+							<%}%>
+							</thead>
+							<tfoot>
+							<tr>
+								<th colspan="2"><label style="margin-left: 10%">รวม</label>
+									<label style="margin-left: 10%"><%=beanEs.getUserSumTotal()%></label>
+									<label style="margin-left: 25%">คน</label>
+								</th>
+								<th><label style="text-align: center;">รวมเงิน</label></th>
+								<th>
+									<%
+										if (beanEsBack.getAllowenceSumTotal().equals("0")) {
+											out.print("");
+										} else {
+											out.print(beanEsBack.getAllowenceSumTotal());
+										}
+									%>
+								</th>
+								<th>
+									<%
+										if (beanEsBack.getRentDateSumTotal().equals("0")) {
+											out.print("");
+										} else {
+											out.print(beanEsBack.getRentDateSumTotal());
+										}
+									%>
+								</th>
+								<th>
+									<%
+										if (beanEsBack.getTravelSumTotal().equals("0")) {
+											out.print("");
+										} else {
+											out.print(beanEsBack.getTravelSumTotal());
+										}
+									%>
+								</th>
+								<th>
+									<%
+										if (beanEsBack.getOtherSumTotal().equals("0")) {
+											out.print("");
+										} else {
+											out.print(beanEsBack.getOtherSumTotal());
+										}
+									%>
+								</th>
+								<th>
+									<%
+										if (beanEsBack.getExpenseEstimateSumTotal().equals("0")) {
+											out.print("");
+										} else {
+											out.print(beanEsBack.getExpenseEstimateSumTotal());
+										}
+									%>
+								</th>
+								<th></th>
+								<th></th>
+								<th></th>
+							</tr>
+							</tfoot>
+					</table>
+					<table style="margin-top: 2%">
+						<tr>
+							<td style="width: 50%;text-align: right;" valign="top">
+								จำนวนเงินทั้งสิ้น (ตัวอักษร)
+								<%if (beanEsBack.getExpenseEstimateSumTotal().equals("0")) {out.print(".........................................................................");} 
+								else {out.print(" &nbsp;&nbsp;&nbsp;&nbsp; "+beanEsBack.getExpenseEstimateSumTotalThaiBaht());}%>
+								
+							</td>
+							<td style="width: 50%;text-align:left; ;" valign="top">&nbsp;&nbsp;
+								ลงชื่อ................................ผู้จ่ายเงิน<br>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								( <%=bean.getSex() %><%=bean.getUserFname()%> &nbsp;&nbsp;&nbsp;<%=bean.getUserLname() %> )<br>
+								&nbsp;&nbsp;
+								ตำแหน่ง &nbsp;&nbsp; <%=bean.getPositionName() %><br>
+								&nbsp;&nbsp;
+								วันที่...........................................<br>
+							</td>
+						</tr>
+					</table>
+
+				</div> <!-- end หลักฐานการจ่ายเงินไปราชการ 3 -->
+				
+				
+				<!-- หลักฐานการจ่ายเงินไปราชการ 3 -->
+				<div class="pagePortrait" id="4">
+				<table>
+						<tr>
+							<td style="width: 50%;text-align: center;" valign="top">&nbsp;&nbsp;
+							<strong> ใบแนบขอเบิกค่าเบี้ยเลี้ยงการเดินทางและค่าเช่าที่พักใชการเดินทางไปราชการ </strong>
+							</td>
+						</tr>
+					</table>
+
+					<table id="customers">
+						<thead>
+							<tr>
+								<th rowspan="2">ประเภทค่าใช้าจ่าย<br>เบี้ยเลี้ยง/ที่พัก</th>
+								<th rowspan="2">ชื่อ</th>
+								<th rowspan="2">ตำแหน่ง</th>
+								<th colspan="3">ประเภท</th>
+								<th rowspan="2">วันที่เดินทาง<br>วันที่-วันที่</th>
+								<th rowspan="2">จำนวนวัน</th>
+								<th rowspan="2">อัตราวันละ</th>
+								<th rowspan="2">จำนวนคน</th>
+								<th rowspan="2">รวมเงิน</th>
+								<th rowspan="2">ชื่อโรงแรม</th>
+								<th rowspan="2">เอกสาร<br>ลำดับที่</th>
+							</tr>
+							<tr>
+								<th class="text-center">ก</th>
+								<th class="text-center">ข</th>
+								<th class="text-center">ค</th>
+							</tr>
+							<%
+								for (int i = 0; i < beanEE.size(); i++) {
+							%>
+							<tr>
+								<th style="text-align:center; ; margin-left: 2mm">ค่าเบี้ยงเลี้บง</th>
+								<th style="text-align: left;"><%=beanEE.get(i).getSex()%><%=beanEE.get(i).getUserFname()%>&nbsp;&nbsp;<%=beanEE.get(i).getUserLname()%></th>
+								<th style="text-align: left;"><%=beanEE.get(i).getSubPositionName()%></th>
+								<th><%if (beanEE.get(i).getAllowenceType() == 1) {out.print("&#10003;");} else {out.print("");}%></th>
+								<th><%if (beanEE.get(i).getAllowenceType() == 2) {out.print("&#10003;");} else {out.print("");}%></th>
+								<th><%if (beanEE.get(i).getAllowenceType() == 3) {out.print("&#10003;");} else {out.print("");}%></th>
+								<th></th>
+								<th><%=beanEE.get(i).getAllowencePerday()%></th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+							</tr>
+							<%}%>
+							</thead>
+							<tfoot>
+							<tr>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+							</tr>
+							</tfoot>
+					</table>
+
+				</div> <!-- end หลักฐานการจ่ายเงินไปราชการ 4-->
+
+			</div> <!-- end printableArea -->
 	</div>
 </div>
 </body>

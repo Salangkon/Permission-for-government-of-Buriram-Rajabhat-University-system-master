@@ -71,7 +71,7 @@ public class PermissionDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return String.format("%s %s %s", day, " เดือน  " + Months[month] + " พ.ศ. ", year + 543);
+		return String.format("%s %s %s", day, "  " + Months[month] + " ", year + 543);
 	}
 	
 	// Java Date Thai Format Day/วัน
@@ -173,9 +173,18 @@ public class PermissionDao {
 					bean.setDepartmentName(rs.getString("department_name"));
 					bean.setPositionName(rs.getString("position_name"));
 					bean.setSubPositionName(rs.getString("sub_position_name"));
+					
 					bean.setDateDay(dateThaiDay(rs.getString("date")));
 					bean.setDateMonth(dateThaiMonths(rs.getString("date")));
 					bean.setDateYear(dateThaiYear(rs.getString("date")));
+					
+					bean.setGoDateDay(dateThaiDay(rs.getString("go_date")));
+					bean.setGoDateMonth(dateThaiMonths(rs.getString("go_date")));
+					bean.setGoDateYear(dateThaiYear(rs.getString("go_date")));
+					
+					bean.setBackDateDay(dateThaiDay(rs.getString("back_date")));
+					bean.setBackDateMonth(dateThaiMonths(rs.getString("back_date")));
+					bean.setBackDateYear(dateThaiYear(rs.getString("back_date")));
 					
 					bean.setPurpose(rs.getString("purpose"));
 					bean.setPurpose1(rs.getString("purpose1"));
@@ -188,11 +197,6 @@ public class PermissionDao {
 					bean.setAmphur(rs.getString("AMPHUR_NAME"));
 					bean.setDistrict(rs.getString("DISTRICT_NAME"));
 					bean.setDistrictId(rs.getString("DISTRICT_id"));
-
-//					bean.setGoDate(dateThai(rs.getString("go_date")));
-//					bean.setGoTime(rs.getString("go_time"));
-//					bean.setBackDate(dateThai(rs.getString("back_date")));
-//					bean.setBackTime(rs.getString("back_time"));
 					
 					bean.setGoDate((rs.getString("go_date")));
 					bean.setGoTime(rs.getString("go_time"));
@@ -233,7 +237,7 @@ public class PermissionDao {
 			}
 			return bean;
 		}
-		
+	
 		// fromPermission
 		public PermissionBackBean fromPermissionBack(int userId) throws SQLException {
 			PermissionBackBean bean = new PermissionBackBean();
@@ -256,15 +260,20 @@ public class PermissionDao {
 				while (rs.next()) {
 					bean.setPermissionId(rs.getInt("permission_id"));
 					
-					bean.setDistrictName(rs.getString("DISTRICT_NAME"));
+					bean.setProvinceName(rs.getString("DISTRICT_NAME"));
 					bean.setAmphurName(rs.getString("AMPHUR_NAME"));
-					bean.setProvinceName(rs.getString("PROVINCE_NAME"));
+					bean.setDistrictName(rs.getString("PROVINCE_NAME"));
+
+					bean.setbSaveDateDay(dateThaiDay(rs.getString("b_save_date")));
+					bean.setbSaveDateMonth(dateThaiMonths(rs.getString("b_save_date")));
+					bean.setbSaveDateYear(dateThaiYear(rs.getString("b_save_date")));
+					
 					bean.setbByOrderSave(rs.getString("b_by_order_save"));
 					
-					bean.setbDateAuthorized(rs.getString("b_date_authorized"));
+					bean.setbDateAuthorized(dateThai(rs.getString("b_date_authorized")));
 					bean.setbDateAuthorizedDay(dateThaiDay(rs.getString("b_date_authorized")));
-					bean.setbDateAuthorizedMonth(dateThaiMonths(rs.getString("b_date_authorized")));
-					bean.setbDateAuthorizedYear(dateThaiYear(rs.getString("b_date_authorized")));
+					bean.setbDateAuthorizedDay(dateThaiMonths(rs.getString("b_date_authorized")));
+					bean.setbDateAuthorizedDay(dateThaiYear(rs.getString("b_date_authorized")));
 					
 					bean.setbDisbursedBy(rs.getInt("b_disbursed_by"));
 					bean.setbAllowenceType(rs.getInt("b_allowence_type"));
@@ -272,7 +281,7 @@ public class PermissionDao {
 					bean.setbStartTravel(rs.getInt("b_start_travel"));
 					bean.setbBackTravel(rs.getInt("b_back_travel"));
 					
-					bean.setbHouseNumber(rs.getInt("b_house_number"));
+					bean.setbHouseNumber(rs.getString("b_house_number"));
 					bean.setbRoad(rs.getString("b_road"));
 					
 					bean.setbGoDate(rs.getString("b_go_date"));
@@ -405,7 +414,7 @@ public class PermissionDao {
 			prepared.setInt(6, bean.getbRentDateType());
 			prepared.setInt(7, bean.getbStartTravel());
 			prepared.setInt(8, bean.getbBackTravel());
-			prepared.setInt(9, bean.getbHouseNumber());
+			prepared.setString(9, bean.getbHouseNumber());
 			prepared.setString(10, bean.getbRoad());
 			prepared.setString(11, bean.getDistrict());
 			prepared.setString(12, bean.getbGoDate());
@@ -479,9 +488,68 @@ public class PermissionDao {
 		}
 		return bean;
 	}
+	
+	// update checkID permission By ExpenseEstimateBean
+		public List<ExpenseEstimateBean> findByIdExpenseEstimate(int userId) throws SQLException {
+			List<ExpenseEstimateBean> list = new ArrayList<>();
+			ConnectDB con = new ConnectDB();
+			Connection conn = con.openConnect();
+			PreparedStatement preperd = null;
+			StringBuilder sql = new StringBuilder();
+
+			try {
+				sql.append(" SELECT u.sex, u.user_fname, u.user_lname, sp.sub_position_name, ee.*\r\n" + 
+						"FROM expense_estimate ee\r\n" + 
+						"INNER JOIN personnel_list pl  on pl.personnel_id = ee.personnel_id\r\n" + 
+						"INNER JOIN user u on u.user_id = pl.user_id\r\n" + 
+						"INNER JOIN department d on d.department_code = pl.department_code\r\n" + 
+						"INNER JOIN faculty f on f.faculty_code = d.faculty_code\r\n" + 
+						"INNER JOIN sub_position sp on sp.sub_position_code = pl.sub_position_code\r\n" + 
+						"INNER JOIN position p on p.position_code = sp.position_code WHERE Permission_id = ? ");
+				preperd = conn.prepareStatement(sql.toString());
+				preperd.setInt(1, userId);
+				ResultSet rs = preperd.executeQuery();
+
+				while (rs.next()) {
+					ExpenseEstimateBean bean = new ExpenseEstimateBean();
+					// ExpenseEstimate
+					bean.setPermissionId(rs.getInt("permission_id"));
+					bean.setPersonnelId(rs.getInt("personnel_id"));
+					bean.setSex(rs.getString("sex"));
+					bean.setUserFname(rs.getString("user_fname"));
+					bean.setUserLname(rs.getString("user_lname"));
+					bean.setSubPositionName(rs.getString("sub_position_name"));
+					bean.setAllowenceType(rs.getInt("allowence_type"));
+					
+					bean.setAllowence(rs.getInt("allowence"));
+					bean.setAllowencePerday(rs.getInt("allowence_perday"));
+					bean.setAllowenceSum(rs.getInt("allowence_sum"));
+					
+					bean.setRentDate(rs.getInt("rent_date"));
+					bean.setRentDatePerday(rs.getInt("rent_date_perday"));
+					bean.setRentDateSum(rs.getInt("rent_date_sum"));
+					
+					bean.setTravelSum(rs.getInt("travel_sum"));
+					
+					bean.setOtherSum(rs.getInt("other_sum"));
+
+					bean.setExpenseEstimateSum(rs.getInt("expense_estimate_sum"));
+
+					list.add(bean);
+				}
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			} finally {
+				if (con != null) {
+					conn.close();
+				}
+			}
+			return list;
+		}
 		
 	// update checkID permission By ExpenseEstimateBean
-	public List<ExpenseEstimateBean> findByIdExpenseEstimate(int userId) throws SQLException {
+	public List<ExpenseEstimateBean> findByIdExpenseEstimateBack(int userId) throws SQLException {
 		List<ExpenseEstimateBean> list = new ArrayList<>();
 		ConnectDB con = new ConnectDB();
 		Connection conn = con.openConnect();
@@ -490,7 +558,7 @@ public class PermissionDao {
 
 		try {
 			sql.append(" SELECT u.sex, u.user_fname, u.user_lname, sp.sub_position_name, ee.*\r\n" + 
-					"FROM expense_estimate ee\r\n" + 
+					"FROM expense_estimate_back ee\r\n" + 
 					"INNER JOIN personnel_list pl  on pl.personnel_id = ee.personnel_id\r\n" + 
 					"INNER JOIN user u on u.user_id = pl.user_id\r\n" + 
 					"INNER JOIN department d on d.department_code = pl.department_code\r\n" + 
@@ -510,21 +578,21 @@ public class PermissionDao {
 				bean.setUserFname(rs.getString("user_fname"));
 				bean.setUserLname(rs.getString("user_lname"));
 				bean.setSubPositionName(rs.getString("sub_position_name"));
-				bean.setAllowenceType(rs.getInt("allowence_type"));
+				bean.setAllowenceType(rs.getInt("b_allowence_type"));
 				
-				bean.setAllowence(rs.getInt("allowence"));
-				bean.setAllowencePerday(rs.getInt("allowence_perday"));
-				bean.setAllowenceSum(rs.getInt("allowence_sum"));
+				bean.setAllowence(rs.getInt("b_allowence"));
+				bean.setAllowencePerday(rs.getInt("b_allowence_perday"));
+				bean.setAllowenceSum(rs.getInt("b_allowence_sum"));
 				
-				bean.setRentDate(rs.getInt("rent_date"));
-				bean.setRentDatePerday(rs.getInt("rent_date_perday"));
-				bean.setRentDateSum(rs.getInt("rent_date_sum"));
+				bean.setRentDate(rs.getInt("b_rent_date"));
+				bean.setRentDatePerday(rs.getInt("b_rent_date_perday"));
+				bean.setRentDateSum(rs.getInt("b_rent_date_sum"));
 				
-				bean.setTravelSum(rs.getInt("travel_sum"));
+				bean.setTravelSum(rs.getInt("b_travel_sum"));
 				
-				bean.setOtherSum(rs.getInt("other_sum"));
+				bean.setOtherSum(rs.getInt("b_other_sum"));
 
-				bean.setExpenseEstimateSum(rs.getInt("expense_estimate_sum"));
+				bean.setExpenseEstimateSum(rs.getInt("b_expense_estimate_sum"));
 
 				list.add(bean);
 			}
@@ -941,7 +1009,7 @@ public class PermissionDao {
 		StringBuilder sql = new StringBuilder();
 
 		try {
-			sql.append(" SELECT dt.DISTRICT_NAME, ap.AMPHUR_NAME, pv.PROVINCE_NAME, u.user_fname, u.user_lname, u.date, f.faculty_name, d.department_name , p.position_name,sp.sub_position_name , permission.*\r\n" + 
+			sql.append(" SELECT dt.DISTRICT_NAME, ap.AMPHUR_NAME, pv.PROVINCE_NAME, u.sex, u.user_fname, u.user_lname, u.date, f.faculty_name, d.department_name , p.position_name,sp.sub_position_name , permission.*\r\n" + 
 					"FROM Permission \r\n" + 
 					"INNER JOIN personnel_list pl ON pl.personnel_id =  permission.personnel_id  \r\n" + 
 					"INNER JOIN user u on u.user_id = pl.user_id\r\n" + 
@@ -965,6 +1033,7 @@ public class PermissionDao {
 				
 				bean.setUserFname(rs.getString("user_fname"));
 				bean.setUserLname(rs.getString("user_lname"));
+				bean.setSex(rs.getString("sex"));
 
 				bean.setFacultyName(rs.getString("faculty_name"));
 				bean.setDepartmentName(rs.getString("department_name"));

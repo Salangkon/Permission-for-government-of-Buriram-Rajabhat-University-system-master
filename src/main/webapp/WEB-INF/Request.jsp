@@ -41,7 +41,7 @@
 <form class="modal-content animate" action="" style="max-width:95%;margin-top: 5%;margin-left: 3%" name="welcome" action="#" method="post">
  <input type="hidden" name="permissionId" id="permissionId">
 	<div class="w3-container w3-blue" align="center">
-    	<h2><i class="fa fa-address-card-o w3-margin-right"></i> เพิ่มบุคคลากร  </h2>
+    	<h2><i class="fa fa-address-card-o w3-margin-right"></i> คำขอไปปราชการ  </h2>
     </div>
     <div style="overflow: auto;">
     <div class="w3-container w3-white w3-padding-16">

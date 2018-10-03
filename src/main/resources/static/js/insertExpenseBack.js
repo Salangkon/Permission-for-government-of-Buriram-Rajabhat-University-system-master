@@ -199,7 +199,7 @@ $(document).ready(function() {
 						}else {
 							return '<input class="form-control number1" style="width: 15mm;height: 7mm" type="text" name="allowence" id="allowence' 
 							+ index.row
-							+ '" value="'+row.allowence+'"/>';
+							+ '" value=""/>';
 						}
 					}	
 				},
@@ -208,7 +208,7 @@ $(document).ready(function() {
 					"sWidth" : "50px" ,
 					"mRender" : function(data,
 						type, row, index) {	
-						var data1 = $('#bDayTotal').val();
+						var data1 = $('#bDaySum').val();
 						if (row.allowencePerday != null) {
 							return '<input class="form-control number2" style="width: 16mm;height: 7mm" type="text" OnKeyPress="return chkNumber(this)" name="allowencePerday" id="allowencePerday'
 							+ index.row

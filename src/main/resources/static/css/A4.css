@@ -61,8 +61,9 @@ label{
     background: white;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
+
 .pagePortrait {
-     width: 276mm;
+    width: 276mm;
   	height: 190mm;
     padding: 1cm;
     margin: 1cm auto;
@@ -71,10 +72,16 @@ label{
     background: white;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
-@page {
-    size: A4;
-    margin: 0;
-}
+
+/* @page { */
+/*     size: A4; */
+/*     margin: 0; */
+/* } */
+
+@page land{ size:A4 landscape;}
+@page port {size: portrait;}
+.portrait {page: port;}
+.landscape {page: land;}
 
 @media print {
     .page {

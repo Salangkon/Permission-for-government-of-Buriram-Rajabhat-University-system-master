@@ -117,7 +117,7 @@ public class FormController {
 			beanEs = perDao.findByEs(Integer.parseInt(values));
 			beanEsBack = perDao.findByEsBack(Integer.parseInt(values));
 			beanTEFC = perDao.findByIdTEFC(Integer.parseInt(values));
-			beanEE = perDao.findByIdExpenseEstimate(Integer.parseInt(values));
+			beanEE = perDao.findByIdExpenseEstimateBack(Integer.parseInt(values));
 			beanTr = perDao.findByIdTravel(Integer.parseInt(values));
 			beanTr2 = perDao.findByIdTravel2();
 
@@ -164,37 +164,37 @@ public class FormController {
 	}
 
 	// update permission
-	@RequestMapping(path = "/permissionBack", method = RequestMethod.POST)
-	public String gotoPermissionUpdate(int permissionId, HttpServletRequest request, Model model)
-			throws NumberFormatException, SQLException {
-		String authen = "";
-		
-		PermissionBean bean = new PermissionBean();
-		ExpenseSumaryBean beanEs = new ExpenseSumaryBean();
-		TestAjex id = new TestAjex();
-		
-		try {
-			bean = perDao.fromPermission(permissionId);
-			beanEs = perDao.findByEs(permissionId);
-			id=loginDao.PerBackDisabled(Integer.toString(permissionId));
+		@RequestMapping(path = "/permissionBack", method = RequestMethod.POST)
+		public String gotoPermissionUpdate(int permissionId, HttpServletRequest request, Model model)
+				throws NumberFormatException, SQLException {
+			String authen = "";
 			
-			permissionId = bean.getPermissionId();
-			if (id.getPerIdBack() == null) {
-				model.addAttribute("messesUpdate", "");
-				request.setAttribute("perBean", bean);
-				request.setAttribute("beanEs", beanEs);
-				authen = "PermissionBack";
-			}else {
-				authen = "welcomeUser";
+			PermissionBean bean = new PermissionBean();
+			ExpenseSumaryBean beanEs = new ExpenseSumaryBean();
+			TestAjex id = new TestAjex();
+			
+			try {
+				bean = perDao.fromPermission(permissionId);
+				beanEs = perDao.findByEs(permissionId);
+				id=loginDao.PerBackDisabled(Integer.toString(permissionId));
+				
+				permissionId = bean.getPermissionId();
+				if (id.getPerIdBack() == null) {
+					model.addAttribute("messesUpdate", "");
+					request.setAttribute("perBean", bean);
+					request.setAttribute("beanEs", beanEs);
+					authen = "PermissionBack";
+				}else {
+					authen = "welcomeUser";
+				}
+						
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
 			}
-					
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
+			request.setAttribute("perBean", bean);
+			return authen;
 		}
-		request.setAttribute("perBean", bean);
-		return authen;
-	}
 
 //	// update permission
 //	@RequestMapping(path = "/gotoPerUpdate/{values}", method = RequestMethod.GET)

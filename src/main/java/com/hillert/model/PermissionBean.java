@@ -17,6 +17,7 @@ public class PermissionBean {
 	private String dateYear;
 	private String sex;
 	
+	
 	private String facultyName;
 	private String departmentName;
 	private String positionName;
@@ -43,8 +44,14 @@ public class PermissionBean {
 	private String districtName;
 	
 	private String goDate;
+	private String goDateDay;
+	private String goDateMonth;
+	private String goDateYear;
 	private String goTime;
 	private String backDate;
+	private String backDateDay;
+	private String backDateMonth;
+	private String backDateYear;
 	private String backTime;
 	
 	private String budget;
@@ -68,6 +75,43 @@ public class PermissionBean {
 
 	private Timestamp createDate;
 	
+	
+	public String getGoDateDay() {
+		return goDateDay;
+	}
+	public void setGoDateDay(String goDateDay) {
+		this.goDateDay = goDateDay;
+	}
+	public String getGoDateMonth() {
+		return goDateMonth;
+	}
+	public void setGoDateMonth(String goDateMonth) {
+		this.goDateMonth = goDateMonth;
+	}
+	public String getGoDateYear() {
+		return goDateYear;
+	}
+	public void setGoDateYear(String goDateYear) {
+		this.goDateYear = goDateYear;
+	}
+	public String getBackDateDay() {
+		return backDateDay;
+	}
+	public void setBackDateDay(String backDateDay) {
+		this.backDateDay = backDateDay;
+	}
+	public String getBackDateMonth() {
+		return backDateMonth;
+	}
+	public void setBackDateMonth(String backDateMonth) {
+		this.backDateMonth = backDateMonth;
+	}
+	public String getBackDateYear() {
+		return backDateYear;
+	}
+	public void setBackDateYear(String backDateYear) {
+		this.backDateYear = backDateYear;
+	}
 	public String getPermissionStatus() {
 		return permissionStatus;
 	}
