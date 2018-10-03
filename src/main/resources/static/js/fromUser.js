@@ -2,6 +2,7 @@ $(document).ready(function() {
 	
 		var table = $('#userTable').DataTable({
 					responsive: true,
+					"order": [[ 0, 'desc' ]],
 					"lengthChange": false,
 					"sAjaxSource" : "/tablePermissionUser",
 					"sAjaxDataProp" : "",

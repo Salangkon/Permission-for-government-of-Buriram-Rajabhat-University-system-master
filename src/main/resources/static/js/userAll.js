@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	
 		var table = $('#userTable').DataTable({
-					"order": [[ 0, 'asc' ]],
+					"order": [[ 0, 'desc' ]],
 					"sAjaxSource" : "/user",
 					"iDisplayLength": 50,
 					"sAjaxDataProp" : "",

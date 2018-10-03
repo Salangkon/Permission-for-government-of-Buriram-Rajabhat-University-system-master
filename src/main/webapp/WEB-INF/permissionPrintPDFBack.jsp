@@ -162,11 +162,18 @@
 						<th style="width: 5mm; text-align: left;">สังกัด</th>
 						<th style="width: 35mm; text-align: center;"><%=bean.getFacultyName() %></th>
 						<th style="width: 15mm; text-align: left;">พร้อมด้วย</th>
-						<th style="width: 60mm; text-align: center;"></th>
+						<th style="width: 60mm; text-align: center;">
+						</th>
 					</tr>
 					<tr>
 						<th colspan="5" style="height: 15mm; text-align: left;"valign="top">
-
+							<%
+							for (int i = 0; i < beanEE.size(); i++) {
+							%>
+							<%=beanEE.get(i).getSex()%><%=beanEE.get(i).getUserFname()%>&nbsp;&nbsp;<%=beanEE.get(i).getUserLname()%> ,&nbsp;&nbsp;
+							<%
+								}
+							%>
 						</th>
 					</tr>
 					<tr>
@@ -282,7 +289,7 @@
 						<th style="width: 40mm; text-align: left;">ค่าใช่จ่ายอื่นๆ</th>
 						<th style="width: 17mm; text-align: left;"></th>
 						<th style="width: 8mm; text-align: left;">รวม</th>
-						<th style="width: 12mm; text-align: center;"><%=beanEsBack.getOtherSumTotal() %></th>
+						<th style="width: 12mm; text-align: center;"><%if (beanEsBack.getOtherSumTotal().equals("0")) {out.print("");} else {out.print(beanEsBack.getOtherSumTotal());}%></th>
 						<th style="width: 2mm">บาท</th>
 					</tr>
 					<tr>
@@ -382,7 +389,7 @@
 					<table>
 						<tr>
 							<td style="max-width: 30mm; text-align: center;">
-								<%if (beanEsBack.getExpenseEstimateSumTotal().equals("0")) {out.print("(...................................................................)");} 
+								<%if (beanEsBack.getExpenseEstimateSumTotal().equals("null")) {out.print("(...................................................................)");} 
 								else {out.print("( "+beanEsBack.getExpenseEstimateSumTotalThaiBaht()+" ) ");}%>
 							</td>
 							<td style="max-width: 60mm; text-align: left;">ไว้เป็นการถูกต้องแล้ว</td>
@@ -599,7 +606,6 @@
 							</td>
 							<td style="width: 50%;text-align:left; ;" valign="top">&nbsp;&nbsp;
 								ลงชื่อ................................ผู้จ่ายเงิน<br>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								( <%=bean.getSex() %><%=bean.getUserFname()%> &nbsp;&nbsp;&nbsp;<%=bean.getUserLname() %> )<br>
 								&nbsp;&nbsp;
 								ตำแหน่ง &nbsp;&nbsp; <%=bean.getPositionName() %><br>
@@ -654,9 +660,28 @@
 								<th><%if (beanEE.get(i).getAllowenceType() == 3) {out.print("&#10003;");} else {out.print("");}%></th>
 								<th></th>
 								<th><%=beanEE.get(i).getAllowencePerday()%></th>
+								<th><%=beanEE.get(i).getAllowence()%></th>
+								<th>1</th>
+								<th><%=beanEE.get(i).getAllowenceSum()%></th>
 								<th></th>
 								<th></th>
+							</tr>
+							<%}%>
+								<%
+								for (int i = 0; i < beanEE.size(); i++) {
+							%>
+							<tr>
+								<th style="text-align:center; ; margin-left: 2mm">ที่พัก</th>
+								<th style="text-align: left;"><%=beanEE.get(i).getSex()%><%=beanEE.get(i).getUserFname()%>&nbsp;&nbsp;<%=beanEE.get(i).getUserLname()%></th>
+								<th style="text-align: left;"><%=beanEE.get(i).getSubPositionName()%></th>
+								<th><%if (beanEE.get(i).getAllowenceType() == 1) {out.print("&#10003;");} else {out.print("");}%></th>
+								<th><%if (beanEE.get(i).getAllowenceType() == 2) {out.print("&#10003;");} else {out.print("");}%></th>
+								<th><%if (beanEE.get(i).getAllowenceType() == 3) {out.print("&#10003;");} else {out.print("");}%></th>
 								<th></th>
+								<th><%=beanEE.get(i).getRentDatePerday()%></th>
+								<th><%=beanEE.get(i).getRentDate()%></th>
+								<th>1</th>
+								<th><%=beanEE.get(i).getRentDateSum()%></th>
 								<th></th>
 								<th></th>
 							</tr>

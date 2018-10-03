@@ -118,7 +118,7 @@
 	<div></div>
 	<label>วันที่/บันทึก </label><input class="form-control" type="date" id="bSaveDate">
 	<hr>
-	<label>ตามคำสั่ง/บันทึกที่ </label><input class="form-control" type="text" id="bByOrderSave">
+	<label>ตามคำสั่ง/บันทึกที่ </label><input maxlength="10" class="form-control" type="text" id="bByOrderSave">
 	<label>ลงวันที่ </label><input class="form-control" type="date" id="bDateAuthorized"><hr>
 	<table>
 		<tr>
@@ -160,8 +160,8 @@
    		<input name="bStartTravel" id="bStartTravel1"  type="radio" value="1" style="margin-left: 4%;" > <label> บ้านพัก</label>
         <input name="bStartTravel" id="bStartTravel2"  type="radio" value="2" style="margin-left: 4%" > <label> สำนักงาน</label> 
     </div>
-    <label>เลขที่</label><input class="form-control" type="text" id="bHouseNumber">
-    <label>ถนน </label><input class="form-control" type="text" id="bRoad">
+    <label>เลขที่</label><input class="form-control" type="text" id="bHouseNumber" maxlength="6">
+    <label>ถนน </label><input class="form-control" type="text" id="bRoad" maxlength="12">
 	<!-- จังหวัด province -->
 	<div class="form-group">
 	<label for="exampleFormControlSelect1">จังหวัด</label> 

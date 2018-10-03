@@ -84,10 +84,10 @@
 				<a class="w3-button" href="#">เลือกหน้า<i
 					class="fa fa-caret-down"></i></a>
 				<div class="w3-dropdown-content w3-bar-block w3-card-4">
-					<a class="w3-bar-item w3-button" href="#1"> บันทึกขออนุญาต </a> <a
-						class="w3-bar-item w3-button" href="#2"> ประมาณการรายจ่าย </a> <a
-						class="w3-bar-item w3-button" href="#3"> การพิจารณาไปราชการ </a> <a
-						class="w3-bar-item w3-button" href="#4"> ประมาณการรายจ่าย </a>
+					<a class="w3-bar-item w3-button" href="#1"> บันทึกขออนุญาต </a> 
+					<a class="w3-bar-item w3-button" href="#2"> การพิจารณาไปราชการ </a> 
+					<a class="w3-bar-item w3-button" href="#3"> ประมาณการรายจ่าย </a> 
+					<a class="w3-bar-item w3-button" href="#4"> รายละเอียดรายจ่าย </a>
 				</div>
 			</div>
 			<a class="w3-bar-item w3-button" href="javascript:void(0)"
@@ -333,12 +333,88 @@
 
 				</div>
 
-
-
-
-
-				<!--ประมาณการรายจ่ายไปราชการ -->
+				<!-- การพิจารณา -->
 				<div class="page" id="2">
+
+					<label><u>การพิจารณา</u>
+						ผ่านผู้บังคับบัญชาในสายงานที่ขอไปราชการตามลำดับ</label> <br>
+
+					<div style="margin-bottom: 6%">
+						<label style="margin-right: 3%">1. ( &nbsp; ) หัวหน้าสาขาวิชา
+						</label> <label style="margin-left: 3%; margin-right: 3%"> ( &nbsp; ) หัวหน้างาน
+						</label> <label style="margin-left: 3%; margin-right: 3%"> ( &nbsp; ) หัวหน้าฝ่าย
+							....................... </label> <br> <label
+							style="margin-left: 3%; margin-right: 3%"> เห็นด้วย </label> <label
+							style="margin-left: 3%; margin-right: 3%">( &nbsp; ) อนุญาต </label> <label style="margin-left: 5%;">
+							โดยใช้งบ........รหัส.........จำนวน......บาท </label> <br> <label
+							style="margin-left: 18%; margin-right: 3%">( &nbsp; ) ไม่อนุญาต </label> <label
+							style="margin-left: 3%;">เนื่องจาก..............................
+						</label> <br>
+						<div align="center" style="margin-top: 3%">
+							<label>ลงชื่อ......................</label> <br> <label>(...........................)</label>
+							<br> <label>......../......../........</label>
+						</div>
+					</div>
+
+					<div style="margin-bottom: 6%">
+						<label>2. <input name="v" type="checkbox">
+							หัวหน้าภาควิชา
+						</label> <label>( &nbsp; )
+							ผู้อำนวยการกอง </label> <label>( &nbsp; )
+							หัวหน้าสำนักงานเลชานุการคณะ / สำนัก / สถาบัน </label> <br> <label
+							style="margin-left: 3%; margin-right: 3%"> เห็นด้วย </label> <label
+							style="margin-left: 3%; margin-right: 3%">( &nbsp; ) อนุญาต </label> <label style="margin-left: 5%;">
+							โดยใช้งบ........รหัส.........จำนวน......บาท </label> <br> <label
+							style="margin-left: 18%; margin-right: 3%">( &nbsp; ) ไม่อนุญาต </label> <label
+							style="margin-left: 3%;">เนื่องจาก..............................
+						</label> <br>
+						<div align="center" style="margin-top: 5%">
+							<label>ลงชื่อ......................</label> <br> <label>(...........................)</label>
+							<br> <label>......../......../........</label>
+						</div>
+					</div>
+
+					<div style="margin-bottom: 6%">
+						<label>3. การสั่งการ </label><br> <label
+							style="margin-left: 2%;">( &nbsp; )
+							อนุญาต <u>มอบงานธุรการ</u>จัดทำสั่งโดย </label> <label>( &nbsp; ) เบิกค่าใช้จ่ายตามประมาณการ </label> <label>( &nbsp; ) ไม่เบิกค่าใช้จ่าย </label> <br> <label
+							style="margin-left: 2%;">( &nbsp; )
+							ไม่อนุญาต </label> <br> <label style="margin-left: 2%;">( &nbsp; ) นำเสนอรองอธิการบดี (เกิน
+							30,000)</label> <br>
+						<div style="margin-left: 20%; margin-top: 4%">
+							<label>......................คณะบดี / ผอ.สำนัก /
+								ผอ.สถาบัน ปฏิบัติราชการแทนอธิการบดี</label> <br> <label>...../....../........</label>
+						</div>
+						<div style="margin-left: 20%; margin-top: 4%; margin-bottom: 6%">
+							<label>......................ผู้ช่วยอธิการบดีฝ่าย....................ปฏิบัติราชการแทนอธิการบดี</label>
+							<br> <label>...../....../........</label>
+						</div>
+						<label style="margin-left: 2%;">( &nbsp; ) อนุญาต <u>มอบงานธุรการ</u>จัดทำสั่งโดย </label>
+						<label>( &nbsp; )
+							เบิกค่าใช้จ่ายตามประมาณการ </label> <label>( &nbsp; ) ไม่เบิกค่าใช้จ่าย</label> <br> <label
+							style="margin-left: 2%;">( &nbsp; )
+							ไม่อนุญาต </label> <br> <label style="margin-left: 2%;">( &nbsp; ) นำเสนอรองอธิการบดี (เกิน
+							50,000) </label> <br>
+						<div style="margin-left: 20%; margin-top: 4%; margin-bottom: 6%">
+							<label>......................รองอธิการบดีฝ่าย....................ปฏิบัติราชการแทนอธิการบดี</label>
+							<br> <label>...../....../........</label>
+						</div>
+						<label style="margin-left: 2%;">( &nbsp; ) อนุญาต <u>มอบงานธุรการ</u>จัดทำสั่งโดย </label>
+						<label>( &nbsp; )
+							เบิกค่าใช้จ่ายตามประมาณการ </label> <label>( &nbsp; ) ไม่เบิกค่าใช้จ่าย</label> <br> <label
+							style="margin-left: 2%;">( &nbsp; )
+							ไม่อนุญาต </label> <br>
+						<div style="margin-left: 20%; margin-top: 4%; margin-bottom: 6%">
+							<label>......................อธิการบดี /
+								รองอธิการบดีฝ่ายรักษาราชการแทนอธิการบดี</label> <br> <label>...../....../........</label>
+						</div>
+
+					</div>
+				</div> <!-- end2 -->
+				
+				
+				<!--ประมาณการรายจ่ายไปราชการ -->
+				<div class="page" id="3">
 
 					<label>&nbsp;&nbsp; ประมาณการรายจ่ายไปราชการ
 						(ให้แนบพร้อมกับใบขออนุญาตกรณีขอเบิกค่าใช้จ่าย)</label>
@@ -355,12 +431,10 @@
 						</tr>
 						<tr>
 							<th colspan="4" style="text-align: left">&nbsp;&nbsp; 
-							<input type="checkbox" value="ขออนุญาต"
-								<%if (bean.getPurpose().equals("ขออนุญาต")) {out.print("checked='checked' disabled");}%>disabled> ขออนุญาต &nbsp;&nbsp; 
-							<input type="checkbox"value="ได้รับคำสั่ง"
-								<%if (bean.getPurpose1().equals("ได้รับคำสั่ง")) {out.print("checked='checked' disabled");}%>disabled> ได้รับคำสั่ง &nbsp;&nbsp; 
-							<input type="checkbox" value="ไปราชการ"
-								<%if (bean.getPurpose2().equals("ไปราชการ")) {out.print("checked='checked' disabled");}%>disabled>ไปราชการ &nbsp;&nbsp; เรื่อง &nbsp;&nbsp; <%=bean.getTopics()%>
+								( <%if (bean.getPurpose().equals("ขออนุญาต")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) ขออนุญาต &nbsp;&nbsp; 
+								( <%if (bean.getPurpose1().equals("ได้รับคำสั่ง")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) ได้รับคำสั่ง &nbsp;&nbsp; 
+								( <%if (bean.getPurpose2().equals("ไปราชการ")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) ไปราชการ &nbsp;&nbsp; 
+								เรื่อง &nbsp;&nbsp; <%=bean.getTopics()%>
 							</th>
 						</tr>
 					</table>
@@ -394,41 +468,35 @@
 						</tr>
 						<tr>
 							<th style="text-align: left; max-width: 15mm;">&nbsp;&nbsp;&nbsp; 
-								<input name="v" type="checkbox" value="งบประมาณแผ่นดิน"
-								<%if (bean.getBudgetBy().equals("งบประมาณแผ่นดิน")) {out.print("checked='checked' disabled");}%>disabled> งบแผ่นดิน โครงการ <%=bean.getBudgetProject()%>
+							( <%if (bean.getBudgetBy().equals("งบประมาณแผ่นดิน")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) งบแผ่นดิน โครงการ <%=bean.getBudgetProject()%>
 							</th>
 							<th style="text-align: left; max-width: 15mm;">รหัสโครงการ&nbsp;&nbsp; 
 								<%if (bean.getBudgetBy().equals("งบประมาณแผ่นดิน")) {out.print(bean.getBudgetPass());}%>
 							</th>
 						</tr>
 						<tr>
-							<th style="text-align: left; max-width: 15mm;">&nbsp;&nbsp;&nbsp; 
-								<input name="v" type="checkbox" value="งบรายได้"
-								<%if (bean.getBudgetBy().equals("งบรายได้")) {out.print("checked='checked' disabled");}%>disabled> งบเงินรายได้ โครงการ <%=bean.getBudgetProject()%></th>
+							<th style="text-align: left; max-width: 15mm;">&nbsp;&nbsp;&nbsp;
+							( <%if (bean.getBudgetBy().equals("งบรายได้")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) งบเงินรายได้ โครงการ <%=bean.getBudgetProject()%></th>
 							<th style="text-align: left; max-width: 15mm;">รหัสโครงการ&nbsp;&nbsp; 
 								<%if (bean.getBudgetBy().equals("งบรายได้")) {out.print(bean.getBudgetPass());}%>
 							</th>
 						</tr>
 						<tr>
 							<th colspan="2" style="max-width: 100%; text-align: left">&nbsp;&nbsp;&nbsp; 
-								<input name="v" type="checkbox" value="งบอื่นๆ"
-								<%if (bean.getBudgetBy().equals("งบอื่นๆ")) {out.print("checked='checked' disabled");}%>disabled> งบอื่นๆ &nbsp;&nbsp;
+							( <%if (bean.getBudgetBy().equals("งบรายได้")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) งบอื่นๆ &nbsp;&nbsp;
 							</th>
 						</tr>
 						<tr>
 							<th colspan="2" style="max-width: 100%; text-align: left">&nbsp;&nbsp;โดยขอเบิกค่าใช้จาย 
-								<input name="v" type="checkbox" value="ตามสิทธิ์"
-								<%if (bean.getBudgetExpenses().equals("ตามสิทธิ์")) {out.print("checked='checked' disabled");}%>disabled> ตามสิทธื์ &nbsp;&nbsp; 
-								<input name="v" type="checkbox" value="เหมาจ่าย"
-								<%if (bean.getBudgetExpenses().equals("เหมาจ่าย")) {out.print("checked='checked' disabled");}%>disabled> เหมาจ่าย &nbsp;&nbsp; 
+								( <%if (bean.getBudgetExpenses().equals("ตามสิทธิ์")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) ตามสิทธื์ &nbsp;&nbsp; 
+								( <%if (bean.getBudgetExpenses().equals("เหมาจ่าย")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) เหมาจ่าย &nbsp;&nbsp; 
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  เป็นจำนวนเงิน &nbsp;&nbsp;&nbsp; <%=beanEs.getExpenseEstimateSumTotal()%>&nbsp;&nbsp;&nbsp; บาท</th>
 						</tr>
 					</table>
 					<br>
 					<table style="width: 100%;">
 						<tr>
-							<th style="text-align: left;">3.
-								ประมาณการรายจ่าย(กรณีไปราชการหลายคนโปรดกรอกราชละเอียดด้านหลัง)</th>
+							<th style="text-align: left;">3. ประมาณการรายจ่าย(กรณีไปราชการหลายคนโปรดกรอกราชละเอียดด้านหลัง)</th>
 						</tr>
 					</table>
 
@@ -677,90 +745,8 @@
 							</th>
 						</tr>
 					</table>
-				</div>
-
-
-
-
-
-				<!-- การพิจารณา -->
-				<div class="page" id="3">
-
-					<label><u>การพิจารณา</u>
-						ผ่านผู้บังคับบัญชาในสายงานที่ขอไปราชการตามลำดับ</label> <br>
-
-					<div style="margin-bottom: 6%">
-						<label style="margin-right: 3%">1. ( &nbsp; ) หัวหน้าสาขาวิชา
-						</label> <label style="margin-left: 3%; margin-right: 3%"> ( &nbsp; ) หัวหน้างาน
-						</label> <label style="margin-left: 3%; margin-right: 3%"> ( &nbsp; ) หัวหน้าฝ่าย
-							....................... </label> <br> <label
-							style="margin-left: 3%; margin-right: 3%"> เห็นด้วย </label> <label
-							style="margin-left: 3%; margin-right: 3%">( &nbsp; ) อนุญาต </label> <label style="margin-left: 5%;">
-							โดยใช้งบ........รหัส.........จำนวน......บาท </label> <br> <label
-							style="margin-left: 18%; margin-right: 3%">( &nbsp; ) ไม่อนุญาต </label> <label
-							style="margin-left: 3%;">เนื่องจาก..............................
-						</label> <br>
-						<div align="center" style="margin-top: 3%">
-							<label>ลงชื่อ......................</label> <br> <label>(...........................)</label>
-							<br> <label>......../......../........</label>
-						</div>
-					</div>
-
-					<div style="margin-bottom: 6%">
-						<label>2. <input name="v" type="checkbox">
-							หัวหน้าภาควิชา
-						</label> <label>( &nbsp; )
-							ผู้อำนวยการกอง </label> <label>( &nbsp; )
-							หัวหน้าสำนักงานเลชานุการคณะ / สำนัก / สถาบัน </label> <br> <label
-							style="margin-left: 3%; margin-right: 3%"> เห็นด้วย </label> <label
-							style="margin-left: 3%; margin-right: 3%">( &nbsp; ) อนุญาต </label> <label style="margin-left: 5%;">
-							โดยใช้งบ........รหัส.........จำนวน......บาท </label> <br> <label
-							style="margin-left: 18%; margin-right: 3%">( &nbsp; ) ไม่อนุญาต </label> <label
-							style="margin-left: 3%;">เนื่องจาก..............................
-						</label> <br>
-						<div align="center" style="margin-top: 5%">
-							<label>ลงชื่อ......................</label> <br> <label>(...........................)</label>
-							<br> <label>......../......../........</label>
-						</div>
-					</div>
-
-					<div style="margin-bottom: 6%">
-						<label>3. การสั่งการ </label><br> <label
-							style="margin-left: 2%;">( &nbsp; )
-							อนุญาต <u>มอบงานธุรการ</u>จัดทำสั่งโดย </label> <label>( &nbsp; ) เบิกค่าใช้จ่ายตามประมาณการ </label> <label>( &nbsp; ) ไม่เบิกค่าใช้จ่าย </label> <br> <label
-							style="margin-left: 2%;">( &nbsp; )
-							ไม่อนุญาต </label> <br> <label style="margin-left: 2%;">( &nbsp; ) นำเสนอรองอธิการบดี (เกิน
-							30,000)</label> <br>
-						<div style="margin-left: 20%; margin-top: 4%">
-							<label>......................คณะบดี / ผอ.สำนัก /
-								ผอ.สถาบัน ปฏิบัติราชการแทนอธิการบดี</label> <br> <label>...../....../........</label>
-						</div>
-						<div style="margin-left: 20%; margin-top: 4%; margin-bottom: 6%">
-							<label>......................ผู้ช่วยอธิการบดีฝ่าย....................ปฏิบัติราชการแทนอธิการบดี</label>
-							<br> <label>...../....../........</label>
-						</div>
-						<label style="margin-left: 2%;">( &nbsp; ) อนุญาต <u>มอบงานธุรการ</u>จัดทำสั่งโดย </label>
-						<label>( &nbsp; )
-							เบิกค่าใช้จ่ายตามประมาณการ </label> <label>( &nbsp; ) ไม่เบิกค่าใช้จ่าย</label> <br> <label
-							style="margin-left: 2%;">( &nbsp; )
-							ไม่อนุญาต </label> <br> <label style="margin-left: 2%;">( &nbsp; ) นำเสนอรองอธิการบดี (เกิน
-							50,000) </label> <br>
-						<div style="margin-left: 20%; margin-top: 4%; margin-bottom: 6%">
-							<label>......................รองอธิการบดีฝ่าย....................ปฏิบัติราชการแทนอธิการบดี</label>
-							<br> <label>...../....../........</label>
-						</div>
-						<label style="margin-left: 2%;">( &nbsp; ) อนุญาต <u>มอบงานธุรการ</u>จัดทำสั่งโดย </label>
-						<label>( &nbsp; )
-							เบิกค่าใช้จ่ายตามประมาณการ </label> <label>( &nbsp; ) ไม่เบิกค่าใช้จ่าย</label> <br> <label
-							style="margin-left: 2%;">( &nbsp; )
-							ไม่อนุญาต </label> <br>
-						<div style="margin-left: 20%; margin-top: 4%; margin-bottom: 6%">
-							<label>......................อธิการบดี /
-								รองอธิการบดีฝ่ายรักษาราชการแทนอธิการบดี</label> <br> <label>...../....../........</label>
-						</div>
-
-					</div>
-				</div>
+				</div> <!-- 3 -->
+				
 
 				<!-- 	สรูป ใบสุดท้าย -->
 				<div class="page" id="4">

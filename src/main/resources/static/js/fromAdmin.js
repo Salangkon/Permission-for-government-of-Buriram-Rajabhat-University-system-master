@@ -2,6 +2,7 @@ $(document).ready(function() {
 	
 		var table = $('#userTable').DataTable({
 					"sAjaxSource" : "/permission",
+					"order": [[ 0, 'desc' ]],
 					"sAjaxDataProp" : "",
 					"aoColumns" : [ {
 						"mData" : "permissionId" ,
@@ -30,7 +31,7 @@ $(document).ready(function() {
 						"sWidth" : "20px" ,
 						"mRender": function (data, type, full) {// full คือ ข้อมูลของ
 							// ตาราง
-							return '<a href="javascript: document.gotoPerUpdate.submit()" onclick="gotoPerUpdate('+ full.permissionId  + ')"' + '<span class="glyphicon glyphicon-edit">Update</span>' + '</a>';
+							return '';
 
 						}
 					},
@@ -40,7 +41,7 @@ $(document).ready(function() {
 						"mRender": function (data, type, full, row) {// full คือ ข้อมูลของ
 							// ตาราง
 
-							return '<a href="/PerUpdateBy/'+ full.permissionId  + '" ' + '<span class="glyphicon glyphicon-print">Print</span>' + '</a>';
+							return '';
 
 						}
 					}]
