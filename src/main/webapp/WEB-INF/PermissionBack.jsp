@@ -357,7 +357,7 @@
 		</table>
         </div>
         <div class="modal-footer">
-      	  <button type="button" class="btn btn-success" id="buttonAdd1">ยืนยัน</button>
+      	  <button type="button" class="btn btn-success" id="buttonAdd1" data-dismiss="modal">ยืนยัน</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>

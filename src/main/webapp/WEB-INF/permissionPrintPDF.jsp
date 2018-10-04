@@ -124,10 +124,14 @@
 							<th style="max-width: 2mm;">สังกัด</th>
 							<th style="max-width: 10mm; text-align: left;"><%=bean.getFacultyName()%></th>
 						</tr>
+					</table>
+					<table style="width: 100%;">
 						<tr>
-							<th style="max-width: 4mm; right: 1em; text-align: left">&nbsp;&nbsp; วันที่ <%=bean.getDateDay()%></th>
-							<th style="max-width: 4mm; right: 1em; text-align: left">เดือน <%=bean.getDateMonth()%></th>
-							<th colspan="2" style="max-width: 4mm; right: 1em; text-align: left">พ.ศ. <%=bean.getDateYear()%></th>
+							<th style="max-width: 3mm; right: 1em; text-align: left">&nbsp;&nbsp; วันที่ </th>
+							<th style="max-width: 3mm; right: 1em; text-align: center;"><%=bean.getDateDay()%></th>
+							<th style="max-width: 4mm; right: 1em; text-align: center"> เดือน</th>
+							<th style="max-width: 10mm; right: 1em; text-align: center"><%=bean.getDateMonth()%></th>
+							<th style="max-width: 30mm; right: 1em; text-align: left">พ.ศ. <%=bean.getDateYear()%></th>
 						</tr>
 					</table>
 					<br>
@@ -619,7 +623,8 @@
 										</td>
 									</tr>
 									<tr>
-										<td style="text-align: left; width: 60mm"><label>...</label>
+										<td style="text-align: left; width: 60mm">
+											<label><%if (beanEs.getOtherSumTotal() == null) {out.print("...");} else {out.print(beanEs.getOtherSumTotal());}%></label>
 										</td>
 									</tr>
 								</table>

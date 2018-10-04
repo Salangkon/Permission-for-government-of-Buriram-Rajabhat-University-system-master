@@ -1,5 +1,7 @@
+
+
 $(document).ready(function() {
-	
+
 	//คำนวณ ค่าพาหนะ ประจำทาง
 	$('#addTravel').on('change','input', function() { 	
 		var sum = $(this).parent().parent().find('td')[5];
@@ -24,6 +26,29 @@ $(document).ready(function() {
 		}
 		 $('#summary1').text(parseFloat(sum).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
 	});
+	
+	$('#addTravel').on('change','input', function() { 	
+		var sum = $(this).parent().parent().find('td')[6];
+		var number1 = $(this).parent().parent().find('td')[2];
+		var number2= $(this).parent().parent().find('td')[3];
+		var num1 = $(number1).find('input.number1').val();
+		var num2 = $(number2).find('input.number2').val();
+		if(''!=num1 && ''!=num2 ) {
+			var total = (num1)*(num2);
+			$(sum).find('input').val(total);
+		}else{
+			$(sum).find('input').val(0);
+		}
+		var sumvalues = $("[name='sumPerPerson']");
+		var sum = 0;
+		for(var i = 0; i < sumvalues.length;i++){
+			if($(sumvalues[i]).val() != ""){
+				sum = sum + parseFloat($(sumvalues[i]).val());
+			}			
+		}
+		 $('#summary2').text(parseFloat(sum).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+		 $('#sumPerPerson1').val(parseFloat(sum).toFixed(0));
+	});
 
 	//คำนวณ รถส่วนตัว 
 	$('#addPrivateCar').on('change','input', function() { 
@@ -34,8 +59,8 @@ $(document).ready(function() {
 		var num1 = $(number1).find('input.number1').val();
 		var num2 = $(number2).find('input.number2').val();
 		var num3 = $(number3).find('input.number3').val();
-		if(''!=num1 && ''!=num2 && ''!=num3 ) {
-			var total = (num1)*(num2)*(num3);
+		if(''!=num1 && ''!=num2 /*&& ''!=num3 */) {
+			var total = (num1)*(num2)/**(num3)*/;
 			$(sum1).find('input').val((total).toFixed(0));
 		}else{
 			$(sum1).find('input').val(0);
@@ -210,7 +235,7 @@ $(document).ready(function() {
 	
 		var table = $('#userTable').DataTable({
 					responsive	: true,
-					"iDisplayLength": 7,
+//					"iDisplayLength": 7,
 					"sAjaxSource" : "/personnel",
 					"sAjaxDataProp" : "",
 					"order": [
@@ -339,9 +364,10 @@ $(document).ready(function() {
 					"sWidth" : "60px" ,
 					"mRender" : function(data,
 						type, row, index) {
+						var sumPerPerson1 = $('#sumPerPerson1').val();
 					return '<input class="form-control sum10"  type="text" OnKeyPress="return chkNumber(this)" style="width: 22mm;height: 7mm" name="travelSum" id="travelSum'
 							+ index.row 
-							+ '" value="0" />';
+							+ '" value="'+ sumPerPerson1 +'" />';
 					}										
 				},
 				{
@@ -349,9 +375,10 @@ $(document).ready(function() {
 					"sWidth" : "60px" ,
 					"mRender" : function(data,
 						type, row, index) {
+						var otherSum = $('#otherSum').val();
 					return '<input class="form-control sum11"  type="number" style="width: 22mm;height: 7mm" name="otherSum" id="otherSum'
 							+ index.row 
-							+ '" value="0" />';
+							+ '" value="'+ parseFloat(otherSum).toFixed(0) +'" />';
 					}										
 				},
 				{
@@ -379,7 +406,7 @@ $(document).ready(function() {
 					$('#buttonAdd1').click(function() {
 						var datas = table.rows('.selected').data();
 						tableSelect.rows.add(datas).draw(false);
-//						table.rows('.selected').remove().draw();
+						table.rows('.selected').remove().draw();
 						console.log(datas);
 						var num = $('#addUser').DataTable().rows().data().length;
 						$('#userSumTotal').text(num);
@@ -464,34 +491,34 @@ $(document).ready(function() {
 							},
 							{
 								"mData" : "vehicleName",
-								"sWidth" : "100px",
+								"sWidth" : "130px",
 							},
 							{
 								"mData" : "numberPer", //จำนวนเที่ยว
-								"sWidth" : "20px",
+								"sWidth" : "10px",
 								"mRender" : function(data,
 									type, row, index) {
-									return '<input class="form-control number1" style="width: 30mm;height: 7mm" type="text" OnKeyPress="return chkNumber(this)" id="numberPer'
+									return '<input class="form-control number1" style="width: 20mm;height: 7mm" type="text" OnKeyPress="return chkNumber(this)" id="numberPer'
 										+ index.row
 										+ '" />';
 								}
 							},
 							{
 								"mData" : "travelExpenses", //ค่าใช้จ่ายในการเดินทาง
-								"sWidth" : "20px",
+								"sWidth" : "10px",
 								"mRender" : function(data,
 									type, row, index) {
-									return '<input class="form-control number2" style="width: 30mm;height: 7mm" type="text" OnKeyPress="return chkNumber(this)" id="travelExpenses'
+									return '<input class="form-control number2" style="width: 25mm;height: 7mm" type="text" OnKeyPress="return chkNumber(this)" id="travelExpenses'
 										+ index.row
 										+ '"   />';
 								}
 							},
 							{
 								"mData" : "userSum",// จำนวนบุคคลากรร่วม
-								"sWidth" : "20px",
+								"sWidth" : "10px",
 								"mRender" : function(data,
 									type, row, index, num) {
-									return '<input class="form-control number3" style="width: 30mm;height: 7mm" type="text" OnKeyPress="return chkNumber(this)" name="" id="userSum'
+									return '<input class="form-control number3" style="width: 20mm;height: 7mm" type="text" OnKeyPress="return chkNumber(this)" name="" id="userSum'
 										+ index.row
 										+ '"   />';
 								}
@@ -501,7 +528,17 @@ $(document).ready(function() {
 								"sWidth" : "20px",
 								"mRender" : function(data,
 									type, row, index) {
-									return '<input class="form-control sum" style="width: 40mm;height: 7mm" readonly="true" type="text" placeholder="รวม" name="sum" id="sum'
+									return '<input class="form-control sum" style="width: 30mm;height: 7mm" readonly="true" type="text" placeholder="รวม" name="sum" id="sum'
+										+ index.row
+										+ '" />';
+								}
+							},
+							{
+								"mData" : "sumPerPerson", //รวมเงิน
+								"sWidth" : "20px",
+								"mRender" : function(data,
+									type, row, index) {
+									return '<input class="form-control sum" style="width: 25mm;height: 7mm" readonly="true" type="text" placeholder="รวม" name="sumPerPerson" id="sumPerPerson'
 										+ index.row
 										+ '" />';
 								}
@@ -531,7 +568,7 @@ $(document).ready(function() {
 					$('#buttonAdd2').click(function() {
 						var datas = tableTravel.rows('.selected').data();
 						tableSelectTravel.rows.add(datas).draw(false);
-//						tableTravel.rows('.selected').remove().draw();
+						tableTravel.rows('.selected').remove().draw();
 						console.log(datas);		
 						var num = $('#addUser').DataTable().rows().data().length;
 						$('#userSum').text(num + ' คน');

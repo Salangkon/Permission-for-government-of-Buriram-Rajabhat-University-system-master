@@ -15,3 +15,11 @@ function ShowReg(op) {
 	document.getElementById('Manual Promotion3').style.display="block";
   }
   }
+
+function ShowRegOther(op) {
+	  document.getElementById('ManualOther Promotion1').style.display='none';
+	  document.getElementById('ManualOther Promotion1').style.display='none';
+	  if (op == "1") {
+	    document.getElementById('ManualOther Promotion1').style.display="block";
+	  }
+	 }

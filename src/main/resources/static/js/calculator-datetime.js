@@ -56,5 +56,13 @@ function dateDiff() {
 	$('#DayTotal').val(parseFloat(days).toFixed(1));
 
 	$("#TimeTotal").val(hoursDiff + '.' + minutesRemain);
+	
+	
+}
+function otherSum1() {
+	//ค่าใช้จายอื่นๆ
+//	otherSum = "";
+	$('#otherSum').val(parseFloat(otherSum).toFixed(2));
 
+	
 }

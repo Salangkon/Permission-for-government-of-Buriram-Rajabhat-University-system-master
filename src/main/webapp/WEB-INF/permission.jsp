@@ -121,12 +121,12 @@
 	<div class="w3-card w3-round w3-Turquoise w3-topbar w3-border-red">
 	<div class="w3-container w3-topbar w3-border-red" style="background-color: white;">
 	<div class="form-inline">
-	<div class="form-group" style="margin-top: 3%;margin-right: 4%"><label >วัน/เวลาไปราชการ  &nbsp;&nbsp;</label>
-	 	<input class="form-control" type="date" id='goDate' name="goDate">
+	<div class="form-group " style="margin-top: 3%;margin-right: 4%"><label >วันที่ไปราชการ  &nbsp;&nbsp;</label>
+	 	<input class="form-control" type="date" id='goDate' name="goDate"> เวลา 
 		<input class="form-control" type='time' id='goTime' name="goTime">
 	</div>
-	<div class="form-group" class="form-group" style="margin-top: 3%;"><label>วัน/เวลากลับราชการ &nbsp;&nbsp;</label>
-	 	<input class="form-control" type='date' id='backDate' name="backDate">
+	<div class="form-group" class="form-group" style="margin-top: 3%;"><label>วันที่กลับราชการ &nbsp;&nbsp;</label>
+	 	<input class="form-control" type='date' id='backDate' name="backDate"> เวลา 
 		<input class="form-control" type='time' id='backTime' name="backTime">
 		
 	</div>
@@ -252,9 +252,164 @@
 	</div></div></div>
 </div>
 	<!-- <div id="No Budget" style="display:none"></div>  -->
-    
-	<!-- เบิกค่าใช้จ่าย -->
+   
 <div id="Manual Budget" style="display:none" class="w3-animate-opacity ">
+ 
+<div style="margin-bottom: 1%;" class="col-sm-12" >
+	<!-- Page Container -->
+	<div class="w3-container w3-content" style="margin-top:20px">    
+	<!-- Profile -->
+	<div class="w3-card w3-round w3-Turquoise w3-topbar w3-border-purple">
+	<div class="w3-container w3-topbar w3-border-purple" style="background-color: white;">
+	<div class="form-group" style="margin-top: 2%">
+	<label> ค่าใช้จ่ายอื่นๆ </label>   
+    <select class="form-control" name="travel" id="travel" onChange="ShowRegOther(this.selectedIndex)">
+   		<option value="0">ไม่มี</option>
+      	<option value="1">มี</option>
+	</select>
+    </div>
+    <!-- ไม่ได้เลือก -->
+<div id="No Promotion" style="display:none"></div> 
+
+<div id="ManualOther Promotion1" style="display:none" class="w3-animate-opacity ">
+<br>
+	<div class="form-group">
+    <div class="input-group">
+      <div class="input-group-addon">ค่าลงทะเบียน</div>
+      <input type="text" class="form-control" id="otherSum" OnKeyPress="return chkNumber(this)" placeholder="ระบุเป็นจำนวนเงิน">
+      <div class="input-group-addon">บาท</div>
+    </div>
+ 	</div>
+<br>
+
+</div>
+    </div></div></div>
+</div>
+
+
+
+<div style="margin-bottom: 1%;" class="col-sm-12" >
+	<!-- Page Container -->
+	<div class="w3-container w3-content" style="margin-top:20px">    
+	<!-- Profile -->
+	<div class="w3-card w3-round w3-Turquoise w3-topbar w3-border-red">
+	<div class="w3-container w3-topbar w3-border-red" style="background-color: white;">
+	<div class="form-group" style="margin-top: 2%">
+	<label> การเดินทาง  </label>   
+    <select class="form-control" name="travel" id="travel" onChange="ShowReg(this.selectedIndex)">
+   		<option value="">== เลือกภาหนะ ==</option>
+      	<option value="พาหนะประจำทาง">พาหนะประจำทาง</option>
+  		<option value="ขอใช้รถไปราชการ">ขอใช้รถไปราชการ</option>
+  		<option value="ขอใช้รถส่วนตัว">ขอใช้รถส่วนตัว </option>
+	</select>
+    </div>
+    </div></div></div>
+</div>
+
+
+   
+<!-- ไม่ได้เลือก -->
+<div id="No Promotion" style="display:none"></div> 
+
+<div id="Manual Promotion1" style="display:none" class="w3-animate-opacity ">
+<div style="margin-bottom: 1%;background-color: white;max-width: 90%;margin-left: 5%" class="col-sm-12 w3-container w3-card-4 w3-topbar w3-border-purple">
+	<br>
+	<div style="overflow-x:auto;">
+	<table id="addTravel" class="table table-bordered" style="font-family: sans-serif;font-size:small;width: 100%">   
+		<thead>
+    	<tr style="background: purple;color: white;">
+    		<th style="text-align:center">รหัส</th>
+         	<th style="text-align:center">รายการ</th>
+        	<th style="text-align:center">จำนวน/เที่ยว</th>
+        	<th style="text-align:center">เที่ยวละ/บาท</th>
+        	<th style="text-align:center">จำนวน/คน</th>
+			<th style="text-align:center">รวม/ทั้งหมด</th>
+			<th style="text-align:center">รวม/คน</th>
+			<th style="text-align:center">หมายเหตุ</th>
+			<th></th>
+    	</tr>
+    	</thead>
+    	<tfoot>
+    	<tr>
+    		<th style="text-align:right;" colspan="4"></th>
+			<th style="text-align:center" ></th>
+			<th style="text-align:center" ><label id="summary1"></label></th>
+			<th style="text-align:center"><label id="summary2"><input id="sumPerPerson1" type="hidden"></label></th>
+			<th colspan="2"></th>
+    	</tr>
+    	</tfoot>
+    </table>
+    </div>
+    <div align="right">
+   		<input class=" btn btn-primary" type="button" value="เลือกพาหนะ" onclick="document.getElementById('id02').style.display='block'">
+    </div><br>
+</div>
+</div>
+
+<!-- ขอใช้รถไปราชการ -->
+<div id="Manual Promotion2" style="display:none" class="w3-animate-opacity">
+<div style="margin-bottom: 1%;background-color: white;max-width: 90%;margin-left: 5%" class="col-sm-12 w3-animate-opacity w3-container w3-card-4 w3-topbar w3-border-purple" >
+	<div class="input-group" style="margin-top: 8mm;margin-bottom: 4mm">
+		<div class="input-group-addon" style="width: 30%">หมายเลขทะเบียน </div>
+		<input class="form-control" name="travelIdcard" id="travelIdcard" maxlength="6" type="text" value="" > 
+	</div>
+	<div style="overflow-x:auto;">
+	<table id="addTravel1" class="table table-bordered" style="font-family: sans-serif;font-size:small;width: 100%">   
+		<thead>
+    	<tr style="background: purple;color: white;">	
+    		<th style="text-align:center">รหัส</th>
+         	<th style="text-align:center">รายการ</th>
+        	<th style="text-align:center">ระยะทาง<br>กม.</th>
+        	<th style="text-align:center">เที่ยว</th>
+        	<th style="text-align:center">ค่าน้ำมัน<br>ลิตรละ/บาท</th>
+        	<th style="text-align:center">หาร</th>
+        	<th style="text-align:center">รวม <br> ค่าเชื้อเพลิง</th>
+        	<th style="text-align:center">ค่าทางด่วน</th>
+			<th style="text-align:center">รวม</th>
+			<th style="text-align:center">หมายเหตุ</th>
+			<th style="text-align:center"></th>
+    	</tr>
+    	</thead>
+    </table>
+    </div>
+    <div align="right">
+   		<input class=" btn btn-primary" type="button" value="เลือกพาหนะ" onclick="document.getElementById('id03').style.display='block'">
+    </div><br>
+</div>
+</div>
+
+<!-- ขอใช้รถส่วนตัว -->
+<div id="Manual Promotion3" style="display:none" class="w3-animate-opacity">
+<div style="margin-bottom: 1%;background-color: white;max-width: 90%;margin-left: 5%" class="col-sm-12 w3-animate-opacity w3-container w3-card-4 w3-topbar w3-border-purple" >
+	<div class="input-group" style="margin-top: 8mm;margin-bottom: 4mm">
+		<div class="input-group-addon" style="width: 30%">หมายเลขทะเบียน </div>
+		<input class="form-control" name="travelIdcard" id="travelIdcard" maxlength="6" type="text" value=""> 
+	</div>
+	<div style="overflow-x:auto;">
+	<table id="addPrivateCar" class="table table-bordered" style="font-family: sans-serif;font-size:small;width: 100%">   
+		<thead>
+    	<tr style="background: purple;color: white;"> 	
+			<th style="text-align:center">รหัส</th>
+         	<th style="text-align:center">รายการ</th>
+        	<th style="text-align:center">ระยะทาง<br>กม.</th>
+        	<th style="text-align:center">เที่ยว</th>
+        	<th style="text-align:center">อัตรา<br>ค่าน้ำมัน</th>
+        	<th style="text-align:center">รวม <br> ค่าเชื้อเพลิง</th>
+        	<th style="text-align:center">ค่าทางด่วน</th>
+			<th style="text-align:center">รวม</th>
+			<th style="text-align:center">หมายเหตุ</th>
+			<th style="text-align:center"></th>
+    	</tr>
+    	</thead>
+    </table>
+    </div>
+    <div align="right">
+   		<input class=" btn btn-primary" type="button" value="เลือกพาหนะ" onclick="document.getElementById('id04').style.display='block'">
+    </div><br>
+</div>	
+</div>  
+  
+<!-- เบิกค่าใช้จ่าย -->
 <div class="col-sm-12 w3-container w3-card-4 w3-light-red w3-text-blue w3-topbar w3-border-blue" style="background-color: white;max-width: 90%;margin-left: 5%" >
 	<div class="w3-container w3-bottombar w3-border-yellow" >
  <div class="col-sm-2">
@@ -280,7 +435,7 @@
 </div>
 <div style="size: 10" class="col-sm-4 " >
 	<div class="form-group" style="margin-top: 1.7%">
-	<label> โครงการ  </label><input class="form-control" name="budgetProject" id="budgetProject" maxlength="15" type="text" value="">
+	<label> โครงการ  </label><input class="form-control" name="budgetProject" id="budgetProject" maxlength="30" type="text" value="">
 	</div>
 </div>
 <div style="size: 10" class="col-sm-2 " >
@@ -297,7 +452,7 @@
 	</div>
 	<br>
 	<div style="overflow-x:auto;">
-	<table id="addUser" class="table table-bordered" style="font-family: sans-serif;font-size:small;width:  100%">   
+	<table id="addUser" class="table table-bordered "  style="font-family: sans-serif;font-size:small;width:  100%">   
 		<thead>
     	<tr style="background: purple;color: white;">
     		<th style="text-align:center">รหัส</th>
@@ -338,122 +493,7 @@
     <br>
  </div><!-- end dataTable Expense -->
  
-<div style="margin-bottom: 1%;" class="col-sm-12" >
-	<!-- Page Container -->
-	<div class="w3-container w3-content" style="margin-top:20px">    
-	<!-- Profile -->
-	<div class="w3-card w3-round w3-Turquoise w3-topbar w3-border-blue">
-	<div class="w3-container w3-topbar w3-border-blue" style="background-color: white;">
-	<div class="form-group" style="margin-top: 4%">
-	<label> การเดินทาง  </label>   
-    <select class="form-control" name="travel" id="travel" onChange="ShowReg(this.selectedIndex)">
-   		<option value="">== เลือกภาหนะ ==</option>
-      	<option value="พาหนะประจำทาง">พาหนะประจำทาง</option>
-  		<option value="ขอใช้รถไปราชการ">ขอใช้รถไปราชการ</option>
-  		<option value="ขอใช้รถส่วนตัว">ขอใช้รถส่วนตัว </option>
-	</select>
-    </div>
-    </div></div></div>
-</div>
-   
-    <!-- ไม่ได้เลือก -->
-	<div id="No Promotion" style="display:none"></div> 
 
-<div id="Manual Promotion1" style="display:none" class="w3-animate-opacity ">
-<div style="margin-bottom: 3%;margin-top: 2%;background-color: white;max-width: 90%;margin-left: 5%" class="col-sm-12 w3-container w3-card-4 w3-topbar w3-border-blue">
-	<br>
-	<div style="overflow-x:auto;">
-	<table id="addTravel" class="table table-bordered" style="font-family: sans-serif;font-size:small;width: 100%">   
-		<thead>
-    	<tr style="background: purple;color: white;">
-    		<th style="text-align:center">รหัส</th>
-         	<th style="text-align:center">รายการ</th>
-        	<th style="text-align:center">จำนวน/เที่ยว</th>
-        	<th style="text-align:center">เที่ยวละ/บาท</th>
-        	<th style="text-align:center">จำนวน/คน</th>
-			<th style="text-align:center">รวม</th>
-			<th style="text-align:center">หมายเหตุ</th>
-			<th></th>
-    	</tr>
-    	</thead>
-    	<tfoot>
-    	<tr>
-    		<th style="text-align:right;" colspan="4"></th>
-			<th style="text-align:center" ></th>
-			<th style="text-align:center" ><label id="summary1"></label></th>
-			<th colspan="2"></th>
-    	</tr>
-    	</tfoot>
-    </table>
-    </div>
-    <div align="right">
-   		<input class=" btn btn-primary" type="button" value="เลือกพาหนะ" onclick="document.getElementById('id02').style.display='block'">
-    </div><br>
-</div>
-</div>
-
-<!-- ขอใช้รถไปราชการ -->
-<div id="Manual Promotion2" style="display:none" class="w3-animate-opacity">
-<div style="margin-bottom: 3%;margin-top: 2%;background-color: white;max-width: 90%;margin-left: 5%" class="col-sm-12 w3-animate-opacity w3-container w3-card-4 w3-topbar w3-border-red" >
-	<div class="input-group" style="margin-top: 8mm;margin-bottom: 4mm">
-		<div class="input-group-addon" style="width: 30%">หมายเลขทะเบียน </div>
-		<input class="form-control" name="travelIdcard" id="travelIdcard" maxlength="6" type="text" value="" > 
-	</div>
-	<div style="overflow-x:auto;">
-	<table id="addTravel1" class="table table-bordered" style="font-family: sans-serif;font-size:small;width: 100%">   
-		<thead>
-    	<tr style="background: purple;color: white;">	
-    		<th style="text-align:center">รหัส</th>
-         	<th style="text-align:center">รายการ</th>
-        	<th style="text-align:center">ระยะทาง<br>กม.</th>
-        	<th style="text-align:center">เที่ยว</th>
-        	<th style="text-align:center">ค่าน้ำมัน<br>ลิตรละ/บาท</th>
-        	<th style="text-align:center">หาร</th>
-        	<th style="text-align:center">รวม <br> ค่าเชื้อเพลิง</th>
-        	<th style="text-align:center">ค่าทางด่วน</th>
-			<th style="text-align:center">รวม</th>
-			<th style="text-align:center">หมายเหตุ</th>
-			<th style="text-align:center"></th>
-    	</tr>
-    	</thead>
-    </table>
-    </div>
-    <div align="right">
-   		<input class=" btn btn-primary" type="button" value="เลือกพาหนะ" onclick="document.getElementById('id03').style.display='block'">
-    </div><br>
-</div>
-</div>
-
-<!-- ขอใช้รถส่วนตัว -->
-<div id="Manual Promotion3" style="display:none" class="w3-animate-opacity">
-<div style="margin-bottom: 3%;margin-top: 2%;background-color: white;max-width: 90%;margin-left: 5%" class="col-sm-12 w3-animate-opacity w3-container w3-card-4 w3-topbar w3-border-red" >
-	<div class="input-group" style="margin-top: 8mm;margin-bottom: 4mm">
-		<div class="input-group-addon" style="width: 30%">หมายเลขทะเบียน </div>
-		<input class="form-control" name="travelIdcard" id="travelIdcard" maxlength="6" type="text" value=""> 
-	</div>
-	<div style="overflow-x:auto;">
-	<table id="addPrivateCar" class="table table-bordered" style="font-family: sans-serif;font-size:small;width: 100%">   
-		<thead>
-    	<tr style="background: purple;color: white;"> 	
-			<th style="text-align:center">รหัส</th>
-         	<th style="text-align:center">รายการ</th>
-        	<th style="text-align:center">ระยะทาง<br>กม.</th>
-        	<th style="text-align:center">เที่ยว</th>
-        	<th style="text-align:center">อัตรา<br>ค่าน้ำมัน</th>
-        	<th style="text-align:center">รวม <br> ค่าเชื้อเพลิง</th>
-        	<th style="text-align:center">ค่าทางด่วน</th>
-			<th style="text-align:center">รวม</th>
-			<th style="text-align:center">หมายเหตุ</th>
-			<th style="text-align:center"></th>
-    	</tr>
-    	</thead>
-    </table>
-    </div>
-    <div align="right">
-   		<input class=" btn btn-primary" type="button" value="เลือกพาหนะ" onclick="document.getElementById('id04').style.display='block'">
-    </div><br>
-</div>	
-</div>
 
 
 </div><!-- end กรอบที่ 3-->
@@ -533,7 +573,7 @@
 			</table>
         </div>
         <div class="modal-footer">
-      	  <button type="button" class="btn btn-success" id="buttonAdd1">ยืนยัน</button>
+      	  <button type="button" class="btn btn-success" id="buttonAdd1" data-dismiss="modal">ยืนยัน</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
@@ -561,7 +601,7 @@
 					</table>
 
 					<div style="size: 10" class="col-sm-12 " align="center">
-						<button type="button" class="btn btn-success" id="buttonAdd2">ยืนยัน</button>
+						<button type="button" class="btn btn-success" id="buttonAdd2" onclick="document.getElementById('id02').style.display='none'">ยืนยัน</button>
 						<button type="button" onclick="document.getElementById('id02').style.display='none'" class="btn btn-danger">ปิด</button>
 					</div>
 				</div>
@@ -590,10 +630,8 @@
 					</table>
 
 					<div style="size: 10" class="col-sm-12 " align="center">
-						<button type="button" class="btn btn-success" id="buttonAdd3">ยืนยัน</button>
-						<button type="button"
-							onclick="document.getElementById('id03').style.display='none'"
-							class="btn btn-danger">ปิด</button>
+						<button type="button" class="btn btn-success" id="buttonAdd3" onclick="document.getElementById('id03').style.display='none'">ยืนยัน</button>
+						<button type="button" onclick="document.getElementById('id03').style.display='none'" class="btn btn-danger">ปิด</button>
 					</div>
 				</div>
 			</form>
@@ -621,10 +659,8 @@
 					</table>
 
 					<div style="size: 10" class="col-sm-12 " align="center">
-						<button type="button" class="btn btn-success" id="buttonPrivateCar">ยืนยัน</button>
-						<button type="button"
-							onclick="document.getElementById('id04').style.display='none'"
-							class="btn btn-danger">ปิด</button>
+						<button type="button" class="btn btn-success" id="buttonPrivateCar" onclick="document.getElementById('id04').style.display='none'">ยืนยัน</button>
+						<button type="button" onclick="document.getElementById('id04').style.display='none'" class="btn btn-danger">ปิด</button>
 					</div>
 				</div>
 			</form>
