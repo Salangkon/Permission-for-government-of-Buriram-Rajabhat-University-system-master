@@ -40,6 +40,7 @@
 	}
 	</script>
 
+
 <%
 	List<ExpenseEstimateBean> beanEE = null;
 	List<TravelExpensesBean> beanTr = null;
@@ -62,6 +63,7 @@
 	<link rel="stylesheet" href="/css/A4.css">
 	<link rel="stylesheet" href="/css/table.css">
 	<link rel="stylesheet" href="/css/w3.css">
+
 </head>
 
 <body >
@@ -81,6 +83,7 @@
       <a class="w3-bar-item w3-button" href="#2"> เบิกค่าใช้จ่าย 2 		</a>
       <a class="w3-bar-item w3-button" href="#3"> หลักฐานการจ่ายเงิน	</a>
       <a class="w3-bar-item w3-button" href="#4"> ใบแนบขอเบิกค่าใช้จ่าย	</a>
+      <a class="w3-bar-item w3-button" href="#5"> บันทึกข้อความ	</a>
     </div>
   </div>
   <a class="w3-bar-item w3-button" href="javascript:void(0)" onclick="printDiv('printableArea')">พิมพ์</a>
@@ -94,11 +97,9 @@
 <div class="w3-container w3-display-container" style="background-color: gray;" id="grad1">
   <span title="open Sidebar" style="display:none" id="openNav" class="w3-button w3-transparent w3-display-topleft w3-xlarge" onclick="w3_open()">&#9776;</span>
 
-
 <div id="printableArea" >
 <!-- ใบเบิกค่าใช้จ่ายในการเดินทางไปราชการ -->
 			<div class="page" id="1">
-
 				<table style="width: 100%; border-collapse: collapse;">
 					<tr>
 						<th style="width: 40mm;">สัญญายืมเงินเลขที่</th>
@@ -436,8 +437,124 @@
 					</table>
 
 				</div> <!-- end2 -->
+				
+				
+<!-- 		5 -->
+			<div class="page" id="5">
+			
+			<table>
+				<tr>
+					<th><img src="http://www.oknation.net/blog/home/user_data/file_data/201505/07/7074550de.jpg" width="100" height="85"/></th>
+					<th><h3><b>บันทึกข้อความ</b></h3></th>
+				</tr>
+			</table>
+			<br>
+			<table>
+				<tr>
+					<th>ส่วนราชการ <label>(คณะ/สำนักงาน/สถาบัน)</label> </th>
+					<th style="width: 65%"><%=bean.getFacultyName() %></th>
+				</tr>
+			</table>
+			<table>
+				<tr>
+					<th style="width: 7%">ที่</th>
+					<th style="width: 40%">ศธ.๐๕๔๕/พิเศษ.......................</th>
+					<th style="width: 50%">วันที่ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%=beanBack.getbDateAuthorized()%></th>
+				</tr>
+				<tr>
+					<th >เรื่อง</th>
+					<th >รายงานผลไปราชการ / ไปฝึกอบรมสัมนา</th>
+					<th ></th>
+				</tr>
+				<tr>
+					<th>เรียน</th>
+					<th >อธิการบดีมหาวิทยาลัยราชภัชภัฏบุรีรัมย์</th>
+					<th ></th>
+				</tr>
+			</table>
+			<br><br>	
+			<table>
+				<tr>
+					<th style="width: 20%">ตามที่ ข้าพเจ้า นาย/นาง/นางสาว</th>
+					<th style="width: 40%"><%=bean.getSex() %><%=bean.getUserFname()%>&nbsp;&nbsp; <%=bean.getUserLname()%></th>
+				</tr>
+			</table>
+			<table>
+				<tr>
+					<th style="width: 10%">ตำแหน่ง</th>
+					<th style="width: 30%"><%=bean.getDepartmentName() %></th>
+					<th style="width: 20%">พร้อมด้วยคณะรวม <%=beanEs.getUserSumTotal() %> คน </th>
+					<th style="width: 20%" align="right">ได้ไปราชการเรื่อง</th>
+				</tr>
+				<tr>
+					<th colspan="4" style="width: 100%">&nbsp;&nbsp;&nbsp;&nbsp;-<%=bean.getTopics() %></th>
+				</tr>
+			</table>
+			<table>
+				<tr>
+					<th style="width: 100%">สถานที่ไปราชการ คือ &nbsp;&nbsp;<%=bean.getDestinationName() %></th>
+				</tr>
+			</table>
+			<table>
+				<tr>
+					<th style="width: 100%;"> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+					ข้าพเจ้าขอรายงานผลการไปราชการ / ไปฝึกอบรมสัมมนา หรือประโยชน์ที่ได้รับจากการไป</th>
+				</tr>
+			</table>
+			<table>
+				<tr>
+					<th style="width: 100%;">รายการ ดังนี้</th>
+				</tr>
+				<tr>
+					<th colspan="5" style="height: 100mm; text-align: left;"valign="bottom">sds</th>	
+				</tr>
+			</table>
+			<br>
+			<br>
+			<table>
+				<tr>
+					<th style="width: 100%;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;ขัาพเจ้านำผลจากากรไปฝึกอบรมสัมมนา นำไปใช้เพื่อ</th>
+				</tr>
+			</table>
+			<table>
+				<tr>
+					<th style="width: 35%;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;๑) ประกอบการสอนรายวิชา</th>
+					<th style="width: 60%;">-</th>
+				</tr>
+			</table>
+			<table>
+				<tr>
+					<th style="width: 100%;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;๒) บูรณาการความรู้เพื่อนำไปใช้ในประโยชน์ด้าน</th>
+				</tr>
+				<tr>
+					<th style="width: 100%;">-</th>
+				</tr>
+			</table>
+			<br>
+			<br>
+			<table>
+				<tr>
+					<th style="width: 40%;"></th>
+					<th style="width: 100%;text-align: center;">ลงชื่อ....................................</th>
+				</tr>
+				<tr>
+					<th ></th>
+					<th style="text-align: center;">( <%=bean.getSex() %><%=bean.getUserFname()%>&nbsp;&nbsp; <%=bean.getUserLname()%> )</th>
+				</tr>
+			</table>
+				
+			
+				
+			</div><!-- 	end	5 -->
+			
+			
 </div> <!-- end printableArea -->
 
+
+
+
+ 
+ 
 
 <div id="printableArea2">
 <!-- หลักฐานการจ่ายเงินไปราชการ 3 -->
@@ -614,7 +731,6 @@
 							</td>
 						</tr>
 					</table>
-
 				</div> <!-- end หลักฐานการจ่ายเงินไปราชการ 3 -->
 				
 				
@@ -711,5 +827,7 @@
 			</div> <!-- end printableArea -->
 	</div>
 </div>
+  
+  
 </body>
 </html>

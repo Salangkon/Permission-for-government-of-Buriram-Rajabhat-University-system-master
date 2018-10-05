@@ -351,7 +351,7 @@
 <div style="margin-bottom: 1%;background-color: white;max-width: 90%;margin-left: 5%" class="col-sm-12 w3-animate-opacity w3-container w3-card-4 w3-topbar w3-border-purple" >
 	<div class="input-group" style="margin-top: 8mm;margin-bottom: 4mm">
 		<div class="input-group-addon" style="width: 30%">หมายเลขทะเบียน </div>
-		<input class="form-control" name="travelIdcard" id="travelIdcard" maxlength="6" type="text" value="" > 
+		<input class="form-control" name="travelIdcard" id="travelIdcard" maxlength="8" type="text" value="" > 
 	</div>
 	<div style="overflow-x:auto;">
 	<table id="addTravel1" class="table table-bordered" style="font-family: sans-serif;font-size:small;width: 100%">   
@@ -383,7 +383,7 @@
 <div style="margin-bottom: 1%;background-color: white;max-width: 90%;margin-left: 5%" class="col-sm-12 w3-animate-opacity w3-container w3-card-4 w3-topbar w3-border-purple" >
 	<div class="input-group" style="margin-top: 8mm;margin-bottom: 4mm">
 		<div class="input-group-addon" style="width: 30%">หมายเลขทะเบียน </div>
-		<input class="form-control" name="travelIdcard" id="travelIdcard" maxlength="6" type="text" value=""> 
+		<input class="form-control" name="travelIdcard" id="travelIdcard" maxlength="8" type="text" value=""> 
 	</div>
 	<div style="overflow-x:auto;">
 	<table id="addPrivateCar" class="table table-bordered" style="font-family: sans-serif;font-size:small;width: 100%">   
