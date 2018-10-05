@@ -606,7 +606,7 @@
 							</td>
 							<td style="width: 50%;text-align:left; ;" valign="top">&nbsp;&nbsp;
 								ลงชื่อ................................ผู้จ่ายเงิน<br>
-								( <%=bean.getSex() %><%=bean.getUserFname()%> &nbsp;&nbsp;&nbsp;<%=bean.getUserLname() %> )<br>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;( <%=bean.getSex() %><%=bean.getUserFname()%> &nbsp;&nbsp;&nbsp;<%=bean.getUserLname() %> )<br>
 								&nbsp;&nbsp;
 								ตำแหน่ง &nbsp;&nbsp; <%=bean.getPositionName() %><br>
 								&nbsp;&nbsp;

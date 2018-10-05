@@ -31,7 +31,6 @@
 	<script src="/js/1-10-19jquery.dataTables.min.js"></script>
 	<script src="/js/1-10-19dataTables.bootstrap.min.js"></script>
 	<script src="/js/fromUser.js"></script>	
-	<script src="/js/insertPermission.js"></script>
 	<script src="/js/user-data-personnel.js"></script>
 	
 

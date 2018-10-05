@@ -419,43 +419,43 @@ $(document).ready(function() {
 					});
 					
 
-					$('#saveExpenseEstimate').click(function() {
-						console.log("");
-						var d ;
-						var inputdata = [];
-						for (var i = 0; i < tableSelect.data().length; i++) {
-							d = tableSelect.data()[i];
-							console.log(d);
-							d.allowenceType		= $("#allowenceType"+i).val(); //ค่าเบี้ยงเลี้ยง ประเภท
-							d.allowence			= $("#allowence"+i).val(); //ค่าเบี้ยงเลี้ยง
-							d.allowencePerday 	= $("#allowencePerday"+i).val();//จำนวนวันเบี๋ยเลี้ยง/วัน
-							d.allowenceSum 		= $("#allowenceSum"+i).val(); //รวมเงินทั้งหมดเเต่ละ บุคคลากร
-							d.rentDate 			= $("#rentDate"+i).val(); //ค่าที่พัก
-							d.rentDatePerday	= $("#rentDatePerday"+i).val(); //จำนวนวันที่พัก/คืน
-							d.rentDateSum 		= $("#rentDateSum"+i).val(); //รวมค่าที่พัก
-							d.travelSum 		= $("#travelSum"+i).val(); //ค่าที่พัก
-							d.otherSum 			= $("#otherSum"+i).val(); //จำนวนที่พัก/วัน
-							d.expenseEstimateSum = $("#expenseEstimateSum"+i).val(); //ค่าที่พัก
-							inputdata.push(d);
-						}
-
-						$.ajax({
-							type : "POST",
-							url : "/insertExpenseEstimate",
-							data : JSON.stringify(inputdata),
-							dataType : "json",
-							async : false,
-							contentType : "application/json; charset=utf-8",
-							success : function(res) {
-								// console.log(res)
-//								window.location.href = res.page;
-							},
-							error : function() {
-								window.location.href = "insertPermissionFail";
-							}
-						});
-
-					});
+//					$('#saveExpenseEstimate').click(function() {
+//						console.log("");
+//						var d ;
+//						var inputdata = [];
+//						for (var i = 0; i < tableSelect.data().length; i++) {
+//							d = tableSelect.data()[i];
+//							console.log(d);
+//							d.allowenceType		= $("#allowenceType"+i).val(); //ค่าเบี้ยงเลี้ยง ประเภท
+//							d.allowence			= $("#allowence"+i).val(); //ค่าเบี้ยงเลี้ยง
+//							d.allowencePerday 	= $("#allowencePerday"+i).val();//จำนวนวันเบี๋ยเลี้ยง/วัน
+//							d.allowenceSum 		= $("#allowenceSum"+i).val(); //รวมเงินทั้งหมดเเต่ละ บุคคลากร
+//							d.rentDate 			= $("#rentDate"+i).val(); //ค่าที่พัก
+//							d.rentDatePerday	= $("#rentDatePerday"+i).val(); //จำนวนวันที่พัก/คืน
+//							d.rentDateSum 		= $("#rentDateSum"+i).val(); //รวมค่าที่พัก
+//							d.travelSum 		= $("#travelSum"+i).val(); //ค่าที่พัก
+//							d.otherSum 			= $("#otherSum"+i).val(); //จำนวนที่พัก/วัน
+//							d.expenseEstimateSum = $("#expenseEstimateSum"+i).val(); //ค่าที่พัก
+//							inputdata.push(d);
+//						}
+//
+//						$.ajax({
+//							type : "POST",
+//							url : "/insertExpenseEstimate",
+//							data : JSON.stringify(inputdata),
+//							dataType : "json",
+//							async : false,
+//							contentType : "application/json; charset=utf-8",
+//							success : function(res) {
+//								// console.log(res)
+////								window.location.href = res.page;
+//							},
+//							error : function() {
+//								window.location.href = "insertPermissionFail";
+//							}
+//						});
+//
+//					});
 				
 					//พาหนะ
 					var tableTravel = $('#travelTable').DataTable({

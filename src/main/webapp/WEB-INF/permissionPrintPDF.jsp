@@ -266,17 +266,17 @@
 						<tr>
 							<th style="max-width: 7.2mm; text-align: left">7. การเดินทาง</th>
 							<th style="max-width: 18mm; text-align: left" colspan="2">
-							( <%if (bean.getTravel().equals("พาหนะประจำทาง")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) ภาหนะประจำทาง</th>
+							( <%if (bean.getTravel().equals("1")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) ภาหนะประจำทาง</th>
 						</tr>
 						<tr>
 							<th style="max-width: 7mm; text-align: left"></th>
 							<th style="max-width: 18mm; text-align: left" colspan="2">
-							( <%if (bean.getTravel().equals("ขอใช้รถส่วนตัว")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) ขอใช้รถไปราชการ</th>
+							( <%if (bean.getTravel().equals("2")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) ขอใช้รถไปราชการ</th>
 						</tr>
 						<tr>
 							<th style="max-width: 7mm; text-align: left"></th>
 							<th style="max-width: 10mm; text-align: left">
-							( <%if (bean.getTravel().equals("ขอใช้รถไปราชการ")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) ขอใช้รถส่วนตัว</th>
+							( <%if (bean.getTravel().equals("3")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) ขอใช้รถส่วนตัว</th>
 							<th style="max-width: 20mm; text-align: left">หมายเลขทะเบียน</th>
 						</tr>
 					</table>

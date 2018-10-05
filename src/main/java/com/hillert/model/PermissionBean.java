@@ -1,6 +1,7 @@
 package com.hillert.model;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 public class PermissionBean {
 	
@@ -16,8 +17,7 @@ public class PermissionBean {
 	private String dateMonth;
 	private String dateYear;
 	private String sex;
-	
-	
+		
 	private String facultyName;
 	private String departmentName;
 	private String positionName;
@@ -75,7 +75,36 @@ public class PermissionBean {
 
 	private Timestamp createDate;
 	
+	private List<ExpenseEstimateBean> eeBean;
+	private ExpenseSumaryBean esBean;
+	private List<TravelExpensesBean> teBean;
+	private List<TravelExpensesFuelCostBean> tefcBean;
 	
+	
+	public List<ExpenseEstimateBean> getEeBean() {
+		return eeBean;
+	}
+	public void setEeBean(List<ExpenseEstimateBean> eeBean) {
+		this.eeBean = eeBean;
+	}
+	public ExpenseSumaryBean getEsBean() {
+		return esBean;
+	}
+	public void setEsBean(ExpenseSumaryBean esBean) {
+		this.esBean = esBean;
+	}
+	public List<TravelExpensesBean> getTeBean() {
+		return teBean;
+	}
+	public void setTeBean(List<TravelExpensesBean> teBean) {
+		this.teBean = teBean;
+	}
+	public List<TravelExpensesFuelCostBean> getTefcBean() {
+		return tefcBean;
+	}
+	public void setTefcBean(List<TravelExpensesFuelCostBean> tefcBean) {
+		this.tefcBean = tefcBean;
+	}
 	public String getGoDateDay() {
 		return goDateDay;
 	}

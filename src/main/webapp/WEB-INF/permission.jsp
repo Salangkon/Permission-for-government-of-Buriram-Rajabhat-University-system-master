@@ -28,7 +28,7 @@
 	<script src="/js/insertPermission.js"></script>
 	<script src="/js/province.js"></script>
 	<script src="/js/budget.js"></script>
-	<script src="/js/insertExpense.js"></script>
+<!-- 	<script src="/js/insertExpense.js"></script> -->
 	<script src="/js/user-data-personnel.js"></script>
 	<script src="/js/calculator-datetime.js"></script>
 	<script src="/js/view-source_https___cdn.datatables.net_select_1.2.7_js_dataTables.select.min.js"></script>
@@ -263,7 +263,7 @@
 	<div class="w3-container w3-topbar w3-border-purple" style="background-color: white;">
 	<div class="form-group" style="margin-top: 2%">
 	<label> ค่าใช้จ่ายอื่นๆ </label>   
-    <select class="form-control" name="travel" id="travel" onChange="ShowRegOther(this.selectedIndex)">
+    <select class="form-control" name="" id="" onChange="ShowRegOther(this.selectedIndex)">
    		<option value="0">ไม่มี</option>
       	<option value="1">มี</option>
 	</select>
@@ -298,9 +298,9 @@
 	<label> การเดินทาง  </label>   
     <select class="form-control" name="travel" id="travel" onChange="ShowReg(this.selectedIndex)">
    		<option value="">== เลือกภาหนะ ==</option>
-      	<option value="พาหนะประจำทาง">พาหนะประจำทาง</option>
-  		<option value="ขอใช้รถไปราชการ">ขอใช้รถไปราชการ</option>
-  		<option value="ขอใช้รถส่วนตัว">ขอใช้รถส่วนตัว </option>
+      	<option value="1">พาหนะประจำทาง</option>
+  		<option value="2">ขอใช้รถไปราชการ</option>
+  		<option value="3">ขอใช้รถส่วนตัว </option>
 	</select>
     </div>
     </div></div></div>
@@ -362,7 +362,7 @@
         	<th style="text-align:center">ระยะทาง<br>กม.</th>
         	<th style="text-align:center">เที่ยว</th>
         	<th style="text-align:center">ค่าน้ำมัน<br>ลิตรละ/บาท</th>
-        	<th style="text-align:center">หาร</th>
+        	<th style="text-align:center">อัตราการ<br>กินน้ำมัน</th>
         	<th style="text-align:center">รวม <br> ค่าเชื้อเพลิง</th>
         	<th style="text-align:center">ค่าทางด่วน</th>
 			<th style="text-align:center">รวม</th>
