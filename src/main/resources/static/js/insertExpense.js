@@ -1,5 +1,4 @@
 
-
 $(document).ready(function() {
 
 	//คำนวณ ค่าพาหนะ ประจำทาง
@@ -28,16 +27,16 @@ $(document).ready(function() {
 	});
 	
 	$('#addTravel').on('change','input', function() { 	
-		var sum = $(this).parent().parent().find('td')[6];
+		var sumPerPerson = $(this).parent().parent().find('td')[6];
 		var number1 = $(this).parent().parent().find('td')[2];
 		var number2= $(this).parent().parent().find('td')[3];
 		var num1 = $(number1).find('input.number1').val();
 		var num2 = $(number2).find('input.number2').val();
 		if(''!=num1 && ''!=num2 ) {
 			var total = (num1)*(num2);
-			$(sum).find('input').val(total);
+			$(sumPerPerson).find('input').val(total);
 		}else{
-			$(sum).find('input').val(0);
+			$(sumPerPerson).find('input').val(0);
 		}
 		var sumvalues = $("[name='sumPerPerson']");
 		var sum = 0;

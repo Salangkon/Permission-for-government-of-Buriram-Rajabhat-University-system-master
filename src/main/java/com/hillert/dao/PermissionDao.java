@@ -390,9 +390,59 @@ public class PermissionDao {
 		bean.setPerId(permissionId);
 		return bean;
 	}
-
+	
+	
+	
+	
+	
 	// insert PermissionBean Back บันทึกหลังเดินทางกลับราชการ
-	public PermissionBackBean insertPB(PermissionBackBean bean) throws Exception {
+//	public int insertPerBack(PermissionBackBean bean) {
+//		String sql = "INSERT INTO permission_back "
+//				+ "(permission_id, b_by_order_save, b_date_authorized, b_disbursed_by, b_allowence_type, b_rent_date_type, "
+//				+ "b_start_travel, b_back_travel, b_house_number ,b_road , district, "
+//				+ "b_go_date ,b_go_time, b_back_date, b_back_time,  b_save_date , b_date_sum, b_time_sum)"
+//				+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+//				
+//		KeyHolder keyHolder = new GeneratedKeyHolder();
+//		// JdbcTemplate jdbcTemplate = new JdbcTemplate(new
+//		// SingleConnectionDataSource(con.openConnect(), false));
+//		jdbcTemplate.update(new PreparedStatementCreator() {
+//
+//			@Override
+//			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+//				PreparedStatement prepared = con.prepareStatement(sql, new String[] { "permission_id" });
+//				try {
+//
+//					prepared.setInt(1, bean.getPermissionId());
+//					prepared.setString(2, bean.getbByOrderSave());
+//					prepared.setString(3, bean.getbDateAuthorized());
+//					prepared.setInt(4, bean.getbDisbursedBy());
+//					prepared.setInt(5, bean.getbAllowenceType());
+//					prepared.setInt(6, bean.getbRentDateType());
+//					prepared.setInt(7, bean.getbStartTravel());
+//					prepared.setInt(8, bean.getbBackTravel());
+//					prepared.setString(9, bean.getbHouseNumber());
+//					prepared.setString(10, bean.getbRoad());
+//					prepared.setString(11, bean.getDistrict());
+//					prepared.setString(12, bean.getbGoDate());
+//					prepared.setString(13, bean.getbGoTime());
+//					prepared.setString(14, bean.getbBackDate());
+//					prepared.setString(15, bean.getbBackTime());
+//					prepared.setString(16, bean.getbSaveDate());
+//					prepared.setString(17, bean.getbDaySum());
+//					prepared.setString(18, bean.getbTimeSum());
+//					
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//				return prepared;
+//			}
+//		}, keyHolder);
+//		return keyHolder.getKey().intValue();
+//	}
+	
+	// insert PermissionBean Back บันทึกหลังเดินทางกลับราชการ
+	public PermissionBackBean insertPBTest(PermissionBackBean bean) throws Exception {
 		ConnectDB con = new ConnectDB();
 		Connection conn = con.openConnect();
 		PreparedStatement prepared = null;
@@ -436,7 +486,7 @@ public class PermissionDao {
 	}// end
 	
 	// update permissiom_status
-	public PermissionBackBean updateStatusPermission(PermissionBackBean bean) throws SQLException {
+	public PermissionBean updateStatusPermission(PermissionBean bean) throws SQLException {
 		ConnectDB con = new ConnectDB();
 		PreparedStatement preperd = null;
 		StringBuilder sql = new StringBuilder();

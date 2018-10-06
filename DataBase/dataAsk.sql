@@ -1037,63 +1037,63 @@ CREATE TABLE IF NOT EXISTS `department` (
 -- Dumping data for table ask.department: ~57 rows (approximately)
 /*!40000 ALTER TABLE `department` DISABLE KEYS */;
 INSERT INTO `department` (`department_id`, `department_name`, `department_code`, `faculty_code`) VALUES
-	(1, 'สาขาวิชาเทคโนโลยีและนวัตกรรมศึกษา', '1', '1'),
-	(2, 'สาขาวิชาเทคโนโลยีและคอมพิวเตอร์เพื่อการศึกษา', '2', '1'),
-	(3, 'สาขาวิชาภาษาไทย', '3', '1'),
-	(4, 'สาขาวิชาภาษาอังกฤษ', '4', '1'),
-	(5, 'สาขาวิชาการศึกษาปฐมวัย', '5', '1'),
-	(6, 'สาขาวิชาสังคมศึกษา', '6', '1'),
-	(7, 'สาขาวิชาคณิตศาสตร์', '7', '1'),
-	(8, 'สาขาวิชาฟิสิกส์', '8', '1'),
-	(9, 'สาขาวิชาวิทยาศาสตร์ทั่วไป', '9', '1'),
-	(10, 'สาขาวิชาพลศึกษา', '10', '1'),
-	(11, 'สาขาวิชาดนตรีศึกษา', '11', '1'),
-	(12, 'สาขาวิชาศิลปะศึกษา', '12', '1'),
-	(13, 'สาขาวิชานาฏสิลป์', '13', '1'),
-	(14, 'สาขาวิชาวิจัยและประเมิลผลการศึกษา', '14', '1'),
-	(15, 'สาขาวิชาบริหารการศึกษา', '15', '1'),
-	(16, 'สาขาวิชาหลักสูตรและรียนการสอน', '16', '1'),
-	(17, 'สาขาวิชาดนตรีศึกษา (ป.ตรี)', '17', '1'),
-	(18, 'สาขาวิชาคณิตศาสตร์', '18', '2'),
-	(19, 'สาขาวิชาเคมี', '19', '2'),
-	(20, 'สาขาวิชาฟิสิกส์', '20', '2'),
-	(21, 'สาขาวิชาชีววิทยา', '21', '2'),
-	(22, 'สาขาวิชาสถิติประยุกต์', '22', '2'),
-	(23, 'สาขาวิชาวิทยาศาสตร์การกีฬา', '23', '2'),
-	(24, 'สาขาวิชาวิทยาการคอมพิวเตอร์', '24', '2'),
-	(25, 'สาขาวิชาวิทยาศาสตร์สิ่งทอ', '25', '2'),
-	(26, 'สาขาวิชาสาธารสุขชุมชน', '26', '2'),
-	(27, 'สาขาวิชาภูมิสาสตร์และภูมิสารสนเทศ', '27', '2'),
-	(28, 'สาขาวิชาวิทยาศาสตร์สิ่งแวดล้อม', '28', '2'),
-	(29, 'สาขาวิชาเทคโนโลยีสารสนเทศ', '29', '2'),
-	(30, 'สาขาวิชาภาษาไทย ศศ.บ', '30', '3'),
-	(31, 'สาขาวิชาภาษาอังกฤษ', '31', '3'),
-	(32, 'สาขาวิชาภาษาอังกฤษธุรกิจ', '32', '3'),
-	(33, 'สาขาวิชานิติศาสตร์', '33', '3'),
-	(34, 'สาขาวิชารัฐศาสนศาสตร์', '32', '3'),
-	(35, 'สาขาวิชาการพัฒนาสังคม', '35', '3'),
-	(36, 'สาขาวิชาดนตร์', '36', '3'),
-	(37, 'สาขาวิชาบรรณารักษศาสตร์', '37', '3'),
-	(38, 'สาขาวิชาศิลปะดิจิทัล', '38', '3'),
-	(39, 'สาขาวิชาการตลาด', '39', '4'),
-	(40, 'สาขาวิชาบัญชี', '40', '4'),
-	(41, 'สาขาวิชาการจัดการ', '41', '4'),
-	(42, 'สาขาวิชาเศรษฐศาสตร์', '42', '4'),
-	(43, 'สาขาวิชาคอมพิวเตอร์ธุระกิจ', '43', '4'),
-	(44, 'สาขาวิชาการสื่อสารมวลชน', '44', '4'),
-	(45, 'สาขาวิชาการเงินและการธนาคาร', '45', '4'),
-	(46, 'สาขาวิชาบริหารทรัพยากรมนุษย์', '46', '4'),
-	(47, 'สาขาวิชาการท่องเที่ยวและการโรงแรม', '47', '4'),
-	(48, 'สาขาวิชาเศรษฐศาสตร์ มหาบัณฑิต(ป.โท)', '48', '4'),
-	(49, 'สาขาวิชาเทคโนโลยีวิศวะกรรมโยธา', '49', '5'),
-	(50, 'สาขาวิชาเทคโนโลยีสถาปัตยกรรม', '50', '5'),
-	(51, 'สาขาวิชาเทคโนโลยีวิศวกรรมไฟฟ้า', '51', '5'),
-	(52, 'สาขาวิชาวิศวกรรมการจัดการอุตสาหกรรม', '52', '5'),
-	(53, 'สาขาวิชาเทคโนโลยีออกแบบผลิตภัณฑ์อุตสาหกรรม', '53', '5'),
-	(54, 'สาขาวิชาเทคโนโลยีเซรามิกส์และการออกแบบ', '54', '5'),
-	(55, 'สาขาวิชาประมง', '55', '6'),
-	(56, 'สาขาวิชาเกษตร', '56', '6'),
-	(57, 'สาขาวิชาสัตวศาสตร์', '57', '6');
+	(1, 'เทคโนโลยีและนวัตกรรมศึกษา', '1', '1'),
+	(2, 'เทคโนโลยีและคอมพิวเตอร์เพื่อการศึกษา', '2', '1'),
+	(3, 'วิชาภาษาไทย', '3', '1'),
+	(4, 'วิชาภาษาอังกฤษ', '4', '1'),
+	(5, 'วิชาการศึกษาปฐมวัย', '5', '1'),
+	(6, 'วิชาสังคมศึกษา', '6', '1'),
+	(7, 'วิชาคณิตศาสตร์', '7', '1'),
+	(8, 'วิชาฟิสิกส์', '8', '1'),
+	(9, 'วิชาวิทยาศาสตร์ทั่วไป', '9', '1'),
+	(10, 'วิชาพลศึกษา', '10', '1'),
+	(11, 'วิชาดนตรีศึกษา', '11', '1'),
+	(12, 'วิชาศิลปะศึกษา', '12', '1'),
+	(13, 'วิชานาฏสิลป์', '13', '1'),
+	(14, 'วิชาวิจัยและประเมิลผลการศึกษา', '14', '1'),
+	(15, 'วิชาบริหารการศึกษา', '15', '1'),
+	(16, 'วิชาหลักสูตรและรียนการสอน', '16', '1'),
+	(17, 'วิชาดนตรีศึกษา (ป.ตรี)', '17', '1'),
+	(18, 'วิชาคณิตศาสตร์', '18', '2'),
+	(19, 'วิชาเคมี', '19', '2'),
+	(20, 'วิชาฟิสิกส์', '20', '2'),
+	(21, 'วิชาชีววิทยา', '21', '2'),
+	(22, 'วิชาสถิติประยุกต์', '22', '2'),
+	(23, 'วิชาวิทยาศาสตร์การกีฬา', '23', '2'),
+	(24, 'วิชาวิทยาการคอมพิวเตอร์', '24', '2'),
+	(25, 'วิชาวิทยาศาสตร์สิ่งทอ', '25', '2'),
+	(26, 'วิชาสาธารสุขชุมชน', '26', '2'),
+	(27, 'วิชาภูมิสาสตร์และภูมิสารสนเทศ', '27', '2'),
+	(28, 'วิชาวิทยาศาสตร์สิ่งแวดล้อม', '28', '2'),
+	(29, 'วิชาเทคโนโลยีสารสนเทศ', '29', '2'),
+	(30, 'วิชาภาษาไทย ศศ.บ', '30', '3'),
+	(31, 'วิชาภาษาอังกฤษ', '31', '3'),
+	(32, 'วิชาภาษาอังกฤษธุรกิจ', '32', '3'),
+	(33, 'วิชานิติศาสตร์', '33', '3'),
+	(34, 'วิชารัฐศาสนศาสตร์', '32', '3'),
+	(35, 'วิชาการพัฒนาสังคม', '35', '3'),
+	(36, 'วิชาดนตร์', '36', '3'),
+	(37, 'วิชาบรรณารักษศาสตร์', '37', '3'),
+	(38, 'วิชาศิลปะดิจิทัล', '38', '3'),
+	(39, 'วิชาการตลาด', '39', '4'),
+	(40, 'วิชาบัญชี', '40', '4'),
+	(41, 'วิชาการจัดการ', '41', '4'),
+	(42, 'วิชาเศรษฐศาสตร์', '42', '4'),
+	(43, 'วิชาคอมพิวเตอร์ธุระกิจ', '43', '4'),
+	(44, 'วิชาการสื่อสารมวลชน', '44', '4'),
+	(45, 'วิชาการเงินและการธนาคาร', '45', '4'),
+	(46, 'วิชาบริหารทรัพยากรมนุษย์', '46', '4'),
+	(47, 'วิชาการท่องเที่ยวและการโรงแรม', '47', '4'),
+	(48, 'วิชาเศรษฐศาสตร์ มหาบัณฑิต(ป.โท)', '48', '4'),
+	(49, 'วิชาเทคโนโลยีวิศวะกรรมโยธา', '49', '5'),
+	(50, 'วิชาเทคโนโลยีสถาปัตยกรรม', '50', '5'),
+	(51, 'วิชาเทคโนโลยีวิศวกรรมไฟฟ้า', '51', '5'),
+	(52, 'วิชาวิศวกรรมการจัดการอุตสาหกรรม', '52', '5'),
+	(53, 'วิชาเทคโนโลยีออกแบบผลิตภัณฑ์อุตสาหกรรม', '53', '5'),
+	(54, 'วิชาเทคโนโลยีเซรามิกส์และการออกแบบ', '54', '5'),
+	(55, 'วิชาประมง', '55', '6'),
+	(56, 'วิชาเกษตร', '56', '6'),
+	(57, 'วิชาสัตวศาสตร์', '57', '6');
 /*!40000 ALTER TABLE `department` ENABLE KEYS */;
 
 -- Dumping structure for table ask.district
@@ -9991,11 +9991,8 @@ CREATE TABLE IF NOT EXISTS `expense_estimate` (
   KEY `create_by` (`personnel_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ตาราง ประมาณการรายจ่าย';
 
--- Dumping data for table ask.expense_estimate: ~2 rows (approximately)
+-- Dumping data for table ask.expense_estimate: ~8 rows (approximately)
 /*!40000 ALTER TABLE `expense_estimate` DISABLE KEYS */;
-INSERT INTO `expense_estimate` (`personnel_id`, `permission_id`, `allowence_type`, `allowence`, `allowence_perday`, `allowence_sum`, `rent_date`, `rent_date_perday`, `rent_date_sum`, `travel_sum`, `other_sum`, `expense_estimate_sum`, `create_date`) VALUES
-	(5, 1, 1, 270, 1, 270, 1200, 0, 0, 3700, 0, 3970, '2018-09-27 18:10:00'),
-	(3, 1, 1, 270, 1, 270, 1200, 0, 0, 0, 0, 270, '2018-09-27 18:10:00');
 /*!40000 ALTER TABLE `expense_estimate` ENABLE KEYS */;
 
 -- Dumping structure for table ask.expense_estimate_back
@@ -10019,9 +10016,6 @@ CREATE TABLE IF NOT EXISTS `expense_estimate_back` (
 
 -- Dumping data for table ask.expense_estimate_back: ~2 rows (approximately)
 /*!40000 ALTER TABLE `expense_estimate_back` DISABLE KEYS */;
-INSERT INTO `expense_estimate_back` (`personnel_id`, `permission_id`, `b_allowence_type`, `b_allowence`, `b_allowence_perday`, `b_allowence_sum`, `b_rent_date`, `b_rent_date_perday`, `b_rent_date_sum`, `b_travel_sum`, `b_other_sum`, `b_expense_estimate_sum`, `b_create_date`) VALUES
-	(3, 1, 1, 270, 1, 270, 1200, 0, 0, 0, 0, 270, '2018-10-01 02:29:13'),
-	(5, 1, 1, 270, 1, 270, 1200, 0, 0, 3700, 0, 3970, '2018-10-01 02:29:13');
 /*!40000 ALTER TABLE `expense_estimate_back` ENABLE KEYS */;
 
 -- Dumping structure for table ask.expense_sumary
@@ -10039,17 +10033,8 @@ CREATE TABLE IF NOT EXISTS `expense_sumary` (
   KEY `permission_id` (`permission_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='สรูปค่าใช้จ่าย';
 
--- Dumping data for table ask.expense_sumary: ~5 rows (approximately)
+-- Dumping data for table ask.expense_sumary: ~8 rows (approximately)
 /*!40000 ALTER TABLE `expense_sumary` DISABLE KEYS */;
-INSERT INTO `expense_sumary` (`permission_id`, `user_sum_total`, `allowence_perday_total`, `allowence_sum_total`, `rent_date_perday_total`, `rent_date_sum_total`, `travel_sum_total`, `other_sum_total`, `expense_estimate_sum_total`, `create_date`) VALUES
-	(1, '2', '1', '540', '0', '0', '3,700', '0', '4,240', '2018-09-27 18:10:00'),
-	(0, '', '', '', '', '', '', '', ' บาท', '2018-09-30 13:26:19'),
-	(0, '', '', '', '', '', '', '', ' บาท', '2018-09-30 13:38:17'),
-	(0, '', '', '', '', '', '', '', ' บาท', '2018-09-30 13:39:24'),
-	(0, '', '', '', '', '', '', '', ' บาท', '2018-09-30 13:41:21'),
-	(2, '', '', '', '', '', '', '', ' บาท', '2018-09-30 13:42:13'),
-	(3, '', '', '', '', '', '', '', ' บาท', '2018-10-01 13:36:19'),
-	(4, '', '', '', '', '', '', '', ' บาท', '2018-10-01 17:51:51');
 /*!40000 ALTER TABLE `expense_sumary` ENABLE KEYS */;
 
 -- Dumping structure for table ask.expense_sumary_back
@@ -10067,12 +10052,8 @@ CREATE TABLE IF NOT EXISTS `expense_sumary_back` (
   KEY `permission_id` (`permission_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ตารางรายงาน สรูปค่าใช้จ่าย หลังกลับจารราชการ';
 
--- Dumping data for table ask.expense_sumary_back: ~2 rows (approximately)
+-- Dumping data for table ask.expense_sumary_back: ~0 rows (approximately)
 /*!40000 ALTER TABLE `expense_sumary_back` DISABLE KEYS */;
-INSERT INTO `expense_sumary_back` (`permission_id`, `b_user_sum_total`, `b_allowence_perday_total`, `b_allowence_sum_total`, `b_rent_date_perday_total`, `b_rent_date_sum_total`, `b_travel_sum_total`, `b_other_sum_total`, `b_expense_estimate_sum_total`, `b_create_date`) VALUES
-	(2, '', '', '', '', '', '', '', '131321', '2018-09-30 22:45:06'),
-	(1, '', '', '', '', '', '', '', '21321321', '2018-10-01 02:29:13'),
-	(4, '', '', '', '', '', '', '', '12321321', '2018-10-01 17:52:11');
 /*!40000 ALTER TABLE `expense_sumary_back` ENABLE KEYS */;
 
 -- Dumping structure for table ask.faculty
@@ -10086,12 +10067,12 @@ CREATE TABLE IF NOT EXISTS `faculty` (
 -- Dumping data for table ask.faculty: ~6 rows (approximately)
 /*!40000 ALTER TABLE `faculty` DISABLE KEYS */;
 INSERT INTO `faculty` (`faculty_id`, `faculty_name`, `faculty_code`) VALUES
-	(1, 'คณะครุศาสตร์', '1'),
-	(2, 'คณะวิทยาศาสตร์', '2'),
-	(3, 'คณะมนุษยศาสตร์และสังคมศาสตร์', '3'),
-	(4, 'คณะวิทยาการจัดการ', '4'),
-	(5, 'คณะเทคโนโลยีอุตสาหกรรม', '5'),
-	(6, 'คณะเทคโนโลยีการเกษตร', '6');
+	(1, 'ครุศาสตร์', '1'),
+	(2, 'วิทยาศาสตร์', '2'),
+	(3, 'มนุษยศาสตร์และสังคมศาสตร์', '3'),
+	(4, 'วิทยาการจัดการ', '4'),
+	(5, 'เทคโนโลยีอุตสาหกรรม', '5'),
+	(6, 'เทคโนโลยีการเกษตร', '6');
 /*!40000 ALTER TABLE `faculty` ENABLE KEYS */;
 
 -- Dumping structure for table ask.permission
@@ -10100,13 +10081,13 @@ CREATE TABLE IF NOT EXISTS `permission` (
   `personnel_id` int(11) DEFAULT NULL,
   `district` varchar(50) DEFAULT NULL COMMENT 'ตำบล',
   `permission_status` char(1) NOT NULL DEFAULT '0',
-  `purpose` varchar(50) NOT NULL COMMENT 'วัตถุประสงค์ ไปราชการ',
+  `purpose` varchar(10) NOT NULL COMMENT 'วัตถุประสงค์ ไปราชการ',
   `purpose1` varchar(50) NOT NULL COMMENT 'วัตถุประสงค์ ได้รับคำสั่ง',
   `purpose2` varchar(50) NOT NULL COMMENT 'วัตถุประสงค์ ขอนุญาต',
-  `topics` varchar(50) NOT NULL COMMENT 'เรื่องที่ไปราชการ',
-  `status` varchar(50) NOT NULL COMMENT 'ขอไปราชการในฐานะ',
+  `topics` varchar(100) NOT NULL COMMENT 'เรื่องที่ไปราชการ',
+  `status` char(1) NOT NULL COMMENT 'ขอไปราชการในฐานะ 1=ผู้บริหาร,2=ผู้สอน,3=ผู้สนับสนุนการสอน',
   `object` text COMMENT 'วัตถุประสงค์ที่ไป',
-  `destination_name` varchar(50) DEFAULT NULL COMMENT 'ชื่อสถานที่ไปราชการ',
+  `destination_name` varchar(200) DEFAULT NULL COMMENT 'ชื่อสถานที่ไปราชการ',
   `go_date` date DEFAULT NULL COMMENT 'วัน  ไปราชการ',
   `go_time` varchar(50) DEFAULT NULL COMMENT 'เวลา ไปราชการ',
   `back_date` date DEFAULT NULL COMMENT 'วัน กลับราชการ',
@@ -10116,37 +10097,32 @@ CREATE TABLE IF NOT EXISTS `permission` (
   `budget_by` varchar(50) DEFAULT NULL COMMENT 'ใช้งบประมาณ',
   `budget_project` varchar(50) DEFAULT NULL COMMENT 'โครงการ',
   `budget_pass` varchar(50) DEFAULT NULL COMMENT 'รหัสโครงการ',
-  `travel` varchar(50) DEFAULT NULL COMMENT 'การเดินทาง',
-  `travel_idcard` varchar(50) DEFAULT NULL COMMENT 'หมายเลขทะเบียน',
-  `commit_a` varchar(50) DEFAULT NULL COMMENT 'งานภาคปกติ',
+  `travel` char(1) DEFAULT NULL COMMENT 'การเดินทาง',
+  `travel_idcard` varchar(8) DEFAULT NULL COMMENT 'หมายเลขทะเบียน',
+  `commit_a` varchar(5) DEFAULT NULL COMMENT 'งานภาคปกติ',
   `commit_a_dt` varchar(50) DEFAULT NULL COMMENT 'งานภาคปกติ มอบหมาย',
-  `commit_b` varchar(50) DEFAULT NULL COMMENT 'งานภาค กศ.บป',
+  `commit_b` varchar(5) DEFAULT NULL COMMENT 'งานภาค กศ.บป',
   `commit_b_dt` varchar(50) DEFAULT NULL COMMENT 'งานภาค กศ.บป มอบหมาย',
-  `commit_c` varchar(50) DEFAULT NULL COMMENT 'งานเวรประจำวัน',
+  `commit_c` varchar(5) DEFAULT NULL COMMENT 'งานเวรประจำวัน',
   `commit_c_dt` varchar(50) DEFAULT NULL COMMENT 'งานเวรประจำวัน มอบหมาย',
-  `commit_d` varchar(50) DEFAULT NULL COMMENT 'งานอื่นๆ',
+  `commit_d` varchar(5) DEFAULT NULL COMMENT 'งานอื่นๆ',
   `other` varchar(50) DEFAULT NULL COMMENT 'อื่นๆ',
   `commit_d_dt` varchar(50) DEFAULT NULL COMMENT 'งานอื่นๆ มอบหมาย',
   `create_date` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`permission_id`),
   KEY `personnel_id` (`personnel_id`),
   KEY `district` (`district`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='ตารางแบบฟอร์ม การขออนุญาตไปราชการ';
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8 COMMENT='ตารางแบบฟอร์ม การขออนุญาตไปราชการ';
 
--- Dumping data for table ask.permission: ~1 rows (approximately)
+-- Dumping data for table ask.permission: ~9 rows (approximately)
 /*!40000 ALTER TABLE `permission` DISABLE KEYS */;
-INSERT INTO `permission` (`permission_id`, `personnel_id`, `district`, `permission_status`, `purpose`, `purpose1`, `purpose2`, `topics`, `status`, `object`, `destination_name`, `go_date`, `go_time`, `back_date`, `back_time`, `budget`, `budget_expenses`, `budget_by`, `budget_project`, `budget_pass`, `travel`, `travel_idcard`, `commit_a`, `commit_a_dt`, `commit_b`, `commit_b_dt`, `commit_c`, `commit_c_dt`, `commit_d`, `other`, `commit_d_dt`, `create_date`) VALUES
-	(1, 5, '1521', '1', '', 'ได้รับคำสั่ง', '', 'เรื่องที่ไปราชการ', 'ผู้บริหาร', 'ระบุวัตถุประสงค์/ลักษณะงาน', 'สถานที่ไปราชการ', '2018-09-01', '08:00', '2018-09-02', '08:00', 'เบิกค่ามใช้จ่าย', 'ตามสิทธิ์', 'งบประมาณแผ่นดิน', 'โครงการ', 'โครงการ', 'ขอใช้รถส่วนตัว', '', 'ไม่มี', '', 'ไม่มี', '', 'ไม่มี', '', 'ไม่มี', '', '', '2018-09-27 18:10:00'),
-	(2, 3, '1623', '1', '', '', '', '', '', '', '12', '2018-08-30', '00:00', '0001-01-01', '00:00', 'ไม่เบิกค่าใช้จ่าย', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '2018-09-30 13:42:13'),
-	(3, 92, '1666', '0', 'ขออนุญาต', '', '', '000', 'ผู้สอน', '000', '0000', '2018-10-01', '00:00', '2018-10-28', '00:00', 'ไม่เบิกค่าใช้จ่าย', '', '', '', '', '', '', 'ไม่มี', '', 'ไม่มี', '', 'ไม่มี', '', 'ไม่มี', '', '', '2018-10-01 13:36:19'),
-	(4, 89, '1676', '1', '', 'ได้รับคำสั่ง', '', '', 'ผู้บริหาร', '', '12', '2018-10-03', '', '2018-10-18', '', 'ไม่เบิกค่าใช้จ่าย', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '2018-10-01 17:51:51');
 /*!40000 ALTER TABLE `permission` ENABLE KEYS */;
 
 -- Dumping structure for table ask.permission_back
 CREATE TABLE IF NOT EXISTS `permission_back` (
   `permission_id` int(11) DEFAULT NULL,
   `district` varchar(50) DEFAULT NULL COMMENT 'ตำบล/อำเภอ/จังหวัด',
-  `b_save_date` date DEFAULT NULL,
+  `b_save_date` date DEFAULT NULL COMMENT 'วันที่ลงบันทึกขออนุญาต',
   `b_by_order_save` varchar(50) DEFAULT NULL COMMENT 'ขอเบิกค่าใช้จ่ายสำหรับ',
   `b_date_authorized` date DEFAULT NULL COMMENT 'ลงวันที่/วันที่อนุมัติ',
   `b_disbursed_by` int(11) DEFAULT NULL COMMENT 'เบิกจ่ายโดย/ขอเบิกค่าใช้จ่ายในการเดินทางไปราชการสำหรับ ',
@@ -10154,7 +10130,7 @@ CREATE TABLE IF NOT EXISTS `permission_back` (
   `b_rent_date_type` int(11) DEFAULT NULL COMMENT 'ประเภท ค่าเข่าที่พัก',
   `b_start_travel` int(11) DEFAULT NULL COMMENT 'ออกเเดินทางจาก ',
   `b_back_travel` int(11) DEFAULT NULL COMMENT 'กลับจากการเดินทาง',
-  `b_house_number` int(11) DEFAULT NULL COMMENT 'บ้านเลขที่',
+  `b_house_number` char(10) DEFAULT NULL COMMENT 'บ้านเลขที่',
   `b_road` varchar(50) DEFAULT NULL COMMENT 'ถนน',
   `b_go_date` date DEFAULT NULL COMMENT 'วันที่ไปราชการ',
   `b_go_time` varchar(50) DEFAULT NULL COMMENT 'เวลาที่ไปราชการ',
@@ -10166,12 +10142,8 @@ CREATE TABLE IF NOT EXISTS `permission_back` (
   KEY `district` (`district`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ตาราง รายงานหลังจากกลับการไปราชการ';
 
--- Dumping data for table ask.permission_back: ~2 rows (approximately)
+-- Dumping data for table ask.permission_back: ~0 rows (approximately)
 /*!40000 ALTER TABLE `permission_back` DISABLE KEYS */;
-INSERT INTO `permission_back` (`permission_id`, `district`, `b_save_date`, `b_by_order_save`, `b_date_authorized`, `b_disbursed_by`, `b_allowence_type`, `b_rent_date_type`, `b_start_travel`, `b_back_travel`, `b_house_number`, `b_road`, `b_go_date`, `b_go_time`, `b_back_date`, `b_back_time`, `b_date_sum`, `b_time_sum`) VALUES
-	(2, '', '2018-10-14', '', '2018-10-20', 1, 2, 2, 0, 0, 0, '', '2018-10-19', '', '2018-10-18', '', '', ''),
-	(1, '381', '2018-10-13', '', '2018-10-11', 1, 1, 1, 0, 0, 0, '', '2018-10-16', '00:00', '2018-10-17', '00:00', '1.0', '24.0'),
-	(4, '322', '2018-10-12', '', '2018-10-21', 0, 1, 1, 0, 0, 0, '', '2018-10-11', '', '2018-10-18', '', '', '');
 /*!40000 ALTER TABLE `permission_back` ENABLE KEYS */;
 
 -- Dumping structure for table ask.personnel_list
@@ -10182,7 +10154,7 @@ CREATE TABLE IF NOT EXISTS `personnel_list` (
   `sub_position_code` varchar(10) DEFAULT NULL COMMENT 'รหัส ระดับ',
   `create_date` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`personnel_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=104 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table ask.personnel_list: ~22 rows (approximately)
 /*!40000 ALTER TABLE `personnel_list` DISABLE KEYS */;
@@ -10210,7 +10182,8 @@ INSERT INTO `personnel_list` (`personnel_id`, `user_id`, `department_code`, `sub
 	(100, 16, '2', '17', '2018-09-26 03:59:18'),
 	(101, 16, '2', '17', '2018-09-26 03:59:18'),
 	(102, 17, '1', '5', '2018-09-26 04:00:03'),
-	(103, 17, '1', '5', '2018-09-26 04:00:03');
+	(103, 17, '1', '5', '2018-09-26 04:00:03'),
+	(104, 19, '2', '5', '2018-10-05 16:19:17');
 /*!40000 ALTER TABLE `personnel_list` ENABLE KEYS */;
 
 -- Dumping structure for table ask.position
@@ -10224,10 +10197,10 @@ CREATE TABLE IF NOT EXISTS `position` (
 -- Dumping data for table ask.position: ~4 rows (approximately)
 /*!40000 ALTER TABLE `position` DISABLE KEYS */;
 INSERT INTO `position` (`position_id`, `position_name`, `position_code`) VALUES
-	(1, 'ตำเเหน่งวิชาการ', '1'),
-	(2, 'ตำเเหน่งบริหาร', '2'),
-	(3, 'ตำเเหน่งวิชาชีพเฉพาะ', '3'),
-	(4, 'ตำเเหน่งทั่วไป', '4');
+	(1, 'วิชาการ', '1'),
+	(2, 'บริหาร', '2'),
+	(3, 'วิชาชีพเฉพาะ', '3'),
+	(4, 'ทั่วไป', '4');
 /*!40000 ALTER TABLE `position` ENABLE KEYS */;
 
 -- Dumping structure for table ask.province
@@ -10387,8 +10360,24 @@ CREATE TABLE IF NOT EXISTS `travel_expenses` (
   KEY `permission_id` (`permission_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ตาราง ประมาณการรายจ่ายการเดินทาง โดยภาหนะ';
 
--- Dumping data for table ask.travel_expenses: ~0 rows (approximately)
+-- Dumping data for table ask.travel_expenses: ~6 rows (approximately)
 /*!40000 ALTER TABLE `travel_expenses` DISABLE KEYS */;
+INSERT INTO `travel_expenses` (`permission_id`, `travel_id`, `number_per`, `travel_expenses`, `user_sum`, `sum`, `vehicle_c`, `create_date`) VALUES
+	(45, 2, 2, 12, 2, 48, '', '2018-10-05 16:52:44'),
+	(45, 3, 5, 12, 2, 120, '', '2018-10-05 16:52:44'),
+	(51, 4, 12, 10, 2, 240, '', '2018-10-05 19:57:06'),
+	(51, 5, 12, 10, 2, 240, '', '2018-10-05 19:57:06'),
+	(53, 2, 12, 100, 2, 2400, '', '2018-10-05 20:33:46'),
+	(53, 3, 12, 1000, 2, 24000, '', '2018-10-05 20:33:46'),
+	(54, 2, 10, 10, 5, 500, '', '2018-10-06 21:41:52'),
+	(54, 3, 10, 10, 5, 500, '', '2018-10-06 21:41:52'),
+	(54, 4, 10, 10, 5, 500, '', '2018-10-06 21:41:52'),
+	(54, 5, 10, 10, 5, 500, '', '2018-10-06 21:41:52'),
+	(56, 1, 2, 100, 2, 400, '', '2018-10-06 23:45:10'),
+	(56, 2, 2, 100, 2, 400, '', '2018-10-06 23:45:10'),
+	(56, 3, 2, 100, 2, 400, '', '2018-10-06 23:45:10'),
+	(56, 4, 2, 100, 2, 400, '', '2018-10-06 23:45:10'),
+	(56, 5, 2, 100, 2, 400, '', '2018-10-06 23:45:10');
 /*!40000 ALTER TABLE `travel_expenses` ENABLE KEYS */;
 
 -- Dumping structure for table ask.travel_expenses_official_car
@@ -10408,7 +10397,7 @@ CREATE TABLE IF NOT EXISTS `travel_expenses_official_car` (
   KEY `travel_id` (`travel_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ค่าน้ำมันเชื้อเพลิง\r\nขอใช้รถไปราชการ';
 
--- Dumping data for table ask.travel_expenses_official_car: ~1 rows (approximately)
+-- Dumping data for table ask.travel_expenses_official_car: ~0 rows (approximately)
 /*!40000 ALTER TABLE `travel_expenses_official_car` DISABLE KEYS */;
 /*!40000 ALTER TABLE `travel_expenses_official_car` ENABLE KEYS */;
 
@@ -10430,43 +10419,42 @@ CREATE TABLE IF NOT EXISTS `travel_expenses_private_car` (
 
 -- Dumping data for table ask.travel_expenses_private_car: ~0 rows (approximately)
 /*!40000 ALTER TABLE `travel_expenses_private_car` DISABLE KEYS */;
-INSERT INTO `travel_expenses_private_car` (`travel_id`, `permission_id`, `tepc_distance`, `tepc_number_per`, `tepc_rate_fuel_cost`, `tepc_fuel_cost_sum`, `tepc_expressway_expenses_sum`, `tepc_sum`, `tepc_vehicle_c`, `tepc_create_date`) VALUES
-	(6, 1, 400, 2, 4, 3200, 500, '3700', '', '2018-09-27 18:10:00');
 /*!40000 ALTER TABLE `travel_expenses_private_car` ENABLE KEYS */;
 
 -- Dumping structure for table ask.user
 CREATE TABLE IF NOT EXISTS `user` (
   `user_id` int(5) NOT NULL AUTO_INCREMENT,
+  `sex` varchar(20) DEFAULT NULL COMMENT 'เพศ',
   `user_username` varchar(50) DEFAULT NULL COMMENT 'IDUser',
   `user_password` varchar(50) DEFAULT NULL COMMENT 'รหัส',
-  `sex` varchar(20) DEFAULT NULL COMMENT 'เพศ',
   `user_fname` varchar(50) DEFAULT NULL COMMENT 'ชื่อ',
   `user_lname` varchar(50) DEFAULT NULL COMMENT 'นามสกุล',
   `number_phone` char(10) DEFAULT NULL COMMENT 'เบอร์โทรศัพท์',
   `date` date DEFAULT NULL COMMENT 'วันเข้ารับราชการ',
   `role` int(1) DEFAULT NULL COMMENT 'สิทธิ',
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COMMENT='ตารางผู้ใช้ระบบ';
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COMMENT='ตารางผู้ใช้ระบบ';
 
 -- Dumping data for table ask.user: ~16 rows (approximately)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` (`user_id`, `user_username`, `user_password`, `sex`, `user_fname`, `user_lname`, `number_phone`, `date`, `role`) VALUES
-	(1, 'admin', 'admin', 'Admin', 'nameadmin', 'nameadmin', NULL, '2016-05-29', 1),
-	(2, 'a', 'a', 'TestAdmin', 'a', 'a', '0853600000', '2016-05-29', 1),
-	(3, 's', 's', 'นาย', 'สาคร', 'สาคร', '0853600000', '2018-10-31', 2),
-	(4, '7577', '7577', 'นาย', 'หล่อ', 'หล่อ', '0853600000', '2018-08-25', 2),
-	(5, '570112230076', '570112230076', 'นาย', 'สกล', 'สกล', '0837250471', '2018-08-01', 2),
-	(6, 'all', 'all', 'all', 'all', 'all', '0853600000', '2018-09-06', 2),
-	(8, 'er', 'er', 'นางสาว', 'ยาดี', 'มากจัง', '0852525252', '2018-09-08', 2),
-	(10, 'as', 'as', 'นาย', 'สองยาศึก', 'อำมหิค', '0856456465', '2018-09-22', 2),
-	(11, 'lak', '445566', 'นาย', 'วรากร', 'วรากร', '088985456', '2530-10-24', 2),
-	(12, '12', '12', 'นางสาว', 'ทองดี', 'ฟันขาว', '1251232515', '2018-09-09', 2),
-	(13, 'sdfasd', 'sdasd', 'นางสาว', 'ดีดีจัง', 'ดีดีจัง', '0852852085', '2018-09-21', 3),
-	(14, 'TOP', 'TOP', 'นาย', 'TOP', 'TOP', '0854562541', '2018-09-01', 2),
-	(15, 'd', 'd', 'นาง', 'สมจิต', 'จงจอหอ', '0258552364', '2018-09-01', 2),
-	(16, 't', 't', 'นาย', 'รักนี้', 'รักนี้', '0254686516', '2018-09-01', 2),
-	(17, 'asd', 'asd', 'asd', 'asd', 'asd', '', '2018-09-01', 2),
-	(18, '555', '555', 'นาง', '555', '555', '5555555555', '2018-09-09', 2);
+INSERT INTO `user` (`user_id`, `sex`, `user_username`, `user_password`, `user_fname`, `user_lname`, `number_phone`, `date`, `role`) VALUES
+	(1, 'Admin', 'admin', 'admin', 'nameadmin', 'nameadmin', NULL, '2016-05-29', 1),
+	(2, 'TestAdmin', 'a', 'a', 'ADMIN', 'TEST', '0853600000', '2016-05-29', 1),
+	(3, 'นาย', 's', 's', 'สาคร', 'สาคร', '0853600000', '2018-10-31', 2),
+	(4, 'นาย', '7577', '7577', 'หล่อ', 'หล่อ', '0853600000', '2018-08-25', 2),
+	(5, 'นาย', '570112230076', '570112230076', 'สกล', 'สกล', '0837250471', '2018-08-01', 2),
+	(6, 'นางสาว', 'all', 'all', 'อรอุมาสาดง', 'รัตนโกสรรพยาสินชัย', '0853600000', '2018-09-06', 2),
+	(8, 'นางสาว', 'er', 'er', 'ยาดี', 'มากจัง', '0852525252', '2018-09-08', 2),
+	(10, 'นาย', 'as', 'as', 'สองยาศึก', 'อำมหิค', '0856456465', '2018-09-22', 2),
+	(11, 'นาย', 'lak', '445566', 'วรากร', 'วรากร', '088985456', '2530-10-24', 2),
+	(12, 'นางสาว', '12', '12', 'ทองดี', 'ฟันขาว', '1251232515', '2018-09-09', 2),
+	(13, 'นางสาว', 'sdfasd', 'sdasd', 'ดีดีจัง', 'ดีดีจัง', '0852852085', '2018-09-21', 3),
+	(14, 'นาย', 'TOP', 'TOP', 'พิทยาชัยรมย์', 'บุรีรมองค์', '0854562541', '2018-09-01', 2),
+	(15, 'นาง', 'd', 'd', 'สมจิต', 'จงจอหอ', '0258552364', '2018-09-01', 2),
+	(16, 'นาย', 't', 't', 'รักนี้', 'รักนี้', '0254686516', '2018-09-01', 2),
+	(17, 'นางสาว', 'asd', 'asd', 'รุ่งณภา', 'หนรพี', '0852585202', '2018-09-01', 2),
+	(18, 'นาง', '555', '555', 'สองสามที', 'กำำลังจะดี', '0846546542', '2018-09-09', 2),
+	(19, 'นาย', '6022005123', '6022005123', 'นพดล', 'จันทเลิศ', '', '2018-10-06', 2);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

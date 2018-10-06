@@ -235,30 +235,30 @@
 							</th>
 						</tr>
 						<tr>
-							<th style="width: 12mm; text-align: left"></th>
-							<th style="width: 18mm; text-align: left">
+							<th style="max-width: 12mm; text-align: left"></th>
+							<th style="max-width: 18mm; text-align: left">
 							( <%if (bean.getBudgetBy().equals("งบรายได้")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) งบเงินรายได้ &nbsp;&nbsp;โครงการ&nbsp;&nbsp;
 							</th>
-							<th style="width: 15mm; text-align: left">
+							<th style="max-width: 15mm; text-align: left">
 								<%if (bean.getBudgetBy().equals("งบรายได้")) {out.print(bean.getBudgetProject());}%>
 							</th>
-							<th style="width: 10mm; text-align: left">รหัสโครงการ</th>
-							<th style="width: 12mm; text-align: left">
+							<th style="max-width: 10mm; text-align: left">รหัสโครงการ</th>
+							<th style="max-width: 12mm; text-align: left">
 								<%if (bean.getBudgetBy().equals("งบรายได้")) {out.print(bean.getBudgetPass());}%>
 							</th>
 						</tr>
 						<tr>
-							<th style="width: 12mm; text-align: left"></th>
-							<th style="width: 18mm; text-align: left">
+							<th style="max-width: 12mm; text-align: left"></th>
+							<th style="max-width: 18mm; text-align: left">
 							( <%if (bean.getBudgetBy().equals("อื่นๆ")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) งบอื่นๆ
 							</th>
-							<th style="width: 15mm; text-align: left" colspan="3"></th>
+							<th style="max-width: 15mm; text-align: left" colspan="3"></th>
 						</tr>
 						<tr>
-							<th style="width: 12mm; text-align: left"></th>
-							<th style="width: 18mm; text-align: left">ในวงเงิน &nbsp;&nbsp; <%=beanEs.getExpenseEstimateSumTotal()%>
+							<th style="max-width: 12mm; text-align: left"></th>
+							<th style="max-width: 18mm; text-align: left">ในวงเงิน &nbsp;&nbsp; <%=beanEs.getExpenseEstimateSumTotal()%>
 							</th>
-							<th style="width: 12mm; text-align: left" colspan="3">บาท </th>
+							<th style="max-width: 12mm; text-align: left" colspan="3">บาท </th>
 						</tr>
 					</table>
 					<br>
@@ -361,7 +361,7 @@
 					</div>
 
 					<div style="margin-bottom: 6%">
-						<label>2. <input name="v" type="checkbox">
+						<label>2. ( &nbsp; )
 							หัวหน้าภาควิชา
 						</label> <label>( &nbsp; )
 							ผู้อำนวยการกอง </label> <label>( &nbsp; )
@@ -444,7 +444,7 @@
 					</table>
 					<table style="width: 100%;">
 						<tr>
-							<th style="text-align: left; max-width: 16mm;">&nbsp;&nbsp;&nbsp; ที่ &nbsp;&nbsp;  <%=bean.getDestinationName()%></th>
+							<th style="text-align: left; max-width: 20mm;">&nbsp;&nbsp;&nbsp; ที่ &nbsp;&nbsp;  <%=bean.getDestinationName()%></th>
 							<th style="text-align: left; max-width: 11mm;">อำเภอ&nbsp;&nbsp; <%=bean.getAmphur()%></th>
 							<th style="text-align: left; max-width: 11mm;">จังหวัด&nbsp;&nbsp; <%=bean.getAmphur()%></th>
 						</tr>

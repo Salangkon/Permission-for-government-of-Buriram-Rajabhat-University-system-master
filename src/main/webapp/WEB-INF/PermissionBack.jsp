@@ -27,7 +27,7 @@
 	<script src="/js/view-source_https___cdn.datatables.net_select_1.2.7_js_dataTables.select.min.js"></script>
 	<script src="/js/listFaculty.js"></script>
 	<script src="/js/listPosition.js"></script>
-	<script src="/js/insertExpenseBack.js"></script>
+<!-- 	<script src="/js/insertExpenseBack.js"></script> -->
 	<script src="/js/insertPermissionBack.js"></script>
 	<script src="/js/province.js"></script>
 	

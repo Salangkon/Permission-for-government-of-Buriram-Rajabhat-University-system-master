@@ -150,7 +150,7 @@
 	
 	<label  style="margin-top: 1%">สถานที่ไปราชการ </label>
     <div class="form-group">
-   		<input class="form-control" name="destinationName" id="destinationName" maxlength="50" type="text" placeholder="สถานที่ไปราชการ">
+   		<input class="form-control" name="destinationName" id="destinationName" maxlength="30" type="text" placeholder="สถานที่ไปราชการ">
     </div>
 	<!-- จังหวัด province -->
 	<div class="form-group">
@@ -193,7 +193,7 @@
     </div>
     <div>
     <label>เรื่องที่ไปราชการ </label>
-    	<input type="text" class="form-control" name="topics" id="topics" maxlength="40">
+    	<input type="text" class="form-control" name="topics" id="topics" maxlength="30">
     </div><hr>
     <div style="overflow-x:auto;">
 	 <table id="" class="table-responsive" style="margin-bottom: 3.3%;width: 100%">
@@ -334,7 +334,7 @@
     		<th style="text-align:right;" colspan="4"></th>
 			<th style="text-align:center" ></th>
 			<th style="text-align:center" ><label id="summary1"></label></th>
-			<th style="text-align:center"><label id="summary2"><input id="sumPerPerson1" type="hidden"></label></th>
+			<th style="text-align:center"><input class="form-control" style="width: 25mm;height: 7mm;text-align: center;" OnKeyPress="return chkNumber(this)" id="sumPerPerson1" type="text" ></th>
 			<th colspan="2"></th>
     	</tr>
     	</tfoot>

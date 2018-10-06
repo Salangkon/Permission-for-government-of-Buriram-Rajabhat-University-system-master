@@ -63,12 +63,6 @@ public class UserController {
 		return "test";
 	}
 
-	// path test1 from ask
-	@RequestMapping("/test1")
-	public String tset1() {
-		return "test1";
-	}
-
 	// path Ask_la
 	@RequestMapping("/gotoAsk_la")
 	public String gotoAsk_la(HttpServletRequest request,Model model) {
@@ -112,6 +106,13 @@ public class UserController {
 	public String gotoInserst(Model model) {
 		model.addAttribute("messes", "F");
 		return "insert";
+	}
+	
+	// บันทึกการเดินทางกลับ
+	@RequestMapping(value = "/perBackOk")
+	public String gotoWelcome(Model model) {
+		model.addAttribute("messes", "S");
+		return "welcomeUser";
 	}
 	
 	// สมัคร username ห้ามซ้ำ

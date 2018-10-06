@@ -1,5 +1,7 @@
 package com.hillert.model;
 
+import java.util.List;
+
 public class PermissionBackBean {
 	
 	private int permissionId;
@@ -44,8 +46,22 @@ public class PermissionBackBean {
 	private String amphurName;	
 	private String provinceName;	
 	
-	private PermissionBean permission;	
+	private PermissionBean permissionBean;
+	private List<ExpenseEstimateBean> eeBean;
+	private ExpenseSumaryBean esBean;
 	
+	public List<ExpenseEstimateBean> getEeBean() {
+		return eeBean;
+	}
+	public void setEeBean(List<ExpenseEstimateBean> eeBean) {
+		this.eeBean = eeBean;
+	}
+	public ExpenseSumaryBean getEsBean() {
+		return esBean;
+	}
+	public void setEsBean(ExpenseSumaryBean esBean) {
+		this.esBean = esBean;
+	}
 	public String getbSaveDateDay() {
 		return bSaveDateDay;
 	}
@@ -64,14 +80,12 @@ public class PermissionBackBean {
 	public void setbSaveDateYear(String bSaveDateYear) {
 		this.bSaveDateYear = bSaveDateYear;
 	}
-	public PermissionBean getPermission() {
-		return permission;
+	public PermissionBean getPermissionBean() {
+		return permissionBean;
 	}
-	public void setPermission(PermissionBean permission) {
-		this.permission = permission;
+	public void setPermissionBean(PermissionBean permissionBean) {
+		this.permissionBean = permissionBean;
 	}
-	
-	
 	public String getbSaveDate() {
 		return bSaveDate;
 	}
