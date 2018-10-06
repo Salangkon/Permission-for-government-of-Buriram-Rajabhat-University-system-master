@@ -84,6 +84,7 @@
       <a class="w3-bar-item w3-button" href="#3"> หลักฐานการจ่ายเงิน	</a>
       <a class="w3-bar-item w3-button" href="#4"> ใบแนบขอเบิกค่าใช้จ่าย	</a>
       <a class="w3-bar-item w3-button" href="#5"> บันทึกข้อความ	</a>
+      <a class="w3-bar-item w3-button" href="#6"> บันทึกข้อความ 2	</a>
     </div>
   </div>
   <a class="w3-bar-item w3-button" href="javascript:void(0)" onclick="printDiv('printableArea')">พิมพ์</a>
@@ -439,8 +440,8 @@
 				</div> <!-- end2 -->
 				
 				
-<!-- 		5 -->
-			<div class="page" id="5">
+<!-- 5 -->
+<div class="page" id="5">
 			
 			<table>
 				<tr>
@@ -506,7 +507,7 @@
 					<th style="width: 100%;">รายการ ดังนี้</th>
 				</tr>
 				<tr>
-					<th colspan="5" style="height: 100mm; text-align: left;"valign="bottom">sds</th>	
+					<th colspan="5" style="height: 100mm; text-align: left;"valign="top"></th>	
 				</tr>
 			</table>
 			<br>
@@ -542,10 +543,171 @@
 					<th style="text-align: center;">( <%=bean.getSex() %><%=bean.getUserFname()%>&nbsp;&nbsp; <%=bean.getUserLname()%> )</th>
 				</tr>
 			</table>
-				
+
+</div><!-- 	end	5 -->
 			
-				
-			</div><!-- 	end	5 -->
+<!--5-1 -->
+<div class="page" id="6">
+			<br>
+			<br>
+			<table>
+				<tr>
+					<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ๑ ) ทราบ สามารถนำไปใช้ประโยชน์</th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ๒ ) เพื่อโปรดพิจราณา</th>
+					<th></th>
+				</tr>
+			</table>
+			<br>
+			<br>
+			<table>
+				<tr>
+					<th style="width: 50%"></th>
+					<th style="text-align: center;">ลงชื่อ.....................................................</th>
+				</tr>
+				<tr>
+					<th></th>
+					<th style="text-align: center;">(.........................................................)</th>
+				</tr>
+				<tr>
+					<th></th>
+					<th style="text-align: center;">หัวหน้าสาขาวิชา</th>
+				</tr>
+			</table>
+			<br>
+			<br>
+			<table>
+				<tr>
+					<th style="width: 50%"></th>
+					<th style="text-align: center;">ลงชื่อ...................................................</th>
+				</tr>
+				<tr>
+					<th></th>
+					<th style="text-align: center;">(.........................................................)</th>
+				</tr>
+				<tr>
+					<th></th>
+					<th style="text-align: center;">คณะบดีคณะ...........................................</th>
+				</tr>
+			</table>
+			<br>
+			<br>
+			<br>
+			<br>
+			<table>
+				<tr>
+					<th> คำสั่งสั่งการ ๑ ) ทราบ</th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ๒ ) อนุมัติให้เบิกจ่ายได้</th>
+					<th></th>
+				</tr>
+			</table>
+			<br>
+			<br>
+			<br>
+			<br>
+			<table>
+				<tr>
+					<th style="width: 50%"></th>
+					<th style="text-align: center;">....................................................</th>
+				</tr>
+				<tr>
+					<th></th>
+					<th style="text-align: center;">ผู้ช่วยศาสตราจารย์ ดร.สุพัตรา รักการศิลป์</th>
+				</tr>
+				<tr>
+					<th></th>
+					<th style="text-align: center;">รองอธิการบดี ปฎิบัติราชการแทน</th>
+				</tr>
+				<tr>
+					<th></th>
+					<th style="text-align: center;">อธิการบดีมหาวิทยาลัยราชภัฏบุรีรัมย์</th>
+				</tr>
+			</table>
+</div><!-- 	end	5-1 -->
+
+<!--7 -->
+<div class="page" id="7">
+			<br>
+			<br>
+			<table>
+				<tr>
+					<th style="text-align: center;">ติดใบสำคัญรับเงิน</th>
+				</tr>
+				<tr>
+					<th colspan="1" style="height: 120mm; text-align: left;"valign="bottom"></th>	
+				</tr>
+			</table>
+			<br>
+			<br>
+			<table>
+				<tr>
+					<th style="width: 50%"></th>
+					<th >(  ) ใบเสร็จรับเงินค่าที่พัก</th>
+				</tr>
+				<tr>
+					<th></th>
+					<th >(  ) ตั๋วเครื่องบิน</th>
+				</tr>
+				<tr>
+					<th></th>
+					<th >(  ) ใบเสร็จค่าทำเนียมการใช้สนามบิน</th>
+				</tr>
+				<tr>
+					<th></th>
+					<th >(  ) ใบเสร็จรับเงินค่าน้ำมันเชื่อเพลิง</th>
+				</tr>
+				<tr>
+					<th></th>
+					<th >(  ) ใบเสร็จรับเงินค่ารักษาพยาบาล</th>
+				</tr>
+				<tr>
+					<th></th>
+					<th >(  ) ใบเสร็จรับเงินค่าการศึกษาบุตร</th>
+				</tr>
+				<tr>
+					<th></th>
+					<th >(  ) อื่นๆ.............................................................................</th>
+				</tr>
+			</table>
+			<br>
+			<br>
+			<table>
+				<tr>
+					<th style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ขอรับรองว่าได้จ่ายเงิน จำนวน 
+					<%if (beanEsBack.getExpenseEstimateSumTotal().equals("0")) {out.print("");} else {out.print(beanEsBack.getExpenseEstimateSumTotal());}%> บาท
+					<%if (beanEsBack.getExpenseEstimateSumTotal().equals("null")) {out.print("(.............................................................................)");} 
+						else {out.print("( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+beanEsBack.getExpenseEstimateSumTotalThaiBaht()+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ) ");}%> 
+					</th>
+				</tr>
+				<tr>
+					<th>ตามใบสำคัญข้างบนนี้จริง</th>	
+				</tr>
+			</table>
+			<br>
+			<br>
+			<table>
+				<tr>
+					<th style="width: 50%"></th>
+				<th style="text-align: center;">ลงชื่อ...................................................</th>
+				</tr>
+				<tr>
+					<th></th>
+					<th style="text-align: center;">( <%=bean.getSex()%><%=bean.getUserFname()%>&nbsp;&nbsp;<%=bean.getUserLname()%> )</th>
+				</tr>
+			</table>
+			<br>
+			<br>
+			<table>
+				<tr>
+				<th style="text-align: left;">หมายเหตุ รายการและจำนวนเงินตามใบสำคัญนี้ ไม่ต้องเขียนลงใบแบบ บก.111</th>
+				</tr>
+			</table>
+</div><!-- 	end	7-->
 			
 			
 </div> <!-- end printableArea -->

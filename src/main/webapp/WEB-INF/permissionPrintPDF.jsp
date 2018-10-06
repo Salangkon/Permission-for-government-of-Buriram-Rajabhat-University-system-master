@@ -468,30 +468,28 @@
 					<br>
 					<table style="width: 100%;">
 						<tr>
-							<th colspan="2" style="max-width: 100%; text-align: left">2.การไปราชการในครั้งนี้ ขอเบิกค่าใช้จ่ายจากงบประมาณ</th>
+							<th colspan="4" style="max-width: 100%; text-align: left">2.การไปราชการในครั้งนี้ ขอเบิกค่าใช้จ่ายจากงบประมาณ</th>
 						</tr>
 						<tr>
-							<th style="text-align: left; max-width: 15mm;">&nbsp;&nbsp;&nbsp; 
-							( <%if (bean.getBudgetBy().equals("งบประมาณแผ่นดิน")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) งบแผ่นดิน โครงการ <%=bean.getBudgetProject()%>
-							</th>
-							<th style="text-align: left; max-width: 15mm;">รหัสโครงการ&nbsp;&nbsp; 
-								<%if (bean.getBudgetBy().equals("งบประมาณแผ่นดิน")) {out.print(bean.getBudgetPass());}%>
-							</th>
+							<th style="text-align: left; max-width: 5mm;">&nbsp;&nbsp;&nbsp; ( <%if (bean.getBudgetBy().equals("งบประมาณแผ่นดิน")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) งบแผ่นดิน โครงการ</th>
+							<th style="text-align: left; max-width: 60mm;"><%if (bean.getBudgetBy().equals("งบประมาณแผ่นดิน")) {out.print(bean.getBudgetProject());} else {out.print("");}%></th>
+							<th style="text-align: left; max-width: 5mm;">รหัสโครงการ</th>
+							<th style="text-align: left; max-width: 25mm;">&nbsp;&nbsp; <%if (bean.getBudgetBy().equals("งบประมาณแผ่นดิน")) {out.print(bean.getBudgetPass());}%></th>
 						</tr>
 						<tr>
-							<th style="text-align: left; max-width: 15mm;">&nbsp;&nbsp;&nbsp;
-							( <%if (bean.getBudgetBy().equals("งบรายได้")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) งบเงินรายได้ โครงการ <%=bean.getBudgetProject()%></th>
-							<th style="text-align: left; max-width: 15mm;">รหัสโครงการ&nbsp;&nbsp; 
-								<%if (bean.getBudgetBy().equals("งบรายได้")) {out.print(bean.getBudgetPass());}%>
+							<th style="text-align: left;">&nbsp;&nbsp;&nbsp; ( <%if (bean.getBudgetBy().equals("งบรายได้")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) งบเงินรายได้ โครงการ  </th>
+							<th style="text-align: left;"> <%if (bean.getBudgetBy().equals("งบรายได้")) {out.print(bean.getBudgetProject());} else {out.print("");}%></th>
+							<th style="text-align: left;">รหัสโครงการ</th>
+							<th style="text-align: left;">&nbsp;&nbsp; <%if (bean.getBudgetBy().equals("งบรายได้")) {out.print(bean.getBudgetPass());}%>
 							</th>
 						</tr>
 						<tr>
-							<th colspan="2" style="max-width: 100%; text-align: left">&nbsp;&nbsp;&nbsp; 
+							<th colspan="4" style="max-width: 100%; text-align: left">&nbsp;&nbsp;&nbsp; 
 							( <%if (bean.getBudgetBy().equals("งบรายได้")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) งบอื่นๆ &nbsp;&nbsp;
 							</th>
 						</tr>
 						<tr>
-							<th colspan="2" style="max-width: 100%; text-align: left">&nbsp;&nbsp;โดยขอเบิกค่าใช้จาย 
+							<th colspan="4" style="max-width: 100%; text-align: left">&nbsp;&nbsp;โดยขอเบิกค่าใช้จาย 
 								( <%if (bean.getBudgetExpenses().equals("ตามสิทธิ์")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) ตามสิทธื์ &nbsp;&nbsp; 
 								( <%if (bean.getBudgetExpenses().equals("เหมาจ่าย")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) เหมาจ่าย &nbsp;&nbsp; 
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  เป็นจำนวนเงิน &nbsp;&nbsp;&nbsp; <%=beanEs.getExpenseEstimateSumTotal()%>&nbsp;&nbsp;&nbsp; บาท</th>
