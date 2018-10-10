@@ -363,6 +363,7 @@ $(document).ready(function() {
 			$(sum1).find('input').val(0);
 		}
 	});
+	
 	//คำนวณ ค่าทางด่วน รถขอไปราชการ สรูป
 	$('#addTravel1').on('change','input', function() { 
 		var sum = $(this).parent().parent().find('td')[8];
@@ -378,8 +379,88 @@ $(document).ready(function() {
 		}
 	});
 
+	$('#addUser').on('click','a.remove', function() {
+		console.log(555)
+		
+		tableSelect.row( $(this).parents('tr') ).remove().draw();
+		var num = $('#addUser').DataTable().rows().data().length;
+		$('#userSumTotal').text(num);
+		
+		// set allowenceSumTotal
+		var sumvalues = $("[name='allowenceSum']");
+		var sum = 0;
+		for(var i = 0; i < sumvalues.length;i++){
+			if($(sumvalues[i]).val() != ""){
+				sum = sum + parseFloat($(sumvalues[i]).val());
+			}	
+		}
+		$('#allowenceSumTotal').text(parseFloat(sum).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+		
+		// rentDateSum รวมค่าที่พัก
+		var sumvalues = $("[name='rentDateSum']");
+		var sum = 0;
+		for(var i = 0; i < sumvalues.length;i++){
+			if($(sumvalues[i]).val() != ""){
+				sum = sum + parseFloat($(sumvalues[i]).val());
+			}	
+		}
+		$('#rentDateSumTotal').text(parseFloat(sum).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")); 
+		
+		// travelSum รวมค่าพาหนะ
+		var sumvalues = $("[name='travelSum']");
+		var sum = 0;
+		for(var i = 0; i < sumvalues.length;i++){
+			if($(sumvalues[i]).val() != ""){
+				sum = sum + parseFloat($(sumvalues[i]).val());
+			}
+		}
+		$('#travelSumTotal').text(parseFloat(sum).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+		// otherSum รวมค่าพาหนะ
+		var sumvalues = $("[name='otherSum']");
+		var sum = 0;
+		for(var i = 0; i < sumvalues.length;i++){
+			if($(sumvalues[i]).val() != ""){
+				sum = sum + parseFloat($(sumvalues[i]).val());
+			}
+		}
+		$('#otherSumTotal').text(parseFloat(sum).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+		// expenseEstimateSum รวมค่าพาหนะ
+		var sumvalues = $("[name='expenseEstimateSum']");
+		var sum = 0;
+		for(var i = 0; i < sumvalues.length;i++){
+			if($(sumvalues[i]).val() != ""){
+				sum = sum + parseFloat($(sumvalues[i]).val());
+			}
+		}
+		$('#expenseEstimateSumTotal').text(parseFloat(sum).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+		$('#aaa').val(parseFloat(sum).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")); // .val ใช้กับ tag ที่เป็น input
+	
+		// allowencePerdayTotal รวมค่าที่พัก
+		var num = $('#addUser').DataTable().rows().data().length;
+		var sumvalues = $("[name='allowencePerday']");
+		var sum = 0;
+		for(var i = 0; i < sumvalues.length;i++){
+			if($(sumvalues[i]).val() != ""){
+				sum = sum + parseFloat($(sumvalues[i]).val())/parseFloat(num);
+			}	
+		}
+		$('#allowencePerdayTotal').text(parseFloat(sum).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")); 
+		
+		// allowencePerdayTotal รวมค่าที่พัก
+		var num = $('#addUser').DataTable().rows().data().length;
+		var sumvalues = $("[name='rentDatePerday']");
+		var sum = 0;
+		for(var i = 0; i < sumvalues.length;i++){
+			if($(sumvalues[i]).val() != ""){
+				sum = sum + parseFloat($(sumvalues[i]).val())/parseFloat(num);
+			}	
+		}
+		$('#rentDatePerdayTotal').text(parseFloat(sum).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")); 
+
+	});
+	
 	//คำนวณ ค่าเบี้ยเลี้ยง
-	$('#addUser').on('change','input', function() { 
+	$('#addUser').on('change','input', function() {
 		var sum6 = $(this).parent().parent().find('td')[7];
 		var number1 = $(this).parent().parent().find('td')[5];
 		var number2= $(this).parent().parent().find('td')[6];
@@ -587,9 +668,10 @@ $(document).ready(function() {
 					"sWidth" : "60px" ,
 					"mRender" : function(data,
 						type, row, index) {
+						var data1 = $('#DayTotal').val();
 					return '<input class="form-control sum6" disabled readonly="true"  type="text"  style="width: 20mm;height: 7mm" name="allowenceSum" id="allowenceSum'
 							+ index.row
-							+ '" value="0" />';
+							+ '" value="'+(row.allowence)*(data1)+'" />';
 					}
 				},
 				{
@@ -618,9 +700,10 @@ $(document).ready(function() {
 					"sWidth" : "60px" ,
 					"mRender" : function(data,
 						type, row, index) {
+						var data2 = $('#d').val();
 					return '<input class="form-control sum9" disabled readonly="true" type="text" OnKeyPress="return chkNumber(this)" style="width: 22mm;height: 7mm" name="rentDateSum" id="rentDateSum'
 							+ index.row
-							+ '" value="0"/>';
+							+ '" value="'+(row.rentDate)*(data2)+'"/>';
 					}										
 				},
 				{
@@ -640,9 +723,15 @@ $(document).ready(function() {
 					"mRender" : function(data,
 						type, row, index) {
 						var otherSum = $('#otherSum').val();
-					return '<input class="form-control sum11"  type="number" style="width: 22mm;height: 7mm" name="otherSum" id="otherSum'
+						if (otherSum == '') {
+							return '<input class="form-control sum11"  type="number" style="width: 22mm;height: 7mm" name="otherSum" id="otherSum'
+							+ index.row 
+							+ '" value="0" />';
+			            } else {
+			            	return '<input class="form-control sum11"  type="number" style="width: 22mm;height: 7mm" name="otherSum" id="otherSum'
 							+ index.row 
 							+ '" value="'+ parseFloat(otherSum).toFixed(0) +'" />';
+			            }
 					}										
 				},
 				{
@@ -650,9 +739,11 @@ $(document).ready(function() {
 				"sWidth" : "60px" ,
 				"mRender" : function(data,
 					type, row, index) {
+					var data1 = $('#DayTotal').val();
+					var data2 = $('#d').val();
 				return '<input class="form-control sum12" disabled readonly="true" type="number" style="width: 22mm;height: 7mm" name="expenseEstimateSum" id="expenseEstimateSum'
 						+ index.row 
-						+ '" />';
+						+ '" value=""/>';
 				}										
 				},
 				{
@@ -660,7 +751,7 @@ $(document).ready(function() {
 						"sWidth" : "5px" ,
 						"mRender" : function(data,
 							type, row, index) {
-						return '<a class="btn btn-danger" ><span class="glyphicon glyphicon-trash"> </span></a>';
+						return '<a class="btn btn-danger remove" ><span class="glyphicon glyphicon-trash"> </span></a>';
 						}										
 				}]
 		});

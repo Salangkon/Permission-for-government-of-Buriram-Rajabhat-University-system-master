@@ -59,12 +59,40 @@ public class PermissionBackBean {
 	private String choiceBill7;	
 	private String choiceBill7C;
 	
+	private String billGoDate;	
+	private String billDetail1;
+	private String billBackDate;
+	private String billDetail2;	
 	
 	private PermissionBean permissionBean;
 	private List<ExpenseEstimateBean> eeBean;
 	private ExpenseSumaryBean esBean;
 	
 	
+	public String getBillGoDate() {
+		return billGoDate;
+	}
+	public void setBillGoDate(String billGoDate) {
+		this.billGoDate = billGoDate;
+	}
+	public String getBillDetail1() {
+		return billDetail1;
+	}
+	public void setBillDetail1(String billDetail1) {
+		this.billDetail1 = billDetail1;
+	}
+	public String getBillBackDate() {
+		return billBackDate;
+	}
+	public void setBillBackDate(String billBackDate) {
+		this.billBackDate = billBackDate;
+	}
+	public String getBillDetail2() {
+		return billDetail2;
+	}
+	public void setBillDetail2(String billDetail2) {
+		this.billDetail2 = billDetail2;
+	}
 	public String getChoiceBill1() {
 		return choiceBill1;
 	}

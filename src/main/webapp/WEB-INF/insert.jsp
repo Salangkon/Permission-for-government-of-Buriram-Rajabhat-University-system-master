@@ -45,8 +45,6 @@
 
 	<%@include file="NavAdmin.jsp" %>
 
-<!-- <form action="nserOK" onsubmit="return insertConfirm()" name=""  method="post"> -->
-
 	<div class="container w3-animate-opacity" >
 		<div class="panel panel-primary" style="margin-top: 5%;" >
 			<div class="panel-heading" >Welcome to register.</div>
@@ -59,27 +57,27 @@
 						<strong>บันทึก ล้มเหล้ว</strong> กรุณาลองอีกครั้ง !!
 					</div>
 			<% } %>
-			<div class="panel-body">
+		<div class="panel-body">
 
-				<div style="size: 10" class="col-sm-6" >
-	
-					<div class="col-sm-9">
-						<div class="form-group">
-							<label for="exampleInputEmail1">UserName</label> 
-							<input type="text" min="10" maxlength="15" class="form-control" name="userUsername" id="userUsername" required> 
-							<label for="exampleInputEmail1" id="check"> </label>
-							
-						</div>
-					</div>
+		<div style="size: 10" class="col-sm-6" >
+			<div class="col-sm-9">
+				<div class="form-group">
+					<label for="exampleInputEmail1">UserName</label> 
+					<input type="text" min="10" maxlength="15" class="form-control" name="userUsername" id="userUsername" required> 
+					<label for="exampleInputEmail1" id="check"> </label>
+					<div class="hide" id="error-username"><label style="color: red;">กรุณากรอก ชื่อผู้ใช้งาน</label></div>
+				</div>
+			</div>
 			<div class="col-sm-3">
 				<div class="form-group" style="margin-top: 1mm"><br>
-					<button type="button" class="btn btn-info" onclick="check()"> ตรวจสอบ </button>
+					<button type="button" class="btn btn-info" id="checkUser"> ตรวจสอบ </button>
 				</div>
 			</div>
 			
 			<div class="col-sm-9">
 				<div class="form-group">
-					<label for="exampleInputEmail1">Password</label> <input maxlength="15" type="text" class="form-control" name="userPassword" id="userPassword" required>	
+					<label for="exampleInputEmail1">Password</label> <input maxlength="15" type="password" class="form-control" name="userPassword" id="userPassword" required>
+					<div class="hide" id="error-password"><label style="color: red;">กรุณากรอก รหัสผู้ใช้งาน</label></div>	
 				</div>
 			</div>
 			<div style="size: 10" class="col-sm-3"> 
@@ -98,14 +96,13 @@
 					<input name="sex" id="sex1" type="radio"  style="margin-left: 2%"><label style="margin-left: 2%">นาย    	 </label>
         			<input name="sex" id="sex2" type="radio"  style="margin-left: 2%"><label style="margin-left: 2%">นาง		 </label>	
         			<input name="sex" id="sex3" type="radio"  style="margin-left: 2%"><label style="margin-left: 2%">นางสาว</label>
-        			<input name="sex" type="radio"  style="margin-left: 2%" ><label style="margin-left: 2%">อื่นๆ</label>
         		</div>
 			</div>
 				
 			<div class="col-sm-6" >
 				<label> คำนำหน้าอื่นๆ </label>
 				<div class="form-group" >
-					<input type="text"  id="sex4" class="form-control" placeholder="กรุณากรอก">
+					<input type="text" maxlength="20" id="sex4" class="form-control" placeholder="คำนำหน้าอื่นๆ">
 				</div>
 			</div>
 			
@@ -113,6 +110,7 @@
 				<div class="col-sm-6">
 					<label for="exampleInputEmail1">ชื่อ</label> 
 					<input type="text" maxlength="50" class="form-control" id="userFname" name="userFname" placeholder="ชื่อ" required>
+					<div class="hide" id="error-userFname"><label style="color: red;">กรุณากรอก ชื่อ</label></div>
 				</div>
 			</div>
 			
@@ -120,12 +118,14 @@
 				<div class="form-group">
 					<label for="exampleInputEmail1">นามสกุล</label> 
 					<input type="text" maxlength="50" class="form-control" id="userLname" name="userLname" placeholder="นามสกุล" required>
+					<div class="hide" id="error-userLname"><label style="color: red;">กรุณากรอก นามสกุล</label></div>
 				</div>
 			</div>
 
 			<div style="size: 10" class="col-sm-6"> 
 				<div class="form-group"><label> วันเข้ารับราชการ </label>
 					<input class="form-control" type='date' id="setdate" required>
+					<div class="hide" id="error-setdate"><label style="color: red;">กรุณากรอก วันเข้ารับราชการ</label></div>
 				</div> 
 			</div>
 			
@@ -191,11 +191,6 @@
 			<button type="button" onclick="window.location.href='/gotoUserAll'" class="btn btn-danger">ยกเลิก</button>
 		</div>
 		
-<!-- 		<div class="alert alert-success" class="col-sm-12" align="center">	 -->
-<!-- 			<button type="submit" class="btn btn-success">ยืนยัน</button> -->
-<!-- 			<button type="reset" class="btn btn-danger">รีเซต</button> -->
-<!-- 		</div> -->
-
 	</div>
 </div>
 </div>

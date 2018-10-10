@@ -149,6 +149,11 @@ $(document).ready(function() {
 			choiceBill6		: choiceBill6,
 			choiceBill7		: choiceBill7,
 			choiceBill7C	: $('#choiceBill7C').val(),
+			
+			billGoDate		: $('#billGoDate').val(),
+			billDetail1		: $('#billDetail1').val(),
+			billBackDate	: $('#billBackDate').val(),
+			billDetail2		: $('#billDetail2').val(),
 
 			esBean			: esBean ,
 			eeBean			: inputdata ,

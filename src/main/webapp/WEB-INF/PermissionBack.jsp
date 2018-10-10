@@ -327,7 +327,7 @@
 	<div style="margin-bottom: 18%">
 	<div class="col-sm-12" >
 	<label>รายงานผลไปราชการ / ฝึกอบรมสัมมนา / ประโยชน์</label> 
-	<textarea class="form-control" rows="10" cols="80" maxlength="2500" id="bBenefitRecord" name="bBenefitRecord" ></textarea>
+	<textarea class="form-control" rows="10" cols="80" maxlength="2200" id="bBenefitRecord" name="bBenefitRecord" ></textarea>
  	</div>
  	<div class="col-sm-12 form-group" >
  	<label>นำความรู้ไปประกอบการสอนรายวิชา</label> 
@@ -379,15 +379,15 @@
 	<label style="color: red;">*ใบรับรองแทนใบเสร็จ กรณีใช้รถส่วนตัว เท่านั้น!!!</label> 
  	<div class="col-sm-12 form-group" >
  	<label>วัน/เดือน/ปี</label> 
- 		<input class="form-control" type="date" id="bill_go_date" style="width: 10%">
+ 		<input class="form-control" type="date" id="billGoDate" style="width: 10%">
  	<label>รายละเอียด ใช้รถไปราชการ</label> 
- 		<textarea class="form-control" rows="10" cols="10" maxlength="1500" id="bill_detail1" name="bill_detail1" ></textarea>
+ 		<textarea class="form-control" rows="10" cols="10" maxlength="1000" id="billDetail1" name="billDetail1" ></textarea>
  	</div>
  	<div class="col-sm-12 form-group" >
  	<label>วัน/เดือน/ปี</label> 
- 		<input class="form-control" type="date" id="bill_back_date" style="width: 10%">
+ 		<input class="form-control" type="date" id="billBackDate" style="width: 10%">
  	<label>รายละเอียด ใช้รถกลับจากราชการ</label> 
- 		<textarea class="form-control" rows="10" cols="10" maxlength="1500" id="bill_detail2" name="bill_detail2" ></textarea>
+ 		<textarea class="form-control" rows="10" cols="10" maxlength="1000" id="billDetail2" name="billDetail2" ></textarea>
  	</div>
 	</div>
 	</div><!--end -->

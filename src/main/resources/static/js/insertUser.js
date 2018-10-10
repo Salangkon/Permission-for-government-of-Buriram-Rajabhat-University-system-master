@@ -25,6 +25,9 @@ $(document).ready(function() {
 			console.log(d);
 			inputdata.push(d);
 		}
+		var pass = true;
+		
+		pass = validateInput();
 
 		var userBean = {
 				userUsername : $('#userUsername').val(),
@@ -37,21 +40,24 @@ $(document).ready(function() {
 				role         : $('#role').val(),
 				plBean       : inputdata
 		}
-		$.ajax({
-	        type: "POST",
-	        url: "/insertUser",
-	        data: JSON.stringify(userBean),
-	        dataType: "json",
-	        async: false,
-	        contentType: "application/json; charset=utf-8",
-	        success: function (res) {
-	        	console.log(res)
-	        	window.location.href = res.page;
-	        },
-		 	error: function () {
-		 		window.location.href = "nser";	
-		    }
-		});
+
+		if(pass) {
+			$.ajax({
+		        type: "POST",
+		        url: "/insertUser",
+		        data: JSON.stringify(userBean),
+		        dataType: "json",
+		        async: false,
+		        contentType: "application/json; charset=utf-8",
+		        success: function (res) {
+		        	console.log(res)
+		        	window.location.href = res.page;
+		        },
+			 	error: function () {
+			 		window.location.href = "nser";	
+			    }
+			});
+		}
 		
 	});//and userBaan
 	
@@ -353,9 +359,10 @@ var tableSelect = $('#addPersonnel').DataTable({
 	}]
 });
 	
+$('#checkUser').click(check)
 });//end function ready
 
-function check() {																	
+function check() {																
 	$('#check').empty();
 	
 	$('#userUsername').ready(function () {	
@@ -378,3 +385,45 @@ function check() {
 		});
 	});
 }//end function check
+
+function validateInput() {
+	var pass = true;
+	//userUsername
+	if(''==$('#userUsername').val()) {
+		$('#error-username').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-username').addClass("hide")
+	}
+	//userPassword
+	if(''==$('#userPassword').val()) {
+		$('#error-password').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-password').addClass("hide")
+	}
+	//userFname
+	if(''==$('#userFname').val()) {
+		$('#error-userFname').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-userFname').addClass("hide")
+	}
+	//userLname
+	if(''==$('#userLname').val()) {
+		$('#error-userLname').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-userLname').addClass("hide")
+	}
+	//setdate
+	if(''==$('#setdate').val()) {
+		$('#error-setdate').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-setdate').addClass("hide")
+	}
+
+	
+	return pass;
+}

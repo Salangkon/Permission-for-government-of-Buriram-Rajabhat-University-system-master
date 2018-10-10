@@ -312,6 +312,11 @@ public class PermissionDao {
 					bean.setChoiceBill6(rs.getString("choice_bill6"));
 					bean.setChoiceBill7(rs.getString("choice_bill7"));
 					bean.setChoiceBill7C(rs.getString("choice_bill7_c"));
+					
+					bean.setBillGoDate(rs.getString("bill_go_date"));
+					bean.setBillDetail1(rs.getString("bill_detail1"));
+					bean.setBillBackDate(rs.getString("bill_back_date"));
+					bean.setBillDetail2(rs.getString("bill_detail2"));
 				}
 			} catch (Exception e) {
 				// TODO: handle exception
@@ -418,8 +423,9 @@ public class PermissionDao {
 						+ " b_rent_date_type, b_start_travel, b_back_travel, b_house_number ,b_road ,"
 						+ " district, b_go_date ,b_go_time, b_back_date, b_back_time, "
 						+ " b_save_date , b_date_sum, b_time_sum, b_benefit_record, b_benefit_courses, b_benefit_use, "
-						+ " choice_bill1, choice_bill2, choice_bill3, choice_bill4, choice_bill5, choice_bill6, choice_bill7, choice_bill7_c)"
-						+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+						+ " choice_bill1, choice_bill2, choice_bill3, choice_bill4, choice_bill5, choice_bill6, choice_bill7, choice_bill7_c, "
+						+ " bill_go_date, bill_detail1, bill_back_date, bill_detail2)"
+						+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
 			prepared = conn.prepareStatement(sql.toString());
 
@@ -454,6 +460,11 @@ public class PermissionDao {
 			prepared.setString(27, bean.getChoiceBill6());
 			prepared.setString(28, bean.getChoiceBill7());
 			prepared.setString(29, bean.getChoiceBill7C());
+			
+			prepared.setString(30, bean.getBillGoDate());
+			prepared.setString(31, bean.getBillDetail1());
+			prepared.setString(32, bean.getBillBackDate());
+			prepared.setString(33, bean.getBillDetail2());
 			
 
 			prepared.executeUpdate();

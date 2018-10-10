@@ -654,7 +654,7 @@
 				</tr>
 				<tr>
 					<th></th>
-					<th >( <%if (beanBack.getChoiceBill2().equals("1")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> )ตั๋วเครื่องบิน</th>
+					<th >( <%if (beanBack.getChoiceBill2().equals("1")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) ตั๋วเครื่องบิน</th>
 				</tr>
 				<tr>
 					<th></th>
@@ -675,7 +675,10 @@
 				<tr>
 					<th></th>
 					<th >( <%if (beanBack.getChoiceBill7().equals("1")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> )
-						 อื่นๆ......................................................</th>
+						 อื่นๆ
+						<%if (beanBack.getChoiceBill7C().equals("")) {out.print("......................................................");} 
+							else {out.print(beanBack.getChoiceBill7C());}%>
+					</th>
 				</tr>
 			</table>
 			<br>
@@ -732,21 +735,21 @@
 			<table id="customers" >
 				<tr>
 					<th style="text-align: left;"> วัน เดือน ปี</th>
-					<th style="text-align: left;"> รายละเอียด</th>
+					<th style="text-align: left;" > รายละเอียด</th>
 					<th style="text-align: left;" colspan="2"> จำนวนเงิน</th>
 					<th style="text-align: left;" colspan="2"> รวมเงิน</th>
 				</tr>
 				<tr>
-					<th></th>
-					<th></th>	
+					<th ><%=beanBack.getBillGoDate() %></th>
+					<th valign="top"><%=beanBack.getBillDetail1() %></th>	
 					<th></th>	
 					<th></th>	
 					<th></th>	
 					<th></th>		
 				</tr>
 				<tr>
-					<th></th>
-					<th></th>	
+					<th><%=beanBack.getBillBackDate() %></th>
+					<th valign="top"><%=beanBack.getBillDetail2() %></th>	
 					<th></th>	
 					<th></th>	
 					<th></th>	
