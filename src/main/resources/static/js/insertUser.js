@@ -424,6 +424,5 @@ function validateInput() {
 		$('#error-setdate').addClass("hide")
 	}
 
-	
 	return pass;
 }

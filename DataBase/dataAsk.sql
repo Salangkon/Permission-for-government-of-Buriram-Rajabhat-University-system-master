@@ -9977,14 +9977,14 @@ CREATE TABLE IF NOT EXISTS `expense_estimate` (
   `personnel_id` int(10) DEFAULT NULL COMMENT 'รหัสบุคลากร',
   `permission_id` int(10) DEFAULT NULL COMMENT 'รหัสใบขออนุญาต',
   `allowence_type` int(1) DEFAULT NULL COMMENT 'ชนิดรายจ่าย',
-  `allowence` int(4) DEFAULT NULL COMMENT 'ค่าเบี้ยเลี้ยง',
-  `allowence_perday` int(4) DEFAULT NULL COMMENT 'ค่าเบี้ยเลี้ยง/วัน',
-  `allowence_sum` int(8) DEFAULT NULL COMMENT 'รวมค่าเบี้ยเลี้ยง',
-  `rent_date` int(4) DEFAULT NULL COMMENT 'ค่าที่พัก',
-  `rent_date_perday` int(4) DEFAULT NULL COMMENT 'ค่าที่พัก/วัน',
-  `rent_date_sum` int(8) DEFAULT NULL COMMENT 'รวมค่าเช่าที่พัก',
-  `travel_sum` int(8) DEFAULT NULL COMMENT 'รวมค่าพาหนะ',
-  `other_sum` int(8) DEFAULT NULL COMMENT 'รวมค่าอื่นๆ',
+  `allowence` int(5) DEFAULT NULL COMMENT 'ค่าเบี้ยเลี้ยง',
+  `allowence_perday` int(5) DEFAULT NULL COMMENT 'ค่าเบี้ยเลี้ยง/วัน',
+  `allowence_sum` int(10) DEFAULT NULL COMMENT 'รวมค่าเบี้ยเลี้ยง',
+  `rent_date` int(5) DEFAULT NULL COMMENT 'ค่าที่พัก',
+  `rent_date_perday` int(5) DEFAULT NULL COMMENT 'ค่าที่พัก/วัน',
+  `rent_date_sum` int(10) DEFAULT NULL COMMENT 'รวมค่าเช่าที่พัก',
+  `travel_sum` int(10) DEFAULT NULL COMMENT 'รวมค่าพาหนะ',
+  `other_sum` int(10) DEFAULT NULL COMMENT 'รวมค่าอื่นๆ',
   `expense_estimate_sum` int(10) DEFAULT NULL COMMENT 'รวมค่าใช้จ่าย ทั้งหมด',
   `create_date` timestamp NULL DEFAULT NULL,
   KEY `permission_id` (`permission_id`),
@@ -9993,28 +9993,26 @@ CREATE TABLE IF NOT EXISTS `expense_estimate` (
 
 -- Dumping data for table ask.expense_estimate: ~0 rows (approximately)
 /*!40000 ALTER TABLE `expense_estimate` DISABLE KEYS */;
-INSERT INTO `expense_estimate` (`personnel_id`, `permission_id`, `allowence_type`, `allowence`, `allowence_perday`, `allowence_sum`, `rent_date`, `rent_date_perday`, `rent_date_sum`, `travel_sum`, `other_sum`, `expense_estimate_sum`, `create_date`) VALUES
-	(89, 7, 1, 270, 12, 3240, 1200, 0, 0, 61, 1500, 4801, '2018-10-09 08:29:18');
 /*!40000 ALTER TABLE `expense_estimate` ENABLE KEYS */;
 
 -- Dumping structure for table ask.expense_estimate_back
 CREATE TABLE IF NOT EXISTS `expense_estimate_back` (
   `personnel_id` int(10) DEFAULT NULL,
   `permission_id` int(10) DEFAULT NULL,
-  `b_allowence_type` int(11) DEFAULT NULL,
-  `b_allowence` int(11) DEFAULT NULL,
-  `b_allowence_perday` int(11) DEFAULT NULL,
-  `b_allowence_sum` int(11) DEFAULT NULL,
-  `b_rent_date` int(11) DEFAULT NULL,
-  `b_rent_date_perday` int(11) DEFAULT NULL,
-  `b_rent_date_sum` int(11) DEFAULT NULL,
-  `b_travel_sum` int(11) DEFAULT NULL,
-  `b_other_sum` int(11) DEFAULT NULL,
-  `b_expense_estimate_sum` int(11) DEFAULT NULL,
+  `b_allowence_type` int(1) DEFAULT NULL,
+  `b_allowence` int(5) DEFAULT NULL,
+  `b_allowence_perday` int(5) DEFAULT NULL,
+  `b_allowence_sum` int(10) DEFAULT NULL,
+  `b_rent_date` int(5) DEFAULT NULL,
+  `b_rent_date_perday` int(5) DEFAULT NULL,
+  `b_rent_date_sum` int(10) DEFAULT NULL,
+  `b_travel_sum` int(10) DEFAULT NULL,
+  `b_other_sum` int(10) DEFAULT NULL,
+  `b_expense_estimate_sum` int(10) DEFAULT NULL,
   `b_create_date` timestamp NULL DEFAULT NULL,
   KEY `personnel_id` (`personnel_id`),
   KEY `permission_id` (`permission_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ตาราง ประมาณการรายจ่ายไปราชการ หลังกลับจากราชการ';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ตาราง ประมาณการรายจ่าย หลังกลับจากราชการ';
 
 -- Dumping data for table ask.expense_estimate_back: ~0 rows (approximately)
 /*!40000 ALTER TABLE `expense_estimate_back` DISABLE KEYS */;
@@ -10035,27 +10033,26 @@ CREATE TABLE IF NOT EXISTS `expense_sumary` (
   KEY `permission_id` (`permission_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='สรูปค่าใช้จ่าย';
 
--- Dumping data for table ask.expense_sumary: ~2 rows (approximately)
+-- Dumping data for table ask.expense_sumary: ~0 rows (approximately)
 /*!40000 ALTER TABLE `expense_sumary` DISABLE KEYS */;
 INSERT INTO `expense_sumary` (`permission_id`, `user_sum_total`, `allowence_perday_total`, `allowence_sum_total`, `rent_date_perday_total`, `rent_date_sum_total`, `travel_sum_total`, `other_sum_total`, `expense_estimate_sum_total`, `create_date`) VALUES
-	(6, '', '', '', '', '', '', '', '', '2018-10-09 07:57:00'),
-	(7, '1', '12', '3,240', '0', '0', '61', '1,500', '4,801', '2018-10-09 08:29:18');
+	(14, '', '', '', '', '', '', '', '', '2018-10-11 02:29:25');
 /*!40000 ALTER TABLE `expense_sumary` ENABLE KEYS */;
 
 -- Dumping structure for table ask.expense_sumary_back
 CREATE TABLE IF NOT EXISTS `expense_sumary_back` (
-  `permission_id` int(10) DEFAULT NULL,
-  `b_user_sum_total` varchar(50) DEFAULT NULL,
-  `b_allowence_perday_total` varchar(50) DEFAULT NULL,
-  `b_allowence_sum_total` varchar(50) DEFAULT NULL,
-  `b_rent_date_perday_total` varchar(50) DEFAULT NULL,
-  `b_rent_date_sum_total` varchar(50) DEFAULT NULL,
-  `b_travel_sum_total` varchar(50) DEFAULT NULL,
-  `b_other_sum_total` varchar(50) DEFAULT NULL,
-  `b_expense_estimate_sum_total` varchar(50) DEFAULT NULL,
-  `b_create_date` timestamp NULL DEFAULT NULL,
+  `permission_id` int(10) DEFAULT NULL COMMENT 'รหัสใบขออนุญาต',
+  `b_user_sum_total` varchar(10) DEFAULT NULL COMMENT 'จำนวนบุคลากรร่วม',
+  `b_allowence_perday_total` varchar(10) DEFAULT NULL COMMENT 'จำนวนวัน /เบี้ยเลี้ยง',
+  `b_allowence_sum_total` varchar(10) DEFAULT NULL COMMENT 'รวมค่าเบี้ยเลี้ยง',
+  `b_rent_date_perday_total` varchar(10) DEFAULT NULL COMMENT 'จำนวนวัน/ที่พัก',
+  `b_rent_date_sum_total` varchar(10) DEFAULT NULL COMMENT 'รวมค่าที่พัก',
+  `b_travel_sum_total` varchar(10) DEFAULT NULL COMMENT 'รวมค่าพาหนะ',
+  `b_other_sum_total` varchar(10) DEFAULT NULL COMMENT 'รวมค่าอื่นๆ',
+  `b_expense_estimate_sum_total` varchar(10) DEFAULT NULL COMMENT 'รวมค่าประมาณการทั้งหมด',
+  `b_create_date` timestamp NULL DEFAULT NULL COMMENT 'วันเวลาบันทึกสรูปค่าใช้จ่าย',
   KEY `permission_id` (`permission_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ตารางรายงาน สรูปค่าใช้จ่าย หลังกลับจารราชการ';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ตารางรายงาน สรุปรายจ่าย หลังกลับจากราชการ';
 
 -- Dumping data for table ask.expense_sumary_back: ~0 rows (approximately)
 /*!40000 ALTER TABLE `expense_sumary_back` DISABLE KEYS */;
@@ -10117,35 +10114,49 @@ CREATE TABLE IF NOT EXISTS `permission` (
   PRIMARY KEY (`permission_id`),
   KEY `personnel_id` (`personnel_id`),
   KEY `district` (`district`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='ตารางแบบฟอร์ม การขออนุญาตไปราชการ';
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COMMENT='ตารางแบบฟอร์ม การขออนุญาตไปราชการ';
 
 -- Dumping data for table ask.permission: ~0 rows (approximately)
 /*!40000 ALTER TABLE `permission` DISABLE KEYS */;
 INSERT INTO `permission` (`permission_id`, `personnel_id`, `district`, `permission_status`, `purpose`, `purpose1`, `purpose2`, `topics`, `status`, `object`, `destination_name`, `go_date`, `go_time`, `back_date`, `back_time`, `budget`, `budget_expenses`, `budget_by`, `budget_project`, `budget_pass`, `travel`, `travel_idcard`, `commit_a`, `commit_a_dt`, `commit_b`, `commit_b_dt`, `commit_c`, `commit_c_dt`, `commit_d`, `other`, `commit_d_dt`, `create_date`) VALUES
-	(6, 3, '649', '0', '', '', '', '', '', '', '', '2018-10-10', '00:00', '2018-10-09', '00:00', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '2018-10-09 07:57:00'),
-	(7, 3, '', '0', '', '', '', '', '', '', '', '2018-10-25', '', '2018-10-11', '', '2', '1', '1', '', '', '3', '', '', '', '', '', '', '', '', '', '', '2018-10-09 08:29:18');
+	(14, 3, '266', '0', '', '', '', 'hj', '', 'fjfgj', '101010', '2018-10-17', '10:10', '2018-10-25', '11:00', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '2018-10-11 02:29:25');
 /*!40000 ALTER TABLE `permission` ENABLE KEYS */;
 
 -- Dumping structure for table ask.permission_back
 CREATE TABLE IF NOT EXISTS `permission_back` (
-  `permission_id` int(10) DEFAULT NULL,
-  `district` varchar(50) DEFAULT NULL COMMENT 'ตำบล/อำเภอ/จังหวัด',
+  `permission_id` int(10) DEFAULT NULL COMMENT 'รหัสใบขออนุญาต',
+  `district` varchar(50) DEFAULT NULL COMMENT 'รหัสตำบล ตำบล/อำเภอ/จังหวัด',
   `b_save_date` date DEFAULT NULL COMMENT 'วันที่ลงบันทึกขออนุญาต',
-  `b_by_order_save` varchar(50) DEFAULT NULL COMMENT 'ขอเบิกค่าใช้จ่ายสำหรับ',
+  `b_by_order_save` varchar(15) DEFAULT NULL COMMENT 'ขอเบิกค่าใช้จ่ายสำหรับ',
   `b_date_authorized` date DEFAULT NULL COMMENT 'ลงวันที่/วันที่อนุมัติ',
-  `b_disbursed_by` int(11) DEFAULT NULL COMMENT 'เบิกจ่ายโดย/ขอเบิกค่าใช้จ่ายในการเดินทางไปราชการสำหรับ ',
-  `b_allowence_type` int(11) DEFAULT NULL COMMENT 'ประเภท ค่าเบี๋ยเลี้ยงการเดินทาง ',
-  `b_rent_date_type` int(11) DEFAULT NULL COMMENT 'ประเภท ค่าเข่าที่พัก',
-  `b_start_travel` int(11) DEFAULT NULL COMMENT 'ออกเเดินทางจาก ',
-  `b_back_travel` int(11) DEFAULT NULL COMMENT 'กลับจากการเดินทาง',
+  `b_disbursed_by` varchar(15) DEFAULT NULL COMMENT 'เบิกจ่ายโดย/ขอเบิกค่าใช้จ่ายในการเดินทางไปราชการสำหรับ ',
+  `b_allowence_type` int(1) DEFAULT NULL COMMENT 'ประเภท ค่าเบี้ยเลี้ยง',
+  `b_rent_date_type` int(1) DEFAULT NULL COMMENT 'ประเภท ค่าเข่าที่พัก',
+  `b_start_travel` int(1) DEFAULT NULL COMMENT 'ออกเเดินทางจาก ',
+  `b_back_travel` int(1) DEFAULT NULL COMMENT 'กลับจากการเดินทาง',
   `b_house_number` char(10) DEFAULT NULL COMMENT 'บ้านเลขที่',
   `b_road` varchar(50) DEFAULT NULL COMMENT 'ถนน',
   `b_go_date` date DEFAULT NULL COMMENT 'วันที่ไปราชการ',
-  `b_go_time` varchar(50) DEFAULT NULL COMMENT 'เวลาที่ไปราชการ',
+  `b_go_time` varchar(10) DEFAULT NULL COMMENT 'เวลาที่ไปราชการ',
   `b_back_date` date DEFAULT NULL COMMENT 'วันที่กลับไปราชการ',
-  `b_back_time` varchar(50) DEFAULT NULL COMMENT 'เวลาที่กลับไปราชการ',
+  `b_back_time` varchar(10) DEFAULT NULL COMMENT 'เวลาที่กลับไปราชการ',
   `b_date_sum` varchar(5) DEFAULT NULL COMMENT 'รวมจำนวนวัน',
   `b_time_sum` varchar(5) DEFAULT NULL COMMENT 'รวมจำนวนชั่วโมง',
+  `b_benefit_record` text COMMENT 'รายงานผลไปราชการ',
+  `b_benefit_courses` text COMMENT 'ประกอบรายวิชา',
+  `b_benefit_use` text COMMENT 'นำความรู้ไปใช้ประโยชน์ด้าน',
+  `choice_bill1` text COMMENT 'ใบเสร็จรับเงินค่าที่พัก',
+  `choice_bill2` text COMMENT 'ตั๋วเครื่องบิน',
+  `choice_bill3` text COMMENT 'ใบเสร็จค่าทำเนียมการใช้สนามบิน',
+  `choice_bill4` text COMMENT 'ใบเสร็จรับเงินค่าน้ำมันเชื่อเพลิง',
+  `choice_bill5` text COMMENT 'ใบเสร็จรับเงินค่ารักษาพยาบาล',
+  `choice_bill6` text COMMENT 'ใบเสร็จรับเงินค่าการศึกษาบุตร',
+  `choice_bill7` text COMMENT 'อื่นๆ',
+  `choice_bill7_c` text COMMENT 'หมายเหตุอื่นๆ',
+  `bill_go_date` text COMMENT 'วันที่ไป ใชัรถส่วนตัวไปราชการ',
+  `bill_detail1` text COMMENT 'รายละเอียด ใชัรถส่วนตัวไปราชการ',
+  `bill_back_date` text COMMENT 'วันที่กลับ ใชัรถส่วนตัวไปราชการ',
+  `bill_detail2` text COMMENT 'รายละเอียด ใชัรถส่วนตัวไปราชการ',
   KEY `permission_id` (`permission_id`),
   KEY `district` (`district`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ตาราง รายงานหลังจากกลับการไปราชการ';
@@ -10162,9 +10173,9 @@ CREATE TABLE IF NOT EXISTS `personnel_list` (
   `sub_position_code` varchar(10) DEFAULT NULL COMMENT 'รหัส ระดับ',
   `create_date` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`personnel_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ask.personnel_list: ~25 rows (approximately)
+-- Dumping data for table ask.personnel_list: ~29 rows (approximately)
 /*!40000 ALTER TABLE `personnel_list` DISABLE KEYS */;
 INSERT INTO `personnel_list` (`personnel_id`, `user_id`, `department_code`, `sub_position_code`, `create_date`) VALUES
 	(1, 1, '1', '3', '2018-08-16 11:34:49'),
@@ -10191,7 +10202,14 @@ INSERT INTO `personnel_list` (`personnel_id`, `user_id`, `department_code`, `sub
 	(101, 16, '2', '17', '2018-09-26 03:59:18'),
 	(102, 17, '1', '5', '2018-09-26 04:00:03'),
 	(103, 17, '1', '5', '2018-09-26 04:00:03'),
-	(104, 19, '2', '5', '2018-10-05 16:19:17');
+	(104, 19, '2', '5', '2018-10-05 16:19:17'),
+	(105, 20, '1', '12', '2018-10-10 03:52:08'),
+	(106, 20, '19', '3', '2018-10-10 03:52:08'),
+	(107, 20, '41', '4', '2018-10-10 03:52:08'),
+	(108, 20, '52', '14', '2018-10-10 03:52:08'),
+	(109, 20, '52', '14', '2018-10-10 03:52:08'),
+	(110, 21, '19', '13', '2018-10-10 22:22:38'),
+	(111, 22, '19', '5', '2018-10-11 01:47:40');
 /*!40000 ALTER TABLE `personnel_list` ENABLE KEYS */;
 
 -- Dumping structure for table ask.position
@@ -10385,7 +10403,8 @@ INSERT INTO `travel_expenses` (`permission_id`, `travel_id`, `number_per`, `trav
 	(56, 2, 2, 100, 2, 400, '', '2018-10-06 23:45:10'),
 	(56, 3, 2, 100, 2, 400, '', '2018-10-06 23:45:10'),
 	(56, 4, 2, 100, 2, 400, '', '2018-10-06 23:45:10'),
-	(56, 5, 2, 100, 2, 400, '', '2018-10-06 23:45:10');
+	(56, 5, 2, 100, 2, 400, '', '2018-10-06 23:45:10'),
+	(8, 5, 12, 100, 1, 1200, '', '2018-10-09 23:11:18');
 /*!40000 ALTER TABLE `travel_expenses` ENABLE KEYS */;
 
 -- Dumping structure for table ask.travel_expenses_official_car
@@ -10408,29 +10427,31 @@ CREATE TABLE IF NOT EXISTS `travel_expenses_official_car` (
 -- Dumping data for table ask.travel_expenses_official_car: ~0 rows (approximately)
 /*!40000 ALTER TABLE `travel_expenses_official_car` DISABLE KEYS */;
 INSERT INTO `travel_expenses_official_car` (`permission_id`, `travel_id`, `teoc_distance`, `teoc_number_per`, `teoc_fuel_cost`, `teoc_rate_fuel_cost`, `teoc_fuel_cost_sum`, `teoc_expressway_expenses_sum`, `teoc_sum`, `teoc_vehicle_c`, `teoc_create_date`) VALUES
-	(7, 6, 23, 2, 0, 4, 46, 23, '69', '', '2018-10-09 08:29:18');
+	(7, 6, 23, 2, 0, 4, 46, 23, '69', '', '2018-10-09 08:29:18'),
+	(9, 6, 400, 2, 0, 4, 800, 0, '800', '', '2018-10-10 01:33:33');
 /*!40000 ALTER TABLE `travel_expenses_official_car` ENABLE KEYS */;
 
 -- Dumping structure for table ask.travel_expenses_private_car
 CREATE TABLE IF NOT EXISTS `travel_expenses_private_car` (
-  `permission_id` int(10) DEFAULT NULL,
-  `travel_id` int(11) DEFAULT NULL,
-  `tepc_distance` int(11) DEFAULT NULL COMMENT 'ระยะทาง',
-  `tepc_number_per` int(11) NOT NULL COMMENT 'จำนวนรอบ เที่ยว',
-  `tepc_rate_fuel_cost` int(11) DEFAULT NULL COMMENT 'อัตารา ค่าเชื่อเพลิง',
-  `tepc_fuel_cost_sum` int(11) DEFAULT NULL COMMENT 'รวมค่าเชื้อเพลิง',
-  `tepc_expressway_expenses_sum` int(11) DEFAULT NULL COMMENT 'รวมค่าทางด่วน',
-  `tepc_sum` varchar(50) DEFAULT NULL COMMENT 'รวมทั้งหมด',
+  `permission_id` int(10) DEFAULT NULL COMMENT 'รหัสใบขออนุญาต',
+  `travel_id` int(1) DEFAULT NULL COMMENT 'รหัสพาหนะ',
+  `tepc_distance` int(5) DEFAULT NULL COMMENT 'ระยะทาง',
+  `tepc_number_per` int(5) NOT NULL COMMENT 'จำนวนรอบ เที่ยว',
+  `tepc_rate_fuel_cost` int(5) DEFAULT NULL COMMENT 'อัตรา ค่าเชื่อเพลิง',
+  `tepc_fuel_cost_sum` int(10) DEFAULT NULL COMMENT 'รวมค่าเชื้อเพลิง',
+  `tepc_expressway_expenses_sum` int(10) DEFAULT NULL COMMENT 'รวมค่าทางด่วน',
+  `tepc_sum` varchar(10) DEFAULT NULL COMMENT 'รวมทั้งหมด',
   `tepc_vehicle_c` varchar(50) DEFAULT NULL COMMENT 'หมายเหตุ',
   `tepc_create_date` timestamp NULL DEFAULT NULL,
   KEY `travel_id` (`travel_id`),
   KEY `permission_id` (`permission_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ค่าน้ำมันเชื้อเพลิง\r\nขอใช้รถส่วนตัว';
 
--- Dumping data for table ask.travel_expenses_private_car: ~1 rows (approximately)
+-- Dumping data for table ask.travel_expenses_private_car: ~0 rows (approximately)
 /*!40000 ALTER TABLE `travel_expenses_private_car` DISABLE KEYS */;
 INSERT INTO `travel_expenses_private_car` (`permission_id`, `travel_id`, `tepc_distance`, `tepc_number_per`, `tepc_rate_fuel_cost`, `tepc_fuel_cost_sum`, `tepc_expressway_expenses_sum`, `tepc_sum`, `tepc_vehicle_c`, `tepc_create_date`) VALUES
-	(7, 6, 23, 2, 4, 46, 23, '69', '', '2018-10-09 08:29:18');
+	(7, 6, 23, 2, 4, 46, 23, '69', '', '2018-10-09 08:29:18'),
+	(9, 6, 400, 2, 4, 800, 0, '800', '', '2018-10-10 01:33:33');
 /*!40000 ALTER TABLE `travel_expenses_private_car` ENABLE KEYS */;
 
 -- Dumping structure for table ask.user
@@ -10445,7 +10466,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `date` date DEFAULT NULL COMMENT 'วันเข้ารับราชการ',
   `role` int(1) DEFAULT NULL COMMENT 'สิทธิ',
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COMMENT='ตารางผู้ใช้ระบบ';
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COMMENT='ตารางผู้ใช้ระบบ';
 
 -- Dumping data for table ask.user: ~17 rows (approximately)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
@@ -10466,7 +10487,10 @@ INSERT INTO `user` (`user_id`, `sex`, `user_username`, `user_password`, `user_fn
 	(16, 'นาย', 't', 't', 'รักนี้', 'รักนี้', '0254686516', '2018-09-01', 2),
 	(17, 'นางสาว', 'asd', 'asd', 'รุ่งณภา', 'หนรพี', '0852585202', '2018-09-01', 2),
 	(18, 'นาง', '555', '555', 'สองสามที', 'กำำลังจะดี', '0846546542', '2018-09-09', 2),
-	(19, 'นาย', '6022005123', '6022005123', 'นพดล', 'จันทเลิศ', '', '2018-10-06', 2);
+	(19, 'นาย', '6022005123', '6022005123', 'นพดล', 'จันทเลิศ', '', '2018-10-06', 2),
+	(20, 'นางสาว', '61002130252', '61002130252', 'พรพันธ์', 'สาธุดี', '0852154542', '2018-10-10', 2),
+	(21, 'นางสาว', 'asdasd', 'asdasd', 'asdasd', 'asd', '1212312312', '2018-10-12', 2),
+	(22, 'นาย', '572001254044', '572001254044', 'นองสนาม', 'นามพดล', '', '2018-10-20', 2);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

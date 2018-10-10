@@ -1,3 +1,79 @@
+
+function validateInput() {
+	var pass = true;
+	//province
+	if(''==$('#province').val()) {
+		$('#error-province').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-province').addClass("hide")
+	}
+	//amphur
+	if(''==$('#amphur').val()) {
+		$('#error-amphur').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-amphur').addClass("hide")
+	}
+	//district
+	if(''==$('#district').val()) {
+		$('#error-district').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-userFname').addClass("hide")
+	}
+	//topics
+	if(''==$('#topics').val()) {
+		$('#error-topics').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-userLname').addClass("hide")
+	}
+	//object
+	if(''==$('#object').val()) {
+		$('#error-object').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-setdate').addClass("hide")
+	}//destinationName
+	if(''==$('#destinationName').val()) {
+		$('#error-destinationName').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-username').addClass("hide")
+	}
+	//goDate
+	if(''==$('#goDate').val()) {
+		$('#error-goDate').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-goDate').addClass("hide")
+	}
+	//goTime
+	if(''==$('#goTime').val()) {
+		$('#error-goTime').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-goTime').addClass("hide")
+	}
+	//backDate
+	if(''==$('#backDate').val()) {
+		$('#error-backDate').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-backDate').addClass("hide")
+	}
+	//backTime
+	if(''==$('#backTime').val()) {
+		$('#error-backTime').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-backTime').addClass("hide")
+	}
+
+	return pass;
+}
+
 var status = "";
 
 var purpose = "";
@@ -145,7 +221,6 @@ $(document).ready(function() {
 			d.vehicleC = $("#vehicleC"+i).val();
 			inputdataTefc1.push(d);
 		}				
-
 		
 		esBean1 = {
 				userSumTotal			: $('#userSumTotal').text(),	
@@ -161,6 +236,9 @@ $(document).ready(function() {
 				allowenceDetails		: $('#allowenceDetails').val(),
 				rentDateDetails			: $('#rentDateDetails').val(),
 		}
+		
+		var pass = true;	
+		pass = validateInput();
 
 		var pmBean = {
 				permissionDate	: $('#permissionDate').val(),
@@ -207,26 +285,27 @@ $(document).ready(function() {
 				tefcBean		: inputdataTefc1 ,
 				esBean			: esBean1
 		}
-
-		$.ajax({
 		
-	        type: "POST",
-	        url: "/insertPermission",
-	        data: JSON.stringify(pmBean),
-	        dataType: "json",
-	        async: false,
-	        contentType: "application/json; charset=utf-8",
-	        success: function (res) {
-	        	console.log(res)
-	        	window.location.href = res.page;
-	        },
-		 	error: function () {
-//		 		console.log('[ae] xx ')
-		 		window.location.href = "insertPermissionFail";
-		    }
-		});
+		if (pass) {
+			$.ajax({
+		        type: "POST",
+		        url: "/insertPermission",
+		        data: JSON.stringify(pmBean),
+		        dataType: "json",
+		        async: false,
+		        contentType: "application/json; charset=utf-8",
+		        success: function (res) {
+		        	console.log(res)
+		        	window.location.href = res.page;
+		        },
+			 	error: function () {
+//			 		console.log('[ae] xx ')
+			 		window.location.href = "insertPermissionFail";
+			    }
+			});
+		}
 		
-	});
+	}); //end insertPermission
 	
 //	//insertExpenseSumary
 //	$('#saveExpenseEstimate').click(function() {
