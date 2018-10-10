@@ -47,31 +47,31 @@ $(document).ready(function() {
 	});
 	//commitA
 	$("#commitA1").change(function(){
-		commitA	 = "มี";
+		commitA	 = "1";
 	});
 	$("#commitA2").change(function(){
-		commitA	 = "ไม่มี";
+		commitA	 = "2";
 	});
 	//commitB
 	$("#commitB1").change(function(){
-		commitB	 = "มี";
+		commitB	 = "1";
 	});
 	$("#commitB2").change(function(){
-		commitB	 = "ไม่มี";
+		commitB	 = "2";
 	});
 	//commitC
 	$("#commitC1").change(function(){
-		commitC	 = "มี";
+		commitC	 = "1";
 	});
 	$("#commitC2").change(function(){
-		commitC	 = "ไม่มี";
+		commitC	 = "2";
 	});
 	//commitD
 	$("#commitD1").change(function(){
-		commitD	 = "มี";
+		commitD	 = "1";
 	});
 	$("#commitD2").change(function(){
-		commitD	 = "ไม่มี";
+		commitD	 = "2";
 	});
 	
 	//insertPermission
@@ -200,6 +200,7 @@ $(document).ready(function() {
 				commitD			: commitD,
 				other			: $('#other').val(),
 				commitDDt		: $('#commitDDt').val(),
+				
 				eeBean			: inputdata ,
 				teBean			: inputdataTe ,
 				tefcBean		: inputdataTefc ,

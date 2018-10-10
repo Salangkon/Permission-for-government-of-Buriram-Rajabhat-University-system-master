@@ -183,7 +183,7 @@ INSERT INTO `amphur` (`AMPHUR_ID`, `AMPHUR_CODE`, `AMPHUR_NAME`, `POSTCODE`, `GE
 	(156, '2106', 'ปลวกแดง   ', '21140', 5, 12),
 	(157, '2107', 'เขาชะเมา   ', '21110', 5, 12),
 	(158, '2108', 'นิคมพัฒนา   ', '21180', 5, 12),
-	(159, '2151', 'สาขาตำบลมาบข่า*   ', '00000', 5, 12),
+	(159, '2151', 'สาขาตำบลมาบข่า   ', '00000', 5, 12),
 	(160, '2201', 'เมืองจันทบุรี   ', '22000', 5, 13),
 	(161, '2202', 'ขลุง   ', '22110', 5, 13),
 	(162, '2203', 'ท่าใหม่   ', '22120', 5, 13),
@@ -194,7 +194,7 @@ INSERT INTO `amphur` (`AMPHUR_ID`, `AMPHUR_CODE`, `AMPHUR_NAME`, `POSTCODE`, `GE
 	(167, '2208', 'แก่งหางแมว   ', '22160', 5, 13),
 	(168, '2209', 'นายายอาม   ', '22160', 5, 13),
 	(169, '2210', 'เขาคิชฌกูฏ   ', '22210', 5, 13),
-	(170, '2281', '*กิ่ง อ.กำพุธ  จ.จันทบุรี   ', '00000', 5, 13),
+	(170, '2281', 'กิ่ง อ.กำพุธ  จ.จันทบุรี   ', '00000', 5, 13),
 	(171, '2301', 'เมืองตราด   ', '23000', 5, 14),
 	(172, '2302', 'คลองใหญ่   ', '23110', 5, 14),
 	(173, '2303', 'เขาสมิง   ', '23130', 5, 14),
@@ -216,16 +216,16 @@ INSERT INTO `amphur` (`AMPHUR_ID`, `AMPHUR_CODE`, `AMPHUR_NAME`, `POSTCODE`, `GE
 	(189, '2501', 'เมืองปราจีนบุรี   ', '25000', 5, 16),
 	(190, '2502', 'กบินทร์บุรี   ', '25110', 5, 16),
 	(191, '2503', 'นาดี   ', '25220', 5, 16),
-	(192, '2504', '*สระแก้ว   ', '00000', 5, 16),
-	(193, '2505', '*วังน้ำเย็น   ', '00000', 5, 16),
+	(192, '2504', 'สระแก้ว   ', '00000', 5, 16),
+	(193, '2505', 'วังน้ำเย็น   ', '00000', 5, 16),
 	(194, '2506', 'บ้านสร้าง   ', '25150', 5, 16),
 	(195, '2507', 'ประจันตคาม   ', '25130', 5, 16),
 	(196, '2508', 'ศรีมหาโพธิ   ', '25140', 5, 16),
 	(197, '2509', 'ศรีมโหสถ   ', '25190', 5, 16),
-	(198, '2510', '*อรัญประเทศ   ', '00000', 5, 16),
-	(199, '2511', '*ตาพระยา   ', '00000', 5, 16),
-	(200, '2512', '*วัฒนานคร   ', '00000', 5, 16),
-	(201, '2513', '*คลองหาด   ', '00000', 5, 16),
+	(198, '2510', 'อรัญประเทศ   ', '00000', 5, 16),
+	(199, '2511', 'ตาพระยา   ', '00000', 5, 16),
+	(200, '2512', 'วัฒนานคร   ', '00000', 5, 16),
+	(201, '2513', 'คลองหาด   ', '00000', 5, 16),
 	(202, '2601', 'เมืองนครนายก   ', '26000', 2, 17),
 	(203, '2602', 'ปากพลี   ', '26130', 2, 17),
 	(204, '2603', 'บ้านนา   ', '26110', 2, 17),
@@ -348,28 +348,28 @@ INSERT INTO `amphur` (`AMPHUR_ID`, `AMPHUR_CODE`, `AMPHUR_NAME`, `POSTCODE`, `GE
 	(321, '3410', 'บุณฑริก   ', '34230', 3, 23),
 	(322, '3411', 'ตระการพืชผล   ', '34130', 3, 23),
 	(323, '3412', 'กุดข้าวปุ้น   ', '34270', 3, 23),
-	(324, '3413', '*พนา   ', '00000', 3, 23),
+	(324, '3413', 'พนา   ', '00000', 3, 23),
 	(325, '3414', 'ม่วงสามสิบ   ', '34140', 3, 23),
 	(326, '3415', 'วารินชำราบ   ', '34190', 3, 23),
-	(327, '3416', '*อำนาจเจริญ   ', '00000', 3, 23),
-	(328, '3417', '*เสนางคนิคม   ', '00000', 3, 23),
-	(329, '3418', '*หัวตะพาน   ', '00000', 3, 23),
+	(327, '3416', 'อำนาจเจริญ   ', '00000', 3, 23),
+	(328, '3417', 'เสนางคนิคม   ', '00000', 3, 23),
+	(329, '3418', 'หัวตะพาน   ', '00000', 3, 23),
 	(330, '3419', 'พิบูลมังสาหาร   ', '34110', 3, 23),
 	(331, '3420', 'ตาลสุม   ', '34330', 3, 23),
 	(332, '3421', 'โพธิ์ไทร   ', '34340', 3, 23),
 	(333, '3422', 'สำโรง   ', '34360', 3, 23),
-	(334, '3423', '*กิ่งอำเภอลืออำนาจ   ', '00000', 3, 23),
+	(334, '3423', 'กิ่งอำเภอลืออำนาจ   ', '00000', 3, 23),
 	(335, '3424', 'ดอนมดแดง   ', '34000', 3, 23),
 	(336, '3425', 'สิรินธร   ', '34350', 3, 23),
 	(337, '3426', 'ทุ่งศรีอุดม   ', '34160', 3, 23),
-	(338, '3427', '*ปทุมราชวงศา   ', '00000', 3, 23),
-	(339, '3428', '*กิ่งอำเภอศรีหลักชัย   ', '00000', 3, 23),
+	(338, '3427', 'ปทุมราชวงศา   ', '00000', 3, 23),
+	(339, '3428', 'กิ่งอำเภอศรีหลักชัย   ', '00000', 3, 23),
 	(340, '3429', 'นาเยีย   ', '34160', 3, 23),
 	(341, '3430', 'นาตาล   ', '34170', 3, 23),
 	(342, '3431', 'เหล่าเสือโก้ก   ', '34000', 3, 23),
 	(343, '3432', 'สว่างวีระวงศ์   ', '34190', 3, 23),
 	(344, '3433', 'น้ำขุ่น   ', '34260', 3, 23),
-	(345, '3481', '*อ.สุวรรณวารี  จ.อุบลราชธานี   ', '00000', 3, 23),
+	(345, '3481', 'อ.สุวรรณวารี  จ.อุบลราชธานี   ', '00000', 3, 23),
 	(346, '3501', 'เมืองยโสธร   ', '35000', 3, 24),
 	(347, '3502', 'ทรายมูล   ', '35170', 3, 24),
 	(348, '3503', 'กุดชุม   ', '35140', 3, 24),
@@ -753,7 +753,7 @@ INSERT INTO `amphur` (`AMPHUR_ID`, `AMPHUR_CODE`, `AMPHUR_NAME`, `POSTCODE`, `GE
 	(726, '6307', 'พบพระ   ', '63160', 4, 50),
 	(727, '6308', 'อุ้มผาง   ', '63170', 4, 50),
 	(728, '6309', 'วังเจ้า   ', '63000', 4, 50),
-	(729, '6381', '*กิ่ง อ.ท่าปุย  จ.ตาก   ', '00000', 4, 50),
+	(729, '6381', 'กิ่ง อ.ท่าปุย  จ.ตาก   ', '00000', 4, 50),
 	(730, '6401', 'เมืองสุโขทัย   ', '64000', 2, 51),
 	(731, '6402', 'บ้านด่านลานหอย   ', '64140', 2, 51),
 	(732, '6403', 'คีรีมาศ   ', '64160', 2, 51),
@@ -2068,9 +2068,9 @@ INSERT INTO `district` (`DISTRICT_ID`, `DISTRICT_CODE`, `DISTRICT_NAME`, `AMPHUR
 	(956, '180802', 'กะบกเตี้ย   ', 122, 9, 2),
 	(957, '180803', 'สุขเดือนห้า   ', 122, 9, 2),
 	(958, '190101', 'ปากเพรียว   ', 123, 10, 2),
-	(959, '190102', 'หน้าพระลาน*   ', 123, 10, 2),
-	(960, '190103', 'พุแค*   ', 123, 10, 2),
-	(961, '190104', 'ห้วยบง*   ', 123, 10, 2),
+	(959, '190102', 'หน้าพระลาน  ', 123, 10, 2),
+	(960, '190103', 'พุแค  ', 123, 10, 2),
+	(961, '190104', 'ห้วยบง  ', 123, 10, 2),
 	(962, '190105', 'ดาวเรือง   ', 123, 10, 2),
 	(963, '190106', 'นาโฉง   ', 123, 10, 2),
 	(964, '190107', 'โคกสว่าง   ', 123, 10, 2),
@@ -2081,9 +2081,9 @@ INSERT INTO `district` (`DISTRICT_ID`, `DISTRICT_CODE`, `DISTRICT_NAME`, `AMPHUR
 	(969, '190112', 'กุดนกเปล้า   ', 123, 10, 2),
 	(970, '190113', 'ตลิ่งชัน   ', 123, 10, 2),
 	(971, '190114', 'ตะกุด   ', 123, 10, 2),
-	(972, '190115', 'บ้านแก้ง*   ', 123, 10, 2),
-	(973, '190116', 'ผึ้งรวง*   ', 123, 10, 2),
-	(974, '190117', 'เขาดินพัฒนา*   ', 123, 10, 2),
+	(972, '190115', 'บ้านแก้ง   ', 123, 10, 2),
+	(973, '190116', 'ผึ้งรวง   ', 123, 10, 2),
+	(974, '190117', 'เขาดินพัฒนา   ', 123, 10, 2),
 	(975, '190201', 'แก่งคอย   ', 124, 10, 2),
 	(976, '190202', 'ทับกวาง   ', 124, 10, 2),
 	(977, '190203', 'ตาลเดี่ยว   ', 124, 10, 2),
@@ -9974,18 +9974,18 @@ INSERT INTO `district` (`DISTRICT_ID`, `DISTRICT_CODE`, `DISTRICT_NAME`, `AMPHUR
 
 -- Dumping structure for table ask.expense_estimate
 CREATE TABLE IF NOT EXISTS `expense_estimate` (
-  `personnel_id` int(11) DEFAULT NULL,
-  `permission_id` int(10) DEFAULT NULL COMMENT 'รหัส ใบขออนุญาต',
-  `allowence_type` int(11) DEFAULT NULL,
-  `allowence` int(11) DEFAULT NULL COMMENT 'ค่าเบี้ยเลี้ยง',
-  `allowence_perday` int(11) DEFAULT NULL COMMENT 'ค่าเบี้ยเลี้ยง/วัน',
-  `allowence_sum` int(11) DEFAULT NULL COMMENT 'รวมค่าเบี้ยเลี้ยง',
-  `rent_date` int(11) DEFAULT NULL COMMENT 'ค่าที่พัก',
-  `rent_date_perday` int(11) DEFAULT NULL COMMENT 'ค่าที่พัก/วัน',
-  `rent_date_sum` int(11) DEFAULT NULL COMMENT 'รวมค่าเช่าที่พัก',
-  `travel_sum` int(11) DEFAULT NULL COMMENT 'รวมค่าพาหนะ',
-  `other_sum` int(11) DEFAULT NULL COMMENT 'รวมค่าอื่นๆ',
-  `expense_estimate_sum` int(11) DEFAULT NULL COMMENT 'รวมค่าใช้จ่าย ทั้งหมด',
+  `personnel_id` int(10) DEFAULT NULL COMMENT 'รหัสบุคลากร',
+  `permission_id` int(10) DEFAULT NULL COMMENT 'รหัสใบขออนุญาต',
+  `allowence_type` int(1) DEFAULT NULL COMMENT 'ชนิดรายจ่าย',
+  `allowence` int(4) DEFAULT NULL COMMENT 'ค่าเบี้ยเลี้ยง',
+  `allowence_perday` int(4) DEFAULT NULL COMMENT 'ค่าเบี้ยเลี้ยง/วัน',
+  `allowence_sum` int(8) DEFAULT NULL COMMENT 'รวมค่าเบี้ยเลี้ยง',
+  `rent_date` int(4) DEFAULT NULL COMMENT 'ค่าที่พัก',
+  `rent_date_perday` int(4) DEFAULT NULL COMMENT 'ค่าที่พัก/วัน',
+  `rent_date_sum` int(8) DEFAULT NULL COMMENT 'รวมค่าเช่าที่พัก',
+  `travel_sum` int(8) DEFAULT NULL COMMENT 'รวมค่าพาหนะ',
+  `other_sum` int(8) DEFAULT NULL COMMENT 'รวมค่าอื่นๆ',
+  `expense_estimate_sum` int(10) DEFAULT NULL COMMENT 'รวมค่าใช้จ่าย ทั้งหมด',
   `create_date` timestamp NULL DEFAULT NULL,
   KEY `permission_id` (`permission_id`),
   KEY `create_by` (`personnel_id`)
@@ -9993,12 +9993,14 @@ CREATE TABLE IF NOT EXISTS `expense_estimate` (
 
 -- Dumping data for table ask.expense_estimate: ~0 rows (approximately)
 /*!40000 ALTER TABLE `expense_estimate` DISABLE KEYS */;
+INSERT INTO `expense_estimate` (`personnel_id`, `permission_id`, `allowence_type`, `allowence`, `allowence_perday`, `allowence_sum`, `rent_date`, `rent_date_perday`, `rent_date_sum`, `travel_sum`, `other_sum`, `expense_estimate_sum`, `create_date`) VALUES
+	(89, 7, 1, 270, 12, 3240, 1200, 0, 0, 61, 1500, 4801, '2018-10-09 08:29:18');
 /*!40000 ALTER TABLE `expense_estimate` ENABLE KEYS */;
 
 -- Dumping structure for table ask.expense_estimate_back
 CREATE TABLE IF NOT EXISTS `expense_estimate_back` (
-  `personnel_id` int(11) DEFAULT NULL,
-  `permission_id` int(11) DEFAULT NULL,
+  `personnel_id` int(10) DEFAULT NULL,
+  `permission_id` int(10) DEFAULT NULL,
   `b_allowence_type` int(11) DEFAULT NULL,
   `b_allowence` int(11) DEFAULT NULL,
   `b_allowence_perday` int(11) DEFAULT NULL,
@@ -10020,26 +10022,29 @@ CREATE TABLE IF NOT EXISTS `expense_estimate_back` (
 
 -- Dumping structure for table ask.expense_sumary
 CREATE TABLE IF NOT EXISTS `expense_sumary` (
-  `permission_id` int(11) DEFAULT NULL,
-  `user_sum_total` varchar(50) DEFAULT NULL,
-  `allowence_perday_total` varchar(50) DEFAULT NULL COMMENT 'จำนวนวัน',
-  `allowence_sum_total` varchar(50) DEFAULT NULL COMMENT 'รวมค่าเบี้ยเลี้ยง',
-  `rent_date_perday_total` varchar(50) DEFAULT NULL COMMENT 'จำนวนืน',
-  `rent_date_sum_total` varchar(50) DEFAULT NULL COMMENT 'รวมค่าที่พัก',
-  `travel_sum_total` varchar(50) DEFAULT NULL COMMENT 'รวมค่าพาหนะ',
-  `other_sum_total` varchar(50) DEFAULT NULL COMMENT 'รวมค่าอื่นๆ',
-  `expense_estimate_sum_total` varchar(50) DEFAULT NULL COMMENT 'รวมค่าประมาณการทั้งหมด',
+  `permission_id` int(10) DEFAULT NULL COMMENT 'รหัสใบขออนุญาต',
+  `user_sum_total` varchar(10) DEFAULT NULL COMMENT 'จำนวนบุคลากรร่วม',
+  `allowence_perday_total` varchar(10) DEFAULT NULL COMMENT 'จำนวนวัน/เบี้ยเลี้ยง',
+  `allowence_sum_total` varchar(10) DEFAULT NULL COMMENT 'รวมค่าเบี้ยเลี้ยง',
+  `rent_date_perday_total` varchar(10) DEFAULT NULL COMMENT 'จำนวนวัน/ที่พัก',
+  `rent_date_sum_total` varchar(10) DEFAULT NULL COMMENT 'รวมค่าที่พัก',
+  `travel_sum_total` varchar(10) DEFAULT NULL COMMENT 'รวมค่าพาหนะ',
+  `other_sum_total` varchar(10) DEFAULT NULL COMMENT 'รวมค่าอื่นๆ',
+  `expense_estimate_sum_total` varchar(10) DEFAULT NULL COMMENT 'รวมค่าประมาณการทั้งหมด',
   `create_date` timestamp NULL DEFAULT NULL,
   KEY `permission_id` (`permission_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='สรูปค่าใช้จ่าย';
 
--- Dumping data for table ask.expense_sumary: ~0 rows (approximately)
+-- Dumping data for table ask.expense_sumary: ~2 rows (approximately)
 /*!40000 ALTER TABLE `expense_sumary` DISABLE KEYS */;
+INSERT INTO `expense_sumary` (`permission_id`, `user_sum_total`, `allowence_perday_total`, `allowence_sum_total`, `rent_date_perday_total`, `rent_date_sum_total`, `travel_sum_total`, `other_sum_total`, `expense_estimate_sum_total`, `create_date`) VALUES
+	(6, '', '', '', '', '', '', '', '', '2018-10-09 07:57:00'),
+	(7, '1', '12', '3,240', '0', '0', '61', '1,500', '4,801', '2018-10-09 08:29:18');
 /*!40000 ALTER TABLE `expense_sumary` ENABLE KEYS */;
 
 -- Dumping structure for table ask.expense_sumary_back
 CREATE TABLE IF NOT EXISTS `expense_sumary_back` (
-  `permission_id` int(11) DEFAULT NULL,
+  `permission_id` int(10) DEFAULT NULL,
   `b_user_sum_total` varchar(50) DEFAULT NULL,
   `b_allowence_perday_total` varchar(50) DEFAULT NULL,
   `b_allowence_sum_total` varchar(50) DEFAULT NULL,
@@ -10078,7 +10083,7 @@ INSERT INTO `faculty` (`faculty_id`, `faculty_name`, `faculty_code`) VALUES
 -- Dumping structure for table ask.permission
 CREATE TABLE IF NOT EXISTS `permission` (
   `permission_id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'รหัสใบขออนุญาต',
-  `personnel_id` int(11) DEFAULT NULL,
+  `personnel_id` int(10) DEFAULT NULL,
   `district` varchar(50) DEFAULT NULL COMMENT 'ตำบล',
   `permission_status` char(1) NOT NULL DEFAULT '0',
   `purpose` varchar(10) NOT NULL COMMENT 'วัตถุประสงค์ ไปราชการ',
@@ -10089,38 +10094,41 @@ CREATE TABLE IF NOT EXISTS `permission` (
   `object` text COMMENT 'วัตถุประสงค์ที่ไป',
   `destination_name` varchar(200) DEFAULT NULL COMMENT 'ชื่อสถานที่ไปราชการ',
   `go_date` date DEFAULT NULL COMMENT 'วัน  ไปราชการ',
-  `go_time` varchar(50) DEFAULT NULL COMMENT 'เวลา ไปราชการ',
+  `go_time` char(5) DEFAULT NULL COMMENT 'เวลา ไปราชการ',
   `back_date` date DEFAULT NULL COMMENT 'วัน กลับราชการ',
-  `back_time` char(50) DEFAULT NULL COMMENT 'เวลา กลับราชการ',
-  `budget` varchar(50) DEFAULT NULL COMMENT 'งบประมาณ',
-  `budget_expenses` varchar(50) DEFAULT NULL COMMENT 'เบิกค่าใช้จ่ายโดย',
-  `budget_by` varchar(50) DEFAULT NULL COMMENT 'ใช้งบประมาณ',
+  `back_time` char(5) DEFAULT NULL COMMENT 'เวลา กลับราชการ',
+  `budget` char(1) DEFAULT NULL COMMENT 'งบประมาณ',
+  `budget_expenses` char(1) DEFAULT NULL COMMENT 'เบิกค่าใช้จ่ายโดย',
+  `budget_by` char(1) DEFAULT NULL COMMENT 'ใช้งบประมาณ',
   `budget_project` varchar(50) DEFAULT NULL COMMENT 'โครงการ',
-  `budget_pass` varchar(50) DEFAULT NULL COMMENT 'รหัสโครงการ',
+  `budget_pass` varchar(15) DEFAULT NULL COMMENT 'รหัสโครงการ',
   `travel` char(1) DEFAULT NULL COMMENT 'การเดินทาง',
   `travel_idcard` varchar(8) DEFAULT NULL COMMENT 'หมายเลขทะเบียน',
-  `commit_a` varchar(5) DEFAULT NULL COMMENT 'งานภาคปกติ',
+  `commit_a` char(1) DEFAULT NULL COMMENT 'งานภาคปกติ',
   `commit_a_dt` varchar(50) DEFAULT NULL COMMENT 'งานภาคปกติ มอบหมาย',
-  `commit_b` varchar(5) DEFAULT NULL COMMENT 'งานภาค กศ.บป',
+  `commit_b` char(1) DEFAULT NULL COMMENT 'งานภาค กศ.บป',
   `commit_b_dt` varchar(50) DEFAULT NULL COMMENT 'งานภาค กศ.บป มอบหมาย',
-  `commit_c` varchar(5) DEFAULT NULL COMMENT 'งานเวรประจำวัน',
+  `commit_c` char(1) DEFAULT NULL COMMENT 'งานเวรประจำวัน',
   `commit_c_dt` varchar(50) DEFAULT NULL COMMENT 'งานเวรประจำวัน มอบหมาย',
-  `commit_d` varchar(5) DEFAULT NULL COMMENT 'งานอื่นๆ',
+  `commit_d` char(1) DEFAULT NULL COMMENT 'งานอื่นๆ',
   `other` varchar(50) DEFAULT NULL COMMENT 'อื่นๆ',
   `commit_d_dt` varchar(50) DEFAULT NULL COMMENT 'งานอื่นๆ มอบหมาย',
   `create_date` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`permission_id`),
   KEY `personnel_id` (`personnel_id`),
   KEY `district` (`district`)
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8 COMMENT='ตารางแบบฟอร์ม การขออนุญาตไปราชการ';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='ตารางแบบฟอร์ม การขออนุญาตไปราชการ';
 
 -- Dumping data for table ask.permission: ~0 rows (approximately)
 /*!40000 ALTER TABLE `permission` DISABLE KEYS */;
+INSERT INTO `permission` (`permission_id`, `personnel_id`, `district`, `permission_status`, `purpose`, `purpose1`, `purpose2`, `topics`, `status`, `object`, `destination_name`, `go_date`, `go_time`, `back_date`, `back_time`, `budget`, `budget_expenses`, `budget_by`, `budget_project`, `budget_pass`, `travel`, `travel_idcard`, `commit_a`, `commit_a_dt`, `commit_b`, `commit_b_dt`, `commit_c`, `commit_c_dt`, `commit_d`, `other`, `commit_d_dt`, `create_date`) VALUES
+	(6, 3, '649', '0', '', '', '', '', '', '', '', '2018-10-10', '00:00', '2018-10-09', '00:00', '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '2018-10-09 07:57:00'),
+	(7, 3, '', '0', '', '', '', '', '', '', '', '2018-10-25', '', '2018-10-11', '', '2', '1', '1', '', '', '3', '', '', '', '', '', '', '', '', '', '', '2018-10-09 08:29:18');
 /*!40000 ALTER TABLE `permission` ENABLE KEYS */;
 
 -- Dumping structure for table ask.permission_back
 CREATE TABLE IF NOT EXISTS `permission_back` (
-  `permission_id` int(11) DEFAULT NULL,
+  `permission_id` int(10) DEFAULT NULL,
   `district` varchar(50) DEFAULT NULL COMMENT 'ตำบล/อำเภอ/จังหวัด',
   `b_save_date` date DEFAULT NULL COMMENT 'วันที่ลงบันทึกขออนุญาต',
   `b_by_order_save` varchar(50) DEFAULT NULL COMMENT 'ขอเบิกค่าใช้จ่ายสำหรับ',
@@ -10148,7 +10156,7 @@ CREATE TABLE IF NOT EXISTS `permission_back` (
 
 -- Dumping structure for table ask.personnel_list
 CREATE TABLE IF NOT EXISTS `personnel_list` (
-  `personnel_id` int(11) NOT NULL AUTO_INCREMENT,
+  `personnel_id` int(10) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) DEFAULT NULL COMMENT 'รหัส user',
   `department_code` varchar(10) DEFAULT NULL COMMENT 'รหัส สังกัด',
   `sub_position_code` varchar(10) DEFAULT NULL COMMENT 'รหัส ระดับ',
@@ -10156,7 +10164,7 @@ CREATE TABLE IF NOT EXISTS `personnel_list` (
   PRIMARY KEY (`personnel_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ask.personnel_list: ~22 rows (approximately)
+-- Dumping data for table ask.personnel_list: ~25 rows (approximately)
 /*!40000 ALTER TABLE `personnel_list` DISABLE KEYS */;
 INSERT INTO `personnel_list` (`personnel_id`, `user_id`, `department_code`, `sub_position_code`, `create_date`) VALUES
 	(1, 1, '1', '3', '2018-08-16 11:34:49'),
@@ -10331,8 +10339,8 @@ INSERT INTO `sub_position` (`sub_position_id`, `sub_position_name`, `sub_positio
 
 -- Dumping structure for table ask.travel
 CREATE TABLE IF NOT EXISTS `travel` (
-  `travel_id` int(4) NOT NULL COMMENT 'vehicle',
-  `vehicle_name` varchar(25) DEFAULT NULL COMMENT 'vehicle name'
+  `travel_id` int(1) NOT NULL COMMENT 'รหัสพาหนะ',
+  `vehicle_name` varchar(25) DEFAULT NULL COMMENT 'ชื่อพาหนะ'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ชื่อพาหนะ';
 
 -- Dumping data for table ask.travel: ~6 rows (approximately)
@@ -10348,12 +10356,12 @@ INSERT INTO `travel` (`travel_id`, `vehicle_name`) VALUES
 
 -- Dumping structure for table ask.travel_expenses
 CREATE TABLE IF NOT EXISTS `travel_expenses` (
-  `permission_id` int(11) DEFAULT NULL COMMENT 'รหัสใบขออนุญาตไปราชการ',
-  `travel_id` int(5) NOT NULL COMMENT 'รหัส',
+  `permission_id` int(10) DEFAULT NULL COMMENT 'รหัสใบขออนุญาต',
+  `travel_id` int(1) NOT NULL COMMENT 'รหัสพาหนะ',
   `number_per` int(4) NOT NULL COMMENT 'จำนวน/เที่ยว',
   `travel_expenses` int(8) NOT NULL COMMENT 'ค่าพาหนะ 1 เที่ยว',
-  `user_sum` int(8) NOT NULL COMMENT 'บุคคลกรร่วมทั้งหมด',
-  `sum` int(11) NOT NULL COMMENT 'รวมค่า พาหนะ',
+  `user_sum` int(4) NOT NULL COMMENT 'บุคคลกรร่วมทั้งหมด',
+  `sum` int(10) NOT NULL COMMENT 'รวมค่า พาหนะ',
   `vehicle_c` varchar(100) NOT NULL COMMENT 'หมายเหตุที่ขึ้นพาหนะ',
   `create_date` timestamp NULL DEFAULT NULL COMMENT 'เวลาบันทึก ใบขออนุญาตไปราชการ',
   KEY `travel_id` (`travel_id`),
@@ -10382,16 +10390,16 @@ INSERT INTO `travel_expenses` (`permission_id`, `travel_id`, `number_per`, `trav
 
 -- Dumping structure for table ask.travel_expenses_official_car
 CREATE TABLE IF NOT EXISTS `travel_expenses_official_car` (
-  `travel_id` int(11) DEFAULT NULL,
-  `permission_id` int(11) DEFAULT NULL COMMENT 'รหัสใบขออนุญาตไปราชการ',
-  `teoc_distance` int(11) DEFAULT NULL COMMENT 'ระยะทาง',
-  `teoc_number_per` int(11) DEFAULT NULL COMMENT 'จำนวน/ต่อ',
-  `teoc_fuel_cost` int(11) DEFAULT NULL COMMENT 'ค่าเชื้อเพลิง',
-  `teoc_rate_fuel_cost` int(11) DEFAULT NULL COMMENT 'อัตราการกินค่าเชื้อเพลิง',
-  `teoc_fuel_cost_sum` int(11) DEFAULT NULL COMMENT 'รวมค่าเชื้อเพลิง',
-  `teoc_expressway_expenses_sum` int(11) DEFAULT NULL COMMENT 'รวมค่าทางด่วน',
-  `teoc_sum` varchar(50) DEFAULT NULL COMMENT 'รวม',
-  `teoc_vehicle_c` varchar(50) DEFAULT NULL COMMENT 'หมายเหตุ',
+  `permission_id` int(10) DEFAULT NULL COMMENT 'รหัสใบขออนุญาตไปราชการ',
+  `travel_id` int(1) DEFAULT NULL COMMENT 'รหัสพาหนะ',
+  `teoc_distance` int(5) DEFAULT NULL COMMENT 'ระยะทาง',
+  `teoc_number_per` int(5) DEFAULT NULL COMMENT 'จำนวน/ต่อ',
+  `teoc_fuel_cost` int(5) DEFAULT NULL COMMENT 'ค่าเชื้อเพลิง',
+  `teoc_rate_fuel_cost` int(5) DEFAULT NULL COMMENT 'อัตราการกินค่าเชื้อเพลิง',
+  `teoc_fuel_cost_sum` int(10) DEFAULT NULL COMMENT 'รวมค่าเชื้อเพลิง',
+  `teoc_expressway_expenses_sum` int(10) DEFAULT NULL COMMENT 'รวมค่าทางด่วน',
+  `teoc_sum` varchar(10) DEFAULT NULL COMMENT 'รวม',
+  `teoc_vehicle_c` varchar(100) DEFAULT NULL COMMENT 'หมายเหตุ',
   `teoc_create_date` timestamp NULL DEFAULT NULL COMMENT 'เวลาบันทึก ใบขออนุญาตไปราชการ',
   KEY `permission_id` (`permission_id`),
   KEY `travel_id` (`travel_id`)
@@ -10399,12 +10407,14 @@ CREATE TABLE IF NOT EXISTS `travel_expenses_official_car` (
 
 -- Dumping data for table ask.travel_expenses_official_car: ~0 rows (approximately)
 /*!40000 ALTER TABLE `travel_expenses_official_car` DISABLE KEYS */;
+INSERT INTO `travel_expenses_official_car` (`permission_id`, `travel_id`, `teoc_distance`, `teoc_number_per`, `teoc_fuel_cost`, `teoc_rate_fuel_cost`, `teoc_fuel_cost_sum`, `teoc_expressway_expenses_sum`, `teoc_sum`, `teoc_vehicle_c`, `teoc_create_date`) VALUES
+	(7, 6, 23, 2, 0, 4, 46, 23, '69', '', '2018-10-09 08:29:18');
 /*!40000 ALTER TABLE `travel_expenses_official_car` ENABLE KEYS */;
 
 -- Dumping structure for table ask.travel_expenses_private_car
 CREATE TABLE IF NOT EXISTS `travel_expenses_private_car` (
+  `permission_id` int(10) DEFAULT NULL,
   `travel_id` int(11) DEFAULT NULL,
-  `permission_id` int(11) DEFAULT NULL,
   `tepc_distance` int(11) DEFAULT NULL COMMENT 'ระยะทาง',
   `tepc_number_per` int(11) NOT NULL COMMENT 'จำนวนรอบ เที่ยว',
   `tepc_rate_fuel_cost` int(11) DEFAULT NULL COMMENT 'อัตารา ค่าเชื่อเพลิง',
@@ -10417,8 +10427,10 @@ CREATE TABLE IF NOT EXISTS `travel_expenses_private_car` (
   KEY `permission_id` (`permission_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ค่าน้ำมันเชื้อเพลิง\r\nขอใช้รถส่วนตัว';
 
--- Dumping data for table ask.travel_expenses_private_car: ~0 rows (approximately)
+-- Dumping data for table ask.travel_expenses_private_car: ~1 rows (approximately)
 /*!40000 ALTER TABLE `travel_expenses_private_car` DISABLE KEYS */;
+INSERT INTO `travel_expenses_private_car` (`permission_id`, `travel_id`, `tepc_distance`, `tepc_number_per`, `tepc_rate_fuel_cost`, `tepc_fuel_cost_sum`, `tepc_expressway_expenses_sum`, `tepc_sum`, `tepc_vehicle_c`, `tepc_create_date`) VALUES
+	(7, 6, 23, 2, 4, 46, 23, '69', '', '2018-10-09 08:29:18');
 /*!40000 ALTER TABLE `travel_expenses_private_car` ENABLE KEYS */;
 
 -- Dumping structure for table ask.user
@@ -10435,7 +10447,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COMMENT='ตารางผู้ใช้ระบบ';
 
--- Dumping data for table ask.user: ~16 rows (approximately)
+-- Dumping data for table ask.user: ~17 rows (approximately)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`user_id`, `sex`, `user_username`, `user_password`, `user_fname`, `user_lname`, `number_phone`, `date`, `role`) VALUES
 	(1, 'Admin', 'admin', 'admin', 'nameadmin', 'nameadmin', NULL, '2016-05-29', 1),

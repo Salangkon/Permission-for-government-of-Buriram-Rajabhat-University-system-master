@@ -18,6 +18,8 @@ public class ExpenseEstimateBean {
 	
 	private int travelSum;
 	private int otherSum;
+	private String otherSum1;
+	
 	private int expenseEstimateSum;
 	// FK user
 	private int personnelId;
@@ -26,6 +28,12 @@ public class ExpenseEstimateBean {
 	private int permissionId;
 	
 	
+	public String getOtherSum1() {
+		return otherSum1;
+	}
+	public void setOtherSum1(String otherSum1) {
+		this.otherSum1 = otherSum1;
+	}
 	public int getAllowenceType() {
 		return allowenceType;
 	}

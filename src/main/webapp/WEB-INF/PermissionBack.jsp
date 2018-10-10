@@ -96,9 +96,9 @@
   <span title="open Sidebar" style="display:none" id="openNav" class="w3-button w3-transparent w3-display-topleft w3-xlarge" onclick="w3_open()">&#9776;</span>
 
 
-<header class="w3-display-container w3-content" style="max-width:90%" >
+<div class="w3-display-container w3-content" style="max-width:90%" >
 	<div class="w3-container w3-red" id="1">
-		<h2><i class="fa fa-file-o w3-margin-right"></i>แบบฟอร์มเบิกค่าใช้จ่ายในการเดินทางไปราชการ</h2>
+		<h2><i class="glyphicon glyphicon-file"></i> แบบฟอร์มเบิกค่าใช้จ่ายในการเดินทางไปราชการ</h2>
     </div>
     
     <div class="w3-container w3-white w3-padding-16">
@@ -247,13 +247,12 @@
 </div>
 
 </div>
-</header>
-
+</div>
 
 <!-- สรุป แบบฟอร์มประมาณการรายจ่าย -->
-<header class="w3-display-container w3-content" style="max-width:90%;margin-top: 2%">
-	<div class="w3-container w3-blue" id="2">
-    	<h2><i class="fa fa-file-o w3-margin-right"></i>แบบฟอร์มประมาณการรายจ่าย</h2>
+<div class="w3-display-container w3-content" style="max-width:90%;margin-top: 2%">
+	<div class="w3-container w3-purple" id="2">
+    	<h2><i class="glyphicon glyphicon-usd"></i> แบบฟอร์มประมาณการรายจ่าย</h2>
     </div>
     <div class="w3-container w3-white w3-padding-16">
 
@@ -271,7 +270,6 @@
  	
 </div>
 	<div style="size: 10;margin-bottom: 3%;" class="col-sm-12"  id="Manual Budget" style="display:none">
-	<h3 style="color: white;margin-bottom: 2%"align="center"  class="w3-container w3-blue"><i class="fa fa-user w3-margin-right" style="font-size:30px;"></i>เลือกบุคคลกรร่วมไปราชการ พร้อมกำหนดค่าใช้จ่าย  (กรุณาใส่ 0 ในช่องว่าง)</h3>
 	<div style="overflow-x:auto;">
 	<table id="addUser" class="table table-bordered" style="font-family: sans-serif;font-size:small;width: 100%" >   
 		<thead>
@@ -309,19 +307,95 @@
     </table>
     </div>
     <div align="right">
-    	<input class=" btn btn-primary" type="button" value="เพิ่มบุลคลากร"  data-toggle="modal" data-target="#myModal">
+    	<input class=" btn btn-primary" type="button" value="เพิ่มบุลคลากร" data-toggle="modal" data-target="#myModal">
+    </div>
     </div>
  	</div><!-- end dataTable Expense -->
 </div><!-- end กรอบที่ 3-->
 	
-
-	<div style="margin-top: 4%" class="col-sm-12 " align="center" >
-		<button class="btn btn-success" id="saveBack">ยืนยัน</button>
-		<button type="reset" class="btn btn-danger">รีเซต</button>
-	</div>
-	</div>
 		
-</header>
+</div><!-- จบ สรุป แบบฟอร์มประมาณการรายจ่าย -->
+
+<!-- บันทึกข้อความ -->
+<div class="w3-display-container w3-content" style="max-width:90%;margin-top: 2%" >
+	<div class="w3-container w3-blue" id="1">
+		<h2><i class="glyphicon glyphicon-save-file"></i> บันทึกข้อความ</h2>
+    </div>
+    
+    <div class="w3-container w3-white w3-padding-16">
+	<!-- กรอบที่ 1 -->
+	<div style="margin-bottom: 18%">
+	<div class="col-sm-12" >
+	<label>รายงานผลไปราชการ / ฝึกอบรมสัมมนา / ประโยชน์</label> 
+	<textarea class="form-control" rows="10" cols="80" maxlength="2500" id="bBenefitRecord" name="bBenefitRecord" ></textarea>
+ 	</div>
+ 	<div class="col-sm-12 form-group" >
+ 	<label>นำความรู้ไปประกอบการสอนรายวิชา</label> 
+ 	<input class="form-control" maxlength="50" name="bBenefitCourses" id="bBenefitCourses" type="text" >
+ 	</div>
+ 	<div class="col-sm-12 form-group" >
+ 	<label>บูรณาการความรู้เพื่อนำไปใช้ในประโยชน์ด้าน</label> 
+ 	<input class="form-control" maxlength="100" name="bBenefitUse" id="bBenefitUse" type="text">
+ 	</div>
+	</div>
+	</div><!--end -->
+</div><!--จบ บันทึกข้อความ -->
+
+<!-- ใบเสร็จ -->
+<div class="w3-display-container w3-content" style="max-width:90%;margin-top: 2%" >
+	<div class="w3-container w3-green" id="1">
+		<h2><i class="glyphicon glyphicon-list-alt"></i> ใบเสร็จ</h2>
+    </div>
+    
+    <div class="w3-container w3-white w3-padding-16">
+	<!-- กรอบที่ 1 -->
+	<div style="margin-bottom: 18%">
+	<div class="col-sm-12" >
+	<label style="color: red;">*เลือก กรณีใช้รถประจำทาง และขอใช้รถราชการ เท่านั้น!!!</label> 
+		<div><input name="" id="choiceBill1" type="checkbox" value="" style="margin-left: 4%" > <label> ใบเสร็จรับเงินค่าที่พัก</label> 		</div>
+    	<div><input name="" id="choiceBill2" type="checkbox" value="" style="margin-left: 4%" > <label> ตั่วเครื่องบิน</label>  			</div>
+   		<div><input name="" id="choiceBill3" type="checkbox" value="" style="margin-left: 4%" > <label> ใบเสร็จค่าธรรมเนียมการใช้สนามบิน</label>	</div>
+    	<div><input name="" id="choiceBill4" type="checkbox" value="" style="margin-left: 4%" > <label> ใบเสร็จรับเงินค่าน้ำมันเชื้อเพลิง</label> 	</div>
+    	<div><input name="" id="choiceBill5" type="checkbox" value="" style="margin-left: 4%" > <label> ใบเสร็จรับเงินค่ารักษาพยาบาล</label> 	</div>
+    	<div><input name="" id="choiceBill6" type="checkbox" value="" style="margin-left: 4%" > <label> ใบเสร็จรับเงินการศึกษาบุตร</label>  	</div>
+    	<div><input name="" id="choiceBill7" type="checkbox" value="" style="margin-left: 4%" >
+    		<label><input class="form-control" maxlength="30" name="choiceBill7C" id="choiceBill7C" type="text" placeholder=" อื่นๆ" ></label>					
+    	</div>
+ 	</div>
+ 	
+	</div>
+	</div><!--end -->
+</div>
+
+<!-- ใบเสร็จ -->
+<div class="w3-display-container w3-content" style="max-width:90%;margin-top: 2%" >
+	<div class="w3-container w3-green" id="1">
+		<h2><i class="glyphicon glyphicon-list-alt"></i> ใบรับรองแทนใบเสร็จ</h2>
+    </div>
+    
+    <div class="w3-container w3-white w3-padding-16">
+	<!-- กรอบที่ 1 -->
+	<div style="margin-bottom: 18%">
+	<label style="color: red;">*ใบรับรองแทนใบเสร็จ กรณีใช้รถส่วนตัว เท่านั้น!!!</label> 
+ 	<div class="col-sm-12 form-group" >
+ 	<label>วัน/เดือน/ปี</label> 
+ 		<input class="form-control" type="date" id="bill_go_date" style="width: 10%">
+ 	<label>รายละเอียด ใช้รถไปราชการ</label> 
+ 		<textarea class="form-control" rows="10" cols="10" maxlength="1500" id="bill_detail1" name="bill_detail1" ></textarea>
+ 	</div>
+ 	<div class="col-sm-12 form-group" >
+ 	<label>วัน/เดือน/ปี</label> 
+ 		<input class="form-control" type="date" id="bill_back_date" style="width: 10%">
+ 	<label>รายละเอียด ใช้รถกลับจากราชการ</label> 
+ 		<textarea class="form-control" rows="10" cols="10" maxlength="1500" id="bill_detail2" name="bill_detail2" ></textarea>
+ 	</div>
+	</div>
+	</div><!--end -->
+</div>
+
+	<div style="margin-top: 3%;margin-bottom: 10%;" class="col-sm-12 alert alert-info" align="center" >
+		<button class="btn btn-success" id="saveBack">ยืนยัน</button>
+	</div><br>
 
 	</div><!-- end  --> 
 </div><!-- end  --> 

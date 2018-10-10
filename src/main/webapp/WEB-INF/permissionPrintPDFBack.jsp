@@ -85,6 +85,9 @@
       <a class="w3-bar-item w3-button" href="#4"> ใบแนบขอเบิกค่าใช้จ่าย	</a>
       <a class="w3-bar-item w3-button" href="#5"> บันทึกข้อความ	</a>
       <a class="w3-bar-item w3-button" href="#6"> บันทึกข้อความ 2	</a>
+      <a class="w3-bar-item w3-button" href="#7"> ใบสำคัญรับเงิน	</a>
+      <a class="w3-bar-item w3-button" href="#8"> ใบรับรองแทนใบเสร็จ	</a>
+      <a class="w3-bar-item w3-button" href=""> 	</a>
     </div>
   </div>
   <a class="w3-bar-item w3-button" href="javascript:void(0)" onclick="printDiv('printableArea')">พิมพ์</a>
@@ -507,20 +510,20 @@
 					<th style="width: 100%;">รายการ ดังนี้</th>
 				</tr>
 				<tr>
-					<th colspan="5" style="height: 100mm; text-align: left;"valign="top"></th>	
+					<th colspan="5" style="height: 100mm; text-align: left;"valign="top"><%=beanBack.getbBenefitRecord() %></th>	
 				</tr>
 			</table>
 			<br>
 			<br>
 			<table>
 				<tr>
-					<th style="width: 100%;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;ขัาพเจ้านำผลจากากรไปฝึกอบรมสัมมนา นำไปใช้เพื่อ</th>
+					<th style="width: 100%;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;ขัาพเจ้านำผลจากากรไปฝึกอบรมสัมมนา นำไปใช้เพื่อ </th>
 				</tr>
 			</table>
 			<table>
 				<tr>
 					<th style="width: 35%;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;๑) ประกอบการสอนรายวิชา</th>
-					<th style="width: 60%;">-</th>
+					<th style="width: 60%;"><%=beanBack.getbBenefitCourses() %></th>
 				</tr>
 			</table>
 			<table>
@@ -528,7 +531,7 @@
 					<th style="width: 100%;">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;๒) บูรณาการความรู้เพื่อนำไปใช้ในประโยชน์ด้าน</th>
 				</tr>
 				<tr>
-					<th style="width: 100%;">-</th>
+					<th style="width: 100%;">- <%=beanBack.getbBenefitUse() %></th>
 				</tr>
 			</table>
 			<br>
@@ -647,31 +650,32 @@
 			<table>
 				<tr>
 					<th style="width: 50%"></th>
-					<th >(  ) ใบเสร็จรับเงินค่าที่พัก</th>
+					<th >( <%if (beanBack.getChoiceBill1().equals("1")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) ใบเสร็จรับเงินค่าที่พัก</th>
 				</tr>
 				<tr>
 					<th></th>
-					<th >(  ) ตั๋วเครื่องบิน</th>
+					<th >( <%if (beanBack.getChoiceBill2().equals("1")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> )ตั๋วเครื่องบิน</th>
 				</tr>
 				<tr>
 					<th></th>
-					<th >(  ) ใบเสร็จค่าทำเนียมการใช้สนามบิน</th>
+					<th >( <%if (beanBack.getChoiceBill3().equals("1")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) ใบเสร็จค่าทำเนียมการใช้สนามบิน</th>
 				</tr>
 				<tr>
 					<th></th>
-					<th >(  ) ใบเสร็จรับเงินค่าน้ำมันเชื่อเพลิง</th>
+					<th >( <%if (beanBack.getChoiceBill4().equals("1")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) ใบเสร็จรับเงินค่าน้ำมันเชื่อเพลิง</th>
 				</tr>
 				<tr>
 					<th></th>
-					<th >(  ) ใบเสร็จรับเงินค่ารักษาพยาบาล</th>
+					<th >( <%if (beanBack.getChoiceBill5().equals("1")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) ใบเสร็จรับเงินค่ารักษาพยาบาล</th>
 				</tr>
 				<tr>
 					<th></th>
-					<th >(  ) ใบเสร็จรับเงินค่าการศึกษาบุตร</th>
+					<th >( <%if (beanBack.getChoiceBill6().equals("1")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) ใบเสร็จรับเงินค่าการศึกษาบุตร</th>
 				</tr>
 				<tr>
 					<th></th>
-					<th >(  ) อื่นๆ.............................................................................</th>
+					<th >( <%if (beanBack.getChoiceBill7().equals("1")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> )
+						 อื่นๆ......................................................</th>
 				</tr>
 			</table>
 			<br>
@@ -708,6 +712,102 @@
 				</tr>
 			</table>
 </div><!-- 	end	7-->
+
+<!--8 -->
+<div class="page" id="8">
+			<br>
+			<br>
+			<table>
+				<tr>
+					<th style="text-align: center;"><strong>ใบรับรองแทนใบเสร็จรับเงิน</strong> </th>
+				</tr>
+			</table>
+			<br>
+			<table>
+				<tr>
+					<th style="text-align: center;">กระทรวงศึกาาธิการ สำนักงานคณะกรรมการอุดมศึกาา มหาวิทยาลัยราชภัฏบุรีรัมย์ จังหวักบุรีรัมย์</th>
+				</tr>
+			</table>
+			<br>
+			<table id="customers" >
+				<tr>
+					<th style="text-align: left;"> วัน เดือน ปี</th>
+					<th style="text-align: left;"> รายละเอียด</th>
+					<th style="text-align: left;" colspan="2"> จำนวนเงิน</th>
+					<th style="text-align: left;" colspan="2"> รวมเงิน</th>
+				</tr>
+				<tr>
+					<th></th>
+					<th></th>	
+					<th></th>	
+					<th></th>	
+					<th></th>	
+					<th></th>		
+				</tr>
+				<tr>
+					<th></th>
+					<th></th>	
+					<th></th>	
+					<th></th>	
+					<th></th>	
+					<th></th>		
+				</tr>
+				<tr>
+					<th></th>
+					<th style="text-align: left;"> รวมเงินทั้งสิ้น </th>	
+					<th></th>	
+					<th></th>	
+					<th></th>	
+					<th></th>		
+				</tr>
+				<tr>
+					<th style="text-align: left;" colspan="6">&nbsp;&nbsp;&nbsp;&nbsp; รวมเงินทั้งสิ้น (ตัวอักษร) </th>	
+				</tr>
+			</table>
+			<br>
+			<br>
+			<table>
+				<tr>
+					<th style="text-align: right;"> ข้าพเจ้าขอรับรองว่ารายการที่กล่าวมาข้างบนนี้ ข้าพเจ้าได้จ่ายไปในราชการโดยเเท้ ตั้งแต่ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
+				</tr>
+			</table>
+			<table style="text-align: left;">
+				<tr>
+					<th style="text-align: left; max-width: 7mm;">ในวันที่ </th>
+					<th style="text-align: left; max-width: 15mm;"><%=bean.getGoDateDay()%></th>
+					<th style="text-align: center; ; max-width: 5mm;">เดือน</th>
+					<th style="text-align: center; max-width: 15mm;"><%=bean.getGoDateMonth()%></th>
+					<th style="text-align: left; max-width: 5mm;">พ.ศ.</th>
+					<th style="text-align: left; max-width: 15mm;"><%=bean.getGoDateYear()%></th>
+					<th style="text-align: left; max-width: 7mm;">ถึงวันที่ </th>
+					<th style="text-align: left; max-width: 15mm;"><%=bean.getBackDateDay()%></th>
+					<th style="text-align: center; max-width: 5mm;">เดือน</th>
+					<th style="text-align: center; ; max-width: 15mm;"><%=bean.getBackDateMonth()%></th>
+					<th style="text-align: left; max-width: 5mm;">พ.ศ.</th>
+					<th style="text-align: left; max-width: 15mm;"><%=bean.getBackDateYear()%></th>
+				</tr>
+			</table>
+			<table>
+				<tr>
+					<th style="text-align: right;">และขอรับรองว่าใบสำคัญรับจ่ายดังกล่าวนี้ ข้าพเจ้าได้ขีดหรือทำลายแล้วทั้งสิ้น เพื่อมิให้เอากลับมาใช้สำคัญ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
+				</tr>
+				<tr>
+					<th style="text-align: left;">จ่ายเงินของรัฐบาลได้อีก</th>
+				</tr>
+			</table>
+			<br>
+			<br>
+			<table>
+				<tr>
+					<th style="width: 50%"></th>
+				<th style="text-align: center;">ลงชื่อ...................................................</th>
+				</tr>
+				<tr>
+					<th></th>
+					<th style="text-align: center;">( <%=bean.getSex()%><%=bean.getUserFname()%>&nbsp;&nbsp;<%=bean.getUserLname()%> )</th>
+				</tr>
+			</table>
+</div><!-- 	end	8-->
 			
 			
 </div> <!-- end printableArea -->

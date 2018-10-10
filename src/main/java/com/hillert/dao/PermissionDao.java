@@ -135,6 +135,7 @@ public class PermissionDao {
 		return String.format("%s", year+543);
 	}
 	
+	
 	// fromPermission
 		public PermissionBean fromPermission(int userId) throws SQLException {
 			PermissionBean bean = new PermissionBean();
@@ -298,6 +299,19 @@ public class PermissionDao {
 					
 					bean.setbDaySum(rs.getString("b_date_sum"));
 					bean.setbTimeSum(rs.getString("b_time_sum"));
+					
+					bean.setbBenefitRecord(rs.getString("b_benefit_record"));
+					bean.setbBenefitCourses(rs.getString("b_benefit_courses"));
+					bean.setbBenefitUse(rs.getString("b_benefit_use"));
+					
+					bean.setChoiceBill1(rs.getString("choice_bill1"));
+					bean.setChoiceBill2(rs.getString("choice_bill2"));
+					bean.setChoiceBill3(rs.getString("choice_bill3"));
+					bean.setChoiceBill4(rs.getString("choice_bill4"));
+					bean.setChoiceBill5(rs.getString("choice_bill5"));
+					bean.setChoiceBill6(rs.getString("choice_bill6"));
+					bean.setChoiceBill7(rs.getString("choice_bill7"));
+					bean.setChoiceBill7C(rs.getString("choice_bill7_c"));
 				}
 			} catch (Exception e) {
 				// TODO: handle exception
@@ -392,55 +406,6 @@ public class PermissionDao {
 	}
 	
 	
-	
-	
-	
-	// insert PermissionBean Back บันทึกหลังเดินทางกลับราชการ
-//	public int insertPerBack(PermissionBackBean bean) {
-//		String sql = "INSERT INTO permission_back "
-//				+ "(permission_id, b_by_order_save, b_date_authorized, b_disbursed_by, b_allowence_type, b_rent_date_type, "
-//				+ "b_start_travel, b_back_travel, b_house_number ,b_road , district, "
-//				+ "b_go_date ,b_go_time, b_back_date, b_back_time,  b_save_date , b_date_sum, b_time_sum)"
-//				+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-//				
-//		KeyHolder keyHolder = new GeneratedKeyHolder();
-//		// JdbcTemplate jdbcTemplate = new JdbcTemplate(new
-//		// SingleConnectionDataSource(con.openConnect(), false));
-//		jdbcTemplate.update(new PreparedStatementCreator() {
-//
-//			@Override
-//			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-//				PreparedStatement prepared = con.prepareStatement(sql, new String[] { "permission_id" });
-//				try {
-//
-//					prepared.setInt(1, bean.getPermissionId());
-//					prepared.setString(2, bean.getbByOrderSave());
-//					prepared.setString(3, bean.getbDateAuthorized());
-//					prepared.setInt(4, bean.getbDisbursedBy());
-//					prepared.setInt(5, bean.getbAllowenceType());
-//					prepared.setInt(6, bean.getbRentDateType());
-//					prepared.setInt(7, bean.getbStartTravel());
-//					prepared.setInt(8, bean.getbBackTravel());
-//					prepared.setString(9, bean.getbHouseNumber());
-//					prepared.setString(10, bean.getbRoad());
-//					prepared.setString(11, bean.getDistrict());
-//					prepared.setString(12, bean.getbGoDate());
-//					prepared.setString(13, bean.getbGoTime());
-//					prepared.setString(14, bean.getbBackDate());
-//					prepared.setString(15, bean.getbBackTime());
-//					prepared.setString(16, bean.getbSaveDate());
-//					prepared.setString(17, bean.getbDaySum());
-//					prepared.setString(18, bean.getbTimeSum());
-//					
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//				return prepared;
-//			}
-//		}, keyHolder);
-//		return keyHolder.getKey().intValue();
-//	}
-	
 	// insert PermissionBean Back บันทึกหลังเดินทางกลับราชการ
 	public PermissionBackBean insertPBTest(PermissionBackBean bean) throws Exception {
 		ConnectDB con = new ConnectDB();
@@ -450,9 +415,11 @@ public class PermissionDao {
 
 		try {
 			sql.append("INSERT INTO permission_back (permission_id, b_by_order_save, b_date_authorized, b_disbursed_by, b_allowence_type, "
-						+ "b_rent_date_type, b_start_travel, b_back_travel, b_house_number ,b_road ,"
-						+ "district, b_go_date ,b_go_time, b_back_date, b_back_time, "
-						+ " b_save_date , b_date_sum, b_time_sum)VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+						+ " b_rent_date_type, b_start_travel, b_back_travel, b_house_number ,b_road ,"
+						+ " district, b_go_date ,b_go_time, b_back_date, b_back_time, "
+						+ " b_save_date , b_date_sum, b_time_sum, b_benefit_record, b_benefit_courses, b_benefit_use, "
+						+ " choice_bill1, choice_bill2, choice_bill3, choice_bill4, choice_bill5, choice_bill6, choice_bill7, choice_bill7_c)"
+						+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
 			prepared = conn.prepareStatement(sql.toString());
 
@@ -474,6 +441,20 @@ public class PermissionDao {
 			prepared.setString(16, bean.getbSaveDate());
 			prepared.setString(17, bean.getbDaySum());
 			prepared.setString(18, bean.getbTimeSum());
+			
+			prepared.setString(19, bean.getbBenefitRecord());
+			prepared.setString(20, bean.getbBenefitCourses());
+			prepared.setString(21, bean.getbBenefitUse());
+			
+			prepared.setString(22, bean.getChoiceBill1());
+			prepared.setString(23, bean.getChoiceBill2());
+			prepared.setString(24, bean.getChoiceBill3());
+			prepared.setString(25, bean.getChoiceBill4());
+			prepared.setString(26, bean.getChoiceBill5());
+			prepared.setString(27, bean.getChoiceBill6());
+			prepared.setString(28, bean.getChoiceBill7());
+			prepared.setString(29, bean.getChoiceBill7C());
+			
 
 			prepared.executeUpdate();
 
@@ -582,7 +563,7 @@ public class PermissionDao {
 					bean.setTravelSum(rs.getInt("travel_sum"));
 					
 					bean.setOtherSum(rs.getInt("other_sum"));
-
+					
 					bean.setExpenseEstimateSum(rs.getInt("expense_estimate_sum"));
 
 					list.add(bean);

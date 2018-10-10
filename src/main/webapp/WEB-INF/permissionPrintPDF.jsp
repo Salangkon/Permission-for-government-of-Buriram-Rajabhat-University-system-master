@@ -207,15 +207,15 @@
 						<tr>
 							<th style="max-width: 4.5mm; text-align: left">6. งบประมาณ</th>
 							<th style="max-width: 18mm; text-align: left">
-							( <%if (bean.getBudget().equals("เบิกค่าใช้จ่าย")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) เบิกค่าใช้จ่าย &nbsp;&nbsp; 
-							( <%if (bean.getBudgetExpenses().equals("ตามสิทธิ์")) {out.print("&#10003;");} else {out.print(" &nbsp;");}%> ) ตามสิทธื์ &nbsp;&nbsp; 
-							( <%if (bean.getBudgetExpenses().equals("เหมาจ่าย")) {out.print("&#10003;");} else {out.print(" &nbsp;");}%> ) เหมาจ่าย &nbsp;&nbsp;
+							( <%if (bean.getBudget().equals("2")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) เบิกค่าใช้จ่าย &nbsp;&nbsp; 
+							( <%if (bean.getBudgetExpenses().equals("1")) {out.print("&#10003;");} else {out.print(" &nbsp;");}%> ) ตามสิทธื์ &nbsp;&nbsp; 
+							( <%if (bean.getBudgetExpenses().equals("2")) {out.print("&#10003;");} else {out.print(" &nbsp;");}%> ) เหมาจ่าย &nbsp;&nbsp;
 							</th>
 						</tr>
 						<tr>
 							<th style="max-width: 4mm; text-align: left"></th>
 							<th style="max-width: 18mm; text-align: left">
-							( <%if (bean.getBudget().equals("ไม่เบิกค่าใช้จ่าย")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp;");}%> ) ไม่เบิกค่าใช้จ่าย &nbsp;&nbsp;
+							( <%if (bean.getBudget().equals("1")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp;");}%> ) ไม่เบิกค่าใช้จ่าย &nbsp;&nbsp;
 							</th>
 						</tr>
 					</table>
@@ -224,33 +224,33 @@
 						<tr>
 							<th style="width: 18mm; text-align: left">&nbsp;&nbsp;&nbsp;โดยใช้งบประมาณ</th>
 							<th style="width: 25mm; text-align: left">
-							( <%if (bean.getBudgetBy().equals("งบประมาณแผ่นดิน")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) งบแผ่นดิน  &nbsp;&nbsp;โครงการ&nbsp;&nbsp;
+							( <%if (bean.getBudgetBy().equals("1")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) งบแผ่นดิน  &nbsp;&nbsp;โครงการ&nbsp;&nbsp;
 							</th>
 							<th style="width: 20mm; text-align: left">
-								<%if (bean.getBudgetBy().equals("งบประมาณแผ่นดิน")) {out.print(bean.getBudgetProject());}%>
+								<%if (bean.getBudgetBy().equals("1")) {out.print(bean.getBudgetProject());}%>
 							</th>
 							<th style="width: 3mm; text-align: left">รหัสโครงการ</th>
 							<th style="width: 15mm; text-align: left">
-								<%if (bean.getBudgetBy().equals("งบประมาณแผ่นดิน")) {out.print(bean.getBudgetPass());}%>
+								<%if (bean.getBudgetBy().equals("1")) {out.print(bean.getBudgetPass());}%>
 							</th>
 						</tr>
 						<tr>
 							<th style="max-width: 12mm; text-align: left"></th>
 							<th style="max-width: 18mm; text-align: left">
-							( <%if (bean.getBudgetBy().equals("งบรายได้")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) งบเงินรายได้ &nbsp;&nbsp;โครงการ&nbsp;&nbsp;
+							( <%if (bean.getBudgetBy().equals("2")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) งบเงินรายได้ &nbsp;&nbsp;โครงการ&nbsp;&nbsp;
 							</th>
 							<th style="max-width: 15mm; text-align: left">
-								<%if (bean.getBudgetBy().equals("งบรายได้")) {out.print(bean.getBudgetProject());}%>
+								<%if (bean.getBudgetBy().equals("2")) {out.print(bean.getBudgetProject());}%>
 							</th>
 							<th style="max-width: 10mm; text-align: left">รหัสโครงการ</th>
 							<th style="max-width: 12mm; text-align: left">
-								<%if (bean.getBudgetBy().equals("งบรายได้")) {out.print(bean.getBudgetPass());}%>
+								<%if (bean.getBudgetBy().equals("2")) {out.print(bean.getBudgetPass());}%>
 							</th>
 						</tr>
 						<tr>
 							<th style="max-width: 12mm; text-align: left"></th>
 							<th style="max-width: 18mm; text-align: left">
-							( <%if (bean.getBudgetBy().equals("อื่นๆ")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) งบอื่นๆ
+							( <%if (bean.getBudgetBy().equals("3")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) งบอื่นๆ
 							</th>
 							<th style="max-width: 15mm; text-align: left" colspan="3"></th>
 						</tr>
@@ -291,34 +291,34 @@
 						<tr>
 							<th style="width: 100mm; text-align: left;">&nbsp;&nbsp;&nbsp;8.1 งานสอนภาคปกติ</th>
 							<th style="width: 30mm; text-align: left;">
-							( <%if (bean.getCommitA().equals("ไม่มี")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) ไม่มี</th>
+							( <%if (bean.getCommitA().equals("2")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) ไม่มี</th>
 							<th style="width: 22mm; text-align: left;">
-							( <%if (bean.getCommitA().equals("มี")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) มี</th>
+							( <%if (bean.getCommitA().equals("1")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) มี</th>
 							<th style="width: 100mm; text-align: left;">มอบหมายให้&nbsp;&nbsp; <%=bean.getCommitADt()%>
 							</th>
 						</tr>
 						<tr>
 							<th style="width: 100mm; text-align: left;">&nbsp;&nbsp;&nbsp;8.2 งานสอนภาค กศ.บป./บัณฑิตศึกษา</th>
 							<th style="width: 30mm; text-align: left;">
-							( <%if (bean.getCommitB().equals("ไม่มี")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) ไม่มี</th>
+							( <%if (bean.getCommitB().equals("2")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) ไม่มี</th>
 							<th style="width: 22mm; text-align: left;">
-							( <%if (bean.getCommitB().equals("มี")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) มี</th>
+							( <%if (bean.getCommitB().equals("1")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) มี</th>
 							<th style="width: 100mm; text-align: left;">มอบหมายให้&nbsp;&nbsp; <%=bean.getCommitBDt()%></th>
 						</tr>
 						<tr>
 							<th style="width: 100mm; text-align: left;">&nbsp;&nbsp;&nbsp;8.3 งานประจำเวร/ประจำวัน</th>
 							<th style="width: 30mm; text-align: left;">
-							( <%if (bean.getCommitC().equals("ไม่มี")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) ไม่มี</th>
+							( <%if (bean.getCommitC().equals("2")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) ไม่มี</th>
 							<th style="width: 22mm; text-align: left;">
-							( <%if (bean.getCommitC().equals("มี")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) มี</th>
+							( <%if (bean.getCommitC().equals("1")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) มี</th>
 							<th style="width: 100mm; text-align: left;">มอบหมายให้&nbsp;&nbsp; <%=bean.getCommitCDt()%></th>
 						</tr>
 						<tr>
 							<th style="width: 100mm; text-align: left;">&nbsp;&nbsp;&nbsp;8.4 งานอื่นๆ &nbsp;&nbsp;&nbsp; <%=bean.getOther()%></th>
 							<th style="width: 30mm; text-align: left;">
-							( <%if (bean.getCommitD().equals("ไม่มี")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) ไม่มี</th>
+							( <%if (bean.getCommitD().equals("2")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) ไม่มี</th>
 							<th style="width: 22mm; text-align: left;">
-							( <%if (bean.getCommitD().equals("มี")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) มี</th>
+							( <%if (bean.getCommitD().equals("1")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) มี</th>
 							<th style="width: 100mm; text-align: left;">มอบหมายให้&nbsp;&nbsp; <%=bean.getCommitDDt()%></th>
 						</tr>
 					</table>

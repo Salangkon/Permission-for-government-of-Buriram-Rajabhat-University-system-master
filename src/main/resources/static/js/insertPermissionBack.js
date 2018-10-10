@@ -1,8 +1,39 @@
 var bDisbursedBy = "";
 var bStartTravel = "";
-var bBackTravel = "";
+
+var choiceBill1 = "";
+var choiceBill2 = "";
+var choiceBill3 = "";
+var choiceBill4 = "";
+var choiceBill5 = "";
+var choiceBill6 = "";
+var choiceBill7 = "";
 
 $(document).ready(function() {
+	
+	//choiceBill
+	$("#choiceBill1").change(function(){
+		choiceBill1 = "1";
+	});
+	$("#choiceBill2").change(function(){
+		choiceBill2 = "1";
+	});
+	$("#choiceBill3").change(function(){
+		choiceBill3 = "1";
+	});
+	$("#choiceBill4").change(function(){
+		choiceBill4 = "1";
+	});
+	$("#choiceBill5").change(function(){
+		choiceBill5 = "1";
+	});
+	$("#choiceBill6").change(function(){
+		choiceBill6 = "1";
+	});
+	$("#choiceBill7").change(function(){
+		choiceBill7 = "1";
+	});
+
 
 	//bDisbursedBy
 	$("#bDisbursedBy1").change(function(){
@@ -106,6 +137,19 @@ $(document).ready(function() {
 			bDaySum 		: $('#bDaySum ').val(),
 			bTimeSum 		: $('#bTimeSum ').val(),
 			
+			bBenefitRecord 	: $('#bBenefitRecord').val(),
+			bBenefitCourses : $('#bBenefitCourses').val(),
+			bBenefitUse 	: $('#bBenefitUse').val(),
+			
+			choiceBill1		: choiceBill1,
+			choiceBill2		: choiceBill2,
+			choiceBill3		: choiceBill3,
+			choiceBill4		: choiceBill4,
+			choiceBill5		: choiceBill5,
+			choiceBill6		: choiceBill6,
+			choiceBill7		: choiceBill7,
+			choiceBill7C	: $('#choiceBill7C').val(),
+
 			esBean			: esBean ,
 			eeBean			: inputdata ,
 			permissionBean	: perBean

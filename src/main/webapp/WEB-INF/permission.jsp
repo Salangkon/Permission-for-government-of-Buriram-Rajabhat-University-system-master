@@ -205,27 +205,27 @@
      </tr>
      <tr>
       <td>งานสอนภาคปกติ</td>
-      <td align="center"><input type="radio" name="commitA" id="commitA2" value="ไม่มี">&nbsp;&nbsp;ไม่มี</td>
-      <td align="center"><input type="radio" name="commitA" id="commitA1" value="มี">&nbsp;มี&nbsp;&nbsp;
-      <input name="commitADt" id="commitADt" type="text" placeholder="&nbsp;&nbsp;มอบหมายให้..."></td>
+      <td align="center"><input type="radio" name="commitA" id="commitA2" value="2">&nbsp;&nbsp;ไม่มี</td>
+      <td align="center"><input type="radio" name="commitA" id="commitA1" value="1">&nbsp;มี&nbsp;&nbsp;
+      <input maxlength="40" name="commitADt" id="commitADt" type="text" placeholder="&nbsp;&nbsp;มอบหมายให้..."></td>
     </tr>
     <tr>
     <td style="width: 6cm">งานสอนภาค กศ.บป./บัณฑิตศึกษา</td>
-      <td align="center" style="width: 20mm"><input type="radio" name="commitB" id="commitB2" value="ไม่มี">&nbsp;&nbsp;ไม่มี</td>
-      <td align="center"><input type="radio" name="commitB" id="commitB1" value="มี">&nbsp;มี&nbsp;&nbsp;
-   	  <input name="commitBDt" id="commitBDt" type="text" placeholder="&nbsp;&nbsp;มอบหมายให้..."></td>
+      <td align="center" style="width: 20mm"><input type="radio" name="commitB" id="commitB2" value="2">&nbsp;&nbsp;ไม่มี</td>
+      <td align="center"><input type="radio" name="commitB" id="commitB1" value="1">&nbsp;มี&nbsp;&nbsp;
+   	  <input maxlength="40" name="commitBDt" id="commitBDt" type="text" placeholder="&nbsp;&nbsp;มอบหมายให้..."></td>
     </tr>
     <tr>
       <td>งานประจำเวร/ประจำวัน</td>
-      <td align="center"><input type="radio" name="commitC" id="commitC2" value="ไม่มี">&nbsp;&nbsp;ไม่มี</td>
-       <td align="center"><input type="radio" name="commitC" id="commitC1" value="มี">&nbsp;มี&nbsp;&nbsp;
-      <input name="commitCDt" id="commitCDt" type="text" placeholder="&nbsp;&nbsp;มอบหมายให้..."></td>
+      <td align="center"><input type="radio" name="commitC" id="commitC2" value="2">&nbsp;&nbsp;ไม่มี</td>
+       <td align="center"><input type="radio" name="commitC" id="commitC1" value="1">&nbsp;มี&nbsp;&nbsp;
+      <input maxlength="40" name="commitCDt" id="commitCDt" type="text" placeholder="&nbsp;&nbsp;มอบหมายให้..."></td>
     </tr>
     <tr>
       <td>งานอื่นๆ &nbsp; <input name="other" id="other" type="text" placeholder="&nbsp;&nbsp;ถ้ามีให้กรอก..." maxlength="15"></td>
-      <td align="center"><input type="radio" name="commitD" id="commitD2" value="ไม่มี">&nbsp;&nbsp;ไม่มี</td>
-      <td align="center"><input type="radio" name="commitD" id="commitD1" value="มี">&nbsp;มี&nbsp;&nbsp;
-      <input name="commitDDt" id="commitDDt" type="text" placeholder="&nbsp;&nbsp;มอบหมายให้..." ></td>
+      <td align="center"><input type="radio" name="commitD" id="commitD2" value="2">&nbsp;&nbsp;ไม่มี</td>
+      <td align="center"><input type="radio" name="commitD" id="commitD1" value="1">&nbsp;มี&nbsp;&nbsp;
+      <input maxlength="40" name="commitDDt" id="commitDDt" type="text" placeholder="&nbsp;&nbsp;มอบหมายให้..." ></td>
     </tr>
 	</table>
 	</div>
@@ -245,8 +245,8 @@
 	<div class="form-group" style="margin-top: 2%">
 	<label> งบประมาณ  </label>
 		<select class="form-control" name="Budget" id="budget" onChange="Show(this.selectedIndex)">
-        	<option value="ไม่เบิกค่าใช้จ่าย">ไม่เบิกค่าใช้จ่าย </option>
-        	<option value="เบิกค่ามใช้จ่าย">เบิกค่าใช้จ่าย</option>	
+        	<option value="1">ไม่เบิกค่าใช้จ่าย </option>
+        	<option value="2">เบิกค่าใช้จ่าย</option>	
 		</select>
 	</div>
 	</div></div></div>
@@ -276,7 +276,7 @@
 	<div class="form-group">
     <div class="input-group">
       <div class="input-group-addon">ค่าลงทะเบียน</div>
-      <input type="text" class="form-control" id="otherSum" OnKeyPress="return chkNumber(this)" placeholder="ระบุเป็นจำนวนเงิน">
+      <input maxlength="8" type="text" class="form-control" id="otherSum" OnKeyPress="return chkNumber(this)" placeholder="ระบุเป็นจำนวนเงิน">
       <div class="input-group-addon">บาท</div>
     </div>
  	</div>
@@ -417,8 +417,8 @@
 	<label>เบิกค่าใช้จ่าย  </label>		
 		<select class="form-control" name="budgetExpenses" id="budgetExpenses">
 			<option value="">== กรุณาเลือก ==</option>
-        	<option value="ตามสิทธิ์">ตามสิทธิ์</option>
-  			<option value="เหมาจ่าย">เหมาจ่าย</option>
+        	<option value="1">ตามสิทธิ์</option>
+  			<option value="2">เหมาจ่าย</option>
 		</select>
 	</div>
 </div>
@@ -427,9 +427,9 @@
 	<label>ใช้งบประมาณ  </label>
 		<select class="form-control" name="budgetBy" id="budgetBy">
 			<option value="">== กรุณาเลือก ==</option>
-        	<option value="งบประมาณแผ่นดิน">งบประมาณแผ่นดิน</option>
-  			<option value="งบรายได้">งบรายได้</option>
-  			<option value="อื่นๆ">อื่นๆ</option>
+        	<option value="1">งบแผ่นดิน</option>
+  			<option value="2">งบรายได้</option>
+  			<option value="3">อื่นๆ</option>
 		</select>
 	</div>
 </div>
@@ -482,7 +482,7 @@
 			<th style="text-align:center" id="rentDateSumTotal"></th>
 			<th style="text-align:center" id="travelSumTotal"></th>
 			<th style="text-align:center" id="otherSumTotal"></th>
-			<th colspan="2"> รวม <label style="margin-left: 3%" id="expenseEstimateSumTotal"> บาท</label></th>
+			<th colspan="2"> รวม <label style="margin-left: 3%" id="expenseEstimateSumTotal"></label></th>
     	</tr>
     	</tfoot>
     </table>

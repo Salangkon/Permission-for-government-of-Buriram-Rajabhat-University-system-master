@@ -18,7 +18,6 @@
 
 	<script src="/js/jQuery v3.3.1.js"></script>
 	<script src="/js/insertUser.js"></script>
-<!-- 	<script src="/js/alertInsert.js"></script> -->
 	<script src="/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript">var dataSet = []</script>
 
@@ -67,7 +66,7 @@
 					<div class="col-sm-9">
 						<div class="form-group">
 							<label for="exampleInputEmail1">UserName</label> 
-							<input type="text" min="10" maxlength="12" class="form-control" name="userUsername" id="userUsername" required> 
+							<input type="text" min="10" maxlength="15" class="form-control" name="userUsername" id="userUsername" required> 
 							<label for="exampleInputEmail1" id="check"> </label>
 							
 						</div>
@@ -80,9 +79,7 @@
 			
 			<div class="col-sm-9">
 				<div class="form-group">
-					<label for="exampleInputEmail1">Password</label> <input type="text"
-					class="form-control" name="userPassword" id="userPassword" required>	
-					
+					<label for="exampleInputEmail1">Password</label> <input maxlength="15" type="text" class="form-control" name="userPassword" id="userPassword" required>	
 				</div>
 			</div>
 			<div style="size: 10" class="col-sm-3"> 
@@ -114,16 +111,15 @@
 			
 			<div class="form-group">
 				<div class="col-sm-6">
-					<label for="exampleInputEmail1">ชื่อ</label> <input type="text"
-					class="form-control" id="userFname" name="userFname" placeholder="ชื่อ" required>
-					
+					<label for="exampleInputEmail1">ชื่อ</label> 
+					<input type="text" maxlength="50" class="form-control" id="userFname" name="userFname" placeholder="ชื่อ" required>
 				</div>
 			</div>
 			
 			<div class="col-sm-6">
 				<div class="form-group">
-					<label for="exampleInputEmail1">นามสกุล</label> <input type="text"
-					class="form-control" id="userLname" name="userLname" placeholder="นามสกุล" required>
+					<label for="exampleInputEmail1">นามสกุล</label> 
+					<input type="text" maxlength="50" class="form-control" id="userLname" name="userLname" placeholder="นามสกุล" required>
 				</div>
 			</div>
 
@@ -203,6 +199,7 @@
 	</div>
 </div>
 </div>
+
 <!-- </form> -->
 
 <form name="logoutForm"   action="logout" 	    method="post" th:hidden= "true"></form>
@@ -211,7 +208,6 @@
 <form name="RequestForm"  action="gotoRequest"  method="post" th:hidden= "true"></form>
 
 </body>
-
 </html>
 
 

@@ -44,12 +44,93 @@ public class PermissionBackBean {
 	
 	private String districtName;
 	private String amphurName;	
-	private String provinceName;	
+	private String provinceName;
+	
+	private String bBenefitRecord;
+	private String bBenefitCourses;	
+	private String bBenefitUse;
+	
+	private String choiceBill1;
+	private String choiceBill2;	
+	private String choiceBill3;
+	private String choiceBill4;
+	private String choiceBill5;	
+	private String choiceBill6;
+	private String choiceBill7;	
+	private String choiceBill7C;
+	
 	
 	private PermissionBean permissionBean;
 	private List<ExpenseEstimateBean> eeBean;
 	private ExpenseSumaryBean esBean;
 	
+	
+	public String getChoiceBill1() {
+		return choiceBill1;
+	}
+	public void setChoiceBill1(String choiceBill1) {
+		this.choiceBill1 = choiceBill1;
+	}
+	public String getChoiceBill2() {
+		return choiceBill2;
+	}
+	public void setChoiceBill2(String choiceBill2) {
+		this.choiceBill2 = choiceBill2;
+	}
+	public String getChoiceBill3() {
+		return choiceBill3;
+	}
+	public void setChoiceBill3(String choiceBill3) {
+		this.choiceBill3 = choiceBill3;
+	}
+	public String getChoiceBill4() {
+		return choiceBill4;
+	}
+	public void setChoiceBill4(String choiceBill4) {
+		this.choiceBill4 = choiceBill4;
+	}
+	public String getChoiceBill5() {
+		return choiceBill5;
+	}
+	public void setChoiceBill5(String choiceBill5) {
+		this.choiceBill5 = choiceBill5;
+	}
+	public String getChoiceBill6() {
+		return choiceBill6;
+	}
+	public void setChoiceBill6(String choiceBill6) {
+		this.choiceBill6 = choiceBill6;
+	}
+	public String getChoiceBill7() {
+		return choiceBill7;
+	}
+	public void setChoiceBill7(String choiceBill7) {
+		this.choiceBill7 = choiceBill7;
+	}
+	public String getChoiceBill7C() {
+		return choiceBill7C;
+	}
+	public void setChoiceBill7C(String choiceBill7C) {
+		this.choiceBill7C = choiceBill7C;
+	}
+	public String getbBenefitRecord() {
+		return bBenefitRecord;
+	}
+	public void setbBenefitRecord(String bBenefitRecord) {
+		this.bBenefitRecord = bBenefitRecord;
+	}
+	public String getbBenefitCourses() {
+		return bBenefitCourses;
+	}
+	public void setbBenefitCourses(String bBenefitCourses) {
+		this.bBenefitCourses = bBenefitCourses;
+	}
+	public String getbBenefitUse() {
+		return bBenefitUse;
+	}
+	public void setbBenefitUse(String bBenefitUse) {
+		this.bBenefitUse = bBenefitUse;
+	}
 	public List<ExpenseEstimateBean> getEeBean() {
 		return eeBean;
 	}
