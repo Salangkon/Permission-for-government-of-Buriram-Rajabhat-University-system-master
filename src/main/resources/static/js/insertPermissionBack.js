@@ -1,3 +1,92 @@
+function validateInput() {
+	var pass = true;
+	//province
+	if(''==$('#province').val()) {
+		$('#error-province').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-province').addClass("hide")
+	}
+	//amphur
+	if(''==$('#amphur').val()) {
+		$('#error-amphur').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-amphur').addClass("hide")
+	}
+	//district
+	if(''==$('#district').val()) {
+		$('#error-district').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-district').addClass("hide")
+	}
+	//bSaveDate
+	if(''==$('#bSaveDate').val()) {
+		$('#error-bSaveDate').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-bSaveDate').addClass("hide")
+	}
+	//bByOrderSave
+	if(''==$('#bByOrderSave').val()) {
+		$('#error-bByOrderSave').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-bByOrderSave').addClass("hide")
+	}//bDateAuthorized
+	if(''==$('#bDateAuthorized').val()) {
+		$('#error-bDateAuthorized').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-bDateAuthorized').addClass("hide")
+	}
+	//bGoDate
+	if(''==$('#bGoDate').val()) {
+		$('#error-bGoDate').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-bGoDate').addClass("hide")
+	}
+	//bGoTime
+	if(''==$('#bGoTime').val()) {
+		$('#error-bGoTime').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-bGoTime').addClass("hide")
+	}
+	//bBackDate
+	if(''==$('#bBackDate').val()) {
+		$('#error-bBackDate').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-bBackDate').addClass("hide")
+	}
+	//bBackTime
+	if(''==$('#bBackTime').val()) {
+		$('#error-bBackTime').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-bBackTime').addClass("hide")
+	}
+	//bHouseNumber
+	if(''==$('#bHouseNumber').val()) {
+		$('#error-bHouseNumber').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-bHouseNumber').addClass("hide")
+	}
+	//bRoad
+	if(''==$('#bRoad').val()) {
+		$('#error-bRoad').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-bRoad').addClass("hide")
+	}
+
+	return pass;
+}
+
 var bDisbursedBy = "";
 var bStartTravel = "";
 
@@ -114,6 +203,9 @@ $(document).ready(function() {
 				permissionId 	: $('#permissionId').val(),
 			}
 		
+		var pass = true;	
+		pass = validateInput();
+		
 		var pmBean = {
 			permissionId 	: $('#permissionId').val(),
 			bSaveDate		: $('#bSaveDate').val(),
@@ -159,24 +251,27 @@ $(document).ready(function() {
 			eeBean			: inputdata ,
 			permissionBean	: perBean
 		}
-
-		$.ajax({
 		
-	        type: "POST",
-	        url: "/insertPermissionBack",
-	        data: JSON.stringify(pmBean),
-	        dataType: "json",
-	        async: false,
-	        contentType: "application/json; charset=utf-8",
-	        success: function (res) {
-	        	console.log(res)
-	        	window.location.href = res.page;
-	        },
-		 	error: function () {
-		 		console.log('[ae] xx ')
-		 		window.location.href = "insertPermissionFail";
-		    }
-		});
+		if (pass) {
+			$.ajax({
+				
+		        type: "POST",
+		        url: "/insertPermissionBack",
+		        data: JSON.stringify(pmBean),
+		        dataType: "json",
+		        async: false,
+		        contentType: "application/json; charset=utf-8",
+		        success: function (res) {
+		        	console.log(res)
+		        	window.location.href = res.page;
+		        },
+			 	error: function () {
+			 		console.log('[ae] xx ')
+			 		window.location.href = "insertPermissionFail";
+			    }
+			});
+		}
+		
 		
 	});
 	

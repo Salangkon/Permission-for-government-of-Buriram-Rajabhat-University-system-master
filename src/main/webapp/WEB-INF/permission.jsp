@@ -101,10 +101,11 @@
 		<input name="status" id="status1" type="radio" value="1" style="margin-left: 2%"><label style="margin-left: 2%">ผู้บริหาร    	 </label>
         <input name="status" id="status2" type="radio" value="2" style="margin-left: 2%"><label style="margin-left: 2%">ผู้สอน		 </label>	
         <input name="status" id="status3" type="radio" value="3" style="margin-left: 2%"><label style="margin-left: 2%">ผู้สนับสนุนการสอน</label>
-    </div><br>
+    </div>
+    <br>
 	<label> เพื่อ (ระบุวัตถุประสงค์/ลักษณะงาน) </label>
 	<textarea class="form-control" rows="5" cols="100" id="object" maxlength="400" name="object"></textarea>
-	<div class="hide" id="error-object"><label style="color: red;">กรุณากรอก ชื่อผู้ใช้งาน</label></div>
+	<div class="hide" id="error-object"><label style="color: red;">กรุณาระบุ วัตถุประสงค์/ลักษณะงาน</label></div>
 	<!-- เลือกไฟล์ นำเข้า -->
 <!-- 	<form name="v" enctype="multipart/form-data" style="margin-top: 3.5%">   -->
 	<!--  <input name="v" type="file"> -->
@@ -125,14 +126,12 @@
 	<div class="form-group " style="margin-top: 3%;margin-right: 4%"><label >วันที่ไปราชการ  &nbsp;&nbsp;</label>
 	 	<input class="form-control" type="date" id='goDate' name="goDate"> เวลา 
 		<input class="form-control" type='time' id='goTime' name="goTime">
-		<div class="hide" id="error-goDate"><label style="color: red;">กรุณากรอก วัน/เดือน/ปี</label></div>
-		<div class="hide" id="error-goTime"><label style="color: red;" class="">กรุณากรอก เวลา</label></div>
+		<div style="margin-left: 28%"><label style="color: red;" class="hide" id="error-goDate">กรุณากรอก วัน/เดือน/ปี</label> <label style="color: red;" class="hide" id="error-goTime">กรุณากรอก เวลา</label></div>
 	</div>
 	<div class="form-group" class="form-group" style="margin-top: 3%;"><label>วันที่กลับราชการ &nbsp;&nbsp;</label>
 	 	<input class="form-control" type='date' id='backDate' name="backDate"> เวลา 
 		<input class="form-control" type='time' id='backTime' name="backTime">
-		<div class="hide" id="error-backDate"><label style="color: red;">กรุณากรอก วัน/เดือน/ปี</label></div>
-		<div class="hide" id="error-backTime"><label style="color: red;">กรุณากรอก เวลา </label></div>
+		<div style="margin-left: 27%"><label style="color: red;" class="hide" id="error-backDate">กรุณากรอก วัน/เดือน/ปี</label> <label style="color: red;" class="hide" id="error-backTime">กรุณากรอก เวลา </label></div>
 	</div>
   	<div class="form-group" style="margin-top: 3%">
   	<input type="button" id="submit" onclick="dateDiff()" value="คำนวน" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;
@@ -155,7 +154,7 @@
 	<label  style="margin-top: 1%">สถานที่ไปราชการ </label>
     <div class="form-group">
    		<input class="form-control" name="destinationName" id="destinationName" maxlength="30" type="text" placeholder="สถานที่ไปราชการ">
-   		<div class="hide" id="error-destinationName"><label style="color: red;">กรุณากรอก ชื่อผู้ใช้งาน</label></div>
+   		<div class="hide" id="error-destinationName"><label style="color: red;">กรุณากรอก สถานที่ไปราชการ</label></div>
     </div>
 	<!-- จังหวัด province -->
 	<div class="form-group">
@@ -163,7 +162,7 @@
 		<select class="form-control" name="province" id="province">
 			<option value="">== กรุณาเลือก ==</option>
 		</select>
-	<div class="hide" id="error-province"><label style="color: red;">กรุณากรอก ชื่อผู้ใช้งาน</label></div>
+	<div class="hide" id="error-province"><label style="color: red;">กรุณาเลือก จังหวัด</label></div>
 	</div>
 	<!-- อำเภอ Amphur -->
 	<div class="form-group">
@@ -171,7 +170,7 @@
 			<select class="form-control" name="amphur" id="amphur">
 				<option value="">== กรุณาเลือก ==</option>
 			</select>
-	<div class="hide" id="error-amphur"><label style="color: red;">กรุณากรอก ชื่อผู้ใช้งาน</label></div>
+	<div class="hide" id="error-amphur"><label style="color: red;">กรุณาเลือก อำเภอ</label></div>
 	</div>
 	<!-- ตำบล  District -->
 	<div class="form-group">
@@ -179,7 +178,7 @@
 		<select class="form-control" name="district" id="district">
 			<option value="">== กรุณาเลือก ==</option>
 		</select>
-	<div class="hide" id="error-district"><label style="color: red;">กรุณากรอก ชื่อผู้ใช้งาน</label></div>
+	<div class="hide" id="error-district"><label style="color: red;">กรุณาเลือก ตำบล</label></div>
 	</div>
 	</div></div></div>
 </div><!-- end  -->
@@ -202,7 +201,7 @@
     <div>
     <label>เรื่องที่ไปราชการ </label>
     	<input type="text" class="form-control" name="topics" id="topics" maxlength="30">
-    	<div class="hide" id="error-topics"><label style="color: red;">กรุณากรอก ชื่อผู้ใช้งาน</label></div>
+    	<div class="hide" id="error-topics"><label style="color: red;">กรุณากรอก เรื่องที่ไปราชการ </label></div>
     </div><hr>
     <div style="overflow-x:auto;">
 	 <table id="" class="table-responsive" style="margin-bottom: 3.3%;width: 100%">

@@ -117,9 +117,13 @@
 	<div  style="margin-top: 3%">
 	<div></div>
 	<label>วันที่/บันทึก </label><input class="form-control" type="date" id="bSaveDate">
+	<div class="hide" id="error-bSaveDate"><label style="color: red;">กรุณาระบุ วัตถุประสงค์/ลักษณะงาน</label></div>
 	<hr>
 	<label>ตามคำสั่ง/บันทึกที่ </label><input maxlength="10" class="form-control" type="text" id="bByOrderSave">
-	<label>ลงวันที่ </label><input class="form-control" type="date" id="bDateAuthorized"><hr>
+	<div class="hide" id="error-bByOrderSave"><label style="color: red;">กรุณาระบุ วัตถุประสงค์/ลักษณะงาน</label></div>
+	<label>ลงวันที่ </label><input class="form-control" type="date" id="bDateAuthorized">
+	<div class="hide" id="error-bDateAuthorized"><label style="color: red;">กรุณาระบุ วัตถุประสงค์/ลักษณะงาน</label></div>
+	<hr>
 	<table>
 		<tr>
 			<td><label>ขอเบิกค่าใช้จ่ายสำหรับ </label></td>
@@ -137,8 +141,8 @@
 		<tr>
 			<td><label>ค่าที่พัก</label></td>
 			<td><label><u>ประเภท</u></label></td>
-			<td align="center"><input id="bRentDateType1" type="radio" name="bRentDateType1"> ก</td> 
-			<td align="center"><input id="bRentDateType2" type="radio" name="bRentDateType2"> ข</td>
+			<td align="center"><input id="bRentDateType1" type="radio" name="bRentDateType"> ก</td> 
+			<td align="center"><input id="bRentDateType2" type="radio" name="bRentDateType"> ข</td>
 		</tr>
 	</table>
 	<form name="v" enctype="multipart/form-data" style="margin-top: 3.5%" >  
@@ -161,20 +165,24 @@
         <input name="bStartTravel" id="bStartTravel2"  type="radio" value="2" style="margin-left: 4%" > <label> สำนักงาน</label> 
     </div>
     <label>เลขที่</label><input class="form-control" type="text" id="bHouseNumber" maxlength="6">
+    <div class="hide" id="error-bHouseNumber"><label style="color: red;">กรุณาเลือก จังหวัด</label></div>
     <label>ถนน </label><input class="form-control" type="text" id="bRoad" maxlength="12">
+     <div class="hide" id="error-bRoad"><label style="color: red;">กรุณาเลือก จังหวัด</label></div>
 	<!-- จังหวัด province -->
 	<div class="form-group">
 	<label for="exampleFormControlSelect1">จังหวัด</label> 
 		<select class="form-control" name="province" id="province">
 			<option value="">== กรุณาเลือก ==</option>
 		</select>
+	<div class="hide" id="error-province"><label style="color: red;">กรุณาเลือก จังหวัด</label></div>
 	</div>
 	<!-- อำเภอ Amphur -->
 	<div class="form-group">
 	<label for="exampleFormControlSelect1">อำเภอ</label>
-			<select class="form-control" name="amphur" id="amphur">
-				<option value="">== กรุณาเลือก ==</option>
-			</select>
+		<select class="form-control" name="amphur" id="amphur">
+			<option value="">== กรุณาเลือก ==</option>
+		</select>
+	<div class="hide" id="error-amphur"><label style="color: red;">กรุณาเลือก อำเภอ</label></div>
 	</div>
 	<!-- ตำบล  District -->
 	<div class="form-group">
@@ -182,6 +190,7 @@
 		<select class="form-control" name="district" id="district">
 			<option value="">== กรุณาเลือก ==</option>
 		</select>
+	<div class="hide" id="error-district"><label style="color: red;">กรุณาเลือก ตำบล</label></div>
 	</div>
 	</div></div></div>
  	</div><!--end -->
@@ -197,8 +206,10 @@
     <div class="col-sm-12" style="margin-top:20px"><label>ตั้งแต่วัน/เวลา</label></div> 
    		<div class="col-sm-7"><input class="form-control" name="bGoDate" id="bGoDate" type="date" value="<%=bean.getGoDate() %>" ></div>
    		<div class="col-sm-5"><input class="form-control" name="bGoTime" id="bGoTime" type="time" value="<%=bean.getGoTime() %>" ></div> 
-   	
-
+   	<div style="margin-left: 2%">
+   		<label style="color: red;" class="hide" id="error-bGoDate">กรุณากรอก วัน/เดือน/ปี</label> 
+   		<label style="color: red;" class="hide" id="error-bGoTime">กรุณากรอก เวลา</label>
+   	</div>
    	<div class="form-group col-sm-12" style="margin-top:20px;background-color:white ;">
     	<label>กลับถึง :</label> 
    		<input name="bBackTravel" id="bBackTravel1" type="radio" value="" style="margin-left: 4%" > <label> บ้านพัก</label>
@@ -207,6 +218,10 @@
     <div class="col-sm-12"><label>ตั้งแต่วัน/เวลา</label></div>
     <div class="col-sm-7"><input class="form-control" name="bBackDate" id="bBackDate" type="date" value="<%=bean.getBackDate() %>" ></div> 
    	<div class="col-sm-5"><input class="form-control" name="bBackDate" id="bBackTime" type="time" value="<%=bean.getBackTime() %>" ></div> 
+   	<div style="margin-left: 2%">
+   		<label style="color: red;" class="hide" id="error-bBackDate">กรุณากรอก วัน/เดือน/ปี</label> 
+   		<label style="color: red;" class="hide" id="error-bBackTime">กรุณากรอก เวลา</label>
+   	</div>
    	<div style="margin-bottom: 6.5mm;overflow: auto;" class="col-sm-12" >
    		<label>รวมเวลาไปราชการ</label> 
    			<div class="input-group" style="width: 80%">

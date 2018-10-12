@@ -20,27 +20,27 @@ function validateInput() {
 		$('#error-district').removeClass("hide")
 		pass = false;
 	}else{
-		$('#error-userFname').addClass("hide")
+		$('#error-district').addClass("hide")
 	}
 	//topics
 	if(''==$('#topics').val()) {
 		$('#error-topics').removeClass("hide")
 		pass = false;
 	}else{
-		$('#error-userLname').addClass("hide")
+		$('#error-topics').addClass("hide")
 	}
 	//object
 	if(''==$('#object').val()) {
 		$('#error-object').removeClass("hide")
 		pass = false;
 	}else{
-		$('#error-setdate').addClass("hide")
+		$('#error-object').addClass("hide")
 	}//destinationName
 	if(''==$('#destinationName').val()) {
 		$('#error-destinationName').removeClass("hide")
 		pass = false;
 	}else{
-		$('#error-username').addClass("hide")
+		$('#error-destinationName').addClass("hide")
 	}
 	//goDate
 	if(''==$('#goDate').val()) {
