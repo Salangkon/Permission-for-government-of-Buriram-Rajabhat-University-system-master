@@ -55,8 +55,8 @@
 		<i class="glyphicon glyphicon-book w3-margin-right w3-large" style="margin-left: 6%;margin-top: 5%;"></i>คู่มือการลาไปราชการ</a> 
 		<a href="/pdf/_____________________-BigData.pdf" onclick="w3_close()" class="w3-bar-item w3-button w3-padding-large w3-hover-black ">
 		<i class="glyphicon glyphicon-book w3-margin-right w3-large" style="margin-left: 6%;margin-top: 5%;"></i>ตัวอย่างไปราชการ</a> 
-		<a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-padding-large w3-hover-black ">
-    		<i class="glyphicon glyphicon-envelope w3-margin-right" style="margin-left: 6%;margin-top: 5%;"></i>ติดต่อ/สอบถาม</a>  	    
+<!-- 		<a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-padding-large w3-hover-black "> -->
+<!--     		<i class="glyphicon glyphicon-envelope w3-margin-right" style="margin-left: 6%;margin-top: 5%;"></i>ติดต่อ/สอบถาม</a>  	     -->
 		</div>
 		</div>
 	</div> 

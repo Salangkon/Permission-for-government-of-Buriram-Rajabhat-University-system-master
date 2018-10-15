@@ -136,7 +136,7 @@
   	<div class="form-group" style="margin-top: 3%">
   	<input type="button" id="submit" onclick="dateDiff()" value="คำนวน" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;
     <div class="input-group">
-      <input type="text" style="text-align:center" class="form-control" id="DayTotal" placeholder="วัน">
+      <input type="text" style="text-align:center" class="form-control" id="DayTotal" placeholder="วัน" onkeyup="dateDiff()">
       <div class="input-group-addon">วัน</div>
     </div>
     <div class="input-group">
@@ -564,16 +564,17 @@
           <h2 class="modal-title" style="text-align: center;"><i class="fa fa-address-card-o w3-margin-right"></i> เพิ่มบุคคลากร</h2>
         </div>
         <div class="modal-body" style="overflow: auto;width: 100%" >
-       		<table id="userTable" class="table table-bordered" style="overflow: auto;">
+       		<table id="userTable" class="table table-bordered" style="overflow: auto;width: 100%">
 				<thead>
 					<tr style="background: purple; color: white;">
 						<th>เลือก</th>
+						<th>รหัส</th>
 						<th>ชื่อ</th>
 						<th>นามสกุล</th>
-						<th>คณะ</th>
+<!-- 						<th>คณะ</th> -->
 						<th>ภาควิชา</th>
 						<th>ตำแหน่ง</th>
-						<th>ระดับ</th>
+<!-- 						<th>ระดับ</th> -->
 						<th>ค่าเบี้ยเลี้ยง</th>
 						<th>ค่าเช่าที่พัก</th>
 					</tr>

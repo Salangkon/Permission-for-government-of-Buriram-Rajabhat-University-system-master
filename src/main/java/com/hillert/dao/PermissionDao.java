@@ -710,14 +710,14 @@ public class PermissionDao {
 			while (rs.next()) {
 				bean.setPermissionId(rs.getInt("permission_id"));
 
-				bean.setUserSumTotal(rs.getString("user_sum_total"));
-				bean.setAllowenceSumTotal(rs.getString("allowence_sum_total"));
-				bean.setAllowencePerdayTotal(rs.getString("allowence_perday_total"));
-				bean.setRentDateSumTotal(rs.getString("rent_date_sum_total"));
-				bean.setRentDatePerdayTotal(rs.getString("rent_date_perday_total"));
-				bean.setTravelSumTotal(rs.getString("travel_sum_total"));
-				bean.setOtherSumTotal(rs.getString("other_sum_total"));
-				bean.setExpenseEstimateSumTotal(rs.getString("expense_estimate_sum_total"));
+				bean.setUserSumTotal(rs.getInt("user_sum_total"));
+				bean.setAllowenceSumTotal(rs.getInt("allowence_sum_total"));
+				bean.setAllowencePerdayTotal(rs.getFloat("allowence_perday_total"));
+				bean.setRentDateSumTotal(rs.getInt("rent_date_sum_total"));
+				bean.setRentDatePerdayTotal(rs.getFloat("rent_date_perday_total"));
+				bean.setTravelSumTotal(rs.getInt("travel_sum_total"));
+				bean.setOtherSumTotal(rs.getInt("other_sum_total"));
+				bean.setExpenseEstimateSumTotal(rs.getInt("expense_estimate_sum_total"));
 				
 				permissionId = bean.getPermissionId();
 
@@ -869,14 +869,14 @@ public class PermissionDao {
 			while (rs.next()) {
 				bean.setPermissionId((rs.getInt("permission_id")));
 
-				bean.setUserSumTotal(rs.getString("b_user_sum_total"));
-				bean.setAllowenceSumTotal(rs.getString("b_allowence_sum_total"));
-				bean.setAllowencePerdayTotal(rs.getString("b_allowence_perday_total"));
-				bean.setRentDateSumTotal(rs.getString("b_rent_date_sum_total"));
-				bean.setRentDatePerdayTotal(rs.getString("b_rent_date_perday_total"));
-				bean.setTravelSumTotal(rs.getString("b_travel_sum_total"));
-				bean.setOtherSumTotal(rs.getString("b_other_sum_total"));
-				bean.setExpenseEstimateSumTotal(rs.getString("b_expense_estimate_sum_total"));
+				bean.setUserSumTotal(rs.getInt("b_user_sum_total"));
+				bean.setAllowenceSumTotal(rs.getInt("b_allowence_sum_total"));
+				bean.setAllowencePerdayTotal(rs.getFloat("b_allowence_perday_total"));
+				bean.setRentDateSumTotal(rs.getInt("b_rent_date_sum_total"));
+				bean.setRentDatePerdayTotal(rs.getFloat("b_rent_date_perday_total"));
+				bean.setTravelSumTotal(rs.getInt("b_travel_sum_total"));
+				bean.setOtherSumTotal(rs.getInt("b_other_sum_total"));
+				bean.setExpenseEstimateSumTotal(rs.getInt("b_expense_estimate_sum_total"));
 				bean.setExpenseEstimateSumTotalThaiBaht(getText(rs.getString("b_expense_estimate_sum_total")));
 				permissionId = bean.getPermissionId();
 
@@ -1051,19 +1051,21 @@ public class PermissionDao {
 		StringBuilder sql = new StringBuilder();
 
 		try {
-			sql.append(" SELECT dt.DISTRICT_NAME, ap.AMPHUR_NAME, pv.PROVINCE_NAME, u.sex, u.user_fname, u.user_lname, u.date, f.faculty_name, d.department_name , p.position_name,sp.sub_position_name , permission.*\r\n" + 
+			sql.append(" SELECT dt.DISTRICT_NAME, ap.AMPHUR_NAME, pv.PROVINCE_NAME, u.sex, u.user_fname, \r\n" + 
+					"u.user_lname, u.date, f.faculty_name, d.department_name , p.position_name,sp.sub_position_name , \r\n" + 
+					"permission.*, es.expense_estimate_sum_total\r\n" + 
 					"FROM Permission \r\n" + 
-					"INNER JOIN personnel_list pl ON pl.personnel_id =  permission.personnel_id  \r\n" + 
+					"INNER JOIN personnel_list pl ON pl.personnel_id =  permission.personnel_id \r\n" + 
+					"INNER JOIN expense_sumary es on es.permission_id = permission.permission_id\r\n" + 
 					"INNER JOIN user u on u.user_id = pl.user_id\r\n" + 
 					"INNER JOIN department d on d.department_code = pl.department_code\r\n" + 
 					"INNER JOIN faculty f on f.faculty_code = d.faculty_code\r\n" + 
 					"INNER JOIN sub_position sp on sp.sub_position_code = pl.sub_position_code\r\n" + 
-					"INNER JOIN position p on p.position_code = sp.position_code\r\n" + 
-					"\r\n" + 
+					"INNER JOIN position p on p.position_code = sp.position_code	\r\n" + 
 					"INNER JOIN district dt on dt.DISTRICT_ID = permission.district\r\n" + 
 					"INNER JOIN amphur ap on ap.AMPHUR_ID = dt.AMPHUR_ID\r\n" + 
-					"INNER JOIN province pv on pv.PROVINCE_ID = ap.PROVINCE_ID"
-					+ " WHERE u.user_id = ?");
+					"INNER JOIN province pv on pv.PROVINCE_ID = ap.PROVINCE_ID\r\n" + 
+					"WHERE u.user_id = ? ");
 			prepared = conn.prepareStatement(sql.toString());
 			prepared.setInt(1, personnelId);
 			ResultSet rs = prepared.executeQuery();
@@ -1120,6 +1122,9 @@ public class PermissionDao {
 				bean.setPersonnelId(rs.getInt("personnel_id"));
 				bean.setTopics(rs.getString("topics"));
 				bean.setOther(rs.getString("other"));
+				
+				bean.setExpenseEstimateSumTotal(rs.getString("expense_estimate_sum_total"));
+				
 				list.add(bean);
 
 			}
@@ -1141,9 +1146,12 @@ public class PermissionDao {
 		StringBuilder sql = new StringBuilder();
 
 		try {
-			sql.append(" SELECT dt.DISTRICT_NAME, ap.AMPHUR_NAME, pv.PROVINCE_NAME, u.user_fname, u.user_lname, u.sex, u.date, f.faculty_name, d.department_name , p.position_name,sp.sub_position_name , permission.*\r\n" + 
+			sql.append(" SELECT dt.DISTRICT_NAME, ap.AMPHUR_NAME, pv.PROVINCE_NAME, "
+					+ "u.user_fname, u.user_lname, u.sex, u.date, f.faculty_name, d.department_name , p.position_name,sp.sub_position_name , "
+					+ "permission.*, es.expense_estimate_sum_total\r\n" + 
 					"FROM Permission \r\n" + 
-					"INNER JOIN personnel_list pl ON pl.personnel_id =  permission.personnel_id  \r\n" + 
+					"INNER JOIN personnel_list pl ON pl.personnel_id =  permission.personnel_id  \r\n" +
+					"INNER JOIN expense_sumary es on es.permission_id = permission.permission_id\r\n" + 
 					"INNER JOIN user u on u.user_id = pl.user_id\r\n" + 
 					"INNER JOIN department d on d.department_code = pl.department_code\r\n" + 
 					"INNER JOIN faculty f on f.faculty_code = d.faculty_code\r\n" + 
@@ -1208,6 +1216,8 @@ public class PermissionDao {
 				bean.setPersonnelId(rs.getInt("personnel_id"));
 				bean.setTopics(rs.getString("topics"));
 				bean.setOther(rs.getString("other"));
+				
+				bean.setExpenseEstimateSumTotal(rs.getString("expense_estimate_sum_total"));
 				
 				list.add(bean);
 			}

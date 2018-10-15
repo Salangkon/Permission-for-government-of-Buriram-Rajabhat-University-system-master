@@ -10,10 +10,10 @@ public class ExpenseEstimateBean {
 	private String subPositionName;
 	private int allowenceType;
 	private int allowence;
-	private int allowencePerday;
+	private float allowencePerday;
 	private int allowenceSum;
 	private int rentDate;
-	private int rentDatePerday;
+	private float rentDatePerday;
 	private int rentDateSum;
 	
 	private int travelSum;
@@ -26,7 +26,6 @@ public class ExpenseEstimateBean {
 	private Timestamp createDate;
 	// FK permission
 	private int permissionId;
-	
 	
 	public String getOtherSum1() {
 		return otherSum1;
@@ -70,12 +69,6 @@ public class ExpenseEstimateBean {
 	public void setAllowence(int allowence) {
 		this.allowence = allowence;
 	}
-	public int getAllowencePerday() {
-		return allowencePerday;
-	}
-	public void setAllowencePerday(int allowencePerday) {
-		this.allowencePerday = allowencePerday;
-	}
 	public int getAllowenceSum() {
 		return allowenceSum;
 	}
@@ -87,12 +80,6 @@ public class ExpenseEstimateBean {
 	}
 	public void setRentDate(int rentDate) {
 		this.rentDate = rentDate;
-	}
-	public int getRentDatePerday() {
-		return rentDatePerday;
-	}
-	public void setRentDatePerday(int rentDatePerday) {
-		this.rentDatePerday = rentDatePerday;
 	}
 	public int getRentDateSum() {
 		return rentDateSum;
@@ -135,6 +122,18 @@ public class ExpenseEstimateBean {
 	}
 	public void setPermissionId(int permissionId) {
 		this.permissionId = permissionId;
+	}
+	public float getAllowencePerday() {
+		return allowencePerday;
+	}
+	public void setAllowencePerday(float allowencePerday) {
+		this.allowencePerday = allowencePerday;
+	}
+	public float getRentDatePerday() {
+		return rentDatePerday;
+	}
+	public void setRentDatePerday(float rentDatePerday) {
+		this.rentDatePerday = rentDatePerday;
 	}
 	
 }

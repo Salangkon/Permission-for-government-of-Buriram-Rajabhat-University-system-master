@@ -116,7 +116,7 @@ public class InsertRestController {
 			expenseSumaryBean.setPermissionId(perId);
 			EEDao.insert2(expenseSumaryBean);	
 		
-
+//			insertPermission.put("page", "permissionPDF/{values}");
 			insertPermission.put("page", "insertPermissionSuccess");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -235,11 +235,6 @@ public class InsertRestController {
 //		// insertTravelEstimate.put("page", "insertPermissionFail");
 //		return insertTravelEstimate;
 //	}// end insertTravelExpensesOfficialCar
-
-
-	
-	
-	
 	
 	// insert_insertPermissionBack
 	@RequestMapping(value = "/insertPermissionBack", method = RequestMethod.POST)

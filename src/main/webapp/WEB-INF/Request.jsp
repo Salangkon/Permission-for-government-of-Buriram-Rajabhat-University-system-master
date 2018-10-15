@@ -41,7 +41,7 @@
 <form class="modal-content animate" action="" style="max-width:95%;margin-top: 5%;margin-left: 3%" name="welcome" action="#" method="post">
  <input type="hidden" name="permissionId" id="permissionId">
 	<div class="w3-container w3-blue" align="center">
-    	<h2><i class="fa fa-address-card-o w3-margin-right"></i> คำขอไปปราชการ  </h2>
+    	<h2><i class="fa fa-address-card-o w3-margin-right"></i> คำขอไปราชการ  </h2>
     </div>
     <div style="overflow: auto;">
     <div class="w3-container w3-white w3-padding-16">
@@ -51,9 +51,11 @@
         	<th>รหัสอ้างอิง</th>
          	<th>วัน/เดือน/ปี</th>
         	<th>ชื่อ - นามสกุล</th>
-        	<th>สถานที่</th>
-        	<th>อนุมัติ</th>
-        	<th>ตรวจสอบ</th>
+        	<th style="text-align: center;">เรื่องที่ไปราชการ</th>
+        	<th style="text-align: center;">สถานที่ไปราชการ</th>
+        	<th style="text-align: center;">รายจ่าย</th>
+        	<th style="text-align: center;">ตรวจสอบ<br>บันทึกขออนุมัติ</th>
+        	<th style="text-align: center;">ตรวจสอบ<br>เบิกค่าใช่จ่าย</th>
     	</tr>
     	</thead>
 	</table>

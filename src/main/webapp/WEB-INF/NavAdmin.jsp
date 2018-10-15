@@ -47,10 +47,10 @@
 		<i class="glyphicon glyphicon-plus w3-margin-right " style="margin-left: 6%;"></i>เพิ่มบุคคลากร</a> 
 	<a href="javascript: document.RequestForm.submit()" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
     		<i class="glyphicon glyphicon-list-alt w3-margin-right" style="margin-left: 6%;"></i>คำขอไปปราชการ</a> 
-    <a href="javascript: document.Ask_laForm.submit()" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
-    		<i class="glyphicon glyphicon-file w3-margin-right" style="margin-left: 6%;"></i>ใบขออนุญาตไปราการ</a> 
-   	<a href="javascript: document.Ask_storyForm.submit()" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
-    		<i class="glyphicon glyphicon-list-alt w3-margin-right" style="margin-left: 6%;"></i>ประวัติไปปราชการ</a>     
+<!--     <a href="javascript: document.Ask_laForm.submit()" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"> -->
+<!--     		<i class="glyphicon glyphicon-file w3-margin-right" style="margin-left: 6%;"></i>ใบขออนุญาตไปราการ</a>  -->
+<!--    	<a href="javascript: document.Ask_storyForm.submit()" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"> -->
+<!--     		<i class="glyphicon glyphicon-list-alt w3-margin-right" style="margin-left: 6%;"></i>ประวัติไปปราชการ</a>      -->
   	<a href="javascript: document.logoutForm.submit()" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
     		<i class="glyphicon glyphicon-log-out w3-margin-right" style="margin-left: 6%;"></i>ออกจากระบบ</a>
     </div>

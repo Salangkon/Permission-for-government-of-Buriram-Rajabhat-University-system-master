@@ -437,19 +437,25 @@ $(document).ready(function() {
 						className: 'select-checkbox',
 						"mRender" : function(data,
 								type, row, index) {
-						return '';
+							return '';
 						}
 					}, {
+						"mData" : "userUsername"
+					},{
 						"mData" : "userFname"
 					}, {
 						"mData" : "userLname"
-					}, {
-						"mData" : "facultyName"
-					}, {
+					},
+//					{
+//						"mData" : "facultyName"
+//					}, 
+					{
 						"mData" : "departmentName"
-					}, {
-						"mData" : "positionName"
-					}, {
+					}, 
+//					{
+//						"mData" : "positionName"
+//					}, 
+					{
 						"mData" : "subPositionName"
 					}, {
 						"mData" : "allowence"

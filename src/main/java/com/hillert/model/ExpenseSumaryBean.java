@@ -7,41 +7,18 @@ public class ExpenseSumaryBean {
 	// FK permission
 	private int permissionId;
 	
-	private String userSumTotal;
-	private String allowenceSumTotal;
-	private String rentDateSumTotal;
-	private String travelSumTotal;
-	private String otherSumTotal;
-	private String expenseEstimateSumTotal;
+	private int userSumTotal;
+	private int allowenceSumTotal;
+	private int rentDateSumTotal;
+	private int travelSumTotal;
+	private int otherSumTotal;
+	private int expenseEstimateSumTotal;
 	private String expenseEstimateSumTotalThaiBaht;
 
-	private String allowencePerdayTotal;
-	private String rentDatePerdayTotal;
+	private float allowencePerdayTotal;
+	private float rentDatePerdayTotal;
 	
 	private Timestamp createDate;
-
-	public String getExpenseEstimateSumTotalThaiBaht() {
-		return expenseEstimateSumTotalThaiBaht;
-	}
-
-	public void setExpenseEstimateSumTotalThaiBaht(String expenseEstimateSumTotalThaiBaht) {
-		this.expenseEstimateSumTotalThaiBaht = expenseEstimateSumTotalThaiBaht;
-	}
-	public String getAllowencePerdayTotal() {
-		return allowencePerdayTotal;
-	}
-
-	public void setAllowencePerdayTotal(String allowencePerdayTotal) {
-		this.allowencePerdayTotal = allowencePerdayTotal;
-	}
-
-	public String getRentDatePerdayTotal() {
-		return rentDatePerdayTotal;
-	}
-
-	public void setRentDatePerdayTotal(String rentDatePerdayTotal) {
-		this.rentDatePerdayTotal = rentDatePerdayTotal;
-	}
 
 	public int getPermissionId() {
 		return permissionId;
@@ -51,52 +28,76 @@ public class ExpenseSumaryBean {
 		this.permissionId = permissionId;
 	}
 
-	public String getUserSumTotal() {
+	public int getUserSumTotal() {
 		return userSumTotal;
 	}
 
-	public void setUserSumTotal(String userSumTotal) {
+	public void setUserSumTotal(int userSumTotal) {
 		this.userSumTotal = userSumTotal;
 	}
 
-	public String getAllowenceSumTotal() {
+	public int getAllowenceSumTotal() {
 		return allowenceSumTotal;
 	}
 
-	public void setAllowenceSumTotal(String allowenceSumTotal) {
+	public void setAllowenceSumTotal(int allowenceSumTotal) {
 		this.allowenceSumTotal = allowenceSumTotal;
 	}
 
-	public String getRentDateSumTotal() {
+	public int getRentDateSumTotal() {
 		return rentDateSumTotal;
 	}
 
-	public void setRentDateSumTotal(String rentDateSumTotal) {
+	public void setRentDateSumTotal(int rentDateSumTotal) {
 		this.rentDateSumTotal = rentDateSumTotal;
 	}
 
-	public String getTravelSumTotal() {
+	public int getTravelSumTotal() {
 		return travelSumTotal;
 	}
 
-	public void setTravelSumTotal(String travelSumTotal) {
+	public void setTravelSumTotal(int travelSumTotal) {
 		this.travelSumTotal = travelSumTotal;
 	}
 
-	public String getOtherSumTotal() {
+	public int getOtherSumTotal() {
 		return otherSumTotal;
 	}
 
-	public void setOtherSumTotal(String otherSumTotal) {
+	public void setOtherSumTotal(int otherSumTotal) {
 		this.otherSumTotal = otherSumTotal;
 	}
 
-	public String getExpenseEstimateSumTotal() {
+	public int getExpenseEstimateSumTotal() {
 		return expenseEstimateSumTotal;
 	}
 
-	public void setExpenseEstimateSumTotal(String expenseEstimateSumTotal) {
+	public void setExpenseEstimateSumTotal(int expenseEstimateSumTotal) {
 		this.expenseEstimateSumTotal = expenseEstimateSumTotal;
+	}
+
+	public String getExpenseEstimateSumTotalThaiBaht() {
+		return expenseEstimateSumTotalThaiBaht;
+	}
+
+	public void setExpenseEstimateSumTotalThaiBaht(String expenseEstimateSumTotalThaiBaht) {
+		this.expenseEstimateSumTotalThaiBaht = expenseEstimateSumTotalThaiBaht;
+	}
+
+	public float getAllowencePerdayTotal() {
+		return allowencePerdayTotal;
+	}
+
+	public void setAllowencePerdayTotal(float allowencePerdayTotal) {
+		this.allowencePerdayTotal = allowencePerdayTotal;
+	}
+
+	public float getRentDatePerdayTotal() {
+		return rentDatePerdayTotal;
+	}
+
+	public void setRentDatePerdayTotal(float rentDatePerdayTotal) {
+		this.rentDatePerdayTotal = rentDatePerdayTotal;
 	}
 
 	public Timestamp getCreateDate() {
@@ -106,5 +107,6 @@ public class ExpenseSumaryBean {
 	public void setCreateDate(Timestamp createDate) {
 		this.createDate = createDate;
 	}
-	
+
+
 }

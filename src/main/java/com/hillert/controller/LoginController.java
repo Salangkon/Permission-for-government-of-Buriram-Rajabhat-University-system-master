@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hillert.dao.AdminDao;
 import com.hillert.dao.LoginDao;
+import com.hillert.model.ExpenseSumaryBean;
 import com.hillert.model.FacultyBean;
 import com.hillert.model.PermissionBean;
 import com.hillert.model.UserBean;
@@ -40,9 +41,9 @@ public class LoginController {
 	@RequestMapping("/login")
 	public String authenLogin(String username, String password,String date , Model model, HttpServletRequest request) {
 		String authen = "";
-		UserBean bean = new UserBean();	
-		UserBean countUser = new UserBean();	
-		PermissionBean countPer = new PermissionBean();
+		UserBean bean , countUser = new UserBean();	
+		PermissionBean countPer , countPerBack = new PermissionBean();
+		ExpenseSumaryBean es, esFac1, esFac2, esFac3, esFac4, esFac5, esFac6= new ExpenseSumaryBean();
 		FacultyBean countFac1,countFac2,countFac3,countFac4,countFac5,countFac6  = new FacultyBean();
 		try {
 			bean = logindao.login(username, password);
@@ -55,21 +56,37 @@ public class LoginController {
 					
 					countUser 	= admidDao.countUser();//จำนวน user
 					countPer	= admidDao.countPer();//จำนวน permission
+					countPerBack= admidDao.countPerBack();//จำนวน permission back
 					countFac1 	= admidDao.countFac1();//จำนวน permission faculty1
 					countFac2 	= admidDao.countFac2();//จำนวน permission faculty2
 					countFac3 	= admidDao.countFac3();//จำนวน permission faculty3
 					countFac4 	= admidDao.countFac4();//จำนวน permission faculty4
 					countFac5 	= admidDao.countFac5();//จำนวน permission faculty5
 					countFac6 	= admidDao.countFac6();//จำนวน permission faculty6
+					es			= admidDao.ExpenseSumary();//ยอดรวมเงินทั้งหมด ของการขออนุญาตไปราชการ
+					esFac1		= admidDao.ExpenseSumaryFac1();//ยอดรวมเงินทั้งหมด ของการขออนุญาตไปราชการ คณะครุศาสตร์
+					esFac2		= admidDao.ExpenseSumaryFac2();//ยอดรวมเงินทั้งหมด ของการขออนุญาตไปราชการ คณะวิทยาศาสตร์
+					esFac3		= admidDao.ExpenseSumaryFac3();//ยอดรวมเงินทั้งหมด ของการขออนุญาตไปราชการ คณะมนุษยศาสตร์และสังคมศาสตร์
+					esFac4		= admidDao.ExpenseSumaryFac4();//ยอดรวมเงินทั้งหมด ของการขออนุญาตไปราชการ คณะวิทยาการจัดการ
+					esFac5		= admidDao.ExpenseSumaryFac5();//ยอดรวมเงินทั้งหมด ของการขออนุญาตไปราชการ คณะเทคโนโลยีอุตสาหกรรม
+					esFac6		= admidDao.ExpenseSumaryFac6();//ยอดรวมเงินทั้งหมด ของการขออนุญาตไปราชการ คณะเทคโนโลยีการเกษตร
 					
 					request.getSession().setAttribute("countUser", countUser);//จำนวน user
 					request.getSession().setAttribute("countPer", countPer);//จำนวน permission
+					request.getSession().setAttribute("countPerBack", countPerBack);//จำนวน permission back
 					request.getSession().setAttribute("countFac1", countFac1);//จำนวน faculty1
 					request.getSession().setAttribute("countFac2", countFac2);//จำนวน faculty2
 					request.getSession().setAttribute("countFac3", countFac3);//จำนวน faculty3
 					request.getSession().setAttribute("countFac4", countFac4);//จำนวน faculty4
 					request.getSession().setAttribute("countFac5", countFac5);//จำนวน faculty5
 					request.getSession().setAttribute("countFac6", countFac6);//จำนวน faculty6
+					request.getSession().setAttribute("es", es);//ยอดรวมเงินทั้งหมด ของการขออนุญาตไปราชการ
+					request.getSession().setAttribute("esFac1", esFac1);//ยอดรวมเงินทั้งหมด ของการขออนุญาตไปราชการ คณะครุศาสตร์
+					request.getSession().setAttribute("esFac2", esFac2);//ยอดรวมเงินทั้งหมด ของการขออนุญาตไปราชการ คณะวิทยาศาสตร์
+					request.getSession().setAttribute("esFac3", esFac3);//ยอดรวมเงินทั้งหมด ของการขออนุญาตไปราชการ คณะมนุษยศาสตร์และสังคมศาสตร์
+					request.getSession().setAttribute("esFac4", esFac4);//ยอดรวมเงินทั้งหมด ของการขออนุญาตไปราชการ คณะวิทยาการจัดการ
+					request.getSession().setAttribute("esFac5", esFac5);//ยอดรวมเงินทั้งหมด ของการขออนุญาตไปราชการ คณะเทคโนโลยีอุตสาหกรรม
+					request.getSession().setAttribute("esFac6", esFac6);//ยอดรวมเงินทั้งหมด ของการขออนุญาตไปราชการ คณะเทคโนโลยีการเกษตร
 					
 					request.getSession().setAttribute("userBean",bean);
 					model.addAttribute("messessError", "L");

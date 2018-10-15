@@ -88,7 +88,7 @@ public class PersonnelListDao {
 						+ " INNER JOIN faculty f on f.faculty_code = d.faculty_code"
 						+ " INNER JOIN sub_position sp on sp.sub_position_code = pl.sub_position_code"
 						+ " INNER JOIN position p on p.position_code = sp.position_code"
-						+ " ORDER BY u.user_id ASC ");
+						+ " ORDER BY u.user_id DESC ");
 				preperd = conn.prepareStatement(sql.toString());
 				ResultSet rs = preperd.executeQuery();
 
@@ -98,7 +98,8 @@ public class PersonnelListDao {
 					bean.setUserId(rs.getInt("user_id"));
 					bean.setDepartmentCode(rs.getString("department_code"));
 					bean.setSubPositionCode(rs.getString("sub_position_code"));
-	
+					
+					bean.setUserUsername(rs.getString("user_username"));
 					bean.setUserFname(rs.getString("user_fname"));
 					bean.setUserLname(rs.getString("user_Lname"));
 					bean.setSex(rs.getString("sex"));

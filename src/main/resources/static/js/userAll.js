@@ -1,12 +1,12 @@
 $(document).ready(function() {
 	
 		var table = $('#userTable').DataTable({
-					"order": [[ 0, 'desc' ]],
+//					"order": [[ 0, 'desc' ]],
 					"sAjaxSource" : "/user",
 					"iDisplayLength": 50,
 					"sAjaxDataProp" : "",
 					"aoColumns" : [{
-						"mData" : "userId",
+						"mData" : "userUsername",
 						"sWidth" : "60px" 
 					}, {
 						"mData" : "",

@@ -49,8 +49,8 @@
     		<i class="glyphicon glyphicon-file w3-margin-right" style="margin-top: 5%;"></i>ใบขออนุญาตไปราการ</a> 
    	    <a href="javascript: document.Ask_storyForm.submit()" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
     		<i class="glyphicon glyphicon-list-alt w3-margin-right" style="margin-top: 5%;"></i>ประวัติไปปราชการ</a> 
-	    <a href="javascript: document.Ask_helpForm.submit()" onclick="w3_close()" class="w3-bar-item w3-button w3-padding" >
-    		<i class="glyphicon glyphicon-envelope w3-margin-right" style="margin-top: 5%;"></i>สอบถาม</a>
+<!-- 	    <a href="javascript: document.Ask_helpForm.submit()" onclick="w3_close()" class="w3-bar-item w3-button w3-padding" > -->
+<!--     		<i class="glyphicon glyphicon-envelope w3-margin-right" style="margin-top: 5%;"></i>สอบถาม</a> -->
   	    <a href="javascript: document.logoutForm.submit()" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
     		<i class="glyphicon glyphicon-log-in w3-margin-right" style="margin-top: 5%;"></i>ออกจากระบบ</a>
  	 </div>

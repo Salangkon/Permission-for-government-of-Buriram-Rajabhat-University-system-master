@@ -473,7 +473,7 @@ $(document).ready(function() {
 				sum = sum + parseFloat($(sumvalues[i]).val());
 			}	
 		}
-		$('#allowenceSumTotal').text(parseFloat(sum).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+		$('#allowenceSumTotal').text(parseFloat(sum).toFixed(0)/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/);
 		
 		// rentDateSum รวมค่าที่พัก
 		var sumvalues = $("[name='rentDateSum']");
@@ -483,7 +483,7 @@ $(document).ready(function() {
 				sum = sum + parseFloat($(sumvalues[i]).val());
 			}	
 		}
-		$('#rentDateSumTotal').text(parseFloat(sum).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")); 
+		$('#rentDateSumTotal').text(parseFloat(sum).toFixed(0)/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/); 
 		
 		// travelSum รวมค่าพาหนะ
 		var sumvalues = $("[name='travelSum']");
@@ -493,7 +493,7 @@ $(document).ready(function() {
 				sum = sum + parseFloat($(sumvalues[i]).val());
 			}
 		}
-		$('#travelSumTotal').text(parseFloat(sum).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+		$('#travelSumTotal').text(parseFloat(sum).toFixed(0)/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/);
 		// otherSum รวมค่าพาหนะ
 		var sumvalues = $("[name='otherSum']");
 		var sum = 0;
@@ -502,7 +502,7 @@ $(document).ready(function() {
 				sum = sum + parseFloat($(sumvalues[i]).val());
 			}
 		}
-		$('#otherSumTotal').text(parseFloat(sum).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+		$('#otherSumTotal').text(parseFloat(sum).toFixed(0)/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/);
 		// expenseEstimateSum รวมค่าพาหนะ
 		var sumvalues = $("[name='expenseEstimateSum']");
 		var sum = 0;
@@ -512,7 +512,7 @@ $(document).ready(function() {
 			}
 		}
 		$('#expenseEstimateSumTotal').text(parseFloat(sum).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-		$('#aaa').val(parseFloat(sum).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")); // .val ใช้กับ tag ที่เป็น input
+		$('#aaa').val(parseFloat(sum).toFixed(0)/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/); // .val ใช้กับ tag ที่เป็น input
 	
 		// allowencePerdayTotal รวมค่าที่พัก
 		var num = $('#addUser').DataTable().rows().data().length;
@@ -523,7 +523,7 @@ $(document).ready(function() {
 				sum = sum + parseFloat($(sumvalues[i]).val())/parseFloat(num);
 			}	
 		}
-		$('#allowencePerdayTotal').text(parseFloat(sum).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")); 
+		$('#allowencePerdayTotal').text(parseFloat(sum).toFixed(0)/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/); 
 		
 		// allowencePerdayTotal รวมค่าที่พัก
 		var num = $('#addUser').DataTable().rows().data().length;
@@ -534,7 +534,7 @@ $(document).ready(function() {
 				sum = sum + parseFloat($(sumvalues[i]).val())/parseFloat(num);
 			}	
 		}
-		$('#rentDatePerdayTotal').text(parseFloat(sum).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")); 
+		$('#rentDatePerdayTotal').text(parseFloat(sum).toFixed(0)/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/); 
 
 	});
 	
@@ -593,7 +593,7 @@ $(document).ready(function() {
 				sum = sum + parseFloat($(sumvalues[i]).val());
 			}	
 		}
-		$('#allowenceSumTotal').text(parseFloat(sum).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+		$('#allowenceSumTotal').text(parseFloat(sum).toFixed(0)/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/);
 		
 		// rentDateSum รวมค่าที่พัก
 		var sumvalues = $("[name='rentDateSum']");
@@ -603,7 +603,7 @@ $(document).ready(function() {
 				sum = sum + parseFloat($(sumvalues[i]).val());
 			}	
 		}
-		$('#rentDateSumTotal').text(parseFloat(sum).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")); 
+		$('#rentDateSumTotal').text(parseFloat(sum).toFixed(0)/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/); 
 		
 		// travelSum รวมค่าพาหนะ
 		var sumvalues = $("[name='travelSum']");
@@ -613,7 +613,7 @@ $(document).ready(function() {
 				sum = sum + parseFloat($(sumvalues[i]).val());
 			}
 		}
-		$('#travelSumTotal').text(parseFloat(sum).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+		$('#travelSumTotal').text(parseFloat(sum)/*.toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/);
 		// otherSum รวมค่าพาหนะ
 		var sumvalues = $("[name='otherSum']");
 		var sum = 0;
@@ -622,8 +622,8 @@ $(document).ready(function() {
 				sum = sum + parseFloat($(sumvalues[i]).val());
 			}
 		}
-		$('#otherSumTotal').text(parseFloat(sum).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-		// expenseEstimateSum รวมค่าพาหนะ
+		$('#otherSumTotal').text(parseFloat(sum).toFixed(0)/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/);
+		// expenseEstimateSum รวมค่าอื่นๆ
 		var sumvalues = $("[name='expenseEstimateSum']");
 		var sum = 0;
 		for(var i = 0; i < sumvalues.length;i++){
@@ -631,10 +631,10 @@ $(document).ready(function() {
 				sum = sum + parseFloat($(sumvalues[i]).val());
 			}
 		}
-		$('#expenseEstimateSumTotal').text(parseFloat(sum).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-		$('#aaa').val(parseFloat(sum).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")); // .val ใช้กับ tag ที่เป็น input
+		$('#expenseEstimateSumTotal').text(parseFloat(sum).toFixed(0)/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/);
+		$('#aaa').val(parseFloat(sum).toFixed(0)/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/); // .val ใช้กับ tag ที่เป็น input
 	
-		// allowencePerdayTotal รวมค่าที่พัก
+		// allowencePerdayTotal รวมค่าเบี้ยเลี้ยง
 		var num = $('#addUser').DataTable().rows().data().length;
 		var sumvalues = $("[name='allowencePerday']");
 		var sum = 0;
@@ -643,7 +643,7 @@ $(document).ready(function() {
 				sum = sum + parseFloat($(sumvalues[i]).val())/parseFloat(num);
 			}	
 		}
-		$('#allowencePerdayTotal').text(parseFloat(sum).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")); 
+		$('#allowencePerdayTotal').text(parseFloat(sum).toFixed(0)/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/);
 		
 		// allowencePerdayTotal รวมค่าที่พัก
 		var num = $('#addUser').DataTable().rows().data().length;
@@ -654,7 +654,7 @@ $(document).ready(function() {
 				sum = sum + parseFloat($(sumvalues[i]).val())/parseFloat(num);
 			}	
 		}
-		$('#rentDatePerdayTotal').text(parseFloat(sum).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")); 
+		$('#rentDatePerdayTotal').text(parseFloat(sum).toFixed(0)/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/); 
 	});
 	
 		var table = $('#userTable').DataTable({
@@ -673,16 +673,22 @@ $(document).ready(function() {
 						return '';
 						}
 					}, {
+						"mData" : "userUsername"
+					},{
 						"mData" : "userFname"
 					}, {
 						"mData" : "userLname"
-					}, {
-						"mData" : "facultyName"
-					}, {
+					},
+//					{
+//						"mData" : "facultyName"
+//					}, 
+					{
 						"mData" : "departmentName"
-					}, {
-						"mData" : "positionName"
-					}, {
+					}, 
+//					{
+//						"mData" : "positionName"
+//					}, 
+					{
 						"mData" : "subPositionName"
 					}, {
 						"mData" : "allowence"
@@ -815,12 +821,12 @@ $(document).ready(function() {
 				},
 				{
 				"mData" : "expenseEstimateSum",
-				"sWidth" : "60px" ,
+				"sWidth" : "100px" ,
 				"mRender" : function(data,
 					type, row, index) {
 					var data1 = $('#DayTotal').val();
 					var data2 = $('#d').val();
-				return '<input class="form-control sum12" disabled readonly="true" type="number" style="width: 22mm;height: 7mm" name="expenseEstimateSum" id="expenseEstimateSum'
+				return '<input class="form-control sum12" disabled readonly="true" type="number" style="width: 30mm;height: 7mm" name="expenseEstimateSum" id="expenseEstimateSum'
 						+ index.row 
 						+ '" value=""/>';
 				}										

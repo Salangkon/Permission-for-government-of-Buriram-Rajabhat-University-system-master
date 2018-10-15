@@ -11,12 +11,22 @@ $(document).ready(function() {
 						"mData" : "goDate",
 					   "sWidth" : "100px"
 					}, {
-						"mData" : "userFname",
-				       "sWidth" : "200px" 
+						"mData" : "",
+				        "sWidth" : "300px",
+				        "mRender": function (data, type, full) {// full คือ ข้อมูลของ
+							// ตาราง
+							return ''+ full.sex + ''+''+ full.userFname + '' + '&nbsp;&nbsp; ' + full.userLname ;
+						}
 					}, {
-						"mData" : "destinationName",
-					   "sWidth" : "200px" 
-					}, 
+						"mData" : "topics",
+						   "sWidth" : "300px" 
+						}, {
+							"mData" : "destinationName",
+							   "sWidth" : "200px" 
+						}, {
+							"mData" : "expenseEstimateSumTotal",
+							   "sWidth" : "50px" 
+						}, 
 //					{
 //						"mData" : "",
 //						"sWidth" : "20px" ,

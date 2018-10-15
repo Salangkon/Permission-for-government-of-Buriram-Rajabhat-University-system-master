@@ -152,12 +152,12 @@
 	</div></div></div>
  	</div><!--end -->
 	
-	<div class="col-sm-4 " >
+	<div class="col-sm-4" >
 <!-- Page Container -->
 	<div class="w3-container w3-content" style="max-width:1400px;margin-top:20px;">    
 	<!-- Profile -->
 	<div class="w3-card w3-round w3-Turquoise">
-	<div class="w3-container" style="background-color:rgba(255, 99, 71, 0.4);">
+	<div class="w3-container">
 
     <div class="form-group" style="margin-top:20px">
     	<label>ออกเเดินทางจาก :</label> 
@@ -192,6 +192,11 @@
 		</select>
 	<div class="hide" id="error-district"><label style="color: red;">กรุณาเลือก ตำบล</label></div>
 	</div>
+	<div><label>ตั้งแต่ วัน/เวลา</label></div> 
+   		<div class="col-sm-7" style="margin-bottom: 10%"><input class="form-control" name="bGoDate" id="bGoDate" type="date" value="<%=bean.getGoDate() %>" ><label style="color: red;" class="hide" id="error-bGoDate">กรุณากรอก วัน/เดือน/ปี</label> </div>
+   		<div class="col-sm-5" style="margin-bottom: 10%"><input class="form-control" name="bGoTime" id="bGoTime" type="time" value="<%=bean.getGoTime() %>" ><label style="color: red;" class="hide" id="error-bGoTime">กรุณากรอก เวลา</label></div> 
+   	<div>
+   	</div>
 	</div></div></div>
  	</div><!--end -->
 
@@ -203,19 +208,12 @@
 	<div class="w3-container">
 	
 <form action="">
-    <div class="col-sm-12" style="margin-top:20px"><label>ตั้งแต่วัน/เวลา</label></div> 
-   		<div class="col-sm-7"><input class="form-control" name="bGoDate" id="bGoDate" type="date" value="<%=bean.getGoDate() %>" ></div>
-   		<div class="col-sm-5"><input class="form-control" name="bGoTime" id="bGoTime" type="time" value="<%=bean.getGoTime() %>" ></div> 
-   	<div style="margin-left: 2%">
-   		<label style="color: red;" class="hide" id="error-bGoDate">กรุณากรอก วัน/เดือน/ปี</label> 
-   		<label style="color: red;" class="hide" id="error-bGoTime">กรุณากรอก เวลา</label>
-   	</div>
    	<div class="form-group col-sm-12" style="margin-top:20px;background-color:white ;">
     	<label>กลับถึง :</label> 
    		<input name="bBackTravel" id="bBackTravel1" type="radio" value="" style="margin-left: 4%" > <label> บ้านพัก</label>
        	<input name="bBackTravel" id="bBackTravel2" type="radio" value="" style="margin-left: 4%" > <label> สำนักงาน</label> 
     </div>
-    <div class="col-sm-12"><label>ตั้งแต่วัน/เวลา</label></div>
+    <div class="col-sm-12"><label>กลับถึง วัน/เวลา</label></div>
     <div class="col-sm-7"><input class="form-control" name="bBackDate" id="bBackDate" type="date" value="<%=bean.getBackDate() %>" ></div> 
    	<div class="col-sm-5"><input class="form-control" name="bBackDate" id="bBackTime" type="time" value="<%=bean.getBackTime() %>" ></div> 
    	<div style="margin-left: 2%">
@@ -236,24 +234,7 @@
    	</div>
    	</div>
    	<div class="col-sm-2"><input type="button" id="submit" onclick="dateDiff()" value="คำนวน" class="btn btn-info" ></div> 	
-   	<div  class="ho oh col-sm-10">
-	<div id="main" >
-	  <div id="time" >
-	    <span id="hours"></span><span id="min"></span><span id="sec"></span>
-	  </div>
-	  <div id='days' class="ho oh">
-	    <div class="days"> sun_ </div>
-	    <div class="days"> mon_ </div>
-	    <div class="days"> tue_ </div>
-	    <div class="days"> wed_ </div>
-	    <div class="days"> thu_ </div>
-	    <div class="days"> fri_ </div>
-	    <div class="days"> sat_ </div>
-	  </div>
-	  <div id="fullDate" >
-	    <span id="month"></span>&nbsp;<span id="date"></span>&nbsp;<span id="year"></span>
-	  </div>
-	</div>
+   	<div  class="ho oh col-sm-10" style="margin-bottom: 20%">
 	</div>
    	</form>
 	</div></div></div>
@@ -356,6 +337,7 @@
 	</div><!--end -->
 </div><!--จบ บันทึกข้อความ -->
 
+        	<% if (bean.getTravel().equals("1") || (bean.getTravel().equals("2"))){ %>
 <!-- ใบเสร็จ -->
 <div class="w3-display-container w3-content" style="max-width:90%;margin-top: 2%" >
 	<div class="w3-container w3-green" id="1">
@@ -381,7 +363,7 @@
 	</div>
 	</div><!--end -->
 </div>
-
+		<% } else if (bean.getTravel().equals("3")) { %>
 <!-- ใบเสร็จ -->
 <div class="w3-display-container w3-content" style="max-width:90%;margin-top: 2%" >
 	<div class="w3-container w3-green" id="1">
@@ -407,6 +389,13 @@
 	</div>
 	</div><!--end -->
 </div>
+		<% } else{ %>
+			
+		<% } %>
+
+
+
+
 
 	<div style="margin-top: 3%;margin-bottom: 10%;" class="col-sm-12 alert alert-info" align="center" >
 		<button class="btn btn-success" id="saveBack">ยืนยัน</button>
@@ -429,21 +418,22 @@
           <h2 class="modal-title" style="text-align: center;"><i class="fa fa-address-card-o w3-margin-right"></i> เพิ่มบุคคลากร</h2>
         </div>
         <div class="modal-body" style="overflow: auto;width: 100%" >
-          <table id="userTable" class="table table-bordered">
-			<thead>
-				<tr style="background: purple; color: white;">
+       		<table id="userTable" class="table table-bordered" style="overflow: auto;width: 100%">
+				<thead>
+					<tr style="background: purple; color: white;">
 						<th>เลือก</th>
+						<th>รหัส</th>
 						<th>ชื่อ</th>
 						<th>นามสกุล</th>
-						<th>คณะ</th>
+<!-- 						<th>คณะ</th> -->
 						<th>ภาควิชา</th>
 						<th>ตำแหน่ง</th>
-						<th>ระดับ</th>
+<!-- 						<th>ระดับ</th> -->
 						<th>ค่าเบี้ยเลี้ยง</th>
 						<th>ค่าเช่าที่พัก</th>
-				</tr>
-			</thead>
-		</table>
+					</tr>
+				</thead>
+			</table>
         </div>
         <div class="modal-footer">
       	  <button type="button" class="btn btn-success" id="buttonAdd1" data-dismiss="modal">ยืนยัน</button>

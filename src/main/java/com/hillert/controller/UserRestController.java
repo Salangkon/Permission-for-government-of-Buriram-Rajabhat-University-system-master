@@ -39,23 +39,6 @@ public class UserRestController {
 	DataUserDao auDao;
 	@Autowired
 	PersonnelListDao perDao;
-	
-//	@RequestMapping(value = "/updateRole", method = RequestMethod.POST)
-//	@ResponseBody
-//	public Map<String, String> payment(Model model, @RequestBody UserBean userBean, HttpServletRequest request,
-//			HttpServletResponse response) throws Exception {
-//			TestAjex updateRole = new TestAjex();
-//			updateRole = userDao.updateRole();
-//		try {
-//			userDao.update(updateRole.getUpdateRole());
-//
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		Map<String, String> insertUser = new HashMap<String, String>();
-//		insertUser.put("page", "gotoUpdate/{values}");// insert Fill!! nser
-//		return insertUser;
-//	}// end insert user
 
 	//List user dataTable แสดง บุคคลากร ในตาราง
 	@RequestMapping(value="/user")

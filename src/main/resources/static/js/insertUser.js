@@ -194,7 +194,7 @@ var tableSelect = $('#addPersonnel').DataTable({
                 return 'สาขาวิชาคณิตศาสตร์';
             } else if (row.departmentCode == '8') {
                 return 'สาขาวิชาฟิสิกส์';
-            } else if (row.facdepartmentCodeulty == '9') {
+            } else if (row.departmentCode == '9') {
                 return 'สาขาวิชาวิทยาศาสตร์ทั่วไป';
             } else if (row.departmentCode == '10') {
                 return 'สาขาวิชาพลศึกษา';

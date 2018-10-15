@@ -75,12 +75,20 @@ public class PermissionBean {
 
 	private Timestamp createDate;
 	
+	private String expenseEstimateSumTotal;
+	
 	private List<ExpenseEstimateBean> eeBean;
 	private ExpenseSumaryBean esBean;
 	private List<TravelExpensesBean> teBean;
 	private List<TravelExpensesFuelCostBean> tefcBean;
 	
 	
+	public String getExpenseEstimateSumTotal() {
+		return expenseEstimateSumTotal;
+	}
+	public void setExpenseEstimateSumTotal(String expenseEstimateSumTotal) {
+		this.expenseEstimateSumTotal = expenseEstimateSumTotal;
+	}
 	public List<ExpenseEstimateBean> getEeBean() {
 		return eeBean;
 	}

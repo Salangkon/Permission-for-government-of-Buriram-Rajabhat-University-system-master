@@ -286,7 +286,7 @@
 						<th style="width: 17mm; text-align: left;"></th>
 						<th style="width: 8mm; text-align: left;">รวม</th>
 						<th style="width: 12mm; text-align: center;">
-							<%if (beanEsBack.getTravelSumTotal().equals("0")) {out.print("");} else {out.print(beanEsBack.getTravelSumTotal());}%>
+							<%if (beanEsBack.getTravelSumTotal() == 0 ) {out.print("");} else {out.print(beanEsBack.getTravelSumTotal());}%>
 						</th>
 						<th style="width: 2mm">บาท</th>
 					</tr>
@@ -294,7 +294,7 @@
 						<th style="width: 40mm; text-align: left;">ค่าใช่จ่ายอื่นๆ</th>
 						<th style="width: 17mm; text-align: left;"></th>
 						<th style="width: 8mm; text-align: left;">รวม</th>
-						<th style="width: 12mm; text-align: center;"><%if (beanEsBack.getOtherSumTotal().equals("0")) {out.print("");} else {out.print(beanEsBack.getOtherSumTotal());}%></th>
+						<th style="width: 12mm; text-align: center;"><%if (beanEsBack.getOtherSumTotal() == 0 ) {out.print("");} else {out.print(beanEsBack.getOtherSumTotal());}%></th>
 						<th style="width: 2mm">บาท</th>
 					</tr>
 					<tr>
@@ -386,7 +386,7 @@
 					<table>
 						<tr>
 							<td style="width: 40mm; text-align: right;">ได้รับค่าใช้จ่ายในการเดินทางไปราชการ จำนวน</td>
-							<td style="width: 20mm; text-align: center;"><%if (beanEsBack.getExpenseEstimateSumTotal().equals("0")) {out.print("");} 
+							<td style="width: 20mm; text-align: center;"><%if (beanEsBack.getExpenseEstimateSumTotal() == 0 ) {out.print("");} 
 								else {out.print(beanEsBack.getExpenseEstimateSumTotal());}%>
 							<td style="width: 10mm; text-align: left: ;"> บาท</td>
 						</tr>
@@ -394,7 +394,7 @@
 					<table>
 						<tr>
 							<td style="max-width: 30mm; text-align: center;">
-								<%if (beanEsBack.getExpenseEstimateSumTotal().equals("null")) {out.print("(...................................................................)");} 
+								<%if (beanEsBack.getExpenseEstimateSumTotal() == 0 ) {out.print("(...................................................................)");} 
 								else {out.print("( "+beanEsBack.getExpenseEstimateSumTotalThaiBaht()+" ) ");}%>
 							</td>
 							<td style="max-width: 60mm; text-align: left;">ไว้เป็นการถูกต้องแล้ว</td>
@@ -686,8 +686,8 @@
 			<table>
 				<tr>
 					<th style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ขอรับรองว่าได้จ่ายเงิน จำนวน 
-					<%if (beanEsBack.getExpenseEstimateSumTotal().equals("0")) {out.print("");} else {out.print(beanEsBack.getExpenseEstimateSumTotal());}%> บาท
-					<%if (beanEsBack.getExpenseEstimateSumTotal().equals("null")) {out.print("(.............................................................................)");} 
+					<%if (beanEsBack.getExpenseEstimateSumTotal() == 0 ) {out.print("");} else {out.print(beanEsBack.getExpenseEstimateSumTotal());}%> บาท
+					<%if (beanEsBack.getExpenseEstimateSumTotal() == 0 ) {out.print("(.............................................................................)");} 
 						else {out.print("( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+beanEsBack.getExpenseEstimateSumTotalThaiBaht()+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ) ");}%> 
 					</th>
 				</tr>
@@ -929,7 +929,7 @@
 								<th><label style="text-align: center;">รวมเงิน</label></th>
 								<th>
 									<%
-										if (beanEsBack.getAllowenceSumTotal().equals("0")) {
+										if (beanEsBack.getAllowenceSumTotal() == 0 ) {
 											out.print("");
 										} else {
 											out.print(beanEsBack.getAllowenceSumTotal());
@@ -938,7 +938,7 @@
 								</th>
 								<th>
 									<%
-										if (beanEsBack.getRentDateSumTotal().equals("0")) {
+										if (beanEsBack.getRentDateSumTotal() == 0 ) {
 											out.print("");
 										} else {
 											out.print(beanEsBack.getRentDateSumTotal());
@@ -947,7 +947,7 @@
 								</th>
 								<th>
 									<%
-										if (beanEsBack.getTravelSumTotal().equals("0")) {
+										if (beanEsBack.getTravelSumTotal() == 0 ) {
 											out.print("");
 										} else {
 											out.print(beanEsBack.getTravelSumTotal());
@@ -956,7 +956,7 @@
 								</th>
 								<th>
 									<%
-										if (beanEsBack.getOtherSumTotal().equals("0")) {
+										if (beanEsBack.getOtherSumTotal() == 0 ) {
 											out.print("");
 										} else {
 											out.print(beanEsBack.getOtherSumTotal());
@@ -965,7 +965,7 @@
 								</th>
 								<th>
 									<%
-										if (beanEsBack.getExpenseEstimateSumTotal().equals("0")) {
+										if (beanEsBack.getExpenseEstimateSumTotal() == 0 ) {
 											out.print("");
 										} else {
 											out.print(beanEsBack.getExpenseEstimateSumTotal());
@@ -982,7 +982,7 @@
 						<tr>
 							<td style="width: 50%;text-align: right;" valign="top">
 								จำนวนเงินทั้งสิ้น (ตัวอักษร)
-								<%if (beanEsBack.getExpenseEstimateSumTotal().equals("0")) {out.print(".........................................................................");} 
+								<%if (beanEsBack.getExpenseEstimateSumTotal() == 0 ) {out.print(".........................................................................");} 
 								else {out.print(" &nbsp;&nbsp;&nbsp;&nbsp; "+beanEsBack.getExpenseEstimateSumTotalThaiBaht());}%>
 								
 							</td>

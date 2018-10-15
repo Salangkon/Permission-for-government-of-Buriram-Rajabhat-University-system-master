@@ -164,7 +164,7 @@
 			</div>
 			<!-- ระดับ supPosition -->
 			<div class="form-group">
-				<label for="exampleFormControlSelect1">ภาควิชา</label>
+				<label for="exampleFormControlSelect1">ระดับ</label>
 				<select class="form-control" name="" id="subPositionCode">
 					<option value="subPositionCode">== กรุณาเลือก ==</option>
 				</select>

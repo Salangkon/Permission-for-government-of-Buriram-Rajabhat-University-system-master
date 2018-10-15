@@ -45,10 +45,10 @@ public class ExpenseEstimateDao {
 			prepared.setInt(2, bean.getPermissionId());
 			prepared.setInt(3, bean.getAllowenceType());
 			prepared.setInt(4, bean.getAllowence());
-			prepared.setInt(5, bean.getAllowencePerday());
+			prepared.setFloat(5, bean.getAllowencePerday());
 			prepared.setInt(6, bean.getAllowenceSum());
 			prepared.setInt(7, bean.getRentDate());
-			prepared.setInt(8, bean.getRentDatePerday());
+			prepared.setFloat(8, bean.getRentDatePerday());
 			prepared.setInt(9, bean.getRentDateSum());
 			prepared.setInt(10, bean.getTravelSum());
 			prepared.setInt(11, bean.getOtherSum());
@@ -82,15 +82,15 @@ public class ExpenseEstimateDao {
 				
 				prepared = conn.prepareStatement(sql.toString());
 				
-				prepared.setString(1, bean.getUserSumTotal());
-				prepared.setString(2, bean.getAllowenceSumTotal());
-				prepared.setString(3, bean.getRentDateSumTotal());
-				prepared.setString(4, bean.getTravelSumTotal());
-				prepared.setString(5, bean.getOtherSumTotal());
-				prepared.setString(6, bean.getExpenseEstimateSumTotal());
+				prepared.setInt(1, bean.getUserSumTotal());
+				prepared.setInt(2, bean.getAllowenceSumTotal());
+				prepared.setInt(3, bean.getRentDateSumTotal());
+				prepared.setInt(4, bean.getTravelSumTotal());
+				prepared.setInt(5, bean.getOtherSumTotal());
+				prepared.setInt(6, bean.getExpenseEstimateSumTotal());
 				
-				prepared.setString(7, bean.getAllowencePerdayTotal());
-				prepared.setString(8, bean.getRentDatePerdayTotal());
+				prepared.setFloat(7, bean.getAllowencePerdayTotal());
+				prepared.setFloat(8, bean.getRentDatePerdayTotal());
 
 				prepared.setInt(9, bean.getPermissionId());
 				
@@ -130,10 +130,10 @@ public class ExpenseEstimateDao {
 			prepared.setInt(2, bean.getPermissionId());
 			prepared.setInt(3, bean.getAllowenceType());
 			prepared.setInt(4, bean.getAllowence());
-			prepared.setInt(5, bean.getAllowencePerday());
+			prepared.setFloat(5, bean.getAllowencePerday());
 			prepared.setInt(6, bean.getAllowenceSum());
 			prepared.setInt(7, bean.getRentDate());
-			prepared.setInt(8, bean.getRentDatePerday());
+			prepared.setFloat(8, bean.getRentDatePerday());
 			prepared.setInt(9, bean.getRentDateSum());
 			prepared.setInt(10, bean.getTravelSum());
 			prepared.setInt(11, bean.getOtherSum());
@@ -167,15 +167,15 @@ public class ExpenseEstimateDao {
 				
 				prepared = conn.prepareStatement(sql.toString());
 				
-				prepared.setString(1, bean.getUserSumTotal());
-				prepared.setString(2, bean.getAllowenceSumTotal());
-				prepared.setString(3, bean.getRentDateSumTotal());
-				prepared.setString(4, bean.getTravelSumTotal());
-				prepared.setString(5, bean.getOtherSumTotal());
-				prepared.setString(6, bean.getExpenseEstimateSumTotal());
+				prepared.setInt(1, bean.getUserSumTotal());
+				prepared.setInt(2, bean.getAllowenceSumTotal());
+				prepared.setInt(3, bean.getRentDateSumTotal());
+				prepared.setInt(4, bean.getTravelSumTotal());
+				prepared.setInt(5, bean.getOtherSumTotal());
+				prepared.setInt(6, bean.getExpenseEstimateSumTotal());
 				
-				prepared.setString(7, bean.getAllowencePerdayTotal());
-				prepared.setString(8, bean.getRentDatePerdayTotal());
+				prepared.setFloat(7, bean.getAllowencePerdayTotal());
+				prepared.setFloat(8, bean.getRentDatePerdayTotal());
 
 				prepared.setInt(9, bean.getPermissionId());
 				

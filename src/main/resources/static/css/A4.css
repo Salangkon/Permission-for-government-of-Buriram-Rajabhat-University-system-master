@@ -1,43 +1,39 @@
 
-/* table,  th { */
-/*     border: 1px solid white; */
-/* } */
 
 table {
     border-collapse: collapse;
     width: 100%;
+    
 }
 
 th {
-	
+	font-family: MyCustomFont, Verdana, Arial, sans-serif;
+	font-size: smaller;
     text-align: left;
 }
-
-/* @font-face { */
-/*  font-family: MyCustomFont; */
-/*  color: black ; */
-/*  src: url("/font/THSarabun.eot") EOT file for IE */
-/* } */
-/* @font-face { */
-/*  font-family: MyCustomFont; */
-/*  color: black ; */
-/*  src: url("/font/THSarabun.ttf") TTF file for CSS3 browsers */
-/* } */
+@font-face {
+ font-family: MyCustomFont;
+ src: url("/font/THSarabun.eot") EOT file for IE
+}
+@font-face {
+ font-family: MyCustomFont;
+ src: url("/font/THSarabun.ttf") TTF file for CSS3 browsers
+}
 
 table{
 	font-family: MyCustomFont, Verdana, Arial, sans-serif;
-	font-size: smaller;
+	font-size: small;
  	color: black  
 }
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #FAFAFA;
-/*     font: 10pt "Tahoma"; */
-    font-family: MyCustomFont, Verdana, Arial, sans-serif;
-	font-size: smaller;
- 	color: black    
-}
+/* body { */
+/*     margin: 0; */
+/*     padding: 0; */
+/*     background-color: #FAFAFA; */
+/* /*     font: 10pt "Tahoma"; */ */
+/*     font-family: MyCustomFont, Verdana, Arial, sans-serif, ; */
+/* 	font-size: 16px; */
+/*  	color: black     */
+/* } */
 label{
 	font-family: MyCustomFont, Verdana, Arial, sans-serif;
 	font-size: smaller;
@@ -96,9 +92,3 @@ label{
 /*         page-break-after: always; */
     }
 }
-/* @media print { */
-/*   body, page ,from { */
-/*     margin: 0; */
-/*     box-shadow: 0; */
-/*   } */
-/* } */

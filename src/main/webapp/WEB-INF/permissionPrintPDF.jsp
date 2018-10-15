@@ -137,7 +137,7 @@
 					<br>
 					<table style="width: 100%;">
 						<tr>
-							<th style="max-width: 4mm; text-align: left">2. ข้าพเจ้า</th>
+							<th style="max-width: 4mm; text-align: left"><label>2. ข้าพเจ้า</label></th>
 							<th style="max-width: 12mm;"> <%=bean.getSex()%><%=bean.getUserFname()%>&nbsp;&nbsp; <%=bean.getUserLname()%></th>
 							<th style="max-width: 2.5mm;">ตำเเหน่ง</th>
 							<th style="max-width: 8mm;"> <%=bean.getDepartmentName()%></th>
@@ -471,21 +471,21 @@
 							<th colspan="4" style="max-width: 100%; text-align: left">2.การไปราชการในครั้งนี้ ขอเบิกค่าใช้จ่ายจากงบประมาณ</th>
 						</tr>
 						<tr>
-							<th style="text-align: left; max-width: 5mm;">&nbsp;&nbsp;&nbsp; ( <%if (bean.getBudgetBy().equals("งบประมาณแผ่นดิน")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) งบแผ่นดิน โครงการ</th>
+							<th style="text-align: left; max-width: 5mm;">&nbsp;&nbsp;&nbsp; ( <%if (bean.getBudgetBy().equals("1")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) งบแผ่นดิน โครงการ</th>
 							<th style="text-align: left; max-width: 60mm;"><%if (bean.getBudgetBy().equals("งบประมาณแผ่นดิน")) {out.print(bean.getBudgetProject());} else {out.print("");}%></th>
 							<th style="text-align: left; max-width: 5mm;">รหัสโครงการ</th>
 							<th style="text-align: left; max-width: 25mm;">&nbsp;&nbsp; <%if (bean.getBudgetBy().equals("งบประมาณแผ่นดิน")) {out.print(bean.getBudgetPass());}%></th>
 						</tr>
 						<tr>
-							<th style="text-align: left;">&nbsp;&nbsp;&nbsp; ( <%if (bean.getBudgetBy().equals("งบรายได้")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) งบเงินรายได้ โครงการ  </th>
+							<th style="text-align: left;">&nbsp;&nbsp;&nbsp; ( <%if (bean.getBudgetBy().equals("2")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) งบเงินรายได้ โครงการ  </th>
 							<th style="text-align: left;"> <%if (bean.getBudgetBy().equals("งบรายได้")) {out.print(bean.getBudgetProject());} else {out.print("");}%></th>
 							<th style="text-align: left;">รหัสโครงการ</th>
-							<th style="text-align: left;">&nbsp;&nbsp; <%if (bean.getBudgetBy().equals("งบรายได้")) {out.print(bean.getBudgetPass());}%>
+							<th style="text-align: left;">&nbsp;&nbsp; <%if (bean.getBudgetBy().equals("2")) {out.print(bean.getBudgetPass());}%>
 							</th>
 						</tr>
 						<tr>
 							<th colspan="4" style="max-width: 100%; text-align: left">&nbsp;&nbsp;&nbsp; 
-							( <%if (bean.getBudgetBy().equals("งบรายได้")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) งบอื่นๆ &nbsp;&nbsp;
+							( <%if (bean.getBudgetBy().equals("3")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) งบอื่นๆ &nbsp;&nbsp;
 							</th>
 						</tr>
 						<tr>
@@ -514,7 +514,7 @@
 									<tr>
 										<td style="text-align: left; width: 25mm"><label>3.1 ค่าเบี้ยเลี้ยงเดินทาง</label></td>
 										<td style="text-align: left; ; width: 3mm">
-										<%if (beanEs.getAllowencePerdayTotal().equals("")) {out.print("");} else {out.print(beanEs.getAllowencePerdayTotal());}%>
+										<%if (beanEs.getAllowencePerdayTotal() == 0 ) {out.print("");} else {out.print(beanEs.getAllowencePerdayTotal());}%>
 										</td>
 										<td style="text-align: left; width: 10mm"><label>วันๆละ </label></td>
 										<td style="text-align: left; width: 25mm"><label></label></td>
@@ -523,7 +523,7 @@
 									<tr>
 										<td style="text-align: left; width: 25mm"><label>3.2 ค่าเช่าที่พัก</label></td>
 										<td style="text-align: left; width: 3mm">
-										<%if (beanEs.getRentDatePerdayTotal().equals("")) {out.print("");} else {out.print(beanEs.getRentDatePerdayTotal());}%>
+										<%if (beanEs.getRentDatePerdayTotal() == 0 ) {out.print("");} else {out.print(beanEs.getRentDatePerdayTotal());}%>
 										</td>
 										<td style="text-align: left; width: 10mm"><label>คืนๆละ</label></td>
 										<td style="text-align: left; width: 25mm"></td>
@@ -622,7 +622,7 @@
 									</tr>
 									<tr>
 										<td style="text-align: left; width: 60mm">
-											<label><%if (beanEs.getOtherSumTotal() == null) {out.print("...");} else {out.print(beanEs.getOtherSumTotal());}%></label>
+											<label><%if (beanEs.getOtherSumTotal() == 0) {out.print("...");} else {out.print(beanEs.getOtherSumTotal());}%></label>
 										</td>
 									</tr>
 								</table>
@@ -842,7 +842,7 @@
 								<th><label style="text-align: center;">รวมเงิน</label></th>
 								<th>
 									<%
-										if (beanEs.getAllowenceSumTotal().equals("0")) {
+										if (beanEs.getAllowenceSumTotal() == 0 ) {
 											out.print("");
 										} else {
 											out.print(beanEs.getAllowenceSumTotal());
@@ -851,7 +851,7 @@
 								</th>
 								<th>
 									<%
-										if (beanEs.getRentDateSumTotal().equals("0")) {
+										if (beanEs.getRentDateSumTotal() == 0 ) {
 											out.print("");
 										} else {
 											out.print(beanEs.getRentDateSumTotal());
@@ -860,7 +860,7 @@
 								</th>
 								<th>
 									<%
-										if (beanEs.getTravelSumTotal().equals("0")) {
+										if (beanEs.getTravelSumTotal() == 0 ) {
 											out.print("");
 										} else {
 											out.print(beanEs.getTravelSumTotal());
@@ -869,7 +869,7 @@
 								</th>
 								<th>
 									<%
-										if (beanEs.getOtherSumTotal().equals("0")) {
+										if (beanEs.getOtherSumTotal() == 0 ) {
 											out.print("");
 										} else {
 											out.print(beanEs.getOtherSumTotal());
@@ -878,7 +878,7 @@
 								</th>
 								<th>
 									<%
-										if (beanEs.getExpenseEstimateSumTotal().equals("0")) {
+										if (beanEs.getExpenseEstimateSumTotal() == 0 ) {
 											out.print("");
 										} else {
 											out.print(beanEs.getExpenseEstimateSumTotal());
