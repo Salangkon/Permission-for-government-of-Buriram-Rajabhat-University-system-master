@@ -1,5 +1,6 @@
 function dateDiff() {
 	// คำนวน ว/ด/ป
+	
 	var myVar1 = document.getElementById('backDate').value;
 	var myVar2 = document.getElementById('goDate').value;
 	var myVar3 = document.getElementById('backTime').value;

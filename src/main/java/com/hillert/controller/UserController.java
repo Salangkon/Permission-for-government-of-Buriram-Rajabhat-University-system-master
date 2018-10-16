@@ -36,20 +36,6 @@ public class UserController {
 	public String Request() {
 		return "Request";
 	}
-	
-	// DropDown
-	@RequestMapping("/insertPermissionFail")
-	public String insertPermissionFail(Model model) {
-	model.addAttribute("messes", "F");
-		return "permission";
-	}
-
-	// DropDown
-	@RequestMapping("/insertPermissionSuccess")
-	public String insertPermissionSuccess(Model model) {
-		model.addAttribute("messes", "S");
-		return "permission";
-	}
 
 	// dataTable
 	@RequestMapping("/datatable")
@@ -163,27 +149,6 @@ public class UserController {
 		}
 		return "update";
 	}//end update user
-
-//	// update user
-//	@RequestMapping(value = "/gotoUpdate/{values}", method = RequestMethod.GET)
-//	public String gotoUpdate(@PathVariable("values") String values, HttpServletRequest request, Model model)throws NumberFormatException, SQLException {
-//		PersonAddressBean bean = new PersonAddressBean();
-//		List<PersonAddressBean> list = new ArrayList<>();
-//		try {
-//			bean = userDao.findByIdCard(Integer.parseInt(values));
-//			list = userDao.findByIdCard1(Integer.parseInt(values));
-//			if (values != null) {
-//				model.addAttribute("messesUpdate", "");
-//				request.setAttribute("userBean", bean);
-//				request.setAttribute("listUserBean", list);
-//			}
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//			e.printStackTrace();
-//		}
-//
-//		return "update";
-//	}
 
 	//delete
 //	@RequestMapping("/delete")

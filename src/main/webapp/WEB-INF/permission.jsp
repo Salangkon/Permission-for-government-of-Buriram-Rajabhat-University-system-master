@@ -124,27 +124,27 @@
 	<div class="w3-container w3-topbar w3-border-red" style="background-color: white;">
 	<div class="form-inline">
 	<div class="form-group " style="margin-top: 3%;margin-right: 4%"><label >วันที่ไปราชการ  &nbsp;&nbsp;</label>
-	 	<input class="form-control" type="date" id='goDate' name="goDate"> เวลา 
-		<input class="form-control" type='time' id='goTime' name="goTime">
+	 	<input class="form-control" type="date" id='goDate' name="goDate" onkeyup="dateDiff()"> เวลา 
+		<input class="form-control" type='time' id='goTime' name="goTime" onkeyup="dateDiff()">
 		<div style="margin-left: 28%"><label style="color: red;" class="hide" id="error-goDate">กรุณากรอก วัน/เดือน/ปี</label> <label style="color: red;" class="hide" id="error-goTime">กรุณากรอก เวลา</label></div>
 	</div>
 	<div class="form-group" class="form-group" style="margin-top: 3%;"><label>วันที่กลับราชการ &nbsp;&nbsp;</label>
-	 	<input class="form-control" type='date' id='backDate' name="backDate"> เวลา 
-		<input class="form-control" type='time' id='backTime' name="backTime">
+	 	<input class="form-control" type='date' id='backDate' name="backDate" onkeyup="dateDiff()"> เวลา 
+		<input class="form-control" type='time' id='backTime' name="backTime" onkeyup="dateDiff()">
 		<div style="margin-left: 27%"><label style="color: red;" class="hide" id="error-backDate">กรุณากรอก วัน/เดือน/ปี</label> <label style="color: red;" class="hide" id="error-backTime">กรุณากรอก เวลา </label></div>
 	</div>
   	<div class="form-group" style="margin-top: 3%">
-  	<input type="button" id="submit" onclick="dateDiff()" value="คำนวน" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;
+  	<input type="button" onclick="dateDiff()" value="คำนวน" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;
     <div class="input-group">
-      <input type="text" style="text-align:center" class="form-control" id="DayTotal" placeholder="วัน" onkeyup="dateDiff()">
+      <input type="text" style="text-align:center" class="form-control" id="DayTotal" placeholder="วัน">
       <div class="input-group-addon">วัน</div>
     </div>
     <div class="input-group">
-      <input type="text" style="text-align:center" class="form-control" id="d" placeholder="คืน">
+      <input type="text" style="text-align:center" class="form-control" id="d" placeholder="คืน" >
       <div class="input-group-addon">คืน</div>
    	</div>
    	<div class="input-group">
-      <input type="text" style="text-align:center" class="form-control" id="TimeTotal" placeholder="ชั่วโมง">
+      <input type="text" style="text-align:center" class="form-control" id="TimeTotal" placeholder="ชั่วโมง" >
       <div class="input-group-addon">ชั่วโมง</div>
    	</div>
    	</div>

@@ -346,7 +346,7 @@ $(document).ready(function() {
 	
 	
 	//คำนวณ ค่าพาหนะ ประจำทาง
-	$('#addTravel').on('change','input', function() { 	
+	$('#addTravel').on('keyup','input', function() { 	
 		var sum = $(this).parent().parent().find('td')[5];
 		var number1 = $(this).parent().parent().find('td')[2];
 		var number2= $(this).parent().parent().find('td')[3];
@@ -368,9 +368,7 @@ $(document).ready(function() {
 			}			
 		}
 		 $('#summary1').text(parseFloat(sum).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-	});
-	
-	$('#addTravel').on('change','input', function() { 	
+		//
 		var sumPerPerson = $(this).parent().parent().find('td')[6];
 		var number1 = $(this).parent().parent().find('td')[2];
 		var number2= $(this).parent().parent().find('td')[3];
@@ -394,7 +392,7 @@ $(document).ready(function() {
 	});
 
 	//คำนวณ รถส่วนตัว 
-	$('#addPrivateCar').on('change','input', function() { 
+	$('#addPrivateCar').on('keyup','input', function() { 
 		var sum1= $(this).parent().parent().find('td')[5];
 		var number1 = $(this).parent().parent().find('td')[2];
 		var number2= $(this).parent().parent().find('td')[3];
@@ -408,9 +406,8 @@ $(document).ready(function() {
 		}else{
 			$(sum1).find('input').val(0);
 		}
-	});
-	//คำนวณ ค่าทางด่วน รถส่วนตัว สรูป
-	$('#addPrivateCar').on('change','input', function() { 
+
+		//คำนวณ ค่าทางด่วน รถส่วนตัว สรูป
 		var sum= $(this).parent().parent().find('td')[7];
 		var sum1= $(this).parent().parent().find('td')[5];
 		var number3 = $(this).parent().parent().find('td')[6];
@@ -425,7 +422,7 @@ $(document).ready(function() {
 	});
 
 	//คำนวณ รถขอไปราชการ
-	$('#addTravel1').on('change','input', function() { 
+	$('#addTravel1').on('keyup','input', function() { 
 		var sum1 = $(this).parent().parent().find('td')[6];
 		var number1 = $(this).parent().parent().find('td')[2];
 		var number2= $(this).parent().parent().find('td')[3];
@@ -441,10 +438,8 @@ $(document).ready(function() {
 		}else{
 			$(sum1).find('input').val(0);
 		}
-	});
-	
-	//คำนวณ ค่าทางด่วน รถขอไปราชการ สรูป
-	$('#addTravel1').on('change','input', function() { 
+
+		//คำนวณ ค่าทางด่วน รถขอไปราชการ สรูป
 		var sum = $(this).parent().parent().find('td')[8];
 		var sum1 = $(this).parent().parent().find('td')[6];
 		var number5= $(this).parent().parent().find('td')[7];
@@ -539,7 +534,7 @@ $(document).ready(function() {
 	});
 	
 	//คำนวณ ค่าเบี้ยเลี้ยง
-	$('#addUser').on('change','input', function() {
+	$('#addUser').on('keyup','input', function() {
 		var sum6 = $(this).parent().parent().find('td')[7];
 		var number1 = $(this).parent().parent().find('td')[5];
 		var number2= $(this).parent().parent().find('td')[6];
@@ -551,10 +546,8 @@ $(document).ready(function() {
 		}else{
 			$(sum6).find('input').val(0);
 		}
-	});
-	
-	//คำนวณ ค่าที่พัก
-	$('#addUser').on('change','input', function() { 
+		
+//	//คำนวณ ค่าที่พัก
 		var sum9 = $(this).parent().parent().find('td')[10];
 		var number3 = $(this).parent().parent().find('td')[8];
 		var number4= $(this).parent().parent().find('td')[9];
@@ -566,9 +559,8 @@ $(document).ready(function() {
 		}else{
 			$(sum9).find('input').val(0);
 		}
-	});
-	//คำนวณ ค่าที่พัก ค่าเบี้ยเลี้ยง
-	$('#addUser').on('change','input', function() { 
+		
+//	//คำนวณ ค่าที่พัก ค่าเบี้ยเลี้ยง
 		var sum12 = $(this).parent().parent().find('td')[13];
 		var sum6 = $(this).parent().parent().find('td')[7];
 		var sum9 = $(this).parent().parent().find('td')[10];
@@ -797,9 +789,15 @@ $(document).ready(function() {
 					"mRender" : function(data,
 						type, row, index) {
 						var sumPerPerson1 = $('#sumPerPerson1').val();
-					return '<input class="form-control sum10"  type="text" OnKeyPress="return chkNumber(this)" style="width: 22mm;height: 7mm" name="travelSum" id="travelSum'
+						if (sumPerPerson1 == '') {
+							return '<input class="form-control sum11"  type="number" style="width: 22mm;height: 7mm" name="otherSum" id="otherSum'
+							+ index.row 
+							+ '" value="0" />';
+			            } else {
+			            	return '<input class="form-control sum10"  type="text" OnKeyPress="return chkNumber(this)" style="width: 22mm;height: 7mm" name="travelSum" id="travelSum'
 							+ index.row 
 							+ '" value="'+ sumPerPerson1 +'" />';
+			            }
 					}										
 				},
 				{
@@ -1143,7 +1141,7 @@ $(document).ready(function() {
 										type, row, index, num) {
 									return '<input class="form-control number5" style="width: 20mm;height: 7mm" type="text" OnKeyPress="return chkNumber(this)" name="" id="expresswayExpensesSum'
 											+ index.row
-											+ '"   />';
+											+ '"  value="0" />';
 								}
 							},
 							{	//รวมทั้งหมด
@@ -1304,9 +1302,9 @@ $(document).ready(function() {
 									"sWidth" : "20px",
 									"mRender" : function(data,
 											type, row, index, num) {
-										return '<input class="form-control number4" style="width: 20mm;height: 7mm" type="number" name="" id="expresswayExpensesSum'
+										return '<input class="form-control number4" style="width: 20mm;height: 7mm" type="text" OnKeyPress="return chkNumber(this)" name="" id="expresswayExpensesSum'
 												+ index.row
-												+ '"   />';
+												+ '"  value="0" />';
 									}
 								},
 								{	//รวมทั้งหมด
@@ -1314,7 +1312,7 @@ $(document).ready(function() {
 									"sWidth" : "20px",
 									"mRender" : function(data,
 											type, row, index) {
-										return '<input class="form-control sum" style="width: 30mm;height: 7mm" readonly="true" type="text" placeholder="รวม" name="" id="sum'
+										return '<input class="form-control sum" style="width: 30mm;height: 7mm" readonly="true" type="text"  placeholder="รวม" name="" id="sum'
 												+ index.row
 												+ '" />';
 									}

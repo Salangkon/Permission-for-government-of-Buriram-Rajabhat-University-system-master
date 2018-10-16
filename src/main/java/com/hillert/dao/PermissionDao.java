@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -706,18 +707,19 @@ public class PermissionDao {
 			preperd = conn.prepareStatement(sql.toString());
 			preperd.setInt(1, userId);
 			ResultSet rs = preperd.executeQuery();
-
+			DecimalFormat myFormatter = new DecimalFormat();
+			
 			while (rs.next()) {
 				bean.setPermissionId(rs.getInt("permission_id"));
 
-				bean.setUserSumTotal(rs.getInt("user_sum_total"));
-				bean.setAllowenceSumTotal(rs.getInt("allowence_sum_total"));
-				bean.setAllowencePerdayTotal(rs.getFloat("allowence_perday_total"));
-				bean.setRentDateSumTotal(rs.getInt("rent_date_sum_total"));
-				bean.setRentDatePerdayTotal(rs.getFloat("rent_date_perday_total"));
-				bean.setTravelSumTotal(rs.getInt("travel_sum_total"));
-				bean.setOtherSumTotal(rs.getInt("other_sum_total"));
-				bean.setExpenseEstimateSumTotal(rs.getInt("expense_estimate_sum_total"));
+				bean.setUserSumTotalComma(myFormatter.format(rs.getInt("user_sum_total")));
+				bean.setAllowenceSumTotalComma(myFormatter.format(rs.getInt("allowence_sum_total")));
+				bean.setAllowencePerdayTotalComma(myFormatter.format(rs.getFloat("allowence_perday_total")));
+				bean.setRentDateSumTotalComma(myFormatter.format(rs.getInt("rent_date_sum_total")));
+				bean.setRentDatePerdayTotalComma(myFormatter.format(rs.getFloat("rent_date_perday_total")));
+				bean.setTravelSumTotalComma(myFormatter.format(rs.getInt("travel_sum_total")));
+				bean.setOtherSumTotalComma(myFormatter.format(rs.getInt("other_sum_total")));
+				bean.setExpenseEstimateSumTotalComma(myFormatter.format(rs.getInt("expense_estimate_sum_total")));
 				
 				permissionId = bean.getPermissionId();
 
