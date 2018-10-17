@@ -676,7 +676,7 @@
 					<th></th>
 					<th >( <%if (beanBack.getChoiceBill7().equals("1")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> )
 						 อื่นๆ
-						<%if (beanBack.getChoiceBill7C().equals("")) {out.print("......................................................");} 
+						<%if (beanBack.getChoiceBill7C() == null) {out.print("......................................................");} 
 							else {out.print(beanBack.getChoiceBill7C());}%>
 					</th>
 				</tr>
@@ -740,16 +740,16 @@
 					<th style="text-align: left;" colspan="2"> รวมเงิน</th>
 				</tr>
 				<tr>
-					<th ><%=beanBack.getBillGoDate() %></th>
-					<th valign="top"><%=beanBack.getBillDetail1() %></th>	
+					<th ><%if (beanBack.getBillGoDate() == null ) {out.print("");} else {out.print(beanBack.getBillGoDate());}%></th>
+					<th valign="top"><%if (beanBack.getBillDetail1() == null ) {out.print("");} else {out.print(beanBack.getBillDetail1());}%></th>	
 					<th></th>	
 					<th></th>	
 					<th></th>	
 					<th></th>		
 				</tr>
 				<tr>
-					<th><%=beanBack.getBillBackDate() %></th>
-					<th valign="top"><%=beanBack.getBillDetail2() %></th>	
+					<th><%if (beanBack.getBillBackDate() == null ) {out.print("");} else {out.print(beanBack.getBillBackDate());}%></th>
+					<th valign="top"><%if (beanBack.getBillDetail2() == null ) {out.print("");} else {out.print(beanBack.getBillDetail2());}%></th>	
 					<th></th>	
 					<th></th>	
 					<th></th>	

@@ -790,7 +790,7 @@ $(document).ready(function() {
 						type, row, index) {
 						var sumPerPerson1 = $('#sumPerPerson1').val();
 						if (sumPerPerson1 == '') {
-							return '<input class="form-control sum11"  type="number" style="width: 22mm;height: 7mm" name="otherSum" id="otherSum'
+							return '<input class="form-control sum10"  type="text" OnKeyPress="return chkNumber(this)" style="width: 22mm;height: 7mm" name="otherSum" id="otherSum'
 							+ index.row 
 							+ '" value="0" />';
 			            } else {
@@ -807,11 +807,11 @@ $(document).ready(function() {
 						type, row, index) {
 						var otherSum = $('#otherSum').val();
 						if (otherSum == '') {
-							return '<input class="form-control sum11"  type="number" style="width: 22mm;height: 7mm" name="otherSum" id="otherSum'
+							return '<input class="form-control sum11"  type="text" OnKeyPress="return chkNumber(this)" style="width: 22mm;height: 7mm" name="otherSum" id="otherSum'
 							+ index.row 
 							+ '" value="0" />';
 			            } else {
-			            	return '<input class="form-control sum11"  type="number" style="width: 22mm;height: 7mm" name="otherSum" id="otherSum'
+			            	return '<input class="form-control sum11" type="text" OnKeyPress="return chkNumber(this)" style="width: 22mm;height: 7mm" name="otherSum" id="otherSum'
 							+ index.row 
 							+ '" value="'+ parseFloat(otherSum).toFixed(0) +'" />';
 			            }

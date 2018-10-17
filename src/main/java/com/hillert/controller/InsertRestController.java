@@ -264,9 +264,9 @@ public class InsertRestController {
 			expenseSumaryBean.setPermissionId(perIdBack.getPerId());
 			EEDao.insertESB(expenseSumaryBean);
 			
-			insertPermission.put("page", "perBackOk");
+			insertPermission.put("page", "insertPermissionBackSuccess");
 			}else {
-			insertPermission.put("page", "welcomeUser");
+			insertPermission.put("page", "insertPermissionBackSuccess");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

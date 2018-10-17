@@ -144,7 +144,7 @@
 						</tr>
 						<tr>
 							<th colspan="4" style="text-align: left">&nbsp;&nbsp;
-								พร้อมด้วยคณะ รวม &nbsp;&nbsp; <%=beanEs.getUserSumTotal()%> คน (ดังรายชื่อที่ระบุในใบประมาณการรายจ่ายที่แนบ)
+								พร้อมด้วยคณะ รวม &nbsp;&nbsp; <%=beanEs.getUserSumTotalComma()%> คน (ดังรายชื่อที่ระบุในใบประมาณการรายจ่ายที่แนบ)
 							</th>
 						</tr>
 					</table>
@@ -256,7 +256,7 @@
 						</tr>
 						<tr>
 							<th style="max-width: 12mm; text-align: left"></th>
-							<th style="max-width: 18mm; text-align: left">ในวงเงิน &nbsp;&nbsp; <%=beanEs.getExpenseEstimateSumTotal()%>
+							<th style="max-width: 18mm; text-align: left">ในวงเงิน &nbsp;&nbsp; <%=beanEs.getExpenseEstimateSumTotalComma()%>
 							</th>
 							<th style="max-width: 12mm; text-align: left" colspan="3">บาท </th>
 						</tr>
@@ -431,7 +431,7 @@
 							<th style="max-width: 8mm;"><%=bean.getDepartmentName() %></th>
 						</tr>
 						<tr>
-							<th colspan="4" style="text-align: left">&nbsp;&nbsp;&nbsp;พร้อมด้วยผู้มีรายชื่อหน้า 2 รวม &nbsp;&nbsp;&nbsp; <%=beanEs.getUserSumTotal() %>&nbsp;&nbsp; คน (มีความประสงค์)</th>
+							<th colspan="4" style="text-align: left">&nbsp;&nbsp;&nbsp;พร้อมด้วยผู้มีรายชื่อหน้า 2 รวม &nbsp;&nbsp;&nbsp; <%=beanEs.getUserSumTotalComma() %>&nbsp;&nbsp; คน (มีความประสงค์)</th>
 						</tr>
 						<tr>
 							<th colspan="4" style="text-align: left">&nbsp;&nbsp; 
@@ -578,7 +578,7 @@
 									</tr>
 									<tr>
 										<td style="text-align: left; width: 64mm"><label style="margin-left: 5%;">3.4.1 ค่าลงทะเบียน</label></td>
-										<td style="text-align: left; width: 60mm"><label></label></td>
+										<td style="text-align: left; width: 60mm"><label><%if (beanEs.getOtherSumTotal() == 0) {out.print("...");} else {out.print(beanEs.getOtherSumTotalComma());}%></label></td>
 										<td style="text-align: left; width: 6mm"><label>บาท</label></td>
 									</tr>
 								</table>
@@ -586,10 +586,10 @@
 							<th style="width: 30mm;">
 								<table style="width: 100%;">
 									<tr>
-										<td style="text-align: left;"><label> <%=beanEs.getAllowenceSumTotal()%></label></td>
+										<td style="text-align: left;"><label> <%=beanEs.getAllowenceSumTotalComma()%></label></td>
 									</tr>
 									<tr>
-										<td style="text-align: left; width: 25mm"><label><%=beanEs.getRentDateSumTotal()%></label></td>
+										<td style="text-align: left; width: 25mm"><label><%=beanEs.getRentDateSumTotalComma()%></label></td>
 									</tr>
 									<tr>
 										<td colspan="5" style="text-align: left"><label>...</label>
@@ -617,12 +617,11 @@
 										</td>
 									</tr>
 									<tr>
-										<td colspan="5" style="text-align: left"><label>...</label>
-										</td>
+										<td colspan="5" style="text-align: left"><label>...</label></td>
 									</tr>
 									<tr>
 										<td style="text-align: left; width: 60mm">
-											<label><%if (beanEs.getOtherSumTotal() == 0) {out.print("...");} else {out.print(beanEs.getOtherSumTotal());}%></label>
+											<label><%if (beanEs.getOtherSumTotal() == 0) {out.print("...");} else {out.print(beanEs.getOtherSumTotalComma());}%></label>
 										</td>
 									</tr>
 								</table>
@@ -633,7 +632,7 @@
 						<tfoot>
 							<tr>
 								<th align="center">รวมทั้งสิ้น</th>
-								<th><label> <%=beanEs.getExpenseEstimateSumTotal()%></label></th>
+								<th><label> <%=beanEs.getExpenseEstimateSumTotalComma()%></label></th>
 								<th></th>
 							</tr>
 						</tfoot>
@@ -784,46 +783,46 @@
 								<th style="text-align: left;"><%=beanEE.get(i).getSubPositionName()%></th>
 								<th>
 									<%
-										if (beanEE.get(i).getAllowenceSum() == 0) {
+										if (beanEE.get(i).getAllowenceSumComma() == null) {
 												out.print("");
 										} else {
-												out.print(beanEE.get(i).getAllowenceSum());
+												out.print(beanEE.get(i).getAllowenceSumComma());
 											}
 									%>
 								</th>
 								<th>
 									<%
-										if (beanEE.get(i).getRentDateSum() == 0) {
+										if (beanEE.get(i).getRentDateSumComma() == null) {
 												out.print("");
 										} else {
-												out.print(beanEE.get(i).getRentDateSum());
+												out.print(beanEE.get(i).getRentDateSumComma());
 											}
 									%>
 								</th>
 								<th>
 									<%
-										if (beanEE.get(i).getTravelSum() == 0) {
+										if (beanEE.get(i).getTravelSumComma() == null) {
 												out.print("");
 										} else {
-												out.print(beanEE.get(i).getTravelSum());
+												out.print(beanEE.get(i).getTravelSumComma());
 											}
 									%>
 								</th>
 								<th>
 									<%
-										if (beanEE.get(i).getOtherSum() == 0) {
+										if (beanEE.get(i).getOtherSumComma() == null) {
 												out.print("");
 										} else {
-												out.print(beanEE.get(i).getOtherSum());
+												out.print(beanEE.get(i).getOtherSumComma());
 											}
 									%>
 								</th>
 								<th>
 									<%
-										if (beanEE.get(i).getExpenseEstimateSum() == 0) {
+										if (beanEE.get(i).getExpenseEstimateSumComma() == null) {
 												out.print("");
 										} else {
-												out.print(beanEE.get(i).getExpenseEstimateSum());
+												out.print(beanEE.get(i).getExpenseEstimateSumComma());
 											}
 									%>
 								</th>
@@ -836,7 +835,7 @@
 							<tfoot>
 							<tr>
 								<th colspan="2"><label style="margin-left: 10%">รวม</label>
-									<label style="margin-left: 10%"><%=beanEs.getUserSumTotal()%></label>
+									<label style="margin-left: 10%"><%=beanEs.getUserSumTotalComma()%></label>
 									<label style="margin-left: 25%">คน</label>
 								</th>
 								<th><label style="text-align: center;">รวมเงิน</label></th>

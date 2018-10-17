@@ -163,7 +163,7 @@ public class FormController {
 		return "permissionPrintPDFBack";
 	}
 
-	// update permission
+	// permissionBack
 		@RequestMapping(path = "/permissionBack", method = RequestMethod.POST)
 		public String gotoPermissionUpdate(int permissionId, HttpServletRequest request, Model model)
 				throws NumberFormatException, SQLException {
@@ -175,7 +175,7 @@ public class FormController {
 			
 			try {
 				bean = perDao.fromPermission(permissionId);
-				beanEs = perDao.findByEs(permissionId);
+				beanEs = perDao.PermissionBackEs(permissionId);
 				id=loginDao.PerBackDisabled(Integer.toString(permissionId));
 				
 				permissionId = bean.getPermissionId();
@@ -267,6 +267,69 @@ public class FormController {
 
 			return "permissionPrintPDF";
 		}
-	
+		
+		@RequestMapping("/insertPermissionBackSuccess")
+		public String insertPermissionBackSuccess(TestAjex permissionId, HttpServletRequest request, Model model) {
+			PermissionBean bean = new PermissionBean();
+			PermissionBackBean beanBack = new PermissionBackBean();
+			ExpenseSumaryBean beanEs = new ExpenseSumaryBean();
+			ExpenseSumaryBean beanEsBack = new ExpenseSumaryBean();
+			TravelExpensesFuelCostBean beanTEFC = new TravelExpensesFuelCostBean();
+			List<ExpenseEstimateBean> beanEE = new ArrayList<>();
+			List<TravelExpensesBean> beanTr = new ArrayList<>();
+			List<TravelExpensesBean> beanTr2 = new ArrayList<>();
+			List<TravelExpensesBean> beanTr3 = new ArrayList<>();
+			try {
+				permissionId = perDao.perId();
+				bean = perDao.fromPermission(permissionId.getPerId());
+				beanBack = perDao.fromPermissionBack(permissionId.getPerId());
+				beanEs = perDao.findByEs(permissionId.getPerId());
+				beanEsBack = perDao.findByEsBack(permissionId.getPerId());
+				beanTEFC = perDao.findByIdTEFC(permissionId.getPerId());
+				beanEE = perDao.findByIdExpenseEstimateBack(permissionId.getPerId());
+				beanTr = perDao.findByIdTravel(permissionId.getPerId());
+				beanTr2 = perDao.findByIdTravel2();
+
+				a : for (Iterator<TravelExpensesBean> iter2 = beanTr2.listIterator(); iter2.hasNext();) {
+
+					TravelExpensesBean travelExpensesBean2 = iter2.next();
+
+					if (beanTr.isEmpty()) {
+						beanTr3.addAll(beanTr2);
+						break;
+					}
+					
+				 for (Iterator<TravelExpensesBean> iter = beanTr.listIterator(); iter.hasNext();) {
+
+						TravelExpensesBean travelExpensesBean = iter.next();
+						if (travelExpensesBean.getTravelId() == travelExpensesBean2.getTravelId()) {
+							beanTr3.add(travelExpensesBean);
+							iter.remove();
+							iter2.remove();
+							continue a;
+						}
+					}
+					beanTr3.add(travelExpensesBean2);
+					iter2.remove();
+
+				}
+
+				if (permissionId.getPerId() != 0) {
+					model.addAttribute("messesUpdate", "");
+					request.setAttribute("perBean", bean);
+					request.setAttribute("perBackBean", beanBack);
+					request.setAttribute("beanEs", beanEs);
+					request.setAttribute("beanEsBack", beanEsBack);
+					request.setAttribute("beanTEFC", beanTEFC);
+					request.setAttribute("beanEE", beanEE);
+					request.setAttribute("beanTr", beanTr3);
+				}
+			} catch (Exception e) {
+				// TODO: handle exception
+//				e.printStackTrace();
+			}
+
+			return "permissionPrintPDFBack";
+		}
 
 }

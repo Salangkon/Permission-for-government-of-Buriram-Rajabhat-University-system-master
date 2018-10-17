@@ -18,20 +18,88 @@ public class ExpenseEstimateBean {
 	
 	private int travelSum;
 	private int otherSum;
-	private String otherSum1;
 	
 	private int expenseEstimateSum;
+	
+	private String allowenceTypeComma;
+	private String allowenceComma;
+	private String allowencePerdayComma;
+	private String allowenceSumComma;
+	private String rentDateComma;
+	private String rentDatePerdayComma;
+	private String rentDateSumComma;
+	
+	private String travelSumComma;
+	private String otherSumComma;
+
+	private String expenseEstimateSumComma;
+	
 	// FK user
 	private int personnelId;
 	private Timestamp createDate;
 	// FK permission
 	private int permissionId;
 	
-	public String getOtherSum1() {
-		return otherSum1;
+	
+	public String getExpenseEstimateSumComma() {
+		return expenseEstimateSumComma;
 	}
-	public void setOtherSum1(String otherSum1) {
-		this.otherSum1 = otherSum1;
+	public void setExpenseEstimateSumComma(String expenseEstimateSumComma) {
+		this.expenseEstimateSumComma = expenseEstimateSumComma;
+	}
+	public String getAllowenceTypeComma() {
+		return allowenceTypeComma;
+	}
+	public void setAllowenceTypeComma(String allowenceTypeComma) {
+		this.allowenceTypeComma = allowenceTypeComma;
+	}
+	public String getAllowenceComma() {
+		return allowenceComma;
+	}
+	public void setAllowenceComma(String allowenceComma) {
+		this.allowenceComma = allowenceComma;
+	}
+	public String getAllowencePerdayComma() {
+		return allowencePerdayComma;
+	}
+	public void setAllowencePerdayComma(String allowencePerdayComma) {
+		this.allowencePerdayComma = allowencePerdayComma;
+	}
+	public String getAllowenceSumComma() {
+		return allowenceSumComma;
+	}
+	public void setAllowenceSumComma(String allowenceSumComma) {
+		this.allowenceSumComma = allowenceSumComma;
+	}
+	public String getRentDateComma() {
+		return rentDateComma;
+	}
+	public void setRentDateComma(String rentDateComma) {
+		this.rentDateComma = rentDateComma;
+	}
+	public String getRentDatePerdayComma() {
+		return rentDatePerdayComma;
+	}
+	public void setRentDatePerdayComma(String rentDatePerdayComma) {
+		this.rentDatePerdayComma = rentDatePerdayComma;
+	}
+	public String getRentDateSumComma() {
+		return rentDateSumComma;
+	}
+	public void setRentDateSumComma(String rentDateSumComma) {
+		this.rentDateSumComma = rentDateSumComma;
+	}
+	public String getTravelSumComma() {
+		return travelSumComma;
+	}
+	public void setTravelSumComma(String travelSumComma) {
+		this.travelSumComma = travelSumComma;
+	}
+	public String getOtherSumComma() {
+		return otherSumComma;
+	}
+	public void setOtherSumComma(String otherSumComma) {
+		this.otherSumComma = otherSumComma;
 	}
 	public int getAllowenceType() {
 		return allowenceType;

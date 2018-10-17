@@ -533,13 +533,72 @@ public class PermissionDao {
 	}
 	
 	// update checkID permission By ExpenseEstimateBean
+			public List<ExpenseEstimateBean> PermissionBackEE(int userId) throws SQLException {
+				List<ExpenseEstimateBean> list = new ArrayList<>();
+				ConnectDB con = new ConnectDB();
+				Connection conn = con.openConnect();
+				PreparedStatement preperd = null;
+				StringBuilder sql = new StringBuilder();
+				
+				try {
+					sql.append(" SELECT u.sex, u.user_fname, u.user_lname, sp.sub_position_name, ee.*\r\n" + 
+							"FROM expense_estimate ee\r\n" + 
+							"INNER JOIN personnel_list pl  on pl.personnel_id = ee.personnel_id\r\n" + 
+							"INNER JOIN user u on u.user_id = pl.user_id\r\n" + 
+							"INNER JOIN department d on d.department_code = pl.department_code\r\n" + 
+							"INNER JOIN faculty f on f.faculty_code = d.faculty_code\r\n" + 
+							"INNER JOIN sub_position sp on sp.sub_position_code = pl.sub_position_code\r\n" + 
+							"INNER JOIN position p on p.position_code = sp.position_code WHERE Permission_id = ? ");
+					preperd = conn.prepareStatement(sql.toString());
+					preperd.setInt(1, userId);
+					ResultSet rs = preperd.executeQuery();
+
+					while (rs.next()) {
+						ExpenseEstimateBean bean = new ExpenseEstimateBean();
+						// ExpenseEstimate
+						bean.setPermissionId(rs.getInt("permission_id"));
+						bean.setPersonnelId(rs.getInt("personnel_id"));
+						bean.setSex(rs.getString("sex"));
+						bean.setUserFname(rs.getString("user_fname"));
+						bean.setUserLname(rs.getString("user_lname"));
+						bean.setSubPositionName(rs.getString("sub_position_name"));
+						bean.setAllowenceType(rs.getInt("allowence_type"));
+						
+						bean.setAllowence(rs.getInt("allowence"));
+						bean.setAllowencePerday(rs.getInt("allowence_perday"));
+						bean.setAllowenceSum(rs.getInt("allowence_sum"));
+						
+						bean.setRentDate(rs.getInt("rent_date"));
+						bean.setRentDatePerday(rs.getInt("rent_date_perday"));
+						bean.setRentDateSum(rs.getInt("rent_date_sum"));
+						
+						bean.setTravelSum(rs.getInt("travel_sum"));
+						
+						bean.setOtherSum(rs.getInt("other_sum"));
+						
+						bean.setExpenseEstimateSum(rs.getInt("expense_estimate_sum"));
+
+						list.add(bean);
+					}
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				} finally {
+					if (con != null) {
+						conn.close();
+					}
+				}
+				return list;
+			}
+	
+	// update checkID permission By ExpenseEstimateBean
 		public List<ExpenseEstimateBean> findByIdExpenseEstimate(int userId) throws SQLException {
 			List<ExpenseEstimateBean> list = new ArrayList<>();
 			ConnectDB con = new ConnectDB();
 			Connection conn = con.openConnect();
 			PreparedStatement preperd = null;
 			StringBuilder sql = new StringBuilder();
-
+			
 			try {
 				sql.append(" SELECT u.sex, u.user_fname, u.user_lname, sp.sub_position_name, ee.*\r\n" + 
 						"FROM expense_estimate ee\r\n" + 
@@ -552,7 +611,7 @@ public class PermissionDao {
 				preperd = conn.prepareStatement(sql.toString());
 				preperd.setInt(1, userId);
 				ResultSet rs = preperd.executeQuery();
-
+				DecimalFormat myFormatter = new DecimalFormat();
 				while (rs.next()) {
 					ExpenseEstimateBean bean = new ExpenseEstimateBean();
 					// ExpenseEstimate
@@ -562,21 +621,21 @@ public class PermissionDao {
 					bean.setUserFname(rs.getString("user_fname"));
 					bean.setUserLname(rs.getString("user_lname"));
 					bean.setSubPositionName(rs.getString("sub_position_name"));
-					bean.setAllowenceType(rs.getInt("allowence_type"));
+					bean.setAllowenceTypeComma(myFormatter.format(rs.getInt("allowence_type")));
 					
-					bean.setAllowence(rs.getInt("allowence"));
-					bean.setAllowencePerday(rs.getInt("allowence_perday"));
-					bean.setAllowenceSum(rs.getInt("allowence_sum"));
+					bean.setAllowenceComma(myFormatter.format(rs.getInt("allowence")));
+					bean.setAllowencePerdayComma(myFormatter.format(rs.getInt("allowence_perday")));
+					bean.setAllowenceSumComma(myFormatter.format(rs.getInt("allowence_sum")));
 					
-					bean.setRentDate(rs.getInt("rent_date"));
-					bean.setRentDatePerday(rs.getInt("rent_date_perday"));
-					bean.setRentDateSum(rs.getInt("rent_date_sum"));
+					bean.setRentDateComma(myFormatter.format(rs.getInt("rent_date")));
+					bean.setRentDatePerdayComma(myFormatter.format(rs.getInt("rent_date_perday")));
+					bean.setRentDateSumComma(myFormatter.format(rs.getInt("rent_date_sum")));
 					
-					bean.setTravelSum(rs.getInt("travel_sum"));
+					bean.setTravelSumComma(myFormatter.format(rs.getInt("travel_sum")));
 					
-					bean.setOtherSum(rs.getInt("other_sum"));
+					bean.setOtherSumComma(myFormatter.format(rs.getInt("other_sum")));
 					
-					bean.setExpenseEstimateSum(rs.getInt("expense_estimate_sum"));
+					bean.setExpenseEstimateSumComma(myFormatter.format(rs.getInt("expense_estimate_sum")));
 
 					list.add(bean);
 				}
@@ -734,6 +793,46 @@ public class PermissionDao {
 		}
 		return bean;
 	}// end ES
+	
+	// PermissionBackEs
+		public ExpenseSumaryBean PermissionBackEs(int userId) throws SQLException {
+			ExpenseSumaryBean bean = new ExpenseSumaryBean();
+			ConnectDB con = new ConnectDB();
+			Connection conn = con.openConnect();
+			PreparedStatement preperd = null;
+			StringBuilder sql = new StringBuilder();
+
+			try {
+				sql.append(" SELECT * FROM expense_sumary WHERE Permission_id = ? ");
+				preperd = conn.prepareStatement(sql.toString());
+				preperd.setInt(1, userId);
+				ResultSet rs = preperd.executeQuery();
+				
+				while (rs.next()) {
+					bean.setPermissionId(rs.getInt("permission_id"));
+
+					bean.setUserSumTotal(rs.getInt("user_sum_total"));
+					bean.setAllowenceSumTotal(rs.getInt("allowence_sum_total"));
+					bean.setAllowencePerdayTotal(rs.getFloat("allowence_perday_total"));
+					bean.setRentDateSumTotal(rs.getInt("rent_date_sum_total"));
+					bean.setRentDatePerdayTotal(rs.getFloat("rent_date_perday_total"));
+					bean.setTravelSumTotal(rs.getInt("travel_sum_total"));
+					bean.setOtherSumTotal(rs.getInt("other_sum_total"));
+					bean.setExpenseEstimateSumTotal(rs.getInt("expense_estimate_sum_total"));
+					
+					permissionId = bean.getPermissionId();
+
+				}
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			} finally {
+				if (con != null) {
+					conn.close();
+				}
+			}
+			return bean;
+		}// end PermissionBackEs
 
 	private static final String[] SCALE_TH = { "ล้าน", "สิบ", "ร้อย", "พัน", "หมื่น", "แสน", "" };
     private static final String[] DIGIT_TH = { "ศูนย์", "หนึ่ง", "สอง", "สาม", "สี่", "ห้า", "หก", "เจ็ด", "แปด", "เก้า" };

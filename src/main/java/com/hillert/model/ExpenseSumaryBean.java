@@ -30,7 +30,6 @@ public class ExpenseSumaryBean {
 	
 	private Timestamp createDate;
 
-	
 	public String getUserSumTotalComma() {
 		return userSumTotalComma;
 	}
