@@ -7,7 +7,14 @@ public class DepartmentBean {
 	private String departmentCode;
 	private String facultyCode;
 	
+	private String facultyName;
 	
+	public String getFacultyName() {
+		return facultyName;
+	}
+	public void setFacultyName(String facultyName) {
+		this.facultyName = facultyName;
+	}
 	public String getDepartmentCode() {
 		return departmentCode;
 	}

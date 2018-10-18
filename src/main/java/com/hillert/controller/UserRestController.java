@@ -49,6 +49,42 @@ public class UserRestController {
 		return list;
 	}
 	
+	//List FacultyBean
+	@RequestMapping(value="/addFacultyTable")
+	public List<FacultyBean> addFaculty() throws SQLException{
+		List<FacultyBean> list = new ArrayList<>();
+		list = userDao.addFaculty();
+		
+		return list;
+	}
+	
+	//List addDepartmentTable
+	@RequestMapping(value="/addDepartmentTable")
+	public List<DepartmentBean> addDepartment() throws SQLException{
+		List<DepartmentBean> list = new ArrayList<>();
+		list = userDao.addDepartment();
+		
+		return list;
+	}
+	
+	//List addPositionTable
+	@RequestMapping(value="/addPositionTable")
+	public List<PositionBean> addPosition() throws SQLException{
+		List<PositionBean> list = new ArrayList<>();
+		list = userDao.addPosition();
+		
+		return list;
+	}
+
+	//List addSubPositionTable
+	@RequestMapping(value="/addSubPositionTable")
+	public List<SubPositionBean> addSubPosition() throws SQLException{
+		List<SubPositionBean> list = new ArrayList<>();
+		list = userDao.addSubPosition();
+		
+		return list;
+	}
+	
 	// userPersonnel
 	@RequestMapping(value = "/userPersonnel")
 	public List<PersonAddressBean> userPersonnel() throws SQLException {

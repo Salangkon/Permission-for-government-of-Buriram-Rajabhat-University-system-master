@@ -100,6 +100,10 @@
 	<form name="Ask_helpForm"    action="gotoAsk_Help"    method="post" th:hidden="true"></form>
 	<form name="insertForm"      action="gotoInsert"      method="post" th:hidden="true"></form>
 	<form name="logoutForm"      action="logout"          method="post" th:hidden="true"></form>
+	<form name="addFaculty"  	action="addFaculty" 	method="post" th:hidden= "true"></form>
+	<form name="addDepartment"  action="addDepartment" 	method="post" th:hidden= "true"></form>
+	<form name="addPosition"  	action="addPosition" 	method="post" th:hidden= "true"></form>
+	<form name="addSubPosition" action="addSubPosition" method="post" th:hidden= "true"></form>
 	
 </body>
 </html>

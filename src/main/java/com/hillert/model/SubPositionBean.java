@@ -9,6 +9,14 @@ public class SubPositionBean {
 	private int allowence;
 	private int rentDate;
 	
+	private String positionName;
+	
+	public String getPositionName() {
+		return positionName;
+	}
+	public void setPositionName(String positionName) {
+		this.positionName = positionName;
+	}
 	public int getSubPositionId() {
 		return subPositionId;
 	}

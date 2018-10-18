@@ -26,7 +26,7 @@ $(document).ready(function() {
 						"mData" : "destinationName",
 						   "sWidth" : "200px" 
 					}, {
-						"mData" : "expenseEstimateSumTotal",
+						"mData" : "expenseEstimateSumTotalComma",
 						   "sWidth" : "50px" 
 					},
 					{

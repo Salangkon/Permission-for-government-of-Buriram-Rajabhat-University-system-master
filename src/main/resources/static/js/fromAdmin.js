@@ -24,24 +24,15 @@ $(document).ready(function() {
 							"mData" : "destinationName",
 							   "sWidth" : "200px" 
 						}, {
-							"mData" : "expenseEstimateSumTotal",
+							"mData" : "expenseEstimateSumTotalComma",
 							   "sWidth" : "50px" 
 						}, 
-//					{
-//						"mData" : "",
-//						"sWidth" : "20px" ,
-//						"mRender": function (data, type, full, row) {// full คือ ข้อมูลของ
-//							// ตาราง
-//
-//							return '<a href="/gotoPerUpdate/' + full.permissionId  + '" ' + '<span class="glyphicon glyphicon-edit">Update</span>' + '</a> '+ full.permissionId + '';
-//						}
-//					}, 
 					{
 						"mData": "",
 						"sWidth" : "20px" ,
 						"mRender": function (data, type, full) {// full คือ ข้อมูลของ
 							// ตาราง
-							return '';
+							return '<div align="center"><a href="/permissionPDFAdmin/'+ full.permissionId  + '"> <span class="glyphicon glyphicon-print"></span>' + '</a></div>';
 
 						}
 					},
@@ -49,10 +40,11 @@ $(document).ready(function() {
 						"mData": "",
 						"sWidth" : "20px" ,
 						"mRender": function (data, type, full, row) {// full คือ ข้อมูลของ
-							// ตาราง
-
-							return '';
-
+							if (full.permissionStatus == 0) {
+				                return '<div align="center" style="color:red">รอดำเนินการ</div>';
+				            } else {
+				            	return '<div align="center"><a href="/permissionPDFBackAdmin/'+ full.permissionId  + '"> <span class="glyphicon glyphicon-print"></span>' + '</a></div>';
+				            }
 						}
 					}]
 				});

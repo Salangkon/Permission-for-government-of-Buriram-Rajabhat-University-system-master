@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 
 import org.springframework.stereotype.Service;
 
@@ -287,11 +288,13 @@ public class AdminDao {
 		StringBuilder sql = new StringBuilder();
 
 		try {
-			sql.append("SELECT SUM(expense_estimate_sum_total) AS expense_estimate FROM expense_sumary ");
+			sql.append("SELECT SUM(b_expense_estimate_sum_total) AS expense_estimate FROM expense_sumary_back ");
 			prepared = conn.prepareStatement(sql.toString());
 			ResultSet rs = prepared.executeQuery();
+			DecimalFormat myFormatter = new DecimalFormat();
 			while (rs.next()) {
 				bean.setExpenseEstimateSumTotal(rs.getInt("expense_estimate"));
+				bean.setExpenseEstimateSumTotalComma(myFormatter.format(rs.getInt("expense_estimate")));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -310,18 +313,20 @@ public class AdminDao {
 		StringBuilder sql = new StringBuilder();
 		
 		try {
-			sql.append("SELECT SUM(expense_estimate_sum_total) AS expense_estimate_fac1\r\n" + 
+			sql.append("SELECT SUM(b_expense_estimate_sum_total) AS expense_estimate_fac1\r\n" + 
 					"FROM Permission \r\n" + 
 					"INNER JOIN personnel_list pl ON pl.personnel_id =  permission.personnel_id  \r\n" + 
 					"INNER JOIN user u on u.user_id = pl.user_id\r\n" + 
 					"INNER JOIN department d on d.department_code = pl.department_code\r\n" + 
 					"INNER JOIN faculty f on f.faculty_code = d.faculty_code\r\n" + 
-					"INNER JOIN expense_sumary es on es.permission_id = permission.permission_id \r\n" + 
+					"INNER JOIN expense_sumary_back es on es.permission_id = permission.permission_id \r\n" + 
 					"WHERE f.faculty_id = 1");
 			prepared = conn.prepareStatement(sql.toString());
 			ResultSet rs = prepared.executeQuery();
+			DecimalFormat myFormatter = new DecimalFormat();
 			while (rs.next()) {
 				bean.setExpenseEstimateSumTotal(rs.getInt("expense_estimate_fac1"));
+				bean.setExpenseEstimateSumTotalComma(myFormatter.format(rs.getInt("expense_estimate_fac1")));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -340,18 +345,20 @@ public class AdminDao {
 		StringBuilder sql = new StringBuilder();
 		
 		try {
-			sql.append("SELECT SUM(expense_estimate_sum_total) AS expense_estimate_fac2\r\n" + 
+			sql.append("SELECT SUM(b_expense_estimate_sum_total) AS expense_estimate_fac2\r\n" + 
 					"FROM Permission \r\n" + 
 					"INNER JOIN personnel_list pl ON pl.personnel_id =  permission.personnel_id  \r\n" + 
 					"INNER JOIN user u on u.user_id = pl.user_id\r\n" + 
 					"INNER JOIN department d on d.department_code = pl.department_code\r\n" + 
 					"INNER JOIN faculty f on f.faculty_code = d.faculty_code\r\n" + 
-					"INNER JOIN expense_sumary es on es.permission_id = permission.permission_id \r\n" + 
+					"INNER JOIN expense_sumary_back es on es.permission_id = permission.permission_id \r\n" + 
 					"WHERE f.faculty_id = 2");
 			prepared = conn.prepareStatement(sql.toString());
 			ResultSet rs = prepared.executeQuery();
+			DecimalFormat myFormatter = new DecimalFormat();
 			while (rs.next()) {
 				bean.setExpenseEstimateSumTotal(rs.getInt("expense_estimate_fac2"));
+				bean.setExpenseEstimateSumTotalComma(myFormatter.format(rs.getInt("expense_estimate_fac2")));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -370,18 +377,20 @@ public class AdminDao {
 		StringBuilder sql = new StringBuilder();
 		
 		try {
-			sql.append("SELECT SUM(expense_estimate_sum_total) AS expense_estimate_fac3\r\n" + 
+			sql.append("SELECT SUM(b_expense_estimate_sum_total) AS expense_estimate_fac3\r\n" + 
 					"FROM Permission \r\n" + 
 					"INNER JOIN personnel_list pl ON pl.personnel_id =  permission.personnel_id  \r\n" + 
 					"INNER JOIN user u on u.user_id = pl.user_id\r\n" + 
 					"INNER JOIN department d on d.department_code = pl.department_code\r\n" + 
 					"INNER JOIN faculty f on f.faculty_code = d.faculty_code\r\n" + 
-					"INNER JOIN expense_sumary es on es.permission_id = permission.permission_id \r\n" + 
+					"INNER JOIN expense_sumary_back es on es.permission_id = permission.permission_id \r\n" + 
 					"WHERE f.faculty_id = 3");
 			prepared = conn.prepareStatement(sql.toString());
 			ResultSet rs = prepared.executeQuery();
+			DecimalFormat myFormatter = new DecimalFormat();
 			while (rs.next()) {
 				bean.setExpenseEstimateSumTotal(rs.getInt("expense_estimate_fac3"));
+				bean.setExpenseEstimateSumTotalComma(myFormatter.format(rs.getInt("expense_estimate_fac3")));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -400,18 +409,20 @@ public class AdminDao {
 		StringBuilder sql = new StringBuilder();
 		
 		try {
-			sql.append("SELECT SUM(expense_estimate_sum_total) AS expense_estimate_fac4\r\n" + 
+			sql.append("SELECT SUM(b_expense_estimate_sum_total) AS expense_estimate_fac4\r\n" + 
 					"FROM Permission \r\n" + 
 					"INNER JOIN personnel_list pl ON pl.personnel_id =  permission.personnel_id  \r\n" + 
 					"INNER JOIN user u on u.user_id = pl.user_id\r\n" + 
 					"INNER JOIN department d on d.department_code = pl.department_code\r\n" + 
 					"INNER JOIN faculty f on f.faculty_code = d.faculty_code\r\n" + 
-					"INNER JOIN expense_sumary es on es.permission_id = permission.permission_id \r\n" + 
+					"INNER JOIN expense_sumary_back es on es.permission_id = permission.permission_id \r\n" + 
 					"WHERE f.faculty_id = 4");
 			prepared = conn.prepareStatement(sql.toString());
 			ResultSet rs = prepared.executeQuery();
+			DecimalFormat myFormatter = new DecimalFormat();
 			while (rs.next()) {
 				bean.setExpenseEstimateSumTotal(rs.getInt("expense_estimate_fac4"));
+				bean.setExpenseEstimateSumTotalComma(myFormatter.format(rs.getInt("expense_estimate_fac4")));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -430,18 +441,20 @@ public class AdminDao {
 		StringBuilder sql = new StringBuilder();
 		
 		try {
-			sql.append("SELECT SUM(expense_estimate_sum_total) AS expense_estimate_fac5\r\n" + 
+			sql.append("SELECT SUM(b_expense_estimate_sum_total) AS expense_estimate_fac5\r\n" + 
 					"FROM Permission \r\n" + 
 					"INNER JOIN personnel_list pl ON pl.personnel_id =  permission.personnel_id  \r\n" + 
 					"INNER JOIN user u on u.user_id = pl.user_id\r\n" + 
 					"INNER JOIN department d on d.department_code = pl.department_code\r\n" + 
 					"INNER JOIN faculty f on f.faculty_code = d.faculty_code\r\n" + 
-					"INNER JOIN expense_sumary es on es.permission_id = permission.permission_id \r\n" + 
+					"INNER JOIN expense_sumary_back es on es.permission_id = permission.permission_id \r\n" + 
 					"WHERE f.faculty_id = 5");
 			prepared = conn.prepareStatement(sql.toString());
 			ResultSet rs = prepared.executeQuery();
+			DecimalFormat myFormatter = new DecimalFormat();
 			while (rs.next()) {
 				bean.setExpenseEstimateSumTotal(rs.getInt("expense_estimate_fac5"));
+				bean.setExpenseEstimateSumTotalComma(myFormatter.format(rs.getInt("expense_estimate_fac5")));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -460,18 +473,20 @@ public class AdminDao {
 		StringBuilder sql = new StringBuilder();
 		
 		try {
-			sql.append("SELECT SUM(expense_estimate_sum_total) AS expense_estimate_fac6\r\n" + 
+			sql.append("SELECT SUM(b_expense_estimate_sum_total) AS expense_estimate_fac6\r\n" + 
 					"FROM Permission \r\n" + 
 					"INNER JOIN personnel_list pl ON pl.personnel_id =  permission.personnel_id  \r\n" + 
 					"INNER JOIN user u on u.user_id = pl.user_id\r\n" + 
 					"INNER JOIN department d on d.department_code = pl.department_code\r\n" + 
 					"INNER JOIN faculty f on f.faculty_code = d.faculty_code\r\n" + 
-					"INNER JOIN expense_sumary es on es.permission_id = permission.permission_id \r\n" + 
+					"INNER JOIN expense_sumary_back es on es.permission_id = permission.permission_id \r\n" + 
 					"WHERE f.faculty_id = 6");
 			prepared = conn.prepareStatement(sql.toString());
 			ResultSet rs = prepared.executeQuery();
+			DecimalFormat myFormatter = new DecimalFormat();
 			while (rs.next()) {
 				bean.setExpenseEstimateSumTotal(rs.getInt("expense_estimate_fac6"));
+				bean.setExpenseEstimateSumTotalComma(myFormatter.format(rs.getInt("expense_estimate_fac6")));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

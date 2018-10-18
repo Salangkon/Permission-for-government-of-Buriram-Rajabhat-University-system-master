@@ -23,8 +23,6 @@ public class FacultyBean {
 		}
 		public void setFacultyCode(String facultyCode) {
 			this.facultyCode = facultyCode;
-		}
-		
-		
+		}	
 		
 }

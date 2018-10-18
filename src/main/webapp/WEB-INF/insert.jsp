@@ -5,7 +5,7 @@
 <%@page import="com.hillert.model.UserBean"%>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>Insert to users.</title>
+	<title>บันทึก ข้อมูลบุคลากร</title>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -47,7 +47,7 @@
 
 	<div class="container w3-animate-opacity" >
 		<div class="panel panel-primary" style="margin-top: 5%;" >
-			<div class="panel-heading" >Welcome to register.</div>
+			<div class="panel-heading" ><h4>บันทึก ข้อมูลบุคลากร</h4></div>
 			<% if (result.equals("S")) { %>
 					<div class="alert alert-success" align="center">
 					<strong>บันทึก </strong> เรียบร้อย
@@ -62,7 +62,7 @@
 		<div style="size: 10" class="col-sm-6" >
 			<div class="col-sm-9">
 				<div class="form-group">
-					<label for="exampleInputEmail1">UserName</label> 
+					<label for="exampleInputEmail1">ไอดี ผู้ใช้งาน</label> 
 					<input type="text" min="10" maxlength="15" class="form-control" name="userUsername" id="userUsername" required> 
 					<label for="exampleInputEmail1" id="check"> </label>
 					<div class="hide" id="error-username"><label style="color: red;">กรุณากรอก ชื่อผู้ใช้งาน</label></div>
@@ -76,7 +76,7 @@
 			
 			<div class="col-sm-9">
 				<div class="form-group">
-					<label for="exampleInputEmail1">Password</label> <input maxlength="15" type="password" class="form-control" name="userPassword" id="userPassword" required>
+					<label for="exampleInputEmail1">รหัส ผู้ใช้งาน</label> <input maxlength="15" type="password" class="form-control" name="userPassword" id="userPassword" required>
 					<div class="hide" id="error-password"><label style="color: red;">กรุณากรอก รหัสผู้ใช้งาน</label></div>	
 				</div>
 			</div>
@@ -197,10 +197,14 @@
 
 <!-- </form> -->
 
-<form name="logoutForm"   action="logout" 	    method="post" th:hidden= "true"></form>
-<form name="insertForm"   action="gotoInsert"   method="post" th:hidden= "true"></form>
-<form name="userAllForm"  action="gotoUserAll"  method="post" th:hidden= "true"></form>
-<form name="RequestForm"  action="gotoRequest"  method="post" th:hidden= "true"></form>
+	<form name="logoutForm"   action="logout" 	    method="post" th:hidden= "true"></form>
+	<form name="insertForm"   action="gotoInsert"   method="post" th:hidden= "true"></form>
+	<form name="userAllForm"  action="gotoUserAll"  method="post" th:hidden= "true"></form>
+	<form name="RequestForm"  action="gotoRequest"  method="post" th:hidden= "true"></form>
+	<form name="addFaculty"  	action="addFaculty" 	method="post" th:hidden= "true"></form>
+	<form name="addDepartment"  action="addDepartment" 	method="post" th:hidden= "true"></form>
+	<form name="addPosition"  	action="addPosition" 	method="post" th:hidden= "true"></form>
+	<form name="addSubPosition" action="addSubPosition" method="post" th:hidden= "true"></form>
 
 </body>
 </html>

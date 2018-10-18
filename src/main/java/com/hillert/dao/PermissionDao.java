@@ -670,7 +670,7 @@ public class PermissionDao {
 			preperd = conn.prepareStatement(sql.toString());
 			preperd.setInt(1, userId);
 			ResultSet rs = preperd.executeQuery();
-
+			DecimalFormat myFormatter = new DecimalFormat();
 			while (rs.next()) {
 				ExpenseEstimateBean bean = new ExpenseEstimateBean();
 				// ExpenseEstimate
@@ -695,6 +695,20 @@ public class PermissionDao {
 				bean.setOtherSum(rs.getInt("b_other_sum"));
 
 				bean.setExpenseEstimateSum(rs.getInt("b_expense_estimate_sum"));
+
+				bean.setAllowenceComma(myFormatter.format(rs.getInt("b_allowence")));
+				bean.setAllowencePerdayComma(myFormatter.format(rs.getInt("b_allowence_perday")));
+				bean.setAllowenceSumComma(myFormatter.format(rs.getInt("b_allowence_sum")));
+				
+				bean.setRentDateComma(myFormatter.format(rs.getInt("b_rent_date")));
+				bean.setRentDatePerdayComma(myFormatter.format(rs.getInt("b_rent_date_perday")));
+				bean.setRentDateSumComma(myFormatter.format(rs.getInt("b_rent_date_sum")));
+				
+				bean.setTravelSumComma(myFormatter.format(rs.getInt("b_travel_sum")));
+				
+				bean.setOtherSumComma(myFormatter.format(rs.getInt("b_other_sum")));
+
+				bean.setExpenseEstimateSumComma(myFormatter.format(rs.getInt("b_expense_estimate_sum")));
 
 				list.add(bean);
 			}
@@ -966,7 +980,7 @@ public class PermissionDao {
 			preperd = conn.prepareStatement(sql.toString());
 			preperd.setInt(1, userId);
 			ResultSet rs = preperd.executeQuery();
-
+			DecimalFormat myFormatter = new DecimalFormat();
 			while (rs.next()) {
 				bean.setPermissionId((rs.getInt("permission_id")));
 
@@ -980,6 +994,15 @@ public class PermissionDao {
 				bean.setExpenseEstimateSumTotal(rs.getInt("b_expense_estimate_sum_total"));
 				bean.setExpenseEstimateSumTotalThaiBaht(getText(rs.getString("b_expense_estimate_sum_total")));
 				permissionId = bean.getPermissionId();
+				
+				bean.setUserSumTotalComma(myFormatter.format(rs.getInt("b_user_sum_total")));
+				bean.setAllowenceSumTotalComma(myFormatter.format(rs.getInt("b_allowence_sum_total")));
+				bean.setAllowencePerdayTotalComma(myFormatter.format(rs.getFloat("b_allowence_perday_total")));
+				bean.setRentDateSumTotalComma(myFormatter.format(rs.getInt("b_rent_date_sum_total")));
+				bean.setRentDatePerdayTotalComma(myFormatter.format(rs.getFloat("b_rent_date_perday_total")));
+				bean.setTravelSumTotalComma(myFormatter.format(rs.getInt("b_travel_sum_total")));
+				bean.setOtherSumTotalComma(myFormatter.format(rs.getInt("b_other_sum_total")));
+				bean.setExpenseEstimateSumTotalComma(myFormatter.format(rs.getInt("b_expense_estimate_sum_total")));
 
 			}
 		} catch (Exception e) {
@@ -1170,7 +1193,7 @@ public class PermissionDao {
 			prepared = conn.prepareStatement(sql.toString());
 			prepared.setInt(1, personnelId);
 			ResultSet rs = prepared.executeQuery();
-
+			DecimalFormat myFormatter = new DecimalFormat();
 			while (rs.next()) {
 				PermissionBean bean = new PermissionBean();
 				bean.setPermissionId(rs.getInt("permission_id"));
@@ -1224,7 +1247,7 @@ public class PermissionDao {
 				bean.setTopics(rs.getString("topics"));
 				bean.setOther(rs.getString("other"));
 				
-				bean.setExpenseEstimateSumTotal(rs.getString("expense_estimate_sum_total"));
+				bean.setExpenseEstimateSumTotalComma(myFormatter.format(rs.getInt("expense_estimate_sum_total")));
 				
 				list.add(bean);
 
@@ -1265,10 +1288,11 @@ public class PermissionDao {
 			prepared = conn.prepareStatement(sql.toString());
 
 			ResultSet rs = prepared.executeQuery();
-
+			DecimalFormat myFormatter = new DecimalFormat();
 			while (rs.next()) {
 				PermissionBean bean = new PermissionBean();
 				bean.setPermissionId(rs.getInt("permission_id"));
+				bean.setPermissionStatus(rs.getString("permission_status"));
 				
 				bean.setUserFname(rs.getString("user_fname"));
 				bean.setUserLname(rs.getString("user_lname"));
@@ -1318,7 +1342,7 @@ public class PermissionDao {
 				bean.setTopics(rs.getString("topics"));
 				bean.setOther(rs.getString("other"));
 				
-				bean.setExpenseEstimateSumTotal(rs.getString("expense_estimate_sum_total"));
+				bean.setExpenseEstimateSumTotalComma(myFormatter.format(rs.getInt("expense_estimate_sum_total")));
 				
 				list.add(bean);
 			}

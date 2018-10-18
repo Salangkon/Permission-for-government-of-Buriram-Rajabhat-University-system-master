@@ -15,7 +15,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>WelcomeAdmin</title>
+<title>ยินดีต้อนรับ ผุ้ดูแลระบบ</title>
 
 <%
 
@@ -66,7 +66,7 @@
 
 <marquee direction="alternate" scrollamount="4" height="100cm" width="40%">
 	<header class="w3-container" style="padding-top:22px">
-		<h3><b><i class="fa fa-dashboard"></i> ข้อมูลเชิงวิเคราะห์ ระบบขออนุญาตไปราชการ มรภ.บร</b></h3>
+		<h1><b><i class="fa fa-dashboard"></i> ข้อมูลเชิงวิเคราะห์ ระบบขออนุญาตไปราชการ มรภ.บร</b></h1>
 	</header>
 </marquee>
 
@@ -75,7 +75,7 @@
       <div class="w3-container w3-red w3-padding-16 w3-ul w3-card-4 w3-card w3-round w3-Turquoise">
         <div class="w3-left"><i class="w3-xxxlarge glyphicon glyphicon-usd"></i></div>
         <div class="w3-right">
-          <h3><%=es.getExpenseEstimateSumTotal() %></h3>
+          <h3><%=es.getExpenseEstimateSumTotalComma() %></h3>
         </div>
         <div class="w3-clear"></div>
         <h4>งบประมาณทั้งหมด</h4>
@@ -88,7 +88,7 @@
           <h3><%=countPer.getPermissionId() %></h3>
         </div>
         <div class="w3-clear"></div>
-        <h4>Permission Forms</h4>
+        <h4>จำนวน บันทึกขออนุญาตไปราชการ</h4>
       </div>
     </div>
     <div class="w3-quarter">
@@ -98,7 +98,7 @@
           <h3><%=countPerBack.getPermissionId() %></h3>
         </div>
         <div class="w3-clear"></div>
-        <h4>Permission Back Forms</h4>
+        <h4>จำนวน บันทึกเบิกค่าใช้จ่ายไปราชการ</h4>
       </div>
     </div>
     <div class="w3-quarter">
@@ -108,7 +108,7 @@
           <h3><%=countUser.getUserId() %></h3>
         </div>
         <div class="w3-clear"></div>
-        <h4>Users</h4>
+        <h4>จำนวน บุคลากร</h4>
       </div>
     </div>
   </div>
@@ -171,32 +171,32 @@
           <tr>
             <td><i class="fa fa-mortar-board w3-text-blue w3-large"></i></td>
             <td>คณะครุศาสตร์.</td>
-            <td><i><%=esFac1.getExpenseEstimateSumTotal() %> บาท</i></td>
+            <td><i><%=esFac1.getExpenseEstimateSumTotalComma() %> บาท</i></td>
           </tr>
           <tr>
             <td><i class="fa fa-thermometer-3 w3-text-red w3-large"></i></td>
             <td>คณะวิทยาศาสตร์.</td>
-            <td><i><%=esFac2.getExpenseEstimateSumTotal() %> บาท</i></td>
+            <td><i><%=esFac2.getExpenseEstimateSumTotalComma() %> บาท</i></td>
           </tr>
           <tr>
             <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
             <td>คณะมนุษยศาสตร์และสังคมศาสตร์.</td>
-            <td><i><%=esFac3.getExpenseEstimateSumTotal() %> บาท</i></td>
+            <td><i><%=esFac3.getExpenseEstimateSumTotalComma() %> บาท</i></td>
           </tr>
           <tr>
             <td><i class="fa fa-laptop w3-text-red w3-large"></i></td>
             <td>คณะวิทยาการจัดการ.</td>
-            <td><i><%=esFac4.getExpenseEstimateSumTotal() %> บาท</i></td>
+            <td><i><%=esFac4.getExpenseEstimateSumTotalComma() %> บาท</i></td>
           </tr>
           <tr>
             <td><i class="fa fa-wrench w3-text-blue w3-large"></i></td>
             <td>คณะเทคโนโลยีอุตสาหกรรม.</td>
-            <td><i><%=esFac5.getExpenseEstimateSumTotal() %> บาท</i></td>
+            <td><i><%=esFac5.getExpenseEstimateSumTotalComma() %> บาท</i></td>
           </tr>
           <tr>
             <td><i class="fa fa-tree w3-text-red w3-large" ></i></td>
             <td>คณะเทคโนโลยีการเกษตร.</td>
-            <td><i><%=esFac6.getExpenseEstimateSumTotal() %> บาท</i></td>
+            <td><i><%=esFac6.getExpenseEstimateSumTotalComma() %> บาท</i></td>
           </tr>
         </table>
       </div>
@@ -209,6 +209,10 @@
 	<form name="insertForm"   action="gotoInsert"   method="post" th:hidden= "true"></form>
 	<form name="userAllForm"  action="gotoUserAll"  method="post" th:hidden= "true"></form>
 	<form name="RequestForm"  action="gotoRequest"  method="post" th:hidden= "true"></form>
+	<form name="addFaculty"  	action="addFaculty" 	method="post" th:hidden= "true"></form>
+	<form name="addDepartment"  action="addDepartment" 	method="post" th:hidden= "true"></form>
+	<form name="addPosition"  	action="addPosition" 	method="post" th:hidden= "true"></form>
+	<form name="addSubPosition" action="addSubPosition" method="post" th:hidden= "true"></form>
 
 
 <script type="text/javascript">

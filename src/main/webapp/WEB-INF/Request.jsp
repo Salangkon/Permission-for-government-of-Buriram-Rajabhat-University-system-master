@@ -62,24 +62,28 @@
 	</div>
 	</div>
 		<script type="text/javascript">
-			function gotoPerUpdate(filter) {
-				document.getElementById('permissionId').value = filter;
-				document.welcome.action = "gotoPerUpdate";
-				document.welcome.submit();
-			}
+// 			function gotoPerUpdate(filter) {
+// 				document.getElementById('permissionId').value = filter;
+// 				document.welcome.action = "gotoPerUpdate";
+// 				document.welcome.submit();
+// 			}
 		</script>
 	</form>
 
-	<footer  class="w3-black w3-center w3-padding-24" style="margin-top: 5%"> Ask la
-		 <a href="http://reg.bru.ac.th/registrar/home.asp" 
-			title="W3.CSS" target="_blank" class="w3-hover-opacity">BRU
-		</a>
-	</footer>
+<!-- 	<footer  class="w3-black w3-center w3-padding-24" style="margin-top: 5%"> Ask la -->
+<!-- 		 <a href="http://reg.bru.ac.th/registrar/home.asp"  -->
+<!-- 			title="W3.CSS" target="_blank" class="w3-hover-opacity">BRU -->
+<!-- 		</a> -->
+<!-- 	</footer> -->
 
 	<form name="logoutForm"   action="logout" 	    method="post" th:hidden= "true"></form>
 	<form name="insertForm"   action="gotoInsert"   method="post" th:hidden= "true"></form>
 	<form name="userAllForm"  action="gotoUserAll"  method="post" th:hidden= "true"></form>
 	<form name="RequestForm"  action="gotoRequest"  method="post" th:hidden= "true"></form>
+	<form name="addFaculty"  	action="addFaculty" 	method="post" th:hidden= "true"></form>
+	<form name="addDepartment"  action="addDepartment" 	method="post" th:hidden= "true"></form>
+	<form name="addPosition"  	action="addPosition" 	method="post" th:hidden= "true"></form>
+	<form name="addSubPosition" action="addSubPosition" method="post" th:hidden= "true"></form>
 
 </body>
 </html>

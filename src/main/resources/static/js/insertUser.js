@@ -389,40 +389,49 @@ function check() {
 function validateInput() {
 	var pass = true;
 	//userUsername
-	if(''==$('#userUsername').val()) {
-		$('#error-username').removeClass("hide")
-		pass = false;
-	}else{
-		$('#error-username').addClass("hide")
-	}
-	//userPassword
-	if(''==$('#userPassword').val()) {
-		$('#error-password').removeClass("hide")
-		pass = false;
-	}else{
-		$('#error-password').addClass("hide")
-	}
-	//userFname
-	if(''==$('#userFname').val()) {
-		$('#error-userFname').removeClass("hide")
-		pass = false;
-	}else{
-		$('#error-userFname').addClass("hide")
-	}
-	//userLname
-	if(''==$('#userLname').val()) {
-		$('#error-userLname').removeClass("hide")
-		pass = false;
-	}else{
-		$('#error-userLname').addClass("hide")
-	}
 	//setdate
 	if(''==$('#setdate').val()) {
+		setdate.focus()
 		$('#error-setdate').removeClass("hide")
 		pass = false;
 	}else{
 		$('#error-setdate').addClass("hide")
 	}
+	//userLname
+	if(''==$('#userLname').val()) {
+		userLname.focus()
+		$('#error-userLname').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-userLname').addClass("hide")
+	}
+	//userFname
+	if(''==$('#userFname').val()) {
+		userFname.focus()
+		$('#error-userFname').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-userFname').addClass("hide")
+	}
+	//userPassword
+	if(''==$('#userPassword').val()) {
+		userPassword.focus()
+		$('#error-password').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-password').addClass("hide")
+	}
+	if(''==$('#userUsername').val()) {
+		userUsername.focus()
+		$('#error-username').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-username').addClass("hide")
+	}
+
+
+
+
 
 	return pass;
 }

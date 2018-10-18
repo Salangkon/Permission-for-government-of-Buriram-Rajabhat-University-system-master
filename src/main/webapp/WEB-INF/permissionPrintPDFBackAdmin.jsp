@@ -92,7 +92,7 @@
   </div>
   <a class="w3-bar-item w3-button" href="javascript:void(0)" onclick="printDiv('printableArea')">พิมพ์</a>
   <a class="w3-bar-item w3-button" href="javascript:void(0)" onclick="printDiv('printableArea2')">พิมพ์</a>
-  <a class="w3-bar-item w3-button w3-green" href="/welcomeUser">ย้อนกลับ</a>
+  <a class="w3-bar-item w3-button w3-green" href="/gotoRequest">ย้อนกลับ</a>
   </div>
 </div>
 

@@ -1,74 +1,85 @@
 
 function validateInput() {
 	var pass = true;
-	//province
-	if(''==$('#province').val()) {
-		$('#error-province').removeClass("hide")
-		pass = false;
-	}else{
-		$('#error-province').addClass("hide")
-	}
-	//amphur
-	if(''==$('#amphur').val()) {
-		$('#error-amphur').removeClass("hide")
-		pass = false;
-	}else{
-		$('#error-amphur').addClass("hide")
-	}
-	//district
-	if(''==$('#district').val()) {
-		$('#error-district').removeClass("hide")
-		pass = false;
-	}else{
-		$('#error-district').addClass("hide")
-	}
 	//topics
 	if(''==$('#topics').val()) {
+		topics.focus()
 		$('#error-topics').removeClass("hide")
 		pass = false;
 	}else{
 		$('#error-topics').addClass("hide")
 	}
-	//object
-	if(''==$('#object').val()) {
-		$('#error-object').removeClass("hide")
+	//district
+	if(''==$('#district').val()) {
+		district.focus()
+		$('#error-district').removeClass("hide")
 		pass = false;
 	}else{
-		$('#error-object').addClass("hide")
-	}//destinationName
+		$('#error-district').addClass("hide")
+	}
+	//amphur
+	if(''==$('#amphur').val()) {
+		amphur.focus()
+		$('#error-amphur').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-amphur').addClass("hide")
+	}
+	//province
+	if(''==$('#province').val()) {
+		province.focus()
+		$('#error-province').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-province').addClass("hide")
+	}
+	//destinationName
 	if(''==$('#destinationName').val()) {
+		destinationName.focus()
 		$('#error-destinationName').removeClass("hide")
 		pass = false;
 	}else{
 		$('#error-destinationName').addClass("hide")
 	}
-	//goDate
-	if(''==$('#goDate').val()) {
-		$('#error-goDate').removeClass("hide")
+	//backTime
+	if(''==$('#backTime').val()) {
+		backTime.focus()
+		$('#error-backTime').removeClass("hide")
 		pass = false;
 	}else{
-		$('#error-goDate').addClass("hide")
-	}
-	//goTime
-	if(''==$('#goTime').val()) {
-		$('#error-goTime').removeClass("hide")
-		pass = false;
-	}else{
-		$('#error-goTime').addClass("hide")
+		$('#error-backTime').addClass("hide")
 	}
 	//backDate
 	if(''==$('#backDate').val()) {
+		backDate.focus()
 		$('#error-backDate').removeClass("hide")
 		pass = false;
 	}else{
 		$('#error-backDate').addClass("hide")
 	}
-	//backTime
-	if(''==$('#backTime').val()) {
-		$('#error-backTime').removeClass("hide")
+	//goTime
+	if(''==$('#goTime').val()) {
+		goTime.focus()
+		$('#error-goTime').removeClass("hide")
 		pass = false;
 	}else{
-		$('#error-backTime').addClass("hide")
+		$('#error-goTime').addClass("hide")
+	}
+	//goDate
+	if(''==$('#goDate').val()) {
+		goDate.focus()
+		$('#error-goDate').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-goDate').addClass("hide")
+	}
+	//object
+	if(''==$('#object').val()) {
+		object.focus()
+		$('#error-object').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-object').addClass("hide")
 	}
 
 	return pass;

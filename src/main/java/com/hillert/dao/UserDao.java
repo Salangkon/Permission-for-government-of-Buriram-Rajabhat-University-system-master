@@ -18,8 +18,12 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Service;
 
+import com.hillert.model.DepartmentBean;
+import com.hillert.model.FacultyBean;
 import com.hillert.model.PersonAddressBean;
 import com.hillert.model.PersonnelListBean;
+import com.hillert.model.PositionBean;
+import com.hillert.model.SubPositionBean;
 import com.hillert.model.TestAjex;
 import com.hillert.model.UserBean;
 import com.hillert.util.ConnectDB;
@@ -141,7 +145,7 @@ public class UserDao {
 		StringBuilder sql = new StringBuilder();
 
 		try {
-			sql.append("  SELECT * FROM user ");
+			sql.append("SELECT * FROM user ORDER BY user_id ASC;");
 			prepared = conn.prepareStatement(sql.toString());
 			ResultSet rs = prepared.executeQuery();
 			
@@ -154,9 +158,7 @@ public class UserDao {
 				bean.setUserLname(rs.getString("user_lname"));
 				bean.setRole(rs.getInt("role"));
 				bean.setSex(rs.getString("sex"));
-
-				list.add(bean);
-				
+				list.add(bean);	
 			}
 
 		} catch (Exception e) {
@@ -167,7 +169,126 @@ public class UserDao {
 		}
 		return list;
 	}
+	
+	//addFaculty
+	public List<FacultyBean> addFaculty() throws SQLException {
+		List<FacultyBean> list = new ArrayList<>();
+		ConnectDB con = new ConnectDB();
+		Connection conn = con.openConnect();
+		PreparedStatement prepared = null;
+		StringBuilder sql = new StringBuilder();
 
+		try {
+			sql.append("SELECT * FROM faculty ORDER BY faculty_id ASC;");
+			prepared = conn.prepareStatement(sql.toString());
+			ResultSet rs = prepared.executeQuery();
+			
+			while (rs.next()) {
+				FacultyBean bean = new FacultyBean();
+				bean.setFacultyCode(rs.getString("faculty_code"));
+				bean.setFacultyId(rs.getInt("faculty_id"));
+				bean.setFacultyName(rs.getString("faculty_name"));
+				list.add(bean);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			conn.close();
+		}
+		return list;
+	}
+	
+	//addDepartment
+	public List<DepartmentBean> addDepartment() throws SQLException {
+		List<DepartmentBean> list = new ArrayList<>();
+		ConnectDB con = new ConnectDB();
+		Connection conn = con.openConnect();
+		PreparedStatement prepared = null;
+		StringBuilder sql = new StringBuilder();
+
+		try {
+			sql.append("SELECT d.*,f.faculty_name FROM department d INNER JOIN faculty f ON f.faculty_code = d.faculty_code ORDER BY department_id ASC;");
+			prepared = conn.prepareStatement(sql.toString());
+			ResultSet rs = prepared.executeQuery();
+			
+			while (rs.next()) {
+				DepartmentBean bean = new DepartmentBean();
+				bean.setDepartmentCode(rs.getString("department_code"));
+				bean.setDepartmentId(rs.getInt("department_id"));
+				bean.setDepartmentName(rs.getString("department_name"));
+				bean.setFacultyName(rs.getString("faculty_name"));
+				list.add(bean);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			conn.close();
+		}
+		return list;
+	}
+
+	//addDepartment
+	public List<PositionBean> addPosition() throws SQLException {
+		List<PositionBean> list = new ArrayList<>();
+		ConnectDB con = new ConnectDB();
+		Connection conn = con.openConnect();
+		PreparedStatement prepared = null;
+		StringBuilder sql = new StringBuilder();
+
+		try {
+			sql.append("SELECT * FROM position ORDER BY position_id ASC;");
+			prepared = conn.prepareStatement(sql.toString());
+			ResultSet rs = prepared.executeQuery();
+			
+			while (rs.next()) {
+				PositionBean bean = new PositionBean();
+				bean.setPositionCode(rs.getString("position_code"));
+				bean.setPositionId(rs.getInt("position_id"));
+				bean.setPositionName(rs.getString("position_name"));
+				list.add(bean);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			conn.close();
+		}
+		return list;
+	}
+	
+	//addDepartment
+	public List<SubPositionBean> addSubPosition() throws SQLException {
+		List<SubPositionBean> list = new ArrayList<>();
+		ConnectDB con = new ConnectDB();
+		Connection conn = con.openConnect();
+		PreparedStatement prepared = null;
+		StringBuilder sql = new StringBuilder();
+
+		try {
+			sql.append("SELECT sp.*,p.position_name FROM sub_position sp INNER JOIN position p ON p.position_code = sp.position_code ORDER BY sub_position_id ASC;");
+			prepared = conn.prepareStatement(sql.toString());
+			ResultSet rs = prepared.executeQuery();
+			
+			while (rs.next()) {
+				SubPositionBean bean = new SubPositionBean();
+				bean.setSupPositionCode(rs.getString("sub_position_code"));
+				bean.setSubPositionId(rs.getInt("sub_position_id"));
+				bean.setSubPositionName(rs.getString("sub_position_name"));
+				bean.setPositionName(rs.getString("position_name"));
+				list.add(bean);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			conn.close();
+		}
+		return list;
+	}
+	
+	
 	//insert user
 	public int insertNewUser(UserBean bean) throws Exception{
 		String sql = " INSERT INTO user(user_username, user_password, user_fname, user_lname, date, role, sex, number_phone)"

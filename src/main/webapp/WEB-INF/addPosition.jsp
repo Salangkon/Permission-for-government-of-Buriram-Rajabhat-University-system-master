@@ -1,4 +1,3 @@
-
 <%@page import="com.hillert.model.PersonAddressBean"%>
 <%@page import="com.hillert.model.PositionBean"%>
 <%@page import="com.hillert.model.SubPositionBean"%>
@@ -14,7 +13,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>รายชื่อบุคคลากร มรภ.บร</title>
+<title>ข้อมูลตำแหน่ง มหาวิทยาลัยราชภัฏบุรีรัมย์</title>
 
 <%
 	UserBean bean = null;
@@ -40,7 +39,8 @@
 <!-- 	<script src="/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>	 -->
 	<script src="/js/1-10-19jquery.dataTables.min.js"></script>
 	<script src="/js/1-10-19dataTables.bootstrap.min.js"></script>
-	<script src="/js/userAll.js"></script>
+	<script src="/js/add-position.js"></script>
+	<script src="/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -52,37 +52,48 @@
 	<form name="welcome" action="#" method="post" class="modal-content w3-animate-bottom" style="width: 90%; margin-top: 3%; margin-left: 5%">
 		<input type="hidden" name="userId" id="userId">
 		<div class="w3-container w3-blue" align="left">
-			<h2>
-				<i class="fa fa-users w3-xxlarge w3-margin-right"></i>
-				รายชื่อบุคคลากร
-			</h2>
+			<h2><i class="glyphicon glyphicon-folder-open w3-margin-right"></i>ข้อมูลตำแหน่ง มหาวิทยาลัยราชภัฏบุรีรัมย์</h2>
 		</div>
-		
+		<button type="button" class="btn btn-info" data-toggle="modal" data-target="#Modal" style="margin: 1%">เพิ่มตำแหน่ง</button>
 		<div style="overflow: auto;" >
 		<div class="w3-container w3-white w3-padding-16">
-			<table id="userTable" class="table table-striped table-bordered nowrap" style="width: 100%; margin-top: 5%;">
+			<table id="addPosition" class="table table-striped table-bordered nowrap" style="width: 100%; margin-top: 5%;">
 				<thead>
 					<tr style="background: purple; color: white;">
-						<th style="text-align: center">รหัส</th>
-						<th style="text-align: center">ชื่อ</th>
-						<th style="text-align: center">นามสกุล</th>
-						<th style="text-align: center">สถานะ</th>
-						<th style="text-align: center">ตรวจสอบ<br>ข้อมูล
-						</th>
+						<th style="text-align: center">รหัสตำแหน่ง</th>
+						<th style="text-align: center">ตำแหน่ง</th>
+						<th style="text-align: center">แก้ไข</th>
 					</tr>
 				</thead>
 			</table>
 		</div>
 		</div>
-
-		<script type="text/javascript">
-			function gotoUpdate(filter) {
-				document.getElementById('userId').value = filter;
-				document.welcome.action = "gotoUpdate";
-				document.welcome.submit();
-			}
-		</script>
 	</form>
+	
+	            <!-- Modal -->
+                <div id="Modal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+					<form>
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">เพิ่มตำแหน่ง</h4>
+                            </div>
+                            <div class="modal-body">
+                            	<div class="form-group">
+                             		<label class="control-label mb-10">ชื่อคณะ</label>
+                                	<input type="text" class="form-control" id="facultyName" placeholder="ชื่อคณะ" required>
+                           	</div> 
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" onclick="insertConfirm()">บันทึก</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
+                            </div>
+                        </div>
+					</form>
+                    </div>
+                </div>
 
 	<form name="logoutForm"  action="logout" 		method="post" th:hidden="true"></form>
 	<form name="insertForm"  action="gotoInsert" 	method="post" th:hidden="true"></form>

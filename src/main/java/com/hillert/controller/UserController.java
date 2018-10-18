@@ -43,10 +43,28 @@ public class UserController {
 		return "datatable";
 	}
 
-	// path test from ask
-	@RequestMapping("/test")
+	// path addFaculty
+	@RequestMapping("/addFaculty")
+	public String addFaculty() {
+		return "addFaculty";
+	}
+	
+	// path addDepartment
+	@RequestMapping("/addDepartment")
+	public String addDepartment() {
+		return "addDepartment";
+	}
+	
+	// path addPosition
+	@RequestMapping("/addPosition")
+	public String addPosition() {
+		return "addPosition";
+	}
+	
+	// path addSubPosition
+	@RequestMapping("/addSubPosition")
 	public String tset() {
-		return "test";
+		return "addSubPosition";
 	}
 
 	// path Ask_la
@@ -64,12 +82,6 @@ public class UserController {
 //		UserBean bean = new UserBean();
 //		request.getSession().setAttribute("userBean",bean);
 		return "Ask_story";
-	}
-
-	// path Help
-	@RequestMapping("/gotoAsk_Help")
-	public String gotoHelp() {
-		return "Ask_help";
 	}
 
 	// path userAll
