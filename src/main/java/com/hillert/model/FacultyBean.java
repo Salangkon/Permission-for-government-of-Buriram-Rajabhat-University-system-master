@@ -2,15 +2,15 @@ package com.hillert.model;
 
 public class FacultyBean {
 
-		private int facultyId;
 		private String facultyName;
 		private String facultyCode;
+		private int facultyComma;
 		
-		public int getFacultyId() {
-			return facultyId;
+		public int getFacultyComma() {
+			return facultyComma;
 		}
-		public void setFacultyId(int facultyId) {
-			this.facultyId = facultyId;
+		public void setFacultyComma(int facultyComma) {
+			this.facultyComma = facultyComma;
 		}
 		public String getFacultyName() {
 			return facultyName;

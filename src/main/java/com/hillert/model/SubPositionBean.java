@@ -2,7 +2,6 @@ package com.hillert.model;
 
 public class SubPositionBean {
 	
-	private int subPositionId;
 	private String subPositionName;
 	private String supPositionCode;
 	private String positionCode;
@@ -16,12 +15,6 @@ public class SubPositionBean {
 	}
 	public void setPositionName(String positionName) {
 		this.positionName = positionName;
-	}
-	public int getSubPositionId() {
-		return subPositionId;
-	}
-	public void setSubPositionId(int subPositionId) {
-		this.subPositionId = subPositionId;
 	}
 	public String getSubPositionName() {
 		return subPositionName;

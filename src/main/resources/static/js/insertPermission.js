@@ -801,7 +801,7 @@ $(document).ready(function() {
 						type, row, index) {
 						var sumPerPerson1 = $('#sumPerPerson1').val();
 						if (sumPerPerson1 == '') {
-							return '<input class="form-control sum10"  type="text" OnKeyPress="return chkNumber(this)" style="width: 22mm;height: 7mm" name="otherSum" id="otherSum'
+							return '<input class="form-control sum10"  type="text" OnKeyPress="return chkNumber(this)" style="width: 22mm;height: 7mm" name="travelSum" id="travelSum'
 							+ index.row 
 							+ '" value="0" />';
 			            } else {

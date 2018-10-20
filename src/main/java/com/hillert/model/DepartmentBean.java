@@ -1,8 +1,7 @@
 package com.hillert.model;
 
 public class DepartmentBean {
-	
-	private int departmentId;
+
 	private String departmentName;
 	private String departmentCode;
 	private String facultyCode;
@@ -20,12 +19,6 @@ public class DepartmentBean {
 	}
 	public void setDepartmentCode(String departmentCode) {
 		this.departmentCode = departmentCode;
-	}
-	public int getDepartmentId() {
-		return departmentId;
-	}
-	public void setDepartmentId(int departmentId) {
-		this.departmentId = departmentId;
 	}
 	public String getDepartmentName() {
 		return departmentName;

@@ -84,13 +84,15 @@
                             <div class="modal-body">
                             	<div class="form-group">
                              		<label class="control-label mb-10">ชื่อสาขา</label>
-                                	<input type="text" class="form-control" id="facultyName" placeholder="ชื่อคณะ" required>
+                                	<input type="text" class="form-control" id="departmentName" placeholder="ชื่อคณะ" required>
+                                	<div class="hide" id="error-departmentName"><label style="color: red;">กรุณากรอก ชื่อสาขา</label></div>
                            	</div> 
                            	<div class="form-group">
 								<label for="exampleFormControlSelect1">คณะ</label> 
-								<select class="form-control" name="" id="faculty">
-									<option value="faculty">== กรุณาเลือก ==</option>
+								<select class="form-control" name="" id="facultyCode">
+									<option>== กรุณาเลือก ==</option>
 								</select>
+								<div class="hide" id="error-facultyCode"><label style="color: red;">กรุณากรอก เลือกคณะ</label></div>
 							</div>
                             </div>
                             <div class="modal-footer">

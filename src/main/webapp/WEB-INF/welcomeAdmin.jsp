@@ -1,4 +1,5 @@
 
+<%@page import="org.apache.jasper.tagplugins.jstl.core.If"%>
 <%@page import="com.hillert.model.ExpenseSumaryBean"%>
 <%@page import="com.hillert.model.PermissionBean"%>
 <%@page import="com.hillert.model.PositionBean"%>
@@ -126,32 +127,32 @@
           <tr>
             <td><i class="fa fa-mortar-board w3-text-blue w3-large"></i></td>
             <td>คณะครุศาสตร์.</td>
-            <td><i><%=countFac1.getFacultyId() %> ครั้ง</i></td>
+            <td><i><%=countFac1.getFacultyComma() %> ครั้ง</i></td>
           </tr>
           <tr>
             <td><i class="fa fa-thermometer-3 w3-text-red w3-large"></i></td>
             <td>คณะวิทยาศาสตร์.</td>
-            <td><i><%=countFac2.getFacultyId() %> ครั้ง</i></td>
+            <td><i><%=countFac2.getFacultyComma() %> ครั้ง</i></td>
           </tr>
           <tr>
             <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
             <td>คณะมนุษยศาสตร์และสังคมศาสตร์.</td>
-            <td><i><%=countFac3.getFacultyId() %> ครั้ง</i></td>
+            <td><i><%=countFac3.getFacultyComma() %> ครั้ง</i></td>
           </tr>
           <tr>
             <td><i class="fa fa-laptop w3-text-red w3-large"></i></td>
             <td>คณะวิทยาการจัดการ.</td>
-            <td><i><%=countFac4.getFacultyId() %> ครั้ง</i></td>
+            <td><i><%=countFac4.getFacultyComma() %> ครั้ง</i></td>
           </tr>
           <tr>
             <td><i class="fa fa-wrench w3-text-blue w3-large"></i></td>
             <td>คณะเทคโนโลยีอุตสาหกรรม.</td>
-            <td><i><%=countFac5.getFacultyId() %> ครั้ง</i></td>
+            <td><i><%=countFac5.getFacultyComma() %> ครั้ง</i></td>
           </tr>
           <tr>
             <td><i class="fa fa-tree w3-text-red w3-large" ></i></td>
             <td>คณะเทคโนโลยีการเกษตร.</td>
-            <td><i><%=countFac6.getFacultyId() %> ครั้ง</i></td>
+            <td><i><%=countFac6.getFacultyComma() %> ครั้ง</i></td>
           </tr>
         </table>
       </div>
@@ -171,32 +172,32 @@
           <tr>
             <td><i class="fa fa-mortar-board w3-text-blue w3-large"></i></td>
             <td>คณะครุศาสตร์.</td>
-            <td><i><%=esFac1.getExpenseEstimateSumTotalComma() %> บาท</i></td>
+            <td><i><%if (esFac1.getExpenseEstimateSumTotalComma() == null ) {out.print("");} else {out.print(esFac1.getExpenseEstimateSumTotalComma());}%> บาท</i></td>
           </tr>
           <tr>
             <td><i class="fa fa-thermometer-3 w3-text-red w3-large"></i></td>
             <td>คณะวิทยาศาสตร์.</td>
-            <td><i><%=esFac2.getExpenseEstimateSumTotalComma() %> บาท</i></td>
+            <td><i><%if (esFac2.getExpenseEstimateSumTotalComma() == null ) {out.print("");} else {out.print(esFac2.getExpenseEstimateSumTotalComma());}%> บาท</i></td>
           </tr>
           <tr>
             <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
             <td>คณะมนุษยศาสตร์และสังคมศาสตร์.</td>
-            <td><i><%=esFac3.getExpenseEstimateSumTotalComma() %> บาท</i></td>
+            <td><i><%if (esFac3.getExpenseEstimateSumTotalComma() == null ) {out.print("");} else {out.print(esFac3.getExpenseEstimateSumTotalComma());}%> บาท</i></td>
           </tr>
           <tr>
             <td><i class="fa fa-laptop w3-text-red w3-large"></i></td>
             <td>คณะวิทยาการจัดการ.</td>
-            <td><i><%=esFac4.getExpenseEstimateSumTotalComma() %> บาท</i></td>
+            <td><i><%if (esFac4.getExpenseEstimateSumTotalComma() == null ) {out.print("");} else {out.print(esFac4.getExpenseEstimateSumTotalComma());}%> บาท</i></td>
           </tr>
           <tr>
             <td><i class="fa fa-wrench w3-text-blue w3-large"></i></td>
             <td>คณะเทคโนโลยีอุตสาหกรรม.</td>
-            <td><i><%=esFac5.getExpenseEstimateSumTotalComma() %> บาท</i></td>
+            <td><i><%if (esFac5.getExpenseEstimateSumTotalComma() == null ) {out.print("");} else {out.print(esFac5.getExpenseEstimateSumTotalComma());}%> บาท</i></td>
           </tr>
           <tr>
             <td><i class="fa fa-tree w3-text-red w3-large" ></i></td>
             <td>คณะเทคโนโลยีการเกษตร.</td>
-            <td><i><%=esFac6.getExpenseEstimateSumTotalComma() %> บาท</i></td>
+            <td><i><%if (esFac6.getExpenseEstimateSumTotalComma() == null ) {out.print("");} else {out.print(esFac6.getExpenseEstimateSumTotalComma());}%> บาท</i></td>
           </tr>
         </table>
       </div>
@@ -224,12 +225,12 @@ google.charts.setOnLoadCallback(drawChart);
 function drawChart() {
   var data = google.visualization.arrayToDataTable([
   ['Task', 'Hours per Day'],
-  ['ครุศาสตร์.', <%=countFac1.getFacultyId() %>],
-  ['วิทยาศาสตร์.', <%=countFac2.getFacultyId() %>],
-  ['มนุษยศาสตร์และสังคมศาสตร์.', <%=countFac3.getFacultyId() %>],
-  ['วิทยาการจัดการ.', <%=countFac4.getFacultyId() %>],
-  ['เทคโนโลยีการเกษตร.', <%=countFac5.getFacultyId() %>],
-  ['เทคโนโลยีอุตสาหกรรม.', <%=countFac6.getFacultyId() %>]
+  ['ครุศาสตร์.', <%=countFac1.getFacultyComma() %>],
+  ['วิทยาศาสตร์.', <%=countFac2.getFacultyComma() %>],
+  ['มนุษยศาสตร์และสังคมศาสตร์.', <%=countFac3.getFacultyComma() %>],
+  ['วิทยาการจัดการ.', <%=countFac4.getFacultyComma() %>],
+  ['เทคโนโลยีการเกษตร.', <%=countFac6.getFacultyComma() %>],
+  ['เทคโนโลยีอุตสาหกรรม.', <%=countFac5.getFacultyComma() %>]
 ]);
 
   // Optional; add a title and set the width and height of the chart
@@ -253,8 +254,8 @@ function drawChart1() {
   ['วิทยาศาสตร์.', <%=esFac2.getExpenseEstimateSumTotal() %>],
   ['มนุษยศาสตร์และสังคมศาสตร์.', <%=esFac3.getExpenseEstimateSumTotal() %>],
   ['วิทยาการจัดการ.', <%=esFac4.getExpenseEstimateSumTotal() %>],
-  ['เทคโนโลยีการเกษตร.', <%=esFac5.getExpenseEstimateSumTotal() %>],
-  ['เทคโนโลยีอุตสาหกรรม.', <%=esFac6.getExpenseEstimateSumTotal() %>]
+  ['เทคโนโลยีการเกษตร.', <%=esFac6.getExpenseEstimateSumTotal() %>],
+  ['เทคโนโลยีอุตสาหกรรม.', <%=esFac5.getExpenseEstimateSumTotal() %>]
 ]);
 
   // Optional; add a title and set the width and height of the chart

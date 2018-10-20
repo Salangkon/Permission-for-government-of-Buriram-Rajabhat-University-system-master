@@ -783,7 +783,7 @@
 								<th style="text-align: left;"><%=beanEE.get(i).getSubPositionName()%></th>
 								<th>
 									<%
-										if (beanEE.get(i).getAllowenceSumComma() == null) {
+										if (beanEE.get(i).getAllowenceSumComma().equals("0")) {
 												out.print("");
 										} else {
 												out.print(beanEE.get(i).getAllowenceSumComma());
@@ -792,7 +792,7 @@
 								</th>
 								<th>
 									<%
-										if (beanEE.get(i).getRentDateSumComma() == null) {
+										if (beanEE.get(i).getRentDateSumComma().equals("0")) {
 												out.print("");
 										} else {
 												out.print(beanEE.get(i).getRentDateSumComma());
@@ -801,7 +801,7 @@
 								</th>
 								<th>
 									<%
-										if (beanEE.get(i).getTravelSumComma() == null) {
+										if (beanEE.get(i).getTravelSumComma().equals("0")) {
 												out.print("");
 										} else {
 												out.print(beanEE.get(i).getTravelSumComma());
@@ -810,7 +810,7 @@
 								</th>
 								<th>
 									<%
-										if (beanEE.get(i).getOtherSumComma() == null) {
+										if (beanEE.get(i).getOtherSumComma().equals("0")) {
 												out.print("");
 										} else {
 												out.print(beanEE.get(i).getOtherSumComma());
@@ -819,7 +819,7 @@
 								</th>
 								<th>
 									<%
-										if (beanEE.get(i).getExpenseEstimateSumComma() == null) {
+										if (beanEE.get(i).getExpenseEstimateSumComma().equals("0")) {
 												out.print("");
 										} else {
 												out.print(beanEE.get(i).getExpenseEstimateSumComma());
@@ -841,7 +841,7 @@
 								<th><label style="text-align: center;">รวมเงิน</label></th>
 								<th>
 									<%
-										if (beanEs.getAllowenceSumTotalComma() == null ) {
+										if (beanEs.getAllowenceSumTotalComma().equals("0") ) {
 											out.print("");
 										} else {
 											out.print(beanEs.getAllowenceSumTotalComma());
@@ -850,7 +850,7 @@
 								</th>
 								<th>
 									<%
-										if (beanEs.getRentDateSumTotalComma() == null ) {
+										if (beanEs.getRentDateSumTotalComma().equals("0") ) {
 											out.print("");
 										} else {
 											out.print(beanEs.getRentDateSumTotalComma());
@@ -859,7 +859,7 @@
 								</th>
 								<th>
 									<%
-										if (beanEs.getTravelSumTotalComma() == null ) {
+										if (beanEs.getTravelSumTotalComma().equals("0") ) {
 											out.print("");
 										} else {
 											out.print(beanEs.getTravelSumTotalComma());
@@ -868,7 +868,7 @@
 								</th>
 								<th>
 									<%
-										if (beanEs.getOtherSumTotalComma() == null ) {
+										if (beanEs.getOtherSumTotalComma().equals("0") ) {
 											out.print("");
 										} else {
 											out.print(beanEs.getOtherSumTotalComma());

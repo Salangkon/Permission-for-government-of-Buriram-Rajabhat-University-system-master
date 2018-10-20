@@ -70,7 +70,7 @@
 		</div>
 	</form>
 
-                <!-- Modal -->
+                <!-- Modal insert-->
                 <div id="Modal" class="modal fade" role="dialog">
                     <div class="modal-dialog">
 					<form>
@@ -84,6 +84,7 @@
                             	<div class="form-group">
                              		<label class="control-label mb-10">ชื่อคณะ</label>
                                 	<input type="text" class="form-control" id="facultyName" placeholder="ชื่อคณะ" required>
+                                	<div class="hide" id="error-facultyName"><label style="color: red;">กรุณากรอก ชื่อคณะ</label></div>
                            	</div> 
                             </div>
                             <div class="modal-footer">
@@ -94,30 +95,33 @@
 					</form>
                     </div>
                 </div>
+                
+ 				<!-- Modal update-->
+                <div id="myModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
 
-		<script>
-            function insertConfirm() {
-                var faculty = {
-                		facultyName: $('#facultyName').val(),
-                }
-                $.ajax({
-                    type: "POST",
-                    url: "/",
-                    contentType: "application/json; charset=utf-8",
-                    data: JSON.stringify(faculty),
-                    dataType: "json",
-                    success: function(msg) {
-                        console.log("success")
-                        window.location.reload();
-                    },
-                    error: function() {
-                        console.log("error")
-                        $('#Modal').modal('hide')
-                        window.location.reload();
-                    }
-                });
-            }
-        </script>
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">แก้ชื่อคณะ</h4>
+                            </div>
+                            <form name="" action="" method="POST">
+                            <div class="modal-body">
+                            	<input type="text" name="facultyCode" id="code">
+                             	<div class="form-group">
+                               		<label class="control-label mb-10">ชื่อคณะ</label>
+                                	<input type="text" class="form-control" id="name" name="facultyName" placeholder="ชื่อคณะ" required>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">บันทึก</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
 
 	<form name="logoutForm"  action="logout" 		method="post" th:hidden="true"></form>
 	<form name="insertForm"  action="gotoInsert" 	method="post" th:hidden="true"></form>

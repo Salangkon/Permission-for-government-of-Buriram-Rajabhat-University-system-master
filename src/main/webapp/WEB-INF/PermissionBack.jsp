@@ -363,38 +363,9 @@
 	</div>
 	</div><!--end -->
 </div>
-		<% } else if (bean.getTravel().equals("3")) { %>
-<!-- ใบเสร็จ -->
-<div class="w3-display-container w3-content" style="max-width:90%;margin-top: 2%" >
-	<div class="w3-container w3-green" id="1">
-		<h2><i class="glyphicon glyphicon-list-alt"></i> ใบรับรองแทนใบเสร็จ</h2>
-    </div>
-    
-    <div class="w3-container w3-white w3-padding-16">
-	<!-- กรอบที่ 1 -->
-	<div style="margin-bottom: 18%">
-	<label style="color: red;">*ใบรับรองแทนใบเสร็จ กรณีใช้รถส่วนตัว เท่านั้น!!!</label> 
- 	<div class="col-sm-12 form-group" >
- 	<label>วัน/เดือน/ปี</label> 
- 		<input class="form-control" type="date" id="billGoDate" style="width: 10%">
- 	<label>รายละเอียด ใช้รถไปราชการ</label> 
- 		<textarea class="form-control" rows="10" cols="10" maxlength="1000" id="billDetail1" name="billDetail1" ></textarea>
- 	</div>
- 	<div class="col-sm-12 form-group" >
- 	<label>วัน/เดือน/ปี</label> 
- 		<input class="form-control" type="date" id="billBackDate" style="width: 10%">
- 	<label>รายละเอียด ใช้รถกลับจากราชการ</label> 
- 		<textarea class="form-control" rows="10" cols="10" maxlength="1000" id="billDetail2" name="billDetail2" ></textarea>
- 	</div>
-	</div>
-	</div><!--end -->
-</div>
-		<% } else{ %>
+		<% } else  { %>
 			
 		<% } %>
-
-
-
 
 
 	<div style="margin-top: 3%;margin-bottom: 10%;" class="col-sm-12 alert alert-info" align="center" >

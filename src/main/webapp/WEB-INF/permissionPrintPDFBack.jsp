@@ -734,22 +734,38 @@
 			<br>
 			<table id="customers" >
 				<tr>
-					<th style="text-align: left;"> วัน เดือน ปี</th>
-					<th style="text-align: left;" > รายละเอียด</th>
+					<th style="text-align: left;" width="100px"> วัน เดือน ปี</th>
+					<th style="text-align: left;" width="350px"> รายละเอียด</th>
 					<th style="text-align: left;" colspan="2"> จำนวนเงิน</th>
 					<th style="text-align: left;" colspan="2"> รวมเงิน</th>
 				</tr>
 				<tr>
-					<th ><%if (beanBack.getBillGoDate() == null ) {out.print("");} else {out.print(beanBack.getBillGoDate());}%></th>
-					<th valign="top"><%if (beanBack.getBillDetail1() == null ) {out.print("");} else {out.print(beanBack.getBillDetail1());}%></th>	
-					<th></th>	
+					<th height="250px" valign="top"><%if (bean.getTravel().equals("3") ) {out.print(bean.getGoDate());} else  {out.print("");}%></th>
+					<th valign="top" style="text-align: left;">
+					<%if (bean.getTravel().equals("3") ) 
+							{out.print("ไปราชการจาก" + beanBack.getProvinceName() + " ไปที่" + bean.getDestinationName() + "เพื่อ " + bean.getObject()
+								+ " ในวันที่ " + bean.getGoDateDay() + " เดือน " + bean.getGoDateMonth() + " พ.ศ. " + bean.getGoDateYear() + " ด้วยรถยนต์ส่วนตัว " 
+								+ bean.getTravelIdcard() + " ระยะทาง  " + beanTEFC.getDistance() + "กิโลเมตร x 4"
+									);
+							} 
+						else {out.print("");}  %>
+					</th>	
+					<th width="60px" valign="top"></th>	
 					<th></th>	
 					<th></th>	
 					<th></th>		
 				</tr>
 				<tr>
-					<th><%if (beanBack.getBillBackDate() == null ) {out.print("");} else {out.print(beanBack.getBillBackDate());}%></th>
-					<th valign="top"><%if (beanBack.getBillDetail2() == null ) {out.print("");} else {out.print(beanBack.getBillDetail2());}%></th>	
+					<th height="250px" valign="top" ><%if (bean.getTravel().equals("3") ) {out.print(bean.getBackDate());} else  {out.print("");}%></th>
+					<th valign="top" style="text-align: left;">
+					<%if (bean.getTravel().equals("3") ) 
+							{out.print("กลับจากไปราชการ" + bean.getDestinationName() + "เพื่อ " + bean.getObject()
+								+ " ในวันที่ " + bean.getGoDateDay() + " เดือน " + bean.getGoDateMonth() + " พ.ศ. " + bean.getGoDateYear() + " ด้วยรถยนต์ส่วนตัว " 
+								+ bean.getTravelIdcard() + " ระยะทาง  " + beanTEFC.getDistance() + "กิโลเมตร x 4"
+									);
+							} 
+						else {out.print("");}  %>
+					</th>	
 					<th></th>	
 					<th></th>	
 					<th></th>	

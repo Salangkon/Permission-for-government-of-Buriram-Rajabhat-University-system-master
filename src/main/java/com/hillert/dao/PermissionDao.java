@@ -262,9 +262,9 @@ public class PermissionDao {
 				while (rs.next()) {
 					bean.setPermissionId(rs.getInt("permission_id"));
 					
-					bean.setProvinceName(rs.getString("DISTRICT_NAME"));
+					bean.setProvinceName(rs.getString("PROVINCE_NAME"));
 					bean.setAmphurName(rs.getString("AMPHUR_NAME"));
-					bean.setDistrictName(rs.getString("PROVINCE_NAME"));
+					bean.setDistrictName(rs.getString("DISTRICT_NAME"));
 
 					bean.setbSaveDateDay(dateThaiDay(rs.getString("b_save_date")));
 					bean.setbSaveDateMonth(dateThaiMonths(rs.getString("b_save_date")));
@@ -313,11 +313,7 @@ public class PermissionDao {
 					bean.setChoiceBill6(rs.getString("choice_bill6"));
 					bean.setChoiceBill7(rs.getString("choice_bill7"));
 					bean.setChoiceBill7C(rs.getString("choice_bill7_c"));
-					
-					bean.setBillGoDate(rs.getString("bill_go_date"));
-					bean.setBillDetail1(rs.getString("bill_detail1"));
-					bean.setBillBackDate(rs.getString("bill_back_date"));
-					bean.setBillDetail2(rs.getString("bill_detail2"));
+
 				}
 			} catch (Exception e) {
 				// TODO: handle exception
@@ -461,12 +457,6 @@ public class PermissionDao {
 			prepared.setString(27, bean.getChoiceBill6());
 			prepared.setString(28, bean.getChoiceBill7());
 			prepared.setString(29, bean.getChoiceBill7C());
-			
-			prepared.setString(30, bean.getBillGoDate());
-			prepared.setString(31, bean.getBillDetail1());
-			prepared.setString(32, bean.getBillBackDate());
-			prepared.setString(33, bean.getBillDetail2());
-			
 
 			prepared.executeUpdate();
 

@@ -71,7 +71,7 @@ public class AdminDao {
 		StringBuilder sql = new StringBuilder();
 
 		try {
-			sql.append("SELECT COUNT(faculty_id) AS faculty \r\n" + 
+			sql.append("SELECT COUNT(f.faculty_code) AS faculty \r\n" + 
 					"FROM Permission \r\n" + 
 					"INNER JOIN personnel_list pl ON pl.personnel_id =  permission.personnel_id  \r\n" + 
 					"INNER JOIN user u on u.user_id = pl.user_id\r\n" + 
@@ -80,11 +80,11 @@ public class AdminDao {
 					"INNER JOIN sub_position sp on sp.sub_position_code = pl.sub_position_code\r\n" + 
 					"INNER JOIN position p on p.position_code = sp.position_code\r\n" + 
 					"\r\n" + 
-					"WHERE f.faculty_id = 1");
+					"WHERE f.faculty_code = 1");
 			prepared = conn.prepareStatement(sql.toString());
 			ResultSet rs = prepared.executeQuery();
 			while (rs.next()) {
-				bean.setFacultyId(rs.getInt("faculty"));
+				bean.setFacultyComma(rs.getInt("faculty"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -103,7 +103,7 @@ public class AdminDao {
 		StringBuilder sql = new StringBuilder();
 
 		try {
-			sql.append("SELECT COUNT(faculty_id) AS faculty \r\n" + 
+			sql.append("SELECT COUNT(f.faculty_code) AS faculty \r\n" + 
 					"FROM Permission \r\n" + 
 					"INNER JOIN personnel_list pl ON pl.personnel_id =  permission.personnel_id  \r\n" + 
 					"INNER JOIN user u on u.user_id = pl.user_id\r\n" + 
@@ -112,11 +112,11 @@ public class AdminDao {
 					"INNER JOIN sub_position sp on sp.sub_position_code = pl.sub_position_code\r\n" + 
 					"INNER JOIN position p on p.position_code = sp.position_code\r\n" + 
 					"\r\n" + 
-					"WHERE f.faculty_id = 2");
+					"WHERE f.faculty_code = 2");
 			prepared = conn.prepareStatement(sql.toString());
 			ResultSet rs = prepared.executeQuery();
 			while (rs.next()) {
-				bean.setFacultyId(rs.getInt("faculty"));
+				bean.setFacultyComma(rs.getInt("faculty"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -135,7 +135,7 @@ public class AdminDao {
 		StringBuilder sql = new StringBuilder();
 
 		try {
-			sql.append("SELECT COUNT(faculty_id) AS faculty \r\n" + 
+			sql.append("SELECT COUNT(f.faculty_code) AS faculty \r\n" + 
 					"FROM Permission \r\n" + 
 					"INNER JOIN personnel_list pl ON pl.personnel_id =  permission.personnel_id  \r\n" + 
 					"INNER JOIN user u on u.user_id = pl.user_id\r\n" + 
@@ -144,11 +144,11 @@ public class AdminDao {
 					"INNER JOIN sub_position sp on sp.sub_position_code = pl.sub_position_code\r\n" + 
 					"INNER JOIN position p on p.position_code = sp.position_code\r\n" + 
 					"\r\n" + 
-					"WHERE f.faculty_id = 3");
+					"WHERE f.faculty_code = 3");
 			prepared = conn.prepareStatement(sql.toString());
 			ResultSet rs = prepared.executeQuery();
 			while (rs.next()) {
-				bean.setFacultyId(rs.getInt("faculty"));
+				bean.setFacultyComma(rs.getInt("faculty"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -167,7 +167,7 @@ public class AdminDao {
 		StringBuilder sql = new StringBuilder();
 
 		try {
-			sql.append("SELECT COUNT(faculty_id) AS faculty \r\n" + 
+			sql.append("SELECT COUNT(f.faculty_code) AS faculty \r\n" + 
 					"FROM Permission \r\n" + 
 					"INNER JOIN personnel_list pl ON pl.personnel_id =  permission.personnel_id  \r\n" + 
 					"INNER JOIN user u on u.user_id = pl.user_id\r\n" + 
@@ -176,11 +176,11 @@ public class AdminDao {
 					"INNER JOIN sub_position sp on sp.sub_position_code = pl.sub_position_code\r\n" + 
 					"INNER JOIN position p on p.position_code = sp.position_code\r\n" + 
 					"\r\n" + 
-					"WHERE f.faculty_id = 4");
+					"WHERE f.faculty_code = 4");
 			prepared = conn.prepareStatement(sql.toString());
 			ResultSet rs = prepared.executeQuery();
 			while (rs.next()) {
-				bean.setFacultyId(rs.getInt("faculty"));
+				bean.setFacultyComma(rs.getInt("faculty"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -200,7 +200,7 @@ public class AdminDao {
 		StringBuilder sql = new StringBuilder();
 
 		try {
-			sql.append("SELECT COUNT(faculty_id) AS faculty \r\n" + 
+			sql.append("SELECT COUNT(f.faculty_code) AS faculty \r\n" + 
 					"FROM Permission \r\n" + 
 					"INNER JOIN personnel_list pl ON pl.personnel_id =  permission.personnel_id  \r\n" + 
 					"INNER JOIN user u on u.user_id = pl.user_id\r\n" + 
@@ -209,11 +209,11 @@ public class AdminDao {
 					"INNER JOIN sub_position sp on sp.sub_position_code = pl.sub_position_code\r\n" + 
 					"INNER JOIN position p on p.position_code = sp.position_code\r\n" + 
 					"\r\n" + 
-					"WHERE f.faculty_id = 5");
+					"WHERE f.faculty_code = 5");
 			prepared = conn.prepareStatement(sql.toString());
 			ResultSet rs = prepared.executeQuery();
 			while (rs.next()) {
-				bean.setFacultyId(rs.getInt("faculty"));
+				bean.setFacultyComma(rs.getInt("faculty"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -233,7 +233,7 @@ public class AdminDao {
 		StringBuilder sql = new StringBuilder();
 
 		try {
-			sql.append("SELECT COUNT(faculty_id) AS faculty \r\n" + 
+			sql.append("SELECT COUNT(f.faculty_code) AS faculty \r\n" + 
 					"FROM Permission \r\n" + 
 					"INNER JOIN personnel_list pl ON pl.personnel_id =  permission.personnel_id  \r\n" + 
 					"INNER JOIN user u on u.user_id = pl.user_id\r\n" + 
@@ -242,11 +242,11 @@ public class AdminDao {
 					"INNER JOIN sub_position sp on sp.sub_position_code = pl.sub_position_code\r\n" + 
 					"INNER JOIN position p on p.position_code = sp.position_code\r\n" + 
 					"\r\n" + 
-					"WHERE f.faculty_id = 6");
+					"WHERE f.faculty_code = 6");
 			prepared = conn.prepareStatement(sql.toString());
 			ResultSet rs = prepared.executeQuery();
 			while (rs.next()) {
-				bean.setFacultyId(rs.getInt("faculty"));
+				bean.setFacultyComma(rs.getInt("faculty"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -320,7 +320,7 @@ public class AdminDao {
 					"INNER JOIN department d on d.department_code = pl.department_code\r\n" + 
 					"INNER JOIN faculty f on f.faculty_code = d.faculty_code\r\n" + 
 					"INNER JOIN expense_sumary_back es on es.permission_id = permission.permission_id \r\n" + 
-					"WHERE f.faculty_id = 1");
+					"WHERE f.faculty_code = 1");
 			prepared = conn.prepareStatement(sql.toString());
 			ResultSet rs = prepared.executeQuery();
 			DecimalFormat myFormatter = new DecimalFormat();
@@ -352,7 +352,7 @@ public class AdminDao {
 					"INNER JOIN department d on d.department_code = pl.department_code\r\n" + 
 					"INNER JOIN faculty f on f.faculty_code = d.faculty_code\r\n" + 
 					"INNER JOIN expense_sumary_back es on es.permission_id = permission.permission_id \r\n" + 
-					"WHERE f.faculty_id = 2");
+					"WHERE f.faculty_code = 2");
 			prepared = conn.prepareStatement(sql.toString());
 			ResultSet rs = prepared.executeQuery();
 			DecimalFormat myFormatter = new DecimalFormat();
@@ -384,7 +384,7 @@ public class AdminDao {
 					"INNER JOIN department d on d.department_code = pl.department_code\r\n" + 
 					"INNER JOIN faculty f on f.faculty_code = d.faculty_code\r\n" + 
 					"INNER JOIN expense_sumary_back es on es.permission_id = permission.permission_id \r\n" + 
-					"WHERE f.faculty_id = 3");
+					"WHERE f.faculty_code = 3");
 			prepared = conn.prepareStatement(sql.toString());
 			ResultSet rs = prepared.executeQuery();
 			DecimalFormat myFormatter = new DecimalFormat();
@@ -416,7 +416,7 @@ public class AdminDao {
 					"INNER JOIN department d on d.department_code = pl.department_code\r\n" + 
 					"INNER JOIN faculty f on f.faculty_code = d.faculty_code\r\n" + 
 					"INNER JOIN expense_sumary_back es on es.permission_id = permission.permission_id \r\n" + 
-					"WHERE f.faculty_id = 4");
+					"WHERE f.faculty_code = 4");
 			prepared = conn.prepareStatement(sql.toString());
 			ResultSet rs = prepared.executeQuery();
 			DecimalFormat myFormatter = new DecimalFormat();
@@ -448,7 +448,7 @@ public class AdminDao {
 					"INNER JOIN department d on d.department_code = pl.department_code\r\n" + 
 					"INNER JOIN faculty f on f.faculty_code = d.faculty_code\r\n" + 
 					"INNER JOIN expense_sumary_back es on es.permission_id = permission.permission_id \r\n" + 
-					"WHERE f.faculty_id = 5");
+					"WHERE f.faculty_code = 5");
 			prepared = conn.prepareStatement(sql.toString());
 			ResultSet rs = prepared.executeQuery();
 			DecimalFormat myFormatter = new DecimalFormat();
@@ -480,7 +480,7 @@ public class AdminDao {
 					"INNER JOIN department d on d.department_code = pl.department_code\r\n" + 
 					"INNER JOIN faculty f on f.faculty_code = d.faculty_code\r\n" + 
 					"INNER JOIN expense_sumary_back es on es.permission_id = permission.permission_id \r\n" + 
-					"WHERE f.faculty_id = 6");
+					"WHERE f.faculty_code = 6");
 			prepared = conn.prepareStatement(sql.toString());
 			ResultSet rs = prepared.executeQuery();
 			DecimalFormat myFormatter = new DecimalFormat();

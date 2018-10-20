@@ -179,14 +179,13 @@ public class UserDao {
 		StringBuilder sql = new StringBuilder();
 
 		try {
-			sql.append("SELECT * FROM faculty ORDER BY faculty_id ASC;");
+			sql.append("SELECT * FROM faculty ORDER BY faculty_code ASC;");
 			prepared = conn.prepareStatement(sql.toString());
 			ResultSet rs = prepared.executeQuery();
 			
 			while (rs.next()) {
 				FacultyBean bean = new FacultyBean();
 				bean.setFacultyCode(rs.getString("faculty_code"));
-				bean.setFacultyId(rs.getInt("faculty_id"));
 				bean.setFacultyName(rs.getString("faculty_name"));
 				list.add(bean);
 			}
@@ -208,14 +207,13 @@ public class UserDao {
 		StringBuilder sql = new StringBuilder();
 
 		try {
-			sql.append("SELECT d.*,f.faculty_name FROM department d INNER JOIN faculty f ON f.faculty_code = d.faculty_code ORDER BY department_id ASC;");
+			sql.append("SELECT d.*,f.faculty_name FROM department d INNER JOIN faculty f ON f.faculty_code = d.faculty_code ORDER BY department_code ASC;");
 			prepared = conn.prepareStatement(sql.toString());
 			ResultSet rs = prepared.executeQuery();
 			
 			while (rs.next()) {
 				DepartmentBean bean = new DepartmentBean();
 				bean.setDepartmentCode(rs.getString("department_code"));
-				bean.setDepartmentId(rs.getInt("department_id"));
 				bean.setDepartmentName(rs.getString("department_name"));
 				bean.setFacultyName(rs.getString("faculty_name"));
 				list.add(bean);
@@ -238,14 +236,13 @@ public class UserDao {
 		StringBuilder sql = new StringBuilder();
 
 		try {
-			sql.append("SELECT * FROM position ORDER BY position_id ASC;");
+			sql.append("SELECT * FROM position ORDER BY position_code ASC;");
 			prepared = conn.prepareStatement(sql.toString());
 			ResultSet rs = prepared.executeQuery();
 			
 			while (rs.next()) {
 				PositionBean bean = new PositionBean();
 				bean.setPositionCode(rs.getString("position_code"));
-				bean.setPositionId(rs.getInt("position_id"));
 				bean.setPositionName(rs.getString("position_name"));
 				list.add(bean);
 			}
@@ -267,14 +264,13 @@ public class UserDao {
 		StringBuilder sql = new StringBuilder();
 
 		try {
-			sql.append("SELECT sp.*,p.position_name FROM sub_position sp INNER JOIN position p ON p.position_code = sp.position_code ORDER BY sub_position_id ASC;");
+			sql.append("SELECT sp.*,p.position_name FROM sub_position sp INNER JOIN position p ON p.position_code = sp.position_code ORDER BY sub_position_code ASC;");
 			prepared = conn.prepareStatement(sql.toString());
 			ResultSet rs = prepared.executeQuery();
 			
 			while (rs.next()) {
 				SubPositionBean bean = new SubPositionBean();
 				bean.setSupPositionCode(rs.getString("sub_position_code"));
-				bean.setSubPositionId(rs.getInt("sub_position_id"));
 				bean.setSubPositionName(rs.getString("sub_position_name"));
 				bean.setPositionName(rs.getString("position_name"));
 				list.add(bean);
@@ -553,129 +549,141 @@ public class UserDao {
 		}
 		return bean;
 	}
-		
+	
+	//insert FacultyBean
+	public int insertFacultyBean(FacultyBean bean) throws Exception{
+		String sql = " INSERT INTO faculty (faculty_name)"
+				+ " VALUES(?) ";	
+				
+		KeyHolder keyHolder = new GeneratedKeyHolder();
+		// JdbcTemplate jdbcTemplate = new JdbcTemplate(new
+		// SingleConnectionDataSource(con.openConnect(), false));
+		jdbcTemplate.update(new PreparedStatementCreator() {
+			@Override
+			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+				PreparedStatement prepared = con.prepareStatement(sql, new String[] { "faculty_code" });
+	
+				try {
+					prepared.setString(1, bean.getFacultyName());
+				
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				return prepared;
+			}
+		}, keyHolder);
+		return keyHolder.getKey().intValue();
+	}
+	
+	//update faculty
+	public FacultyBean findById(String userId) throws SQLException {
+		FacultyBean bean = new FacultyBean();
+		ConnectDB con = new ConnectDB();
+		Connection conn = con.openConnect();
+		PreparedStatement preperd = null;
+		StringBuilder sql = new StringBuilder();
 
-//	// FacultyName
-//	String facultyName(String id) throws SQLException {
-//		ConnectDB con = new ConnectDB();
-//		Connection conn = con.openConnect();
-//		PreparedStatement prepared = null;
-//		StringBuilder sql = new StringBuilder();
-//		List<FacultyBean> beanResultList = new ArrayList<>();
-//		try {
-//			sql.append(" SELECT * FROM faculty where faculty_id = ?");
-//
-//			prepared = conn.prepareStatement(sql.toString());
-//			prepared.setString(1, id);
-//
-//			ResultSet rs = prepared.executeQuery();
-//
-//			while (rs.next()) {
-//				FacultyBean bean = new FacultyBean();
-//				bean.setFacultyName(rs.getString("faculty_name"));
-//
-//				beanResultList.add(bean);
-//			}
-//
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		} finally {
-//			conn.close();
-//		}
-//		return beanResultList.get(0).getFacultyName();
-//	}
-//
-//	// DeprtmentName
-//	String departmentName(String id) throws SQLException {
-//		ConnectDB con = new ConnectDB();
-//		Connection conn = con.openConnect();
-//		PreparedStatement prepared = null;
-//		StringBuilder sql = new StringBuilder();
-//		List<DepartmentBean> beanResultList = new ArrayList<>();
-//		try {
-//			sql.append(" SELECT * FROM department where department_id = ?");
-//
-//			prepared = conn.prepareStatement(sql.toString());
-//			prepared.setString(1, id);
-//
-//			ResultSet rs = prepared.executeQuery();
-//
-//			while (rs.next()) {
-//				DepartmentBean bean = new DepartmentBean();
-//				bean.setDepartmentName(rs.getString("department_name"));
-//
-//				beanResultList.add(bean);
-//			}
-//
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		} finally {
-//			conn.close();
-//		}
-//		return beanResultList.get(0).getDepartmentName();
-//	}
-//
-//	// positionName
-//	String positionName(String id) throws SQLException {
-//		ConnectDB con = new ConnectDB();
-//		Connection conn = con.openConnect();
-//		PreparedStatement prepared = null;
-//		StringBuilder sql = new StringBuilder();
-//		List<PositionBean> beanResultList = new ArrayList<>();
-//		try {
-//			sql.append(" SELECT * FROM position where position_id = ?");
-//
-//			prepared = conn.prepareStatement(sql.toString());
-//			prepared.setString(1, id);
-//
-//			ResultSet rs = prepared.executeQuery();
-//
-//			while (rs.next()) {
-//				PositionBean bean = new PositionBean();
-//				bean.setPositionName(rs.getString("position_name"));
-//
-//				beanResultList.add(bean);
-//			}
-//
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		} finally {
-//			conn.close();
-//		}
-//		return beanResultList.get(0).getPositionName();
-//	}
-//
-//	// SubPositionName
-//	String subPositionName(String id) throws SQLException {
-//		ConnectDB con = new ConnectDB();
-//		Connection conn = con.openConnect();
-//		PreparedStatement prepared = null;
-//		StringBuilder sql = new StringBuilder();
-//		List<SubPositionBean> beanResultList = new ArrayList<>();
-//		try {
-//			sql.append(" SELECT * FROM sub_position where sub_position_code = ?");
-//
-//			prepared = conn.prepareStatement(sql.toString());
-//			prepared.setString(1, id);
-//
-//			ResultSet rs = prepared.executeQuery();
-//
-//			while (rs.next()) {
-//				SubPositionBean bean = new SubPositionBean();
-//				bean.setPositionCode(rs.getString("position_code"));
-//				bean.setSubPositionName(rs.getString("sub_position_name"));
-//				bean.setSupPositionCode(rs.getString("sub_position_code"));
-//				bean.setSubPositionId(rs.getInt("position_id"));
-//
-//				beanResultList.add(bean);
-//			}
-//
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		} finally {
-//			conn.close();
-//		}
-//		return beanResultList.get(0).getSubPositionName();
-//	}
+		try {
+			sql.append(" SELECT * FROM faculty WHERE faculty_code = ? ");
+			preperd = conn.prepareStatement(sql.toString());
+			preperd.setString(1, userId);
+			ResultSet rs = preperd.executeQuery();
+
+			while (rs.next()) {
+				bean.setFacultyCode(rs.getString("faculty_code"));
+				bean.setFacultyName(rs.getString("faculty_name"));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			if (con != null) {
+				conn.close();
+			}
+		}
+		return bean;
+	}//end
+	
+	//insert DepartmentBean
+	public int insertDepartmentBean(DepartmentBean bean) throws Exception{
+		String sql = " INSERT INTO department (department_name, faculty_code) VALUES(?,?) ";	
+				
+		KeyHolder keyHolder = new GeneratedKeyHolder();
+		// JdbcTemplate jdbcTemplate = new JdbcTemplate(new
+		// SingleConnectionDataSource(con.openConnect(), false));
+		jdbcTemplate.update(new PreparedStatementCreator() {
+			@Override
+			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+				PreparedStatement prepared = con.prepareStatement(sql, new String[] { "department_code" });
+	
+				try {
+					prepared.setString(1, bean.getDepartmentName());
+					prepared.setString(2, bean.getFacultyCode());
+				
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				return prepared;
+			}
+		}, keyHolder);
+
+		return keyHolder.getKey().intValue();
+		}
+	
+
+	//insert PositionBean
+	public int insertPositionBean(PositionBean bean) throws Exception{
+		String sql = " INSERT INTO position (position_name)"
+				+ " VALUES(?) ";	
+				
+		KeyHolder keyHolder = new GeneratedKeyHolder();
+		// JdbcTemplate jdbcTemplate = new JdbcTemplate(new
+		// SingleConnectionDataSource(con.openConnect(), false));
+		jdbcTemplate.update(new PreparedStatementCreator() {
+			@Override
+			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+				PreparedStatement prepared = con.prepareStatement(sql, new String[] { "position_code" });
+	
+				try {
+					prepared.setString(1, bean.getPositionName());
+				
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				return prepared;
+			}
+		}, keyHolder);
+
+		return keyHolder.getKey().intValue();
+		}
+	
+	//insert SubPositionBean
+	public int insertSubPositionBean(SubPositionBean bean) throws Exception{
+		String sql = " INSERT INTO sub_position (sub_position_name, position_code, allowence, rent_date) VALUES(?,?,?,?) ";	
+					
+		KeyHolder keyHolder = new GeneratedKeyHolder();
+		// JdbcTemplate jdbcTemplate = new JdbcTemplate(new
+		// SingleConnectionDataSource(con.openConnect(), false));
+		jdbcTemplate.update(new PreparedStatementCreator() {
+			@Override
+			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+				PreparedStatement prepared = con.prepareStatement(sql, new String[] { "sup_position_code" });
+	
+				try {
+					prepared.setString(1, bean.getSubPositionName());
+					prepared.setString(2, bean.getPositionCode());
+					prepared.setInt(3, bean.getAllowence());
+					prepared.setInt(4, bean.getRentDate());
+					
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				return prepared;
+			}
+		}, keyHolder);
+
+		return keyHolder.getKey().intValue();
+	}
+		
 
 }

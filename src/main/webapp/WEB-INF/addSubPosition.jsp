@@ -85,13 +85,20 @@
                             <div class="modal-body">
                             	<div class="form-group">
                              		<label class="control-label mb-10">ชื่อระดับ</label>
-                                	<input type="text" class="form-control" id="facultyName" placeholder="ชื่อคณะ" required>
+                                	<input type="text" class="form-control" id="subPositionName" placeholder="ชื่อคณะ" required>
+                                	<div class="hide" id="error-subPositionName"><label style="color: red;">กรุณากรอก เลือกคณะ</label></div>
+                                	<label class="control-label mb-10">ค่าเบี้ยเลี้ยง/บาท</label>
+                                	<input type="number" class="form-control" id="allowence" placeholder="ค่าเบี้ยเลี้ยง" required>
+                                	<div class="hide" id="error-allowence"><label style="color: red;">กรุณากรอก เลือกคณะ</label></div>
+                                	<label class="control-label mb-10">ค่าที่พัก/บาท</label>
+                                	<input type="number" class="form-control" id="rentDate" placeholder="ค่าที่พัก" required>
+                                	<div class="hide" id="error-rentDate"><label style="color: red;">กรุณากรอก เลือกคณะ</label></div>
                            		</div> 
                            		<!-- ตำแหน่ง  position -->
 							<div class="form-group">
 								<label for="exampleFormControlSelect1">ตำแหน่ง</label> 
-								<select class="form-control" name="" id="position">
-									<option value="position">== กรุณาเลือก ==</option>
+								<select class="form-control" name="" id="positionCode">
+									<option>== กรุณาเลือก ==</option>
 								</select>
 							</div>
                             </div>

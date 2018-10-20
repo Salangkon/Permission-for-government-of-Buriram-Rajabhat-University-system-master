@@ -6,6 +6,7 @@ public class TestAjex {
 	private String amphur;
 	private String district;
 	private	String faculty;
+	private	int facultyCode;
 	private	String department;
 	private String position;
 	private String subPosition;
@@ -19,6 +20,12 @@ public class TestAjex {
 	
 	private int perBackDisabled;
 	
+	public int getFacultyCode() {
+		return facultyCode;
+	}
+	public void setFacultyCode(int facultyCode) {
+		this.facultyCode = facultyCode;
+	}
 	public int getPerBackDisabled() {
 		return perBackDisabled;
 	}

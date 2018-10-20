@@ -82,8 +82,9 @@
                             </div>
                             <div class="modal-body">
                             	<div class="form-group">
-                             		<label class="control-label mb-10">ชื่อคณะ</label>
-                                	<input type="text" class="form-control" id="facultyName" placeholder="ชื่อคณะ" required>
+                             		<label class="control-label mb-10">ชื่อตำแหน่ง</label>
+                                	<input type="text" class="form-control" id="positionName" placeholder="ชื่อคณะ" required>
+                                	<div class="hide" id="error-positionName"><label style="color: red;">กรุณากรอก ชื่อตำแหน่ง</label></div>
                            	</div> 
                             </div>
                             <div class="modal-footer">

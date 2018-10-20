@@ -1,3 +1,44 @@
+function insertConfirm() {
+		var pass = true;
+		if(''==$('#departmentName').val()) {
+			departmentName.focus()
+			$('#error-departmentName').removeClass("hide")
+			pass = false;
+		}else{
+			$('#error-departmentName').addClass("hide")
+		}
+		if(''==$('#facultyCode').val()) {
+			facultyCode.focus()
+			$('#error-facultyCode').removeClass("hide")
+			pass = false;
+		}else{
+			$('#error-facultyCode').addClass("hide")
+		}
+        var department = {
+        		departmentName: $('#departmentName').val(),
+        		facultyCode : $('#facultyCode').val(),
+       }
+       if (pass) {
+        	 $.ajax({
+                 type: "POST",
+                 url: "/insertAddDepartment",
+                 contentType: "application/json; charset=utf-8",
+                 data: JSON.stringify(department),
+                 dataType: "json",
+                 success: function(msg) {
+                     console.log("success")
+                     window.location.reload();
+                 },
+                 error: function() {
+                     console.log("error")
+                     $('#Modal').modal('hide')
+                     window.location.reload();
+                 }
+             });
+         }	
+        }//end insertConfirm
+               
+
 $(document).ready(function() {
 		$.ajax({
 			type : "GET",
@@ -7,7 +48,7 @@ $(document).ready(function() {
 			success : function(msg) {
 				console.log('Success')
 				for(var i=0; i<msg.length; i++) {
-					$('#faculty').append('<option value="' + msg[i].facultyCode+ '">' + msg[i].facultyName + '</option>');
+					$('#facultyCode').append('<option value="' + msg[i].facultyCode+ '">' + msg[i].facultyName + '</option>');
 				}
 				
 			}
@@ -18,7 +59,7 @@ $(document).ready(function() {
 					"iDisplayLength": 50,
 					"sAjaxDataProp" : "",
 					"aoColumns" : [{
-						"mData" : "departmentId",
+						"mData" : "departmentCode",
 						"sWidth" : "60px" 
 					},
 					{

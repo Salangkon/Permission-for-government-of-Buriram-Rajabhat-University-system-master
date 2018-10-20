@@ -175,7 +175,7 @@
 			<br>
 
 		</div>
-		<table id="addPersonnel" class="table table-bordered" style="width: 100%;background-color: yellow;">
+		<table id="addPersonnel1" class="table table-bordered" style="width: 100%;background-color: yellow;">
 			<thead>
 				<tr>
 					<th>คณะ</th>

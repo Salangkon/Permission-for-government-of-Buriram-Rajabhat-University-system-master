@@ -10,12 +10,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.hillert.dao.PermissionDao;
 import com.hillert.dao.UserDao;
+import com.hillert.model.DepartmentBean;
+import com.hillert.model.FacultyBean;
 import com.hillert.model.PersonAddressBean;
+import com.hillert.model.PositionBean;
+import com.hillert.model.SubPositionBean;
 import com.hillert.model.UserBean;
 
 @Controller
@@ -49,11 +54,26 @@ public class UserController {
 		return "addFaculty";
 	}
 	
+	// path insertAddFaculty
+	@RequestMapping("/insertAddFaculty")
+	public String insertAddFaculty(@RequestBody FacultyBean facBean) throws Exception {
+		userDao.insertFacultyBean(facBean);
+		return "addFaculty";
+	}
+	
 	// path addDepartment
 	@RequestMapping("/addDepartment")
 	public String addDepartment() {
 		return "addDepartment";
 	}
+	
+	// path insertAddDepartment
+	@RequestMapping("/insertAddDepartment")
+	public String insertAddDepartment(@RequestBody DepartmentBean depBean) throws Exception {
+		userDao.insertDepartmentBean(depBean);
+		return "addDepartment";
+	}
+
 	
 	// path addPosition
 	@RequestMapping("/addPosition")
@@ -61,9 +81,23 @@ public class UserController {
 		return "addPosition";
 	}
 	
+	// path insertAddPosition
+	@RequestMapping("/insertAddPosition")
+	public String insertAddPosition(@RequestBody PositionBean posBean) throws Exception {
+		userDao.insertPositionBean(posBean);
+		return "addPosition";
+	}
+
 	// path addSubPosition
 	@RequestMapping("/addSubPosition")
-	public String tset() {
+	public String addSubPosition() {
+		return "addSubPosition";
+	}
+	
+	// path insertAddSubPosition
+	@RequestMapping("/insertAddSubPosition")
+	public String insertAddSubPosition(@RequestBody SubPositionBean subBean) throws Exception {
+		userDao.insertSubPositionBean(subBean);
 		return "addSubPosition";
 	}
 

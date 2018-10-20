@@ -310,7 +310,7 @@ $(document).ready(function() {
 //	});
 	
 	//คำนวณ ค่าเบี้ยเลี้ยง
-	$('#addUser').on('change','input', function() { 
+	$('#addUser').on('keyup','input', function() { 
 		var sum6 = $(this).parent().parent().find('td')[7];
 		var number1 = $(this).parent().parent().find('td')[5];
 		var number2= $(this).parent().parent().find('td')[6];
@@ -325,7 +325,7 @@ $(document).ready(function() {
 	});
 	
 	//คำนวณ ค่าที่พัก
-	$('#addUser').on('change','input', function() { 
+	$('#addUser').on('keyup','input', function() { 
 		var sum9 = $(this).parent().parent().find('td')[10];
 		var number3 = $(this).parent().parent().find('td')[8];
 		var number4= $(this).parent().parent().find('td')[9];
@@ -340,7 +340,7 @@ $(document).ready(function() {
 	});
 	
 	//คำนวณ ค่าที่พัก ค่าเบี้ยเลี้ยง
-	$('#addUser').on('change','input', function() { 
+	$('#addUser').on('keyup','input', function() { 
 		var sum12 = $(this).parent().parent().find('td')[13];
 		var sum6 = $(this).parent().parent().find('td')[7];
 		var sum9 = $(this).parent().parent().find('td')[10];

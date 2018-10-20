@@ -20,8 +20,8 @@ $(document).ready(function() {
 		console.log("");
 		var d ;
 		var inputdata = [];
-		for (var i = 0; i < tableSelect.data().length; i++) {
-			d = tableSelect.data()[i];
+		for (var i = 0; i < tableSelect1.data().length; i++) {
+			d = tableSelect1.data()[i];
 			console.log(d);
 			inputdata.push(d);
 		}
@@ -70,12 +70,12 @@ $(document).ready(function() {
 	}
 		
 		dataSet.push(newRegister);
-		var tableSelect = $('#addPersonnel').DataTable().row.add(newRegister).draw();
+		var tableSelect1 = $('#addPersonnel1').DataTable().row.add(newRegister).draw();
 		
 	});
-	$('#addPersonnel').on('click', 'a', function() {
-		tableSelect.row( $(this).parents('tr') ).remove().draw();
-		var num = $('#addPersonnel').DataTable().rows().data().length;
+	$('#addPersonnel1').on('click', 'a', function() {
+		tableSelect1.row( $(this).parents('tr') ).remove().draw();
+		var num = $('#addPersonnel1').DataTable().rows().data().length;
 		
 	});
 	
@@ -145,14 +145,35 @@ $('#position').change(function () {
 			console.log('Success')
 			$('#subPositionCode').append('<option value="'+'">' + "== กรุณาเลือก ==" + '</option>');
 			for(var i=0; i<msg.length; i++) {
-				$('#subPositionCode').append('<option value="' + msg[i].subPositionId+ '">' + msg[i].subPositionName + '</option>');
+				$('#subPositionCode').append('<option value="' + msg[i].supPositionCode+ '">' + msg[i].subPositionName + '</option>');
 			}
 			
 		}
 	});
 });//end position
 	
-
+var tableSelect1 = $('#addPersonnel1').DataTable({
+	"searching": false, 
+    "lengthChange": false,
+	"sAjaxDataProp" : "",
+	"aoColumns" : [
+		{"mData" : "faculty",
+		},
+		{"mData" : "departmentCode",
+		},
+		{"mData" : "position",	
+		},
+		{"mData" : "subPositionCode",
+		},
+		{
+			"mData" : "",
+			"sWidth" : "10px" ,
+			"mRender" : function(data,
+				type, row, index) {
+			return '<a class="btn btn-danger" ><span class="glyphicon glyphicon-trash"> </span></a>';
+			}										
+	}]
+});
 
 var tableSelect = $('#addPersonnel').DataTable({
 	"searching": false, 
@@ -428,8 +449,6 @@ function validateInput() {
 	}else{
 		$('#error-username').addClass("hide")
 	}
-
-
 
 
 
