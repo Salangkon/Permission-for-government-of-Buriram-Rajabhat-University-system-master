@@ -1,3 +1,23 @@
+function gotoUpdate(departmentCode) {
+	document.getElementById("xx").value = departmentCode;
+	var testBean  = {
+		"department": $('#xx').val()
+	};
+	
+	$.ajax({
+    	type: "POST",
+    	url: "/gotoUpdateDepartment",
+    	data: JSON.stringify(testBean),
+    	contentType: "application/json; charset=utf-8",
+    	dataType: "json",
+    	success: function(msg) {
+    		console.log('ทำงานแล้ว')
+        	$('#code').val(msg.departmentCode);
+            $('#name').val(msg.departmentName);
+        	}
+    	});
+	};
+
 function insertConfirm() {
 		var pass = true;
 		if(''==$('#departmentName').val()) {
@@ -73,8 +93,8 @@ $(document).ready(function() {
 					{
 						"sWidth" : "60px" ,
 						"mRender": function (data, type, full) {// full คือ ข้อมูลของ
-								// ตาราง
-								return '<div align="center"><a href="#"> <span class="glyphicon glyphicon-edit"></span>' + '</a></div>' ;
+							// ตาราง
+							return '<div align="center"><a onclick="gotoUpdate(' + "'" + full.departmentCode + "'" + ')"  class="btn btn-warning" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-edit"></span>' + '</a></div>';
 						}
 					},]
 				});

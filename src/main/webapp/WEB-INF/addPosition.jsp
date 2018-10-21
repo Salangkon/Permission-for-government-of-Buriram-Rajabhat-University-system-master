@@ -95,6 +95,35 @@
 					</form>
                     </div>
                 </div>
+                
+                <!-- Modal update-->
+                <div id="myModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">แก้ชื่อคณะ</h4>
+                            </div>
+                            <form name="updateAddPosition" action="/updateAddPosition" method="POST">
+                            <div class="modal-body">
+                            	<input type="text" name="positionCode" id="code">
+                             	<div class="form-group">
+                               		<label class="control-label mb-10">ชื่อตำแหน่ง</label>
+                                	<input type="text" class="form-control" id="name" name="positionName" placeholder="ชื่อคณะ" required>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">บันทึก</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+	<input id="xx" type="hidden">
 
 	<form name="logoutForm"  action="logout" 		method="post" th:hidden="true"></form>
 	<form name="insertForm"  action="gotoInsert" 	method="post" th:hidden="true"></form>

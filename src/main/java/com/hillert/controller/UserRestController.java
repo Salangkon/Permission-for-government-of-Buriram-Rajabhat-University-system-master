@@ -174,10 +174,35 @@ public class UserRestController {
 		return list;
 	}
 	
+	//คณะ
 	@RequestMapping(value = "/gotoUpdateFaculty")
 	public FacultyBean modal(@RequestBody TestAjex TestAjex) throws SQLException {
 		FacultyBean bean = new FacultyBean();
 		bean = userDao.findById(TestAjex.getFaculty());
+		return bean;
+	}
+	
+	//สาขา
+	@RequestMapping(value = "/gotoUpdateDepartment")
+	public DepartmentBean department1(@RequestBody TestAjex TestAjex) throws SQLException {
+		DepartmentBean bean = new DepartmentBean();
+		bean = userDao.DepartmentByCode(TestAjex.getDepartment());
+		return bean;
+	}
+	
+	//ตำแหน่ง
+	@RequestMapping(value = "/gotoUpdatePosition")
+	public PositionBean position1(@RequestBody TestAjex TestAjex) throws SQLException {
+		PositionBean bean = new PositionBean();
+		bean = userDao.positionBeanByCode(TestAjex.getPosition());
+		return bean;
+	}
+	
+	//ระดับ
+	@RequestMapping(value = "/gotoUpdateSubPosition")
+	public SubPositionBean subPosition1(@RequestBody TestAjex TestAjex) throws SQLException {
+		SubPositionBean bean = new SubPositionBean();
+		bean = userDao.subPositionByCode(TestAjex.getSubPosition());
 		return bean;
 	}
 	

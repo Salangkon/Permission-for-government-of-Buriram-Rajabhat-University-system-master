@@ -1,8 +1,5 @@
-<%@page import="com.hillert.model.PersonAddressBean"%>
-<%@page import="com.hillert.model.PositionBean"%>
-<%@page import="com.hillert.model.SubPositionBean"%>
+
 <%@page import="com.hillert.model.FacultyBean"%>
-<%@page import="com.hillert.model.DepartmentBean"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.hillert.model.UserBean"%>
 <%@ page import="java.util.List"%>
@@ -106,7 +103,7 @@
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 <h4 class="modal-title">แก้ชื่อคณะ</h4>
                             </div>
-                            <form name="" action="" method="POST">
+                            <form name="updateAddFaculty" action="/updateAddFaculty" method="POST">
                             <div class="modal-body">
                             	<input type="text" name="facultyCode" id="code">
                              	<div class="form-group">
@@ -122,6 +119,8 @@
                         </div>
                     </div>
                 </div>
+                
+	<input id="xx" type="hidden">
 
 	<form name="logoutForm"  action="logout" 		method="post" th:hidden="true"></form>
 	<form name="insertForm"  action="gotoInsert" 	method="post" th:hidden="true"></form>

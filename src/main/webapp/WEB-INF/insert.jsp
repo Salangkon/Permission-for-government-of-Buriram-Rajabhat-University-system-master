@@ -15,11 +15,18 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/css/NewFile.css">
 	<link rel="stylesheet" href="/DataTables-1.10.18/css/jquery.dataTables.css">
+	
+<!-- 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css"> -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css">
+<!-- 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css.map"> -->
 
 	<script src="/js/jQuery v3.3.1.js"></script>
 	<script src="/js/insertUser.js"></script>
 	<script src="/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript">var dataSet = []</script>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.js"></script>
+<!-- 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script> -->
 
 	<script type="text/javascript">
 		//กรอกได้เฉพราะ ตัวเลข
@@ -190,12 +197,33 @@
 			<button type="button" class="btn btn-success" id="save" >ยืนยัน</button>
 			<button type="button" onclick="window.location.href='/gotoUserAll'" class="btn btn-danger">ยกเลิก</button>
 		</div>
-		
+<!-- 		<button type="button" class="btn btn-success" onclick="sd()"  >ยืนยัน</button> -->
 	</div>
 </div>
 </div>
 
-<!-- </form> -->
+<script>
+// function sd() {
+// 	swal({
+// 		  title: "คุณแน่ใจไหม !",
+// 		  text: "ที่จะบันทึก ข้อมูลนี้!",
+// 		  type: "warning",
+// 		  showCancelButton: true,
+// 		  confirmButtonClass: "btn-danger",
+// 		  confirmButtonText: "ยืนยัน",
+// 		  cancelButtonText: "ยกเลิก",
+// 		  closeOnConfirm: false,
+// 		  closeOnCancel: false
+// 		},
+// 		function(isConfirm) {
+// 		  if (isConfirm) {
+// 		    swal("เรียบร้อย!", "บันทึกสำเร็จ", "success");
+// 		  } else {
+// 		    swal("ยกเลิก", "ไม่บันทึก", "error");
+// 		  }
+// 		});
+// }
+</script>
 
 	<form name="logoutForm"   action="logout" 	    method="post" th:hidden= "true"></form>
 	<form name="insertForm"   action="gotoInsert"   method="post" th:hidden= "true"></form>

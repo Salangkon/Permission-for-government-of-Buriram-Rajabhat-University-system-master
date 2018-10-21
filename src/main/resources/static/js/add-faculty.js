@@ -1,13 +1,13 @@
-function gotoUpdate(filter) {
-	document.getElementById("facultyCode").value = filter;
-	var facultyCode = {
-    	"facultyCode": $('#facultyCode').val()
+function gotoUpdate(facultyCode) {
+	document.getElementById("xx").value = facultyCode;
+	var testBean  = {
+		"faculty": $('#xx').val()
 	};
 	
 	$.ajax({
     	type: "POST",
     	url: "/gotoUpdateFaculty",
-    	data: JSON.stringify(facultyCode),
+    	data: JSON.stringify(testBean),
     	contentType: "application/json; charset=utf-8",
     	dataType: "json",
     	success: function(msg) {

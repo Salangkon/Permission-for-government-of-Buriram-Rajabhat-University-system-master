@@ -1,3 +1,26 @@
+function gotoUpdate(supPositionCode) {
+	document.getElementById("xx").value = supPositionCode;
+	var testBean  = {
+		"subPosition": $('#xx').val()
+	};
+	
+	$.ajax({
+    	type: "POST",
+    	url: "/gotoUpdateSubPosition",
+    	data: JSON.stringify(testBean),
+    	contentType: "application/json; charset=utf-8",
+    	dataType: "json",
+    	success: function(msg) {
+    		console.log('ทำงานแล้ว')
+        	$('#code').val(msg.supPositionCode);allowence
+            $('#name').val(msg.subPositionName);
+        	$('#a').val(msg.allowence);
+        	$('#r').val(msg.rentDate);
+        	}
+    	});
+	};
+
+
 function insertConfirm() {
 		var pass = true;
 		if(''==$('#subPositionName').val()) {
@@ -81,8 +104,8 @@ $(document).ready(function() {
 					{
 						"sWidth" : "60px" ,
 						"mRender": function (data, type, full) {// full คือ ข้อมูลของ
-								// ตาราง
-								return '<div align="center"><a href="#"> <span class="glyphicon glyphicon-edit"></span>' + '</a></div>' ;
+							// ตาราง
+							return '<div align="center"><a onclick="gotoUpdate(' + "'" + full.supPositionCode + "'" + ')"  class="btn btn-warning" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-edit"></span>' + '</a></div>';
 						}
 					},]
 				});

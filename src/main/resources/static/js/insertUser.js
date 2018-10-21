@@ -42,21 +42,40 @@ $(document).ready(function() {
 		}
 
 		if(pass) {
-			$.ajax({
-		        type: "POST",
-		        url: "/insertUser",
-		        data: JSON.stringify(userBean),
-		        dataType: "json",
-		        async: false,
-		        contentType: "application/json; charset=utf-8",
-		        success: function (res) {
-		        	console.log(res)
-		        	window.location.href = res.page;
-		        },
-			 	error: function () {
-			 		window.location.href = "nser";	
-			    }
-			});
+			swal({
+				  title: "คุณแน่ใจไหม !",
+				  text: "ที่จะบันทึก ข้อมูลนี้!",
+				  type: "warning",
+				  showCancelButton: true,
+				  confirmButtonClass: "btn-danger",
+				  confirmButtonText: "ยืนยัน",
+				  cancelButtonText: "ยกเลิก",
+				  closeOnConfirm: false,
+				  closeOnCancel: false
+				},
+				function(isConfirm) {
+				  if (isConfirm) {
+					  swal("เรียบร้อย!", "บันทึกสำเร็จ", "success") ;
+					$.ajax({
+				        type: "POST",
+				        url: "/insertUser",
+				        data: JSON.stringify(userBean),
+				        dataType: "json",
+				        async: false,
+				        contentType: "application/json; charset=utf-8",
+				        success: function (res) {
+				        	console.log(res)
+				        	window.location.href = res.page;
+				        },
+					 	error: function () {
+					 		window.location.href = "nser";	
+					    }
+					});
+				  } else {
+					  swal("ยกเลิก", "ไม่บันทึก", "error");
+				  }
+				});
+
 		}
 		
 	});//and userBaan

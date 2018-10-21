@@ -735,7 +735,7 @@ $(document).ready(function() {
 					"sWidth" : "60px" ,
 					"mRender" : function(data,
 						type, row, index) {
-					return '<input class="form-control number1" disabled style="width: 15mm;height: 7mm" type="text" name="allowence" id="allowence' 
+					return '<input class="form-control number1" style="width: 15mm;height: 7mm" type="text" name="allowence" id="allowence' 
 							+ index.row
 							+ '" value="'+row.allowence+'"/>';
 					}
