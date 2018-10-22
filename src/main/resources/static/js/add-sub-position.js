@@ -12,12 +12,27 @@ function gotoUpdate(supPositionCode) {
     	dataType: "json",
     	success: function(msg) {
     		console.log('ทำงานแล้ว')
-        	$('#code').val(msg.supPositionCode);allowence
+        	$('#code').val(msg.supPositionCode);
             $('#name').val(msg.subPositionName);
         	$('#a').val(msg.allowence);
         	$('#r').val(msg.rentDate);
+        	$('#posCade').val(msg.positionCode);
+        	$('#posName').val(msg.positionCode);
         	}
     	});
+	$.ajax({
+		type : "GET",
+		url : "/position",
+		contentType : "application/json; charset=utf-8",
+		dataType : "json",
+		success : function(msg) {
+			console.log('Success')
+			for(var i=0; i<msg.length; i++) {
+				$('#position').append('<option value="' + msg[i].positionCode+ '">' + msg[i].positionName + '</option>');
+			}
+			
+		}
+	});
 	};
 
 
@@ -43,6 +58,13 @@ function insertConfirm() {
 			pass = false;
 		}else{
 			$('#error-rentDate').addClass("hide")
+		}
+		if(''==$('#positionCode').val()) {
+			positionCode.focus()
+			$('#error-positionCode').removeClass("hide")
+			pass = false;
+		}else{
+			$('#error-positionCode').addClass("hide")
 		}
         var subPosition = {
         		subPositionName	: $('#subPositionName').val(),

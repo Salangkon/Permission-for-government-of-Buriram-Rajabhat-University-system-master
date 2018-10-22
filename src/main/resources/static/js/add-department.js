@@ -1,7 +1,7 @@
 function gotoUpdate(departmentCode) {
-	document.getElementById("xx").value = departmentCode;
+	document.getElementById("departmentCode").value = departmentCode;
 	var testBean  = {
-		"department": $('#xx').val()
+		"department": $('#departmentCode').val(),
 	};
 	
 	$.ajax({
@@ -14,8 +14,23 @@ function gotoUpdate(departmentCode) {
     		console.log('ทำงานแล้ว')
         	$('#code').val(msg.departmentCode);
             $('#name').val(msg.departmentName);
+            $('#depCode').val(msg.facultyCode);
+            $('#depName').val(msg.facultyName);
         	}
     	});
+	$.ajax({
+		type : "GET",
+		url : "/faculty",
+		contentType : "application/json; charset=utf-8",
+		dataType : "json",
+		success : function(msg) {
+			console.log('Success')
+			for(var i=0; i<msg.length; i++) {
+				$('#faculty').append('<option value="' + msg[i].facultyCode+ '">' + msg[i].facultyName + '</option>');
+			}
+		}
+	});
+	
 	};
 
 function insertConfirm() {
@@ -60,6 +75,7 @@ function insertConfirm() {
                
 
 $(document).ready(function() {
+	
 		$.ajax({
 			type : "GET",
 			url : "/faculty",
@@ -70,7 +86,6 @@ $(document).ready(function() {
 				for(var i=0; i<msg.length; i++) {
 					$('#facultyCode').append('<option value="' + msg[i].facultyCode+ '">' + msg[i].facultyName + '</option>');
 				}
-				
 			}
 		});
 		var table = $('#addDepartmentTable').DataTable({

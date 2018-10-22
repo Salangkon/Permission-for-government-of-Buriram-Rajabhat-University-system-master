@@ -105,10 +105,14 @@
                             </div>
                             <form name="updateAddFaculty" action="/updateAddFaculty" method="POST">
                             <div class="modal-body">
-                            	<input type="text" name="facultyCode" id="code">
+                            	<input type="hidden" name="facultyCode" id="code">
                              	<div class="form-group">
-                               		<label class="control-label mb-10">ชื่อคณะ</label>
-                                	<input type="text" class="form-control" id="name" name="facultyName" placeholder="ชื่อคณะ" required>
+                               		<label class="control-label mb-10">ชื่อคณะ เดิม</label>
+                                	<input type="text" class="form-control" id="name" name="" placeholder="ชื่อคณะ" disabled="disabled">
+                                </div>
+                                <div class="form-group">
+                               		<label class="control-label mb-10">ชื่อคณะ ใหม่</label>
+                                	<input type="text" class="form-control" id="" name="facultyName" placeholder="ชื่อคณะ" required>
                                 </div>
                             </div>
                             <div class="modal-footer">

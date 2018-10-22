@@ -90,7 +90,7 @@
                            	<div class="form-group">
 								<label for="exampleFormControlSelect1">คณะ</label> 
 								<select class="form-control" name="" id="facultyCode">
-									<option>== กรุณาเลือก ==</option>
+									<option value="">== กรุณาเลือก ==</option>
 								</select>
 								<div class="hide" id="error-facultyCode"><label style="color: red;">กรุณากรอก เลือกคณะ</label></div>
 							</div>
@@ -112,18 +112,33 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">แก้ชื่อคณะ</h4>
+                                <h4 class="modal-title">แก้ชื่อสาขา</h4>
                             </div>
                             <form name="updateAddDepartment" action="/updateAddDepartment" method="POST">
                             <div class="modal-body">
-                            	<input type="text" name="departmentCode" id="code">
+                            	<input type="hidden" name="departmentCode" id="code">
                              	<div class="form-group">
-                               		<label class="control-label mb-10">ชื่อสาขา</label>
-                                	<input type="text" class="form-control" id="name" name="departmentName" placeholder="ชื่อคณะ" required>
+                               		<label class="control-label mb-10">ชื่อสาขา เดิม</label>
+                                	<input type="text" class="form-control" id="name" name="departmentName" placeholder="ชื่อสาขา" required disabled="disabled">
                                 </div>
+                                <div class="form-group">
+                        			<label class="control-label mb-10">ชื่อสาขา ใหม่</label>
+                                	<input type="text" id="" name="departmentName" placeholder="ชื่อสาขา" required class="w3-input w3-border w3-hover-blue">
+                                </div>
+                                <div class="form-group">
+									<label class="control-label mb-10">ชื่อคณะ เดิม</label>
+                                	<input type="text" class="form-control" id="depName" placeholder="ชื่อคณะ" required disabled="disabled">
+                                </div>
+                                <div class="form-group">
+									<label for="exampleFormControlSelect1">ชื่อคณะ ใหม่</label> 
+									<select class="form-control" name="facultyCode" id="faculty" required>
+										<option value="">== กรุณาเลือก ==</option>
+									</select>
+								<div class="hide" id="error-facultyCode"><label style="color: red;">กรุณากรอก เลือกคณะ</label></div>
+							</div>
                             </div>
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary">บันทึก</button>
+                                <button type="submit" class="btn btn-primary">บันทึก แก้ไข</button>
                                 <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
                             </div>
                             </form>
@@ -131,8 +146,8 @@
                     </div>
                 </div>
                 
-	<input id="xx" type="hidden">
-                
+	<input id="departmentCode" type="hidden">
+
                 
 	<form name="logoutForm"  action="logout" 		method="post" th:hidden="true"></form>
 	<form name="insertForm"  action="gotoInsert" 	method="post" th:hidden="true"></form>

@@ -85,7 +85,7 @@
                             <div class="modal-body">
                             	<div class="form-group">
                              		<label class="control-label mb-10">ชื่อระดับ</label>
-                                	<input type="text" class="form-control" id="subPositionName" placeholder="ชื่อคณะ" required>
+                                	<input type="text" class="form-control" id="subPositionName" placeholder="ชื่อระดับ" required>
                                 	<div class="hide" id="error-subPositionName"><label style="color: red;">กรุณากรอก เลือกคณะ</label></div>
                                 	<label class="control-label mb-10">ค่าเบี้ยเลี้ยง/บาท</label>
                                 	<input type="number" class="form-control" id="allowence" placeholder="ค่าเบี้ยเลี้ยง" required>
@@ -93,13 +93,14 @@
                                 	<label class="control-label mb-10">ค่าที่พัก/บาท</label>
                                 	<input type="number" class="form-control" id="rentDate" placeholder="ค่าที่พัก" required>
                                 	<div class="hide" id="error-rentDate"><label style="color: red;">กรุณากรอก เลือกคณะ</label></div>
-                           		</div> 
-                           		<!-- ตำแหน่ง  position -->
+                           	</div> 
+                           	<!-- ตำแหน่ง  position -->
 							<div class="form-group">
 								<label for="exampleFormControlSelect1">ตำแหน่ง</label> 
 								<select class="form-control" name="" id="positionCode">
-									<option>== กรุณาเลือก ==</option>
+									<option value="">== กรุณาเลือก ==</option>
 								</select>
+								<div class="hide" id="error-positionCode"><label style="color: red;">กรุณากรอก เลือกตำแหน่ง</label></div>
 							</div>
                             </div>
                             <div class="modal-footer">
@@ -120,24 +121,40 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">แก้ ระดับ</h4>
+                                <h4 class="modal-title">แก้ชื่อระดับ</h4>
                             </div>
                             <form name="updateAddSubPosition" action="/updateAddSubPosition" method="POST">
                             <div class="modal-body">
-                            	<input type="text" name="supPositionCode" id="code">
+                            	<input type="hidden" name="supPositionCode" id="code">
                              	<div class="form-group">
-                               		<label class="control-label mb-10">ชื่อระดับ</label>
+                               		<label class="control-label mb-10">ชื่อระดับ เดิม</label>
+                                	<input type="text" class="form-control" id="name" name="" placeholder="ชื่อระดับ" disabled="disabled">
+                                	<label class="control-label mb-10">ชื่อระดับ ใหม่</label>
                                 	<input type="text" class="form-control" id="name" name="subPositionName" placeholder="ชื่อระดับ" required>
+                                </div>
+                                <div class="form-group">
                                 	<label class="control-label mb-10">ค่าเบี้ยเลี้ยง</label>
                                 	<input type="text" class="form-control" id="a" name="allowence" placeholder="ค่าเบี้ยเลี้ยง" required>
+                                </div>
+                                <div class="form-group">
                                 	<label class="control-label mb-10">ค่าที่พัก</label>
                                 	<input type="text" class="form-control" id="r" name="rentDate" placeholder="ค่าที่พัก" required>
                                 </div>
+                                 <!-- ตำแหน่ง  position -->
+								<div class="form-group">
+									<label class="control-label mb-10">ค่าที่พัก เดิม</label>
+                                	<input type="text" class="form-control" id="posName" name="" placeholder="ค่าที่พัก" disabled="disabled">
+									<label for="exampleFormControlSelect1">ตำแหน่ง ใหม่</label> 
+									<select class="form-control" name="positionCode" id="position" required>
+										<option value="">== กรุณาเลือก ==</option>
+									</select>
+								</div>
                             </div>
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-primary">บันทึก</button>
                                 <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
                             </div>
+                            
                             </form>
                         </div>
                     </div>

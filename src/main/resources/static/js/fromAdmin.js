@@ -32,7 +32,7 @@ $(document).ready(function() {
 						"sWidth" : "20px" ,
 						"mRender": function (data, type, full) {// full คือ ข้อมูลของ
 							// ตาราง
-							return '<div align="center"><a href="/permissionPDFAdmin/'+ full.permissionId  + '"> <span class="glyphicon glyphicon-print"></span>' + '</a></div>';
+							return '<div align="center"><a href="/permissionPDFAdmin/'+ full.permissionId  + '"> <img src="/images/printer-icon.png" alt="print" width="50" height="30">' + '</a></div>';
 
 						}
 					},
@@ -43,7 +43,7 @@ $(document).ready(function() {
 							if (full.permissionStatus == 0) {
 				                return '<div align="center" style="color:red">รอดำเนินการ</div>';
 				            } else {
-				            	return '<div align="center"><a href="/permissionPDFBackAdmin/'+ full.permissionId  + '"> <span class="glyphicon glyphicon-print"></span>' + '</a></div>';
+				            	return '<div align="center"><a href="/permissionPDFBackAdmin/'+ full.permissionId  + '"><img src="/images/printer-icon.png" alt="print" width="50" height="30">' + '</a></div>';
 				            }
 						}
 					}]

@@ -83,7 +83,7 @@
                             <div class="modal-body">
                             	<div class="form-group">
                              		<label class="control-label mb-10">ชื่อตำแหน่ง</label>
-                                	<input type="text" class="form-control" id="positionName" placeholder="ชื่อคณะ" required>
+                                	<input type="text" class="form-control" id="positionName" placeholder="ชื่อตำแหน่ง" required>
                                 	<div class="hide" id="error-positionName"><label style="color: red;">กรุณากรอก ชื่อตำแหน่ง</label></div>
                            	</div> 
                             </div>
@@ -104,14 +104,18 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">แก้ชื่อคณะ</h4>
+                                <h4 class="modal-title">แก้ชื่อตำแหน่ง</h4>
                             </div>
                             <form name="updateAddPosition" action="/updateAddPosition" method="POST">
                             <div class="modal-body">
-                            	<input type="text" name="positionCode" id="code">
+                            	<input type="hidden" name="positionCode" id="code">
                              	<div class="form-group">
-                               		<label class="control-label mb-10">ชื่อตำแหน่ง</label>
-                                	<input type="text" class="form-control" id="name" name="positionName" placeholder="ชื่อคณะ" required>
+                               		<label class="control-label mb-10">ชื่อตำแหน่ง เดิม</label>
+                                	<input type="text" class="form-control" id="name" name="" placeholder="ชื่อตำแหน่ง" disabled="disabled">
+                                </div>
+                                <div class="form-group">
+                               		<label class="control-label mb-10">ชื่อตำแหน่ง ใหม่</label>
+                                	<input type="text" class="form-control" id="" name="positionName" placeholder="ชื่อตำแหน่ง" required>
                                 </div>
                             </div>
                             <div class="modal-footer">

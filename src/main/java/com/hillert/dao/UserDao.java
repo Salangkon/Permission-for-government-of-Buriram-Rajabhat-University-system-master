@@ -631,12 +631,12 @@ public class UserDao {
 		StringBuilder sql = new StringBuilder();
 		Connection conn = con.openConnect();
 		try {
-			sql.append(" UPDATE department SET  department_name = ? WHERE department_code = ? ");
+			sql.append(" UPDATE department SET  department_name = ?, faculty_code = ? WHERE department_code = ? ");
 			prepared = conn.prepareStatement(sql.toString());
 //			prepared.setString(1, bean.getFacultyName());
-//			prepared.setString(2, bean.getFacultyCode());
+			prepared.setString(2, bean.getFacultyCode());
 			prepared.setString(1, bean.getDepartmentName());
-			prepared.setString(2, bean.getDepartmentCode());
+			prepared.setString(3, bean.getDepartmentCode());
 
 			prepared.executeUpdate();
 		} catch (Exception e) {
@@ -828,6 +828,8 @@ public class UserDao {
 				bean.setSubPositionName(rs.getString("sub_position_name"));
 				bean.setAllowence(rs.getInt("allowence"));
 				bean.setRentDate(rs.getInt("rent_date"));
+				bean.setPositionName(rs.getString("position_code"));
+				bean.setPositionCode(rs.getString("position_name"));
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -847,14 +849,15 @@ public class UserDao {
 		StringBuilder sql = new StringBuilder();
 		Connection conn = con.openConnect();
 		try {
-			sql.append(" UPDATE sub_position SET sub_position_name = ?, allowence = ?, rent_date = ? WHERE sub_position_code = ? ");
+			sql.append(" UPDATE sub_position SET sub_position_name = ?, allowence = ?, rent_date = ?, position_code = ? WHERE sub_position_code = ? ");
 			prepared = conn.prepareStatement(sql.toString());
 //			prepared.setString(1, bean.getPositionName());
 //			prepared.setString(2, bean.getPositionCode());
 			prepared.setString(1, bean.getSubPositionName());
 			prepared.setInt(2, bean.getAllowence());
 			prepared.setInt(3, bean.getRentDate());
-			prepared.setString(4, bean.getSupPositionCode());
+			prepared.setString(4, bean.getPositionCode());
+			prepared.setString(5, bean.getSupPositionCode());
 
 			prepared.executeUpdate();
 		} catch (Exception e) {
