@@ -1,6 +1,69 @@
 
 function validateInput() {
 	var pass = true;
+	//budget
+	if('2'==$('#budget').val()) {
+		//budgetPass
+		if (''==$('#budgetPass').val()) {
+			budgetPass.focus()
+			$('#error-budgetPass').removeClass("hide")
+			pass = false;
+		} else {
+			$('#error-budgetPass').addClass("hide")
+		}
+		//budgetProject
+		if (''==$('#budgetProject').val()) {
+			budgetProject.focus()
+			$('#error-budgetProject').removeClass("hide")
+			pass = false;
+		} else {
+			$('#error-budgetProject').addClass("hide")
+		}
+		//budgetBy
+		if (''==$('#budgetBy').val()) {
+			budgetBy.focus()
+			$('#error-budgetBy').removeClass("hide")
+			pass = false;
+		} else {
+			$('#error-budgetBy').addClass("hide")
+		}	
+		//budgetExpenses
+		if (''==$('#budgetExpenses').val()) {
+			budgetExpenses.focus()
+			$('#error-budgetExpenses').removeClass("hide")
+			pass = false;
+		} else {
+			$('#error-budgetExpenses').addClass("hide")
+		}
+	}else{
+		$('#error-budget').addClass("hide")
+	}
+	//otherSumselect
+	if('1'==$('#otherSumselect').val()) {
+		//budgetPass
+		if (''==$('#otherSum').val()) {
+			budgetPass.focus()
+			$('#error-otherSum').removeClass("hide")
+			pass = false;
+		} else {
+			$('#error-otherSum').addClass("hide")
+		}
+	}else{
+		$('#error-otherSumselect').addClass("hide")
+	}
+	//travel
+	if('2'==$('#travel').val() || '3'==$('#travel').val()) {
+		//travelIdcard
+		if (''==$('#travelIdcard').val()) {
+			budgetPass.focus()
+			$('#error-travelIdcard').removeClass("hide")
+			pass = false;
+		} else {
+			$('#error-travelIdcard').addClass("hide")
+		}
+	}else{
+		$('#error-travel').addClass("hide")
+	}
 	//topics
 	if(''==$('#topics').val()) {
 		topics.focus()
@@ -464,6 +527,87 @@ $(document).ready(function() {
 		}
 	});
 
+	$('#buttonAdd1').click(function() {
+		var datas = table.rows('.selected').data();
+		tableSelect.rows.add(datas).draw(false);
+		table.rows('.selected').remove().draw();
+		console.log(datas);
+		var num = $('#addUser').DataTable().rows().data().length;
+		$('#userSumTotal').text(num);
+		
+		// set allowenceSumTotal
+		var sumvalues = $("[name='allowenceSum']");
+		var sum = 0;
+		for(var i = 0; i < sumvalues.length;i++){
+			if($(sumvalues[i]).val() != ""){
+				sum = sum + parseFloat($(sumvalues[i]).val());
+			}	
+		}
+		$('#allowenceSumTotal').text(parseFloat(sum).toFixed(0)/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/);
+		
+		// rentDateSum รวมค่าที่พัก
+		var sumvalues = $("[name='rentDateSum']");
+		var sum = 0;
+		for(var i = 0; i < sumvalues.length;i++){
+			if($(sumvalues[i]).val() != ""){
+				sum = sum + parseFloat($(sumvalues[i]).val());
+			}	
+		}
+		$('#rentDateSumTotal').text(parseFloat(sum).toFixed(0)/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/); 
+		
+		// travelSum รวมค่าพาหนะ
+		var sumvalues = $("[name='travelSum']");
+		var sum = 0;
+		for(var i = 0; i < sumvalues.length;i++){
+			if($(sumvalues[i]).val() != ""){
+				sum = sum + parseFloat($(sumvalues[i]).val());
+			}
+		}
+		$('#travelSumTotal').text(parseFloat(sum).toFixed(0)/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/);
+		// otherSum รวมค่าพาหนะ
+		var sumvalues = $("[name='otherSum']");
+		var sum = 0;
+		for(var i = 0; i < sumvalues.length;i++){
+			if($(sumvalues[i]).val() != ""){
+				sum = sum + parseFloat($(sumvalues[i]).val());
+			}
+		}
+		$('#otherSumTotal').text(parseFloat(sum).toFixed(0)/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/);
+		// expenseEstimateSum รวมค่าพาหนะ
+		var sumvalues = $("[name='expenseEstimateSum']");
+		var sum = 0;
+		for(var i = 0; i < sumvalues.length;i++){
+			if($(sumvalues[i]).val() != ""){
+				sum = sum + parseFloat($(sumvalues[i]).val());
+			}
+		}
+		$('#expenseEstimateSumTotal').text(parseFloat(sum).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+		$('#aaa').val(parseFloat(sum).toFixed(0)/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/); // .val ใช้กับ tag ที่เป็น input
+	
+		// allowencePerdayTotal รวมค่าที่พัก
+		var num = $('#addUser').DataTable().rows().data().length;
+		var sumvalues = $("[name='allowencePerday']");
+		var sum = 0;
+		for(var i = 0; i < sumvalues.length;i++){
+			if($(sumvalues[i]).val() != ""){
+				sum = sum + parseFloat($(sumvalues[i]).val())/parseFloat(num);
+			}	
+		}
+		$('#allowencePerdayTotal').text(parseFloat(sum).toFixed(0)/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/); 
+		
+		// allowencePerdayTotal รวมค่าที่พัก
+		var num = $('#addUser').DataTable().rows().data().length;
+		var sumvalues = $("[name='rentDatePerday']");
+		var sum = 0;
+		for(var i = 0; i < sumvalues.length;i++){
+			if($(sumvalues[i]).val() != ""){
+				sum = sum + parseFloat($(sumvalues[i]).val())/parseFloat(num);
+			}	
+		}
+		$('#rentDatePerdayTotal').text(parseFloat(sum).toFixed(0)/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/); 
+		
+	});
+	
 	$('#addUser').on('click','a.remove', function() {
 		console.log(555)
 		
@@ -777,7 +921,7 @@ $(document).ready(function() {
 					"sWidth" : "50px" ,
 					"mRender" : function(data,
 						type, row, index) {
-						var data2 = $('#d').val();
+						var data2 = $('#night').val();
 					return '<input class="form-control number4" type="text" OnKeyPress="return chkNumber(this)" style="width: 16mm;height: 7mm" name="rentDatePerday" id="rentDatePerday'
 							+ index.row
 							+ '" value="'+data2+'"/>';
@@ -788,7 +932,7 @@ $(document).ready(function() {
 					"sWidth" : "60px" ,
 					"mRender" : function(data,
 						type, row, index) {
-						var data2 = $('#d').val();
+						var data2 = $('#night').val();
 					return '<input class="form-control sum9" disabled readonly="true" type="text" OnKeyPress="return chkNumber(this)" style="width: 22mm;height: 7mm" name="rentDateSum" id="rentDateSum'
 							+ index.row
 							+ '" value="'+(row.rentDate)*(data2)+'"/>';

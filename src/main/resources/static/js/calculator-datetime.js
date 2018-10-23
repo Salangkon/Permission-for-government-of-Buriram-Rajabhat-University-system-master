@@ -47,12 +47,12 @@ function dateDiff() {
 	// alert(diffDays);
 	for (var i = 0; i <= days; i++) {
 		if (days > 0.5) {
-			d = days - 1;
+			night = days - 1;
 		} else {
-			d = 0;
+			night = 0;
 		}
 	}
-	$('#d').val(parseFloat(d));
+	$('#night').val(parseFloat(night));
 
 	$('#DayTotal').val(parseFloat(days).toFixed(1));
 
@@ -64,6 +64,5 @@ function otherSum1() {
 	//ค่าใช้จายอื่นๆ
 //	otherSum = "";
 	$('#otherSum').val(parseFloat(otherSum).toFixed(2));
-
 	
 }

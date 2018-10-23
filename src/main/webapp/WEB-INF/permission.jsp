@@ -140,7 +140,7 @@
       <div class="input-group-addon">วัน</div>
     </div>
     <div class="input-group">
-      <input type="text" style="text-align:center" class="form-control" id="d" placeholder="คืน" >
+      <input type="text" style="text-align:center" class="form-control" id="night" placeholder="คืน" >
       <div class="input-group-addon">คืน</div>
    	</div>
    	<div class="input-group">
@@ -271,7 +271,7 @@
 	<div class="w3-container w3-topbar w3-border-purple" style="background-color: white;">
 	<div class="form-group" style="margin-top: 2%">
 	<label> ค่าใช้จ่ายอื่นๆ </label>   
-    <select class="form-control" name="" id="" onChange="ShowRegOther(this.selectedIndex)">
+    <select class="form-control" name="" id="otherSumselect" onChange="ShowRegOther(this.selectedIndex)">
    		<option value="0">ไม่มี</option>
       	<option value="1">มี</option>
 	</select>
@@ -287,6 +287,7 @@
       <input maxlength="8" type="text" class="form-control" id="otherSum" OnKeyPress="return chkNumber(this)" placeholder="ระบุเป็นจำนวนเงิน">
       <div class="input-group-addon">บาท</div>
     </div>
+    <div class="hide" id="error-otherSum"><label style="color: red;">กรุณากรอก ค่าลงทะเบียน </label></div>
  	</div>
 <br>
 
@@ -310,6 +311,7 @@
   		<option value="2">ขอใช้รถไปราชการ</option>
   		<option value="3">ขอใช้รถส่วนตัว </option>
 	</select>
+	
     </div>
     </div></div></div>
 </div>
@@ -361,6 +363,7 @@
 		<div class="input-group-addon" style="width: 30%">หมายเลขทะเบียน </div>
 		<input class="form-control" name="travelIdcard" id="travelIdcard" maxlength="8" type="text" value="" > 
 	</div>
+	<div class="hide" id="error-travelIdcard"><label style="color: red;">กรุณากรอก หมายเลขทะเบียน  </label></div>
 	<div style="overflow-x:auto;">
 	<table id="addTravel1" class="table table-bordered" style="font-family: sans-serif;font-size:small;width: 100%">   
 		<thead>
@@ -393,6 +396,7 @@
 		<div class="input-group-addon" style="width: 30%">หมายเลขทะเบียน </div>
 		<input class="form-control" name="travelIdcard" id="travelIdcard" maxlength="8" type="text" value=""> 
 	</div>
+	<div class="hide" id="error-travelIdcard"><label style="color: red;">กรุณากรอก หมายเลขทะเบียน  </label></div>
 	<div style="overflow-x:auto;">
 	<table id="addPrivateCar" class="table table-bordered" style="font-family: sans-serif;font-size:small;width: 100%">   
 		<thead>
@@ -428,6 +432,7 @@
         	<option value="1">ตามสิทธิ์</option>
   			<option value="2">เหมาจ่าย</option>
 		</select>
+		<div class="hide" id="error-budgetExpenses"><label style="color: red;">กรุณาเลือก การเบิกค่าใช้จ่าย  </label></div>
 	</div>
 </div>
 <div class="col-sm-2 " >
@@ -439,16 +444,19 @@
   			<option value="2">งบรายได้</option>
   			<option value="3">อื่นๆ</option>
 		</select>
+		<div class="hide" id="error-budgetBy"><label style="color: red;">กรุณาเลือก การใช้งบประมาณ </label></div>
 	</div>
 </div>
 <div style="size: 10" class="col-sm-4 " >
 	<div class="form-group" style="margin-top: 1.7%">
 	<label> โครงการ  </label><input class="form-control" name="budgetProject" id="budgetProject" maxlength="30" type="text" value="">
+	<div class="hide" id="error-budgetProject"><label style="color: red;">กรุณากรอก ชื่อโครงการ</label></div>
 	</div>
 </div>
 <div style="size: 10" class="col-sm-2 " >
 	<div class="form-group" style="margin-top: 3.5%">
 	<label> รหัส    </label><input class="form-control" name="budgetPass" id="budgetPass" maxlength="10" type="text">
+	<div class="hide" id="error-budgetPass"><label style="color: red;">กรุณากรอก รหัสโครงการ</label></div>
 	</div>
 </div>
 <div class="col-sm-2 ">

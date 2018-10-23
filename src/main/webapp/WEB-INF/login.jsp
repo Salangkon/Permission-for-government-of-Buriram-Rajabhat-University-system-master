@@ -103,9 +103,9 @@
 			</div>
 			<% } %>
 			<label style="color: white;margin-left: 16mm;margin-bottom: 3mm"> </label>
-   			<input id="input123" type="text" name="username" placeholder="ชื่อผู้ใช้" value='a' required>
+   			<input id="input123" type="text" name="username" placeholder="ชื่อผู้ใช้" value='s' required>
    			<label style="color: white;margin-left: 16mm;margin-bottom: 3mm"> </label>
-    		<input id="input12" type="password" name="password" placeholder="รหัสผ่าน" value='a' required>
+    		<input id="input12" type="password" name="password" placeholder="รหัสผ่าน" value='s' required>
     		<label style="color: white;margin-bottom: 10mm">   </label>
     		<input class="btn btn-success" type="submit" value="Log in" style="width: 106mm;margin-left: 12mm;" />
 

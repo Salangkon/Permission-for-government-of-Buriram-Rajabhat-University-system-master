@@ -185,10 +185,10 @@
 		<table id="addPersonnel1" class="table table-bordered" style="width: 100%;background-color: yellow;">
 			<thead>
 				<tr>
-					<th>คณะ</th>
-					<th>สาขา</th>
-					<th>ตำแหน่ง</th>
-					<th>ระดับ</th>
+					<th>รหัส คณะ</th>
+					<th>รหัส สาขา</th>
+					<th>รหัส ตำแหน่ง</th>
+					<th>รหัส ระดับ</th>
 					<th>ลบ</th>
 				</tr>
 			</thead>

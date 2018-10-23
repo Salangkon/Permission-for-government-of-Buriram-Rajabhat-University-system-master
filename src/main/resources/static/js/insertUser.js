@@ -110,7 +110,7 @@ $.ajax({
 	success : function(msg) {
 		console.log('Success')
 		for(var i=0; i<msg.length; i++) {
-			$('#faculty').append('<option value="' + msg[i].facultyCode+ '">' + msg[i].facultyName + '</option>');
+			$('#faculty').append('<option value="' + msg[i].facultyCode+ '">'+ msg[i].facultyCode+' | '+ msg[i].facultyName + '</option>');
 		}
 		
 	}
@@ -129,7 +129,7 @@ $('#faculty').change(function () {
 			console.log('Success')
 			$('#departmentCode').append('<option value="'+'">' + "== กรุณาเลือก ==" + '</option>');
 			for(var i=0; i<msg.length; i++) {
-				$('#departmentCode').append('<option value="' + msg[i].departmentCode+ '">' + msg[i].departmentName + '</option>');
+				$('#departmentCode').append('<option value="' + msg[i].departmentCode+ '">' + msg[i].departmentCode + ' | ' + msg[i].departmentName + '</option>');
 			}
 			
 		}
@@ -145,7 +145,7 @@ $.ajax({
 	success : function(msg) {
 		console.log('Success')
 		for(var i=0; i<msg.length; i++) {
-			$('#position').append('<option value="' + msg[i].positionCode+ '">' + msg[i].positionName + '</option>');
+			$('#position').append('<option value="' + msg[i].positionCode+ '">'+ msg[i].positionCode+ ' | ' + msg[i].positionName + '</option>');
 		}
 		
 	}
@@ -164,7 +164,7 @@ $('#position').change(function () {
 			console.log('Success')
 			$('#subPositionCode').append('<option value="'+'">' + "== กรุณาเลือก ==" + '</option>');
 			for(var i=0; i<msg.length; i++) {
-				$('#subPositionCode').append('<option value="' + msg[i].supPositionCode+ '">' + msg[i].subPositionName + '</option>');
+				$('#subPositionCode').append('<option value="' + msg[i].supPositionCode+ '">'+ msg[i].supPositionCode+ ' | ' + msg[i].subPositionName + '</option>');
 			}
 			
 		}
