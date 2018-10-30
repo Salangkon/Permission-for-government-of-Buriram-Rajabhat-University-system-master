@@ -829,7 +829,7 @@
 </div><!-- 	end	8-->
 			
 			
-</div> <!-- end printableArea -->
+</div>  <!-- end printableArea -->
 
 
 
@@ -837,7 +837,7 @@
  
  
 
-<div id="printableArea2">
+ <div id="printableArea2"> 
 <!-- หลักฐานการจ่ายเงินไปราชการ 3 -->
 				<div class="pagePortrait" id="3">
 				<table>

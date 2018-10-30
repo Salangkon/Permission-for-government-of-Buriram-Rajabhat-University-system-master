@@ -3,21 +3,21 @@ package com.hillert.model;
 import java.sql.Timestamp;
 
 public class ExpenseSumaryBean {
-	
+
 	// FK permission
 	private int permissionId;
-	
-	private int userSumTotal;
-	private int allowenceSumTotal;
-	private int rentDateSumTotal;
-	private int travelSumTotal;
-	private int otherSumTotal;
-	private int expenseEstimateSumTotal;
+
+	private float userSumTotal;
+	private float allowenceSumTotal;
+	private float rentDateSumTotal;
+	private float travelSumTotal;
+	private float otherSumTotal;
+	private float expenseEstimateSumTotal;
 	private String expenseEstimateSumTotalThaiBaht;
-	
+
 	private float allowencePerdayTotal;
 	private float rentDatePerdayTotal;
-	
+
 	private String userSumTotalComma;
 	private String allowenceSumTotalComma;
 	private String rentDateSumTotalComma;
@@ -26,9 +26,88 @@ public class ExpenseSumaryBean {
 	private String expenseEstimateSumTotalComma;
 	private String allowencePerdayTotalComma;
 	private String rentDatePerdayTotalComma;
-	
-	
+
 	private Timestamp createDate;
+
+	public int getPermissionId() {
+		return permissionId;
+	}
+
+	public void setPermissionId(int permissionId) {
+		this.permissionId = permissionId;
+	}
+
+	public float getUserSumTotal() {
+		return userSumTotal;
+	}
+
+	public void setUserSumTotal(float userSumTotal) {
+		this.userSumTotal = userSumTotal;
+	}
+
+	public float getAllowenceSumTotal() {
+		return allowenceSumTotal;
+	}
+
+	public void setAllowenceSumTotal(float allowenceSumTotal) {
+		this.allowenceSumTotal = allowenceSumTotal;
+	}
+
+	public float getRentDateSumTotal() {
+		return rentDateSumTotal;
+	}
+
+	public void setRentDateSumTotal(float rentDateSumTotal) {
+		this.rentDateSumTotal = rentDateSumTotal;
+	}
+
+	public float getTravelSumTotal() {
+		return travelSumTotal;
+	}
+
+	public void setTravelSumTotal(float travelSumTotal) {
+		this.travelSumTotal = travelSumTotal;
+	}
+
+	public float getOtherSumTotal() {
+		return otherSumTotal;
+	}
+
+	public void setOtherSumTotal(float otherSumTotal) {
+		this.otherSumTotal = otherSumTotal;
+	}
+
+	public float getExpenseEstimateSumTotal() {
+		return expenseEstimateSumTotal;
+	}
+
+	public void setExpenseEstimateSumTotal(float expenseEstimateSumTotal) {
+		this.expenseEstimateSumTotal = expenseEstimateSumTotal;
+	}
+
+	public String getExpenseEstimateSumTotalThaiBaht() {
+		return expenseEstimateSumTotalThaiBaht;
+	}
+
+	public void setExpenseEstimateSumTotalThaiBaht(String expenseEstimateSumTotalThaiBaht) {
+		this.expenseEstimateSumTotalThaiBaht = expenseEstimateSumTotalThaiBaht;
+	}
+
+	public float getAllowencePerdayTotal() {
+		return allowencePerdayTotal;
+	}
+
+	public void setAllowencePerdayTotal(float allowencePerdayTotal) {
+		this.allowencePerdayTotal = allowencePerdayTotal;
+	}
+
+	public float getRentDatePerdayTotal() {
+		return rentDatePerdayTotal;
+	}
+
+	public void setRentDatePerdayTotal(float rentDatePerdayTotal) {
+		this.rentDatePerdayTotal = rentDatePerdayTotal;
+	}
 
 	public String getUserSumTotalComma() {
 		return userSumTotalComma;
@@ -94,86 +173,6 @@ public class ExpenseSumaryBean {
 		this.rentDatePerdayTotalComma = rentDatePerdayTotalComma;
 	}
 
-	public int getPermissionId() {
-		return permissionId;
-	}
-
-	public void setPermissionId(int permissionId) {
-		this.permissionId = permissionId;
-	}
-
-	public int getUserSumTotal() {
-		return userSumTotal;
-	}
-
-	public void setUserSumTotal(int userSumTotal) {
-		this.userSumTotal = userSumTotal;
-	}
-
-	public int getAllowenceSumTotal() {
-		return allowenceSumTotal;
-	}
-
-	public void setAllowenceSumTotal(int allowenceSumTotal) {
-		this.allowenceSumTotal = allowenceSumTotal;
-	}
-
-	public int getRentDateSumTotal() {
-		return rentDateSumTotal;
-	}
-
-	public void setRentDateSumTotal(int rentDateSumTotal) {
-		this.rentDateSumTotal = rentDateSumTotal;
-	}
-
-	public int getTravelSumTotal() {
-		return travelSumTotal;
-	}
-
-	public void setTravelSumTotal(int travelSumTotal) {
-		this.travelSumTotal = travelSumTotal;
-	}
-
-	public int getOtherSumTotal() {
-		return otherSumTotal;
-	}
-
-	public void setOtherSumTotal(int otherSumTotal) {
-		this.otherSumTotal = otherSumTotal;
-	}
-
-	public int getExpenseEstimateSumTotal() {
-		return expenseEstimateSumTotal;
-	}
-
-	public void setExpenseEstimateSumTotal(int expenseEstimateSumTotal) {
-		this.expenseEstimateSumTotal = expenseEstimateSumTotal;
-	}
-
-	public String getExpenseEstimateSumTotalThaiBaht() {
-		return expenseEstimateSumTotalThaiBaht;
-	}
-
-	public void setExpenseEstimateSumTotalThaiBaht(String expenseEstimateSumTotalThaiBaht) {
-		this.expenseEstimateSumTotalThaiBaht = expenseEstimateSumTotalThaiBaht;
-	}
-
-	public float getAllowencePerdayTotal() {
-		return allowencePerdayTotal;
-	}
-
-	public void setAllowencePerdayTotal(float allowencePerdayTotal) {
-		this.allowencePerdayTotal = allowencePerdayTotal;
-	}
-
-	public float getRentDatePerdayTotal() {
-		return rentDatePerdayTotal;
-	}
-
-	public void setRentDatePerdayTotal(float rentDatePerdayTotal) {
-		this.rentDatePerdayTotal = rentDatePerdayTotal;
-	}
-
 	public Timestamp getCreateDate() {
 		return createDate;
 	}
@@ -181,6 +180,5 @@ public class ExpenseSumaryBean {
 	public void setCreateDate(Timestamp createDate) {
 		this.createDate = createDate;
 	}
-
 
 }

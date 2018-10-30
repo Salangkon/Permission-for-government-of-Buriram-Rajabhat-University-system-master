@@ -109,12 +109,12 @@ public class UserDao {
 		try {
 			sql.append(
 					" SELECT pl.personnel_id, u.* , f.faculty_name, d.department_name , p.position_name,sp.sub_position_name ,sp.allowence ,sp.rent_date "
-							+ "FROM personnel_list pl " + "INNER JOIN user u on u.user_id = pl.user_id "
-							+ "INNER JOIN department d on d.department_code = pl.department_code "
-							+ "INNER JOIN faculty f on f.faculty_code = d.faculty_code "
-							+ "INNER JOIN sub_position sp on sp.sub_position_code = pl.sub_position_code "
-							+ "INNER JOIN position p on p.position_code = sp.position_code "
-							+ "WHERE  pl.user_id = ? ");
+					+ "FROM personnel_list pl " + "INNER JOIN user u on u.user_id = pl.user_id "
+					+ "INNER JOIN department d on d.department_code = pl.department_code "
+					+ "INNER JOIN faculty f on f.faculty_code = d.faculty_code "
+					+ "INNER JOIN sub_position sp on sp.sub_position_code = pl.sub_position_code "
+					+ "INNER JOIN position p on p.position_code = sp.position_code "
+					+ "WHERE  pl.user_id = ? ");
 			preperd = conn.prepareStatement(sql.toString());
 			preperd.setInt(1, userId);
 			ResultSet rs = preperd.executeQuery();
@@ -123,7 +123,7 @@ public class UserDao {
 				PersonAddressBean bean = new PersonAddressBean();
 				bean.setUserId(rs.getInt("user_id"));
 				bean.setSex(rs.getString("sex"));
-
+				bean.setPersonnelId(rs.getInt("personnel_id"));
 				bean.setFacultyName(rs.getString("faculty_name"));
 				bean.setDepartmentName(rs.getString("department_name"));
 				bean.setPositionName(rs.getString("position_name"));
@@ -141,6 +141,77 @@ public class UserDao {
 		}
 		return list;
 	}// end
+	
+	public PersonAddressBean findByIdPL(int personnelId) throws SQLException {
+		PersonAddressBean bean = new PersonAddressBean();
+		ConnectDB con = new ConnectDB();
+		Connection conn = con.openConnect();
+		PreparedStatement preperd = null;
+		StringBuilder sql = new StringBuilder();
+
+		try {
+			sql.append(" SELECT pl.personnel_id, u.* , f.*, d.* , p.* ,sp.* \r\n" + 
+					"FROM personnel_list pl  \r\n" + 
+					"INNER JOIN user u on u.user_id = pl.user_id \r\n" + 
+					"INNER JOIN department d on d.department_code = pl.department_code \r\n" + 
+					"INNER JOIN faculty f on f.faculty_code = d.faculty_code \r\n" + 
+					"INNER JOIN sub_position sp on sp.sub_position_code = pl.sub_position_code \r\n" + 
+					"INNER JOIN position p on p.position_code = sp.position_code \r\n" + 
+					"WHERE  pl.personnel_id = ? ");
+			preperd = conn.prepareStatement(sql.toString());
+			preperd.setInt(1, personnelId);
+			ResultSet rs = preperd.executeQuery();
+
+			while (rs.next()) {
+				bean.setPersonnelId(rs.getInt("personnel_id"));
+				bean.setUserId(rs.getInt("user_id"));
+				
+				bean.setFacultyCode(rs.getString("faculty_code"));
+				bean.setFacultyName(rs.getString("faculty_name"));
+				bean.setDepartmentCode(rs.getString("department_code"));
+				bean.setDepartmentName(rs.getString("department_name"));
+				bean.setPositionCode(rs.getString("position_code"));
+				bean.setPositionName(rs.getString("position_name"));
+				bean.setSubPositionCode(rs.getString("sub_position_code"));
+				bean.setSubPositionName(rs.getString("sub_position_name"));
+
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			if (con != null) {
+				conn.close();
+			}
+		}
+		return bean;
+	}// end
+	
+	// update user
+	public PersonAddressBean updatePL(PersonAddressBean bean) throws SQLException {
+			ConnectDB con = new ConnectDB();
+			PreparedStatement preperd = null;
+			StringBuilder sql = new StringBuilder();
+
+			try {
+				sql.append(" UPDATE personnel_list SET department_code = ? , sub_position_code = ? WHERE personnel_id = ? ");
+				preperd = con.openConnect().prepareStatement(sql.toString());
+				preperd.setString(1, bean.getDepartmentCode());
+				preperd.setString(2, bean.getSubPositionCode());
+				preperd.setInt(3, bean.getPersonnelId());
+
+
+				preperd.executeUpdate();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			} finally {
+				if (con != null) {
+					con.openConnect().close();
+				}
+			}
+			return bean;
+		}// end method update
 
 	// listUser
 	public List<UserBean> findAll() throws SQLException {

@@ -16,18 +16,23 @@
 	<script src="/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	
-</body>
 	<%
 	UserBean bean= null;
 	UserBean beanUpdate = null;
-	List<PersonAddressBean> list= null;
+	List<PersonAddressBean> list = null;
+// 	PersonAddressBean beanPL = null;
 	String result = "";
 	%>
 	<%	
-	bean = (UserBean) request.getSession().getAttribute("userBean");
-	beanUpdate = (UserBean) request.getAttribute("resultBean");
-	list = (List<PersonAddressBean>) request.getAttribute("listUserBean");
-	result = (String) request.getAttribute("messesUpdate");
+	bean = (UserBean)request.getSession().getAttribute("userBean");
+	beanUpdate = (UserBean)request.getAttribute("resultBean");
+	list = (List<PersonAddressBean>)request.getAttribute("listUserBean");
+// 	beanPL = (PersonAddressBean)request.getAttribute("updatePL");
+	result = (String)request.getAttribute("messesUpdate");
+// 	beanUpdate = (UserBean)request.getSession().getAttribute("resultBean");
+// 	list = (List<PersonAddressBean>)request.getSession().getAttribute("listUserBean");
+// 	beanPL = (PersonAddressBean)request.getSession().getAttribute("updatePL");
+// 	result = (String)request.getSession().getAttribute("messesUpdate");
 	%>
 
 </head>
@@ -79,7 +84,6 @@
 	style="cursor:pointer" title="close side menu" id="myOverlay">
 </div>
 
-<form name="update" action="update" method="post">
 
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:300px;" >
@@ -111,13 +115,16 @@
 	<hr>
 	<div class="col-sm-2" ><label>เบอร์มือถือ :</label> </div>
 	<div class="col-sm-10" ><label style="margin-left: 2mm"><%if (beanUpdate.getNumberPhone() != null) {out.print(beanUpdate.getNumberPhone());} %></label></div>
+	<form name="welcome" action="#" method="post" class="w3-animate-bottom">
+	<input type="hidden" name="personnelId" id="personnelId">
 	<div class="col-sm-12"  style="margin-top: 5%">
-		<table class="w3-table-all w3-hoverable">
+		<table class="table">
 			<tr>
 				<th style="background-color: yellow; ">คณะ</th>
 				<th style="background-color: yellow; ">สาขา</th>
 				<th style="background-color: yellow; ">ตำแหน่ง</th>
 				<th style="background-color: yellow; ">ระดับ</th>
+				<th style="background-color: yellow;text-align: center; ">แก้ไข</th>
 			</tr>
 			<%for (int i = 0; i < list.size(); i++) {%>
 			<tr>
@@ -125,17 +132,37 @@
 				<td><%=list.get(i).getDepartmentName()%></td>
 				<td><%=list.get(i).getPositionName()%></td>
 				<td><%=list.get(i).getSubPositionName()%></td>
+				<td><div align="center"><a onclick="gotoUpdate('<%=list.get(i).getPersonnelId()%>')" class="btn btn-warning" data-toggle="modal" data-target="#myModal">
+						<span class="glyphicon glyphicon-edit"></span></a>
+					</div>
+				</td>
 			</tr>
 			<%}%>
 		</table>
 	</div>
+	</form>
 	<div class="col-sm-12" >	
-	<div class="w3-card-4" style="margin-top: 2%;">
+
+	</div>
+	
+	</div>
+	</div>
+	</div>
+<form name="update" action="update" method="post">
+	<div class="w3-card-4 w3-white" style="margin-top: 2%;margin-bottom: 10%">
   	<div class="w3-container w3-green">
   		<h2 class="w3-center">เปลี่ยนแปลง ข้อมูลบุคคลากร</h2>
   	</div>
 	<div style="margin-top: 2%;padding-left : 5%;padding-right: 5%">
-
+	<% if (result.equals("S")) { %>
+		<div class="alert alert-success" align="center">
+			<strong>บันทึก </strong> เรียบร้อย
+		</div>
+	<% } else if (result.equals("F")) { %>
+		<div class="alert alert-danger" align="center">
+			<strong>บันทึก ล้มเหล้ว</strong> กรุณาลองอีกครั้ง !!
+		</div>
+	<% } %>
 	<input type="hidden" name="userId" id="userId" value="<%=beanUpdate.getUserId() %>">
 	
 	<div class="form-group">
@@ -150,7 +177,7 @@
 	
 	<div class="form-group">
 		<label for="exampleInputEmail1">นามสกุล</label> 
-		<input type="text" class="form-control" name="userLname" value="<%=beanUpdate.getUserFname() %>">
+		<input type="text" class="form-control" name="userLname" value="<%=beanUpdate.getUserLname() %>">
 	</div>
 	
 	<div class="form-group">
@@ -163,22 +190,23 @@
 			<option value="1">ADMIN</option>
 			<option value="3">ออกจากราชการ</option>
 		</select>
-	</div>
+	</div>	
 		<button type="submit" class="btn btn-success" >ยืนยัน</button>
 	</div><br>
 	</div>
-	</div>
-	
-	</div>
-	</div>
-	</div>
-</div>
-
-	
-</div>
 </form>
+</div>
 
-	<script>
+</div><!-- end -->
+
+<script type="text/javascript">
+	function gotoUpdate(filter) {
+		document.getElementById("personnelId").value = filter;
+		document.welcome.action = "gotoUpdatePL";
+		document.welcome.submit();
+	}
+</script>
+<script>
 	// Script to open and close sidebar
 	function w3_open() {
  	   document.getElementById("mySidebar").style.display = "block";
@@ -189,7 +217,7 @@
  	   document.getElementById("mySidebar").style.display = "none";
  	   document.getElementById("myOverlay").style.display = "none";
 	}
-	</script>
+</script>
 
 </body>
 </html>

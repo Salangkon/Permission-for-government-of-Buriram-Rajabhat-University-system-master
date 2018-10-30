@@ -31,6 +31,15 @@
 	<script src="/js/jQuery v3.3.1.js"></script>
 	<script src="/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>
 	<script src="/js/fromAdmin.js"></script>
+	
+<!-- 	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script> -->
+	<script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
 </head>
 
 
@@ -38,14 +47,14 @@
 
 <%@include file="NavAdmin.jsp" %>
 
-<form class="modal-content animate" action="" style="max-width:95%;margin-top: 5%;margin-left: 3%" name="welcome" action="#" method="post">
+<form class="modal-content animate" action="" style="max-width: 95%;margin-top: 2%;margin-left: 3%" name="welcome" action="#" method="post">
  <input type="hidden" name="permissionId" id="permissionId">
 	<div class="w3-container w3-blue" align="center">
     	<h2><i class="fa fa-address-card-o w3-margin-right"></i> คำขอไปราชการ  </h2>
     </div>
     <div style="overflow: auto;">
     <div class="w3-container w3-white w3-padding-16">
-	<table id="userTable" class="table table-bordered" >   
+	<table id="userTable" class="table table-bordered">   
 		<thead>
     	<tr style="background: purple;color: white;">
         	<th>รหัสอ้างอิง</th>

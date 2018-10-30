@@ -41,7 +41,15 @@
 	<script src="/js/1-10-19jquery.dataTables.min.js"></script>
 	<script src="/js/1-10-19dataTables.bootstrap.min.js"></script>
 	<script src="/js/userAll.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
 
+</head>
 </head>
 
 
@@ -60,15 +68,14 @@
 		
 		<div style="overflow: auto;" >
 		<div class="w3-container w3-white w3-padding-16">
-			<table id="userTable" class="table table-striped table-bordered nowrap" style="width: 100%; margin-top: 5%;">
+			<table id="userTable" class="table table-striped " style="width: 100%; margin-top: 5%;">
 				<thead>
 					<tr style="background: purple; color: white;">
 						<th style="text-align: center">รหัส</th>
 						<th style="text-align: center">ชื่อ</th>
 						<th style="text-align: center">นามสกุล</th>
 						<th style="text-align: center">สถานะ</th>
-						<th style="text-align: center">ตรวจสอบ<br>ข้อมูล
-						</th>
+						<th style="text-align: center">ตรวจสอบ<br>ข้อมูล</th>
 					</tr>
 				</thead>
 			</table>
@@ -93,5 +100,6 @@
 	<form name="addPosition"  	action="addPosition" 	method="post" th:hidden= "true"></form>
 	<form name="addSubPosition" action="addSubPosition" method="post" th:hidden= "true"></form>
 
+	
 </body>
 </html>

@@ -48,13 +48,13 @@
 	<a href="javascript: document.RequestForm.submit()" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
     		<i class="glyphicon glyphicon-list-alt w3-margin-right" style="margin-left: 6%;"></i>คำขอไปปราชการ</a> 
     <a href="javascript: document.addFaculty.submit()" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
-    		<i class="glyphicon glyphicon-save-file w3-margin-right" style="margin-left: 6%;"></i>เพิ่มคณะ</a> 
+    		<i class="glyphicon glyphicon-save-file w3-margin-right" style="margin-left: 6%;"></i>ข้อมูลคณะ</a> 
    	<a href="javascript: document.addDepartment.submit()" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
-    		<i class="glyphicon glyphicon-save-file w3-margin-right" style="margin-left: 6%;"></i>เพิ่มสาขา</a>     
+    		<i class="glyphicon glyphicon-save-file w3-margin-right" style="margin-left: 6%;"></i>ข้อมูลสาขา</a>     
     <a href="javascript: document.addPosition.submit()" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
-    		<i class="glyphicon glyphicon-save-file w3-margin-right" style="margin-left: 6%;"></i>เพิ่มตำแหน่ง</a> 
+    		<i class="glyphicon glyphicon-save-file w3-margin-right" style="margin-left: 6%;"></i>ข้อมูลตำแหน่ง</a> 
    	<a href="javascript: document.addSubPosition.submit()" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
-    		<i class="glyphicon glyphicon-save-file w3-margin-right" style="margin-left: 6%;"></i>เพิ่มระดับ</a> 
+    		<i class="glyphicon glyphicon-save-file w3-margin-right" style="margin-left: 6%;"></i>ข้อมูลระดับ</a> 
   	<a href="javascript: document.logoutForm.submit()" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
     		<i class="glyphicon glyphicon-log-out w3-margin-right" style="margin-left: 6%;"></i>ออกจากระบบ</a>
     </div>

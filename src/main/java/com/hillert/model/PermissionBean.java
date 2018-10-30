@@ -77,11 +77,42 @@ public class PermissionBean {
 	
 	private String expenseEstimateSumTotalComma;
 	
+	private String day;
+	private String night;
+	private String Hour;
+	
+	private String otherC;
+	
 	private List<ExpenseEstimateBean> eeBean;
 	private ExpenseSumaryBean esBean;
 	private List<TravelExpensesBean> teBean;
 	private List<TravelExpensesFuelCostBean> tefcBean;
 	
+	
+	public String getDay() {
+		return day;
+	}
+	public void setDay(String day) {
+		this.day = day;
+	}
+	public String getNight() {
+		return night;
+	}
+	public void setNight(String night) {
+		this.night = night;
+	}
+	public String getHour() {
+		return Hour;
+	}
+	public void setHour(String hour) {
+		Hour = hour;
+	}
+	public String getOtherC() {
+		return otherC;
+	}
+	public void setOtherC(String otherC) {
+		this.otherC = otherC;
+	}
 	public String getExpenseEstimateSumTotalComma() {
 		return expenseEstimateSumTotalComma;
 	}

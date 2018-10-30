@@ -43,16 +43,16 @@ public class ExpenseEstimateDao {
 			
 			prepared.setInt(1, bean.getPersonnelId());
 			prepared.setInt(2, bean.getPermissionId());
-			prepared.setInt(3, bean.getAllowenceType());
-			prepared.setInt(4, bean.getAllowence());
+			prepared.setFloat(3, bean.getAllowenceType());
+			prepared.setFloat(4, bean.getAllowence());
 			prepared.setFloat(5, bean.getAllowencePerday());
-			prepared.setInt(6, bean.getAllowenceSum());
-			prepared.setInt(7, bean.getRentDate());
+			prepared.setFloat(6, bean.getAllowenceSum());
+			prepared.setFloat(7, bean.getRentDate());
 			prepared.setFloat(8, bean.getRentDatePerday());
-			prepared.setInt(9, bean.getRentDateSum());
-			prepared.setInt(10, bean.getTravelSum());
-			prepared.setInt(11, bean.getOtherSum());
-			prepared.setInt(12, bean.getExpenseEstimateSum());		
+			prepared.setFloat(9, bean.getRentDateSum());
+			prepared.setFloat(10, bean.getTravelSum());
+			prepared.setFloat(11, bean.getOtherSum());
+			prepared.setFloat(12, bean.getExpenseEstimateSum());		
 
 			prepared.executeUpdate();
 			
@@ -82,12 +82,12 @@ public class ExpenseEstimateDao {
 				
 				prepared = conn.prepareStatement(sql.toString());
 				
-				prepared.setInt(1, bean.getUserSumTotal());
-				prepared.setInt(2, bean.getAllowenceSumTotal());
-				prepared.setInt(3, bean.getRentDateSumTotal());
-				prepared.setInt(4, bean.getTravelSumTotal());
-				prepared.setInt(5, bean.getOtherSumTotal());
-				prepared.setInt(6, bean.getExpenseEstimateSumTotal());
+				prepared.setFloat(1, bean.getUserSumTotal());
+				prepared.setFloat(2, bean.getAllowenceSumTotal());
+				prepared.setFloat(3, bean.getRentDateSumTotal());
+				prepared.setFloat(4, bean.getTravelSumTotal());
+				prepared.setFloat(5, bean.getOtherSumTotal());
+				prepared.setFloat(6, bean.getExpenseEstimateSumTotal());
 				
 				prepared.setFloat(7, bean.getAllowencePerdayTotal());
 				prepared.setFloat(8, bean.getRentDatePerdayTotal());
@@ -128,16 +128,16 @@ public class ExpenseEstimateDao {
 			
 			prepared.setInt(1, bean.getPersonnelId());
 			prepared.setInt(2, bean.getPermissionId());
-			prepared.setInt(3, bean.getAllowenceType());
-			prepared.setInt(4, bean.getAllowence());
+			prepared.setFloat(3, bean.getAllowenceType());
+			prepared.setFloat(4, bean.getAllowence());
 			prepared.setFloat(5, bean.getAllowencePerday());
-			prepared.setInt(6, bean.getAllowenceSum());
-			prepared.setInt(7, bean.getRentDate());
+			prepared.setFloat(6, bean.getAllowenceSum());
+			prepared.setFloat(7, bean.getRentDate());
 			prepared.setFloat(8, bean.getRentDatePerday());
-			prepared.setInt(9, bean.getRentDateSum());
-			prepared.setInt(10, bean.getTravelSum());
-			prepared.setInt(11, bean.getOtherSum());
-			prepared.setInt(12, bean.getExpenseEstimateSum());		
+			prepared.setFloat(9, bean.getRentDateSum());
+			prepared.setFloat(10, bean.getTravelSum());
+			prepared.setFloat(11, bean.getOtherSum());
+			prepared.setFloat(12, bean.getExpenseEstimateSum());		
 
 			prepared.executeUpdate();
 			
@@ -167,13 +167,13 @@ public class ExpenseEstimateDao {
 				
 				prepared = conn.prepareStatement(sql.toString());
 				
-				prepared.setInt(1, bean.getUserSumTotal());
-				prepared.setInt(2, bean.getAllowenceSumTotal());
-				prepared.setInt(3, bean.getRentDateSumTotal());
-				prepared.setInt(4, bean.getTravelSumTotal());
-				prepared.setInt(5, bean.getOtherSumTotal());
-				prepared.setInt(6, bean.getExpenseEstimateSumTotal());
-				
+				prepared.setFloat(1, bean.getUserSumTotal());
+				prepared.setFloat(2, bean.getAllowenceSumTotal());
+				prepared.setFloat(3, bean.getRentDateSumTotal());
+				prepared.setFloat(4, bean.getTravelSumTotal());
+				prepared.setFloat(5, bean.getOtherSumTotal());
+				prepared.setFloat(6, bean.getExpenseEstimateSumTotal());
+
 				prepared.setFloat(7, bean.getAllowencePerdayTotal());
 				prepared.setFloat(8, bean.getRentDatePerdayTotal());
 
@@ -279,11 +279,9 @@ public class ExpenseEstimateDao {
 			try {
 				sql.append("INSERT INTO travel_expenses_private_car (travel_id, permission_id, "
 						+ "tepc_distance, tepc_number_per, tepc_rate_fuel_cost, tepc_fuel_cost_sum, "
-						+ "tepc_expressway_expenses_sum, tepc_sum, "
 						+ "tepc_vehicle_c, tepc_create_date) "
 						+ "VALUES(?,?,"
 						+ "?,?,?,?,"
-						+ "?,?,"
 						+ "?,SYSDATE())");
 				
 				prepared = conn.prepareStatement(sql.toString());
@@ -294,11 +292,8 @@ public class ExpenseEstimateDao {
 				prepared.setInt(4, bean.getNumberPer());
 				prepared.setInt(5, bean.getRateFuelCost());
 				prepared.setInt(6, bean.getFuelCostSum());
-	
-				prepared.setInt(7, bean.getExpresswayExpensesSum());
-				prepared.setString(8, bean.getSum());
 				
-				prepared.setString(9, bean.getVehicleC());
+				prepared.setString(7, bean.getVehicleC());
 
 				prepared.executeUpdate();
 				

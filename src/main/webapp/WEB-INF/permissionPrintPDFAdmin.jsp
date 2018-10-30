@@ -831,6 +831,17 @@
 								</th>
 							</tr>
 							<%}%>
+							<tr>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+							</tr>
 							</thead>
 							<tfoot>
 							<tr>

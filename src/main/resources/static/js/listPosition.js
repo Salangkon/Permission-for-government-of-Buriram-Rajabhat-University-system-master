@@ -28,7 +28,7 @@ $(document).ready(function() {
 				console.log('Success')
 				$('#subPosition').append('<option value="'+'">' + "== กรุณาเลือก ==" + '</option>');
 				for(var i=0; i<msg.length; i++) {
-					$('#subPosition').append('<option value="' + msg[i].subPositionCode+ '">' + msg[i].subPositionName + '</option>');
+					$('#subPosition').append('<option value="' + msg[i].supPositionCode+ '">' + msg[i].subPositionName + '</option>');
 				}
 				
 			}

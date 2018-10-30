@@ -226,6 +226,7 @@ public class PermissionDao {
 					bean.setPersonnelId(rs.getInt("personnel_id"));
 					bean.setTopics(rs.getString("topics"));
 					bean.setOther(rs.getString("other"));
+					bean.setOtherC(rs.getString("other_c"));
 					permissionId = bean.getPermissionId();	
 
 				}
@@ -334,14 +335,14 @@ public class PermissionDao {
 				+ "budget, budget_expenses, budget_by, budget_project, budget_pass,"
 				+ "travel, travel_idcard, commit_a, commit_a_dt,"
 				+ "commit_b, commit_b_dt, commit_c, commit_c_dt, commit_d, commit_d_dt," 
-				+ "other, permission_status, create_date)"
+				+ "other, other_c, permission_status, create_date)"
 				+ " VALUES (?,?,?,?,?" 
 				+ ",?,?,?,?" 
 				+ ",?,?,?,?" 
 				+ ",?,?,?,?,?" 
 				+ ",?,?,?,?" 
 				+ ",?,?,?,?,?,?"
-				+ ",?,'0',SYSDATE())";
+				+ ",?,?,'0',SYSDATE())";
 				
 		KeyHolder keyHolder = new GeneratedKeyHolder();
 		// JdbcTemplate jdbcTemplate = new JdbcTemplate(new
@@ -388,6 +389,7 @@ public class PermissionDao {
 					prepared.setString(28, bean.getCommitDDt());
 
 					prepared.setString(29, bean.getOther());
+					prepared.setString(30, bean.getOtherC());
 					
 				} catch (ParseException e) {
 					e.printStackTrace();
@@ -420,9 +422,13 @@ public class PermissionDao {
 						+ " b_rent_date_type, b_start_travel, b_back_travel, b_house_number ,b_road ,"
 						+ " district, b_go_date ,b_go_time, b_back_date, b_back_time, "
 						+ " b_save_date , b_date_sum, b_time_sum, b_benefit_record, b_benefit_courses, b_benefit_use, "
-						+ " choice_bill1, choice_bill2, choice_bill3, choice_bill4, choice_bill5, choice_bill6, choice_bill7, choice_bill7_c, "
-						+ " bill_go_date, bill_detail1, bill_back_date, bill_detail2)"
-						+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+						+ " choice_bill1, choice_bill2, choice_bill3, choice_bill4, choice_bill5, choice_bill6, choice_bill7, choice_bill7_c )"
+						+ "VALUES (?,?,?,?,?,"
+						+ "?,?,?,?,?,"
+						+ "?,?,?,?,?,"
+						+ "?,?,?,?,?,"
+						+ "?,?,?,?,?,"
+						+ "?,?,?,?)");
 
 			prepared = conn.prepareStatement(sql.toString());
 

@@ -16,6 +16,7 @@ public class PersonAddressBean {
 	//ตาราง Position
 	private int positionId;
 	private String positionName;
+	private String positionCode;
 	//ตาราง SubPosition
 	private int subPositionId;
 	private String subPositionName;
@@ -33,6 +34,12 @@ public class PersonAddressBean {
 	private int role;
 	
 
+	public String getPositionCode() {
+		return positionCode;
+	}
+	public void setPositionCode(String positionCode) {
+		this.positionCode = positionCode;
+	}
 	public int getAllowenceType() {
 		return allowenceType;
 	}

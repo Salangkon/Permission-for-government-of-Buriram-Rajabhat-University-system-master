@@ -183,7 +183,7 @@ public class UserController {
 	
 	// update user
 	@RequestMapping(value = "/gotoUpdate", method = RequestMethod.POST)
-	public String gotoUpdate(Model model,int userId)throws NumberFormatException, SQLException {
+	public String gotoUpdate(Model model,int userId ,HttpServletRequest request)throws NumberFormatException, SQLException {
 		UserBean bean = new UserBean();
 		List<PersonAddressBean> list = new ArrayList<>();
 		try {
@@ -193,6 +193,9 @@ public class UserController {
 				model.addAttribute("messesUpdate", "");
 				model.addAttribute("resultBean", bean);
 				model.addAttribute("listUserBean", list);
+//				request.getSession().setAttribute("messesUpdate", "");
+//				request.getSession().setAttribute("resultBean", bean);
+//				request.getSession().setAttribute("listUserBean", list);
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -203,7 +206,7 @@ public class UserController {
 
 	// update user
 	@RequestMapping(value = "/update")
-	public String update(Model model,@ModelAttribute("SpringWeb")UserBean userBean) throws SQLException {
+	public String update(Model model,@ModelAttribute("SpringWeb")UserBean userBean ,HttpServletRequest request) throws SQLException {
 		UserBean bean = new UserBean();
 		List<PersonAddressBean> list = new ArrayList<>();
 		try {
@@ -213,15 +216,50 @@ public class UserController {
 			model.addAttribute("resultBean", bean);
 			model.addAttribute("listUserBean", list);
 			model.addAttribute("messesUpdate", "S");
+//			request.getSession().setAttribute("resultBean", bean);
+//			request.getSession().setAttribute("listUserBean", list);
+//			request.getSession().setAttribute("messesUpdate", "S");
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
-			model.addAttribute("resultBean", bean);
-			model.addAttribute("listUserBean", list);
 			model.addAttribute("messesUpdate", "F");
 		}
 		return "update";
 	}//end update user
+	
+//  path UpdatePL
+	@RequestMapping( value = "/gotoUpdatePL" , method = RequestMethod.POST)
+	public String gotoUpdatePL(int personnelId, Model model) {	
+		PersonAddressBean bean = new PersonAddressBean();
+		try {
+			bean = userDao.findByIdPL(personnelId);
+			model.addAttribute("messesUpdate", "");
+			model.addAttribute("updatePL", bean);
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return "updatePL";
+	}
+	
+	// path UpdatePL
+	@RequestMapping(value = "/updatePL")
+	public String updatePL(Model model,@ModelAttribute("SpringWeb")PersonAddressBean bean) throws SQLException {
+		PersonAddressBean beanPL = new PersonAddressBean();
+		try {
+			userDao.updatePL(bean);
+			beanPL = userDao.findByIdPL(bean.getPersonnelId());
+			model.addAttribute("updatePL", beanPL);
+			model.addAttribute("messesUpdate", "S");
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			model.addAttribute("messesUpdate", "F");
+		}
+		return "updatePL";
+	}//end update user
+	
 
 	//delete
 //	@RequestMapping("/delete")

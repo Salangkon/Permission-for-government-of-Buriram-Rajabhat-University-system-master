@@ -5,9 +5,13 @@ $(document).ready(function() {
 					"sAjaxSource" : "/user",
 					"iDisplayLength": 50,
 					"sAjaxDataProp" : "",
+					dom: 'Bfrtip',
+					buttons: [
+						'copy', 'csv', 'excel', 'pdf', 'print'
+					],
 					"aoColumns" : [{
 						"mData" : "userUsername",
-						"sWidth" : "60px" 
+						"sWidth" : "150px" 
 					}, {
 						"mData" : "",
 						"sWidth" : "600px" ,
@@ -33,23 +37,13 @@ $(document).ready(function() {
 		                	}
 						}
 					},
-//					{
-//						"mData": "",
-//						"sWidth" : "80px" ,
-//						"mRender": function (data, type, full) {// full คือ ข้อมูลของ
-//							// ตาราง
-//
-//							return '<div align="center"><a href="/gotoUpdate/' + full.userId + '" class="btn btn-info "><span class="glyphicon glyphicon-search"></span></a></div>';
-//
-//						}
-//					}
 					{
 						"mData": "",
 						"sWidth" : "80px" ,
 						"mRender": function (data, type, full) {// full คือ ข้อมูลของ
 							// ตาราง
 
-							return '<div align="center"><a href="javascript: document.updateForm.submit()" onclick="gotoUpdate('+ full.userId  +')" class="btn btn-info "><span class="glyphicon glyphicon-search"></span></a></div>';
+							return '<div align="center"><a onclick="gotoUpdate('+ full.userId  +')" class="btn btn-info "><span class="glyphicon glyphicon-search"></span></a></div>';
 
 						}
 					}]

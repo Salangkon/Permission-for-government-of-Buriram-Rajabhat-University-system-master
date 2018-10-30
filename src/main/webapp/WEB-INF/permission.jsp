@@ -19,7 +19,6 @@
 	<link rel="stylesheet" href="/DataTables-1.10.18/css/jquery.dataTables.css">
 	<link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/css/modal.css">
 	<link rel="stylesheet" href="/css/select.dataTables.min.css">
 	
 	<script src="/js/useCar.js"></script>
@@ -28,7 +27,6 @@
 	<script src="/js/insertPermission.js"></script>
 	<script src="/js/province.js"></script>
 	<script src="/js/budget.js"></script>
-<!-- 	<script src="/js/insertExpense.js"></script> -->
 	<script src="/js/user-data-personnel.js"></script>
 	<script src="/js/calculator-datetime.js"></script>
 	<script src="/js/view-source_https___cdn.datatables.net_select_1.2.7_js_dataTables.select.min.js"></script>
@@ -280,15 +278,17 @@
 <div id="No Promotion" style="display:none"></div> 
 
 <div id="ManualOther Promotion1" style="display:none" class="w3-animate-opacity ">
-<br>
+<br><div style="overflow: auto;">
 	<div class="form-group">
     <div class="input-group">
+    <div class="input-group-addon">เรื่องที่ลงทะเบียน</div>
+      <input maxlength="25" type="text" class="form-control" id="otherC"  placeholder="ระบุเหทายเหตุ">
       <div class="input-group-addon">ค่าลงทะเบียน</div>
       <input maxlength="8" type="text" class="form-control" id="otherSum" OnKeyPress="return chkNumber(this)" placeholder="ระบุเป็นจำนวนเงิน">
       <div class="input-group-addon">บาท</div>
     </div>
     <div class="hide" id="error-otherSum"><label style="color: red;">กรุณากรอก ค่าลงทะเบียน </label></div>
- 	</div>
+ 	</div></div>
 <br>
 
 </div>
@@ -306,7 +306,7 @@
 	<div class="form-group" style="margin-top: 2%">
 	<label> การเดินทาง  </label>   
     <select class="form-control" name="travel" id="travel" onChange="ShowReg(this.selectedIndex)">
-   		<option value="">== เลือกภาหนะ ==</option>
+   		<option value="">== เลือกพาหนะ ==</option>
       	<option value="1">พาหนะประจำทาง</option>
   		<option value="2">ขอใช้รถไปราชการ</option>
   		<option value="3">ขอใช้รถส่วนตัว </option>
@@ -321,6 +321,7 @@
 <!-- ไม่ได้เลือก -->
 <div id="No Promotion" style="display:none"></div> 
 
+<!-- รถประจำทาง -->
 <div id="Manual Promotion1" style="display:none" class="w3-animate-opacity ">
 <div style="margin-bottom: 1%;background-color: white;max-width: 90%;margin-left: 5%" class="col-sm-12 w3-container w3-card-4 w3-topbar w3-border-purple">
 	<br>
@@ -343,8 +344,12 @@
     	<tr>
     		<th style="text-align:right;" colspan="4"></th>
 			<th style="text-align:center" ></th>
-			<th style="text-align:center" ><label id="summary1"></label></th>
-			<th style="text-align:center"><input class="form-control" style="width: 25mm;height: 7mm;text-align: center;" OnKeyPress="return chkNumber(this)" id="sumPerPerson1" type="text" ></th>
+			<th style="text-align:center" >
+				<input class="form-control" style="width: 25mm;height: 7mm;text-align: center;" OnKeyPress="return chkNumber(this)" id="summary1" type="text" onkeyup="myFunction()">
+			</th>
+			<th style="text-align:center">
+				<input class="form-control" style="width: 25mm;height: 7mm;text-align: center;" OnKeyPress="return chkNumber(this)" id="sumPerPerson1" type="text" >
+				</th>
 			<th colspan="2"></th>
     	</tr>
     	</tfoot>
@@ -359,12 +364,12 @@
 <!-- ขอใช้รถไปราชการ -->
 <div id="Manual Promotion2" style="display:none" class="w3-animate-opacity">
 <div style="margin-bottom: 1%;background-color: white;max-width: 90%;margin-left: 5%" class="col-sm-12 w3-animate-opacity w3-container w3-card-4 w3-topbar w3-border-purple" >
-	<div class="input-group" style="margin-top: 8mm;margin-bottom: 4mm">
-		<div class="input-group-addon" style="width: 30%">หมายเลขทะเบียน </div>
-		<input class="form-control" name="travelIdcard" id="travelIdcard" maxlength="8" type="text" value="" > 
-	</div>
-	<div class="hide" id="error-travelIdcard"><label style="color: red;">กรุณากรอก หมายเลขทะเบียน  </label></div>
-	<div style="overflow-x:auto;">
+<!-- 	<div class="input-group" style="margin-top: 8mm;margin-bottom: 4mm"> -->
+<!-- 		<div class="input-group-addon" style="width: 30%">หมายเลขทะเบียน </div> -->
+<!-- 		<input class="form-control" name="travelIdcard" id="travelIdcard" maxlength="8" type="text" value="" >  -->
+<!-- 	</div> -->
+<!-- 	<div class="hide" id="error-travelIdcard"><label style="color: red;">กรุณากรอก หมายเลขทะเบียน  </label></div> -->
+	<div style="overflow-x:auto;margin-top: 4%">
 	<table id="addTravel1" class="table table-bordered" style="font-family: sans-serif;font-size:small;width: 100%">   
 		<thead>
     	<tr style="background: purple;color: white;">	
@@ -381,6 +386,16 @@
 			<th style="text-align:center"></th>
     	</tr>
     	</thead>
+    	<tfoot>
+    	<tr>
+    		<th style="text-align:right;" colspan="8"></th>
+			<th style="text-align:center">
+				<input class="form-control" style="width: 30mm;height: 7mm;text-align: center;" OnKeyPress="return chkNumber(this)" id="summaryOfficial" type="text" onkeyup="myFunction()">
+			</th>
+			<th></th>
+			<th></th>
+    	</tr>
+    	</tfoot>
     </table>
     </div>
     <div align="right">
@@ -407,12 +422,22 @@
         	<th style="text-align:center">เที่ยว</th>
         	<th style="text-align:center">อัตรา<br>ค่าน้ำมัน</th>
         	<th style="text-align:center">รวม <br> ค่าเชื้อเพลิง</th>
-        	<th style="text-align:center">ค่าทางด่วน</th>
-			<th style="text-align:center">รวม</th>
+<!--         	<th style="text-align:center">ค่าทางด่วน</th> -->
+<!-- 			<th style="text-align:center">รวม</th> -->
 			<th style="text-align:center">หมายเหตุ</th>
 			<th style="text-align:center"></th>
     	</tr>
     	</thead>
+    	<tfoot>
+    	<tr>
+    		<th style="text-align:right;" colspan="5"></th>
+			<th style="text-align:center">
+				<input class="form-control" style="width: 30mm;height: 7mm;text-align: center;" OnKeyPress="return chkNumber(this)" id="summaryPrivateCar" type="text" onkeyup="myFunction()">
+			</th>
+			<th></th>
+			<th></th>
+    	</tr>
+    	</tfoot>
     </table>
     </div>
     <div align="right">
@@ -461,7 +486,7 @@
 </div>
 <div class="col-sm-2 ">
 	<div class="input-group" style="margin-top: 15%">
-	<div class="input-group-addon">วงเงิน</div><input class="form-control" style="text-align:center" id="aaa" type="text" disabled>
+	<div class="input-group-addon">วงเงิน</div><input class="form-control" style="text-align:center" id="a1" type="text" disabled>
 	<div class="input-group-addon">บาท</div>
     </div>
 </div>
@@ -482,10 +507,10 @@
     	    <th style="text-align:center">ค่าเช่า<br>ที่พัก</th>
     	    <th style="text-align:center">จำนวน<br>คืน</th>
     	    <th style="text-align:center">รวม<br>ค่าที่พัก</th>
-			<th style="text-align:center">ค่ายาน<br>พาหนะ</th>
+<!-- 			<th style="text-align:center">ค่ายาน<br>พาหนะ</th> -->
 			<th style="text-align:center">ค่าใช้จ่าย<br>อื่นๆ</th>
 			<th style="text-align:center">รวม</th>
-			<th></th> 
+			<th style="text-align:center"></th> 
     	</tr>
     	</thead>
     	<tfoot>
@@ -496,20 +521,36 @@
 			<th ></th>
 			<th id="rentDatePerdayTotal"></th>
 			<th style="text-align:center" id="rentDateSumTotal"></th>
-			<th style="text-align:center" id="travelSumTotal"></th>
+<!-- 			<th style="text-align:center" id="travelSumTotal"></th> -->
 			<th style="text-align:center" id="otherSumTotal"></th>
-			<th colspan="2"> รวม <label style="margin-left: 3%" id="expenseEstimateSumTotal"></label></th>
+			<th colspan="1"> <label style="margin-left: 3%" id="expenseEstimateSumTotal"></label></th>
+			<th></th>
+    	</tr>
+    	<tr>
+    		<th colspan="11" style="text-align: right;"></th>
+    		<th><label >ค่าพาหนะ</label></th>
+			<th colspan="1"> <input class="form-control" type="text" id="travelSumTotal1" style="width: 22mm;height: 7mm" onkeyup="myFunction()"></th>
+			<th style="text-align:center"></th>
+    	</tr>
+    	<tr>
+    		<th colspan="11" style="text-align: right;"></th>
+    		<th><label >รวมทั้งหมด</label></th>
+			<th colspan="1"> <input class="form-control" type="text" id="travelSumTotalShow" style="width: 22mm;height: 7mm" onkeyup="myFunction()"></th>
+			<th style="text-align:center"><button onclick="myFunction()" class=" btn btn-warning">คำนวณ</button></th>
     	</tr>
     	</tfoot>
     </table>
+    <div><label style="color: red">*** หมายเหตุ ในกรณี เปลี่ยนประเภท (ก-ข) ให้กรอกจำนวนเงิน ช่องค่าที่พักใหม่ !!อีกครัง</label> </div>
    </div> <!-- end table -->
     <div align="right">
     	<input class=" btn btn-primary" type="button" value="เพิ่มบุลคลากร"  data-toggle="modal" data-target="#myModal">
     </div><br>
     <br>
+    <input class="form-control" type="hidden" id="aaa" onkeyup="myFunction()">
+<!--     <input class="form-control" type="text" id="travelSumTotal1" onkeyup="myFunction()"> -->
+<!--     <input class="form-control" type="text" id="travelSumTotalShow" style="width: 22mm;height: 7mm"> -->
+<!--     <button onclick="myFunction()">Click me</button> -->
  </div><!-- end dataTable Expense -->
- 
-
 
 
 </div><!-- end กรอบที่ 3-->
@@ -579,10 +620,8 @@
 						<th>รหัส</th>
 						<th>ชื่อ</th>
 						<th>นามสกุล</th>
-<!-- 						<th>คณะ</th> -->
 						<th>ภาควิชา</th>
 						<th>ตำแหน่ง</th>
-<!-- 						<th>ระดับ</th> -->
 						<th>ค่าเบี้ยเลี้ยง</th>
 						<th>ค่าเช่าที่พัก</th>
 					</tr>

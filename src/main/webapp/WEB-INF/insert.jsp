@@ -70,7 +70,10 @@
 			<div class="col-sm-9">
 				<div class="form-group">
 					<label for="exampleInputEmail1">ไอดี ผู้ใช้งาน</label> 
-					<input type="text" min="10" maxlength="15" class="form-control" name="userUsername" id="userUsername" required> 
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+						<input maxlength="15" type="text" class="form-control" name="userUsername" id="userUsername"  placeholder="ไอดี ผู้ใช้งาน" required/>
+					</div>
 					<label for="exampleInputEmail1" id="check"> </label>
 					<div class="hide" id="error-username"><label style="color: red;">กรุณากรอก ชื่อผู้ใช้งาน</label></div>
 				</div>
@@ -83,7 +86,11 @@
 			
 			<div class="col-sm-9">
 				<div class="form-group">
-					<label for="exampleInputEmail1">รหัส ผู้ใช้งาน</label> <input maxlength="15" type="password" class="form-control" name="userPassword" id="userPassword" required>
+					<label for="exampleInputEmail1">รหัส ผู้ใช้งาน</label> 
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+						<input maxlength="15" type="password" class="form-control" name="userPassword" id="userPassword"  placeholder="รหัส ผู้ใช้งาน" required/>
+					</div>
 					<div class="hide" id="error-password"><label style="color: red;">กรุณากรอก รหัสผู้ใช้งาน</label></div>	
 				</div>
 			</div>

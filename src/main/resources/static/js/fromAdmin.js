@@ -4,6 +4,10 @@ $(document).ready(function() {
 					"sAjaxSource" : "/permission",
 					"order": [[ 0, 'desc' ]],
 					"sAjaxDataProp" : "",
+					dom: 'Bfrtip',
+					buttons: [
+						'copy', 'csv', 'excel', 'pdf', 'print'
+					],
 					"aoColumns" : [ {
 						"mData" : "permissionId" ,
 					   "sWidth" : "20px" 

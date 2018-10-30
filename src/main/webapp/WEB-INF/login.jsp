@@ -8,8 +8,23 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/css/w3.css">
-	<link rel="stylesheet" href="/css/login.css">
-	<link rel="stylesheet" href="/css/modal.css">
+<!-- 	<link rel="stylesheet" href="/css/login.css"> -->
+	<style>
+		#grad1 {
+ 			background: red; /* For browsers that do not support gradients */
+ 			background: -webkit-linear-gradient(yellow, purple); /* For Safari 5.1 to 6.0 */
+  			background: -o-linear-gradient(yellow, purple); /* For Opera 11.1 to 12.0 */
+  			background: -moz-linear-gradient(yellow, purple); /* For Firefox 3.6 to 15 */
+   			background: linear-gradient(yellow, purple); /* Standard syntax */
+		}
+		#container{
+ 	 		position: absolute; 
+  			border-radius: 5px; 
+  			background: rgba(3,3,3,0.25);
+  			box-shadow: 1px 1px 50px #000;
+  
+		}
+	</style>
 	
 	<%	
 		String result = "";
@@ -21,7 +36,7 @@
 </head>
 
 
-<body class="w3-light-wlite w3-content" style="max-width:100%;background-color: red;" >
+<body class="w3-light-gray w3-content" style="max-width:100%;background-image: url('/images/Wallpaper-desktop-9.jpg');background-size: cover;">
 
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar" ><br>
@@ -71,23 +86,27 @@
   <!-- Header -->
   <header id="portfolio">
     <a href="#"><img src="/images/bru.png" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
-    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey btn" onclick="w3_open()"><i style="color: white;" class="fa fa-bars"></i></span>
+    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey btn" onclick="w3_open()"><i style="color: black;" class="fa fa-bars"></i></span>
     <div class="w3-container" align="center" style="background-color: purple;">
     <h2 style="margin-top: 3%;"><b style="color: white;">Permission for government of Buriram Rajabhat University system</b></h2><br>
    		<a style="color: white;">(ระบบขออนุญาตไปราชการ ของมหาวิทยาลัยราชฏบุรีรัมย์)</a>
    	<div class="w3-section w3-bottombar w3-padding-16">
  	</div> 
 	</div>
-	<marquee id="grad1" direction="lefe" scrollamount="10" width="100%">
-		<h1 style="font-size: x-large;color: red;"><strong> Welcome to Permission for government of Buriram Rajabhat University system </strong></h1>
+	<marquee id="grad1" direction="left" scrollamount="10" width="100%">
+		<h1 style="font-size: x-large;color: white;"><strong> Welcome to Permission for government of Buriram Rajabhat University system </strong></h1>
 	</marquee>	
   </header>
 
-<div class="col-sm-6"></div>
-	<div class="col-sm-6">
+	<div class="col-sm-7"></div>
+	<div class="col-sm-4">
+		<!-- form login -->
+		<div style="margin-top: 15%;">
 		<form name="login" action="login" method="post" class="modal-content w3-animate-right">
 			<div id="container">
-  			<h1>เข้าระบบ PFG</h1>
+			<div class="w3-container w3-purple">
+  				<h2 style="text-align: center;margin-top: 2%"><b>เข้าระบบ ขออนุญาตไปราชการ</b></h2>
+			</div>
 			<%if (result.equals("F")) { %>
 			<div class="alert alert-danger" align="center">
 				<strong>รหัส !! ผิดพลาด </strong> กรุณาลองอีกครั้ง !!
@@ -102,16 +121,27 @@
 				<strong>ชื่อผู้ใช้ !!</strong> ออกจากราชการ
 			</div>
 			<% } %>
-			<label style="color: white;margin-left: 16mm;margin-bottom: 3mm"> </label>
-   			<input id="input123" type="text" name="username" placeholder="ชื่อผู้ใช้" value='s' required>
-   			<label style="color: white;margin-left: 16mm;margin-bottom: 3mm"> </label>
-    		<input id="input12" type="password" name="password" placeholder="รหัสผ่าน" value='s' required>
-    		<label style="color: white;margin-bottom: 10mm">   </label>
-    		<input class="btn btn-success" type="submit" value="Log in" style="width: 106mm;margin-left: 12mm;" />
-
+			<div style="width: 80%;margin-left: 10%;margin-top: 5%">
+				<label style="color: white;margin-left: 16mm;margin-bottom: 3mm"> </label>
+				<div class="input-group">
+					<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+					<input class="form-control" type="text" type="text" name="username" id="username"  placeholder="ชื่อผู้ใช้" value='s' required/>
+				</div>
+   				<label style="color: white;margin-left: 16mm;margin-bottom: 3mm"> </label>
+   				<div class="input-group">
+					<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+					<input class="form-control" type="password" name="password" id="password"  placeholder="รหัสผ่าน" value='s' required/>
+				</div>
+				<div><hr></div>
+    			<div style="color: white;margin-bottom: 5%;margin-top: 3%" align="right">  
+    					<input class="btn btn-success" type="submit" value="เข้าใช้งาน"  />
+				</div>
    			</div>
+   		</div>
 		</form>
+		</div>
 	</div>
+	<div class="col-sm-1"></div>
 
 	<script>
 	// Script to open and close sidebar

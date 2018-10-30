@@ -18,7 +18,6 @@
 	<link rel="stylesheet" href="/css/tableUpdatePermission.css">
 	<link rel="stylesheet" href="/DataTables-1.10.18/css/jquery.dataTables.css">
 	<link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/css/modal.css">
 	<link rel="stylesheet" href="/css/select.dataTables.min.css">
 	
 	<script src="/js/useCar.js"></script>
@@ -225,7 +224,7 @@
    			<div class="input-group" style="width: 80%">
 			<input class="form-control" style="text-align:center" OnKeyPress="return chkNumber(this)" type="text" id="bDaySum" >
 			<div class="input-group-addon">วัน</div>
-			<input class="form-control" style="text-align:center" OnKeyPress="return chkNumber(this)" type="text" id="d" >
+			<input class="form-control" style="text-align:center" OnKeyPress="return chkNumber(this)" type="text" id="bNight" >
 			<div class="input-group-addon">คืน</div>
 			<div class="input-group" style="width: 160%">
 			<input class="form-control" style="text-align:center" OnKeyPress="return chkNumber(this)" type="text" id="bTimeSum">
@@ -484,12 +483,12 @@ function dateDiff(){
 	// alert(diffDays);
 	for (var i = 0; i <= days; i++) {
 		if (days > 0.5) {
-			d = days - 1;
+			bNight = days - 1;
 		} else {
-			d = 0;
+			bNight = 0;
 		}
 	}
-	$('#d').val(parseFloat(d));
+	$('#bNight').val(parseFloat(bNight));
 
 	$('#bDaySum').val(parseFloat(days).toFixed(1));
 

@@ -344,14 +344,14 @@ $(document).ready(function() {
 		var sum12 = $(this).parent().parent().find('td')[13];
 		var sum6 = $(this).parent().parent().find('td')[7];
 		var sum9 = $(this).parent().parent().find('td')[10];
-		var sum10 = $(this).parent().parent().find('td')[11];
+//		var sum10 = $(this).parent().parent().find('td')[11];
 		var sum11 = $(this).parent().parent().find('td')[12];
 		var sum6 = $(sum6).find('input.sum6').val();
 		var sum9 = $(sum9).find('input.sum9').val();
-		var sum10 = $(sum10).find('input.sum10').val();
+		// var sum10 = $(sum10).find('input.sum10').val();
 		var sum11 = $(sum11).find('input.sum11').val();
-		if(''!=sum6 && ''!=sum9 && ''!=sum10 && ''!=sum11) {
-			var total = parseFloat(sum6)+ parseFloat(sum9)+ parseFloat(sum10)+ parseFloat(sum11);// parseFloat ตัวแปลค่า จาก Type String to int (parse เปลี่ยนค่า Type)
+		if(''!=sum6 && ''!=sum9 && /*''!=sum10 &&*/ ''!=sum11) {
+			var total = parseFloat(sum6)+ parseFloat(sum9)+ /*parseFloat(sum10)+*/ parseFloat(sum11);// parseFloat ตัวแปลค่า จาก Type String to int (parse เปลี่ยนค่า Type)
 			$(sum12).find('input').val(total);
 		}else{
 			$(sum12).find('input').val(0);
@@ -540,9 +540,10 @@ $(document).ready(function() {
 					"sWidth" : "60px" ,
 					"mRender" : function(data,
 						type, row, index) {
+						var data1 = $('#bDaySum').val();
 					return '<input class="form-control sum6" disabled readonly="true"  type="number"  style="width: 20mm;height: 7mm" name="allowenceSum" id="allowenceSum'
 							+ index.row
-							+ '" value="'+row.allowenceSum+'" />';
+							+ '" value="'+(row.allowence)*(data1)+'" />';
 					}
 				},
 				{
@@ -560,7 +561,7 @@ $(document).ready(function() {
 					"sWidth" : "50px" ,
 					"mRender" : function(data,
 						type, row, index) {
-						var data2 = $('#d').val();
+						var data2 = $('#bNight').val();
 						if (row.rentDatePerday != null) {
 							return '<input class="form-control number4" type="text" OnKeyPress="return chkNumber(this)" style="width: 16mm;height: 7mm" name="rentDatePerday" id="rentDatePerday'
 							+ index.row
@@ -578,6 +579,7 @@ $(document).ready(function() {
 					"sWidth" : "60px" ,
 					"mRender" : function(data,
 						type, row, index) {
+						var data2 = $('#bNight').val();
 						if (row.rentDateSum != null) {
 							return '<input class="form-control sum9" disabled readonly="true" type="text" OnKeyPress="return chkNumber(this)" style="width: 22mm;height: 7mm" name="rentDateSum" id="rentDateSum'
 							+ index.row
@@ -585,7 +587,7 @@ $(document).ready(function() {
 			            } else {
 			            	return '<input class="form-control sum9" disabled readonly="true" type="text" OnKeyPress="return chkNumber(this)" style="width: 22mm;height: 7mm" name="rentDateSum" id="rentDateSum'
 							+ index.row
-							+ '" value=""/>';
+							+ '" value="'+(row.rentDate)*(data2)+'"/>';
 			            }
 					
 					}										

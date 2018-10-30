@@ -8,18 +8,18 @@ public class ExpenseEstimateBean {
 	private String userFname;
 	private String userLname;
 	private String subPositionName;
-	private int allowenceType;
-	private int allowence;
+	private float allowenceType;
+	private float allowence;
 	private float allowencePerday;
-	private int allowenceSum;
-	private int rentDate;
+	private float allowenceSum;
+	private float rentDate;
 	private float rentDatePerday;
-	private int rentDateSum;
+	private float rentDateSum;
 	
-	private int travelSum;
-	private int otherSum;
+	private float travelSum;
+	private float otherSum;
 	
-	private int expenseEstimateSum;
+	private float expenseEstimateSum;
 	
 	private String allowenceTypeComma;
 	private String allowenceComma;
@@ -39,13 +39,89 @@ public class ExpenseEstimateBean {
 	private Timestamp createDate;
 	// FK permission
 	private int permissionId;
-	
-	
-	public String getExpenseEstimateSumComma() {
-		return expenseEstimateSumComma;
+	public String getSex() {
+		return sex;
 	}
-	public void setExpenseEstimateSumComma(String expenseEstimateSumComma) {
-		this.expenseEstimateSumComma = expenseEstimateSumComma;
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+	public String getUserFname() {
+		return userFname;
+	}
+	public void setUserFname(String userFname) {
+		this.userFname = userFname;
+	}
+	public String getUserLname() {
+		return userLname;
+	}
+	public void setUserLname(String userLname) {
+		this.userLname = userLname;
+	}
+	public String getSubPositionName() {
+		return subPositionName;
+	}
+	public void setSubPositionName(String subPositionName) {
+		this.subPositionName = subPositionName;
+	}
+	public float getAllowenceType() {
+		return allowenceType;
+	}
+	public void setAllowenceType(float allowenceType) {
+		this.allowenceType = allowenceType;
+	}
+	public float getAllowence() {
+		return allowence;
+	}
+	public void setAllowence(float allowence) {
+		this.allowence = allowence;
+	}
+	public float getAllowencePerday() {
+		return allowencePerday;
+	}
+	public void setAllowencePerday(float allowencePerday) {
+		this.allowencePerday = allowencePerday;
+	}
+	public float getAllowenceSum() {
+		return allowenceSum;
+	}
+	public void setAllowenceSum(float allowenceSum) {
+		this.allowenceSum = allowenceSum;
+	}
+	public float getRentDate() {
+		return rentDate;
+	}
+	public void setRentDate(float rentDate) {
+		this.rentDate = rentDate;
+	}
+	public float getRentDatePerday() {
+		return rentDatePerday;
+	}
+	public void setRentDatePerday(float rentDatePerday) {
+		this.rentDatePerday = rentDatePerday;
+	}
+	public float getRentDateSum() {
+		return rentDateSum;
+	}
+	public void setRentDateSum(float rentDateSum) {
+		this.rentDateSum = rentDateSum;
+	}
+	public float getTravelSum() {
+		return travelSum;
+	}
+	public void setTravelSum(float travelSum) {
+		this.travelSum = travelSum;
+	}
+	public float getOtherSum() {
+		return otherSum;
+	}
+	public void setOtherSum(float otherSum) {
+		this.otherSum = otherSum;
+	}
+	public float getExpenseEstimateSum() {
+		return expenseEstimateSum;
+	}
+	public void setExpenseEstimateSum(float expenseEstimateSum) {
+		this.expenseEstimateSum = expenseEstimateSum;
 	}
 	public String getAllowenceTypeComma() {
 		return allowenceTypeComma;
@@ -101,77 +177,11 @@ public class ExpenseEstimateBean {
 	public void setOtherSumComma(String otherSumComma) {
 		this.otherSumComma = otherSumComma;
 	}
-	public int getAllowenceType() {
-		return allowenceType;
+	public String getExpenseEstimateSumComma() {
+		return expenseEstimateSumComma;
 	}
-	public void setAllowenceType(int allowenceType) {
-		this.allowenceType = allowenceType;
-	}
-	public String getSex() {
-		return sex;
-	}
-	public void setSex(String sex) {
-		this.sex = sex;
-	}
-	public String getUserFname() {
-		return userFname;
-	}
-	public void setUserFname(String userFname) {
-		this.userFname = userFname;
-	}
-	public String getUserLname() {
-		return userLname;
-	}
-	public void setUserLname(String userLname) {
-		this.userLname = userLname;
-	}
-	public String getSubPositionName() {
-		return subPositionName;
-	}
-	public void setSubPositionName(String subPositionName) {
-		this.subPositionName = subPositionName;
-	}
-	public int getAllowence() {
-		return allowence;
-	}
-	public void setAllowence(int allowence) {
-		this.allowence = allowence;
-	}
-	public int getAllowenceSum() {
-		return allowenceSum;
-	}
-	public void setAllowenceSum(int allowenceSum) {
-		this.allowenceSum = allowenceSum;
-	}
-	public int getRentDate() {
-		return rentDate;
-	}
-	public void setRentDate(int rentDate) {
-		this.rentDate = rentDate;
-	}
-	public int getRentDateSum() {
-		return rentDateSum;
-	}
-	public void setRentDateSum(int rentDateSum) {
-		this.rentDateSum = rentDateSum;
-	}
-	public int getTravelSum() {
-		return travelSum;
-	}
-	public void setTravelSum(int travelSum) {
-		this.travelSum = travelSum;
-	}
-	public int getOtherSum() {
-		return otherSum;
-	}
-	public void setOtherSum(int otherSum) {
-		this.otherSum = otherSum;
-	}
-	public int getExpenseEstimateSum() {
-		return expenseEstimateSum;
-	}
-	public void setExpenseEstimateSum(int expenseEstimateSum) {
-		this.expenseEstimateSum = expenseEstimateSum;
+	public void setExpenseEstimateSumComma(String expenseEstimateSumComma) {
+		this.expenseEstimateSumComma = expenseEstimateSumComma;
 	}
 	public int getPersonnelId() {
 		return personnelId;
@@ -191,17 +201,5 @@ public class ExpenseEstimateBean {
 	public void setPermissionId(int permissionId) {
 		this.permissionId = permissionId;
 	}
-	public float getAllowencePerday() {
-		return allowencePerday;
-	}
-	public void setAllowencePerday(float allowencePerday) {
-		this.allowencePerday = allowencePerday;
-	}
-	public float getRentDatePerday() {
-		return rentDatePerday;
-	}
-	public void setRentDatePerday(float rentDatePerday) {
-		this.rentDatePerday = rentDatePerday;
-	}
-	
+
 }

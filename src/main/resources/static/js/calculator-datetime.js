@@ -63,6 +63,5 @@ function dateDiff() {
 function otherSum1() {
 	//ค่าใช้จายอื่นๆ
 //	otherSum = "";
-	$('#otherSum').val(parseFloat(otherSum).toFixed(2));
-	
-}
+	$('#otherSum').val(parseFloat(otherSum).toFixed());	
+}			
