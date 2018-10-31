@@ -801,11 +801,11 @@
 								</th>
 								<th>
 									<%
-										if (beanEE.get(i).getTravelSumComma() == null) {
-												out.print("");
+										if (beanEs.getTravelSumTotalComma() == null ) {
+											out.print("");
 										} else {
-												out.print(beanEE.get(i).getTravelSumComma());
-											}
+											out.print(beanEs.getTravelSumTotalComma());
+										}
 									%>
 								</th>
 								<th>
@@ -826,9 +826,7 @@
 											}
 									%>
 								</th>
-								<th>
-									<%%>
-								</th>
+								<th></th>
 							</tr>
 							<%}%>
 							<tr>

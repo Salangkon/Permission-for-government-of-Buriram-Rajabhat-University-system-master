@@ -12,14 +12,33 @@ public class TravelExpensesFuelCostBean {
 	private int fuelCost; // ค่าน้ำมันเชื้อเพลิง
 	private int rateFuelCost; // หาร
 	private int fuelCostSum; // รวมค่าน้ำมันเชื้อเพลิง
+	private String fuelCostSumComma; // รวมค่าน้ำมันเชื้อเพลิง
 
 	private int expresswayExpensesSum; // รวมค่าใช้จ่ายทางด่วน
+	private String expresswayExpensesSumComma; //รวม
 	
 	private String sum; //รวม
 	private String vehicleC; //หมายเหตุ
 	private String vehicleName; //รวม
 
 	private Timestamp createDate;
+
+	
+	public String getFuelCostSumComma() {
+		return fuelCostSumComma;
+	}
+
+	public void setFuelCostSumComma(String fuelCostSumComma) {
+		this.fuelCostSumComma = fuelCostSumComma;
+	}
+
+	public String getExpresswayExpensesSumComma() {
+		return expresswayExpensesSumComma;
+	}
+
+	public void setExpresswayExpensesSumComma(String expresswayExpensesSumComma) {
+		this.expresswayExpensesSumComma = expresswayExpensesSumComma;
+	}
 
 	public int getTravelId() {
 		return travelId;

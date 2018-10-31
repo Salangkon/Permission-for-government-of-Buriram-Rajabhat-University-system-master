@@ -523,7 +523,7 @@
 			<th style="text-align:center" id="rentDateSumTotal"></th>
 <!-- 			<th style="text-align:center" id="travelSumTotal"></th> -->
 			<th style="text-align:center" id="otherSumTotal"></th>
-			<th colspan="1"> <label style="margin-left: 3%" id="expenseEstimateSumTotal"></label></th>
+			<th colspan="1"> <label style="margin-left: 3%" id="expenseEstimateSumTotal1"></label></th>
 			<th></th>
     	</tr>
     	<tr>
@@ -535,7 +535,7 @@
     	<tr>
     		<th colspan="11" style="text-align: right;"></th>
     		<th><label >รวมทั้งหมด</label></th>
-			<th colspan="1"> <input class="form-control" type="text" id="travelSumTotalShow" style="width: 22mm;height: 7mm" onkeyup="myFunction()"></th>
+			<th colspan="1"> <input class="form-control" type="text" id="expenseEstimateSumTotal" style="width: 22mm;height: 7mm" onkeyup="myFunction()"></th>
 			<th style="text-align:center"><button onclick="myFunction()" class=" btn btn-warning">คำนวณ</button></th>
     	</tr>
     	</tfoot>
@@ -547,9 +547,6 @@
     </div><br>
     <br>
     <input class="form-control" type="hidden" id="aaa" onkeyup="myFunction()">
-<!--     <input class="form-control" type="text" id="travelSumTotal1" onkeyup="myFunction()"> -->
-<!--     <input class="form-control" type="text" id="travelSumTotalShow" style="width: 22mm;height: 7mm"> -->
-<!--     <button onclick="myFunction()">Click me</button> -->
  </div><!-- end dataTable Expense -->
 
 

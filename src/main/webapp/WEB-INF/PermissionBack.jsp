@@ -35,7 +35,15 @@
 	<!-- Digital -->
 	<script src="/js/Digital.js"></script>
 	<link rel="stylesheet" href="/css/Digital.css">
-	
+	<script type="text/javascript">
+	//กรอกได้เฉพราะ ตัวเลข
+	function chkNumber(ele)
+	{
+	var vchar = String.fromCharCode(event.keyCode);
+	if ((vchar<'0' || vchar>'9') && (vchar != '.')) return false;
+	ele.onKeyPress=vchar;
+	}
+	</script>
 	
 	<script>
 		function w3_open() {
@@ -280,7 +288,7 @@
     	    <th style="text-align:center">ค่าเช่า<br>ที่พัก</th>
     	    <th style="text-align:center">จำนวน<br>คืน</th>
     	    <th style="text-align:center">รวม<br>ค่าที่พัก</th>
-			<th style="text-align:center">ค่ายาน<br>พาหนะ</th>
+<!-- 			<th style="text-align:center">ค่ายาน<br>พาหนะ</th> -->
 			<th style="text-align:center">ค่าใช้จ่าย<br>อื่นๆ</th>
 			<th style="text-align:center">รวม</th>
 			<th></th> 
@@ -294,9 +302,21 @@
 			<th ></th>
 			<th id="rentDatePerdayTotal"><%=beanEs.getRentDatePerdayTotal()%></th>
 			<th style="text-align:center" id="rentDateSumTotal"><%=beanEs.getRentDateSumTotal()%></th>
-			<th style="text-align:center" id="travelSumTotal"><%=beanEs.getTravelSumTotal()%></th>
+<%-- 			<th style="text-align:center" id="travelSumTotal"><%=beanEs.getTravelSumTotal()%></th> --%>
 			<th style="text-align:center" id="otherSumTotal"><%=beanEs.getOtherSumTotal()%></th>
-			<th colspan="2"> รวม <label style="margin-left: 3%" id="expenseEstimateSumTotal"><%=beanEs.getExpenseEstimateSumTotal()%></label></th>
+			<th colspan="2"> รวม <label style="margin-left: 3%" id="expenseEstimateSumTotal1"></label></th>
+    	</tr>
+    	<tr>
+    		<th colspan="11" style="text-align: right;"></th>
+    		<th><label >ค่าพาหนะ</label></th>
+			<th colspan="1"> <input class="form-control" type="text" id="travelSumTotal1" style="width: 22mm;height: 7mm" onkeyup="myFunction()" value="<%=beanEs.getTravelSumTotal() %>"></th>
+			<th style="text-align:center"></th>
+    	</tr>
+    	<tr>
+    		<th colspan="11" style="text-align: right;"></th>
+    		<th><label >รวมทั้งหมด</label></th>
+			<th colspan="1"> <input class="form-control" type="text" id="expenseEstimateSumTotal" style="width: 22mm;height: 7mm" onkeyup="myFunction()" value="<%=beanEs.getExpenseEstimateSumTotal()%>"></th>
+			<th style="text-align:center"><button onclick="myFunction()" class=" btn btn-warning">คำนวณ</button></th>
     	</tr>
     	</tfoot>
     </table>
@@ -304,6 +324,7 @@
     <div align="right">
     	<input class=" btn btn-primary" type="button" value="เพิ่มบุลคลากร" data-toggle="modal" data-target="#myModal">
     </div>
+    	<input type="hidden" id="aaa" value="<%=beanEs.getExpenseEstimateSumTotal()%>">
     </div>
  	</div><!-- end dataTable Expense -->
 </div><!-- end กรอบที่ 3-->
@@ -322,7 +343,7 @@
 	<div style="margin-bottom: 18%">
 	<div class="col-sm-12" >
 	<label>รายงานผลไปราชการ / ฝึกอบรมสัมมนา / ประโยชน์</label> 
-	<textarea class="form-control" rows="10" cols="80" maxlength="2200" id="bBenefitRecord" name="bBenefitRecord" ></textarea>
+	<textarea maxlength="2200" class="form-control" rows="10" cols="80"  id="bBenefitRecord" name="bBenefitRecord" ></textarea>
  	</div>
  	<div class="col-sm-12 form-group" >
  	<label>นำความรู้ไปประกอบการสอนรายวิชา</label> 

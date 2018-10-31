@@ -41,7 +41,7 @@ function myFunction() {
 	}
 var x = document.getElementById("travelSumTotal1").value;
 var r = parseFloat(x) + parseFloat(aaa)
-document.getElementById("travelSumTotalShow").value = r;
+document.getElementById("expenseEstimateSumTotal").value = parseFloat(r).toFixed(2);
 document.getElementById("a1").value = parseFloat(x) + parseFloat(aaa);
 }
 
@@ -98,7 +98,7 @@ function validateInput() {
 		$('#error-otherSumselect').addClass("hide")
 	}
 	//travel
-	if('2'==$('#travel').val() || '3'==$('#travel').val()) {
+	if('3'==$('#travel').val()) {
 		//travelIdcard
 		if (''==$('#travelIdcard').val()) {
 			travelIdcard.focus()
@@ -346,9 +346,9 @@ $(document).ready(function() {
 				userSumTotal			: $('#userSumTotal').text(),	
 				allowenceSumTotal		: $('#allowenceSumTotal').text(),	
 				rentDateSumTotal		: $('#rentDateSumTotal').text(),	
-				travelSumTotal			: $('#travelSumTotal').text(),	
+				travelSumTotal			: $('#travelSumTotal1').val(),
 				otherSumTotal			: $('#otherSumTotal').text(),	
-				expenseEstimateSumTotal	: $('#expenseEstimateSumTotal').text(),
+				expenseEstimateSumTotal	: $('#expenseEstimateSumTotal').val(),
 
 				allowencePerdayTotal	: $('#allowencePerdayTotal').text(),	
 				rentDatePerdayTotal		: $('#rentDatePerdayTotal').text(),	
@@ -463,128 +463,9 @@ $(document).ready(function() {
 //		});
 //
 //	});
+
 	
-	//คำนวณ ค่าพาหนะ ประจำทาง
-	$('#addTravel').on('keyup','input', function() { 	
-		var sum = $(this).parent().parent().find('td')[5];
-		var number1 = $(this).parent().parent().find('td')[2];
-		var number2= $(this).parent().parent().find('td')[3];
-		var number3 = $(this).parent().parent().find('td')[4];
-		var num1 = $(number1).find('input.number1').val();
-		var num2 = $(number2).find('input.number2').val();
-		var num3 = $(number3).find('input.number3').val();
-		if(''!=num1 && ''!=num2 && ''!=num3) {
-			var total = (num1)*(num2)*(num3);
-			$(sum).find('input').val(total);
-		}else{
-			$(sum).find('input').val(0);
-		}
-		var sumvalues = $("[name='sum']");
-		var sum = 0;
-		for(var i = 0; i < sumvalues.length;i++){
-			if($(sumvalues[i]).val() != ""){
-				sum = sum + parseFloat($(sumvalues[i]).val());
-			}			
-		}
-		 $('#summary1').val(parseFloat(sum).toFixed(0));
-		//
-		var sumPerPerson = $(this).parent().parent().find('td')[6];
-		var number1 = $(this).parent().parent().find('td')[2];
-		var number2= $(this).parent().parent().find('td')[3];
-		var num1 = $(number1).find('input.number1').val();
-		var num2 = $(number2).find('input.number2').val();
-		if(''!=num1 && ''!=num2 ) {
-			var total = (num1)*(num2);
-			$(sumPerPerson).find('input').val(total);
-		}else{
-			$(sumPerPerson).find('input').val(0);
-		}
-		var sumvalues = $("[name='sumPerPerson']");
-		var sum = 0;
-		for(var i = 0; i < sumvalues.length;i++){
-			if($(sumvalues[i]).val() != ""){
-				sum = sum + parseFloat($(sumvalues[i]).val());
-			}			
-		}
-		$('#sumPerPerson1').val(parseFloat(sum).toFixed(0));
-	});
 
-	//คำนวณ รถส่วนตัว 
-	$('#addPrivateCar').on('keyup','input', function() { 
-		var sum1= $(this).parent().parent().find('td')[5];
-		var number1 = $(this).parent().parent().find('td')[2];
-		var number2= $(this).parent().parent().find('td')[3];
-		var number3 = $(this).parent().parent().find('td')[4];
-		var num1 = $(number1).find('input.number1').val();
-		var num2 = $(number2).find('input.number2').val();
-		var num3 = $(number3).find('input.number3').val();
-		if(''!=num1 && ''!=num2 && ''!=num3 ) {
-			var total = (num1)*(num2)*(num3);
-			$(sum1).find('input').val((total).toFixed(0));
-		}else{
-			$(sum1).find('input').val(0);
-		}
-		var sumvalues = $("[name='fuelCostSum']");
-		var sum = 0;
-		for(var i = 0; i < sumvalues.length;i++){
-			if($(sumvalues[i]).val() != ""){
-				sum = sum + parseFloat($(sumvalues[i]).val());
-			}			
-		}
-		$('#summaryPrivateCar').val(parseFloat(sum).toFixed(0));
-		//คำนวณ ค่าทางด่วน รถส่วนตัว สรูป
-//		var sum= $(this).parent().parent().find('td')[7];
-//		var sum1= $(this).parent().parent().find('td')[5];
-//		var number3 = $(this).parent().parent().find('td')[6];
-//		var sum1 = $(sum1).find('input.sum1').val();
-//		var num4 = $(number3).find('input.number4').val();
-//		if(''!=sum1 && ''!=num4) {
-//			var total = parseFloat(sum1)+parseFloat(num4);
-//			$(sum).find('input').val(total);
-//		}else{
-//			$(sum).find('input').val(0);
-//		}
-	});
-
-	//คำนวณ รถขอไปราชการ
-	$('#addTravel1').on('keyup','input', function() { 
-		var sum1 = $(this).parent().parent().find('td')[6];
-		var number1 = $(this).parent().parent().find('td')[2];
-		var number2= $(this).parent().parent().find('td')[3];
-		var number3 = $(this).parent().parent().find('td')[4];
-		var number4 = $(this).parent().parent().find('td')[5];
-		var num1 = $(number1).find('input.number1').val();
-		var num2 = $(number2).find('input.number2').val();
-		var num3 = $(number3).find('input.number3').val();
-		var num4 = $(number4).find('input.number4').val();
-		if(''!=num1 && ''!=num2 && ''!=num3 && ''!=num4) {
-			var total = (num1)*(num2)*(num3)/(num4);
-			$(sum1).find('input').val((total).toFixed(0));
-		}else{
-			$(sum1).find('input').val(0);
-		}
-
-		//คำนวณ ค่าทางด่วน รถขอไปราชการ สรูป
-		var sum = $(this).parent().parent().find('td')[8];
-		var sum1 = $(this).parent().parent().find('td')[6];
-		var number5= $(this).parent().parent().find('td')[7];
-		var sum1 = $(sum1).find('input.sum1').val();
-		var num5 = $(number5).find('input.number5').val();
-		if(''!=sum1 && ''!=num5 ){
-			var total = parseFloat(sum1)+parseFloat(num5);
-			$(sum).find('input').val(total);
-		}else{
-			$(sum).find('input').val(0);
-		}
-		var sumvalues = $("[name='sum']");
-		var sum = 0;
-		for(var i = 0; i < sumvalues.length;i++){
-			if($(sumvalues[i]).val() != ""){
-				sum = sum + parseFloat($(sumvalues[i]).val());
-			}			
-		}
-		$('#summaryOfficial').val(parseFloat(sum).toFixed(0));
-	});
 
 	//เพิ่ม คำนวน ผู้ใช้งาน
 	$('#buttonAdd1').click(function() {
@@ -603,7 +484,7 @@ $(document).ready(function() {
 				sum = sum + parseFloat($(sumvalues[i]).val());
 			}	
 		}
-		$('#allowenceSumTotal').text(parseFloat(sum).toFixed(2).replace("," ,"").replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/);
+		$('#allowenceSumTotal').text(parseFloat(sum).toFixed(2)/*.replace("," ,"").replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/);
 		
 		// rentDateSum รวมค่าที่พัก
 		var sumvalues = $("[name='rentDateSum']");
@@ -613,7 +494,7 @@ $(document).ready(function() {
 				sum = sum + parseFloat($(sumvalues[i]).val());
 			}	
 		}
-		$('#rentDateSumTotal').text(parseFloat(sum).toFixed(2).replace("," ,"").replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/); 
+		$('#rentDateSumTotal').text(parseFloat(sum).toFixed(2)/*.replace("," ,"").replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/); 
 		
 		// travelSum รวมค่าพาหนะ
 //		var sumvalues = $("[name='travelSum']");
@@ -662,7 +543,7 @@ $(document).ready(function() {
 				sum = sum + parseFloat($(sumvalues[i]).val());
 			}
 		}
-		$('#otherSumTotal').text(parseFloat(sum).toFixed(0).replace("," ,"").replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/);
+		$('#otherSumTotal').text(parseFloat(sum).toFixed(0)/*replace("," ,"").replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/);
 		// expenseEstimateSum รวมค่าพาหนะ
 	// var sumPerPerson1  
 	// 	if ($('#summary1').val() == "") {
@@ -689,7 +570,7 @@ $(document).ready(function() {
 				sum = sum + parseFloat($(sumvalues[i]).val()) /*+ parseFloat(sumPerPerson1) + parseFloat(summaryOfficial) + parseFloat(summaryPrivateCar)*/;
 			}
 		}
-		$('#expenseEstimateSumTotal').text(parseFloat(sum).toFixed(2).replace("," ,"").replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+		$('#expenseEstimateSumTotal1').text(parseFloat(sum).toFixed(2)/*.replace("," ,"").replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/);
 		$('#aaa').val(sum); // .val ใช้กับ tag ที่เป็น input
 	
 		// allowencePerdayTotal รวมค่าที่พัก
@@ -716,6 +597,7 @@ $(document).ready(function() {
 		
 	});
 	
+	//ลบ
 	$('#addUser').on('click','a.remove', function() {
 		console.log(555)
 		
@@ -731,7 +613,7 @@ $(document).ready(function() {
 				sum = sum + parseFloat($(sumvalues[i]).val());
 			}	
 		}
-		$('#allowenceSumTotal').text(parseFloat(sum).toFixed(0).replace("," ,"").replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/);
+		$('#allowenceSumTotal').text(parseFloat(sum).toFixed(0)/*.replace("," ,"").replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/);
 		
 		// rentDateSum รวมค่าที่พัก
 		var sumvalues = $("[name='rentDateSum']");
@@ -741,7 +623,7 @@ $(document).ready(function() {
 				sum = sum + parseFloat($(sumvalues[i]).val());
 			}	
 		}
-		$('#rentDateSumTotal').text(parseFloat(sum).toFixed(0).replace("," ,"").replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/); 
+		$('#rentDateSumTotal').text(parseFloat(sum).toFixed(0)/*.replace("," ,"").replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/); 
 		
 		// travelSum รวมค่าพาหนะ
 //		var sumvalues = $("[name='travelSum']");
@@ -790,7 +672,7 @@ $(document).ready(function() {
 				sum = sum + parseFloat($(sumvalues[i]).val());
 			}
 		}
-		$('#otherSumTotal').text(parseFloat(sum).toFixed(0).replace("," ,"").replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/);
+		$('#otherSumTotal').text(parseFloat(sum).toFixed(0)/*.replace("," ,"").replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/);
 		// expenseEstimateSum รวมค่าพาหนะ
 //	var sumPerPerson1  
 //		if ($('#summary1').val() == "") {
@@ -817,7 +699,7 @@ $(document).ready(function() {
 				sum = sum + parseFloat($(sumvalues[i]).val()) /*+ parseFloat(sumPerPerson1) + parseFloat(summaryOfficial) + parseFloat(summaryPrivateCar)*/;
 			}
 		}
-		$('#expenseEstimateSumTotal').text(parseFloat(sum).toFixed(0).replace("," ,"").replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/);
+		$('#expenseEstimateSumTotal1').text(parseFloat(sum).toFixed(0)/*.replace("," ,"").replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/);
 		$('#aaa').val(parseFloat(sum).toFixed(0));
 		//$('#aaa').val(parseFloat(aaa1).toFixed(0)/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/); // .val ใช้กับ tag ที่เป็น input
 	
@@ -830,7 +712,7 @@ $(document).ready(function() {
 				sum = sum + parseFloat($(sumvalues[i]).val())/parseFloat(num);
 			}	
 		}
-		$('#allowencePerdayTotal').text(parseFloat(sum).toFixed(0).replace("," ,"").replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/); 
+		$('#allowencePerdayTotal').text(parseFloat(sum).toFixed(0)/*.replace("," ,"").replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/); 
 		
 		// allowencePerdayTotal รวมค่าที่พัก
 		var num = $('#addUser').DataTable().rows().data().length;
@@ -841,7 +723,7 @@ $(document).ready(function() {
 				sum = sum + parseFloat($(sumvalues[i]).val())/parseFloat(num);
 			}	
 		}
-		$('#rentDatePerdayTotal').text(parseFloat(sum).toFixed(0).replace("," ,"").replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/); 
+		$('#rentDatePerdayTotal').text(parseFloat(sum).toFixed(0)/*.replace("," ,"").replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/); 
 
 	});
 	
@@ -1004,7 +886,7 @@ $(document).ready(function() {
 				sum = sum + parseFloat($(sumvalues[i]).val()) + parseFloat(sumPerPerson1) + parseFloat(summaryOfficial) + parseFloat(summaryPrivateCar);
 			}
 		}
-		$('#expenseEstimateSumTotal').text(parseFloat(sum).toFixed(0)/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/);
+		$('#expenseEstimateSumTotal1').text(parseFloat(sum).toFixed(0)/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/);
 		$('#aaa').val(parseFloat(sum).toFixed(0)/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/); // .val ใช้กับ tag ที่เป็น input
 	
 		// allowencePerdayTotal รวมค่าเบี้ยเลี้ยง
@@ -1254,27 +1136,25 @@ $(document).ready(function() {
 						} else {
 							otherSum = $('#otherSum').val();
 						};
-					var sumPerPerson1  
-						if ($('#summary1').val() == "") {
-							sumPerPerson1 = 0;
-						} else {
-							sumPerPerson1 = $('#summary1').val();
-						};
-					var summaryOfficial  
-						if ($('#summaryOfficial').val() == "") {
-							summaryOfficial = 0;
-						} else {
-							summaryOfficial = $('#summaryOfficial').val();
-						};
-					var summaryPrivateCar  
-						if ($('#summaryPrivateCar').val() == "") {
-							summaryPrivateCar = 0;
-						} else {
-							summaryPrivateCar = $('#summaryPrivateCar').val();
-						};
-					var a = (parseFloat(row.allowence)*parseFloat(data1)) + 
-					(parseFloat(row.rentDate)*parseFloat(data2)) 
-					+ (parseFloat(otherSum))   
+//					var sumPerPerson1  
+//						if ($('#summary1').val() == "") {
+//							sumPerPerson1 = 0;
+//						} else {
+//							sumPerPerson1 = $('#summary1').val();
+//						};
+//					var summaryOfficial  
+//						if ($('#summaryOfficial').val() == "") {
+//							summaryOfficial = 0;
+//						} else {
+//							summaryOfficial = $('#summaryOfficial').val();
+//						};
+//					var summaryPrivateCar  
+//						if ($('#summaryPrivateCar').val() == "") {
+//							summaryPrivateCar = 0;
+//						} else {
+//							summaryPrivateCar = $('#summaryPrivateCar').val();
+//						};
+					var a = (parseFloat(row.allowence)*parseFloat(data1)) + (parseFloat(row.rentDate)*parseFloat(data2)) + (parseFloat(otherSum))   
 //					+ (parseFloat(sumPerPerson1)) + 
 //					(parseFloat(summaryOfficial)) + 
 //					(parseFloat(summaryPrivateCar)) 
@@ -1349,8 +1229,52 @@ $(document).ready(function() {
 //						});
 //
 //					});
-				
-					//พาหนะ
+
+	//คำนวณ ค่าพาหนะ ประจำทาง
+	$('#addTravel').on('keyup','input', function() { 	
+		var sum = $(this).parent().parent().find('td')[5];
+		var number1 = $(this).parent().parent().find('td')[2];
+		var number2= $(this).parent().parent().find('td')[3];
+		var number3 = $(this).parent().parent().find('td')[4];
+		var num1 = $(number1).find('input.number1').val();
+		var num2 = $(number2).find('input.number2').val();
+		var num3 = $(number3).find('input.number3').val();
+		if(''!=num1 && ''!=num2 && ''!=num3) {
+			var total = (num1)*(num2)*(num3);
+			$(sum).find('input').val(total);
+		}else{
+			$(sum).find('input').val(0);
+		}
+		var sumvalues = $("[name='sum']");
+		var sum = 0;
+		for(var i = 0; i < sumvalues.length;i++){
+			if($(sumvalues[i]).val() != ""){
+				sum = sum + parseFloat($(sumvalues[i]).val());
+			}			
+		}
+		 $('#summary1').val(parseFloat(sum).toFixed(0));
+		//คำนวณ ค่าทางด่วน
+		var sumPerPerson = $(this).parent().parent().find('td')[6];
+		var number1 = $(this).parent().parent().find('td')[2];
+		var number2= $(this).parent().parent().find('td')[3];
+		var num1 = $(number1).find('input.number1').val();
+		var num2 = $(number2).find('input.number2').val();
+		if(''!=num1 && ''!=num2 ) {
+			var total = (num1)*(num2);
+			$(sumPerPerson).find('input').val(total);
+		}else{
+			$(sumPerPerson).find('input').val(0);
+		}
+		var sumvalues = $("[name='sumPerPerson']");
+		var sum = 0;
+		for(var i = 0; i < sumvalues.length;i++){
+			if($(sumvalues[i]).val() != ""){
+				sum = sum + parseFloat($(sumvalues[i]).val());
+			}			
+		}
+		$('#sumPerPerson1').val(parseFloat(sum).toFixed(0));
+	});
+					//ค่าพาหนะ ประจำทาง
 					var tableTravel = $('#travelTable').DataTable({
 						responsive	: true,
 						"searching"	  : false, 
@@ -1518,6 +1442,45 @@ $(document).ready(function() {
 //
 //					});
 
+	//คำนวณ รถขอไปราชการ
+	$('#addTravel1').on('keyup','input', function() { 
+		var sum1 = $(this).parent().parent().find('td')[6];
+		var number1 = $(this).parent().parent().find('td')[2];
+		var number2= $(this).parent().parent().find('td')[3];
+		var number3 = $(this).parent().parent().find('td')[4];
+		var number4 = $(this).parent().parent().find('td')[5];
+		var num1 = $(number1).find('input.number1').val();
+		var num2 = $(number2).find('input.number2').val();
+		var num3 = $(number3).find('input.number3').val();
+		var num4 = $(number4).find('input.number4').val();
+		if(''!=num1 && ''!=num2 && ''!=num3 && ''!=num4) {
+			var total = (num1)*(num2)*(num3)/(num4);
+			$(sum1).find('input').val((total).toFixed(0));
+		}else{
+			$(sum1).find('input').val(0);
+		}
+
+		//คำนวณ ค่าทางด่วน รถขอไปราชการ สรูป
+		var sum = $(this).parent().parent().find('td')[8];
+		var sum1 = $(this).parent().parent().find('td')[6];
+		var number5= $(this).parent().parent().find('td')[7];
+		var sum1 = $(sum1).find('input.sum1').val();
+		var num5 = $(number5).find('input.number5').val();
+		if(''!=sum1 && ''!=num5 ){
+			var total = parseFloat(sum1)+parseFloat(num5);
+			$(sum).find('input').val(total);
+		}else{
+			$(sum).find('input').val(0);
+		}
+		var sumvalues = $("[name='sum']");
+		var sum = 0;
+		for(var i = 0; i < sumvalues.length;i++){
+			if($(sumvalues[i]).val() != ""){
+				sum = sum + parseFloat($(sumvalues[i]).val());
+			}			
+		}
+		$('#summaryOfficial').val(parseFloat(sum).toFixed(0));
+	});
 					//รถไปราชการ
 					var tableTravel1 = $('#travelTable1').DataTable({
 						responsive	: true,
@@ -1699,6 +1662,42 @@ $(document).ready(function() {
 //
 //					});
 					
+	//คำนวณ รถส่วนตัว 
+	$('#addPrivateCar').on('keyup','input', function() { 
+		var sum1= $(this).parent().parent().find('td')[5];
+		var number1 = $(this).parent().parent().find('td')[2];
+		var number2= $(this).parent().parent().find('td')[3];
+		var number3 = $(this).parent().parent().find('td')[4];
+		var num1 = $(number1).find('input.number1').val();
+		var num2 = $(number2).find('input.number2').val();
+		var num3 = $(number3).find('input.number3').val();
+		if(''!=num1 && ''!=num2 && ''!=num3 ) {
+			var total = (num1)*(num2)*(num3);
+			$(sum1).find('input').val((total).toFixed(0));
+		}else{
+			$(sum1).find('input').val(0);
+		}
+		var sumvalues = $("[name='fuelCostSum']");
+		var sum = 0;
+		for(var i = 0; i < sumvalues.length;i++){
+			if($(sumvalues[i]).val() != ""){
+				sum = sum + parseFloat($(sumvalues[i]).val());
+			}			
+		}
+		$('#summaryPrivateCar').val(parseFloat(sum).toFixed(0));
+		//คำนวณ ค่าทางด่วน รถส่วนตัว สรูป
+//		var sum= $(this).parent().parent().find('td')[7];
+//		var sum1= $(this).parent().parent().find('td')[5];
+//		var number3 = $(this).parent().parent().find('td')[6];
+//		var sum1 = $(sum1).find('input.sum1').val();
+//		var num4 = $(number3).find('input.number4').val();
+//		if(''!=sum1 && ''!=num4) {
+//			var total = parseFloat(sum1)+parseFloat(num4);
+//			$(sum).find('input').val(total);
+//		}else{
+//			$(sum).find('input').val(0);
+//		}
+	});
 					//รถส่วนตัว
 					var tableTravel2 = $('#travelTable2').DataTable({
 						responsive	: true,
@@ -1719,7 +1718,6 @@ $(document).ready(function() {
 							"mData" : "vehicleName"
 						} ]
 					});
-					//รถส่วนตัว
 					var tableSelectPrivateCar  = $('#addPrivateCar').DataTable({
 						responsive	: true,
 						"searching"	  : false, 

@@ -303,7 +303,7 @@
 							<th style="max-width: 7mm; text-align: left"></th>
 							<th style="max-width: 10mm; text-align: left">
 							( <%if (bean.getTravel().equals("3")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) ขอใช้รถส่วนตัว</th>
-							<th style="max-width: 20mm; text-align: left">หมายเลขทะเบียน</th>
+							<th style="max-width: 20mm; text-align: left">หมายเลขทะเบียน &nbsp;&nbsp;&nbsp;&nbsp; <%=bean.getTravelIdcard() %></th>
 						</tr>
 					</table>
 					<br>
@@ -634,12 +634,12 @@
 								<table>
 									<tr>
 										<td style="text-align: left;">
-											<label> <%if (beanTEFC.getFuelCostSum() == 0) {out.print("...");} else {out.print(+beanTEFC.getFuelCostSum());}%></label>
+											<label> <%if (beanTEFC.getFuelCostSumComma() == null) {out.print("...");} else {out.print(beanTEFC.getFuelCostSumComma());}%></label>
 										</td>
 									</tr>
 									<tr>
 										<td style="text-align: left; width: 60mm">
-											<label><%if (beanTEFC.getExpresswayExpensesSum() == 0) {out.print("...");} else {out.print(beanTEFC.getExpresswayExpensesSum());}%></label>
+											<label><%if (beanTEFC.getExpresswayExpensesSum() == 0) {out.print("...");} else {out.print(beanTEFC.getExpresswayExpensesSumComma());}%></label>
 										</td>
 									</tr>
 									<tr>
@@ -828,12 +828,12 @@
 									%>
 								</th>
 								<th>
-									<%
-										if (beanEE.get(i).getTravelSumComma().equals("0")) {
-												out.print("");
-										} else {
-												out.print(beanEE.get(i).getTravelSumComma());
-											}
+									<% 
+									if (beanEs.getTravelSumTotalComma().equals("0") ) {
+										out.print("");
+									} else {
+											out.print(beanEs.getTravelSumTotalComma());
+									}
 									%>
 								</th>
 								<th>
@@ -854,9 +854,7 @@
 											}
 									%>
 								</th>
-								<th>
-									<%%>
-								</th>
+								<th></th>
 							</tr>
 							<%}%>
 							<tr>

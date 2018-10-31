@@ -51,5 +51,5 @@ $(document).ready(function() {
 						}
 					}]
 				});
-		 new $.fn.dataTable.FixedHeader( table );
+//		 new $.fn.dataTable.FixedHeader( table );
 });
