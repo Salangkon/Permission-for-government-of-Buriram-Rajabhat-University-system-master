@@ -21,7 +21,7 @@
 	<link rel="stylesheet" href="/css/select.dataTables.min.css">
 	
 	<script src="/js/useCar.js"></script>
-	<script src="/js/jQuery v3.3.1.js"></script>
+	<script src="/js/jquery-3.3.1.min.js"></script>
 	<script src="/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>
 	<script src="/js/view-source_https___cdn.datatables.net_select_1.2.7_js_dataTables.select.min.js"></script>
 	<script src="/js/listFaculty.js"></script>
@@ -325,6 +325,7 @@
     	<input class=" btn btn-primary" type="button" value="เพิ่มบุลคลากร" data-toggle="modal" data-target="#myModal">
     </div>
     	<input type="hidden" id="aaa" value="<%=beanEs.getExpenseEstimateSumTotal()%>">
+    	 <div><label style="color: red">***หมายเหตุ ในกรณี เปลี่ยนประเภท (ก-ข) ให้กรอกจำนวนเงิน ช่องค่าที่พักใหม่ !!อีกครัง</label> </div>
     </div>
  	</div><!-- end dataTable Expense -->
 </div><!-- end กรอบที่ 3-->

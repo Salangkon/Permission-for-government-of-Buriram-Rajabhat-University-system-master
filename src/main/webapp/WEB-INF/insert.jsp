@@ -20,7 +20,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css">
 <!-- 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css.map"> -->
 
-	<script src="/js/jQuery v3.3.1.js"></script>
+	<script src="/js/jquery-3.3.1.min.js"></script>
 	<script src="/js/insertUser.js"></script>
 	<script src="/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript">var dataSet = []</script>

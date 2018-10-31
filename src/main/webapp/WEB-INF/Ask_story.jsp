@@ -17,7 +17,7 @@
 	<link rel="stylesheet" href="/css/table.css">
 	<link rel="stylesheet" href="/css/modal.css">
 	
-	<script src="/js/jQuery v3.3.1.js"></script>
+	<script src="/js/jquery-3.3.1.min.js"></script>
 	<script src="/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>	
 	<script src="/js/user-data-personnel.js"></script>
 <%

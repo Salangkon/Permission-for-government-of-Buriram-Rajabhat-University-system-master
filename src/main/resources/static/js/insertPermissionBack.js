@@ -19,88 +19,88 @@ document.getElementById("expenseEstimateSumTotal").value = parseFloat(r).toFixed
 function validateInput() {
 	var pass = true;
 	//province
-	if(''==$('#province').val()) {
-		$('#error-province').removeClass("hide")
-		pass = false;
-	}else{
-		$('#error-province').addClass("hide")
-	}
-	//amphur
-	if(''==$('#amphur').val()) {
-		$('#error-amphur').removeClass("hide")
-		pass = false;
-	}else{
-		$('#error-amphur').addClass("hide")
-	}
-	//district
-	if(''==$('#district').val()) {
-		$('#error-district').removeClass("hide")
-		pass = false;
-	}else{
-		$('#error-district').addClass("hide")
-	}
-	//bSaveDate
-	if(''==$('#bSaveDate').val()) {
-		$('#error-bSaveDate').removeClass("hide")
-		pass = false;
-	}else{
-		$('#error-bSaveDate').addClass("hide")
-	}
-	//bByOrderSave
-	if(''==$('#bByOrderSave').val()) {
-		$('#error-bByOrderSave').removeClass("hide")
-		pass = false;
-	}else{
-		$('#error-bByOrderSave').addClass("hide")
-	}//bDateAuthorized
-	if(''==$('#bDateAuthorized').val()) {
-		$('#error-bDateAuthorized').removeClass("hide")
-		pass = false;
-	}else{
-		$('#error-bDateAuthorized').addClass("hide")
-	}
-	//bGoDate
-	if(''==$('#bGoDate').val()) {
-		$('#error-bGoDate').removeClass("hide")
-		pass = false;
-	}else{
-		$('#error-bGoDate').addClass("hide")
-	}
-	//bGoTime
-	if(''==$('#bGoTime').val()) {
-		$('#error-bGoTime').removeClass("hide")
-		pass = false;
-	}else{
-		$('#error-bGoTime').addClass("hide")
-	}
-	//bBackDate
-	if(''==$('#bBackDate').val()) {
-		$('#error-bBackDate').removeClass("hide")
-		pass = false;
-	}else{
-		$('#error-bBackDate').addClass("hide")
-	}
-	//bBackTime
-	if(''==$('#bBackTime').val()) {
-		$('#error-bBackTime').removeClass("hide")
-		pass = false;
-	}else{
-		$('#error-bBackTime').addClass("hide")
-	}
-	//bHouseNumber
-	if(''==$('#bHouseNumber').val()) {
-		$('#error-bHouseNumber').removeClass("hide")
-		pass = false;
-	}else{
-		$('#error-bHouseNumber').addClass("hide")
-	}
-	//bRoad
-	if(''==$('#bRoad').val()) {
-		$('#error-bRoad').removeClass("hide")
-		pass = false;
-	}else{
-		$('#error-bRoad').addClass("hide")
-	}
+//	if(''==$('#province').val()) {
+//		$('#error-province').removeClass("hide")
+//		pass = false;
+//	}else{
+//		$('#error-province').addClass("hide")
+//	}
+//	//amphur
+//	if(''==$('#amphur').val()) {
+//		$('#error-amphur').removeClass("hide")
+//		pass = false;
+//	}else{
+//		$('#error-amphur').addClass("hide")
+//	}
+//	//district
+//	if(''==$('#district').val()) {
+//		$('#error-district').removeClass("hide")
+//		pass = false;
+//	}else{
+//		$('#error-district').addClass("hide")
+//	}
+//	//bSaveDate
+//	if(''==$('#bSaveDate').val()) {
+//		$('#error-bSaveDate').removeClass("hide")
+//		pass = false;
+//	}else{
+//		$('#error-bSaveDate').addClass("hide")
+//	}
+//	//bByOrderSave
+//	if(''==$('#bByOrderSave').val()) {
+//		$('#error-bByOrderSave').removeClass("hide")
+//		pass = false;
+//	}else{
+//		$('#error-bByOrderSave').addClass("hide")
+//	}//bDateAuthorized
+//	if(''==$('#bDateAuthorized').val()) {
+//		$('#error-bDateAuthorized').removeClass("hide")
+//		pass = false;
+//	}else{
+//		$('#error-bDateAuthorized').addClass("hide")
+//	}
+//	//bGoDate
+//	if(''==$('#bGoDate').val()) {
+//		$('#error-bGoDate').removeClass("hide")
+//		pass = false;
+//	}else{
+//		$('#error-bGoDate').addClass("hide")
+//	}
+//	//bGoTime
+//	if(''==$('#bGoTime').val()) {
+//		$('#error-bGoTime').removeClass("hide")
+//		pass = false;
+//	}else{
+//		$('#error-bGoTime').addClass("hide")
+//	}
+//	//bBackDate
+//	if(''==$('#bBackDate').val()) {
+//		$('#error-bBackDate').removeClass("hide")
+//		pass = false;
+//	}else{
+//		$('#error-bBackDate').addClass("hide")
+//	}
+//	//bBackTime
+//	if(''==$('#bBackTime').val()) {
+//		$('#error-bBackTime').removeClass("hide")
+//		pass = false;
+//	}else{
+//		$('#error-bBackTime').addClass("hide")
+//	}
+//	//bHouseNumber
+//	if(''==$('#bHouseNumber').val()) {
+//		$('#error-bHouseNumber').removeClass("hide")
+//		pass = false;
+//	}else{
+//		$('#error-bHouseNumber').addClass("hide")
+//	}
+//	//bRoad
+//	if(''==$('#bRoad').val()) {
+//		$('#error-bRoad').removeClass("hide")
+//		pass = false;
+//	}else{
+//		$('#error-bRoad').addClass("hide")
+//	}
 
 	return pass;
 }
@@ -198,12 +198,13 @@ $(document).ready(function() {
 			d.rentDate = $("#rentDate"+i).val(); //ค่าที่พัก
 			d.rentDatePerday = $("#rentDatePerday"+i).val(); //จำนวนวันที่พัก/คืน
 			d.rentDateSum = $("#rentDateSum"+i).val(); //รวมค่าที่พัก
-			d.travelSum = $("#travelSum"+i).val(); //ค่าที่พัก
+//			d.travelSum = $("#travelSum"+i).val(); //ค่าที่พัก
 			d.otherSum = $("#otherSum"+i).val(); //จำนวนที่พัก/วัน
 			d.expenseEstimateSum = $("#expenseEstimateSum"+i).val(); //ค่าที่พัก
 			d.allowenceType = $("#allowenceType"+i).val();
 			inputdata.push(d);
 		}
+		
 		
 		var esBean = {
 			permissionId : $('#permissionId').val(),
@@ -340,10 +341,8 @@ $(document).ready(function() {
 		}else{
 			$(sum6).find('input').val(0);
 		}
-	});
 	
 	//คำนวณ ค่าที่พัก
-	$('#addUser').on('keyup','input', function() { 
 		var sum9 = $(this).parent().parent().find('td')[10];
 		var number3 = $(this).parent().parent().find('td')[8];
 		var number4= $(this).parent().parent().find('td')[9];
@@ -355,10 +354,8 @@ $(document).ready(function() {
 		}else{
 			$(sum9).find('input').val(0);
 		}
-	});
 	
 	//คำนวณ ค่าที่พัก ค่าเบี้ยเลี้ยง
-	$('#addUser').on('keyup','input', function() { 
 		var sum12 = $(this).parent().parent().find('td')[12];
 		var sum6 = $(this).parent().parent().find('td')[7];
 		var sum9 = $(this).parent().parent().find('td')[10];
@@ -369,12 +366,11 @@ $(document).ready(function() {
 		// var sum10 = $(sum10).find('input.sum10').val();
 		var sum11 = $(sum11).find('input.sum11').val();
 		if(''!=sum6 && ''!=sum9 && /*''!=sum10 &&*/ ''!=sum11) {
-			var total = parseFloat(sum6)+ parseFloat(sum9)+ /*parseFloat(sum10)+*/ parseFloat(sum11);// parseFloat ตัวแปลค่า จาก Type String to int (parse เปลี่ยนค่า Type)
+			var total = parseFloat(sum6) + parseFloat(sum9)+ /*parseFloat(sum10)+*/ parseFloat(sum11);// parseFloat ตัวแปลค่า จาก Type String to int (parse เปลี่ยนค่า Type)
 			$(sum12).find('input').val(total);
 		}else{
 			$(sum12).find('input').val(0);
 		}
-	
 		// allowenceSum รวมค่าเบี้ยเลี้ยง
 		var sumvalues = $("[name='allowenceSum']");
 		var sum = 0;
@@ -421,7 +417,7 @@ $(document).ready(function() {
 				sum = sum + parseFloat($(sumvalues[i]).val());
 			}
 		}
-		$('#expenseEstimateSumTotal1').text(parseFloat(sum).toFixed(2)/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/);
+		$('#expenseEstimateSumTotal1').text(parseFloat(sum).toFixed(0)/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/);
 		$('#aaa').val(parseFloat(sum).toFixed(0)/*.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")*/); // .val ใช้กับ tag ที่เป็น input
 	
 		// allowencePerdayTotal รวมค่าที่พัก
@@ -565,11 +561,11 @@ $(document).ready(function() {
 						type, row, index) {
 						var data1 = $('#bDaySum').val();
 						if (row.allowenceSum != null) {
-							return '<input class="form-control sum9" disabled readonly="true" type="text" OnKeyPress="return chkNumber(this)" style="width: 22mm;height: 7mm" name="rentDateSum" id="rentDateSum'
+							return '<input class="form-control sum6" disabled readonly="true" type="text" OnKeyPress="return chkNumber(this)" style="width: 22mm;height: 7mm" name="allowenceSum" id="allowenceSum'
 							+ index.row
 							+ '" value="'+row.allowenceSum+'"/>';
 			            } else {
-			            	return '<input class="form-control sum6" disabled readonly="true"  type="number" OnKeyPress="return chkNumber(this)" style="width: 20mm;height: 7mm" name="allowenceSum" id="allowenceSum'
+			            	return '<input class="form-control sum6" disabled readonly="true" type="text" OnKeyPress="return chkNumber(this)" style="width: 20mm;height: 7mm" name="allowenceSum" id="allowenceSum'
 							+ index.row
 							+ '" value="'+(row.allowence)*(data1)+'" />';
 					}

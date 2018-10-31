@@ -890,7 +890,7 @@
 										if (beanEE.get(i).getAllowenceSum() == 0) {
 												out.print("");
 										} else {
-												out.print(beanEE.get(i).getAllowenceSum());
+												out.print(beanEE.get(i).getAllowenceSumComma());
 											}
 									%>
 								</th>
@@ -899,7 +899,7 @@
 										if (beanEE.get(i).getRentDateSum() == 0) {
 												out.print("");
 										} else {
-												out.print(beanEE.get(i).getRentDateSum());
+												out.print(beanEE.get(i).getRentDateSumComma());
 											}
 									%>
 								</th>
