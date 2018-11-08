@@ -10,7 +10,7 @@
 	<!-- ดูข้อมูลส่วนตัว-->
 	<header class="w3-display-container w3-content">
 	<div id="id05" class="modal">
-		<form class="modal-content animate" action="" style="max-width: 95%; margin-top: 5%; margin-left: 25%; margin-right: 10%">
+		<form class="modal-content w3-animate-zoom" action="" style="max-width: 95%; margin-top: 5%; margin-left: 25%; margin-right: 10%">
 			<div class="w3-container w3-blue">
 				<h2>
 					<i class="fa fa-address-card-o w3-margin-right"></i>
@@ -30,7 +30,7 @@
 							<label>ชื่อ-นามสกุล : </label>
 						</div>
 						<div class="col-sm-7">
-							<label style="margin-left: 2mm"> <%=bean.getSex()%><%=bean.getUserFname()%></label><label style="margin-left: 2mm"> <%=bean.getUserLname()%></label>
+							<label style="margin-left: 2mm" id="sex1"></label><label id="fName1"></label><label style="margin-left: 2mm" id="lName1"></label>
 						</div>
 						<div class="col-sm-3">สถานะ : 
 							<label style="color: green;"> <%if (bean.getRole() == 1) {out.print("รับราชการ");} else if (bean.getRole() == 2) {out.print("รับราชการ");}%>
@@ -42,7 +42,7 @@
 							<label>เบอร์มือถือ :</label>
 						</div>
 						<div class="col-sm-10">
-							<label style="margin-left: 2mm"> <%if (bean.getNumberPhone() != null) {out.print(bean.getNumberPhone());}%>
+							<label style="margin-left: 2mm" id="phone1">
 							</label>
 						</div>
 						<div class="col-sm-12" style="margin-top: 5%;overflow: auto;" >
@@ -78,6 +78,28 @@
 				modal.style.display = "none";
 			}
 		}
+	</script>
+	<script>
+	$(document).ready(function() {
+		
+		$.ajax({
+			type : "POST",
+			url : "/userUpdateStory",
+			contentType : "application/json; charset=utf-8",
+			dataType : "json",
+			success : function(msg) {
+				console.log('Success')
+				$('#fName').text(msg.userFname);
+				$('#lName').text(msg.userLname);
+				$('#sex').text(msg.sex);
+				$('#phone').text(msg.numberPhone);
+				$('#fName1').text(msg.userFname);
+				$('#lName1').text(msg.userLname);
+				$('#sex1').text(msg.sex);
+				$('#phone1').text(msg.numberPhone);
+			}
+		});
+	});
 	</script>
 </body>
 </html>

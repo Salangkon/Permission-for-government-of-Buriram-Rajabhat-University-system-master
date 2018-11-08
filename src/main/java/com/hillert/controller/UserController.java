@@ -19,6 +19,7 @@ import com.hillert.dao.UserDao;
 import com.hillert.model.DepartmentBean;
 import com.hillert.model.FacultyBean;
 import com.hillert.model.PersonAddressBean;
+import com.hillert.model.PersonnelListBean;
 import com.hillert.model.PositionBean;
 import com.hillert.model.SubPositionBean;
 import com.hillert.model.UserBean;
@@ -137,14 +138,6 @@ public class UserController {
 		return "permission";
 	}
 
-	// path story
-	@RequestMapping("/gotoAsk_story")
-	public String gotoAsk_story(HttpServletRequest request) {
-//		UserBean bean = new UserBean();
-//		request.getSession().setAttribute("userBean",bean);
-		return "Ask_story";
-	}
-
 	// path userAll
 	@RequestMapping("/gotoUserAll")
 	public String userAll() {
@@ -259,6 +252,47 @@ public class UserController {
 		}
 		return "updatePL";
 	}//end update user
+	
+	// update user
+	@RequestMapping(value = "/updateUser")
+	public String updateUser(Model model,@ModelAttribute("SpringWeb")UserBean userBean ,HttpServletRequest request) throws SQLException {
+		UserBean bean = new UserBean();
+		
+		try {
+			userDao.updateUser(userBean);
+			bean = userDao.findByIdCard(userBean.getUserId()); 
+			model.addAttribute("userBean", bean);
+			model.addAttribute("messesUpdate", "S");
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			model.addAttribute("messesUpdate", "F");
+		}
+		return "Ask_story";
+	}//end update user
+	
+	// path story
+	@RequestMapping("/gotoAsk_story")
+	public String gotoAsk_story(Model model) {
+		UserBean bean = new UserBean();
+		try {
+			model.addAttribute("resultBean", bean);
+			model.addAttribute("messesUpdate", "S");
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			model.addAttribute("messesUpdate", "F");
+		}
+		return "Ask_story";
+	}
+	
+	// path updateAddFaculty
+	@RequestMapping(path = "/updatePLUser", method = RequestMethod.POST)
+	public String updatePLUser(PersonnelListBean plUserBean) throws Exception {
+		userDao.updatePLUser(plUserBean);
+		return "Ask_story";
+	}
 	
 
 	//delete

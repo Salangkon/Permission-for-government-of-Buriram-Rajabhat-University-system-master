@@ -20,6 +20,7 @@
 	<link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/css/select.dataTables.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css">
 	
 	<script src="/js/useCar.js"></script>
 	<script src="/js/jquery-3.3.1.min.js"></script>
@@ -31,6 +32,8 @@
 	<script src="/js/calculator-datetime.js"></script>
 	<script src="/js/view-source_https___cdn.datatables.net_select_1.2.7_js_dataTables.select.min.js"></script>
 	<script src="/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.js"></script>
 	
 <%
 	UserBean bean = null;
@@ -192,9 +195,9 @@
 	<div class="w3-container w3-topbar w3-border-green" style="background-color: white;">
 	<div style="margin-top: 2%">
 	<label>ความประสงค์ </label>
-		<input name="purpose"  	id="purpose"  type="checkbox" value="ขออนุญาต" 	style="margin-left: 8%"><label style="margin-left: 2%">ขออนุญาต  </label>
-        <input name="purpose1"	id="purpose1" type="checkbox" value="ได้รับคำสั่ง" 	style="margin-left: 2%"><label style="margin-left: 2%">ได้รับคำสั่ง</label>	
-        <input name="purpose2" 	id="purpose2" type="checkbox" value="ไปราชการ" 	style="margin-left: 2%"><label style="margin-left: 2%">ไปราชการ</label>
+		<div><input name="purpose"  	id="purpose"  type="checkbox" value="ขออนุญาต" 	style="margin-left: 8%"><label style="margin-left: 2%">ขออนุญาต  </label></div>
+        <div><input name="purpose1"	id="purpose1" type="checkbox" value="ได้รับคำสั่ง" 		style="margin-left: 8%"><label style="margin-left: 2%">ได้รับคำสั่ง</label></div>	
+        <div><input name="purpose2" 	id="purpose2" type="checkbox" value="ไปราชการ" 	style="margin-left: 8%"><label style="margin-left: 2%">ไปราชการ</label></div>
     </div>
     <div>
     <label>เรื่องที่ไปราชการ </label>

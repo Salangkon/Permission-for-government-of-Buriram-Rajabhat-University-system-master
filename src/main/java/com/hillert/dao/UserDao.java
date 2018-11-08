@@ -447,6 +447,36 @@ public class UserDao {
 
 		return bean;
 	}// end method update
+	
+	// update user
+		public UserBean updateUser(UserBean bean) throws SQLException {
+			ConnectDB con = new ConnectDB();
+			PreparedStatement preperd = null;
+			StringBuilder sql = new StringBuilder();
+
+			try {
+				sql.append(
+						" UPDATE user SET user_fname = ? , user_lname = ? , number_phone = ? , sex = ? , user_password = ? WHERE user_id = ?");
+				preperd = con.openConnect().prepareStatement(sql.toString());
+				preperd.setString(1, bean.getUserFname());
+				preperd.setString(2, bean.getUserLname());
+				preperd.setString(3, bean.getNumberPhone());
+				preperd.setString(4, bean.getSex());
+				preperd.setString(5, bean.getUserPassword());
+				preperd.setInt(6, bean.getUserId());
+
+				preperd.executeUpdate();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			} finally {
+				if (con != null) {
+					con.openConnect().close();
+				}
+			}
+
+			return bean;
+		}// end method update
 
 	// delete
 	// public void delete(String id) throws SQLException {
@@ -685,6 +715,28 @@ public class UserDao {
 			prepared = conn.prepareStatement(sql.toString());
 			prepared.setString(1, bean.getFacultyName());
 			prepared.setString(2, bean.getFacultyCode());
+
+			prepared.executeUpdate();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			conn.close();
+		}
+	}// end method update
+	
+	// update Faculty
+	public void updatePLUser(PersonnelListBean bean) throws SQLException {
+		ConnectDB con = new ConnectDB();
+		PreparedStatement prepared = null;
+		StringBuilder sql = new StringBuilder();
+		Connection conn = con.openConnect();
+		try {
+			sql.append(" UPDATE personnel_list SET  department_code = ? ,sub_position_code = ? WHERE personnel_id = ? ");
+			prepared = conn.prepareStatement(sql.toString());
+			prepared.setString(1, bean.getDepartmentCode());
+			prepared.setString(2, bean.getSubPositionCode());
+			prepared.setInt(3, bean.getPersonnelId());
 
 			prepared.executeUpdate();
 		} catch (Exception e) {

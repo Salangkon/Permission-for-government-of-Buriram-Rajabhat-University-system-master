@@ -540,7 +540,7 @@
 									<tr>
 										<td style="text-align: left; width: 25mm"><label>3.1 ค่าเบี้ยเลี้ยงเดินทาง</label></td>
 										<td style="text-align: left; ; width: 3mm">
-										<%if (beanEs.getAllowencePerdayTotal() == 0 ) {out.print("");} else {out.print(beanEs.getAllowencePerdayTotal());}%>
+										<label><%if (beanEs.getAllowencePerdayTotal() == 0 ) {out.print("");} else {out.print(beanEs.getAllowencePerdayTotal());}%></label>
 										</td>
 										<td style="text-align: left; width: 10mm"><label>วันๆละ </label></td>
 										<td style="text-align: left; width: 25mm"><label></label></td>
@@ -549,7 +549,7 @@
 									<tr>
 										<td style="text-align: left; width: 25mm"><label>3.2 ค่าเช่าที่พัก</label></td>
 										<td style="text-align: left; width: 3mm">
-										<%if (beanEs.getRentDatePerdayTotal() == 0 ) {out.print("");} else {out.print(beanEs.getRentDatePerdayTotal());}%>
+										<label><%if (beanEs.getRentDatePerdayTotal() == 0 ) {out.print("");} else {out.print(beanEs.getRentDatePerdayTotal());}%></label>
 										</td>
 										<td style="text-align: left; width: 10mm"><label>คืนๆละ</label></td>
 										<td style="text-align: left; width: 25mm"></td>
@@ -829,7 +829,7 @@
 								</th>
 								<th>
 									<% 
-									if (beanEs.getTravelSumTotalComma().equals("0") ) {
+									if ( i != 0 ) {
 										out.print("");
 									} else {
 											out.print(beanEs.getTravelSumTotalComma());

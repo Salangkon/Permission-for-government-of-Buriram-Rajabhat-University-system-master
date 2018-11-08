@@ -1,7 +1,8 @@
 package com.hillert.controller;
 
 import java.sql.SQLException;
-
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,6 +16,7 @@ import com.hillert.dao.LoginDao;
 import com.hillert.model.ExpenseSumaryBean;
 import com.hillert.model.FacultyBean;
 import com.hillert.model.PermissionBean;
+import com.hillert.model.TestAjex;
 import com.hillert.model.UserBean;
 
 
@@ -25,6 +27,14 @@ public class LoginController {
 	@Autowired
 	private AdminDao admidDao;
 	
+	int userId;
+	
+	// เก็บ ID USER และแปลงเพื่อใช้งาน เป็น String
+	public TestAjex updateUser() {
+		TestAjex bean = new TestAjex();
+		bean.setUpdateUser(userId);
+		return bean;
+	}// end insert user New
 
 	@RequestMapping("/dataUser")
 	public String dd(Model model) {
@@ -43,11 +53,12 @@ public class LoginController {
 		String authen = "";
 		UserBean bean , countUser = new UserBean();	
 		PermissionBean countPer , countPerBack = new PermissionBean();
-		ExpenseSumaryBean es, esFac1, esFac2, esFac3, esFac4, esFac5, esFac6= new ExpenseSumaryBean();
+		ExpenseSumaryBean es, esFac1, esFac2, esFac3, esFac4, esFac5, esFac6 = new ExpenseSumaryBean();
 		FacultyBean countFac1,countFac2,countFac3,countFac4,countFac5,countFac6  = new FacultyBean();
+		List<ExpenseSumaryBean> budgetPass = new ArrayList<>();
 		try {
 			bean = logindao.login(username, password);
-//			String userId = String.valueOf(bean.getUserId());		
+			userId = bean.getUserId();
 			
 			if (bean.getUserUsername() != null) {	
 				request.getSession().setAttribute("userBean",bean);
@@ -70,6 +81,7 @@ public class LoginController {
 					esFac4		= admidDao.ExpenseSumaryFac4();//ยอดรวมเงินทั้งหมด ของการขออนุญาตไปราชการ คณะวิทยาการจัดการ
 					esFac5		= admidDao.ExpenseSumaryFac5();//ยอดรวมเงินทั้งหมด ของการขออนุญาตไปราชการ คณะเทคโนโลยีอุตสาหกรรม
 					esFac6		= admidDao.ExpenseSumaryFac6();//ยอดรวมเงินทั้งหมด ของการขออนุญาตไปราชการ คณะเทคโนโลยีการเกษตร
+					budgetPass	= admidDao.budgetPass();//รายการค่าใช้จ่าย รหัสโครงการ
 					
 					request.getSession().setAttribute("countUser", countUser);//จำนวน user
 					request.getSession().setAttribute("countPer", countPer);//จำนวน permission
@@ -87,6 +99,7 @@ public class LoginController {
 					request.getSession().setAttribute("esFac4", esFac4);//ยอดรวมเงินทั้งหมด ของการขออนุญาตไปราชการ คณะวิทยาการจัดการ
 					request.getSession().setAttribute("esFac5", esFac5);//ยอดรวมเงินทั้งหมด ของการขออนุญาตไปราชการ คณะเทคโนโลยีอุตสาหกรรม
 					request.getSession().setAttribute("esFac6", esFac6);//ยอดรวมเงินทั้งหมด ของการขออนุญาตไปราชการ คณะเทคโนโลยีการเกษตร
+					request.getSession().setAttribute("budgetPass", budgetPass);//ยอดรวมเงินทั้งหมด ของการขออนุญาตไปราชการ คณะเทคโนโลยีการเกษตร
 					
 					request.getSession().setAttribute("userBean",bean);
 					model.addAttribute("messessError", "L");

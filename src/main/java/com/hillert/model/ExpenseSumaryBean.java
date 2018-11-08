@@ -17,6 +17,8 @@ public class ExpenseSumaryBean {
 
 	private float allowencePerdayTotal;
 	private float rentDatePerdayTotal;
+	
+	private String expenseEstimateSumTotalDivide;
 
 	private String userSumTotalComma;
 	private String allowenceSumTotalComma;
@@ -26,8 +28,19 @@ public class ExpenseSumaryBean {
 	private String expenseEstimateSumTotalComma;
 	private String allowencePerdayTotalComma;
 	private String rentDatePerdayTotalComma;
+	
+	private String budgetPass;
 
 	private Timestamp createDate;
+
+
+	public String getExpenseEstimateSumTotalDivide() {
+		return expenseEstimateSumTotalDivide;
+	}
+
+	public void setExpenseEstimateSumTotalDivide(String expenseEstimateSumTotalDivide) {
+		this.expenseEstimateSumTotalDivide = expenseEstimateSumTotalDivide;
+	}
 
 	public int getPermissionId() {
 		return permissionId;
@@ -171,6 +184,14 @@ public class ExpenseSumaryBean {
 
 	public void setRentDatePerdayTotalComma(String rentDatePerdayTotalComma) {
 		this.rentDatePerdayTotalComma = rentDatePerdayTotalComma;
+	}
+
+	public String getBudgetPass() {
+		return budgetPass;
+	}
+
+	public void setBudgetPass(String budgetPass) {
+		this.budgetPass = budgetPass;
 	}
 
 	public Timestamp getCreateDate() {

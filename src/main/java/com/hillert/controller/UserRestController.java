@@ -39,6 +39,8 @@ public class UserRestController {
 	DataUserDao auDao;
 	@Autowired
 	PersonnelListDao perDao;
+	@Autowired
+	LoginController logC;
 
 	//List user dataTable แสดง บุคคลากร ในตาราง
 	@RequestMapping(value="/user")
@@ -146,7 +148,6 @@ public class UserRestController {
 	public List<FacultyBean> faculty() throws SQLException{
 		List<FacultyBean> list = new ArrayList<>();
 		list = auDao.faculty();
-		
 		return list;
 	}
 	//สาขา
@@ -206,5 +207,23 @@ public class UserRestController {
 		return bean;
 	}
 	
+	//คณะ
+	@RequestMapping(value = "/gotoUpdatePLUser")
+	public PersonAddressBean gotoUpdatePLUser(@RequestBody TestAjex TestAjex) throws SQLException {
+		PersonAddressBean bean = new PersonAddressBean();
+		bean = userDao.findByIdPL(TestAjex.getPersonnelId());
+		return bean;
+	}
+	
+	// userPersonnel
+	@RequestMapping(value = "/userUpdateStory")
+	public UserBean userUpdate() throws SQLException {
+		TestAjex id = new TestAjex();
+		id= logC.updateUser();
+		
+		UserBean bean = new UserBean();
+		bean = userDao.findByIdCard(id.getUpdateUser());
+		return bean;
+	}
 
 }

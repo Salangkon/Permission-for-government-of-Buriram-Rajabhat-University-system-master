@@ -19,6 +19,7 @@
 	<link rel="stylesheet" href="/DataTables-1.10.18/css/jquery.dataTables.css">
 	<link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/css/select.dataTables.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css">
 	
 	<script src="/js/useCar.js"></script>
 	<script src="/js/jquery-3.3.1.min.js"></script>
@@ -31,6 +32,7 @@
 	<script src="/js/province.js"></script>
 	
 	<script src="/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.js"></script>
 	
 	<!-- Digital -->
 	<script src="/js/Digital.js"></script>
@@ -90,7 +92,7 @@
       <a class="w3-bar-item w3-button" href="#2"> แบบฟอร์มประมาณการรายจ่าย</a>
     </div>
   </div>
-  <a class="w3-bar-item w3-button" href="javascript:void(0)">Support</a>
+<!--   <a class="w3-bar-item w3-button" href="javascript:void(0)">Support</a> -->
   <a class="w3-bar-item w3-button w3-green" href="/welcomeUser">ย้อนกลับ</a>
   </div>
 </div>
@@ -230,12 +232,12 @@
    	<div style="margin-bottom: 6.5mm;overflow: auto;" class="col-sm-12" >
    		<label>รวมเวลาไปราชการ</label> 
    			<div class="input-group" style="width: 80%">
-			<input class="form-control" style="text-align:center" OnKeyPress="return chkNumber(this)" type="text" id="bDaySum" >
+			<input class="form-control" style="text-align:center" OnKeyPress="return chkNumber(this)" type="text" id="bDaySum" value="<%=bean.getDay() %>">
 			<div class="input-group-addon">วัน</div>
-			<input class="form-control" style="text-align:center" OnKeyPress="return chkNumber(this)" type="text" id="bNight" >
+			<input class="form-control" style="text-align:center" OnKeyPress="return chkNumber(this)" type="text" id="bNight" value="<%=bean.getNight() %>">
 			<div class="input-group-addon">คืน</div>
 			<div class="input-group" style="width: 160%">
-			<input class="form-control" style="text-align:center" OnKeyPress="return chkNumber(this)" type="text" id="bTimeSum">
+			<input class="form-control" style="text-align:center" OnKeyPress="return chkNumber(this)" type="text" id="bTimeSum" value="<%=bean.getHour()%>">
 			<div class="input-group-addon">ชั่วโมง</div>
    			</div>
    	</div>
@@ -304,7 +306,7 @@
 			<th style="text-align:center" id="rentDateSumTotal"><%=beanEs.getRentDateSumTotal()%></th>
 <%-- 			<th style="text-align:center" id="travelSumTotal"><%=beanEs.getTravelSumTotal()%></th> --%>
 			<th style="text-align:center" id="otherSumTotal"><%=beanEs.getOtherSumTotal()%></th>
-			<th colspan="2"> รวม <label style="margin-left: 3%" id="expenseEstimateSumTotal1"></label></th>
+			<th colspan="2">  <label style="margin-left: 3%" id="expenseEstimateSumTotal1"></label></th>
     	</tr>
     	<tr>
     		<th colspan="11" style="text-align: right;"></th>

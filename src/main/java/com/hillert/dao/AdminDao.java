@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
@@ -495,5 +497,39 @@ public class AdminDao {
 		}
 		return bean;
 		}
+	
+	// รายการค่าใช้จ่าย รหัสโครงการ budget_pass 
+		public List<ExpenseSumaryBean> budgetPass() throws SQLException {
+			List<ExpenseSumaryBean> list = new ArrayList<>();
+			ConnectDB con = new ConnectDB();
+			Connection conn = con.openConnect();
+			PreparedStatement prepared = null;
+			StringBuilder sql = new StringBuilder();
+			
+			try {
+				sql.append("SELECT permission.budget_pass, SUM(es.b_expense_estimate_sum_total) AS expense_estimate_budget_pass\r\n" + 
+						"FROM Permission \r\n" + 
+						"INNER JOIN personnel_list pl ON pl.personnel_id =  permission.personnel_id\r\n" + 
+						"INNER JOIN user u on u.user_id = pl.user_id\r\n" + 
+						"INNER JOIN department d on d.department_code = pl.department_code\r\n" + 
+						"INNER JOIN faculty f on f.faculty_code = d.faculty_code\r\n" + 
+						"INNER JOIN expense_sumary_back es on es.permission_id = permission.permission_id \r\n" + 
+						"Group by budget_pass");
+				prepared = conn.prepareStatement(sql.toString());
+				ResultSet rs = prepared.executeQuery();
+				DecimalFormat myFormatter = new DecimalFormat();
+				while (rs.next()) {
+					ExpenseSumaryBean bean = new ExpenseSumaryBean();
+					bean.setExpenseEstimateSumTotalComma(myFormatter.format(rs.getInt("expense_estimate_budget_pass")));
+					bean.setBudgetPass(rs.getString("budget_pass"));
+					list.add(bean);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				conn.close();
+			}
+			return list;
+			}
 	
 }//end class

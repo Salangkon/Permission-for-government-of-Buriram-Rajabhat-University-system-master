@@ -111,6 +111,7 @@ public class FormController {
 		List<TravelExpensesBean> beanTr = new ArrayList<>();
 		List<TravelExpensesBean> beanTr2 = new ArrayList<>();
 		List<TravelExpensesBean> beanTr3 = new ArrayList<>();
+	
 		try {
 			bean = perDao.fromPermission(Integer.parseInt(values));
 			beanBack = perDao.fromPermissionBack(Integer.parseInt(values));

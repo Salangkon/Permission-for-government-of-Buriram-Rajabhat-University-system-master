@@ -12,14 +12,29 @@ public class TestAjex {
 	private String subPosition;
 	private int pay;
 	private	int userID;
+	private	int updateUser;
 	private	int perId;
 	private	String sunBean;
 	private int userId;
 	private int updateRole;
 	private	String perIdBack;
+	private	int personnelId;
 	
 	private int perBackDisabled;
 	
+	
+	public int getUpdateUser() {
+		return updateUser;
+	}
+	public void setUpdateUser(int updateUser) {
+		this.updateUser = updateUser;
+	}
+	public int getPersonnelId() {
+		return personnelId;
+	}
+	public void setPersonnelId(int personnelId) {
+		this.personnelId = personnelId;
+	}
 	public int getFacultyCode() {
 		return facultyCode;
 	}

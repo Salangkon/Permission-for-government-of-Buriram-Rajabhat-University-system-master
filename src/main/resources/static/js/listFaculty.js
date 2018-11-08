@@ -8,6 +8,7 @@ $(document).ready(function() {
 		dataType : "json",
 		success : function(msg) {
 			console.log('Success')
+			$('#faculty').append('<option value="'+'">' + "== กรุณาเลือก ==" + '</option>');
 			for(var i=0; i<msg.length; i++) {
 				$('#faculty').append('<option value="' + msg[i].facultyCode+ '">' + msg[i].facultyName + '</option>');
 			}

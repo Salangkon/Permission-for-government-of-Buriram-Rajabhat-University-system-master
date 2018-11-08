@@ -79,7 +79,7 @@ public class PermissionBean {
 	
 	private String day;
 	private String night;
-	private String Hour;
+	private String hour;
 	
 	private String otherC;
 	
@@ -102,10 +102,10 @@ public class PermissionBean {
 		this.night = night;
 	}
 	public String getHour() {
-		return Hour;
+		return hour;
 	}
 	public void setHour(String hour) {
-		Hour = hour;
+		this.hour = hour;
 	}
 	public String getOtherC() {
 		return otherC;

@@ -5,7 +5,14 @@ public class FacultyBean {
 		private String facultyName;
 		private String facultyCode;
 		private int facultyComma;
+		private int PersonnelId;
 		
+		public int getPersonnelId() {
+			return PersonnelId;
+		}
+		public void setPersonnelId(int personnelId) {
+			PersonnelId = personnelId;
+		}
 		public int getFacultyComma() {
 			return facultyComma;
 		}

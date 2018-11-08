@@ -44,6 +44,37 @@
 		document.body.innerHTML = originalContents;
 	}
 </script>
+    <style type="text/css">
+        @media print {
+		  .page {
+        margin: 0;
+        box-shadow: 0;
+/*         border: initial; */
+/*         border-radius: initial; */
+/*         width: initial; */
+/*         min-height: initial; */
+/*         box-shadow: initial; */
+/*         background: initial; */
+/*         page-break-after: always; */
+    }
+            .portrait {
+                size: portrait;
+            }
+
+
+            .landscape {
+                size: portrait;
+                -webkit-transform: rotate(-90deg);
+                -moz-transform: rotate(-90deg);
+                filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+            }
+            
+
+            .break {
+                page-break-before: always;
+            }
+        }
+    </style>
 
 <%
 	List<ExpenseEstimateBean> beanEE = null;
@@ -97,21 +128,16 @@
 	</div>
 
 	<div id="main" style="margin-left: 200px">
-
-		<div class="w3-container w3-display-container"
-			style="background-color: gray;" id="grad1">
-			<span title="open Sidebar" style="display: none" id="openNav"
-				class="w3-button w3-transparent w3-display-topleft w3-xlarge"
-				onclick="w3_open()">&#9776;</span>
-
-
-			<div id="printableArea">
-				<div class="page" id="1">
-					<table style="width: 100%; border-collapse: collapse;">
+	
+			<div class="w3-container w3-display-container" style="background-color: gray;" id="grad1">
+			<span title="open Sidebar" style="display: none" id="openNav" class="w3-button w3-transparent w3-display-topleft w3-xlarge" onclick="w3_open()">&#9776;</span>
+	
+	<div id="printableArea">
+	<div class="portrait break" >
+        <div class="page" id="1">
+					<table style="width: 100%; margin-top: 6%">
 						<tr>
-							<td style="text-align: center;"><b>มหาวิทยาลัยราชภัฏบุรีรัมย์
-									<br>บันทึกขออนุญาตไปราชการ
-							</b></td>
+							<td style="text-align: center;"><b>มหาวิทยาลัยราชภัฏบุรีรัมย์ <br>บันทึกขออนุญาตไปราชการ</b></td>
 						</tr>
 					</table>
 					<hr>
@@ -277,7 +303,7 @@
 							<th style="max-width: 7mm; text-align: left"></th>
 							<th style="max-width: 10mm; text-align: left">
 							( <%if (bean.getTravel().equals("3")) {out.print("&#10003;");} else {out.print(" &nbsp;&nbsp; ");}%> ) ขอใช้รถส่วนตัว</th>
-							<th style="max-width: 20mm; text-align: left">หมายเลขทะเบียน</th>
+							<th style="max-width: 20mm; text-align: left">หมายเลขทะเบียน &nbsp;&nbsp;&nbsp;&nbsp; <%=bean.getTravelIdcard() %></th>
 						</tr>
 					</table>
 					<br>
@@ -336,13 +362,13 @@
 					</table>
 
 				</div>
-
-				<!-- การพิจารณา -->
+    </div>
+    <div class="portrait break">
+        		<!-- การพิจารณา -->
 				<div class="page" id="2">
-
-					<label><u>การพิจารณา</u>
-						ผ่านผู้บังคับบัญชาในสายงานที่ขอไปราชการตามลำดับ</label> <br>
-
+					<div style="margin-top: 5%">
+						<label><u>การพิจารณา</u> ผ่านผู้บังคับบัญชาในสายงานที่ขอไปราชการตามลำดับ</label> <br>
+					</div>
 					<div style="margin-bottom: 6%">
 						<label style="margin-right: 3%">1. ( &nbsp; ) หัวหน้าสาขาวิชา
 						</label> <label style="margin-left: 3%; margin-right: 3%"> ( &nbsp; ) หัวหน้างาน
@@ -415,9 +441,9 @@
 
 					</div>
 				</div> <!-- end2 -->
-				
-				
-				<!--ประมาณการรายจ่ายไปราชการ -->
+    </div>
+    <div class="portrait break">
+        <!--ประมาณการรายจ่ายไปราชการ -->
 				<div class="page" id="3">
 
 					<label>&nbsp;&nbsp; ประมาณการรายจ่ายไปราชการ
@@ -514,7 +540,7 @@
 									<tr>
 										<td style="text-align: left; width: 25mm"><label>3.1 ค่าเบี้ยเลี้ยงเดินทาง</label></td>
 										<td style="text-align: left; ; width: 3mm">
-										<%if (beanEs.getAllowencePerdayTotal() == 0 ) {out.print("");} else {out.print(beanEs.getAllowencePerdayTotal());}%>
+										<label><%if (beanEs.getAllowencePerdayTotal() == 0 ) {out.print("");} else {out.print(beanEs.getAllowencePerdayTotal());}%></label>
 										</td>
 										<td style="text-align: left; width: 10mm"><label>วันๆละ </label></td>
 										<td style="text-align: left; width: 25mm"><label></label></td>
@@ -523,7 +549,7 @@
 									<tr>
 										<td style="text-align: left; width: 25mm"><label>3.2 ค่าเช่าที่พัก</label></td>
 										<td style="text-align: left; width: 3mm">
-										<%if (beanEs.getRentDatePerdayTotal() == 0 ) {out.print("");} else {out.print(beanEs.getRentDatePerdayTotal());}%>
+										<label><%if (beanEs.getRentDatePerdayTotal() == 0 ) {out.print("");} else {out.print(beanEs.getRentDatePerdayTotal());}%></label>
 										</td>
 										<td style="text-align: left; width: 10mm"><label>คืนๆละ</label></td>
 										<td style="text-align: left; width: 25mm"></td>
@@ -561,7 +587,7 @@
 											<%if (beanTEFC.getDistance() == 0) {out.print("");} else {out.print("(" + beanTEFC.getDistance());}%> 
 											<%if (beanTEFC.getNumberPer() == 0) {out.print("");} else {out.print("x" + beanTEFC.getNumberPer());}%> 
  											<%if (beanTEFC.getFuelCost() == 0) {out.print("");} else {out.print("x" + beanTEFC.getFuelCost() + ")");}%> 
- 											<%if (beanTEFC.getRateFuelCost() == 0) {out.print("");} else {out.print(" / " + beanTEFC.getRateFuelCost());} %>
+ 											<%if (beanTEFC.getRateFuelCost() == 0) {out.print("");} else {out.print(" / " + beanTEFC.getRateFuelCost() +")");} %>
 										</label>
 										</td>
 										<td style="text-align: left; width: 6mm"><label>บาท</label></td>
@@ -578,7 +604,7 @@
 									</tr>
 									<tr>
 										<td style="text-align: left; width: 64mm"><label style="margin-left: 5%;">3.4.1 ค่าลงทะเบียน</label></td>
-										<td style="text-align: left; width: 60mm"><label><%if (beanEs.getOtherSumTotal() == 0) {out.print("...");} else {out.print(beanEs.getOtherSumTotalComma());}%></label></td>
+										<td style="text-align: left; width: 60mm"><label><%=bean.getOtherC()%></label></td>
 										<td style="text-align: left; width: 6mm"><label>บาท</label></td>
 									</tr>
 								</table>
@@ -608,12 +634,12 @@
 								<table>
 									<tr>
 										<td style="text-align: left;">
-											<label> <%if (beanTEFC.getFuelCostSum() == 0) {out.print("...");} else {out.print(+beanTEFC.getFuelCostSum());}%></label>
+											<label> <%if (beanTEFC.getFuelCostSumComma() == null) {out.print("...");} else {out.print(beanTEFC.getFuelCostSumComma());}%></label>
 										</td>
 									</tr>
 									<tr>
 										<td style="text-align: left; width: 60mm">
-											<label><%if (beanTEFC.getExpresswayExpensesSum() == 0) {out.print("...");} else {out.print(beanTEFC.getExpresswayExpensesSum());}%></label>
+											<label><%if (beanTEFC.getExpresswayExpensesSum() == 0) {out.print("...");} else {out.print(beanTEFC.getExpresswayExpensesSumComma());}%></label>
 										</td>
 									</tr>
 									<tr>
@@ -621,7 +647,7 @@
 									</tr>
 									<tr>
 										<td style="text-align: left; width: 60mm">
-											<label><%if (beanEs.getOtherSumTotal() == 0) {out.print("...");} else {out.print(beanEs.getOtherSumTotalComma());}%></label>
+											<label><%if (beanEs.getOtherSumTotalComma() == null) {out.print("...");} else {out.print(beanEs.getOtherSumTotalComma());}%></label>
 										</td>
 									</tr>
 								</table>
@@ -748,13 +774,15 @@
 						</tr>
 					</table>
 				</div> <!-- 3 -->
-				
-
-				<!-- 	สรูป ใบสุดท้าย -->
-				<div class="page" id="4">
-					<!-- สรุป -->
-					<div style="size: 10; margin-bottom: 5%" class="col-sm-12">
-						<table id="customers" style="margin-bottom: 10mm; margin-top: 10mm">
+    </div>
+    <div class="landscape break" style="margin-top: 40%">
+    <div class="pagePortrait" id="4">
+    
+    <table style="margin-top: 3%">
+    <tr>
+    	<th valign="top" style="width: 70%">
+    	<!-- สรุป -->
+			<table id="customers" height="">
 						<thead>
 							<tr>
 								<th rowspan="2">ที่</th>
@@ -783,7 +811,7 @@
 								<th style="text-align: left;"><%=beanEE.get(i).getSubPositionName()%></th>
 								<th>
 									<%
-										if (beanEE.get(i).getAllowenceSumComma() == null) {
+										if (beanEE.get(i).getAllowenceSumComma().equals("0")) {
 												out.print("");
 										} else {
 												out.print(beanEE.get(i).getAllowenceSumComma());
@@ -792,7 +820,7 @@
 								</th>
 								<th>
 									<%
-										if (beanEE.get(i).getRentDateSumComma() == null) {
+										if (beanEE.get(i).getRentDateSumComma().equals("0")) {
 												out.print("");
 										} else {
 												out.print(beanEE.get(i).getRentDateSumComma());
@@ -800,17 +828,17 @@
 									%>
 								</th>
 								<th>
-									<%
-										if (beanEs.getTravelSumTotalComma() == null ) {
-											out.print("");
-										} else {
+									<% 
+									if ( i != 0 ) {
+										out.print("");
+									} else {
 											out.print(beanEs.getTravelSumTotalComma());
-										}
+									}
 									%>
 								</th>
 								<th>
 									<%
-										if (beanEE.get(i).getOtherSumComma() == null) {
+										if (beanEE.get(i).getOtherSumComma().equals("0")) {
 												out.print("");
 										} else {
 												out.print(beanEE.get(i).getOtherSumComma());
@@ -819,7 +847,7 @@
 								</th>
 								<th>
 									<%
-										if (beanEE.get(i).getExpenseEstimateSumComma() == null) {
+										if (beanEE.get(i).getExpenseEstimateSumComma().equals("0")) {
 												out.print("");
 										} else {
 												out.print(beanEE.get(i).getExpenseEstimateSumComma());
@@ -850,7 +878,7 @@
 								<th><label style="text-align: center;">รวมเงิน</label></th>
 								<th>
 									<%
-										if (beanEs.getAllowenceSumTotalComma() == null ) {
+										if (beanEs.getAllowenceSumTotalComma().equals("0") ) {
 											out.print("");
 										} else {
 											out.print(beanEs.getAllowenceSumTotalComma());
@@ -859,7 +887,7 @@
 								</th>
 								<th>
 									<%
-										if (beanEs.getRentDateSumTotalComma() == null ) {
+										if (beanEs.getRentDateSumTotalComma().equals("0") ) {
 											out.print("");
 										} else {
 											out.print(beanEs.getRentDateSumTotalComma());
@@ -868,7 +896,7 @@
 								</th>
 								<th>
 									<%
-										if (beanEs.getTravelSumTotalComma() == null ) {
+										if (beanEs.getTravelSumTotalComma().equals("0") ) {
 											out.print("");
 										} else {
 											out.print(beanEs.getTravelSumTotalComma());
@@ -877,7 +905,7 @@
 								</th>
 								<th>
 									<%
-										if (beanEs.getOtherSumTotalComma() == null ) {
+										if (beanEs.getOtherSumTotalComma().equals("0") ) {
 											out.print("");
 										} else {
 											out.print(beanEs.getOtherSumTotalComma());
@@ -897,62 +925,62 @@
 							</tr>
 							</tfoot>
 						</table>
+    		
+<!--     	</th>	 -->
+<!--     	<th> -->
+<!--     		<table id="customers" style="font-size: xx-small;"> -->
+<!-- 				<tr> -->
+<!-- 					<th colspan="4" style="background-color: buttonhighlight;"><lable>คำชี้แจง</lable><br> -->
+<!-- 						<lable>1. กำหนดอัตราค่าเบี๋ยเลี้ยง ค่าที่พักให้มีสิทธ์เบิกได้ดังนี้</lable> -->
+<!-- 					</th> -->
+<!-- 				</tr> -->
+<!-- 				<tr> -->
+<!-- 					<th rowspan="2">ตำแหน่ง</th> -->
+<!-- 					<th colspan="2">ค่าเบี๋ยเลี้ยง</th> -->
+<!-- 					<th rowspan="2">ค่าที่พัก<br>กรณีใช้ใบเสร็จ</th> -->
+<!-- 				<tr> -->
+<!-- 					<th>ก</th> -->
+<!-- 					<th>ข</th> -->
+<!-- 				</tr> -->
+<!-- 				<tr> -->
+<!-- 					<th>เที่ยบเท่าระดับ 1-8</th> -->
+<!-- 					<th>240</th> -->
+<!-- 					<th>144</th> -->
+<!-- 					<th>ห้องพักเดี่ยว 1,500 -->
+<!-- 						<hr>ห้องพักคู่ 850 -->
+<!-- 					</th> -->
+<!-- 				</tr> -->
+<!-- 				<tr> -->
+<!-- 					<th>เที่ยบเท่าระดับ 9 ขึ้นไป</th> -->
+<!-- 					<th>270</th> -->
+<!-- 					<th>162</th> -->
+<!-- 					<th>ห้องพักเดี่ยว 2,200 -->
+<!-- 						<hr>ห้องพักคู่ 1,200 -->
+<!-- 					</th> -->
+<!-- 				</tr> -->
+<!-- 				<tr> -->
+<!-- 					<th colspan="4" style="background-color: buttonhighlight;"><lable>ค่าที่พักกรณีเบิกค่าใช้จ่าย</lable></th> -->
+<!-- 				</tr> -->
+<!-- 				<tr> -->
+<!-- 					<th colspan="2">ตำแหน่ง</th> -->
+<!-- 					<th colspan="2">อัตรา/คืน/คน</th> -->
+<!-- 				<tr> -->
+<!-- 				<tr> -->
+<!-- 					<th colspan="2">เที่ยบเท่าระดับ 1-8</th> -->
+<!-- 					<th colspan="2">800</th> -->
+<!-- 				<tr> -->
+<!-- 				<tr> -->
+<!-- 					<th colspan="2">เที่ยบเท่าระดับ 9 ขึ้นไป</th> -->
+<!-- 					<th colspan="2">1,200</th> -->
+<!-- 				<tr> -->
+<!-- 		</table> -->
+<!--     	</th> -->
+<!--     </tr> -->
+<!--     </table> -->
 
-						<!-- 									<div class="col-sm-5"> -->
-						<!-- 									</div> -->
-						<!-- 									<div class="col-sm-7"> -->
-						<!-- 									<table id="customers"> -->
-						<!-- 										<tr> -->
-						<!-- 											<th colspan="4" style="background-color: buttonhighlight;"><lable>คำชี้แจง</lable><br> -->
-						<!-- 												<lable>1. กำหนดอัตราค่าเบี๋ยเลี้ยง -->
-						<!-- 												ค่าที่พักให้มีสิทธ์เบิกได้ดังนี้</lable></th> -->
-						<!-- 										</tr> -->
-						<!-- 										<tr> -->
-						<!-- 											<td rowspan="2">ตำแหน่ง</th> -->
-						<!-- 											<td colspan="2">ค่าเบี๋ยเลี้ยง</th> -->
-						<!-- 											<td rowspan="2">ค่าที่พัก<br>กรณีใช้ใบเสร็จ</th> -->
-						<!-- 										<tr> -->
-						<!-- 											<td>ก</th> -->
-						<!-- 											<td>ข</th> -->
-						<!-- 										</tr> -->
-						<!-- 										<tr> -->
-						<!-- 											<td>เที่ยบเท่าระดับ 1-8</td> -->
-						<!-- 											<td>240</td> -->
-						<!-- 											<td>144</td> -->
-						<!-- 											<td>ห้องพักเดี่ยว 1,500 -->
-						<!-- 												<hr>ห้องพักคู่ 850 -->
-						<!-- 											</td> -->
-						<!-- 										</tr> -->
-						<!-- 										<tr> -->
-						<!-- 											<td>เที่ยบเท่าระดับ 9 ขึ้นไป</td> -->
-						<!-- 											<td>270</td> -->
-						<!-- 											<td>162</td> -->
-						<!-- 											<td>ห้องพักเดี่ยว 2,200 -->
-						<!-- 												<hr>ห้องพักคู่ 1,200 -->
-						<!-- 											</td> -->
-						<!-- 										</tr> -->
-						<!-- 										<tr> -->
-						<!-- 											<td colspan="4" style="background-color: buttonhighlight;"><lable>ค่าที่พักกรณีเบิกค่าใช้จ่าย</lable></td> -->
-						<!-- 										</tr> -->
-						<!-- 										<tr> -->
-						<!-- 											<td colspan="2">ตำแหน่ง</td> -->
-						<!-- 											<td colspan="2">อัตรา/คืน/คน</td> -->
-						<!-- 										<tr> -->
-						<!-- 										<tr> -->
-						<!-- 											<td colspan="2">เที่ยบเท่าระดับ 1-8</td> -->
-						<!-- 											<td colspan="2">800</td> -->
-						<!-- 										<tr> -->
-						<!-- 										<tr> -->
-						<!-- 											<td colspan="2">เที่ยบเท่าระดับ 9 ขึ้นไป</td> -->
-						<!-- 											<td colspan="2">1,200</td> -->
-						<!-- 										<tr> -->
-						<!-- 									</table> -->
-						<!-- 									</div> -->
-
-					</div>
-				</div>
-			</div>
-			<!-- 	printableArea1	 -->
+		</div>
+    </div>
+    </div>
 
 
 		</div>

@@ -228,6 +228,10 @@ public class PermissionDao {
 					bean.setOther(rs.getString("other"));
 					bean.setOtherC(rs.getString("other_c"));
 					permissionId = bean.getPermissionId();	
+					
+					bean.setDay(rs.getString("day"));
+					bean.setNight(rs.getString("night"));
+					bean.setHour(rs.getString("hour"));
 
 				}
 			} catch (Exception e) {
@@ -335,14 +339,14 @@ public class PermissionDao {
 				+ "budget, budget_expenses, budget_by, budget_project, budget_pass,"
 				+ "travel, travel_idcard, commit_a, commit_a_dt,"
 				+ "commit_b, commit_b_dt, commit_c, commit_c_dt, commit_d, commit_d_dt," 
-				+ "other, other_c, permission_status, create_date)"
+				+ "other, other_c, night, day, hour, permission_status, create_date)"
 				+ " VALUES (?,?,?,?,?" 
 				+ ",?,?,?,?" 
 				+ ",?,?,?,?" 
 				+ ",?,?,?,?,?" 
 				+ ",?,?,?,?" 
 				+ ",?,?,?,?,?,?"
-				+ ",?,?,'0',SYSDATE())";
+				+ ",?,?,?,?,?,'0',SYSDATE())";
 				
 		KeyHolder keyHolder = new GeneratedKeyHolder();
 		// JdbcTemplate jdbcTemplate = new JdbcTemplate(new
@@ -390,6 +394,10 @@ public class PermissionDao {
 
 					prepared.setString(29, bean.getOther());
 					prepared.setString(30, bean.getOtherC());
+					
+					prepared.setString(31, bean.getNight());
+					prepared.setString(32, bean.getDay());
+					prepared.setString(33, bean.getHour());
 					
 				} catch (ParseException e) {
 					e.printStackTrace();
@@ -991,16 +999,19 @@ public class PermissionDao {
 			while (rs.next()) {
 				bean.setPermissionId((rs.getInt("permission_id")));
 
-				bean.setUserSumTotal(rs.getInt("b_user_sum_total"));
-				bean.setAllowenceSumTotal(rs.getInt("b_allowence_sum_total"));
+				bean.setUserSumTotal(rs.getFloat("b_user_sum_total"));
+				bean.setAllowenceSumTotal(rs.getFloat("b_allowence_sum_total"));
 				bean.setAllowencePerdayTotal(rs.getFloat("b_allowence_perday_total"));
-				bean.setRentDateSumTotal(rs.getInt("b_rent_date_sum_total"));
+				bean.setRentDateSumTotal(rs.getFloat("b_rent_date_sum_total"));
 				bean.setRentDatePerdayTotal(rs.getFloat("b_rent_date_perday_total"));
-				bean.setTravelSumTotal(rs.getInt("b_travel_sum_total"));
-				bean.setOtherSumTotal(rs.getInt("b_other_sum_total"));
-				bean.setExpenseEstimateSumTotal(rs.getInt("b_expense_estimate_sum_total"));
+				bean.setTravelSumTotal(rs.getFloat("b_travel_sum_total"));
+				bean.setOtherSumTotal(rs.getFloat("b_other_sum_total"));
+				bean.setExpenseEstimateSumTotal(rs.getFloat("b_expense_estimate_sum_total"));
 				bean.setExpenseEstimateSumTotalThaiBaht(getText(rs.getString("b_expense_estimate_sum_total")));
 				permissionId = bean.getPermissionId();
+				float s = bean.getExpenseEstimateSumTotal() / 2;
+				bean.setExpenseEstimateSumTotalDivide(myFormatter.format(s));
+//				System.out.println(s);
 				
 				bean.setUserSumTotalComma(myFormatter.format(rs.getInt("b_user_sum_total")));
 				bean.setAllowenceSumTotalComma(myFormatter.format(rs.getInt("b_allowence_sum_total")));

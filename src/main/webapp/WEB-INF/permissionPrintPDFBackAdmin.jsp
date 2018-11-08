@@ -39,6 +39,37 @@
 	     document.body.innerHTML = originalContents;
 	}
 	</script>
+	    <style type="text/css">
+        @media print {
+		  .page {
+        margin: 0;
+        box-shadow: 0;
+/*         border: initial; */
+/*         border-radius: initial; */
+/*         width: initial; */
+/*         min-height: initial; */
+/*         box-shadow: initial; */
+/*         background: initial; */
+/*         page-break-after: always; */
+    }
+            .portrait {
+                size: portrait;
+            }
+
+
+            .landscape {
+                size: portrait;
+                -webkit-transform: rotate(-90deg);
+                -moz-transform: rotate(-90deg);
+                filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+            }
+            
+
+            .break {
+                page-break-before: always;
+            }
+        }
+    </style>
 
 
 <%
@@ -91,7 +122,6 @@
     </div>
   </div>
   <a class="w3-bar-item w3-button" href="javascript:void(0)" onclick="printDiv('printableArea')">พิมพ์</a>
-  <a class="w3-bar-item w3-button" href="javascript:void(0)" onclick="printDiv('printableArea2')">พิมพ์</a>
   <a class="w3-bar-item w3-button w3-green" href="/gotoRequest">ย้อนกลับ</a>
   </div>
 </div>
@@ -102,6 +132,7 @@
   <span title="open Sidebar" style="display:none" id="openNav" class="w3-button w3-transparent w3-display-topleft w3-xlarge" onclick="w3_open()">&#9776;</span>
 
 <div id="printableArea" >
+<div class="portrait break" >
 <!-- ใบเบิกค่าใช้จ่ายในการเดินทางไปราชการ -->
 			<div class="page" id="1">
 				<table style="width: 100%; border-collapse: collapse;">
@@ -343,10 +374,12 @@
 					</tr>
 				</table>
 			</div>
- 
+ </div>
 
 <!-- ใบเบิกค่าใช้จ่ายในการเดินทางไปราชการ 2 -->
+<div class="portrait break" >
 				<div class="page" id="2">
+				
 					<p style="text-align: center;">2</p>
 
 					<table id="customers">
@@ -441,11 +474,12 @@
 					</table>
 
 				</div> <!-- end2 -->
-				
+			</div>
 				
 <!-- 5 -->
+<div class="portrait break" >
 <div class="page" id="5">
-			
+
 			<table>
 				<tr>
 					<th><img src="http://www.oknation.net/blog/home/user_data/file_data/201505/07/7074550de.jpg" width="100" height="85"/></th>
@@ -546,11 +580,13 @@
 					<th style="text-align: center;">( <%=bean.getSex() %><%=bean.getUserFname()%>&nbsp;&nbsp; <%=bean.getUserLname()%> )</th>
 				</tr>
 			</table>
-
+	</div>
 </div><!-- 	end	5 -->
 			
 <!--5-1 -->
+<div class="portrait break" >
 <div class="page" id="6">
+
 			<br>
 			<br>
 			<table>
@@ -631,10 +667,13 @@
 					<th style="text-align: center;">อธิการบดีมหาวิทยาลัยราชภัฏบุรีรัมย์</th>
 				</tr>
 			</table>
+		</div>
 </div><!-- 	end	5-1 -->
 
 <!--7 -->
+<div class="portrait break" >
 <div class="page" id="7">
+
 			<br>
 			<br>
 			<table>
@@ -714,9 +753,11 @@
 				<th style="text-align: left;">หมายเหตุ รายการและจำนวนเงินตามใบสำคัญนี้ ไม่ต้องเขียนลงใบแบบ บก.111</th>
 				</tr>
 			</table>
+		</div>
 </div><!-- 	end	7-->
 
 <!--8 -->
+<div class="portrait break" >
 <div class="page" id="8">
 			<br>
 			<br>
@@ -750,7 +791,13 @@
 							} 
 						else {out.print("");}  %>
 					</th>	
-					<th width="60px" valign="top"></th>	
+					<th width="60px" valign="top">
+					<%if (bean.getTravel().equals("3") ) 
+							{out.print(beanEsBack.getExpenseEstimateSumTotalDivide());
+							} 
+						else {out.print("");}  
+					%>
+					</th>	
 					<th></th>	
 					<th></th>	
 					<th></th>		
@@ -766,21 +813,39 @@
 							} 
 						else {out.print("");}  %>
 					</th>	
-					<th></th>	
+					<th width="60px" valign="top">
+					<%if (bean.getTravel().equals("3") ) 
+							{out.print(beanEsBack.getExpenseEstimateSumTotalDivide());
+							} 
+						else {out.print("");}  
+					%>
+					</th>	
 					<th></th>	
 					<th></th>	
 					<th></th>		
 				</tr>
 				<tr>
 					<th></th>
-					<th style="text-align: left;"> รวมเงินทั้งสิ้น </th>	
-					<th><%=beanEsBack.getExpenseEstimateSumTotalComma() %></th>	
+					<th style="text-align: left;"> รวมเงินทั้งสิ้น </th>					
+					<th width="60px" valign="top">
+					<%if (bean.getTravel().equals("3") ) 
+							{out.print(beanEsBack.getExpenseEstimateSumTotalComma());
+							} 
+						else {out.print("");}  
+					%>
+					</th>
 					<th></th>	
 					<th></th>	
 					<th></th>		
 				</tr>
 				<tr>
-					<th style="text-align: left;" colspan="6">&nbsp;&nbsp;&nbsp;&nbsp; รวมเงินทั้งสิ้น (ตัวอักษร) &nbsp;&nbsp;&nbsp;&nbsp; <%=beanEsBack.getExpenseEstimateSumTotalThaiBaht() %></th>	
+					<th style="text-align: left;" colspan="6">&nbsp;&nbsp;&nbsp;&nbsp; รวมเงินทั้งสิ้น (ตัวอักษร) &nbsp;&nbsp;&nbsp;&nbsp;
+					 <%if (bean.getTravel().equals("3") ) 
+							{out.print(beanEsBack.getExpenseEstimateSumTotalThaiBaht());
+							} 
+						else {out.print("");}  
+					%>
+					</th>	
 				</tr>
 			</table>
 			<br>
@@ -826,23 +891,14 @@
 					<th style="text-align: center;">( <%=bean.getSex()%><%=bean.getUserFname()%>&nbsp;&nbsp;<%=bean.getUserLname()%> )</th>
 				</tr>
 			</table>
+		</div>
 </div><!-- 	end	8-->
 			
-			
-</div> <!-- end printableArea -->
-
-
-
-
- 
- 
-
-<div id="printableArea2">
-<!-- หลักฐานการจ่ายเงินไปราชการ 3 -->
-				<div class="pagePortrait" id="3">
-				<table>
+<div class="landscape break" style="margin-top: 40%">
+    <div class="pagePortrait" id="3">
+    <table>
 						<tr>
-							<td style="width: 50%;text-align: center;" valign="top">&nbsp;&nbsp;
+							<td style="width: 90%;text-align: center;" valign="top">&nbsp;&nbsp;
 							<strong>
 								หลักฐานการจ่ายเงินค่าใช้จ่ายในกรเดินทางไปราชการ<br>
 								&nbsp;&nbsp;
@@ -890,7 +946,7 @@
 										if (beanEE.get(i).getAllowenceSum() == 0) {
 												out.print("");
 										} else {
-												out.print(beanEE.get(i).getAllowenceSum());
+												out.print(beanEE.get(i).getAllowenceSumComma());
 											}
 									%>
 								</th>
@@ -899,17 +955,17 @@
 										if (beanEE.get(i).getRentDateSum() == 0) {
 												out.print("");
 										} else {
-												out.print(beanEE.get(i).getRentDateSum());
+												out.print(beanEE.get(i).getRentDateSumComma());
 											}
 									%>
 								</th>
 								<th>
 									<%
-										if (beanEE.get(i).getTravelSum() == 0) {
-												out.print("");
+										if ( i != 0 ) {
+											out.print("");
 										} else {
-												out.print(beanEE.get(i).getTravelSum());
-											}
+											out.print(beanEsBack.getTravelSumTotalComma());
+										}
 									%>
 								</th>
 								<th>
@@ -1013,11 +1069,14 @@
 						</tr>
 					</table>
 				</div> <!-- end หลักฐานการจ่ายเงินไปราชการ 3 -->
-				
-				
-				<!-- หลักฐานการจ่ายเงินไปราชการ 3 -->
-				<div class="pagePortrait" id="4">
-				<table>
+			
+    </div><!-- 3 -->
+			
+			
+		<div class="landscape break" style="margin-top: 40%">
+   			 <div class="pagePortrait" id="4">
+
+					<table>
 						<tr>
 							<td style="width: 50%;text-align: center;" valign="top">&nbsp;&nbsp;
 							<strong> ใบแนบขอเบิกค่าเบี้ยเลี้ยงการเดินทางและค่าเช่าที่พักใชการเดินทางไปราชการ </strong>
@@ -1104,10 +1163,14 @@
 					</table>
 
 				</div> <!-- end หลักฐานการจ่ายเงินไปราชการ 4-->
+			</div>
 
-			</div> <!-- end printableArea -->
-	</div>
 </div>
+			
+</div>  <!-- end printableArea -->
+
+
+
   
   
 </body>

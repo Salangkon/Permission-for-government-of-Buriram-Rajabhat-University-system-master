@@ -24,7 +24,7 @@
     	<div align="center" class="form-group">
     		<table>
     			<tr>
-    				<td><%=bean.getSex() %><%=bean.getUserFname() %> &nbsp;&nbsp; <%=bean.getUserLname() %></td>
+    				<td><label id="sex"></label><label id="fName"></label> &nbsp;&nbsp; <label id="lName"></label></td>
     			</tr> 			
     		</table>
     	</div>
@@ -48,9 +48,7 @@
 	    <a href="javascript: document.Ask_laForm.submit()" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
     		<i class="glyphicon glyphicon-file w3-margin-right" style="margin-top: 5%;"></i>ใบขออนุญาตไปราการ</a> 
    	    <a href="javascript: document.Ask_storyForm.submit()" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
-    		<i class="glyphicon glyphicon-list-alt w3-margin-right" style="margin-top: 5%;"></i>ประวัติไปปราชการ</a> 
-<!-- 	    <a href="javascript: document.Ask_helpForm.submit()" onclick="w3_close()" class="w3-bar-item w3-button w3-padding" > -->
-<!--     		<i class="glyphicon glyphicon-envelope w3-margin-right" style="margin-top: 5%;"></i>สอบถาม</a> -->
+    		<i class="glyphicon glyphicon-list-alt w3-margin-right" style="margin-top: 5%;"></i>แก้ไขข้อมูลส่วนตัว</a> 
   	    <a href="javascript: document.logoutForm.submit()" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
     		<i class="glyphicon glyphicon-log-in w3-margin-right" style="margin-top: 5%;"></i>ออกจากระบบ</a>
  	 </div>

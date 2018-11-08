@@ -25,6 +25,7 @@
 	PermissionBean countPer , countPerBack = null;
 	FacultyBean countFac1,countFac2,countFac3,countFac4,countFac5,countFac6 = null;
 	ExpenseSumaryBean es, esFac1, esFac2, esFac3, esFac4, esFac5, esFac6 = null;
+	List<ExpenseSumaryBean> budgetPass = null;
 %>
 <%
 	bean = (UserBean) request.getSession().getAttribute("userBean");
@@ -44,6 +45,7 @@
 	esFac4	= (ExpenseSumaryBean) request.getSession().getAttribute("esFac4");
 	esFac5	= (ExpenseSumaryBean) request.getSession().getAttribute("esFac5");
 	esFac6	= (ExpenseSumaryBean) request.getSession().getAttribute("esFac6");
+	budgetPass = (List<ExpenseSumaryBean>) request.getSession().getAttribute("budgetPass");
 	
 %>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -54,6 +56,9 @@
 	
 	<!-- กราฟ -->
 	<script type="text/javascript" src="/js/loadercharts.js"></script>
+	<script src="/js/jquery-3.3.1.min.js"></script>
+	<script src="/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+	
 </head>
 
 
@@ -72,14 +77,14 @@
 </marquee>
 
   <div class="w3-row-padding w3-margin-bottom " >
-     <div class="w3-quarter">
+    <a></a> <div class="w3-quarter">
       <div class="w3-container w3-red w3-padding-16 w3-ul w3-card-4 w3-card w3-round w3-Turquoise">
         <div class="w3-left"><i class="w3-xxxlarge glyphicon glyphicon-usd"></i></div>
         <div class="w3-right">
           <h3><%=es.getExpenseEstimateSumTotalComma() %></h3>
         </div>
         <div class="w3-clear"></div>
-        <h4>งบประมาณทั้งหมด</h4>
+        <h4>งบประมาณทั้งหมด <button class="btn btn-info" data-toggle="modal" data-target="#Modal" >รหัสงบประมาณ</button></h4> 
       </div>
     </div>
     <div class="w3-quarter">
@@ -89,7 +94,7 @@
           <h3><%=countPer.getPermissionId() %></h3>
         </div>
         <div class="w3-clear"></div>
-        <h4>จำนวน บันทึกขออนุญาตไปราชการ</h4>
+        <h4 style="margin-bottom: 25px">จำนวน บันทึกขออนุญาตไปราชการ</h4>
       </div>
     </div>
     <div class="w3-quarter">
@@ -99,7 +104,7 @@
           <h3><%=countPerBack.getPermissionId() %></h3>
         </div>
         <div class="w3-clear"></div>
-        <h4>จำนวน บันทึกเบิกค่าใช้จ่ายไปราชการ</h4>
+        <h4 style="margin-bottom: 25px">จำนวน บันทึกเบิกค่าใช้จ่ายไปราชการ</h4>
       </div>
     </div>
     <div class="w3-quarter">
@@ -109,7 +114,7 @@
           <h3><%=countUser.getUserId() %></h3>
         </div>
         <div class="w3-clear"></div>
-        <h4>จำนวน บุคลากร</h4>
+        <h4 style="margin-bottom: 25px">จำนวน บุคลากร</h4>
       </div>
     </div>
   </div>
@@ -203,7 +208,36 @@
       </div>
     </div>
   </div>
+      
   </div>
+  
+                <!-- Modal insert-->
+               <div id="Modal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+					<form>
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <div class="form-group" align="right">
+                            	<input class="form-control" type="text" id="myInput" onkeyup="myFunction()" placeholder="ค้นหารหัสโครงการ" title="Type in a name" style="width: 50%">
+                            </div>
+                                <table class="w3-container w3-striped w3-bordered w3-border w3-hoverable w3-white w3-ul w3-card-4" id="myTable"" style="width: 100%"> 
+          							<tr class="w3-green">
+           								 <th>รหัสโครงการ</th>
+            							<th>จำนวนงบประมาณ</th>
+         							 </tr>
+         							 <%for (int i = 0; i < budgetPass.size(); i++) {%>
+          							 <tr>
+                   					 	<td><i><%=budgetPass.get(i).getBudgetPass()%></i></td>
+            							<td><i><%=budgetPass.get(i).getExpenseEstimateSumTotalComma()%> บาท</i></td>
+          							 </tr>
+									 <%}%>
+        						</table>
+                            </div>
+                        </div>
+					</form>
+                    </div>
+                </div>
 
 
 	<form name="logoutForm"   action="logout" 	    method="post" th:hidden= "true"></form>
@@ -267,6 +301,25 @@ function drawChart1() {
 }
 </script>
 
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
 	
 </body>
 </html>

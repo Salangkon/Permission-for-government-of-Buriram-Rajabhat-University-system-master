@@ -110,86 +110,86 @@ function validateInput() {
 	}else{
 		$('#error-travel').addClass("hide")
 	}
-//	//topics
-//	if(''==$('#topics').val()) {
-//		topics.focus()
-//		$('#error-topics').removeClass("hide")
-//		pass = false;
-//	}else{
-//		$('#error-topics').addClass("hide")
-//	}
-//	//district
-//	if(''==$('#district').val()) {
-//		district.focus()
-//		$('#error-district').removeClass("hide")
-//		pass = false;
-//	}else{
-//		$('#error-district').addClass("hide")
-//	}
-//	//amphur
-//	if(''==$('#amphur').val()) {
-//		amphur.focus()
-//		$('#error-amphur').removeClass("hide")
-//		pass = false;
-//	}else{
-//		$('#error-amphur').addClass("hide")
-//	}
-//	//province
-//	if(''==$('#province').val()) {
-//		province.focus()
-//		$('#error-province').removeClass("hide")
-//		pass = false;
-//	}else{
-//		$('#error-province').addClass("hide")
-//	}
-//	//destinationName
-//	if(''==$('#destinationName').val()) {
-//		destinationName.focus()
-//		$('#error-destinationName').removeClass("hide")
-//		pass = false;
-//	}else{
-//		$('#error-destinationName').addClass("hide")
-//	}
-//	//backTime
-//	if(''==$('#backTime').val()) {
-//		backTime.focus()
-//		$('#error-backTime').removeClass("hide")
-//		pass = false;
-//	}else{
-//		$('#error-backTime').addClass("hide")
-//	}
-//	//backDate
-//	if(''==$('#backDate').val()) {
-//		backDate.focus()
-//		$('#error-backDate').removeClass("hide")
-//		pass = false;
-//	}else{
-//		$('#error-backDate').addClass("hide")
-//	}
-//	//goTime
-//	if(''==$('#goTime').val()) {
-//		goTime.focus()
-//		$('#error-goTime').removeClass("hide")
-//		pass = false;
-//	}else{
-//		$('#error-goTime').addClass("hide")
-//	}
-//	//goDate
-//	if(''==$('#goDate').val()) {
-//		goDate.focus()
-//		$('#error-goDate').removeClass("hide")
-//		pass = false;
-//	}else{
-//		$('#error-goDate').addClass("hide")
-//	}
-//	//object
-//	if(''==$('#object').val()) {
-//		object.focus()
-//		$('#error-object').removeClass("hide")
-//		pass = false;
-//	}else{
-//		$('#error-object').addClass("hide")
-//	}
+	//topics
+	if(''==$('#topics').val()) {
+		topics.focus()
+		$('#error-topics').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-topics').addClass("hide")
+	}
+	//district
+	if(''==$('#district').val()) {
+		district.focus()
+		$('#error-district').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-district').addClass("hide")
+	}
+	//amphur
+	if(''==$('#amphur').val()) {
+		amphur.focus()
+		$('#error-amphur').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-amphur').addClass("hide")
+	}
+	//province
+	if(''==$('#province').val()) {
+		province.focus()
+		$('#error-province').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-province').addClass("hide")
+	}
+	//destinationName
+	if(''==$('#destinationName').val()) {
+		destinationName.focus()
+		$('#error-destinationName').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-destinationName').addClass("hide")
+	}
+	//backTime
+	if(''==$('#backTime').val()) {
+		backTime.focus()
+		$('#error-backTime').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-backTime').addClass("hide")
+	}
+	//backDate
+	if(''==$('#backDate').val()) {
+		backDate.focus()
+		$('#error-backDate').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-backDate').addClass("hide")
+	}
+	//goTime
+	if(''==$('#goTime').val()) {
+		goTime.focus()
+		$('#error-goTime').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-goTime').addClass("hide")
+	}
+	//goDate
+	if(''==$('#goDate').val()) {
+		goDate.focus()
+		$('#error-goDate').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-goDate').addClass("hide")
+	}
+	//object
+	if(''==$('#object').val()) {
+		object.focus()
+		$('#error-object').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-object').addClass("hide")
+	}
 
 	return pass;
 }
@@ -400,6 +400,10 @@ $(document).ready(function() {
 				commitDDt		: $('#commitDDt').val(),
 				otherC			: $('#otherC').val(),
 				
+				day				: $('#DayTotal').val(),
+				night			: $('#night').val(),
+				hour			: $('#TimeTotal').val(),
+				
 				eeBean			: inputdata ,
 				teBean			: inputdataTe ,
 				tefcBean		: inputdataTefc ,
@@ -407,23 +411,61 @@ $(document).ready(function() {
 				esBean			: esBean1
 		}
 		
-		if (pass) {
-			$.ajax({
-		        type: "POST",
-		        url: "/insertPermission",
-		        data: JSON.stringify(pmBean),
-		        dataType: "json",
-		        async: false,
-		        contentType: "application/json; charset=utf-8",
-		        success: function (res) {
-		        	console.log(res)
-		        	window.location.href = res.page;
-		        },
-			 	error: function () {
-//			 		console.log('[ae] xx ')
-			 		window.location.href = "insertPermissionFail";
-			    }
-			});
+//		if (pass) {
+//			$.ajax({
+//		        type: "POST",
+//		        url: "/insertPermission",
+//		        data: JSON.stringify(pmBean),
+//		        dataType: "json",
+//		        async: false,
+//		        contentType: "application/json; charset=utf-8",
+//		        success: function (res) {
+//		        	console.log(res)
+//		        	window.location.href = res.page;
+//		        },
+//			 	error: function () {
+////			 		console.log('[ae] xx ')
+//			 		window.location.href = "insertPermissionFail";
+//			    }
+//			});
+//		}
+		
+		if(pass) {
+			swal({
+				  title: "คุณแน่ใจไหม !",
+				  text: "ที่จะบันทึก ข้อมูลนี้!",
+				  type: "warning",
+				  showCancelButton: true,
+				  confirmButtonClass: "btn-danger",
+				  confirmButtonText: "ยืนยัน",
+				  cancelButtonText: "ยกเลิก",
+				  closeOnConfirm: false,
+				  closeOnCancel: false
+				},
+				function(isConfirm) {
+				  if (isConfirm) {
+					  swal("เรียบร้อย!", "บันทึกสำเร็จ", "success") ;
+						$.ajax({
+					        type: "POST",
+					        url: "/insertPermission",
+					        data: JSON.stringify(pmBean),
+					        dataType: "json",
+					        async: false,
+					        contentType: "application/json; charset=utf-8",
+					        success: function (res) {
+					        	console.log(res)
+					        	window.location.href = res.page;
+					        },
+						 	error: function () {
+//						 		console.log('[ae] xx ')
+						 		window.location.href = "insertPermissionFail";
+						    }
+						});
+				  } else {
+					  swal("ยกเลิก", "ไม่บันทึก", "error");
+				  }
+				});
+
 		}
 		
 	}); //end insertPermission

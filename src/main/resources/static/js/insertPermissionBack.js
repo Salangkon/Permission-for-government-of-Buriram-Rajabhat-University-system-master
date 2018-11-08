@@ -19,88 +19,88 @@ document.getElementById("expenseEstimateSumTotal").value = parseFloat(r).toFixed
 function validateInput() {
 	var pass = true;
 	//province
-//	if(''==$('#province').val()) {
-//		$('#error-province').removeClass("hide")
-//		pass = false;
-//	}else{
-//		$('#error-province').addClass("hide")
-//	}
-//	//amphur
-//	if(''==$('#amphur').val()) {
-//		$('#error-amphur').removeClass("hide")
-//		pass = false;
-//	}else{
-//		$('#error-amphur').addClass("hide")
-//	}
-//	//district
-//	if(''==$('#district').val()) {
-//		$('#error-district').removeClass("hide")
-//		pass = false;
-//	}else{
-//		$('#error-district').addClass("hide")
-//	}
-//	//bSaveDate
-//	if(''==$('#bSaveDate').val()) {
-//		$('#error-bSaveDate').removeClass("hide")
-//		pass = false;
-//	}else{
-//		$('#error-bSaveDate').addClass("hide")
-//	}
-//	//bByOrderSave
-//	if(''==$('#bByOrderSave').val()) {
-//		$('#error-bByOrderSave').removeClass("hide")
-//		pass = false;
-//	}else{
-//		$('#error-bByOrderSave').addClass("hide")
-//	}//bDateAuthorized
-//	if(''==$('#bDateAuthorized').val()) {
-//		$('#error-bDateAuthorized').removeClass("hide")
-//		pass = false;
-//	}else{
-//		$('#error-bDateAuthorized').addClass("hide")
-//	}
-//	//bGoDate
-//	if(''==$('#bGoDate').val()) {
-//		$('#error-bGoDate').removeClass("hide")
-//		pass = false;
-//	}else{
-//		$('#error-bGoDate').addClass("hide")
-//	}
-//	//bGoTime
-//	if(''==$('#bGoTime').val()) {
-//		$('#error-bGoTime').removeClass("hide")
-//		pass = false;
-//	}else{
-//		$('#error-bGoTime').addClass("hide")
-//	}
-//	//bBackDate
-//	if(''==$('#bBackDate').val()) {
-//		$('#error-bBackDate').removeClass("hide")
-//		pass = false;
-//	}else{
-//		$('#error-bBackDate').addClass("hide")
-//	}
-//	//bBackTime
-//	if(''==$('#bBackTime').val()) {
-//		$('#error-bBackTime').removeClass("hide")
-//		pass = false;
-//	}else{
-//		$('#error-bBackTime').addClass("hide")
-//	}
-//	//bHouseNumber
-//	if(''==$('#bHouseNumber').val()) {
-//		$('#error-bHouseNumber').removeClass("hide")
-//		pass = false;
-//	}else{
-//		$('#error-bHouseNumber').addClass("hide")
-//	}
-//	//bRoad
-//	if(''==$('#bRoad').val()) {
-//		$('#error-bRoad').removeClass("hide")
-//		pass = false;
-//	}else{
-//		$('#error-bRoad').addClass("hide")
-//	}
+	if(''==$('#province').val()) {
+		$('#error-province').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-province').addClass("hide")
+	}
+	//amphur
+	if(''==$('#amphur').val()) {
+		$('#error-amphur').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-amphur').addClass("hide")
+	}
+	//district
+	if(''==$('#district').val()) {
+		$('#error-district').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-district').addClass("hide")
+	}
+	//bSaveDate
+	if(''==$('#bSaveDate').val()) {
+		$('#error-bSaveDate').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-bSaveDate').addClass("hide")
+	}
+	//bByOrderSave
+	if(''==$('#bByOrderSave').val()) {
+		$('#error-bByOrderSave').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-bByOrderSave').addClass("hide")
+	}//bDateAuthorized
+	if(''==$('#bDateAuthorized').val()) {
+		$('#error-bDateAuthorized').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-bDateAuthorized').addClass("hide")
+	}
+	//bGoDate
+	if(''==$('#bGoDate').val()) {
+		$('#error-bGoDate').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-bGoDate').addClass("hide")
+	}
+	//bGoTime
+	if(''==$('#bGoTime').val()) {
+		$('#error-bGoTime').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-bGoTime').addClass("hide")
+	}
+	//bBackDate
+	if(''==$('#bBackDate').val()) {
+		$('#error-bBackDate').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-bBackDate').addClass("hide")
+	}
+	//bBackTime
+	if(''==$('#bBackTime').val()) {
+		$('#error-bBackTime').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-bBackTime').addClass("hide")
+	}
+	//bHouseNumber
+	if(''==$('#bHouseNumber').val()) {
+		$('#error-bHouseNumber').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-bHouseNumber').addClass("hide")
+	}
+	//bRoad
+	if(''==$('#bRoad').val()) {
+		$('#error-bRoad').removeClass("hide")
+		pass = false;
+	}else{
+		$('#error-bRoad').addClass("hide")
+	}
 
 	return pass;
 }
@@ -211,9 +211,9 @@ $(document).ready(function() {
 			userSumTotal : $('#userSumTotal').text(),
 			allowenceSumTotal : $('#allowenceSumTotal').text(),
 			rentDateSumTotal : $('#rentDateSumTotal').text(),
-			travelSumTotal : $('#travelSumTotal').text(),
+			travelSumTotal : $('#travelSumTotal1').val(),
 			otherSumTotal : $('#otherSumTotal').text(),
-			expenseEstimateSumTotal : $('#expenseEstimateSumTotal').text(),
+			expenseEstimateSumTotal : $('#expenseEstimateSumTotal').val(),
 		
 			allowencePerdayTotal : $('#allowencePerdayTotal').text(),
 			rentDatePerdayTotal : $('#rentDatePerdayTotal').text(),
@@ -271,24 +271,43 @@ $(document).ready(function() {
 			permissionBean	: perBean
 		}
 		
-		if (pass) {
-			$.ajax({
-				
-		        type: "POST",
-		        url: "/insertPermissionBack",
-		        data: JSON.stringify(pmBean),
-		        dataType: "json",
-		        async: false,
-		        contentType: "application/json; charset=utf-8",
-		        success: function (res) {
-		        	console.log(res)
-		        	window.location.href = res.page;
-		        },
-			 	error: function () {
-			 		console.log('[ae] xx ')
-			 		window.location.href = "insertPermissionFail";
-			    }
-			});
+		if(pass) {
+			swal({
+				  title: "คุณแน่ใจไหม !",
+				  text: "ที่จะบันทึก ข้อมูลนี้!",
+				  type: "warning",
+				  showCancelButton: true,
+				  confirmButtonClass: "btn-danger",
+				  confirmButtonText: "ยืนยัน",
+				  cancelButtonText: "ยกเลิก",
+				  closeOnConfirm: false,
+				  closeOnCancel: false
+				},
+				function(isConfirm) {
+				  if (isConfirm) {
+					  swal("เรียบร้อย!", "บันทึกสำเร็จ", "success") ;
+					  $.ajax({
+							
+					        type: "POST",
+					        url: "/insertPermissionBack",
+					        data: JSON.stringify(pmBean),
+					        dataType: "json",
+					        async: false,
+					        contentType: "application/json; charset=utf-8",
+					        success: function (res) {
+					        	console.log(res)
+					        	window.location.href = res.page;
+					        },
+						 	error: function () {
+						 		console.log('[ae] xx ')
+						 		window.location.href = "insertPermissionFail";
+						    }
+						});
+				  } else {
+					  swal("ยกเลิก", "ไม่บันทึก", "error");
+				  }
+				});
+
 		}
 		
 		
