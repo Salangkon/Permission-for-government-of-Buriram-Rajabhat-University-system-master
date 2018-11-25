@@ -431,20 +431,20 @@ $(document).ready(function() {
 //		}
 		
 		if(pass) {
-			swal({
-				  title: "คุณแน่ใจไหม !",
-				  text: "ที่จะบันทึก ข้อมูลนี้!",
-				  type: "warning",
-				  showCancelButton: true,
-				  confirmButtonClass: "btn-danger",
-				  confirmButtonText: "ยืนยัน",
-				  cancelButtonText: "ยกเลิก",
-				  closeOnConfirm: false,
-				  closeOnCancel: false
-				},
-				function(isConfirm) {
-				  if (isConfirm) {
-					  swal("เรียบร้อย!", "บันทึกสำเร็จ", "success") ;
+//			swal({
+//				  title: "คุณแน่ใจไหม !",
+//				  text: "ที่จะบันทึก ข้อมูลนี้!",
+//				  type: "warning",
+//				  showCancelButton: true,
+//				  confirmButtonClass: "btn-danger",
+//				  confirmButtonText: "ยืนยัน",
+//				  cancelButtonText: "ยกเลิก",
+//				  closeOnConfirm: false,
+//				  closeOnCancel: false
+//				},
+//				function(isConfirm) {
+//				  if (isConfirm) {
+//					  swal("เรียบร้อย!", "บันทึกสำเร็จ", "success") ;
 						$.ajax({
 					        type: "POST",
 					        url: "/insertPermission",
@@ -461,10 +461,10 @@ $(document).ready(function() {
 						 		window.location.href = "insertPermissionFail";
 						    }
 						});
-				  } else {
-					  swal("ยกเลิก", "ไม่บันทึก", "error");
-				  }
-				});
+//				  } else {
+//					  swal("ยกเลิก", "ไม่บันทึก", "error");
+//				  }
+//				});
 
 		}
 		

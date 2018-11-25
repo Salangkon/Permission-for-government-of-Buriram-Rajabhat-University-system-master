@@ -213,7 +213,7 @@
 						</th>
 					</tr>
 					<tr>
-						<th colspan="5" style="height: 10mm; text-align: left;"valign="top">โดยออกเดินทางจาก <%=bean.getDestinationName()%> </th>
+						<th colspan="5" style="height: 10mm; text-align: left;"valign="top">เดินทางไปปฏิบัติราชการที่ <%=bean.getDestinationName()%> </th>
 					</tr>
 					<tr>
 						<th colspan="5" style="text-align: right;">เดินทางปฎิบัติราชการที่</th>
@@ -347,7 +347,7 @@
 					<tr>
 						<th style="width: 15mm"></th>
 						<th style="text-align: left;">ข้าพเจ้าขอรับรองว่ารายการที่กล่าวข้างต้นเป็นความจริง และหลักฐานการจ่ายที่ส่งมาด้วยจำนวน </th>
-						<th style="width: 10mm; text-align: center;"></th>
+						<th style="width: 10mm; text-align: center;"><%if (beanBack.getbEvidence() == 0) {out.print("");} else {out.print(beanBack.getbEvidence());}%></th>
 						<th style="width: 5mm">ฉบับ</th>
 					</tr>
 				</table>

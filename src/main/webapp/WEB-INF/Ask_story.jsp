@@ -110,6 +110,11 @@
 		<label for="exampleInputEmail1">เบอร์ มือถือ</label> 
 		<input type="text" class="form-control" name="numberPhone" id="phone" value="" maxlength="10">
 	</div>
+	<div class="form-group">
+		<label for="exampleInputEmail1">สิทธิ๋ในการเข้าถึง</label> 
+		<input type="text" class="form-control" name="" 
+		value="<%if (bean.getRole() == 1) {out.print("ADMIN");} else if (bean.getRole() == 2) {out.print("USER");} else if (bean.getRole() == 3) {out.print("Suspension of rights");}%>" disabled="disabled">
+	</div>
 		<button type="submit" class="btn btn-success" >ยืนยัน</button>
 </form>
 	</div><br>
@@ -162,6 +167,7 @@
 							<option value="">== กรุณาเลือก ==</option>
 						</select>
 					</div>
+			
 					<div style="margin-bottom: 5%; text-align: right;" class="modal-footer">
 						<button class="w3-btn w3-green" type="submit">ยืนยัน</button>
 						<button class="w3-btn w3-red"  data-dismiss="modal" type="button">ยกเลิก</button>

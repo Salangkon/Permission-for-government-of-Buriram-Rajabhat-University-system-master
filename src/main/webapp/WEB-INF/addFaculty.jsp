@@ -23,8 +23,6 @@
 
 	<link rel="stylesheet" href="/css/w3.css">
 	<link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/css/table.css">
-	<link rel="stylesheet" href="/css/NewFile.css">
 	<!-- 	<link rel="stylesheet" href="/DataTables-1.10.18/css/jquery.dataTables.css"> -->
 	<link rel="stylesheet" href="/css/dataTables.bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -46,7 +44,7 @@
 
 	<%@include file="NavAdmin.jsp"%>
 
-	<form name="welcome" action="#" method="post" class="modal-content w3-animate-bottom" style="width: 90%; margin-top: 3%; margin-left: 5%">
+	<form name="" action="" method="post" class="modal-content w3-animate-bottom" style="width: 90%; margin-top: 3%; margin-left: 5%">
 		<input type="hidden" name="userId" id="userId">
 		<div class="w3-container w3-blue" align="left">
 			<h2><i class="glyphicon glyphicon-folder-open w3-margin-right"></i>ข้อมูลคณะ มหาวิทยาลัยราชภัฏบุรีรัมย์</h2>
@@ -60,6 +58,7 @@
 						<th style="text-align: center">รหัสคณะ</th>
 						<th style="text-align: center">คณะ</th>
 						<th style="text-align: center">แกไข</th>
+						<th style="text-align: center">สถานะ</th>
 					</tr>
 				</thead>
 			</table>

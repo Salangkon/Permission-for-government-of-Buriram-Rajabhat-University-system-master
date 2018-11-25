@@ -6,7 +6,14 @@ public class FacultyBean {
 		private String facultyCode;
 		private int facultyComma;
 		private int PersonnelId;
+		private String facultyStatus;
 		
+		public String getFacultyStatus() {
+			return facultyStatus;
+		}
+		public void setFacultyStatus(String facultyStatus) {
+			this.facultyStatus = facultyStatus;
+		}
 		public int getPersonnelId() {
 			return PersonnelId;
 		}

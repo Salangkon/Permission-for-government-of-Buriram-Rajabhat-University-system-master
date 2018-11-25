@@ -110,9 +110,10 @@ $.ajax({
 	success : function(msg) {
 		console.log('Success')
 		for(var i=0; i<msg.length; i++) {
-			$('#faculty').append('<option value="' + msg[i].facultyCode+ '">'+ msg[i].facultyCode+' | '+ msg[i].facultyName + '</option>');
-		}
-		
+			if( msg[i].facultyStatus == 1){
+				$('#faculty').append('<option value="' + msg[i].facultyCode+ '">'+ msg[i].facultyCode+' | '+ msg[i].facultyName + '</option>');
+			}
+		}	
 	}
 });
 $('#faculty').change(function () {
@@ -129,7 +130,9 @@ $('#faculty').change(function () {
 			console.log('Success')
 			$('#departmentCode').append('<option value="'+'">' + "== กรุณาเลือก ==" + '</option>');
 			for(var i=0; i<msg.length; i++) {
-				$('#departmentCode').append('<option value="' + msg[i].departmentCode+ '">' + msg[i].departmentCode + ' | ' + msg[i].departmentName + '</option>');
+				if( msg[i].departmentStatus == 1){
+					$('#departmentCode').append('<option value="' + msg[i].departmentCode+ '">' + msg[i].departmentCode + ' | ' + msg[i].departmentName + '</option>');
+				}
 			}
 			
 		}
@@ -145,7 +148,9 @@ $.ajax({
 	success : function(msg) {
 		console.log('Success')
 		for(var i=0; i<msg.length; i++) {
-			$('#position').append('<option value="' + msg[i].positionCode+ '">'+ msg[i].positionCode+ ' | ' + msg[i].positionName + '</option>');
+			if( msg[i].positionStatus == 1){
+				$('#position').append('<option value="' + msg[i].positionCode+ '">'+ msg[i].positionCode+ ' | ' + msg[i].positionName + '</option>');
+			}
 		}
 		
 	}
@@ -164,7 +169,9 @@ $('#position').change(function () {
 			console.log('Success')
 			$('#subPositionCode').append('<option value="'+'">' + "== กรุณาเลือก ==" + '</option>');
 			for(var i=0; i<msg.length; i++) {
-				$('#subPositionCode').append('<option value="' + msg[i].supPositionCode+ '">'+ msg[i].supPositionCode+ ' | ' + msg[i].subPositionName + '</option>');
+				if( msg[i].subPositionStatus == 1){
+					$('#subPositionCode').append('<option value="' + msg[i].supPositionCode+ '">'+ msg[i].supPositionCode+ ' | ' + msg[i].subPositionName + '</option>');
+				}	
 			}
 			
 		}

@@ -36,8 +36,8 @@ public class DataUserDao {
 				while (rs.next()) {
 					bean = new FacultyBean();
 					bean.setFacultyName(rs.getString("faculty_name"));
-					bean.setFacultyCode(rs.getString("faculty_code"));;
-
+					bean.setFacultyCode(rs.getString("faculty_code"));
+					bean.setFacultyStatus(rs.getString("faculty_status"));
 					list.add(bean);
 					
 				}
@@ -69,7 +69,7 @@ public class DataUserDao {
 				bean = new FacultyBean();
 				bean.setFacultyName(rs.getString("faculty_name"));
 				bean.setFacultyCode(rs.getString("faculty_code"));;
-
+				bean.setFacultyStatus(rs.getString("faculty_Status"));;
 				list.add(bean);
 				
 			}
@@ -104,6 +104,7 @@ public class DataUserDao {
 				bean.setDepartmentName(rs.getString("department_name"));
 				bean.setDepartmentCode(rs.getString("department_code"));
 				bean.setFacultyCode(rs.getString("faculty_code"));
+				bean.setDepartmentStatus(rs.getInt("department_status"));
 				list.add(bean);
 				
 			}
@@ -134,7 +135,7 @@ public class DataUserDao {
 					bean = new PositionBean();
 					bean.setPositionName(rs.getString("position_name"));
 					bean.setPositionCode(rs.getString("position_code"));
-
+					bean.setPositionStatus(rs.getInt("position_status"));
 					list.add(bean);
 					
 				}
@@ -169,7 +170,7 @@ public class DataUserDao {
 					bean.setSubPositionName(rs.getString("sub_position_name"));
 					bean.setSupPositionCode(rs.getString("sub_position_code"));
 					bean.setPositionCode(rs.getString("position_code"));
-					
+					bean.setSubPositionStatus(rs.getInt("sub_position_status"));
 					list.add(bean);
 					
 				}

@@ -177,7 +177,7 @@ public class UserRestController {
 	
 	//คณะ
 	@RequestMapping(value = "/gotoUpdateFaculty")
-	public FacultyBean modal(@RequestBody TestAjex TestAjex) throws SQLException {
+	public FacultyBean UpdateFaculty(@RequestBody TestAjex TestAjex) throws SQLException {
 		FacultyBean bean = new FacultyBean();
 		bean = userDao.findById(TestAjex.getFaculty());
 		return bean;

@@ -7,9 +7,16 @@ public class SubPositionBean {
 	private String positionCode;
 	private int allowence;
 	private int rentDate;
+	private int subPositionStatus;
 	
 	private String positionName;
 	
+	public int getSubPositionStatus() {
+		return subPositionStatus;
+	}
+	public void setSubPositionStatus(int subPositionStatus) {
+		this.subPositionStatus = subPositionStatus;
+	}
 	public String getPositionName() {
 		return positionName;
 	}

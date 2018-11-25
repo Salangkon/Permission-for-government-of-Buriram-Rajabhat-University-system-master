@@ -5,9 +5,16 @@ public class DepartmentBean {
 	private String departmentName;
 	private String departmentCode;
 	private String facultyCode;
+	private int departmentStatus;
 	
 	private String facultyName;
 	
+	public int getDepartmentStatus() {
+		return departmentStatus;
+	}
+	public void setDepartmentStatus(int departmentStatus) {
+		this.departmentStatus = departmentStatus;
+	}
 	public String getFacultyName() {
 		return facultyName;
 	}

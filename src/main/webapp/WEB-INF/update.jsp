@@ -184,6 +184,13 @@
 		<label for="exampleInputEmail1">เบอร์ มือถือ</label> 
 		<input type="text" class="form-control" name="numberPhone" value="<%=beanUpdate.getNumberPhone() %>" maxlength="10">
 	</div>
+	
+	<div class="form-group">
+		<label for="exampleInputEmail1">สิทธิ๋ในการเข้าถึง</label> 
+		<input type="text" class="form-control" name="" 
+		value="<%if (beanUpdate.getRole() == 1) {out.print("ADMIN");} else if (beanUpdate.getRole() == 2) {out.print("USER");} else if (beanUpdate.getRole() == 3) {out.print("Suspension of rights");}%>" disabled="disabled">
+	</div>
+	
 	<div class="form-group">
 		<select name="role" class="form-control">
 			<option value="2">USER</option>

@@ -6,7 +6,7 @@ table {
 
 th {
 	font-family: MyCustomFont, Verdana, Arial, sans-serif;
-	font-size: smaller;
+	font-size: small;
     text-align: left;
 }
 @font-face {
@@ -20,7 +20,7 @@ th {
 
 table{
 	font-family: 15px MyCustomFont, Verdana, Arial, sans-serif;
-	font-size: small;
+/* 	font-size: small; */
  	color: black  
 }
 /* body { */

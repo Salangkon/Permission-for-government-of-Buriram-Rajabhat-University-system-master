@@ -263,6 +263,7 @@ public class UserDao {
 				FacultyBean bean = new FacultyBean();
 				bean.setFacultyCode(rs.getString("faculty_code"));
 				bean.setFacultyName(rs.getString("faculty_name"));
+				bean.setFacultyStatus(rs.getString("faculty_status"));
 				list.add(bean);
 			}
 		} catch (Exception e) {
@@ -292,6 +293,7 @@ public class UserDao {
 				bean.setDepartmentCode(rs.getString("department_code"));
 				bean.setDepartmentName(rs.getString("department_name"));
 				bean.setFacultyName(rs.getString("faculty_name"));
+				bean.setDepartmentStatus(rs.getInt("department_status"));
 				list.add(bean);
 			}
 		} catch (Exception e) {
@@ -319,6 +321,7 @@ public class UserDao {
 				PositionBean bean = new PositionBean();
 				bean.setPositionCode(rs.getString("position_code"));
 				bean.setPositionName(rs.getString("position_name"));
+				bean.setPositionStatus(rs.getInt("position_status"));
 				list.add(bean);
 			}
 		} catch (Exception e) {
@@ -348,6 +351,7 @@ public class UserDao {
 				bean.setSupPositionCode(rs.getString("sub_position_code"));
 				bean.setSubPositionName(rs.getString("sub_position_name"));
 				bean.setPositionName(rs.getString("position_name"));
+				bean.setSubPositionStatus(rs.getInt("sub_position_Status"));
 				list.add(bean);
 			}
 		} catch (Exception e) {
@@ -703,7 +707,7 @@ public class UserDao {
 		}
 		return bean;
 	}// end
-
+	
 	// update Faculty
 	public void updateFaculty(FacultyBean bean) throws SQLException {
 		ConnectDB con = new ConnectDB();
@@ -714,6 +718,27 @@ public class UserDao {
 			sql.append(" UPDATE faculty SET  faculty_name = ? WHERE faculty_code = ? ");
 			prepared = conn.prepareStatement(sql.toString());
 			prepared.setString(1, bean.getFacultyName());
+			prepared.setString(2, bean.getFacultyCode());
+
+			prepared.executeUpdate();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			conn.close();
+		}
+	}// end method update\
+	
+	// update Faculty
+	public void updateFacultyStatus(FacultyBean bean) throws SQLException {
+		ConnectDB con = new ConnectDB();
+		PreparedStatement prepared = null;
+		StringBuilder sql = new StringBuilder();
+		Connection conn = con.openConnect();
+		try {
+			sql.append(" UPDATE faculty SET  faculty_status = ? WHERE faculty_code = ? ");
+			prepared = conn.prepareStatement(sql.toString());
+			prepared.setString(1, bean.getFacultyStatus());
 			prepared.setString(2, bean.getFacultyCode());
 
 			prepared.executeUpdate();
@@ -769,7 +794,27 @@ public class UserDao {
 			conn.close();
 		}
 	}// end method update
+	
+	// update Department
+	public void updateDepartmentStatus(DepartmentBean bean) throws SQLException {
+		ConnectDB con = new ConnectDB();
+		PreparedStatement prepared = null;
+		StringBuilder sql = new StringBuilder();
+		Connection conn = con.openConnect();
+		try {
+			sql.append(" UPDATE department SET  department_status = ? WHERE department_code = ? ");
+			prepared = conn.prepareStatement(sql.toString());
+			prepared.setInt(1, bean.getDepartmentStatus());
+			prepared.setString(2, bean.getDepartmentCode());
 
+			prepared.executeUpdate();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			conn.close();
+		}
+	}// end method update
 
 	// insert DepartmentBean
 	public int insertDepartmentBean(DepartmentBean bean) throws Exception {
@@ -863,6 +908,27 @@ public class UserDao {
 			sql.append(" UPDATE position SET  position_name = ? WHERE position_code = ? ");
 			prepared = conn.prepareStatement(sql.toString());
 			prepared.setString(1, bean.getPositionName());
+			prepared.setString(2, bean.getPositionCode());
+
+			prepared.executeUpdate();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			conn.close();
+		}
+	}// end method update
+	
+	// update Position status
+	public void updatePositionStatus(PositionBean bean) throws SQLException {
+		ConnectDB con = new ConnectDB();
+		PreparedStatement prepared = null;
+		StringBuilder sql = new StringBuilder();
+		Connection conn = con.openConnect();
+		try {
+			sql.append(" UPDATE position SET  position_status = ? WHERE position_code = ? ");
+			prepared = conn.prepareStatement(sql.toString());
+			prepared.setInt(1, bean.getPositionStatus());
 			prepared.setString(2, bean.getPositionCode());
 
 			prepared.executeUpdate();
@@ -981,6 +1047,27 @@ public class UserDao {
 			prepared.setInt(3, bean.getRentDate());
 			prepared.setString(4, bean.getPositionCode());
 			prepared.setString(5, bean.getSupPositionCode());
+
+			prepared.executeUpdate();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			conn.close();
+		}
+	}// end method update
+	
+	// update SubPosition
+	public void updateSubPositionStatus(SubPositionBean bean) throws SQLException {
+		ConnectDB con = new ConnectDB();
+		PreparedStatement prepared = null;
+		StringBuilder sql = new StringBuilder();
+		Connection conn = con.openConnect();
+		try {
+			sql.append(" UPDATE sub_position SET sub_position_status = ? WHERE sub_position_code = ? ");
+			prepared = conn.prepareStatement(sql.toString());
+			prepared.setInt(1, bean.getSubPositionStatus());
+			prepared.setString(2, bean.getSupPositionCode());
 
 			prepared.executeUpdate();
 		} catch (Exception e) {

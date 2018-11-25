@@ -69,6 +69,13 @@ public class UserController {
 		return "addFaculty";
 	}
 	
+	// path updateAddFacultyStaus
+	@RequestMapping(path = "/updateFacultyStaus", method = RequestMethod.POST)
+	public String updateAddFacultyStaus(@RequestBody FacultyBean facBean) throws Exception {
+		userDao.updateFacultyStatus(facBean);
+		return "addFaculty";
+	}
+	
 	// path addDepartment
 	@RequestMapping("/addDepartment")
 	public String addDepartment() {
@@ -87,6 +94,13 @@ public class UserController {
 	public String updateAddDepartmenty(DepartmentBean depBean) throws Exception {
 		userDao.updateDepartment(depBean);
 		return "addDepartment";
+	}
+	
+	// path updateDepartmentStatus
+	@RequestMapping("/updateDepartmentStatus")
+	public String updateDepartmentStatus(@RequestBody DepartmentBean depBean) throws Exception {
+		userDao.updateDepartmentStatus(depBean);
+		return "addPosition";
 	}
 	
 	// path addPosition
@@ -108,6 +122,13 @@ public class UserController {
 		userDao.updatePosition(PosBean);
 		return "addPosition";
 	}
+	
+	// path updatePositionStatus
+	@RequestMapping("/updatePositionStatus")
+	public String updatePositionStatus(@RequestBody PositionBean posBean) throws Exception {
+		userDao.updatePositionStatus(posBean);
+		return "addPosition";
+	}
 
 	// path addSubPosition
 	@RequestMapping("/addSubPosition")
@@ -126,6 +147,13 @@ public class UserController {
 	@RequestMapping(path = "/updateAddSubPosition", method = RequestMethod.POST)
 	public String updateAddSubPosition(SubPositionBean subBean) throws Exception {
 		userDao.updateSubPosition(subBean);
+		return "addSubPosition";
+	}
+	
+	// path updateSubPositionStatus
+	@RequestMapping(path = "/updateSubPositionStatus", method = RequestMethod.POST)
+	public String updateSubPositionStatus(@RequestBody SubPositionBean subBean) throws Exception {
+		userDao.updateSubPositionStatus(subBean);
 		return "addSubPosition";
 	}
 

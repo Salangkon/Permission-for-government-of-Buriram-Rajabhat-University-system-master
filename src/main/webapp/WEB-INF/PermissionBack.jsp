@@ -154,9 +154,14 @@
 			<td align="center"><input id="bRentDateType2" type="radio" name="bRentDateType"> ข</td>
 		</tr>
 	</table>
-	<form name="v" enctype="multipart/form-data" style="margin-top: 3.5%" >  
-<!--        <input name="v" type="file"> -->
-	</form>
+	<hr>
+	 <div class="input-group" style="width: 80%;margin-bottom: 45px">
+			<div class="input-group-addon">หลักฐานการข่ายที่ส่งมาด้วยจำนวน</div>
+			<div class="input-group" style="width: 160%">
+			<input class="form-control" maxlength="3" style="text-align:center" OnKeyPress="return chkNumber(this)" type="text" id="bEvidence" value="">
+			<div class="input-group-addon">ฉบับ</div>
+   			</div>
+   	</div>
 	</div>
 	</div></div></div>
  	</div><!--end -->
@@ -181,7 +186,7 @@
 	<div class="form-group">
 	<label for="exampleFormControlSelect1">จังหวัด</label> 
 		<select class="form-control" name="province" id="province">
-			<option value="">== กรุณาเลือก ==</option>
+			<option value="20"> บุรีรัมย์  </option>
 		</select>
 	<div class="hide" id="error-province"><label style="color: red;">กรุณาเลือก จังหวัด</label></div>
 	</div>
@@ -189,7 +194,7 @@
 	<div class="form-group">
 	<label for="exampleFormControlSelect1">อำเภอ</label>
 		<select class="form-control" name="amphur" id="amphur">
-			<option value="">== กรุณาเลือก ==</option>
+			<option value="250"> เมืองบุรีรัมย์     </option>
 		</select>
 	<div class="hide" id="error-amphur"><label style="color: red;">กรุณาเลือก อำเภอ</label></div>
 	</div>
@@ -197,7 +202,7 @@
 	<div class="form-group">
 	<label for="exampleFormControlSelect1">ตำบล</label>
 		<select class="form-control" name="district" id="district">
-			<option value="">== กรุณาเลือก ==</option>
+			<option value="2092"> ในเมือง </option>
 		</select>
 	<div class="hide" id="error-district"><label style="color: red;">กรุณาเลือก ตำบล</label></div>
 	</div>

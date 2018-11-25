@@ -59,10 +59,18 @@ public class PermissionBackBean {
 	private String choiceBill7;	
 	private String choiceBill7C;
 	
+	private int bEvidence;
+	
 	private PermissionBean permissionBean;
 	private List<ExpenseEstimateBean> eeBean;
 	private ExpenseSumaryBean esBean;
 	
+	public int getbEvidence() {
+		return bEvidence;
+	}
+	public void setbEvidence(int bEvidence) {
+		this.bEvidence = bEvidence;
+	}
 	public String getChoiceBill1() {
 		return choiceBill1;
 	}

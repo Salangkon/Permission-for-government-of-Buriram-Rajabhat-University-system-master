@@ -4,7 +4,14 @@ public class PositionBean {
 	
 	private String positionName;
 	private String positionCode;
+	private int positionStatus;
 	
+	public int getPositionStatus() {
+		return positionStatus;
+	}
+	public void setPositionStatus(int positionStatus) {
+		this.positionStatus = positionStatus;
+	}
 	public String getPositionName() {
 		return positionName;
 	}

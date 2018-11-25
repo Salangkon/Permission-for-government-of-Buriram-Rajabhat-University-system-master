@@ -125,12 +125,12 @@
 				<label style="color: white;margin-left: 16mm;margin-bottom: 3mm"> </label>
 				<div class="input-group">
 					<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-					<input class="form-control" type="text" type="text" name="username" id="username"  placeholder="ชื่อผู้ใช้" value='s' required/>
+					<input class="form-control" type="text" type="text" name="username" id="username"  placeholder="ชื่อผู้ใช้" value='admin' required/>
 				</div>
    				<label style="color: white;margin-left: 16mm;margin-bottom: 3mm"> </label>
    				<div class="input-group">
 					<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-					<input class="form-control" type="password" name="password" id="password"  placeholder="รหัสผ่าน" value='s' required/>
+					<input class="form-control" type="password" name="password" id="password"  placeholder="รหัสผ่าน" value='admin' required/>
 				</div>
 				<div><hr></div>
     			<div style="color: white;margin-bottom: 5%;margin-top: 3%" align="right">  

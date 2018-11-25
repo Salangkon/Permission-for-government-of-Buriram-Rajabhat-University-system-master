@@ -72,10 +72,59 @@ function insertConfirm() {
              });
          }	
         }//end insertConfirm
-               
+
+function status(departmentCode) {
+	document.getElementById("departmentCode").value = departmentCode;
+	
+	var departmentStatus = {
+		departmentStatus : $('#departmentStatus').val(),
+		departmentCode : $('#departmentCode').val(),
+   }
+//   alert(positionStatus);
+    	 $.ajax({
+             type: "POST",
+             url: "/updateDepartmentStatus",
+             contentType: "application/json; charset=utf-8",
+             data: JSON.stringify(departmentStatus),
+             dataType: "json",
+             success: function(msg) {
+                 console.log("success")
+                 window.location.reload();
+             },
+             error: function() {
+                 console.log("error")
+                 $('#Modal').modal('hide')
+                 window.location.reload();
+             }
+         });	
+    }//end insertConfirm
+function status1(departmentCode) {
+	document.getElementById("departmentCode1").value = departmentCode;
+	
+	var departmentStatus = {
+		departmentStatus : $('#departmentStatus1').val(),
+		departmentCode : $('#departmentCode1').val(),
+   }
+//   alert(positionStatus);
+    	 $.ajax({
+             type: "POST",
+             url: "updateDepartmentStatus",
+             contentType: "application/json; charset=utf-8",
+             data: JSON.stringify(departmentStatus),
+             dataType: "json",
+             success: function(msg) {
+                 console.log("success")
+                 window.location.reload();
+             },
+             error: function() {
+                 console.log("error")
+                 $('#Modal').modal('hide')
+                 window.location.reload();
+             }
+         });	
+    }//end insertConfirm
 
 $(document).ready(function() {
-	
 		$.ajax({
 			type : "GET",
 			url : "/faculty",
@@ -111,6 +160,24 @@ $(document).ready(function() {
 							// ตาราง
 							return '<div align="center"><a onclick="gotoUpdate(' + "'" + full.departmentCode + "'" + ')"  class="btn btn-warning" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-edit"></span>' + '</a></div>';
 						}
+					},
+					{
+						"mData" : "",
+						"sWidth" : "60px" ,
+						"mRender": function (data, type, full) {// full คือ ข้อมูลของ
+							// ตาราง
+							if(full.departmentStatus == 0){
+								return '<div align="center"><button onclick="status(' + "'" + full.departmentCode + "'" + ')"  '
+								+'class="btn btn-danger w3-padding-small" value="1" type="submit" id="departmentStatus"> '
+								+'<input id="departmentCode" type="hidden"> หยุดใช้งาน ' + '</button></div>';						
+							} 
+							if (full.departmentStatus == 1) {
+								return '<div align="center"><button onclick="status1(' + "'" + full.departmentCode + "'" + ')"  '
+								+'class="btn btn-success w3-padding-small" value="0" type="submit" id="departmentStatus1"> '
+								+'<input id="departmentCode1" type="hidden" > เริ่มใช้งาน ' + '</button></div>';
+//								return '<div align="center"><a onclick="gotoUpdate(' + "'" + full.facultyCode + "'" + ')"  class="btn btn-success w3-padding-small" value="0"> เริ่มใช้งาน ' + '</a></div>';
+							} 	
+						} 
 					},]
 				});
 });//end fn ready

@@ -318,6 +318,9 @@ public class PermissionDao {
 					bean.setChoiceBill6(rs.getString("choice_bill6"));
 					bean.setChoiceBill7(rs.getString("choice_bill7"));
 					bean.setChoiceBill7C(rs.getString("choice_bill7_c"));
+					
+					bean.setbEvidence(rs.getInt("b_evidence"));
+
 
 				}
 			} catch (Exception e) {
@@ -430,13 +433,13 @@ public class PermissionDao {
 						+ " b_rent_date_type, b_start_travel, b_back_travel, b_house_number ,b_road ,"
 						+ " district, b_go_date ,b_go_time, b_back_date, b_back_time, "
 						+ " b_save_date , b_date_sum, b_time_sum, b_benefit_record, b_benefit_courses, b_benefit_use, "
-						+ " choice_bill1, choice_bill2, choice_bill3, choice_bill4, choice_bill5, choice_bill6, choice_bill7, choice_bill7_c )"
+						+ " choice_bill1, choice_bill2, choice_bill3, choice_bill4, choice_bill5, choice_bill6, choice_bill7, choice_bill7_c, b_evidence )"
 						+ "VALUES (?,?,?,?,?,"
 						+ "?,?,?,?,?,"
 						+ "?,?,?,?,?,"
 						+ "?,?,?,?,?,"
 						+ "?,?,?,?,?,"
-						+ "?,?,?,?)");
+						+ "?,?,?,?,?)");
 
 			prepared = conn.prepareStatement(sql.toString());
 
@@ -471,6 +474,7 @@ public class PermissionDao {
 			prepared.setString(27, bean.getChoiceBill6());
 			prepared.setString(28, bean.getChoiceBill7());
 			prepared.setString(29, bean.getChoiceBill7C());
+			prepared.setInt(30, bean.getbEvidence());
 
 			prepared.executeUpdate();
 
