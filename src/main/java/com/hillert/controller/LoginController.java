@@ -6,16 +6,21 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.client.RestTemplate;
 
 import com.hillert.dao.AdminDao;
 import com.hillert.dao.LoginDao;
 import com.hillert.model.ExpenseSumaryBean;
 import com.hillert.model.FacultyBean;
 import com.hillert.model.PermissionBean;
+import com.hillert.model.RequsetEnty;
+import com.hillert.model.ResposeEnty;
 import com.hillert.model.TestAjex;
 import com.hillert.model.UserBean;
 
@@ -51,16 +56,38 @@ public class LoginController {
 	@RequestMapping("/login")
 	public String authenLogin(String username, String password,String date , Model model, HttpServletRequest request) {
 		String authen = "";
-		UserBean bean , countUser = new UserBean();	
+		UserBean bean = new UserBean() , countUser = new UserBean();	
 		PermissionBean countPer , countPerBack = new PermissionBean();
 		ExpenseSumaryBean es, esFac1, esFac2, esFac3, esFac4, esFac5, esFac6 = new ExpenseSumaryBean();
 		FacultyBean countFac1,countFac2,countFac3,countFac4,countFac5,countFac6  = new FacultyBean();
 		List<ExpenseSumaryBean> budgetPass = new ArrayList<>();
 		try {
-			bean = logindao.login(username, password);
-			userId = bean.getUserId();
+			RestTemplate  rest = new RestTemplate();
+			 
+			RequsetEnty reqEty = new RequsetEnty();
+			
+			reqEty.setLogin(username);
+			reqEty.setPassword(password);
+			
+			HttpEntity<RequsetEnty> httpEty = new HttpEntity<RequsetEnty>(reqEty);
+			String resEnt  = 	rest.postForObject("http://localhost/login_ldap_php/checklogin.php", httpEty, String.class);
+			JSONObject obj = new JSONObject(resEnt);
+//			
+//			ObjectMapper mapper = new ObjectMapper();
+			ResposeEnty res = new ResposeEnty();
+			res.setStatusFlag(obj.getBoolean("statusFlag"));
+			res.setEmail(obj.getString("username"));
+			if(res.isStatusFlag()) {
+				bean = logindao.login(username, password);	
+			}else {
+				model.addAttribute("messessError", "F");
+				authen = "login";
+				return authen;
+			}
+			
 			
 			if (bean.getUserUsername() != null) {	
+				userId = bean.getUserId();
 				request.getSession().setAttribute("userBean",bean);
 				model.addAttribute("messessError", "F");
 				if(bean.getRole()  == 1) {
@@ -121,7 +148,7 @@ public class LoginController {
 			}
 		
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 		return authen;
 	}
